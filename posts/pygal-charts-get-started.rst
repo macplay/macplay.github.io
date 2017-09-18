@@ -1,7 +1,7 @@
 .. title: Pygal charts get started
 .. slug: pygal-charts-get-started
 .. date: 2017-09-18 11:09:34 UTC+08:00
-.. tags: reST, chart, pygal, python
+.. tags: reST, charts, pygal, python
 .. category: markdown
 .. link:
 .. description:
@@ -28,6 +28,8 @@ with little effort, and i's even semi-interactive (hover your pointer over the l
        ('IE',      [85.8, 84.6, 84.7, 74.5,   66, 58.6, 54.7, 44.8, 36.2, 26.6, 20.1])
        ('Firefox', [None, None, None, 16.6,   25,   31, 36.4, 45.5, 46.3, 42.8, 37.1])
        ('Chrome',  [None, None, None, None, None, None,    0,  3.9, 10.8, 23.8, 35.3])
+
+.. TEASER_END
 
 .. raw:: html
 
