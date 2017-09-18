@@ -164,6 +164,11 @@ hr {
 	color: #777777;
 }
 
+.cate-cloud-items ul {
+    list-style-type: none;
+    margin-left: -3em;
+}
+
 .gallerypage #gallery_container {
 	margin-top: 1em;
 	margin-bottom: 1em;

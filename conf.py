@@ -21,7 +21,7 @@ BLOG_AUTHOR = "ashfinal"  # (translatable)
 BLOG_TITLE = "MacPlay"  # (translatable)
 # This is the main URL for your site. It will be used
 # in a prominent link. Don't forget the protocol (http/https)!
-SITE_URL = "http://macplay.github.io/"
+SITE_URL = "https://macplay.github.io/"
 # This is the URL where Nikola's output will be deployed.
 # If not set, defaults to SITE_URL
 # BASE_URL = "http://macplay.github.io/"
