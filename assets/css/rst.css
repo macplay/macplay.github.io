@@ -1,0 +1,74 @@
+.admonition {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    padding: 0px 0.5em;
+}
+
+.admonition.danger, .admonition.error, .admonition.caution {
+    color: #b94a48;
+    background-color: #f2dede;
+    border-color: #eed3d7;
+    padding: 0.5em 0.5em;
+}
+
+.admonition.warning, .admonition.important, .admonition.attention {
+    color: #c09853;
+    background-color: #fcf8e3;
+    border-color: #fbeed5;
+    padding: 0.5em 0.5em;
+}
+
+.admonition.note, .admonition.hint, .admonition.tip {
+    color: #3a87ad;
+    background-color: #d9edf7;
+    border-color: #bce8f1;
+    padding: 0.5em 0.5em;
+}
+
+.hint .admonition-title, .note .admonition-title, .tip .admonition-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #3a87ad;
+    padding-bottom: 0.1em;
+    border-bottom: 1px solid #bce8f1;
+    margin-bottom: 0.5em;
+}
+
+.warning .admonition-title, .important .admonition-title, .attention .admonition-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #c09853;
+    padding-bottom: 0.1em;
+    border-bottom: 1px solid #fbeed5;
+    margin-bottom: 0.5em;
+}
+
+.danger .admonition-title, .error .admonition-title, .caution .admonition-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #b94a48;
+    padding-bottom: 0.1em;
+    border-bottom: 1px solid #eed3d7;
+    margin-bottom: 0em;
+}
+
+.sidebar {
+    float: right;
+    clear: right;
+    width: 40%;
+    max-width: 50em;
+    padding: 0.5em 0.5em;
+    border-radius: 4px;
+    margin: 0 0 0.5em 0.5em;
+    border: solid 1px #eee;
+    -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar .sidebar-title {
+    font-weight: bold;
+    padding-bottom: 0.5em;
+    border-bottom: solid 1px #74A3E5;
+}
