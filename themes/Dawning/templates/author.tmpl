@@ -1,0 +1,25 @@
+{# -*- coding: utf-8 -*- #}
+
+{% extends 'base.tmpl' %}
+
+{% block main_content %}
+<div class="authorpage page-body">
+    <div class="author-title">
+        {{ title|e }}
+    </div>
+    <div class="author-description">
+        {% if description %}
+            <p>{{ description }}</p>
+        {% endif %}
+    </div>
+    {% if posts %}
+    <div class="author-postlist">
+        <ul>
+            {% for post in posts %}
+                <li><time class="listdate" datetime="{{ post.formatted_date('webiso') }}" title="{{ post.formatted_date(date_format)|e }}">{{ post.formatted_date(date_format)|e }}</time> <a href="{{ post.permalink() }}" class="listtitle">{{ post.title()|e }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
+</div>
+{% endblock main_content %}

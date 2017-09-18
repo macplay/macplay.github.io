@@ -1,0 +1,38 @@
+{# -*- coding: utf-8 -*- #}
+
+{% extends 'base.tmpl' %}
+
+{% block main_content %}
+<div class="listingpage page-body" itemscope="itemscope" itemtype="http://schema.org/Article">
+    {% if crumbs %}
+    <div class="list-title">
+    {% for link, text in crumbs %}
+        {% if text != index_file %}
+            {% if link == '#' %}
+                {{ text.rsplit('.html', 1)[0] }}
+            {% else %}
+                <a href="{{ link }}">{{ text }} /</a>
+            {% endif %}
+        {% endif %}
+    {% endfor %}
+    </div>
+    {% endif %}
+    {% if folders or files %}
+    <ul>
+    {% for name in folders %}
+        <li>
+            <a href="{{ name|urlencode }}" class="listing-folder"><i class="folder open outline icon"></i>&nbsp;{{ name|e }}</a>
+        </li>
+    {% endfor %}
+    {% for name in files %}
+        <li>
+            <a href="{{ name|urlencode }}.html" class="listing-file"><i class="file outline icon"></i>&nbsp;{{ name|e }}</a>
+        </li>
+    {% endfor %}
+    </ul>
+    {% endif %}
+    {% if code %}
+        {{ code }}
+    {% endif %}
+</div>
+{% endblock main_content %}

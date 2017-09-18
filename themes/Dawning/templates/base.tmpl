@@ -1,0 +1,65 @@
+{# -*- coding: utf-8 -*- #}
+
+{% import 'math_helper.tmpl' as math with context %}
+{% import 'base_helper.tmpl' as base with context %}
+{% import 'base_header.tmpl' as header with context %}
+{% import 'base_footer.tmpl' as footer with context %}
+{{ set_locale(lang) }}
+
+<!DOCTYPE html>
+<html lang="{{ lang }}">
+    <head>
+    {{ base.html_headstart() }}
+
+    {{ math.math_styles_ifposts(posts) }}
+
+    {% block extra_head %}
+    {% endblock extra_head %}
+    </head>
+    <body>
+        {{ header.html_header() }}
+        <main id="main">
+            <div class="ui grid">
+                <div class="three wide computer three wide tablet column">
+                    <div id="left-side">
+                        {% block left_side %}
+                        {% endblock left_side %}
+                    </div>
+                </div>
+                <div class="ten wide computer ten wide tablet sixteen wide mobile column">
+                    <div class="mobile only sixteen wide column">
+                        <div id="main-content">
+                            {% block main_content %}
+                            {% endblock main_content %}
+                        </div>
+                    </div>
+                </div>
+                <div class="three wide computer three wide tablet column">
+                    <div id="right-side">
+                        {% block right_side %}
+                        {% endblock right_side %}
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        {{ footer.html_footer() }}
+
+        <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.js"></script>
+        <script type="text/javascript" src="/assets/js/jquery.fancybox.min.js"></script>
+
+        <script>
+            $(document).ready(function(){
+                $(".ui.dropdown").dropdown();
+                $('.ui.accordion').accordion();
+                $('.ui.nag').nag();
+            });
+        </script>
+
+        {{ math.math_scripts_ifposts(posts) }}
+
+        {% block extra_js %}
+        {% endblock extra_js %}
+    </body>
+</html>

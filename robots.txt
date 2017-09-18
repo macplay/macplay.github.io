@@ -1,4 +1,0 @@
-Sitemap: http://macplay.github.io/sitemapindex.xml
-
-User-Agent: *
-Host: macplay.github.io

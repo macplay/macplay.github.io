@@ -1,0 +1,27 @@
+{# -*- coding: utf-8 -*- #}
+
+{% extends 'base.tmpl' %}
+
+{% block main_content %}
+<div class="archivepage page-body">
+    <div class="list-cloud-title">{{ title|e }}</div>
+    {% if items %}
+    <div class="list-items">
+        <ul>
+        {% for text, link, count in items %}
+            <li>
+            <a href="{{ link }}">{{ text|e }}</a>
+            {% if count %}
+                <span class="list-item-count">
+                {{ count }}
+                </span>
+            {% endif %}
+            </li>
+        {% endfor %}
+        </ul>
+    </div>
+    {% else %}
+    <p>{{ messages("Nothing found.") }}</p>
+    {% endif %}
+</div>
+{% endblock main_content %}

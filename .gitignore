@@ -1,0 +1,5 @@
+cache
+.doit.db
+__pycache__
+output
+.DS_Store

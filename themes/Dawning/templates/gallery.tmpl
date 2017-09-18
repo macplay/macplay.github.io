@@ -1,0 +1,69 @@
+{#  -*- coding: utf-8 -*- #}
+
+{% extends 'base.tmpl' %}
+
+{% block main_content %}
+<div class="gallerypage page-body" itemscope="itemscope" itemtype="http://schema.org/Article">
+    {% if crumbs %}
+    <div class="list-title">
+    {% for link, text in crumbs %}
+        {% if text != index_file %}
+            {% if link == '#' %}
+                {{ text.rsplit('.html', 1)[0] }}
+            {% else %}
+                <a href="{{ link }}">{{ text }} /</a>
+            {% endif %}
+        {% endif %}
+    {% endfor %}
+    </div>
+    {% endif %}
+
+    {% if folders %}
+    <ul>
+    {% for folder, ftitle in folders %}
+        <li>
+            <a href="{{ folder }}"><i class="folder open outline icon"></i>&nbsp;{{ ftitle|e }}</a>
+        </li>
+    {% endfor %}
+    </ul>
+    {% endif %}
+
+    {% if post %}
+    <p>
+        {{ post.text() }}
+    </p>
+    {% endif %}
+
+    {% if photo_array %}
+    <div id="gallery_container">
+        <div class="thumbnails-list carousel">
+            {% for image in photo_array %}
+                <a data-fancybox="gallery" href="{{ image['url'] }}" class="thumbnail carousel-item" title="{{ image['title']|e }}">
+                    <img src="{{ image['url_thumb'] }}" alt="{{ image['title']|e }}" /></a>
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+</div>
+{% endblock main_content %}
+
+{% block extra_head %}
+    {{ super() }}
+    {% if translations|length > 1 %}
+        {% for langname in translations.keys() %}
+             {% if langname != lang %}
+                 <link rel="alternate" hreflang="{{ langname }}" href="{{ _link('gallery', gallery_path, langname) }}">
+             {% endif %}
+        {% endfor %}
+    {% endif %}
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="rss.xml">
+{% endblock extra_head %}
+
+{% block extra_js %}
+    <script>
+        $(document).ready(function(){
+            $(".button-collapse").sideNav();
+            $('.carousel').carousel();
+        });
+    </script>
+{% endblock extra_js %}

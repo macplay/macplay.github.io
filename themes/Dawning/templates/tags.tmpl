@@ -1,0 +1,51 @@
+{# -*- coding: utf-8 -*- #}
+
+{% extends 'base.tmpl' %}
+
+{% block main_content %}
+<div class="tagindex page-body">
+    <div class="tag-cloud-title">
+        {{ messages("Tags") }} - {{ items|length }} Total
+    </div>
+    {% if items %}
+        <div class="tag-cloud-items">
+            {% for text, link in items %}
+                {% if text not in hidden_tags %}
+                    <a href="{{ link }}">{{ text|e }}</a>
+                {% endif %}
+            {% endfor %}
+        </div>
+    {% else %}
+       <div class="tag-cloud-items">
+            <p>{{ messages("Nothing found.") }}</p>
+       </div>
+    {% endif %}
+
+    <div class="cate-cloud-title">
+        {{ messages("Categories") }} - {{ cat_hierarchy|length }} Total
+    </div>
+    {% if cat_items %}
+        <div class="cate-cloud-items">
+            {% for text, full_name, path, link, indent_levels, indent_change_before, indent_change_after in cat_hierarchy %}
+                {% for i in range(indent_change_before) %}
+                    <ul>
+                {% endfor %}
+                <li><a href="{{ link }}">{{ text }}</a>
+                {% if indent_change_after <= 0 %}
+                    </li>
+                {% endif %}
+                {% for i in range(-indent_change_after) %}
+                    </ul>
+                    {% if i + 1 < indent_levels|length %}
+                        </li>
+                    {% endif %}
+                {% endfor %}
+            {% endfor %}
+        </div>
+    {% else %}
+       <div class="tag-cloud-items">
+            <p>{{ messages("Nothing found.") }}</p>
+       </div>
+    {% endif %}
+</div>
+{% endblock main_content %}

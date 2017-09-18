@@ -1,0 +1,54 @@
+{# -*- coding: utf-8 -*- #}
+
+{% import 'post_helper.tmpl' as helper with context %}
+{% import 'post_header.tmpl' as pheader with context %}
+{% extends 'base.tmpl' %}
+
+{% block extra_head %}
+    {{ super() }}
+    {% if post.meta('keywords') %}
+    <meta name="keywords" content="{{ post.meta('keywords')|e }}">
+    {% endif %}
+    <meta name="author" content="{{ post.author()|e }}">
+    {% if post.is_draft %}
+        <meta name="robots" content="noindex">
+    {% endif %}
+    {{ helper.open_graph_metadata(post) }}
+    {{ helper.twitter_card_information(post) }}
+    {{ helper.meta_translations(post) }}
+    {% if not post.meta('nocomments') %}
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+    {% endif %}
+{% endblock %}
+
+{% block main_content %}
+<div class="postpage post-{{ post.meta('type') }} page-body" itemscope="itemscope" itemtype="http://schema.org/Article">
+    {{ pheader.html_post_header() }}
+    {{ pheader.html_translations(post) }}
+    <div class="post-content" itemprop="article text">
+    {{ post.text() }}
+    </div>
+    {{ helper.html_pager(post) }}
+    {% if not post.meta('nocomments') %}
+        <div id="gitalk-container" class="comments-block"></div>
+    {% endif %}
+</div>
+{% endblock main_content %}
+
+{% block extra_js %}
+    {% if not post.meta('nocomments') %}
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+        const gitalk = new Gitalk({
+            clientID: '12fcda845097d895a24c',
+            clientSecret: '50ed60cde5f40897205197b4265b474cefbedc49',
+            repo: 'macplay.github.io',
+            owner: 'macplay',
+            admin: ['macplay', 'ashfinal'],
+            // facebook-like distraction free mode
+            distractionFreeMode: false
+        })
+        gitalk.render('gitalk-container')
+    </script>
+    {% endif %}
+{% endblock extra_js %}

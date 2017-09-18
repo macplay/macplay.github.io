@@ -1,0 +1,23 @@
+{# -*- coding: utf-8 -*- #}
+
+{% extends 'base.tmpl' %}
+
+{% block main_content %}
+<div class="listpage page-body">
+    <div class="list-title">{{ title|e }}</div>
+    {% if posts %}
+    <div class="list-postlist">
+        <ul>
+        {% for post in posts %}
+        <li>
+            <time datetime="{{ post.formatted_date('webiso') }}" title="{{ post.formatted_date(date_format)|e }}">{{ post.formatted_date(date_format)|e }}</time>
+            <a href="{{ post.permalink() }}">{{ post.title()|e }}</a>
+        </li>
+        {% endfor %}
+        </ul>
+    </div>
+    {% else %}
+    <p>{{ messages("No posts found.") }}</p>
+    {% endif %}
+</div>
+{% endblock main_content %}

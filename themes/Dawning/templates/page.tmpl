@@ -1,0 +1,11 @@
+{# -*- coding: utf-8 -*- #}
+
+{% extends 'base.tmpl' %}
+
+{% block main_content %}
+<div class="post-{{ post.meta('type') }} storypage" itemscope="itemscope" itemtype="http://schema.org/Article">
+    <div class="page-content">
+    {{ post.text() }}
+    </div>
+</div>
+{% endblock main_content %}

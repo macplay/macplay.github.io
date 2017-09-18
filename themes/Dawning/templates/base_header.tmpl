@@ -1,0 +1,50 @@
+{# -*- coding: utf-8 -*- #}
+
+{% macro html_header() %}
+    <header id="header">
+        {{ html_navigation_links() }}
+    </header>
+{% endmacro %}
+
+{% macro html_navigation_links() %}
+        <div class="ui grid">
+            <div class="computer only tablet only three wide column">
+            </div>
+            <div class="computer only tablet only ten wide column">
+                <div class="ui huge secondary stackable menu">
+                    <a class="header item brand-logo" href="{{ abs_link(_link("root", None, lang)) }}">
+                        {{ blog_title|e }}
+                    </a>
+                    {% for url, text in navigation_links[lang] %}
+                        {% if rel_link(permalink, url) == "#" %}
+                            <a class="active item" href="{{ permalink }}">{{ text }}</a>
+                        {% else %}
+                            <a class="item" href="{{ url }}">{{ text }}</a>
+                        {% endif %}
+                    {% endfor %}
+                    <div class="right menu">
+                        <a class="item" href="/rss.xml"><i class="rss icon"></i>RSS</a>
+                    </div>
+                </div>
+            </div>
+            <div class="mobile only sixteen wide column">
+                <div class="ui fluid accordion vertical menu">
+                    <div class="item">
+                        <a class="title">{{ blog_title|e }}</a>
+                        <div class="content">
+                            {% for url, text in navigation_links[lang] %}
+                                {% if rel_link(permalink, url) == "#" %}
+                                    <a class="active item" href="{{ permalink }}">{{ text }}</a>
+                                {% else %}
+                                    <a class="item" href="{{ url }}">{{ text }}</a>
+                                {% endif %}
+                            {% endfor %}
+                            <a class="item" href="/rss.xml"><i class="rss icon"></i>RSS</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="computer only tablet only three wide column">
+            </div>
+        </div>
+{% endmacro %}
