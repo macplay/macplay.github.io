@@ -1,5 +1,6 @@
 {# -*- coding: utf-8 -*- #}
 
+{% import 'math_helper.tmpl' as math with context %}
 {% import 'post_helper.tmpl' as helper with context %}
 {% import 'post_header.tmpl' as pheader with context %}
 {% extends 'base.tmpl' %}
@@ -19,6 +20,8 @@
     {% if not post.meta('nocomments') %}
     <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
     {% endif %}
+    {{ math.math_styles_ifpost(post) }}
+
 {% endblock %}
 
 {% block main_content %}
@@ -36,6 +39,7 @@
 {% endblock main_content %}
 
 {% block extra_js %}
+    {{ math.math_scripts_ifpost(post) }}
     {% if not post.meta('nocomments') %}
     <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
     <script>
