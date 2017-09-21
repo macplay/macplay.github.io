@@ -2,28 +2,28 @@
 
 {% macro page_navigation(current_page, page_links, prevlink, nextlink, prev_next_links_reversed, surrounding=5) %}
 <div class="page-navigation">
-    <ul class="pagination">
+    <div class="ui small borderless secondary pagination menu">
     {% if prevlink %}
-    <li><a href="{{ prevlink }}"><</a></li>
+    <a class="item" href="{{ prevlink }}"><i class="angle left icon"></i></a>
     {% else %}
-    <li class="disabled"><a href="#"><</a></li>
+    <a class="disabled item"><i class="angle left icon"></i></a>
     {% endif %}
     {% for i, link in enumerate(page_links) %}
         {% if (i - current_page)|abs <= surrounding or i == 0 or i == page_links|length - 1 %}
             {% if i == current_page %}
-                <li class="active"><a href="{{ page_links[i] }}">{{ i+1 }}</a></li>
+                <a class="active item" href="{{ page_links[i] }}">{{ i+1 }}</a>
             {% else %}
-                <li class="waves-effect"><a href="{{ page_links[i] }}">{{ i+1 }}</a></li>
+                <a class="item" href="{{ page_links[i] }}">{{ i+1 }}</a>
             {% endif %}
         {% elif i == current_page - surrounding - 1 or i == current_page + surrounding + 1 %}
-            <li class="ellipsis"><a href="#">…</a></li>
+            <a class="item">…</a>
         {% endif %}
     {% endfor %}
     {% if nextlink %}
-    <li><a href="{{ nextlink }}">></a></li>
+    <a class="item" href="{{ nextlink }}"><i class="angle right icon"></i></a>
     {% else %}
-    <li class="disabled"><a href="#">></a></li>
+    <a class="disabled item"><i class="angle right icon"></i></a>
     {% endif %}
-    </ul>
+    </div>
 </div>
 {% endmacro %}
