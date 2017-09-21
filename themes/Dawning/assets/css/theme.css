@@ -1,46 +1,46 @@
 h1 {
-	font-size: 2rem;
-	padding-top: 0.5em;
-	margin-top: 10px;
+    font-size: 2rem;
+    padding-top: 0.5em;
+    margin-top: 10px;
 }
 
 h2 {
-	font-size: 1.5rem;
-	font-weight: bold;
+    font-size: 1.5rem;
+    font-weight: bold;
 }
 
 h3 {
-	font-size: 1.25rem;
-	font-weight: bold;
+    font-size: 1.25rem;
+    font-weight: bold;
 }
 
 h4 {
-	font-size: 1rem;
-	font-weight: bold;
+    font-size: 1rem;
+    font-weight: bold;
 }
 
 h5 {
-	font-size: 0.875rem;
-	font-weight: bold;
+    font-size: 0.875rem;
+    font-weight: bold;
 }
 
 pre.code {
-	font-size: 0.9rem;
-	font-family: monospace;
-	padding: 5px 10px;
+    font-size: 0.9rem;
+    font-family: monospace;
+    padding: 5px 10px;
 }
 
 .codetable pre.code {
-	max-width: 56em;
+    max-width: 56em;
 }
 
-code {
-	background-color: #f5f5f5;
-	border: solid 1px transparent;
-	border-radius: 5px;
-	padding: 1px 4px;
-	font-size: 0.9rem;
-	font-family: monospace;
+code, cite {
+    background-color: #f5f5f5;
+    border: solid 1px transparent;
+    border-radius: 5px;
+    padding: 1px 4px;
+    font-size: 0.9rem;
+    font-family: monospace;
 }
 
 td, th {
@@ -49,7 +49,7 @@ td, th {
 }
 
 table {
-	margin-top: 10px;
+    margin-top: 10px;
 }
 
 hr {
@@ -58,11 +58,11 @@ hr {
 }
 
 .footnote {
-	border-top: solid 1px #eee;
+    border-top: solid 1px #eee;
 }
 
 .footnote ol {
-	color: #039be5;
+    color: #039be5;
 }
 
 .page-body {
@@ -70,30 +70,30 @@ hr {
 }
 
 .post-entry {
-	border-bottom: 1px solid #ebeff2;
-	margin-bottom: 1rem;
+    border-bottom: 1px solid #ebeff2;
+    margin-bottom: 1rem;
 }
 
 .entry-title a {
-	font-size: 1.5rem;
-	color: #555;;
+    font-size: 1.5rem;
+    color: #555;;
 }
 
 .post-entry .post-meta, .postpage .post-meta {
-	margin-bottom: 0.5em;
-	margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-top: 0.5em;
 }
 
 .post-meta-item-icon,
 .post-meta-divider,
 .post-meta-item-text a {
-	color: #888;
+    color: #888;
 }
 
 .post-meta-tag-item a {
-	color: #888;
-	padding: 1px 2px;
-	border: 1px solid #ddd;
+    color: #888;
+    padding: 1px 2px;
+    border: 1px solid #ddd;
     border-radius: 5px;
 }
 
@@ -112,34 +112,34 @@ hr {
 
 
 .post-navigation {
-	border-top: 1px solid #ddd;
-	border-bottom: 1px solid #ddd;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
 }
 
 .contents.topic {
-	border: 1px solid #eee;
-	background-color: #F4F4F4;
-	margin: 0.5em 0 0.5em 0;
+    border: 1px solid #eee;
+    background-color: #F4F4F4;
+    margin: 0.5em 0 0.5em 0;
 }
 
 .contents.topic .topic-title {
-	background-color: #747474;
-	color: #fff;
-	font-weight: bold;
-	vertical-align: baseline;
-	padding: 0.25em 0.5em;
+    background-color: #747474;
+    color: #fff;
+    font-weight: bold;
+    vertical-align: baseline;
+    padding: 0.25em 0.5em;
 }
 
 .postpage .post-content {
-	margin-bottom: 1em;
+    margin-bottom: 1em;
 }
 
 .post-content ul,.post-summary ul {
-	padding-left: 2rem;
+    padding-left: 2rem;
 }
 
 .post-content ul>li,.post-summary ul>li{
-	list-style-type: disc;
+    list-style-type: disc;
 }
 
 .pagination li.active {
@@ -149,19 +149,19 @@ hr {
 .tag-cloud-title,
 .cate-cloud-title,
 .list-cloud-title {
-	font-size: 1.5rem;
-	padding-top: 1rem;
-	color: #777777;
-	text-align: center;
+    font-size: 1.5rem;
+    padding-top: 1rem;
+    color: #777777;
+    text-align: center;
 }
 
 .list-title,
 .tag-title,
 .author-title,
 .authorindex-title {
-	font-size: 1.5rem;
-	padding-top: 1rem;
-	color: #777777;
+    font-size: 1.5rem;
+    padding-top: 1rem;
+    color: #777777;
 }
 
 .cate-cloud-items ul {
@@ -170,99 +170,106 @@ hr {
 }
 
 .gallerypage #gallery_container {
-	margin-top: 1em;
-	margin-bottom: 1em;
+    margin-top: 1em;
+    margin-bottom: 1em;
 }
 
 .archivepage ul {
-	list-style-type: none;
+    list-style-type: none;
 }
 
 .archivepage .list-items {
-	margin-left: -3em;
+    margin-left: -3em;
 }
 
 .listpage ul,
 .tagpage ul,
 .authorpage ul,
 .authorindex ul {
-	list-style-type: circle;
-	margin-left: -1em;
+    list-style-type: circle;
+    margin-left: -1em;
 }
 
 .tag-rssfeed .feedlink {
-	margin-top: 1em;
-	margin-left: 2em;
+    margin-top: 1em;
+    margin-left: 2em;
 }
 
 .gallerypage ul,
 .listingpage ul {
-	list-style-type: none;
-	margin-left: -3em;
+    list-style-type: none;
+    margin-left: -3em;
 }
 
 .tag-cloud-items {
-	padding: 2em 0;
+    padding: 2em 0;
 }
 
 .tag-cloud-items a,
 .cate-cloud-items a{
-	color: #888;
-	padding: 4px 8px;
-	border: 1px solid #ddd;
+    color: #888;
+    padding: 4px 8px;
+    border: 1px solid #ddd;
     border-radius: 5px;
+    display: inline-block;
+    margin-bottom: 0.5em;
 }
 
 .tag-postlist a:before,
 .list-postlist a:before,
 .author-postlist a:before {
-	content: " ";
+    content: " ";
 }
 
 .list-items li{
-	padding: 5px 5px;
-	border:solid 1px #445458;
-	border-radius: 20px;
-	margin-bottom: 10px;
+    padding: 5px 5px;
+    border:solid 1px #445458;
+    border-radius: 20px;
+    margin-bottom: 10px;
 }
 
 .list-items a {
-	padding-left: 1rem;
+    padding-left: 1rem;
 }
 
 .list-item-count {
-	font-size: 0.9rem;
-	padding-top: 5px;
+    font-size: 0.9rem;
+    padding-top: 5px;
 }
 
 .list-item-count:before {
-	content: "(";
+    content: "(";
 }
 
 .list-item-count:after {
-	content: ")";
+    content: ")";
 }
 
 #notebook-container {
-	width: 100%;
-	margin-top: 10px;
+    width: 100%;
+    margin-top: 10px;
 }
 
 .post-content .section, .post-summary .section {
-	padding-top: 0;
-	padding-bottom: 0;
+    padding-top: 0;
+    padding-bottom: 0;
 }
 
 .linenos {
-	padding: 1px 4px;
-	font-size: 0.9rem;
-	font-family: monospace;
+    padding: 1px 4px;
+    font-size: 0.9rem;
+    font-family: monospace;
 }
 
 td.linenos, td.code {
-	border: none;
+    border: none;
 }
 
 img {
-	max-width: 100%;
+    max-width: 100%;
+}
+
+.no-comments-block {
+    margin: 1em 0;
+    text-align: center;
 }

@@ -34,6 +34,10 @@
     {{ helper.html_pager(post) }}
     {% if not post.meta('nocomments') %}
         <div id="gitalk-container" class="comments-block"></div>
+    {% else %}
+        <div class="no-comments-block">
+            No Comments Allowed.
+        <div>
     {% endif %}
 </div>
 {% endblock main_content %}
