@@ -1,10 +1,12 @@
 language: python
-cache: apt
+cache:
+# - apt
+- pip
 sudo: false
-addons:
-  apt:
-    packages:
-    - language-pack-en-base
+# addons:
+#   apt:
+#     packages:
+#     - language-pack-en-base
 branches:
   only:
   - src
@@ -16,7 +18,7 @@ before_install:
 - git config --global user.name 'macplay'
 - git config --global user.email 'ashfinal@sina.cn'
 - git config --global push.default 'simple'
-- pip install --upgrade pip wheel
+# - pip install --upgrade pip wheel
 - echo -e 'Host github.com\n    StrictHostKeyChecking no' >> ~/.ssh/config
 - eval "$(ssh-agent -s)"
 - chmod 600 id_rsa
