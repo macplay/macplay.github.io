@@ -1,16 +1,16 @@
-<!--
-.. title: Markdown Reference
-.. slug: markdown-reference
-.. date: 2017-09-18 17:47:12 UTC+08:00
-.. tags: markdown, reference
-.. category:
-.. link:
-.. description:
-.. type: text
-.. nocomments:
-.. password:
-.. previewimage:
--->
+---
+title: Markdown Reference
+slug: markdown-reference
+date: 2017-09-18 17:47:12 UTC+08:00
+tags: markdown, reference
+category:
+link:
+description:
+type: text
+nocomments:
+password:
+previewimage:
+---
 
 # Markdown For Typora
 
@@ -215,6 +215,13 @@ See this [document](http://support.typora.io/Draw-Diagrams-With-Markdown/) for d
 ## Span Elements
 
 Span elements will be parsed and rendered right after your typing. Moving cursor in middle of those span elements will expand those elements into markdown source. Following will explain the syntax of those span element.
+
+```mermaid
+gantt
+	title A Gantt Diagram
+```
+
+
 
 ### Links
 
