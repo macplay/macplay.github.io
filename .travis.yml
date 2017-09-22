@@ -28,7 +28,9 @@ before_install:
 - git fetch origin master
 - git branch master FETCH_HEAD
 install:
-- pip install 'Nikola[extras]'
+# As we have cached pip packages, reinstall them is not necessary
+# WARNING! you must run this command at least one time before commenting it out!
+# - pip install 'Nikola[extras]'
 script:
 - nikola build && nikola github_deploy -m 'Nikola auto deploy [ci skip]'
 notifications:
