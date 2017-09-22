@@ -277,3 +277,7 @@ img {
 .page-navigation {
     text-align: center;
 }
+
+.gt-comment-body .markdown-body {
+    font-size: 0.8em;
+}
