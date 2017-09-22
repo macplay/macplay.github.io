@@ -139,12 +139,14 @@ Markdown 常用的 `YAML front matter`_ 也是支持的，毋需任何设置。
 .. code:: yaml
 
    ---
+
    title: 静态博客 Nikola 之写作实践
    slug: jing-tai-bo-ke-nikola-zhi-xie-zuo-shi-jian
    date: 2017-09-20 11:32:34 UTC+08:00
    tags: nikola, reST, markdown
    category: markdown
    author: macplay
+
    ---
 
 
