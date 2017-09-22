@@ -101,6 +101,52 @@ Jupyter Notebook 的情况则比较特殊，meta 信息不在文件开头。而�
 
 接下来要写的文章：“三十分钟建立一个 Nikola 静态博客”，敬请期待 :)
 
+--------------------------------------------------------------------------------
+
+补充
+----
+
+补充一下 markdown 和 Jupyter Notebook 的 meta 头，方便电脑上没有安装 Nikola 的读者直接粘贴使用：
+
+Jupyter Notebook
+^^^^^^^^^^^^^^^^
+.. code:: json
+
+   "nikola": {
+     "title": "静态博客 Nikola 之写作实践",
+     "slug": "jing-tai-bo-ke-nikola-zhi-xie-zuo-shi-jian",
+     "date": "2017-09-20 11:32:34 UTC+08:00",
+     "tags": "nikola, reST, markdown",
+     "category": "markdown",
+     "author": "macplay"
+   },
+
+Markdown
+^^^^^^^^
+.. code:: html
+
+   <!--
+   .. title: 静态博客 Nikola 之写作实践
+   .. slug: jing-tai-bo-ke-nikola-zhi-xie-zuo-shi-jian
+   .. date: 2017-09-20 11:32:34 UTC+08:00
+   .. tags: nikola, reST, markdown
+   .. category: markdown
+   .. author: macplay
+   -->
+
+Markdown 常用的 `YAML front matter`_ 也是支持的，毋需任何设置。
+
+.. code:: yaml
+
+   ---
+   title: 静态博客 Nikola 之写作实践
+   slug: jing-tai-bo-ke-nikola-zhi-xie-zuo-shi-jian
+   date: 2017-09-20 11:32:34 UTC+08:00
+   tags: nikola, reST, markdown
+   category: markdown
+   author: macplay
+   ---
+
 
 .. [#] https://getnikola.com/handbook.html#basic
 .. |reST| replace:: reStructuredText
@@ -108,4 +154,4 @@ Jupyter Notebook 的情况则比较特殊，meta 信息不在文件开头。而�
 .. _`MacPlay Repository`: https://github.com/macplay/macplay.github.io
 .. _`Nikola`: https://getnikola.com
 .. _`TravisCI`: https://travis-ci.org
-.. _`Nikola 使用手册`: https://getnikola.com/handbook.html#metadata-formats
+.. _`YAML front matter`: https://jekyllrb.com/docs/frontmatter/
