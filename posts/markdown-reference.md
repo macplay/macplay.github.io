@@ -216,13 +216,6 @@ See this [document](http://support.typora.io/Draw-Diagrams-With-Markdown/) for d
 
 Span elements will be parsed and rendered right after your typing. Moving cursor in middle of those span elements will expand those elements into markdown source. Following will explain the syntax of those span element.
 
-```mermaid
-gantt
-	title A Gantt Diagram
-```
-
-
-
 ### Links
 
 Markdown supports two style of links: inline and reference.
