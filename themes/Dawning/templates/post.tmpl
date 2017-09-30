@@ -18,7 +18,7 @@
     {{ helper.twitter_card_information(post) }}
     {{ helper.meta_translations(post) }}
     {% if not post.meta('nocomments') %}
-    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+    <link rel="stylesheet" href="/assets/css/gitalk.css">
     {% endif %}
     {{ math.math_styles_ifpost(post) }}
 
@@ -45,7 +45,7 @@
 {% block extra_js %}
     {{ math.math_scripts_ifpost(post) }}
     {% if not post.meta('nocomments') %}
-    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script src="/assets/js/gitalk.min.js"></script>
     <script>
         const gitalk = new Gitalk({
             clientID: '12fcda845097d895a24c',
