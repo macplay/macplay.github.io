@@ -38,7 +38,7 @@
                     </time>
                 </a>
             </span>
-            {% if post.tags %}
+            {% if ((post.tags)|length) is greaterthan (hidden_tags|length) %}
                 <span class="post-meta-divider">|</span>
                 <span class="post-meta-item-icon">
                     <i class="tags icon"></i>
