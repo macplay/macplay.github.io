@@ -1,8 +1,17 @@
 .admonition {
     margin-top: 0.5em;
     margin-bottom: 0.5em;
-    border: 1px solid transparent;
-    padding: 0px 0.5em;
+    background-color: #F5F5F5;
+    border: 1px solid #eee;
+    padding: 0.5em 0.5em;
+}
+
+.admonition .admonition-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    padding-bottom: 0.1em;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 0.5em;
 }
 
 .admonition.danger, .admonition.error, .admonition.caution {
@@ -81,3 +90,82 @@ pre.literal-block {
     border-radius: 5px;
     padding: 1px 4px;
 }
+
+dl.docutils dd {
+    margin-left: 2em;
+}
+
+ol.arabic {
+  list-style-type: decimal;
+}
+
+ol.loweralpha {
+  list-style-type: lower-alpha;
+}
+
+ol.upperalpha {
+  list-style-type: upper-alpha;
+}
+
+ol.lowerroman {
+  list-style-type: lower-roman;
+}
+
+.align-top    {
+  vertical-align: top }
+
+.align-middle {
+  vertical-align: middle }
+
+.align-bottom {
+  vertical-align: bottom }
+
+ol.upperroman {
+  list-style: upper-roman }
+
+img.align-left, .figure.align-left, object.align-left, table.align-left {
+  clear: left ;
+  float: left ;
+  margin-right: 1em }
+
+img.align-right, .figure.align-right, object.align-right, table.align-right {
+  clear: right ;
+  float: right ;
+  margin-left: 1em }
+
+img.align-center, .figure.align-center, object.align-center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+table.align-center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.align-left {
+  text-align: left }
+
+.align-center {
+  clear: both ;
+  text-align: center }
+
+.align-right {
+  text-align: right }
+
+/* reset inner alignment in figures */
+div.align-right {
+  text-align: inherit }
+
+/* div.align-center * { */
+/*   text-align: left } */
+
+.align-top    {
+  vertical-align: top }
+
+.align-middle {
+  vertical-align: middle }
+
+.align-bottom {
+  vertical-align: bottom }
