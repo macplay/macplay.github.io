@@ -334,3 +334,7 @@
 #. Nikola 指定新建文件的 jupyter notebook 内核
 
    `nikola new_post -f ipynb@python2`
+
+#. Atom 安装插件
+
+   `apm install --verbose atom-beautify autocomplete-python git-time-machine file-icons code-peek pigments advanced-open-file atom-ternjs autoprefixer hydrogen script regex-railroad-diagram linter-proselint color-picker platformio-ide-terminal merge-conflicts activate-power-mode atom-latex autocomplete-paths`
