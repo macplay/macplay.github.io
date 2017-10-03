@@ -30,9 +30,11 @@
     {{ pheader.html_post_header() }}
     {{ pheader.html_translations(post) }}
     <div class="post-content" itemprop="article text">
+        {% if not post.meta('password') %}
         <div class="ui fixed sticky" id="edit-btn">
             <a class="ui white right ribbon label" href="{{ github_prefix + post.source_path }}" title="Edit on GitHub">Edit</a>
         </div>
+        {% endif %}
         <div id="post-content">
         {{ post.text() }}
         </div>
