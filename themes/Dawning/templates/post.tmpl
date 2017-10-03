@@ -21,7 +21,6 @@
     <link rel="stylesheet" href="/assets/css/gitalk.css">
     {% endif %}
     {{ math.math_styles_ifpost(post) }}
-
 {% endblock %}
 
 {% block main_content %}
@@ -31,7 +30,7 @@
     {{ pheader.html_translations(post) }}
     <div class="post-content" itemprop="article text">
         {% if not post.meta('password') %}
-        <div class="ui fixed sticky" id="edit-btn">
+        <div class="ui sticky" id="edit-btn">
             <a class="ui white right ribbon label" href="{{ github_prefix + post.source_path }}" title="Edit on GitHub">Edit</a>
         </div>
         {% endif %}
@@ -56,7 +55,7 @@
     <script src="/assets/js/gitalk.min.js"></script>
     <script>
         $(".ui.sticky").sticky({
-            context: '#post-content',
+            context: '#main',
         });
         const gitalk = new Gitalk({
             clientID: '12fcda845097d895a24c',
