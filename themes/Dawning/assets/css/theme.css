@@ -81,6 +81,11 @@ blockquote {
     margin-bottom: 1rem;
 }
 
+.post-entry .post-summary,
+.postpage .post-content {
+    color: #444;
+}
+
 .entry-title a {
     font-size: 1.5rem;
     color: #555;;
@@ -279,4 +284,8 @@ td.linenos, td.code {
 
 .page-navigation {
     text-align: center;
+}
+
+#edit-btn {
+    margin-top: -2em;
 }
