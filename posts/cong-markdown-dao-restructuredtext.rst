@@ -535,6 +535,10 @@ reStructuredText 编辑器
 
 很遗憾的是，相对于 Markdown “预览器”百花齐放争奇斗艳的盛况， reStructuredText 上可用的“预览器”则很寥寥。不过根据本人之前使用 Markdown 的经历，一旦度过了学习上手阶段，对“预览器”的需求就会大幅下降——书写时有语法高亮就基本可以应付。以下为部分工具推荐：
 
+- `Sublime Text`_ + OmniMarkupPreviewer_
+
+  性感的编辑器 + 多种格式实时预览插件
+
 - `Online reStructuredText editor`_
 
   网页版的 reST 编辑器。
@@ -559,10 +563,6 @@ reStructuredText 编辑器
 
   神之编辑器
 
-- `Sublime Text`_
-
-  性感的编辑器
-
 .. _`Online reStructuredText editor`: http://rst.ninjs.org/
 .. _rstpad: https://github.com/ShiraNai7/rstpad
 .. _GitHub: https://github.com/
@@ -570,13 +570,14 @@ reStructuredText 编辑器
 .. _Vim: https://github.com/vim/vim
 .. _Emacs: http://www.gnu.org/software/emacs/
 .. _`Sublime Text`: https://www.sublimetext.com/
+.. _OmniMarkupPreviewer: https://github.com/timonwong/OmniMarkupPreviewer
 
 总结
 ====
 
 通过本文的介绍，有没有发现 reST 的语法其实与 Markdown 很相似，而且也很简单呢？ :) 文章基本上覆盖了 Markdown （及其扩展）的主要功能，可以看出 reST 满足日常使用是没有问题的，而读者们也清楚了 reST 的一些基本用法。
 
-前面已经提过 reST 某种程度上可以看作是 Markdown 的超集，接下来的文章将会继续讲 reST 的一些高级扩展语法，敬请期待～
+前面已经提过：在一定程度上，reST 可以看作是 Markdown 的超集。接下来的文章将会结合文档需求写一写 reST 的其它语法，敬请期待～
 
 --------------------------------------------------------------------------------
 
