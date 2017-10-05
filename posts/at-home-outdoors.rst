@@ -22,7 +22,7 @@
 
 写作语法上和插入一张图片没有什么区别：
 
-.. code:: restructuredtext
+.. code:: rst
 
    .. image:: https://i.vimeocdn.com/video/658454374_1040x584.jpg
       :align: center

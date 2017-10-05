@@ -89,7 +89,7 @@ reStructuredText 开箱支持转换为其它多种格式，其被设计为“Out
 
 reStructuredText 中的“标题”被称为“Sections”，一般在文字下方加特殊字符 [#]_ 以示区别：
 
-.. code:: restructuredtext
+.. code:: rst
 
    Section Title H1
    ================
@@ -110,7 +110,7 @@ reStructuredText 中的“标题”被称为“Sections”，一般在文字下�
 
 当然，在 reStructuredText 的日常使用中，仍然建议养成习惯使用固定的特殊符号，方便别人一看到 `=` 就知道这是一级标题。 除了 “Sections”外， reStructuredText 还支持“Title”和“SubTitle”，它们可以被配置为不在文档中出现。其实际作用更类似于“书名”，如《钢铁是怎样炼成的——保尔柯察金自传》。语法如下：
 
-.. code:: restructuredtext
+.. code:: rst
 
    ==================
     钢铁是怎样炼成的
@@ -125,7 +125,7 @@ reStructuredText 中的“标题”被称为“Sections”，一般在文字下�
 
 reStructuredText 的区块引用使用空格或制表符的方式，一般是 4 个空格。
 
-.. code:: restructuredtext
+.. code:: rst
 
    Amet omnis animi doloribus.
    Consectetur culpa veniam earum provident tempora saepe adipisci!
@@ -151,7 +151,7 @@ reStructuredText 支持有序列表和无序列表，语法与 Markdown 基本�
 有序列表
 ````````
 
-.. code:: restructuredtext
+.. code:: rst
 
    2. Consectetur est iure.
    3. Adipisicing velit ad laborum libero.
@@ -178,7 +178,7 @@ reStructuredText 支持有序列表和无序列表，语法与 Markdown 基本�
 
 与 Markdown 没有什么差别：
 
-.. code:: restructuredtext
+.. code:: rst
 
    - Amet sit magnam!
    - Consectetur cum hic deserunt laudantium.
@@ -195,7 +195,7 @@ reStructuredText 支持有序列表和无序列表，语法与 Markdown 基本�
 
 与 Markdown 的 "Fenced Code Blocks" 非常相似，reStructuredText 将调用 pygments 进行语法高亮：
 
-.. code:: restructuredtext
+.. code:: rst
 
    .. code:: python
 
@@ -214,7 +214,7 @@ reStructuredText 支持有序列表和无序列表，语法与 Markdown 基本�
 
 与 Markdown 语法基本一致：
 
-.. code:: restructuredtext
+.. code:: rst
 
    -----------------
 
@@ -235,7 +235,7 @@ reStructuredText 的链接语法大体上也可以分为两类： **行内式** 
 
 常见语法：
 
-.. code:: restructuredtext
+.. code:: rst
 
    欢迎访问 reStructuredText_ 官方主页。
 
@@ -249,7 +249,7 @@ reStructuredText 的链接语法大体上也可以分为两类： **行内式** 
 
 如果是多个词组或者中文链接文本，则使用 ````` 将其括住，就像这样：
 
-.. code:: restructuredtext
+.. code:: rst
 
    欢迎访问 `reStructuredText 结构化文本`_ 官方主页。
 
@@ -257,7 +257,7 @@ reStructuredText 的链接语法大体上也可以分为两类： **行内式** 
 
 如果文档中多个链接指向的其实是同一地址，可以简略点只写一次：
 
-.. code:: restructuredtext
+.. code:: rst
 
    Python_ 是 `我最喜欢的编程语言`_ 。用英语来说，就是 `my favorite programming language`_ 。
 
@@ -278,13 +278,13 @@ Python_ 是 `我最喜欢的编程语言`_ 。用英语来说，就是 `my favor
 
 当然在文档中使用行内式链接也是可以的。直接在文档中插入简单链接： http://docutils.sf.net/ 。如果 URL 地址中含有特殊字符甚至是中文，则使用尖括号将其括住：
 
-.. code:: restructuredtext
+.. code:: rst
 
    <http://docutils.sf.net/>
 
 也可以自定义链接文本：
 
-.. code:: restructuredtext
+.. code:: rst
 
    `Python 编程语言 <http://www.python.org/>`_ 其实也有一些缺陷。
 
@@ -297,7 +297,7 @@ Python_ 是 `我最喜欢的编程语言`_ 。用英语来说，就是 `my favor
 
 reStructuredText 文档的各级标题（Sections）会自动生成链接，就像 GFM 风格的 Markdown 标记语言一样。这在 reStructuredText 语法手册中被称为“隐式链接（Implicit Hyperlink）”。无论名称为何，我们将可以在文档中快速跳转到其它小节（Sections）：
 
-.. code:: restructuredtext
+.. code:: rst
 
    本小节内容应该与 `行内标记`_ 结合学习。
 
@@ -319,7 +319,7 @@ reStructuredText 文档的各级标题（Sections）会自动生成链接，就�
 
 reStructuredText 使用指令（Directives)的方式来插入图片。指令（Directives）作为 reStructuredText 语言的一种扩展机制，允许快速添加新的文档结构而无需对底层语法进行更改。reStructuredText 开箱已经内置了一批常用指令，上文中使用的 `raw` 和 `code` 其实就是指令。指令的重要功能之一是可以添加选项以控制解析器对该元素的渲染方式，譬如让图片以两倍高宽居中进行展示：
 
-.. code:: restructuredtext
+.. code:: rst
 
    .. image:: /images/nikola.png
       :align: center
@@ -335,7 +335,7 @@ reStructuredText 使用指令（Directives)的方式来插入图片。指令（D
 
 插入图片的另一种方法是使用 `figure` 指令。该指令与 `image` 基本一样，不过可以为图片添加标题和说明文字。两个指令共有的一个选项为 `target` ，可以为图片添加可点击的链接，甚至链接到另一张图片。那么结合 Nikola 博客的特定主题，就可以实现点击缩略图查看原图的效果：
 
-.. code:: restructuredtext
+.. code:: rst
 
    .. figure:: https://github.com/ashfinal/bindata/raw/master/icarus.thumbnail.jpg
       :align: center
@@ -405,7 +405,7 @@ reStructuredText 使用指令（Directives)的方式来插入图片。指令（D
 脚注（Footnotes）
 `````````````````
 
-.. code:: restructuredtext
+.. code:: rst
 
    就像这样创建一个脚注 [#]_ 。
 
@@ -422,7 +422,7 @@ reStructuredText 使用指令（Directives)的方式来插入图片。指令（D
 
 如果给脚注指定标签，则被解析为引文（Citations）：
 
-.. code:: restructuredtext
+.. code:: rst
 
    请参阅我们去年发表在《自然》期刊上的文章 [NT202329]_
 
@@ -437,7 +437,7 @@ Tables of Contents(TOC)
 
 文档目录生成则使用了 reStructuredText 的指令（Directives） `contents` 。
 
-.. code:: restructuredtext
+.. code:: rst
 
    .. contents:: 文档目录
 
@@ -446,7 +446,7 @@ Tables of Contents(TOC)
 表格（table）
 -------------
 
-.. code:: restructuredtext
+.. code:: rst
 
    +------------------------+------------+----------+----------+
    | Header row, column 1   | Header 2   | Header 3 | Header 4 |
@@ -478,7 +478,7 @@ Tables of Contents(TOC)
 
 这种表格语法被称为 `Grid Tables` 。如上所见， `Grid Tables` 支持跨行跨列。如果你使用的编辑器创建该表格有困难，reStructuredText 还提供 `Simple Tables` 表格语法：
 
-.. code:: restructuredtext
+.. code:: rst
 
    =====  =====  ======
       Inputs     Output
@@ -510,7 +510,7 @@ reStructuredText 的数学公式书写通过指令（Directives）： `math` 完
 .. _MathJax: https://www.mathjax.org/
 .. _KaTex: https://github.com/Khan/KaTeX
 
-.. code:: restructuredtext
+.. code:: rst
 
    .. math::
 
@@ -522,7 +522,7 @@ reStructuredText 的数学公式书写通过指令（Directives）： `math` 完
 
 **行内数学公式** 则是通过 `math role` 实现的：
 
-.. code:: restructuredtext
+.. code:: rst
 
    该圆的面积为 :math:`A_\text{c} = (\pi/4) d^2`.
 
