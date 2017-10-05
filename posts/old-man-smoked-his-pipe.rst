@@ -5,8 +5,7 @@
 .. category:
 .. nocomments: True
 
-.. raw:: html
-
-   <a class="fancybox" href="https://github.com/ashfinal/bindata/raw/master/System76-Old_Man_Smoked_His_Pipe-by_Ian_Hex_of_LightSweep-f45c6abe65.jpg">
-     <img src="https://github.com/ashfinal/bindata/raw/master/System76-Old_Man_Smoked_His_Pipe-by_Ian_Hex_of_LightSweep-f45c6abe65.thumb.jpg" alt="Old_Man_Smoked_His_Pipe">
-   </a>
+.. figure:: https://github.com/ashfinal/bindata/raw/master/System76-Old_Man_Smoked_His_Pipe-by_Ian_Hex_of_LightSweep-f45c6abe65.thumb.jpg
+   :alt: Old_Man_Smoked_His_Pipe
+   :align: center
+   :target: https://github.com/ashfinal/bindata/raw/master/System76-Old_Man_Smoked_His_Pipe-by_Ian_Hex_of_LightSweep-f45c6abe65.jpg
