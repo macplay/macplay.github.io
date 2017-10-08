@@ -79,13 +79,16 @@
     border-bottom: solid 1px #74A3E5;
 }
 
-pre.doctest-block,
-pre.literal-block {
+pre.doctest-block {
     font-size: 0.9em;
     background-color: #f5f5f5;
     color: rgb(189, 123, 0);
     border: solid 1px transparent;
     padding: 1px 4px;
+}
+
+.line-block .line {
+    text-indent: 2em;
 }
 
 .line-block .line-block {
