@@ -223,4 +223,4 @@
 .. _`Nikola`: https://getnikola.com
 .. _`TravisCI`: https://travis-ci.org
 .. _`参考来源在此`: https://getnikola.com/blog/automating-nikola-rebuilds-with-travis-ci.html
-.. _`之前的文章`: https://macplay.github.io/posts/jing-tai-bo-ke-nikola-zhi-xie-zuo-shi-jian/
+.. _`之前的文章`: ../jing-tai-bo-ke-nikola-zhi-xie-zuo-shi-jian/
