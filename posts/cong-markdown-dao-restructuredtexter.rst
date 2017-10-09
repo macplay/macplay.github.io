@@ -1,7 +1,7 @@
 .. title: 从 Markdown 到 reStructuredText（二）
 .. slug: cong-markdown-dao-restructuredtexter
 .. date: 2017-10-08 14:45:54 UTC+08:00
-.. tags:
+.. tags: reST, markup
 .. category:
 .. link:
 .. description:
@@ -26,8 +26,8 @@
 
 .. contents:: 文章目录
 
-Line Blocks
-===========
+Line Blocks（行区块）
+=====================
 
 .. code:: rst
 
@@ -55,8 +55,8 @@ Line Blocks
 
 以上语法结构称之为 `Line Blocks（行区块）` ，使用手册推荐用来写地址簿、诗句、歌词等“短小精悍”的段落。但正如以上例子所示，它可以用来做很多别的事情。如果你不习惯使用空白行分段，想让文档显得更紧凑些，或者想将文档的行字符数限制在 80 个以内，或者想产生空白段落（一般不建议）……都可以使用 `Line Blocks` 。因其与空行段落有功能重叠，笔者干脆给其加了条 CSS 规则： ``text-indent: 2em;`` ，这样实际上首行缩进也可以使用 `Line Blocks` （注意到上面渲染结果的首行缩进效果了吗？）。
 
-Literal Blocks
-==============
+Literal Blocks（原样区块）
+==========================
 
 至于 `Literal Blocks（原样区块）` ，初看用来显示代码区块不错。不过代码区块已经有 `code` 指令实现。那么 `Literal Blocks` 因其默认启用等宽字体，则用来实现“分列”效果：
 
@@ -143,8 +143,8 @@ Doctest Blocks
 
 与 `code` 指令区别是没有代码高亮，一般用来显示 shell 或 ipython 等的行命令及执行结果。
 
-Field Lists
-===========
+Field Lists（字段列表）
+=======================
 
 `Field Lists（字段列表）` 其行为表现是用两列的数据来呈现字段及其对应值：
 
@@ -160,15 +160,15 @@ Field Lists
 
 如果 `Field Lists` 是文档中出现的第一个元素，则其中的某些字段会被识别为 `bibliographic data` ，比如作者、地址、联系方式、组织机构、文章摘要等等。这些数据可能会引起文档结构的小变动，比如被重新排版到出版物的扉页位置。 `Bibliographic data` 对网页排版基本没有影响。
 
-Admonition
-==========
+Admonition（告诫）
+==================
 
 `Admonition（告诫）` 与文档内容的联系不是非常紧密，一般被用作提醒、警告、严重警告等。Markdown 标记语言的 Python 实现通过 `扩展`_ 的方式同样也支持 `Admonition` ，不过具体语法不同。reStructuredText 的支持是通过 `Directives（指令）` 实现的，分为 `Specific Admonitions（特定告诫）` 和 `Generic Admonition（通用告诫）` 两种：
 
 .. _`扩展`: https://pythonhosted.org/Markdown/extensions/index.html
 
-Specific Admonition
--------------------
+Specific Admonition（特定告诫）
+-------------------------------
 
 仅仅是关键词不同而已，可供选择的有 9 种： `attention` ， `caution` ， `danger` ， `error` ， `hint` ， `important` ， `note` ， `tip` ， `warning` 。
 
@@ -194,8 +194,8 @@ Specific Admonition
                |                               |
                +-------------------------------+
 
-Generic Admonition
-------------------
+Generic Admonition（通用告诫）
+------------------------------
 
 `Generic Admonition` 的关键词为 `admonition` ，与 `Specific Admonition` 相比，可以有自定义的标题：
 
@@ -211,8 +211,8 @@ Generic Admonition
 
    你应该使用 CSS 自定义颜色，以区分告诫的严重程度。
 
-CSV Table
-=========
+CSV Table（CSV 表格）
+=====================
 
 上一篇文章曾经提到，除了 `Grid Tables` 和 `Simple Tables` 外，还有两种以 `Directives（指令）` 方式存在的创建表格的方式： `list-table` 和 `csv-table` 。对于大多数人来说，如果不借助 Vim/Emacs 等神级编辑器，创建 `Grid Tables` 异常地困难，我们需要一种既有较好可读性又方便纯手工书写的表格创建方式。对笔者来说，这种方式就是 `csv-table` 指令。
 
@@ -240,8 +240,8 @@ CSV Table
 
 除了 `header` 、 `widths` 外， `csv-table` 还提供了其它选项以控制其渲染方式。比如使用 `align` 控制其对齐方式， `delim` 指定其数据分割字符， `file` 和 `url` 可以从本地甚至远程 csv 文件加载数据等。
 
-Substitution Definitions
-========================
+Substitution Definitions（替换定义）
+====================================
 
 `Substitution Definitions（替换定义）` 允许将某些元素“替换”到段落行内，使得较复杂的结构脱离文档主体，保持文档清晰可读的前提下不丧失功能强大性。最常用的是“文本替换”：
 
@@ -279,8 +279,8 @@ Substitution Definitions
    :height: 50px
    :target: https://getnikola.com/
 
-Date
-====
+Date（日期）
+============
 
 `Date（日期）` 指令用于产生当前日期/时间，需与 `Substitution Definitions` 配合使用。
 
@@ -325,8 +325,8 @@ Include
    :start-line: 26
    :end-line: 32
 
-Comments
-========
+Comments（注释）
+================
 
 reStructuredText 的 `Comments（注释）` 语法非常简单：
 
@@ -341,7 +341,9 @@ reStructuredText 的 `Comments（注释）` 语法非常简单：
    ..
       _link: https://www.invalid.org/
 
-注意本来应存在于超链接前面的两个点号被“合并”到上一行。 `Comments` 还被静态博客程序 Nikola_ 用来生成文章标签、创建日期等，对比之下 Markdown 则引入了额外的语法 `YAML front matter`_ 来做这件事件。
+注意本来应存在于超链接前面的两个点号被“合并”到上一行。
+
+`Comments` 还被静态博客程序 Nikola_ 用来生成文章标签、创建日期等。对比之下 Markdown 则引入了额外的语法 `YAML front matter`_ 。
 
 .. _Nikola: https://getnikola.com/
 .. _`YAML front matter`: https://jekyllrb.com/docs/frontmatter/
