@@ -24,6 +24,12 @@ h5 {
     font-weight: bold;
 }
 
+video {
+    display: block;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
 pre.code {
     font-size: 0.9rem;
     font-family: monospace;
