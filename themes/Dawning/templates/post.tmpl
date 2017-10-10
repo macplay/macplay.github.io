@@ -24,16 +24,10 @@
 {% endblock %}
 
 {% block main_content %}
-{% set github_prefix = "https://github.com/macplay/macplay.github.io/edit/src/" %}
 <div class="postpage post-{{ post.meta('type') }} page-body" itemscope="itemscope" itemtype="http://schema.org/Article">
     {{ pheader.html_post_header() }}
     {{ pheader.html_translations(post) }}
     <div class="post-content" itemprop="article text">
-        {% if not post.meta('password') %}
-        <div class="ui sticky" id="edit-btn">
-            <a class="ui white right ribbon label" href="{{ github_prefix + post.source_path }}" title="Edit on GitHub">Edit</a>
-        </div>
-        {% endif %}
         <div id="post-content">
         {{ post.text() }}
         </div>
@@ -54,9 +48,6 @@
     {% if not post.meta('nocomments') %}
     <script src="/assets/js/gitalk.min.js"></script>
     <script>
-        $(".ui.sticky").sticky({
-            context: '#main',
-        });
         const gitalk = new Gitalk({
             clientID: '12fcda845097d895a24c',
             clientSecret: '50ed60cde5f40897205197b4265b474cefbedc49',
