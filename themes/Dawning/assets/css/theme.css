@@ -300,3 +300,14 @@ td.linenos, td.code {
 } 
 }
 
+.strike {
+    text-decoration: line-through;
+    color: #e45735;
+    background: #f4bcae;
+}
+
+.amend {
+    text-decoration: underline;
+    color: #090;
+    background: #dbffdb;
+}
