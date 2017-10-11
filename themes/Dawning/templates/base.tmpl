@@ -20,7 +20,7 @@
         {{ header.html_header() }}
         <main id="main">
             <div class="ui grid">
-                <div class="three wide computer three wide tablet column">
+                <div class="three wide computer three wide tablet column no-print">
                     <div id="left-side">
                         {% block left_side %}
                         {% endblock left_side %}
@@ -34,7 +34,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="three wide computer three wide tablet column">
+                <div class="three wide computer three wide tablet column no-print">
                     <div id="right-side">
                         {% block right_side %}
                         {% endblock right_side %}
