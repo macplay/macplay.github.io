@@ -13,7 +13,7 @@
 {% macro html_pager(post) %}
     {% if post.prev_post or post.next_post %}
     <div class="post-navigation">
-        <div class=" ui huge secondary stackable menu">
+        <div class="ui huge secondary stackable menu">
         {% if post.prev_post %}
             <a class="post-nav-item post-nav-previous item" href="{{ post.prev_post.permalink() }}" title="{{ messages("Previous post") }}"><i class="angle double left icon"></i> {{ post.prev_post.title()|e }}</a>
         {% endif %}

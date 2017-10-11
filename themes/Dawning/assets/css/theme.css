@@ -293,3 +293,10 @@ td.linenos, td.code {
 .page-navigation {
     text-align: center;
 }
+
+@media print {
+    .no-print {
+    display: none !important;
+} 
+}
+
