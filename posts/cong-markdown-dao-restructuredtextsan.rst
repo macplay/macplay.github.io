@@ -196,7 +196,7 @@ Columns（分栏）
 
 .. _`介绍 reStructuredText 文章`: ../cong-markdown-dao-restructuredtext/
 
-.. code:: javascript
+.. code:: html
 
    <script>
        $(document).ready(function(){
