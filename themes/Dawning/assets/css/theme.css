@@ -116,7 +116,7 @@ blockquote {
     border-radius: 5px;
 }
 
-.post-summary .more a{
+.post-summary .more a {
     padding: 8px 10px;
     line-height: 1;
     font-size: 0.875rem;
@@ -209,7 +209,8 @@ blockquote {
     margin-left: -1em;
 }
 
-.tag-rssfeed .feedlink {
+.tag-rssfeed .feedlink,
+.author-rssfeed .feedlink {
     margin-top: 1em;
     margin-left: 2em;
 }
@@ -225,7 +226,7 @@ blockquote {
 }
 
 .tag-cloud-items a,
-.cate-cloud-items a{
+.cate-cloud-items a {
     color: #888;
     padding: 4px 8px;
     border: 1px solid #ddd;
@@ -240,7 +241,7 @@ blockquote {
     content: " ";
 }
 
-.list-items li{
+.list-items li {
     padding: 5px 5px;
     border:solid 1px #445458;
     border-radius: 20px;
