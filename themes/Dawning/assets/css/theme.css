@@ -1,84 +1,3 @@
-h1 {
-    font-size: 2rem;
-    padding-top: 0.5em;
-    margin-top: 10px;
-}
-
-h2 {
-    font-size: 1.5rem;
-    font-weight: bold;
-}
-
-h3 {
-    font-size: 1.25rem;
-    font-weight: bold;
-}
-
-h4 {
-    font-size: 1rem;
-    font-weight: bold;
-}
-
-h5 {
-    font-size: 0.875rem;
-    font-weight: bold;
-}
-
-video {
-    display: block;
-    max-width: 100%;
-    margin: 0 auto;
-}
-
-pre.code {
-    font-size: 0.9rem;
-    font-family: monospace;
-    padding: 5px 10px;
-}
-
-.codetable pre.code {
-    max-width: 56em;
-}
-
-code, cite, tt.docutils.literal {
-    background-color: rgba(176, 187, 197, 0.15);
-    color: rgba(0,0,0,.5);
-    border: solid 1px transparent;
-    border-radius: 5px;
-    padding: 1px 4px;
-    font-size: 0.9rem;
-    font-family: monospace;
-}
-
-td, th {
-    padding: 5px 10px;
-    border: solid 1px #eee;
-}
-
-table {
-    margin-top: 10px;
-}
-
-hr {
-  border: 0;
-  border-bottom: 1px solid #ddd;
-}
-
-img {
-    max-width: 100%;
-}
-
-blockquote {
-    margin: 1em 0;
-    padding: 0.5em 0em 0.5em 1.5em;
-    border-left: 0.5em solid #eee;
-    background-color: #f3f4f180;
-}
-
-.footnote ol {
-    color: #039be5;
-}
-
 .page-body {
     padding: 0px 1rem;
 }
@@ -91,6 +10,7 @@ blockquote {
 .post-entry .post-summary,
 .postpage .post-content {
     color: #555;
+    margin-bottom: 1rem;
 }
 
 .entry-title a {
@@ -99,8 +19,8 @@ blockquote {
 }
 
 .post-entry .post-meta, .postpage .post-meta {
-    margin-bottom: 0.5em;
-    margin-top: 0.5em;
+    margin-bottom: 0.5rem;
+    margin-top: 0.5rem;
 }
 
 .post-meta-item-icon,
@@ -122,35 +42,14 @@ blockquote {
     font-size: 0.875rem;
     display: inline-block;
     text-transform: uppercase;
-    margin-top: 10px;
-    margin-bottom: 10px;
     color: #444;
     border: 1px solid #ddd;
     border-radius: 5px;
 }
 
-
 .post-navigation {
     border-top: 1px solid #ddd;
     border-bottom: 1px solid #ddd;
-}
-
-.contents.topic {
-    border: 1px solid #eee;
-    background-color: #F4F4F4;
-    margin: 0.5em 0 0.5em 0;
-}
-
-.contents.topic .topic-title {
-    background-color: #747474;
-    color: #fff;
-    font-weight: bold;
-    vertical-align: baseline;
-    padding: 0.25em 0.5em;
-}
-
-.postpage .post-content {
-    margin-bottom: 1em;
 }
 
 .post-content ul,.post-summary ul {
@@ -275,16 +174,6 @@ blockquote {
     padding-bottom: 0;
 }
 
-.linenos {
-    padding: 1px 4px;
-    font-size: 0.9rem;
-    font-family: monospace;
-}
-
-td.linenos, td.code {
-    border: none;
-}
-
 .no-comments-block {
     margin: 1em 0;
     text-align: center;
@@ -298,16 +187,4 @@ td.linenos, td.code {
     .no-print {
     display: none !important;
 } 
-}
-
-.strike {
-    text-decoration: line-through;
-    color: #e45735;
-    background: #f4bcae;
-}
-
-.amend {
-    text-decoration: underline;
-    color: #090;
-    background: #dbffdb;
 }

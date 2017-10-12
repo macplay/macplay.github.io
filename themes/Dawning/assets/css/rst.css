@@ -1,3 +1,146 @@
+h1 {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+h2 {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+h3 {
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+h4 {
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+h5 {
+    font-size: 0.875rem;
+    font-weight: bold;
+}
+
+h2:first-child, 
+h3:first-child, 
+h4:first-child, 
+h5:first-child, 
+p:first-child {
+    margin-top: 1rem;
+}
+
+.container p:first-child {
+    margin-top: 0;
+}
+
+video {
+    display: block;
+    max-width: 100%;
+    margin: 0 auto;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+}
+
+pre.code {
+    font-size: 0.9rem;
+    font-family: monospace;
+    padding: 5px 10px;
+}
+
+.codetable pre.code {
+    max-width: 56em;
+}
+
+code, cite, tt.docutils.literal {
+    background-color: rgba(176, 187, 197, 0.15);
+    color: rgba(0,0,0,.5);
+    border: solid 1px transparent;
+    border-radius: 5px;
+    padding: 1px 4px;
+    font-size: 0.9rem;
+    font-family: monospace;
+}
+
+td, th {
+    padding: 5px 10px;
+    border: solid 1px #eee;
+}
+
+table {
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+}
+
+table caption {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+table p:first-child {
+    margin-top: 0;
+}
+
+hr {
+  border: 0;
+  border-bottom: 1px solid #ddd;
+  margin-top: 1rem;
+  margin-bottom: 1rem;;;
+}
+
+img {
+    max-width: 100%;
+    margin-bottom: 1rem;
+}
+
+.figure .caption {
+    margin-bottom: 1rem;
+}
+
+p img {
+    margin-bottom: 0;
+}
+
+blockquote {
+    margin: 1em 0;
+    padding: 0.5em 0em 0.5em 1.5em;
+    border-left: 0.5em solid #eee;
+    background-color: #f3f4f180;
+}
+
+.footnote ol {
+    color: #039be5;
+}
+
+.contents.topic {
+    border: 1px solid #eee;
+    background-color: #F4F4F4;
+    margin: 1rem 0 1rem 0;
+}
+
+p.topic-title.first {
+    margin-top: 0;
+}
+
+.contents.topic .topic-title {
+    background-color: #747474;
+    color: #fff;
+    font-weight: bold;
+    vertical-align: baseline;
+    padding: 0.25em 0.5em;
+}
+
+.linenos {
+    padding: 1px 4px;
+    font-size: 0.9rem;
+    font-family: monospace;
+}
+
+td.linenos, td.code {
+    border: none;
+}
+
 .admonition {
     margin-top: 0.5em;
     margin-bottom: 0.5em;
@@ -11,6 +154,7 @@
     font-weight: bold;
     padding-bottom: 0.1em;
     border-bottom: 1px solid #eee;
+    margin-top: 0;
     margin-bottom: 0.5em;
 }
 
@@ -41,6 +185,7 @@
     color: #3a87ad;
     padding-bottom: 0.1em;
     border-bottom: 1px solid #bce8f1;
+    margin-top: 0;
     margin-bottom: 0.5em;
 }
 
@@ -50,6 +195,7 @@
     color: #c09853;
     padding-bottom: 0.1em;
     border-bottom: 1px solid #fbeed5;
+    margin-top: 0;
     margin-bottom: 0.5em;
 }
 
@@ -59,7 +205,8 @@
     color: #b94a48;
     padding-bottom: 0.1em;
     border-bottom: 1px solid #eed3d7;
-    margin-bottom: 0em;
+    margin-top: 0;
+    margin-bottom: 0.5em;
 }
 
 .sidebar {
@@ -68,15 +215,16 @@
     width: 40%;
     max-width: 50em;
     background-color: #eee;
-    padding: 0.5em 0.5em;
-    margin: 0 0 0.5em 0.5em;
     border: solid 1px #eee;
+    margin: 0 0 0.5em 0.5em;
+    padding: 0.5em 0.5em;
 }
 
 .sidebar .sidebar-title {
     font-weight: bold;
-    padding-bottom: 0.5em;
     border-bottom: solid 1px #74A3E5;
+    padding-bottom: 1rem;
+    margin-top: 0.5rem;
 }
 
 pre.doctest-block {
@@ -89,6 +237,8 @@ pre.doctest-block {
 
 .line-block .line {
     text-indent: 2em;
+    margin: 0 0 1em;
+    line-height: 1.4285em;
 }
 
 .line-block .line-block {
@@ -167,14 +317,6 @@ table.align-center {
     text-align: right;
 }
 
-/* reset inner alignment in figures */
-div.align-right {
-    text-align: inherit;
-}
-
-/* div.align-center * { */
-/*   text-align: left } */
-
 .align-top {
     vertical-align: top;
 }
@@ -185,4 +327,17 @@ div.align-right {
 
 .align-bottom {
     vertical-align: bottom;
+}
+
+
+.strike {
+    text-decoration: line-through;
+    color: #e45735;
+    background: #f4bcae;
+}
+
+.amend {
+    text-decoration: underline;
+    color: #090;
+    background: #dbffdb;
 }
