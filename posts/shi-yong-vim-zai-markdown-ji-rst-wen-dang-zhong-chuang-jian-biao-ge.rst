@@ -16,7 +16,7 @@
 
 .. raw:: html
 
-   <video src="https://raw.githubusercontent.com/ashfinal/bindata/master/videos/vim_table.mp4" loop autoplay>
+   <video src="/videos/vim_table.mp4" loop autoplay>
    Your browser does not support the video tag.
    </video>
 
