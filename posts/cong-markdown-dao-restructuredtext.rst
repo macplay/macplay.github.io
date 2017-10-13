@@ -42,7 +42,7 @@ reStructuredText 的最初目标是定义一种可被 Python 文档和其它格�
 
 reStructuredText 开箱支持转换为其它多种格式，其被设计为“Output-format-neutral（输出格式中性）”，即：并不会明确“偏袒”于哪种输出格式。
 
-.. figure:: https://github.com/ashfinal/bindata/raw/master/rst_outputs.png
+.. figure:: https://cdn.rawgit.com/ashfinal/bindata/15102854/rst_outputs.png
    :align: center
 
    *rst 转换为其它格式*
@@ -337,17 +337,17 @@ reStructuredText 使用指令（Directives)的方式来插入图片。指令（D
 
 .. code:: rst
 
-   .. figure:: https://github.com/ashfinal/bindata/raw/master/icarus.thumbnail.jpg
+   .. figure:: https://cdn.rawgit.com/ashfinal/bindata/master/icarus.thumbnail.jpg
       :align: center
-      :target: https://github.com/ashfinal/bindata/raw/master/icarus.jpg
+      :target: https://cdn.rawgit.com/ashfinal/bindata/15102854/icarus.jpg
 
       *飞向太阳*
 
 渲染结果：
 
-.. figure:: https://github.com/ashfinal/bindata/raw/master/icarus.thumbnail.jpg
+.. figure:: https://cdn.rawgit.com/ashfinal/bindata/master/icarus.thumbnail.jpg
    :align: center
-   :target: https://github.com/ashfinal/bindata/raw/master/icarus.jpg
+   :target: https://cdn.rawgit.com/ashfinal/bindata/15102854/icarus.jpg
 
    *飞向太阳*
 

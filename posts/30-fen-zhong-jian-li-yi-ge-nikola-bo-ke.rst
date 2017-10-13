@@ -182,7 +182,7 @@
 
 使用 GitHub 账户登陆 `TravisCI`_ 网站，就能看到新添加的 `ashfinal.github.io` 仓库正在重新构建，等待其首次构建完成你的博客就可以访问了。浏览器输入 `https://你的账户/github.io` ，比如笔者这里已经一切就绪。
 
-.. image:: https://github.com/ashfinal/bindata/raw/master/screenshots/new_nikola_blog.png
+.. image:: https://cdn.rawgit.com/ashfinal/bindata/master/screenshots/new_nikola_blog.png
    :align: center
 
 添加第一篇博客

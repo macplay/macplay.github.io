@@ -196,15 +196,15 @@ Columns（分栏）
 
 .. code:: rst
 
-   .. figure:: https://github.com/ashfinal/bindata/raw/master/icarus.thumbnail.jpg
+   .. figure:: https://cdn.rawgit.com/ashfinal/bindata/master/icarus.thumbnail.jpg
       :align: center
-      :target: https://github.com/ashfinal/bindata/raw/master/icarus.jpg
+      :target: https://cdn.rawgit.com/ashfinal/bindata/15102854/icarus.jpg
 
 渲染结果：
 
-.. figure:: https://github.com/ashfinal/bindata/raw/master/icarus.thumbnail.jpg
+.. figure:: https://cdn.rawgit.com/ashfinal/bindata/master/icarus.thumbnail.jpg
    :align: center
-   :target: https://github.com/ashfinal/bindata/raw/master/icarus.jpg
+   :target: https://cdn.rawgit.com/ashfinal/bindata/15102854/icarus.jpg
 
 这只是最简单的一个例子。如果觉得有必要的话，还可以继续引入其它 JavaScript 库，比如笔者最近看到的 mermaid_ 。书写的时候也简单：就像所有正常段落一样写图表的描述，写完指定段落 `class` 为 `mermaid` 即可。
 

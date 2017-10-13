@@ -25,7 +25,7 @@
 
 .. raw:: html
 
-   <video src="https://github.com/ashfinal/bindata/raw/master/videos/ncm_scope.mp4" loop autoplay>
+   <video src="https://cdn.rawgit.com/ashfinal/bindata/15102854/videos/ncm_scope.mp4" loop autoplay>
        Your browser does not support the video tag.
    </video>
 

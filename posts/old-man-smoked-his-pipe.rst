@@ -5,7 +5,7 @@
 .. category:
 .. nocomments: True
 
-.. figure:: https://github.com/ashfinal/bindata/raw/master/System76-Old_Man_Smoked_His_Pipe-by_Ian_Hex_of_LightSweep-f45c6abe65.thumb.jpg
+.. figure:: https://cdn.rawgit.com/ashfinal/bindata/15102854/System76-Old_Man_Smoked_His_Pipe-by_Ian_Hex_of_LightSweep-f45c6abe65.thumb.jpg
    :alt: Old_Man_Smoked_His_Pipe
    :align: center
-   :target: https://github.com/ashfinal/bindata/raw/master/System76-Old_Man_Smoked_His_Pipe-by_Ian_Hex_of_LightSweep-f45c6abe65.jpg
+   :target: https://cdn.rawgit.com/ashfinal/bindata/15102854/System76-Old_Man_Smoked_His_Pipe-by_Ian_Hex_of_LightSweep-f45c6abe65.jpg
