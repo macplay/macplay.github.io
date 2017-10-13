@@ -47,7 +47,7 @@
 
 既然清楚 **直接将 markup 文件丢到 src 分支的 posts 目录下** 即可完成静态网站的更新，可选的方案就很多了。如果你是非技术型用户，则直接在 GitHub 网页上操作即可。GitHub 官方提供了 markdown、reST 等标记语言的在线预览，新建或者编辑文章不在话下。当然你也可以选择 markup 客户端编辑文章，然后拖放到网页上传。
 
-.. image:: https://cdn.rawgit.com/ashfinal/bindata/15102854/screenshots/nikola_upload_your_post.png
+.. image:: /images/nikola_upload_your_post.png
    :align: center
 
 如果是对技术熟悉的用户，则一般的操作是：本地编辑文章，然后使用 GitHub 客户端或者命令行完成 markup 文件的提交。

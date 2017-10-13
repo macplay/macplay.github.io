@@ -761,7 +761,7 @@ GITHUB_COMMIT_SOURCE = False
 # GALLERY_FOLDERS = {"galleries": "galleries"}
 # More gallery options:
 # THUMBNAIL_SIZE = 180
-# MAX_IMAGE_SIZE = 1280
+MAX_IMAGE_SIZE = 2560
 # USE_FILENAME_AS_TITLE = True
 # EXTRA_IMAGE_EXTENSIONS = []
 #
@@ -824,7 +824,7 @@ GITHUB_COMMIT_SOURCE = False
 # but a different naming template can be configured with IMAGE_THUMBNAIL_FORMAT).
 
 IMAGE_FOLDERS = {'images': 'images'}
-# IMAGE_THUMBNAIL_SIZE = 400
+IMAGE_THUMBNAIL_SIZE = 800
 # IMAGE_THUMBNAIL_FORMAT = '{name}.thumbnail{ext}'
 
 # #############################################################################
