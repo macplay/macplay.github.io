@@ -338,3 +338,7 @@
 #. Atom 安装插件
 
    `apm install --verbose atom-beautify autocomplete-python git-time-machine file-icons code-peek pigments advanced-open-file atom-ternjs autoprefixer hydrogen script regex-railroad-diagram linter-proselint color-picker platformio-ide-terminal merge-conflicts activate-power-mode atom-latex autocomplete-paths`
+
+#. 生成简短的中文字体列表
+
+   ``fc-list -f "%{family}\n" :lang=zh  > zhfont.txt``
