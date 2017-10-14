@@ -109,7 +109,11 @@ blockquote {
     background-color: #f3f4f180;
 }
 
-.footnote ol {
+blockquote p:first-child {
+    margin-top: 0;
+}
+
+.footnote .label a {
     color: #039be5;
 }
 
