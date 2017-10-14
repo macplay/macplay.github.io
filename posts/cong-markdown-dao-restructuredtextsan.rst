@@ -238,6 +238,9 @@ reStructuredText 行内 HTML 的书写，则是利用一个特殊的内置 `role
    .. role:: raw-html(raw)
       :format: html
 
+.. role:: raw-html(raw)
+   :format: html
+
 然后我们就可以使用 `raw-html` 了。比如强制断行：
 
 .. code:: rst
