@@ -269,18 +269,6 @@ ol.lowerroman {
     list-style-type: lower-roman;
 }
 
-.align-top {
-    vertical-align: top;
-}
-
-.align-middle {
-    vertical-align: middle;
-}
-
-.align-bottom {
-    vertical-align: bottom;
-}
-
 ol.upperroman {
     list-style: upper-roman;
 }
@@ -333,6 +321,10 @@ table.align-center {
     vertical-align: bottom;
 }
 
+.toc {
+    border-top: solid 1px #eee;
+    border-bottom: solid 1px #eee;
+}
 
 .strike {
     text-decoration: line-through;
