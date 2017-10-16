@@ -13,7 +13,7 @@
 本文是《从 Markdown 到 reStructuredText》系列文章的第四篇。和 Markdown 一样，reStructuredText 也是一种易读易写的纯文本标记语言，不过功能上更加强大（而且标准统一）。如果想了解其对应于 Markdown 的基本语法，请阅读 `第一篇文章`_ 。本文继续 `上一篇文章`_ 的话题，试用和探索一下 reStructuredText 导出为其它格式的功能。
 
 .. _`第一篇文章`: ../cong-markdown-dao-restructuredtext/
-.. _`上一篇文章`: ../cong-markdown-dao-restructuredtextersan/
+.. _`上一篇文章`: ../cong-markdown-dao-restructuredtextsan/
 
 reStructuredText 安装包 docutils_ [#]_ 额外包含了一些 Python 脚本，以支持导出到其它格式。这里只谈一谈比较关心的 HTML、S5 Slides、Office 文档、PDF 等格式的支持情况。
 
