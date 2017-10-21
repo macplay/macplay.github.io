@@ -137,6 +137,8 @@ NAVIGATION_LINKS = {
         ("/", "Posts"),
         ("/listings/", "Code"),
         ("/galleries/", "Gallery"),
+        ("/pages/ge-ren-dong-tai/", "Activity"),
+        ("/pages/liu-yan-ban/", "Messages"),
         ("/categories/", "Tags"),
         ("/archive.html", "Archive"),
     ),
