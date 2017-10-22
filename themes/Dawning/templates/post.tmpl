@@ -32,6 +32,7 @@
         {{ post.text() }}
         </div>
     </div>
+    <div class="addthis_inline_share_toolbox"></div>
     {{ helper.html_pager(post) }}
     {% if not post.meta('nocomments') %}
         <div id="gitalk-container" class="comments-block no-print"></div>
@@ -45,6 +46,7 @@
 
 {% block extra_js %}
     {{ math.math_scripts_ifpost(post) }}
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-59ecbed442c8595a"></script>
     {% if not post.meta('nocomments') %}
     <script src="/assets/js/gitalk.min.js"></script>
     <script>
