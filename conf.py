@@ -1367,7 +1367,9 @@ USE_BUNDLES = True
 
 # Put in global_context things you want available on all your templates.
 # It can be anything, data, functions, modules, etc.
-GLOBAL_CONTEXT = {}
+GLOBAL_CONTEXT = {
+    "dw_notice" : "从现在开始，博客可以支持站点通告了。 O(∩_∩)O~~",
+}
 
 # Add functions here and they will be called with template
 # GLOBAL_CONTEXT as parameter when the template is about to be
