@@ -15,7 +15,13 @@
 
 .entry-title a {
     font-size: 1.5rem;
-    color: #555;;
+    display: block;
+    color: #555;
+    padding-bottom: 0.5rem;
+}
+
+.entry-title a:hover {
+    color: #4183C4;
 }
 
 .post-entry .post-meta, .postpage .post-meta {

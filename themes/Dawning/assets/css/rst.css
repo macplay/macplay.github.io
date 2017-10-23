@@ -1,26 +1,38 @@
 h1 {
-    font-size: 2rem;
-    font-weight: bold;
+    font-size: 1.5rem;
 }
 
 h2 {
-    font-size: 1.5rem;
-    font-weight: bold;
+    font-size: 1.35rem;
 }
 
 h3 {
-    font-size: 1.25rem;
-    font-weight: bold;
+    font-size: 1.2rem;
 }
 
 h4 {
-    font-size: 1rem;
-    font-weight: bold;
+    font-size: 1.05rem;
 }
 
 h5 {
-    font-size: 0.875rem;
-    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+h1 a,
+h2 a,
+h3 a,
+h4 a,
+h5 a {
+    color: #555;
+    font-weight: normal;
+    display: block;
+}
+
+h2 a:after,
+h3 a:after,
+h4 a:after,
+h5 a:after {
+    content: " ¶";
 }
 
 h2:first-child, 
