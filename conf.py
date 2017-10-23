@@ -1369,6 +1369,31 @@ USE_BUNDLES = True
 # It can be anything, data, functions, modules, etc.
 GLOBAL_CONTEXT = {
     "dw_notice" : "从现在开始，博客可以支持站点通告了。 O(∩_∩)O~~",
+    "dw_social" : {
+        #  "facebook": "#",
+        #  "twitter": "#",
+        #  "linkedin": "#",
+        #  "instagram": "#",
+        #  "quora": "#",
+        "github": "https://github.com/ashfinal",
+        #  "bitbucket": "#",
+        "weibo": "http://weibo.com/ashfinal/",
+        #  "wechat": "#",
+        #  "telegram": "#",
+        "email": "mailto://ashfinal@sina.cn",
+        },
+    "dw_blogroll" : [
+        {
+            "name": "AriaNg",
+            "website": "http://macplay.coding.me/aria2/",
+            "description": "漂亮的 aria2 网页管理端"
+            },
+        {
+            "name": "awesome-hammerspoon",
+            "website": "https://github.com/ashfinal/awesome-hammerspoon",
+            "description": "用于 macOS 自动化软件 Hammerspoon 的配置"
+            },
+        ],
 }
 
 # Add functions here and they will be called with template
