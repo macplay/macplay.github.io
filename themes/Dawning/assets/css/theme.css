@@ -193,6 +193,12 @@
     padding: 1em 0;
 }
 
+.author-postlist time,
+.tag-postlist time,
+.list-postlist time {
+    float: right;
+}
+
 @media print {
     .no-print {
     display: none !important;

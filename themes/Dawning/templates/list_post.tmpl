@@ -10,8 +10,8 @@
         <ul>
         {% for post in posts %}
         <li>
-            <time datetime="{{ post.formatted_date('webiso') }}" title="{{ post.formatted_date(date_format)|e }}">{{ post.formatted_date(date_format)|e }}</time>
             <a href="{{ post.permalink() }}">{{ post.title()|e }}</a>
+            <time datetime="{{ post.formatted_date('webiso') }}" title="{{ post.formatted_date(date_format)|e }}">{{ post.formatted_date(date_format)|e }}</time>
         </li>
         {% endfor %}
         </ul>
