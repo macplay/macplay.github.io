@@ -183,6 +183,16 @@
     text-align: center;
 }
 
+.postpage .post-info {
+    border: 1px dashed #6fe087;
+    padding: 0 1em 1em 1em;
+    background-color: rgba(207, 247, 207, 0.1);
+}
+
+.addthis_inline_share_toolbox {
+    padding: 1em 0;
+}
+
 @media print {
     .no-print {
     display: none !important;

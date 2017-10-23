@@ -32,6 +32,14 @@
         {{ post.text() }}
         </div>
     </div>
+    <div class="post-info">
+        <p>文章链接：<a href="{{ abs_link(post.permalink()) }}" target="_blank">{{ abs_link(post.permalink()) }}</a></p>
+        <p>发布/更新于：
+            <time datetime="{{ post.meta('updated') }}" itemprop="dateModified" title="{{ post.formatted_updated(date_format)|e }}">{{ post.formatted_updated(date_format)|e }}
+            </time>
+        </p>
+        <p>版权声明：如无特别说明，本站文章均遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">CC BY-NC-SA 4.0</a> 协议，转载请注明作者及出处。</p>
+    </div>
     <div class="addthis_inline_share_toolbox"></div>
     {{ helper.html_pager(post) }}
     {% if not post.meta('nocomments') %}
@@ -46,7 +54,7 @@
 
 {% block extra_js %}
     {{ math.math_scripts_ifpost(post) }}
-    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-59ecbed442c8595a"></script>
+    <script async type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-59ecbed442c8595a"></script>
     {% if not post.meta('nocomments') %}
     <script src="/assets/js/gitalk.min.js"></script>
     <script>
