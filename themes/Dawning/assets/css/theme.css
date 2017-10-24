@@ -1,3 +1,7 @@
+header#header {
+    margin-bottom: 1em;
+}
+
 .page-body {
     padding: 0px 1rem;
 }

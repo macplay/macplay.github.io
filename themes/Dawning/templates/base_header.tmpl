@@ -1,60 +1,56 @@
 {# -*- coding: utf-8 -*- #}
 
 {% macro html_header() %}
-    <header id="header">
+    {% if dw_notice %}
+        {% if 'index' in pagekind %}
+            {% if current_page == 0 %}
+            <div class="ui inline nag no-print">
+                <span class="title">{{ dw_notice }}</span>
+                <i class="close icon"></i>
+            </div>
+            {% endif %}
+        {% endif %}
+    {% endif %}
+    <header id="header" class="no-print">
         {{ html_navigation_links() }}
     </header>
 {% endmacro %}
 
 {% macro html_navigation_links() %}
-        <div class="ui grid no-print">
-            <div class="computer only tablet only three wide column">
-            </div>
-            <div class="computer only tablet only ten wide column">
-                {% if dw_notice %}
-                    {% if 'index' in pagekind %}
-                        {% if current_page == 0 %}
-                        <div class="ui inline nag">
-                            <span class="title">{{ dw_notice }}</span>
-                            <i class="close icon"></i>
-                        </div>
-                        {% endif %}
+    <div class="ui grid">
+        <div class="computer only tablet only sixteen wide column">
+            <div class="ui large secondary stackable menu">
+                <a class="header item brand-logo" href="{{ abs_link(_link("root", None, lang)) }}">
+                    {{ blog_title|e }}
+                </a>
+                {% for url, text in navigation_links[lang] %}
+                    {% if rel_link(permalink, url) == "#" %}
+                        <a class="active item" href="{{ permalink }}">{{ text }}</a>
+                    {% else %}
+                        <a class="item" href="{{ url }}">{{ text }}</a>
                     {% endif %}
-                {% endif %}
-                <div class="ui large secondary stackable menu">
-                    <a class="header item brand-logo" href="{{ abs_link(_link("root", None, lang)) }}">
-                        {{ blog_title|e }}
-                    </a>
-                    {% for url, text in navigation_links[lang] %}
-                        {% if rel_link(permalink, url) == "#" %}
-                            <a class="active item" href="{{ permalink }}">{{ text }}</a>
-                        {% else %}
-                            <a class="item" href="{{ url }}">{{ text }}</a>
-                        {% endif %}
-                    {% endfor %}
-                    <div class="right menu">
+                {% endfor %}
+                <div class="right menu">
+                    <a class="item" href="/rss.xml"><i class="rss icon"></i>RSS</a>
+                </div>
+            </div>
+        </div>
+        <div class="mobile only sixteen wide column">
+            <div class="ui fluid accordion vertical menu">
+                <div class="item">
+                    <a class="title">{{ blog_title|e }}</a>
+                    <div class="content">
+                        {% for url, text in navigation_links[lang] %}
+                            {% if rel_link(permalink, url) == "#" %}
+                                <a class="active item" href="{{ permalink }}">{{ text }}</a>
+                            {% else %}
+                                <a class="item" href="{{ url }}">{{ text }}</a>
+                            {% endif %}
+                        {% endfor %}
                         <a class="item" href="/rss.xml"><i class="rss icon"></i>RSS</a>
                     </div>
                 </div>
             </div>
-            <div class="mobile only sixteen wide column">
-                <div class="ui fluid accordion vertical menu">
-                    <div class="item">
-                        <a class="title">{{ blog_title|e }}</a>
-                        <div class="content">
-                            {% for url, text in navigation_links[lang] %}
-                                {% if rel_link(permalink, url) == "#" %}
-                                    <a class="active item" href="{{ permalink }}">{{ text }}</a>
-                                {% else %}
-                                    <a class="item" href="{{ url }}">{{ text }}</a>
-                                {% endif %}
-                            {% endfor %}
-                            <a class="item" href="/rss.xml"><i class="rss icon"></i>RSS</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="computer only tablet only three wide column">
-            </div>
         </div>
+    </div>
 {% endmacro %}

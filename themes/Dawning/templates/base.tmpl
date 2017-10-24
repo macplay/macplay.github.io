@@ -17,31 +17,30 @@
     {% endblock extra_head %}
     </head>
     <body>
-        {{ header.html_header() }}
-        <main id="main">
-            <div class="ui grid">
-                <div class="three wide computer three wide tablet column no-print">
-                    <div id="left-side">
-                        {% block left_side %}
-                        {% endblock left_side %}
-                    </div>
+        <div class="ui grid">
+            <div class="computer only three wide column no-print">
+                <div id="left-side">
+                    {% block left_side %}
+                    {% endblock left_side %}
                 </div>
-                <div class="ten wide computer ten wide tablet sixteen wide mobile column">
+            </div>
+            <div class="ten wide computer sixteen wide tablet sixteen wide mobile column">
+                {{ header.html_header() }}
+                <main id="main">
                     <div id="main-content">
                         {% block main_content %}
                         {% endblock main_content %}
                     </div>
-                </div>
-                <div class="three wide computer three wide tablet column no-print">
-                    <div id="right-side">
-                        {% block right_side %}
-                        {% endblock right_side %}
-                    </div>
+                </main>
+                {{ footer.html_footer() }}
+            </div>
+            <div class="computer only three wide column no-print">
+                <div id="right-side">
+                    {% block right_side %}
+                    {% endblock right_side %}
                 </div>
             </div>
-        </main>
-
-        {{ footer.html_footer() }}
+        </div>
 
         <script type="text/javascript" src="/assets/js/jquery-3.2.1.min.js"></script>
         <script type="text/javascript" src="/assets/js/semantic.min.js"></script>

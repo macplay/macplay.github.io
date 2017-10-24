@@ -2,51 +2,43 @@
 
 {% macro html_footer() %}
     {% if content_footer %}
-    <div class="ui grid no-print">
-        <div class="computer only tablet only three wide column">
-        </div>
-        <div class="ten wide computer ten wide tablet sixteen wide mobile column">
-            {% if dw_social %}
-                <div class="footer social-link">
-                {% if dw_social['facebook'] %}
-                <a href="{{ dw_social['facebook'] }}" target="_blank"><i class="grey large facebook icon"></i></a>
-                {% endif %}
-                {% if dw_social['twitter'] %}
-                <a href="{{ dw_social['twitter'] }}" target="_blank"><i class="grey large twitter icon"></i></a>
-                {% endif %}
-                {% if dw_social['linkedin'] %}
-                <a href="{{ dw_social['linkedin'] }}" target="_blank"><i class="grey large linkedin icon"></i></a>
-                {% endif %}
-                {% if dw_social['instagram'] %}
-                <a href="{{ dw_social['instagram'] }}" target="_blank"><i class="grey large instagram icon"></i></a>
-                {% endif %}
-                {% if dw_social['quora'] %}
-                <a href="{{ dw_social['quora'] }}" target="_blank"><i class="grey large quora icon"></i></a>
-                {% endif %}
-                {% if dw_social['github'] %}
-                <a href="{{ dw_social['github'] }}" target="_blank"><i class="grey large github icon"></i></a>
-                {% endif %}
-                {% if dw_social['bitbucket'] %}
-                <a href="{{ dw_social['bitbucket'] }}" target="_blank"><i class="grey large bitbucket icon"></i></a>
-                {% endif %}
-                {% if dw_social['weibo'] %}
-                <a href="{{ dw_social['weibo'] }}" target="_blank"><i class="grey large weibo icon"></i></a>
-                {% endif %}
-                {% if dw_social['wechat'] %}
-                <a href="{{ dw_social['wechat'] }}" target="_blank"><i class="grey large wechat icon"></i></a>
-                {% endif %}
-                {% if dw_social['telegram'] %}
-                <a href="{{ dw_social['telegram'] }}" target="_blank"><i class="grey large telegram icon"></i></a>
-                {% endif %}
-                {% if dw_social['email'] %}
-                <a href="{{ dw_social['email'] }}" target="_blank"><i class="grey large mail icon"></i></a>
-                {% endif %}
-                </div>
+        {% if dw_social %}
+            <div class="footer social-link no-print">
+            {% if dw_social['facebook'] %}
+            <a href="{{ dw_social['facebook'] }}" target="_blank"><i class="grey large facebook icon"></i></a>
             {% endif %}
-            <div class="ui basic center aligned segment">{{ content_footer }}</div>
-        </div>
-        <div class="computer only tablet only three wide column">
-        </div>
-    </div>
+            {% if dw_social['twitter'] %}
+            <a href="{{ dw_social['twitter'] }}" target="_blank"><i class="grey large twitter icon"></i></a>
+            {% endif %}
+            {% if dw_social['linkedin'] %}
+            <a href="{{ dw_social['linkedin'] }}" target="_blank"><i class="grey large linkedin icon"></i></a>
+            {% endif %}
+            {% if dw_social['instagram'] %}
+            <a href="{{ dw_social['instagram'] }}" target="_blank"><i class="grey large instagram icon"></i></a>
+            {% endif %}
+            {% if dw_social['quora'] %}
+            <a href="{{ dw_social['quora'] }}" target="_blank"><i class="grey large quora icon"></i></a>
+            {% endif %}
+            {% if dw_social['github'] %}
+            <a href="{{ dw_social['github'] }}" target="_blank"><i class="grey large github icon"></i></a>
+            {% endif %}
+            {% if dw_social['bitbucket'] %}
+            <a href="{{ dw_social['bitbucket'] }}" target="_blank"><i class="grey large bitbucket icon"></i></a>
+            {% endif %}
+            {% if dw_social['weibo'] %}
+            <a href="{{ dw_social['weibo'] }}" target="_blank"><i class="grey large weibo icon"></i></a>
+            {% endif %}
+            {% if dw_social['wechat'] %}
+            <a href="{{ dw_social['wechat'] }}" target="_blank"><i class="grey large wechat icon"></i></a>
+            {% endif %}
+            {% if dw_social['telegram'] %}
+            <a href="{{ dw_social['telegram'] }}" target="_blank"><i class="grey large telegram icon"></i></a>
+            {% endif %}
+            {% if dw_social['email'] %}
+            <a href="{{ dw_social['email'] }}" target="_blank"><i class="grey large mail icon"></i></a>
+            {% endif %}
+            </div>
+        {% endif %}
+        <div class="ui basic center aligned segment no-print">{{ content_footer }}</div>
     {% endif %}
 {% endmacro %}
