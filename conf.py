@@ -1386,12 +1386,12 @@ GLOBAL_CONTEXT = {
         {
             "name": "AriaNg",
             "website": "http://macplay.coding.me/aria2/",
-            "description": "漂亮的 aria2 网页管理端"
+            "description": "漂亮的 aria2 网页管理前端"
             },
         {
             "name": "awesome-hammerspoon",
             "website": "https://github.com/ashfinal/awesome-hammerspoon",
-            "description": "用于 macOS 自动化软件 Hammerspoon 的配置"
+            "description": "macOS 自动化软件 Hammerspoon 的必备配置"
             },
         ],
 }

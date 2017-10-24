@@ -2,14 +2,10 @@
 
 {% macro html_header() %}
     {% if dw_notice %}
-        {% if 'index' in pagekind %}
-            {% if current_page == 0 %}
-            <div class="ui inline nag no-print">
-                <span class="title">{{ dw_notice }}</span>
-                <i class="close icon"></i>
-            </div>
-            {% endif %}
-        {% endif %}
+        <div class="ui inline cookie nag no-print">
+            <span class="title">{{ dw_notice }}</span>
+            <i class="close icon"></i>
+        </div>
     {% endif %}
     <header id="header" class="no-print">
         {{ html_navigation_links() }}
