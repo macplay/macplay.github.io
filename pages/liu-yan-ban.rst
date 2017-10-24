@@ -6,3 +6,13 @@
 .. class:: ui positive message
 
    即时版聊区，话题不限。交换友链请留言。
+
+.. class:: ui basic violet pointing label
+
+   :友链格式:
+
+   :名称: 你希望显示的网站名称
+
+   :网址: 访问地址
+
+   :描述: 网站简短介绍
