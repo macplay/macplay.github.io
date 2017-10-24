@@ -1,6 +1,11 @@
 {# -*- coding: utf-8 -*- #}
 
 {% macro html_footer() %}
+    <div class="footer extra-block no-print">
+    {% if dw_blogroll %}
+        <a onclick="$('.ui.modal.blogroll').modal('show');">友情链接</a>
+    {% endif %}
+    </div>
     {% if content_footer %}
         {% if dw_social %}
             <div class="footer social-link no-print">

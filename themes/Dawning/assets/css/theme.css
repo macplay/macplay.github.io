@@ -214,6 +214,25 @@ header#header {
     margin-bottom: -1.5em;
 }
 
+.footer.extra-block {
+    text-align: center;
+    margin: 1em;
+}
+
+.footer.extra-block a{
+    cursor: pointer;
+    color: #555;
+    text-decoration: underline;
+}
+
+.blogroll .container {
+    padding: 1em;
+}
+
+.blogroll .siteitem {
+    margin: 0.5em;
+}
+
 @media print {
     .no-print {
     display: none !important;
