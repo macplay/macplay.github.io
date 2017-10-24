@@ -17,45 +17,27 @@
     {% endblock extra_head %}
     </head>
     <body>
-        <div class="ui bottom sidebar ui segment">
-            <div class="ui center aligned grid">
-                <div class="one column row">
-                    <div class="sixteen wide column">
-                        <h3 class="ui header">友情链接</h3>
-                    </div>
-                </div>
-                <div class="ten wide column extra-drawer">
-                    {% if dw_blogroll %}
-                        {% for item in dw_blogroll %}
-                        <a href="{{ item["website"] }}" class="ui basic small violet button siteitem" data-tooltip="{{ item["description"] }}" data-position="top center">{{ item["name"] }}</a>
-                        {% endfor %}
-                    {% endif %}
+        <div class="ui grid">
+            <div class="computer only three wide column no-print">
+                <div id="left-side">
+                    {% block left_side %}
+                    {% endblock left_side %}
                 </div>
             </div>
-        </div>
-        <div class="pusher">
-            <div class="ui grid">
-                <div class="computer only three wide column no-print">
-                    <div id="left-side">
-                        {% block left_side %}
-                        {% endblock left_side %}
-                    </div>
-                </div>
-                <div class="ten wide computer sixteen wide tablet sixteen wide mobile column">
-                    {{ header.html_header() }}
-                    <main id="main">
+            <div class="ten wide computer sixteen wide tablet sixteen wide mobile column">
+                {{ header.html_header() }}
+                <main id="main">
                     <div id="main-content">
                         {% block main_content %}
                         {% endblock main_content %}
                     </div>
-                    </main>
-                    {{ footer.html_footer() }}
-                </div>
-                <div class="computer only three wide column no-print">
-                    <div id="right-side">
-                        {% block right_side %}
-                        {% endblock right_side %}
-                    </div>
+                </main>
+                {{ footer.html_footer() }}
+            </div>
+            <div class="computer only three wide column no-print">
+                <div id="right-side">
+                    {% block right_side %}
+                    {% endblock right_side %}
                 </div>
             </div>
         </div>

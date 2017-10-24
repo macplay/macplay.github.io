@@ -214,21 +214,6 @@ header#header {
     margin-bottom: -1.5em;
 }
 
-.footer.extra-block {
-    text-align: center;
-    margin: 1em;
-}
-
-.footer.extra-block a{
-    cursor: pointer;
-    color: #555;
-    text-decoration: underline;
-}
-
-.extra-drawer .siteitem {
-    margin-bottom: 0.5em;
-}
-
 @media print {
     .no-print {
     display: none !important;
