@@ -7,12 +7,10 @@
 
    即时版聊区，话题不限。交换友链请留言。
 
-.. class:: ui basic violet pointing label
+.. csv-table:: 友链格式
+   :class: ui basic violet pointing label
+   :widths: 6, 20
 
-   :友链格式:
-
-   :名称: 你希望显示的网站名称
-
-   :网址: 访问地址
-
-   :描述: 网站简短介绍
+   "名称：", "你希望显示的网站名称"
+   "网址：", "访问地址"
+   "描述：", "网站简短介绍"
