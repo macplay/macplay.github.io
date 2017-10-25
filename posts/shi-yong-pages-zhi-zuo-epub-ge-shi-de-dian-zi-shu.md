@@ -17,9 +17,9 @@
 
 最近没事就使用 iPhone 上的 iBooks 来阅读点东西，渐渐喜欢上了该应用。相较于波澜不惊的 Mac 版，iPhone 内置的 iBooks 应用翻页效果堪称惊艳，而其它功能如书签、标注、跳转等用户体验也相当不错。无奈书籍资源实在太少，遂产生制作/修改 ePub 格式电子书的念头。作为「原生党」，自然而然就想到使用 Pages 来尝试制作啦。完成以后感觉整体效果还不错，于是把制作过程记录一下，希望于读者朋友们能够有所参考。
 
-![iBooks 翻页效果](/images/bookflip.png "iBooks 翻页效果")
-
 <!-- TEASER_END -->
+
+![iBooks 翻页效果](/images/bookflip.png "iBooks 翻页效果")
 
 [TOC]
 
