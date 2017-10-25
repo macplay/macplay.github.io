@@ -13,11 +13,13 @@
 .. previewimage:
 -->
 
-[TOC]
-
 最早接触 Foxit Reader(福昕阅读器) 还是在 Windows 平台上，相较于 Adobe Reader 动辄上百兆的臃肿体积，功能齐全、小巧好用(≤10MB)的 Foxit Reader 无疑给笔者留下了深刻印象。非要鸡蛋里挑骨头的话，唯一让人颇有微词的恐怕是：默认的图标感觉有点丑 …… 尽管如此，每当有人抱怨 Adobe Reader 时，笔者总是很嗨皮地推荐福昕阅读器(后来也开始推荐更小巧的 Sumatra PDF)。
 
 笔者全面转战 OS X/ iOS 平台以后，想要在 iPhone 上阅读 PDF 文档，App Store 上搜寻半天不满意之时，突然想起来曾经用过的 Foxit Reader。也许也对应开发了移动版本呢？仔细一找果然有：[Foxit MobilePDF][Foxit MobilePDF] ！而且是免费的，果断下载安装之，一如既往的好用，哈哈。后来又陆续接触到一些 PDF 阅读器，但半年多以来 Foxit MobilePDF 始终占据在手机里，使用频率相当高。那么，接下来向大家推荐一下笔者眼中的这款国产精品软件吧～
+
+<!-- TEASER_END -->
+
+[TOC]
 
 ## 外观设计
 

@@ -13,8 +13,6 @@
 .. previewimage:
 -->
 
-[TOC]
-
 ## 什么是 Markdown
 
 > Markdown 是一种轻量级标记语言，创始人为约翰·格鲁伯（John Gruber）。它允许人们“使用易读易写的纯文本格式编写文档，然后转换成有效的XHTML(或者HTML)文档”。 —— 来自维基百科 [^Markdown]
@@ -22,6 +20,10 @@
 Markdown 创立的宗旨是实现「易读易写」。其语法简洁直观，你可以使用任何喜爱的文本编辑器来阅读和写作，更专注于书写的文字内容而不是排版样式。编辑完毕可轻松地导出成 HTML、PDF 等其它格式。
 
 语法学习参考 : [Markdown 语法说明(简体中文版)][Syntax in SC]
+
+<!-- TEASER_END -->
+
+[TOC]
 
 ## Sublime Text 3 以及 OmniMarkupPreviewer
 
