@@ -1,0 +1,27 @@
+{# -*- coding: utf-8 -*- #}
+
+{% extends 'base.tmpl' %}
+
+{% block main_content %}
+<div class="post-{{ post.meta('type') }} storypage" itemscope="itemscope" itemtype="http://schema.org/Article">
+    <div class="page-content">
+        <div class="ui horizontal section divider">友情链接</div>
+        <div class="ui center aligned container">
+            {% if dw_blogroll %}
+                {% for item in dw_blogroll %}
+                <a href="{{ item["website"] }}" class="ui basic small violet button blogroll siteitem" data-content="{{ item["description"] }}" data-position="top center" data-variation="wide">{{ item["name"] }}</a>
+                {% endfor %}
+            {% endif %}
+        </div>
+        {{ post.text() }}
+    </div>
+</div>
+{% endblock main_content %}
+
+{% block extra_js %}
+    <script>
+        $(document).ready(function(){
+            $('.blogroll.siteitem').popup();
+        });
+    </script>
+{% endblock extra_js %}

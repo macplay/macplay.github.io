@@ -42,17 +42,6 @@
             </div>
         </div>
 
-        <div class="ui modal blogroll">
-            <div class="ui center aligned header">友情链接</div>
-            <div class="ui center aligned container">
-                {% if dw_blogroll %}
-                    {% for item in dw_blogroll %}
-                    <a href="{{ item["website"] }}" class="ui basic small violet button siteitem" data-tooltip="{{ item["description"] }}" data-position="top center">{{ item["name"] }}</a>
-                    {% endfor %}
-                {% endif %}
-            </div>
-        </div>
-
         <script type="text/javascript" src="/assets/js/jquery-3.2.1.min.js"></script>
         <script type="text/javascript" src="/assets/js/semantic.min.js"></script>
         <script type="text/javascript" src="/assets/js/jquery.fancybox.min.js"></script>
@@ -63,12 +52,10 @@
                 $(".ui.dropdown").dropdown();
                 $('.ui.accordion').accordion();
                 var newstr = $('.cookie.nag').text();
-                $('.cookie.nag')
-                  .nag({
-                    key      : 'globalnotice',
-                    value    : newstr
-                  })
-                ;
+                $('.cookie.nag').nag({
+                    key: 'globalnotice',
+                    value: newstr
+                  });
                 $('.image-reference').fancybox();
             });
         </script>

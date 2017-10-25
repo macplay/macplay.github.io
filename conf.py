@@ -1368,8 +1368,8 @@ USE_BUNDLES = True
 # Put in global_context things you want available on all your templates.
 # It can be anything, data, functions, modules, etc.
 GLOBAL_CONTEXT = {
-    "dw_notice" : "从现在开始，博客可以支持站点通告了。 O(∩_∩)O~~",
-    "dw_social" : {
+    "dw_notice": "从现在开始，博客可以支持站点通告了。 O(∩_∩)O~~",
+    "dw_social": {
         #  "facebook": "#",
         #  "twitter": "#",
         #  "linkedin": "#",
@@ -1382,17 +1382,13 @@ GLOBAL_CONTEXT = {
         #  "telegram": "#",
         "email": "mailto://ashfinal@sina.cn",
         },
-    "dw_blogroll" : [
-        {
-            "name": "AriaNg",
-            "website": "http://macplay.coding.me/aria2/",
-            "description": "漂亮的 aria2 网页管理前端"
-            },
-        {
-            "name": "awesome-hammerspoon",
-            "website": "https://github.com/ashfinal/awesome-hammerspoon",
-            "description": "macOS 自动化软件 Hammerspoon 的必备配置"
-            },
+    "dw_blogroll": [
+        {"name": "AriaNg",
+         "website": "http://macplay.coding.me/aria2/",
+         "description": "漂亮的 aria2 网页管理前端"},
+        {"name": "awesome-hammerspoon",
+         "website": "https://github.com/ashfinal/awesome-hammerspoon",
+         "description": "macOS 自动化软件 Hammerspoon 的必备配置"},
         ],
 }
 
