@@ -10,9 +10,7 @@
 .. password:
 .. previewimage:
 
-还是给博客集成了 mermaid_ 图表功能，尽管目前用的很少……与 mathjax 一样，使用的时候给文章添加 `mermaid` 标签，然后在文章中给描述文本指定 `mermaid` class 即可。就像这样：
-
-    mermaid_ 使用 javascript 从纯文本描述产生流程图、序列图、甘特图等图表类型。
+还是给博客集成了 mermaid_ [#]_ 图表功能，尽管目前用的很少……与 mathjax 一样，使用的时候给文章添加 `mermaid` 标签，然后在文章中给描述文本指定 `mermaid` class 即可。就像这样：
 
 .. _mermaid: https://mermaidjs.github.io
 
@@ -26,6 +24,8 @@
       C -->|One| D[Laptop]
       C -->|Two| E[iPhone]
       C -->|Three| F[Car]
+
+.. [#] mermaid_ 使用 javascript 从纯文本描述产生流程图、序列图、甘特图等图表类型。
 
 .. TEASER_END
 
