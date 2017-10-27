@@ -70,4 +70,8 @@
         gitalk.render('gitalk-container')
     </script>
     {% endif %}
+    {% if "mermaid" in post.tags %}
+        <script type="text/javascript" src="/assets/js/mermaid.min.js"></script>
+        <script>mermaid.initialize({startOnLoad: true, theme: 'forest'});</script>
+    {% endif %}
 {% endblock extra_js %}
