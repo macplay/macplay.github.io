@@ -1389,6 +1389,9 @@ GLOBAL_CONTEXT = {
         {"name": "awesome-hammerspoon",
          "website": "https://github.com/ashfinal/awesome-hammerspoon",
          "description": "macOS 自动化软件 Hammerspoon 的必备配置"},
+        {"name": "M-x Chris-An-Emacser",
+         "website": "https://chriszheng.science/",
+         "description": "一个非典型 Emacs 爱好者的 Blog"},
         ],
 }
 
