@@ -1392,6 +1392,12 @@ GLOBAL_CONTEXT = {
         {"name": "M-x Chris-An-Emacser",
          "website": "https://chriszheng.science/",
          "description": "一个非典型 Emacs 爱好者的 Blog"},
+        {"name": "创造狮导航",
+         "website": "http://chuangzaoshi.com/",
+         "description": "为创意工作者而设计"},
+        {"name": "久久日记本",
+         "website": "https://blog.99diary.com",
+         "description": "曾经年少爱追梦，一心只想往前飞"},
         ],
 }
 
