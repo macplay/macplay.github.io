@@ -1398,6 +1398,15 @@ GLOBAL_CONTEXT = {
         {"name": "久久日记本",
          "website": "https://blog.99diary.com",
          "description": "曾经年少爱追梦，一心只想往前飞"},
+        {"name": "ZMonster's Blog",
+         "website": "http://www.zmonster.me/",
+         "description": "巧者劳而智者忧，无能者无所求，饱食而遨游，泛若不系之舟"},
+        {"name": "FAICHOU",
+         "website": "http://faichou.space",
+         "description": "an iOS coder, and music enthusiast living in China"},
+        {"name": "Jam in World",
+         "website": "https://jamchoi.cc/",
+         "description": "Jam 的故事板"},
         ],
 }
 
