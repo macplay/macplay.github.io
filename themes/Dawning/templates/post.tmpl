@@ -33,6 +33,9 @@
         </div>
     </div>
     <div class="post-info">
+        {% if post.meta('link') %}
+        <p>引用资源：<a href="{{ post.meta('link') }}" target="_blank">{{ post.meta('link') }}</a></p>
+        {% endif %}
         <p>文章链接：<a href="{{ abs_link(post.permalink()) }}" target="_blank">{{ abs_link(post.permalink()) }}</a></p>
         <p>发布/更新于：
             <time datetime="{{ post.meta('updated') }}" itemprop="dateModified" title="{{ post.formatted_updated(date_format)|e }}">{{ post.formatted_updated(date_format)|e }}
