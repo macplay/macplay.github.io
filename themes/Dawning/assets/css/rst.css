@@ -337,6 +337,7 @@ table.align-center {
 .toc {
     border-top: solid 1px #eee;
     border-bottom: solid 1px #eee;
+    margin-bottom: 1em;
 }
 
 .strike {
