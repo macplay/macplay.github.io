@@ -76,6 +76,13 @@ code, cite, tt.docutils.literal {
     font-style: normal;
 }
 
+pre.literal-block {
+    background: #f8f8f8;
+    font-size: 0.9rem;
+    font-family: monospace;
+    padding: 5px 10px;
+}
+
 td, th {
     padding: 5px 10px;
     border: solid 1px #eee;
