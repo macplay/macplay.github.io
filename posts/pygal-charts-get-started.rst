@@ -22,7 +22,7 @@ with little effort, and i's even semi-interactive (hover your pointer over the l
        :width: 600
        :height: 400
        :explicit_size: True
-       :style: BlueStyle
+       :style: DefaultStyle
 
        ('Others',  [14.2, 15.4, 15.3,  8.9,    9, 10.4,  8.9,  5.8,  6.7,  6.8,  7.5])
        ('IE',      [85.8, 84.6, 84.7, 74.5,   66, 58.6, 54.7, 44.8, 36.2, 26.6, 20.1])
@@ -42,7 +42,7 @@ with little effort, and i's even semi-interactive (hover your pointer over the l
     :width: 600
     :height: 400
     :explicit_size: True
-    :style: BlueStyle
+    :style: DefaultStyle
 
     ('Others',  [14.2, 15.4, 15.3,  8.9,    9, 10.4,  8.9,  5.8,  6.7,  6.8,  7.5])
     ('IE',      [85.8, 84.6, 84.7, 74.5,   66, 58.6, 54.7, 44.8, 36.2, 26.6, 20.1])
