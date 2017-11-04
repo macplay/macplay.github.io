@@ -56,7 +56,7 @@ div.text_cell_render {
 .highlight  { background: #fdfdfd; }
 .highlight .c { color: #ABB0B6; font-style: italic } /* Comment */
 .highlight .err { border: 1px solid #F71000 } /* Error */
-.highlight .k { color: #FA6E32; font-weight: bold } /* Keyword */
+.highlight .k { color: #FA6E32; } /* Keyword */
 .highlight .o { color: #666666 } /* Operator */
 .highlight .cm { color: #ABB0B6; font-style: italic } /* Comment.Multiline */
 .highlight .cp { color: #ABB0B6 } /* Comment.Preproc */
@@ -74,7 +74,7 @@ div.text_cell_render {
 .highlight .gt { color: #EE5D64 } /* Generic.Traceback */
 .highlight .kc { color: #A377CE; font-weight: bold } /* Keyword.Constant */
 .highlight .kd { color: #FA6E32; font-weight: bold } /* Keyword.Declaration */
-.highlight .kn { color: #FA6E32; font-weight: bold } /* Keyword.Namespace */
+.highlight .kn { color: #FA6E32; } /* Keyword.Namespace */
 .highlight .kp { color: #F39700 } /* Keyword.Pseudo */
 .highlight .kr { color: #F39700; font-weight: bold } /* Keyword.Reserved */
 .highlight .kt { color: #F2706E } /* Keyword.Type */

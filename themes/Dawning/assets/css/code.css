@@ -3,7 +3,7 @@ pre.code .hll { background-color: #ffffcc }
 pre.code  {background: #fdfdfd;}
 pre.code .c { color: #ABB0B6; font-style: italic } /* Comment */
 pre.code .err { border: 1px solid #F71000 } /* Error */
-pre.code .k { color: #FA6E32; font-weight: bold } /* Keyword */
+pre.code .k { color: #FA6E32; } /* Keyword */
 pre.code .o { color: #666666 } /* Operator */
 pre.code .ch { color: #ABB0B6; font-style: italic } /* Comment.Hashbang */
 pre.code .cm { color: #ABB0B6; font-style: italic } /* Comment.Multiline */
@@ -23,7 +23,7 @@ pre.code .gu { color: #AAAFB6; font-weight: bold } /* Generic.Subheading */
 pre.code .gt { color: #EE5D64 } /* Generic.Traceback */
 pre.code .kc { color: #A377CE; font-weight: bold } /* Keyword.Constant */
 pre.code .kd { color: #FA6E32; font-weight: bold } /* Keyword.Declaration */
-pre.code .kn { color: #FA6E32; font-weight: bold } /* Keyword.Namespace */
+pre.code .kn { color: #FA6E32; } /* Keyword.Namespace */
 pre.code .kp { color: #F39700 } /* Keyword.Pseudo */
 pre.code .kr { color: #F39700; font-weight: bold } /* Keyword.Reserved */
 pre.code .kt { color: #F2706E } /* Keyword.Type */
