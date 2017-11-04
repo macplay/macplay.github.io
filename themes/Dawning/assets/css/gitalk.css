@@ -1001,7 +1001,7 @@
   min-height: 5.125em;
   max-height: 15em;
   border-radius: 5px;
-  border: 1px solid rgba(0,0,0,0.1);
+  border: 1px solid rgba(0,0,0,0.05);
   font-size: 0.875em;
   word-wrap: break-word;
   resize: vertical;
