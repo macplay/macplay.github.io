@@ -177,6 +177,10 @@ td.linenos, td.code {
     border: none;
 }
 
+td.linenos a {
+    color: #B3B2B0;
+}
+
 .admonition {
     margin-top: 0.5em;
     margin-bottom: 0.5em;
