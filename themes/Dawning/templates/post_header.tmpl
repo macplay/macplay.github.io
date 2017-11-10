@@ -25,7 +25,6 @@
 
 {% macro html_post_header() %}
     {{ html_title() }}
-    {% set github_prefix = "https://github.com/macplay/macplay.github.io/edit/src/" %}
     <div class="post-meta">
         <span class="post-meta-item-icon">
             <i class="user icon"></i>
@@ -37,13 +36,13 @@
             {{ post.author()|e }}
         {% endif %}
         </span>
-        {% if not post.meta('password') %}
+        {% if not post.meta('password') and edit_prefix %}
             <span class="post-meta-divider">|</span>
             <span class="post-meta-item-icon">
                 <i class="github icon"></i>
             </span>
             <span class="post-meta-item-text">
-                <a href="{{ github_prefix + post.source_path }}" title="Edit on GitHub">edit</a>
+                <a href="{{ edit_prefix + post.source_path }}" title="Edit on GitHub">edit</a>
             </span>
         {% endif %}
         <span class="post-meta-divider">|</span>
