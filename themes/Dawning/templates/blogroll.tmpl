@@ -9,7 +9,7 @@
         <div class="ui center aligned container">
             {% if dw_blogroll %}
                 {% for item in dw_blogroll %}
-                <a href="{{ item["website"] }}" class="ui basic small violet button blogroll siteitem" data-content="{{ item["description"] }}" data-position="top center" data-variation="wide">{{ item["name"] }}</a>
+                <a href="{{ item["website"] }}" target="_blank" class="ui basic small violet button blogroll siteitem" data-content="{{ item["description"] }}" data-position="top center" data-variation="wide">{{ item["name"] }}</a>
                 {% endfor %}
             {% endif %}
         </div>
