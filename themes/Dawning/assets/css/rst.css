@@ -43,6 +43,10 @@ p:first-child {
     margin-top: 1rem;
 }
 
+p {
+    line-height: 1.7em;
+}
+
 .container p:first-child {
     margin-top: 0;
 }
@@ -59,6 +63,7 @@ pre.code {
     font-size: 0.9rem;
     font-family: monospace;
     padding: 5px 10px;
+    line-height: 1.7em;;
 }
 
 .codetable pre.code {
@@ -81,6 +86,7 @@ pre.literal-block {
     font-size: 0.9rem;
     font-family: monospace;
     padding: 5px 10px;
+    line-height: 1.7em;;
 }
 
 td, th {
@@ -128,6 +134,7 @@ blockquote {
     padding: 0.5em 0em 0.5em 1.5em;
     border-left: 0.5em solid #f1f1f1;
     background-color: #fdfdfd;
+    line-height: 1.7em;
 }
 
 blockquote p:first-child {
@@ -277,7 +284,7 @@ pre.doctest-block {
 .line-block .line {
     text-indent: 2em;
     margin: 0 0 1em;
-    line-height: 1.4285em;
+    line-height: 1.7em;
 }
 
 .line-block .line-block {
