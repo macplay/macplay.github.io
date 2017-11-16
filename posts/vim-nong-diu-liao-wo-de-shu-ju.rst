@@ -1,6 +1,7 @@
 .. title: Vim 弄丢了我的数据！
 .. slug: vim-nong-diu-liao-wo-de-shu-ju
 .. date: 2017-11-13 19:57:10 UTC+08:00
+.. updated: 2017-11-16 14:49:10 UTC+08:00
 .. tags: vim, recovery, vimrc
 .. category: vim
 .. link:
