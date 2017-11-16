@@ -91,6 +91,7 @@ header#header {
     font-size: 1.5rem;
     padding-top: 1rem;
     color: #777777;
+    text-align: center;;
 }
 
 .cate-cloud-items ul {
@@ -124,6 +125,12 @@ header#header {
 .author-rssfeed .feedlink {
     margin-top: 1em;
     margin-left: 2em;
+    text-align: center;
+}
+
+.tag-rssfeed .feedlink a,
+.author-rssfeed .feedlink a {
+    color: #777777;
 }
 
 .gallerypage ul,

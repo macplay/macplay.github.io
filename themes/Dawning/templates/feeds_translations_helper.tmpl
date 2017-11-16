@@ -65,10 +65,10 @@
         {% if generate_atom or generate_rss %}
             <p class="feedlink">
                 {% if generate_atom %}
-                    <a href="{{ _link(kind + "_atom", classification) }}" type="application/atom+xml">{{ messages('Atom feed') }}</a>
+                    <a href="{{ _link(kind + "_atom", classification) }}" type="application/atom+xml"><i class="rss icon"></i>{{ messages('Atom feed') }}</a>
                 {% endif %}
                 {% if generate_rss %}
-                    <a href="{{ _link(kind + "_rss", classification) }}" type="application/rss+xml">{{ messages('RSS feed') }}</a>
+                    <a href="{{ _link(kind + "_rss", classification) }}" type="application/rss+xml"><i class="rss icon"></i>{{ messages('RSS feed') }}</a>
                 {% endif %}
             </p>
         {% endif %}
