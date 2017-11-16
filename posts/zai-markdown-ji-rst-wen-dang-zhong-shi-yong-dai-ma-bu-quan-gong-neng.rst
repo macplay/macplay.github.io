@@ -1,8 +1,8 @@
 .. title: 在 Markdown 及 rst 文档中使用代码补全功能
 .. slug: zai-markdown-ji-rst-wen-dang-zhong-shi-yong-dai-ma-bu-quan-gong-neng
 .. date: 2017-10-12 15:45:30 UTC+08:00
-.. tags: vim, markup
-.. category:
+.. tags: vim, completion
+.. category: vim
 .. link:
 .. description:
 .. type: text

@@ -1,8 +1,8 @@
 .. title: Pygal charts get started
 .. slug: pygal-charts-get-started
 .. date: 2017-09-18 11:09:34 UTC+08:00
-.. tags: reST, charts, pygal, python
-.. category: markdown
+.. tags: reST, chart, pygal, python
+.. category: markup
 .. link:
 .. description:
 .. type: text

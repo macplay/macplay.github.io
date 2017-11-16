@@ -1,7 +1,7 @@
 .. title: 有用的终端命令整理
 .. slug: ji-ge-you-yong-de-zhong-duan-ming-ling-zheng-li
 .. date: 2017-09-28 21:47:01 UTC+08:00
-.. tags: shell, terminal
+.. tags: shell, terminal, bash
 .. category:
 .. password:
 .. previewimage:

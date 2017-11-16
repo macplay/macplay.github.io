@@ -3,7 +3,7 @@
 .. slug: ru-he-jie-ya-macos-xia-de-pkg-wen-jian
 .. date: 2015-03-29 09:39:26 UTC+08:00
 .. updated: 2017-10-26 08:00:00 UTC+08:00
-.. tags: terminal, bash
+.. tags: terminal, bash, shell
 .. category:
 .. link:
 .. description:

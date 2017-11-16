@@ -2,7 +2,7 @@
 .. slug: jing-tai-bo-ke-nikola-zhi-xie-zuo-shi-jian
 .. date: 2017-09-20 11:32:34 UTC+08:00
 .. tags: nikola, reST, markdown
-.. category: markdown
+.. category: markup
 .. author: macplay
 
 静态博客 Nikola 之写作实践
