@@ -1408,6 +1408,12 @@ GLOBAL_CONTEXT = {
         {"name": "Jam in World",
          "website": "https://jamchoi.cc/",
          "description": "Jam 的故事板"},
+        {"name": "深度识医",
+         "website": "https://lengyueyang.github.io",
+         "description": "Medical Big Data analysis, learning Machine learning and deep learning."},
+        {"name": "Lady luck is smilin'.",
+         "website": "https://ztlevi.github.io",
+         "description": "No gun, no cigar. Just a fake cowboy..."},
         ],
 }
 
