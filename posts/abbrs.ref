@@ -1,0 +1,4 @@
+.. |a_rst| replace:: reStructuredText
+.. |a_vim| replace:: Vim 编辑器
+
+.. vim:set et sw=4 ts=4 ft=rst:

@@ -1,0 +1,127 @@
+.. _applescript: /categories/applescript/
+.. |t_applescript| replace:: applescript_
+
+.. _bash: /categories/bash/
+.. |t_bash| replace:: bash_
+
+.. _benchmark: /categories/benchmark/
+.. |t_benchmark| replace:: benchmark_
+
+.. _chart: /categories/chart/
+.. |t_chart| replace:: chart_
+
+.. _clipboard: /categories/clipboard/
+.. |t_clipboard| replace:: clipboard_
+
+.. _completion: /categories/completion/
+.. |t_completion| replace:: completion_
+
+.. _ebook: /categories/ebook/
+.. |t_ebook| replace:: ebook_
+
+.. _emacs: /categories/emacs/
+.. |t_emacs| replace:: emacs_
+
+.. _git: /categories/git/
+.. |t_git| replace:: git_
+
+.. _icns: /categories/icns/
+.. |t_icns| replace:: icns_
+
+.. _imagemagick: /categories/imagemagick/
+.. |t_imagemagick| replace:: imagemagick_
+
+.. _ime: /categories/ime/
+.. |t_ime| replace:: ime_
+
+.. _ios: /categories/ios/
+.. |t_ios| replace:: ios_
+
+.. _jupyter: /categories/jupyter/
+.. |t_jupyter| replace:: jupyter_
+
+.. _latex: /categories/latex/
+.. |t_latex| replace:: latex_
+
+.. _macos: /categories/macos/
+.. |t_macos| replace:: macos_
+
+.. _markdown: /categories/markdown/
+.. |t_markdown| replace:: markdown_
+
+.. _matplotlib: /categories/matplotlib/
+.. |t_matplotlib| replace:: matplotlib_
+
+.. _mermaid: /categories/mermaid/
+.. |t_mermaid| replace:: mermaid_
+
+.. _neovim: /categories/neovim/
+.. |t_neovim| replace:: neovim_
+
+.. _nikola: /categories/nikola/
+.. |t_nikola| replace:: nikola_
+
+.. _office: /categories/office/
+.. |t_office| replace:: office_
+
+.. _pdf: /categories/pdf/
+.. |t_pdf| replace:: pdf_
+
+.. _pygal: /categories/pygal/
+.. |t_pygal| replace:: pygal_
+
+.. _python: /categories/python/
+.. |t_python| replace:: python_
+
+.. _recovery: /categories/recovery/
+.. |t_recovery| replace:: recovery_
+
+.. _reference: /categories/reference/
+.. |t_reference| replace:: reference_
+
+.. _regex: /categories/regex/
+.. |t_regex| replace:: regex_
+
+.. _reST: /categories/rest/
+.. |t_reST| replace:: reST_
+
+.. _rss: /categories/rss/
+.. |t_rss| replace:: rss_
+
+.. _shell: /categories/shell/
+.. |t_shell| replace:: shell_
+
+.. _`static site`: /categories/static-site/
+.. |t_static_site| replace:: `static site`_
+
+.. _`sublime text`: /categories/sublime-text/
+.. |t_sublime_text| replace:: `sublime text`_
+
+.. _terminal: /categories/terminal/
+.. |t_terminal| replace:: terminal_
+
+.. _translation: /categories/translation/
+.. |t_translation| replace:: translation_
+
+.. _travis: /categories/travis/
+.. |t_travis| replace:: travis_
+
+.. _vc: /categories/vc/
+.. |t_vc| replace:: vc_
+
+.. _vim: /categories/vim/
+.. |t_vim| replace:: vim_
+
+.. _vimrc: /categories/vimrc/
+.. |t_vimrc| replace:: vimrc_
+
+.. _xetex: /categories/xetex/
+.. |t_xetex| replace:: xetex_
+
+.. _`帮助`: /categories/bang-zhu/
+.. |t_帮助| replace:: `帮助`_
+
+.. _`马克飞象`: /categories/ma-ke-fei-xiang/
+.. |t_马克飞象| replace:: `马克飞象`_
+
+.. vim:set et sw=4 ts=4 ft=rst:

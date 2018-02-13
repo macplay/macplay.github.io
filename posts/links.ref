@@ -1,0 +1,21 @@
+.. _l_awesomehammerspoon: https://github.com/ashfinal/awesome-hammerspoon
+.. _l_docutils: http://docutils.sourceforge.net
+.. _l_emacs: https://www.gnu.org/software/emacs/
+.. _l_github: https://github.com
+.. _l_hammerspoon: https://github.com/Hammerspoon/hammerspoon
+.. _l_hammerspoonapi: http://www.hammerspoon.org/docs/index.html
+.. _l_hammerspoongo: http://www.hammerspoon.org/go/
+.. _l_hammerspoonpkg: http://www.hammerspoon.org/Spoons/
+.. _l_homebrew: https://brew.sh/
+.. _l_latex: https://www.latex-project.org/
+.. _l_neovim: https://github.com/neovim/neovim
+.. _l_rstdirects: http://docutils.sourceforge.net/docs/ref/rst/directives.html
+.. _l_rstfaq: http://docutils.sourceforge.net/FAQ.html
+.. _l_rstintro: http://docutils.sourceforge.net/docs/ref/rst/introduction.html
+.. _l_rstspecs: http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html
+.. _l_spacemacs: https://github.com/syl20bnr/spacemacs
+.. _l_vim: http://www.vim.org
+.. _l_vimr: https://github.com/qvacua/vimr
+.. _l_vimrc: https://github.com/ashfinal/vimrc-config
+
+.. vim:set et sw=4 ts=4 ft=rst:

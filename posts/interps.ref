@@ -1,0 +1,23 @@
+.. This file interpreters the title of URL in links.ref
+
+.. |l_awesomehammerspoon| replace:: awesome configuration for Hammerspoon
+.. |l_docutils| replace:: Docutils: Documentation Utilities
+.. |l_emacs| replace:: Emacs
+.. |l_github| replace:: GitHub
+.. |l_hammerspoonapi| replace:: Hammerspoon
+.. |l_hammerspoongo| replace:: Getting Started with Hammerspoon
+.. |l_hammerspoonpkg| replace:: Hammerspoon Spoons
+.. |l_hammerspoon| replace:: Hammerspoon
+.. |l_homebrew| replace:: Homebrew
+.. |l_latex| replace:: LaTeX
+.. |l_neovim| replace:: neovim
+.. |l_rstdirects| replace:: reStructuredText Directives
+.. |l_rstfaq| replace:: Docutils FAQ (Frequently Asked Questions)
+.. |l_rstintro| replace:: An Introduction to reStructuredText
+.. |l_rstspecs| replace:: reStructuredText Markup Specification
+.. |l_spacemacs| replace:: Spacemacs
+.. |l_vimrc| replace:: re-vim: sensible vim configuration
+.. |l_vimr| replace:: VimR
+.. |l_vim| replace:: Vim
+
+.. vim:set et sw=4 ts=4 ft=rst:
