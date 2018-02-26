@@ -3,8 +3,16 @@
 {% macro html_footer() %}
     <div class="footer extra-block no-print">
     {% if dw_blogroll %}
+    <span class="footer_item">
         <a href="/pages/you-qing-lian-jie/">友情链接</a>
+    </span>
     {% endif %}
+    <span class="footer_item">
+        <a href="/pages/liu-yan-ban/">留言板</a>
+    </span>
+    <span class="footer_item">
+        <a href="/pages/ge-ren-dong-tai/">碎碎念</a>
+    </span>
     </div>
     {% if content_footer %}
         {% if dw_social %}
