@@ -22,8 +22,14 @@
 .. _emacs: /categories/emacs/
 .. |t_emacs| replace:: emacs_
 
+.. _english: /categories/english/
+.. |t_english| replace:: english_
+
 .. _git: /categories/git/
 .. |t_git| replace:: git_
+
+.. _i3wm: /categories/i3wm/
+.. |t_i3wm| replace:: i3wm_
 
 .. _icns: /categories/icns/
 .. |t_icns| replace:: icns_
@@ -43,8 +49,14 @@
 .. _latex: /categories/latex/
 .. |t_latex| replace:: latex_
 
+.. _linux: /categories/linux/
+.. |t_linux| replace:: linux_
+
 .. _macos: /categories/macos/
 .. |t_macos| replace:: macos_
+
+.. _manjaro: /categories/manjaro/
+.. |t_manjaro| replace:: manjaro_
 
 .. _markdown: /categories/markdown/
 .. |t_markdown| replace:: markdown_
@@ -117,6 +129,9 @@
 
 .. _xetex: /categories/xetex/
 .. |t_xetex| replace:: xetex_
+
+.. _w3m: /categories/w3m/
+.. |t_w3m| replace:: w3m_
 
 .. _`帮助`: /categories/bang-zhu/
 .. |t_帮助| replace:: `帮助`_
