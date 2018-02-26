@@ -67,7 +67,10 @@ pre.code {
 }
 
 .codetable pre.code {
-    max-width: 56em;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    word-break: break-all;
+    overflow: auto;
 }
 
 code, cite, tt.docutils.literal {
