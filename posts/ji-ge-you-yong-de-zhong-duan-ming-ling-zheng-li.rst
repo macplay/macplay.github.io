@@ -342,3 +342,7 @@
 #. 生成简短的中文字体列表
 
    ``fc-list -f "%{family}\n" :lang=zh  > zhfont.txt``
+
+#. ffmpeg 视频极限压缩（替代 GIF）
+
+   ``ffmpeg -i in.mp4 -vf scale=-2:240 -c:v libx264 -an -crf 35 -b:v 100k -r 10 -preset slow out.mp4``
