@@ -25,6 +25,9 @@
 .. _english: /categories/english/
 .. |t_english| replace:: english_
 
+.. _ffmpeg: /categories/ffmpeg/
+.. |t_ffmpeg| replace:: ffmpeg_
+
 .. _git: /categories/git/
 .. |t_git| replace:: git_
 
