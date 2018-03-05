@@ -18,7 +18,10 @@
     {{ helper.twitter_card_information(post) }}
     {{ helper.meta_translations(post) }}
     {% if not post.meta('nocomments') %}
-    <link rel="stylesheet" href="/assets/css/gitalk.css">
+    <link rel="stylesheet" type="text/css" href="/assets/css/gitalk.css">
+    {% endif %}
+    {% if "asciinema" in post.tags %}
+        <link rel="stylesheet" type="text/css" href="/assets/css/asciinema-player.css" />
     {% endif %}
     {{ math.math_styles_ifpost(post) }}
 {% endblock %}
@@ -76,5 +79,8 @@
     {% if "mermaid" in post.tags %}
         <script type="text/javascript" src="/assets/js/mermaid.min.js"></script>
         <script>mermaid.initialize({startOnLoad: true, theme: 'forest'});</script>
+    {% endif %}
+    {% if "asciinema" in post.tags %}
+        <script type="text/javascript" src="/assets/js/asciinema-player.js"></script>
     {% endif %}
 {% endblock extra_js %}
