@@ -1412,6 +1412,9 @@ GLOBAL_CONTEXT = {
         {"name": "Lady luck is smilin'.",
          "website": "https://ztlevi.github.io",
          "description": "No gun, no cigar. Just a fake cowboy..."},
+        {"name": "Calpa's Blog",
+            "website": "https://calpa.me",
+            "description": "Calpa 的技术博客"},
         ],
 }
 
