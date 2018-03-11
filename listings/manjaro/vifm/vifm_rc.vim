@@ -476,17 +476,17 @@ set classify=' :dir:/, :exe:, :reg:, :link:'
 " various file names
 set classify+=' ::../::, ::*.sh,,*.fish,,*.bash,,*.zsh::, ::*.[hc]pp::, ::*.[hc]::, ::/^copying|license$/::, ::.git/,,*.git/::, ::*.epub,,*.fb2,,*.djvu::, ::*.pdf::, ::*.htm,,*.html,,**.[sx]html,,*.xml::'
 " archives
-set classify+=' ::*.7z,,*.ace,,*.arj,,*.bz2,,*.cpio,,*.deb,,*.dz,,*.gz,,*.jar,,*.lzh,,*.lzma,,*.rar,,*.rpm,,*.rz,,*.tar,,*.taz,,*.tb2,,*.tbz,,*.tbz2,,*.tgz,,*.tlz,,*.trz,,*.txz,,*.tz,,*.tz2,,*.xz,,*.z,,*.zip,,*.zoo::'
+set classify+=' ::*.7z,,*.ace,,*.arj,,*.bz2,,*.cpio,,*.deb,,*.dz,,*.gz,,*.jar,,*.lzh,,*.lzma,,*.rar,,*.rpm,,*.rz,,*.tar,,*.taz,,*.tb2,,*.tbz,,*.tbz2,,*.tgz,,*.tlz,,*.trz,,*.txz,,*.tz,,*.tz2,,*.xz,,*.z,,*.zip,,*.zoo,,*.iso,,*.img,,*.dmg,,*.pkg::'
 " images
-set classify+=' ::*.bmp,,*.gif,,*.jpeg,,*.jpg,,*.ico,,*.png,,*.ppm,,*.svg,,*.svgz,,*.tga,,*.tif,,*.tiff,,*.xbm,,*.xcf,,*.xpm,,*.xspf,,*.xwd::'
+set classify+=' ::*.bmp,,*.gif,,*.jpeg,,*.jpg,,*.ico,,*.icns,,*.png,,*.ppm,,*.svg,,*.svgz,,*.tga,,*.tif,,*.tiff,,*.xbm,,*.xcf,,*.xpm,,*.xspf,,*.xwd::'
 set classify+=' ::*.ai,,*.psd,,*.psb::'
 " audio
 set classify+=' ::*.aac,,*.anx,,*.asf,,*.au,,*.axa,,*.m2a,,*.m4a,,*.mid,,*.midi,,*.mpc,,*.oga,,*.ogx,,*.ra,,*.ram,,*.rm,,*.spx,,*.ac3::'
 set classify+=' ::*.mp3,,*.flac,,*.wav,,*.ogg,,*.wma::'
 " media
 set classify+=' ::*.ts,,*.axv,,*.divx,,*.m2v,,*.m4p,,*.m4v,,.mka,,*.mp4v,,*.nuv,,*.ogv,,*.pbm,,*.pgm,,*.qt,,*.vob,,*.xvid::'
-set classify+=' ::*.avi,,*.wmv,,*.m[p]eg,,*.mkv,,*.flv,,*.mp4,,*.mov,,*.webm::'
+set classify+=' ::*.avi,,*.wmv,,*.m[p]eg,,*.rmvb,,*.rm,,*.mkv,,*.flv,,*.mp4,,*.mov,,*.webm::'
 " office files
 set classify+=' ::*.doc,,*.docx::, ::*.xls,,*.xls[mx]::, ::*.pptx,,*.ppt::'
 " devicons
-set classify+='λ ::*.ml,,*.mli::, ::*.styl::, ::*.scss::, ::*.py,,*.pyc,,*.pyd,,*.pyo::, ::*.php::, ::*.markdown,,*.md::, ::*.json::, ::*.js::, ::*.ejs,,*.slim::, ::*.hbs,,*mustache::, ::*.css,,*.less::, ::*.bat,,*.conf,,*.ini,,*.rc,,*.yml::, ::*.rss::, ::*.coffee::, ::*.twig::, ::*.hs,,*.lhs,,*.lua::, ::*.jl::, ::*.go::, ::*.ts::, ::*.db,,*.dump,,*.sql::, ::*.sln,,*.suo::, ::*.diff::, ::*.scala::, ::*.java::, ::*.xul::, ::*.clj,,*.cljc::, ::*.pl,,*.pm,,*.t::, ::*.cljs,,*.edn::, ::*.rb::, ::*.dart::, ::*.f#,,*.fs,,*.fsi,,*.fsscript,,*.fsx::, ::*.rlib,,*.rs::, ::*.d::, ::*.erl,,*.hrl::, ::*.jsx::, ::*.vim,,*.vimrc::, ::*.log::'
+set classify+=' ::*.txt::,λ ::*.ml,,*.mli::, ::*.styl::, ::*.scss::, ::*.py,,*.pyc,,*.pyd,,*.pyo::, ::*.php::, ::*.markdown,,*.md::, ::*.json::, ::*.js::, ::*.ejs,,*.slim::, ::*.hbs,,*mustache::, ::*.css,,*.less::, ::*.bat,,*.conf,,*.ini,,*.rc,,*.yml::, ::*.rss::, ::*.coffee::, ::*.twig::, ::*.hs,,*.lhs,,*.lua::, ::*.jl::, ::*.go::, ::*.ts::, ::*.db,,*.dump,,*.sql::, ::*.sln,,*.suo::, ::*.diff::, ::*.scala::, ::*.java::, ::*.xul::, ::*.clj,,*.cljc::, ::*.pl,,*.pm,,*.t::, ::*.cljs,,*.edn::, ::*.rb::, ::*.dart::, ::*.f#,,*.fs,,*.fsi,,*.fsscript,,*.fsx::, ::*.rlib,,*.rs::, ::*.d::, ::*.erl,,*.hrl::, ::*.jsx::, ::*.vim,,*.vimrc::, ::*.log::'
