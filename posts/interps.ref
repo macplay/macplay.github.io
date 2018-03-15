@@ -10,7 +10,9 @@
 .. |l_hammerspoon| replace:: Hammerspoon
 .. |l_homebrew| replace:: Homebrew
 .. |l_latex| replace:: LaTeX
+.. |l_lsp| replace:: Language Server Protocol
 .. |l_neovim| replace:: neovim
+.. |l_onivim| replace:: Oni: Modern Modal Editing - powered by Neovim
 .. |l_rstdirects| replace:: reStructuredText Directives
 .. |l_rstfaq| replace:: Docutils FAQ (Frequently Asked Questions)
 .. |l_rstintro| replace:: An Introduction to reStructuredText
