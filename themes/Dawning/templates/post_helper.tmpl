@@ -14,12 +14,12 @@
     {% if post.prev_post or post.next_post %}
     <div class="post-navigation no-print">
         <div class="ui huge secondary stackable menu">
-        {% if post.prev_post %}
-            <a class="post-nav-item post-nav-previous item" href="{{ post.prev_post.permalink() }}" title="{{ messages("Previous post") }}"><i class="angle double left icon"></i> {{ post.prev_post.title()|e }}</a>
-        {% endif %}
         {% if post.next_post %}
+            <a class="post-nav-item post-nav-previous item" href="{{ post.next_post.permalink() }}" title="{{ messages("Previous post") }}"><i class="angle double left icon"></i> {{ post.next_post.title()|e }}</a>
+        {% endif %}
+        {% if post.prev_post %}
         <div class="right menu">
-            <a class="post-nav-item post-nav-next item" href="{{ post.next_post.permalink() }}" title="{{ messages("Next post") }}">{{ post.next_post.title()|e }} <i class="angle double right icon"></i></a>
+            <a class="post-nav-item post-nav-next item" href="{{ post.prev_post.permalink() }}" title="{{ messages("Next post") }}">{{ post.prev_post.title()|e }} <i class="angle double right icon"></i></a>
         </div>
         {% endif %}
         </div>
