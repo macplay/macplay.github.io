@@ -17,6 +17,7 @@
 {% endblock main_content %}
 
 {% block extra_js %}
+    <script src="/assets/js/md5.min.js"></script>
     <script src="/assets/js/gitalk.min.js"></script>
     <script>
         const gitalk = new Gitalk({
@@ -25,6 +26,7 @@
             repo: 'macplay.github.io',
             owner: 'macplay',
             admin: ['macplay', 'ashfinal'],
+            id: md5(window.location.pathname),
             // facebook-like distraction free mode
             distractionFreeMode: false
         })

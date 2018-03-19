@@ -62,6 +62,7 @@
     {{ math.math_scripts_ifpost(post) }}
     {# <script async type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-59ecbed442c8595a"></script> #}
     {% if not post.meta('nocomments') %}
+    <script src="/assets/js/md5.min.js"></script>
     <script src="/assets/js/gitalk.min.js"></script>
     <script>
         const gitalk = new Gitalk({
@@ -70,6 +71,7 @@
             repo: 'macplay.github.io',
             owner: 'macplay',
             admin: ['macplay', 'ashfinal'],
+            id: md5(window.location.pathname),
             // facebook-like distraction free mode
             distractionFreeMode: false
         })
