@@ -109,7 +109,8 @@ endif
 
 " Set custom status line look
 
-set statusline="  Hint: %z%= %A %10u:%-7g %15s %20d  "
+" set statusline="  Hint: %z%= %A %10u:%-7g %15s %20d  "
+set statusline="  %t%= %A %10u:%-7g %15s %20d  "
 
 " Show number of entries in the directory, instead of size
 set dirsize=nitems
