@@ -1415,6 +1415,9 @@ GLOBAL_CONTEXT = {
         {"name": "Calpa's Blog",
             "website": "https://calpa.me",
             "description": "Calpa 的技术博客"},
+        {"name": "(power up)",
+            "website": "http://kevinjiang.info",
+            "description": "(power up)"},
         ],
 }
 
