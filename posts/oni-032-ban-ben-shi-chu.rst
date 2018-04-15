@@ -8,11 +8,14 @@
 .. type: text
 .. nocomments:
 .. password:
-.. previewimage:
+.. previewimage: /images/oni_release.png
 
 
 .. include:: posts/links.ref
 .. include:: posts/interps.ref
+
+.. figure:: /images/oni_release.png
+   :align: center
 
 本来对这次版本更新还有些不以为然：为何不把精力放在完善 |l_lsp|_ 支持，而跑去写什么新手教程呢？直到今天尝试了下教程，又看了文字版更新内容，才明白过来：Oni 编辑器正朝着我期待的方向前进！
 
