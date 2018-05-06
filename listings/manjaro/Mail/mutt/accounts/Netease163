@@ -1,0 +1,26 @@
+unset realname
+set realname = "ashfinal"
+unset from
+set from = "ashfinal@163.com"
+unset envelope_from_address
+set envelope_from_address = "ashfinal@163.com"
+unset sendmail
+set sendmail = "/usr/local/bin/msmtp -a Netease163"
+unset spoolfile
+set spoolfile = "+Netease163/INBOX"
+unset postponed
+set postponed = "+Netease163/Drafts"
+unset record
+set record = "+Netease163/Sent Mail"
+unset trash
+set trash = "+Netease163/Trash"
+
+# unset signature
+# set signature = "~/.mutt/accounts/Personal.sig"
+# unset alias_file
+# set alias_file = "~/.mutt/accounts/Personal.alias"
+# source $alias_file
+
+color status yellow default
+
+# vim:set et sw=4 ts=4 ft=conf:

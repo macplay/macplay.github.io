@@ -1,0 +1,43 @@
+# html
+# text/html; lynx -display_charset=utf-8 -dump %s; nametemplate=%s.html; copiousoutput
+# text/html; w3m -I %{charset} -T text/html; copiousoutput;
+text/html; elinks -dump -dump-charset %{charset} -default-mime-type text/html %s; needsterminal; copiousoutput;
+
+# pdf
+application/pdf; zathura %s;
+
+# spreadsheets
+application/vnd.ms-excel; oocalc %s;
+application/vnd.openxml; oocalc %s;
+application/excel; oocalc %s;
+application/msexcel; oocalc %s;
+application/x-excel; oocalc %s;
+application/x-msexcel; oocalc %s;
+application/vnd.oasis.opendocument.spreadsheet; oocalc %s;
+
+# slide decks
+application/powerpoint; ooimpress %s;
+application/vnd.ms-powerpoint; ooimpress %s;
+application/x-mspowerpoint; ooimpress %s;
+application/mspowerpoint; ooimpress %s;
+application/vnd.oasis.opendocument.presentation; ooimpress %s;
+application/ppt; ooimpress %s;
+application/pptx; ooimpress %s;
+
+# documents
+application/msword; oowriter %s;
+application/vnd.openxmlformats-officedocument.wordprocessingml.document; oowriter %s;
+application/vnd.openxml; oowriter %s;
+application/vnd.sun.xml.writer; oowriter %s ;
+application/vnd.oasis.opendocument.text; oowriter %s ;
+
+# images
+image/jpeg; viewnior %s
+image/gif; viewnior %s
+image/GIF; viewnior %s
+image/JPG; viewnior %s
+image/jpg; viewnior %s
+image/png; viewnior %s
+image/PNG; viewnior %s
+image/jpeg; viewnior %s
+image/JPEG; viewnior %s
