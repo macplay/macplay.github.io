@@ -1,7 +1,7 @@
 # html
 # text/html; lynx -display_charset=utf-8 -dump %s; nametemplate=%s.html; copiousoutput
 # text/html; w3m -I %{charset} -T text/html; copiousoutput;
-text/html; elinks -dump -dump-charset %{charset} -default-mime-type text/html %s; needsterminal; copiousoutput;
+text/html; elinks -dump -dump-charset %{charset} %s; copiousoutput;
 
 # pdf
 application/pdf; zathura %s;
@@ -32,12 +32,4 @@ application/vnd.sun.xml.writer; oowriter %s ;
 application/vnd.oasis.opendocument.text; oowriter %s ;
 
 # images
-image/jpeg; viewnior %s
-image/gif; viewnior %s
-image/GIF; viewnior %s
-image/JPG; viewnior %s
-image/jpg; viewnior %s
-image/png; viewnior %s
-image/PNG; viewnior %s
-image/jpeg; viewnior %s
-image/JPEG; viewnior %s
+image/*; viewnior %s
