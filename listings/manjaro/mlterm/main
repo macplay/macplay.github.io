@@ -1,0 +1,37 @@
+# (xterm,mlterm,kterm)
+termtype = xterm-256color
+fg_color = #ffffffffffff
+bg_color = #313136363b3b
+tabsize = 4
+logsize = 1024
+fontsize = 20
+mod_meta_mode = esc
+scrollbar_mode = none
+col_size_of_width_a = 1
+input_method = fcitx
+type_engine = xft
+# type_engine = cairo
+# use_anti_alias = false
+line_space = 0
+underline_offset = 0
+baseline_offset = 0
+# -- Encoding --
+# (ISO-8859-[1-11], ISO-8859-[13-16], TIS-620 (same as ISO-8859-11),
+#  KOI8-[RUT], ISCII, VISCII, TCVN5712, GEORGIAN_PS, CP125[0-8], CP874,
+#  EUC-JP, EUC-JISX0213, Shift_JIS, Shift_JISX0213, ISO-2022-JP[1-3],
+#  EUC-KR, UHC, JOHAB, ISO-2022-KR, GB2312 (EUC-CN), GBK, GB18030,
+#  ISO-2022-CN, HZ, EUC-TW, BIG5, BIG5HKSCS, UTF-8, AUTO)
+# ENCODING = auto
+# emoji_path =
+# (8,16,24,32)
+# depth = 24
+# wall_picture =
+use_anti_alias = true
+only_use_unicode_font = false
+not_use_unicode_font = false
+receive_string_via_ucs = true
+static_backscroll_mode = false
+use_extended_scroll_shortcut = true
+use_ot_layout = false
+use_ctl = false
+use_multi_column_char = false
