@@ -56,7 +56,8 @@ pre.code {
     font-size: 0.9rem;
     font-family: monospace;
     padding: 5px 10px;
-    line-height: 1.7em;;
+    line-height: 1.7em;
+    overflow: auto;
 }
 
 .codetable pre.code {
