@@ -230,7 +230,7 @@ header#header {
     margin: 1em;
 }
 
-.footer.extra-block a{
+.footer.extra-block a {
     cursor: pointer;
     color: #555;
     text-decoration: underline;
@@ -246,6 +246,6 @@ header#header {
 
 @media print {
     .no-print {
-    display: none !important;
-} 
+        display: none !important;
+    }
 }

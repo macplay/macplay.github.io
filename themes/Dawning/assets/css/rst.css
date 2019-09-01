@@ -24,21 +24,14 @@ h3 a,
 h4 a,
 h5 a {
     color: #555;
-    font-weight: normal;
+    font-weight: bold;
     display: block;
 }
 
-h2 a:after,
-h3 a:after,
-h4 a:after,
-h5 a:after {
-    content: " ¶";
-}
-
-h2:first-child, 
-h3:first-child, 
-h4:first-child, 
-h5:first-child, 
+h2:first-child,
+h3:first-child,
+h4:first-child,
+h5:first-child,
 p:first-child {
     margin-top: 1rem;
 }
