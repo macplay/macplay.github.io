@@ -4,6 +4,7 @@ header#header {
 
 .page-body {
     padding: 0px 1rem;
+    overflow: auto;
 }
 
 .post-entry {
