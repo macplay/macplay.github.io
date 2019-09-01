@@ -1,8 +1,9 @@
 .. title: Neovim 的终端模拟器
 .. slug: neovim-de-zhong-duan-mo-ni-qi
 .. date: 2017-11-16 18:47:11 UTC+08:00
-.. tags: vim, neovim, terminal, emulator, draft
+.. tags: vim, neovim, terminal, emulator
 .. category: vim
+.. status: draft
 .. link:
 .. description:
 .. type: text

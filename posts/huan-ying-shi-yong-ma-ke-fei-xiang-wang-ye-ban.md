@@ -2,8 +2,9 @@
 .. title: 欢迎使用马克飞象网页版
 .. slug: huan-ying-shi-yong-ma-ke-fei-xiang-wang-ye-ban
 .. date: 2017-10-14 12:34:48 UTC+08:00
-.. tags: 马克飞象, 帮助, markdown, mathjax
+.. tags: 马克飞象, 帮助, markdown
 .. category:
+.. has_math: yes
 .. link:
 .. description:
 .. type: text

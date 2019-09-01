@@ -1,8 +1,9 @@
 .. title: 从 Markdown 到 reStructuredText
 .. slug: cong-markdown-dao-restructuredtext
 .. date: 2017-10-04 16:20:05 UTC+08:00
-.. tags: mathjax, reST, static site
+.. tags: reST, static site
 .. category: markup
+.. has_math: yes
 .. link:
 .. description:
 .. type: text
