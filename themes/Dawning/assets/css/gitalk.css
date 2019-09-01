@@ -849,7 +849,7 @@
   text-decoration: none;
   white-space: nowrap;
   cursor: pointer;
-  border: none;
+  border: 1px solid #6190e8;
   border-radius: 5px;
   background-color: #6190e8;
   color: #fff;
@@ -1017,11 +1017,11 @@
   min-height: 5.125em;
   max-height: 15em;
   border-radius: 5px;
-  border: 1px solid rgba(0,0,0,0.05);
+  border: 1px solid rgba(0,0,0,0.1);
   font-size: 0.875em;
   word-wrap: break-word;
   resize: vertical;
-  background-color: #fdfdfd;
+  background-color: #f6f6f6;
   outline: none;
   -webkit-transition: all 0.25s ease;
   transition: all 0.25s ease;
@@ -1125,11 +1125,14 @@
           flex: 1;
   margin-left: 1.25em;
   padding: 0.75em 1em;
-  background-color: #fefefe;
+  background-color: #f9f9f9;
   overflow: auto;
+  -webkit-transition: all ease 0.25s;
+  transition: all ease 0.25s;
 }
 .gt-container .gt-comment-content:hover {
-
+  -webkit-box-shadow: 0 0.625em 3.75em 0 #f4f4f4;
+          box-shadow: 0 0.625em 3.75em 0 #f4f4f4;
 }
 @media (max-width: 479px) {
   .gt-container .gt-comment-content {
@@ -1180,10 +1183,9 @@
 }
 .gt-container .gt-comment-body {
   color: #333 !important;
-  font-size: 0.85em;
 }
 .gt-container .gt-comment-admin .gt-comment-content {
-  background-color: #fdfdfd;
+  background-color: #f6f9fe;
 }
 @-webkit-keyframes gt-kf-rotate {
   0% {
