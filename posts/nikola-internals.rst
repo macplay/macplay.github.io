@@ -7,7 +7,6 @@
 .. description:
 .. type: text
 .. nocomments:
-.. password: 123456
 .. previewimage:
 
 Nikola Internals
