@@ -1,20 +1,14 @@
 language: python
 cache:
-- pip
+  - pip
 sudo: false
 
 branches:
   only:
-  - src
+    - src
 
 python:
   - 3.7
-
-before_install:
-  - git remote rm origin
-  - git remote add origin git@github.com:macplay/macplay.github.io.git
-  - git fetch origin master
-  - git branch master FETCH_HEAD
 
 install:
   - pip install 'Nikola[extras]'
@@ -29,7 +23,6 @@ deploy:
   github_token: $GITHUB_TOKEN  # Set in the settings page of your repository, as a secure variable
   keep_history: true
   local_dir: macplay.github.io/output
-  repo:PgynthonSanSebastian/.nggithub.io
   target_branch: master
   on:
     branch: src
