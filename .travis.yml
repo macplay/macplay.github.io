@@ -14,15 +14,14 @@ install:
   - pip install 'Nikola[extras]'
 
 script:
-  - cd macplay.github.io
   - nikola build
 
 deploy:
   provider: pages
   skip_cleanup: true
   github_token: $GITHUB_TOKEN  # Set in the settings page of your repository, as a secure variable
-  keep_history: true
-  local_dir: macplay.github.io/output
+  keep_history: false
+  local_dir: output
   target_branch: master
   on:
     branch: src
