@@ -7,7 +7,6 @@
 .. description:
 .. type: text
 .. nocomments:
-.. password:
 .. previewimage:
 
 之前提到过 reStructuredText 的表格类型 `Grid Tables`_ 书写困难，普通编辑器难以胜任，可能有人好奇笔者是如何做的。对于 Vim、Emacs 两大编辑器来说，表格创建任务非常简单：

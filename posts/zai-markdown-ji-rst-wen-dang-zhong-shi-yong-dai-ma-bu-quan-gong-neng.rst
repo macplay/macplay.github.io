@@ -7,7 +7,6 @@
 .. description:
 .. type: text
 .. nocomments:
-.. password:
 .. previewimage:
 
 大家都知道，写 Markdown 文档时可以使用代码区块（Code Blocks)。给代码片段指定语言类型，就有漂亮的语法高亮效果。那有没有想过，直接在代码区块中写 Python 代码呢？

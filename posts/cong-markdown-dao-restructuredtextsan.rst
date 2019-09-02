@@ -7,7 +7,6 @@
 .. description:
 .. type: text
 .. nocomments:
-.. password:
 .. previewimage:
 
 本文是《从 Markdown 到 reStructuredText》系列文章的第三篇。和 Markdown 一样，reStructuredText 也是一种易读易写的纯文本标记语言，不过功能上更加强大（而且标准统一）。如果想了解其对应于 Markdown 的基本语法，请阅读 `第一篇文章`_ 。本文继续 `上一篇文章`_ 的话题，聊一聊标记语言的样式问题，确切的说是 reStructuredText 在静态博客 Nikola 中的样式写法。

@@ -7,7 +7,6 @@
 .. description:
 .. type: text
 .. nocomments:
-.. password:
 .. previewimage:
 
 :Author: ashfinal

@@ -7,7 +7,6 @@
 .. description:
 .. type: text
 .. nocomments:
-.. password:
 .. previewimage:
 
 寻找 `Terminology 终端 <https://www.enlightenment.org/about-terminology>`_ 相关资料时，搜索结果里意外瞥见了 Terminology for OS X Dictionary。点击一看，发现竟然是著名软件 Drafts 作者搞的。根据介绍，Terminology for OS X Dictionary 基于 WordNet 语意索引。WordNet 语意索引估计不少人听说过，理论上应该能提供更多更准确的字词释义。于是不再犹豫，果断下载安装。

@@ -7,7 +7,6 @@
 .. description:
 .. type: text
 .. nocomments:
-.. password:
 .. previewimage:
 
 .. figure:: /images/vim-cheat-sheet-full.thumbnail.png

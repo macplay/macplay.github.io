@@ -8,7 +8,6 @@
 .. description:
 .. type: text
 .. nocomments:
-.. password:
 .. previewimage: /images/gitup_overview.png
 
 尽管平时基本不使用 Git 客户端（偶尔用用 Tig_ ），不过看到 GitUp_ 的特性介绍，笔者还是产生了浓厚的兴趣。下载下来尝试了一下，感觉与其它 Git 客户端的确有些不一样。官方宣传声称 GitUp_ 就是“你朝思暮想的 Git 客户端”（The Git interface you've been missing）；使用 GitUp_ 以后，再也“不必头痛 Git 版本管理”（without headaches）。那么， GitUp_ 究竟表现如何？接下来，随笔者一起来看看这个不一样的 Git 客户端吧。

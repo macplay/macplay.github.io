@@ -8,7 +8,6 @@ link:
 description:
 type: text
 nocomments:
-password:
 previewimage:
 ---
 

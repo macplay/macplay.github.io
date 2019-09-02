@@ -7,7 +7,6 @@
 .. description:
 .. type: text
 .. nocomments:
-.. password:
 .. previewimage: /images/vim-tips-tricks.jpg
 
 **提要** ：在这篇文章里，我将用实际例子向你展示一些我最喜爱的 **Vim 技巧** 。如果你不使用 Vim，这些技巧并不会给你多少理由让你想使用它。但是，如果你已经在使用，那本文无疑会让你成为更专业的 Vim 用户。

@@ -7,7 +7,6 @@
 .. description:
 .. type: text
 .. nocomments:
-.. password:
 .. previewimage:
 
 发现 fancyBox_ 能自动识别嵌入的媒体，比如 Youtube、Vimeo、Google Map、Instagram 等。

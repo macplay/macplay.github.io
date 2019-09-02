@@ -7,7 +7,6 @@
 .. description:
 .. type: text
 .. nocomments:
-.. password:
 .. previewimage:
 
 看过一些文章得出结论：即使用 XeTeX 编译中文，也需要额外添加 `xeCJK` 包设置下字体。笔者也一直是这么做的。

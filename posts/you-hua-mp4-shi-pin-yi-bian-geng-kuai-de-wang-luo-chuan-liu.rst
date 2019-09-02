@@ -7,7 +7,6 @@
 .. description:
 .. type: text
 .. nocomments:
-.. password:
 .. previewimage:
 
 随着 `Flash 的落寞 <http://thenextweb.com/apps/2015/09/01/adobe-flash-just-took-another-step-towards-death-thanks-to-google/>`_ 以及 `移动设备的爆发性增长 <http://searchengineland.com/its-official-google-says-more-searches-now-on-mobile-than-on-desktop-220369>`_ ，越来越多的内容以 HTML5 视频的方式传递。在上一篇文章中你甚至能看到 `使用 HTML5 视频替换 GIF 动图来优化网站访问速度 <http://rigor.com/blog/2015/12/optimizing-animated-gifs-with-html5-video>`_ 这样的技巧。然而事实上，视频格式本身就有一堆优化技巧可用来改善它们的性能表现。其中非常重要的一点，就是视频文件可以合理优化以便作为 HTML5 视频在网络上串流播放。否则的话，播放视频文件可能会有数百毫秒的延迟，同时导致数兆字节的带宽被浪费，只因网站访客试图播放你的视频。在这篇文章里，我将向你展示如何优化视频文件以便在网络上更快地串流播放。

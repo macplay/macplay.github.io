@@ -7,7 +7,6 @@
 .. description:
 .. type: text
 .. nocomments:
-.. password:
 .. previewimage:
 
 If you are using reStructuredText and install pygal, Nikola has support for rather nice charts

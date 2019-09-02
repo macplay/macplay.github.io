@@ -7,7 +7,6 @@
 .. description:
 .. type: text
 .. nocomments:
-.. password:
 .. previewimage:
 
 .. figure:: /images/manjaro_w3m.thumbnail.png

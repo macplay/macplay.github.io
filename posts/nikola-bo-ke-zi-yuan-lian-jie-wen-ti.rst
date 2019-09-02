@@ -7,7 +7,6 @@
 .. description:
 .. type: text
 .. nocomments:
-.. password:
 .. previewimage:
 
 写博客的时候，经常会插入各种超链接。外部链接不必理会，正常插入即可。但是博客内部链接（譬如，请参阅上一篇文章： `30 分钟搭建一个 Nikola 博客`_ ）却是需要额外关注，规范做法应该是这样： `/posts/30-fen-zhong-jian-li-yi-ge-nikola-bo-ke/` ，而不是这样： `https://macplay.github.com/posts/30-fen-zhong-jian-li-yi-ge-nikola-bo-ke/` 。从最终效果来看貌似没有区别，但是如果发布到其它站点或者将来更换域名，第二种做法的缺陷就暴露出来了：届时需要将成百上千篇文章中的链接进行相应替换。因此，及早规范博客内部链接还是比较重要的。

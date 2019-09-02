@@ -7,7 +7,6 @@
 .. description:
 .. type: text
 .. nocomments:
-.. password:
 .. previewimage:
 
 刚刚给博客粗略添加了打印功能支持，利用 CSS 的媒体查询特性，非常简短的几行代码。效果是浏览文章页面的时候，点击 Safari `打印` 或 `导出为 PDF` 菜单，其它无关紧要的导航栏、侧边栏、评论框等会自动隐藏，只留下文章主体部分。

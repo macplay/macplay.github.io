@@ -7,7 +7,6 @@
 .. description:
 .. type: text
 .. nocomments:
-.. password:
 .. previewimage:
 
 Vim 支持标准的 `撤销和重做`_ ，同时还支持 `undo branches` 。这允许你撤销一些更改，然后再做新的更改，而在此过程中 **所有** 的更改都在 `undo tree` 中得到保留。你甚至还能把撤销（undo）记录保存到文件中，下次编辑同一文件时恢复这些记录。本文将向你初步展示如何在 Vim 中使用 `undo branches` 。

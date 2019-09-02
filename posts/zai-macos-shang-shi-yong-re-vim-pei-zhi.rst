@@ -8,7 +8,6 @@
 .. description:
 .. type: text
 .. nocomments:
-.. password:
 .. previewimage:
 
 .. include:: posts/links.ref

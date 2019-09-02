@@ -7,7 +7,6 @@
 .. description:
 .. type: text
 .. nocomments:
-.. password:
 .. previewimage: /images/vim_skin.jpeg
 
     哦不，并不是因为我不知道怎么退出它。 [#]_
