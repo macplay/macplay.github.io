@@ -3,6 +3,9 @@ cache:
   - pip
 sudo: false
 
+git:
+  depth: 3
+
 branches:
   only:
     - src
@@ -28,7 +31,9 @@ deploy:
 
 notifications:
   email:
-    on_success: change
+    recipients:
+      - ashfinal@sina.cn
+    on_success: never
     on_failure: always
 
 # vim:set nowrap et sw=2 ts=2:
