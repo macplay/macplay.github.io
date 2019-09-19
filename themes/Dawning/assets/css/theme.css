@@ -2,7 +2,7 @@ header#header {
     margin-bottom: 1em;
 }
 
-.page-body {
+.listingpage.page-body {
     padding: 0px 1rem;
     overflow: auto;
 }
