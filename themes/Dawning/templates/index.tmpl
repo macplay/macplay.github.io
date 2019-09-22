@@ -1,7 +1,7 @@
 {# -*- coding: utf-8 -*- #}
 
-{% import 'index_helper.tmpl' as index with context %}
 {% extends 'base.tmpl' %}
+{% import 'pagination_helper.tmpl' as pagination with context %}
 
 {% block extra_head %}
     {{ super() }}
@@ -64,6 +64,6 @@
     </div>
 
     {% if page_links %}
-        {{ index.page_navigation(current_page, page_links, prevlink, nextlink, prev_next_links_reversed, surrounding=5) }}
+        {{ pagination.page_navigation(current_page, page_links, prevlink, nextlink, prev_next_links_reversed, surrounding=5) }}
     {% endif %}
 {% endblock main_content %}

@@ -15,17 +15,26 @@
             </script>
         {% else %}
             <script>
-                renderMathInElement(document.body);
+                renderMathInElement(document.body,
+                    {
+                        delimiters: [
+                            {left: "$$", right: "$$", display: true},
+                            {left: "\\[", right: "\\]", display: true},
+                            {left: "\\begin{equation*}", right: "\\end{equation*}", display: true},
+                            {left: "\\(", right: "\\)", display: false}
+                        ]
+                    }
+                );
             </script>
         {% endif %}
     {% else %}
 {#  Note: given the size of MathJax; nikola will retrieve MathJax from a CDN regardless of use_cdn configuration #}
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha256-SDRP1VVYu+tgAGKhddBSl5+ezofHKZeI+OzxakbIe/Y=" crossorigin="anonymous"></script>
         {% if mathjax_config %}
-            {{ mathjax_config }}
+        {{ mathjax_config }}
         {% else %}
         <script type="text/x-mathjax-config">
-            MathJax.Hub.Config({tex2jax: {inlineMath: [['$latex ','$'], ['\\(','\\)']]}});
+        MathJax.Hub.Config({tex2jax: {inlineMath: [['$latex ','$'], ['\\(','\\)']]}});
         </script>
         {% endif %}
     {% endif %}
@@ -44,7 +53,7 @@
 {% endmacro %}
 
 {% macro math_scripts_ifposts(posts) %}
-    {% if posts|selectattr("is_mathjax")|list %}
+    {% if posts|selectattr("has_math")|list %}
         {{ math_scripts() }}
     {% endif %}
 {% endmacro %}
@@ -56,7 +65,7 @@
 {% endmacro %}
 
 {% macro math_styles_ifposts(posts) %}
-    {% if posts|selectattr("is_mathjax")|list %}
+    {% if posts|selectattr("has_math")|list %}
         {{ math_styles() }}
     {% endif %}
 {% endmacro %}

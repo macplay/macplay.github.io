@@ -1,0 +1,27 @@
+{#  -*- coding: utf-8 -*- #}
+
+{% extends 'index.tmpl' %}
+{% import 'pagination_helper.tmpl' as pagination with context %}
+
+{% block main_content %}
+    <div class="listpage page-body">
+        <div class="list-title">{{ title|e }}</div>
+        {% if posts %}
+        <div class="list-postlist">
+            <ul>
+            {% for post in posts %}
+            <li>
+                <a href="{{ post.permalink() }}">{{ post.title()|e }}</a>
+                <time datetime="{{ post.formatted_date('webiso') }}" title="{{ post.formatted_date(date_format)|e }}">{{ post.formatted_date(date_format)|e }}</time>
+            </li>
+            {% endfor %}
+            </ul>
+        </div>
+        {% else %}
+        <p>{{ messages("No posts found.") }}</p>
+        {% endif %}
+    </div>
+    {% if page_links and page_links|length > 1 %}
+        {{ pagination.page_navigation(current_page, page_links, prevlink, nextlink, prev_next_links_reversed, surrounding=5) }}
+    {% endif %}
+{% endblock %}
