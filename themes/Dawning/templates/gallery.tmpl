@@ -46,15 +46,3 @@
     {% endif %}
 </div>
 {% endblock main_content %}
-
-{% block extra_head %}
-    {{ super() }}
-    {% if translations|length > 1 %}
-        {% for langname in translations.keys() %}
-             {% if langname != lang %}
-                 <link rel="alternate" hreflang="{{ langname }}" href="{{ _link('gallery', gallery_path, langname) }}">
-             {% endif %}
-        {% endfor %}
-    {% endif %}
-    <link rel="alternate" type="application/rss+xml" title="RSS" href="rss.xml">
-{% endblock extra_head %}

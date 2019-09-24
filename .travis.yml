@@ -1,7 +1,17 @@
+env:
+  - LANG=zh_CN.UTF-8
 language: python
+sudo: false
+
 cache:
   - pip
-sudo: false
+  directories:
+    - .doit.db.bak
+    - .doit.db.dat
+    - .doit.db.dir
+    - $HOME/output
+    - $HOME/cache
+    - $HOME/__pycache__
 
 git:
   depth: 3
