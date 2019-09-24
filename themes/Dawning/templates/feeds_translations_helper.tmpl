@@ -87,27 +87,33 @@
 {% macro feed_link(classification, kind) %}
     {% if generate_atom or generate_rss %}
         {% if translations|length > 1 and has_other_languages and kind != 'index' %}
+            <p class="feedlink">
             {% for language, classification, name in all_languages %}
-                <p class="feedlink">
+                <span>
+                    <i class="rss icon"></i>
                     {% if generate_atom %}
                         {{ _html_feed_link('application/atom+xml', 'Atom feed', 'atom', classification, kind, language, name) }}
                     {% endif %}
                     {% if generate_rss and kind != 'archive' %}
                         {{ _html_feed_link('application/rss+xml', 'RSS feed', 'rss', classification, kind, language, name) }}
                     {% endif %}
-                </p>
+                </span>
             {% endfor %}
+            </p>
         {% else %}
+            <p class="feedlink">
             {% for language in translations|sort %}
-                <p class="feedlink">
+                <span>
+                    <i class="rss icon"></i>
                     {% if generate_atom %}
                         {{ _html_feed_link('application/atom+xml', 'Atom feed', 'atom', classification, kind, language) }}
                     {% endif %}
                     {% if generate_rss and kind != 'archive' %}
                         {{ _html_feed_link('application/rss+xml', 'RSS feed', 'rss', classification, kind, language) }}
                     {% endif %}
-                </p>
+                </span>
             {% endfor %}
+            </p>
         {% endif %}
     {% endif %}
 {% endmacro %}

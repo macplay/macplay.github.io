@@ -10,7 +10,10 @@
         <ul>
         {% for text, link in items %}
             {% if text not in hidden_authors %}
-                <li><a class="reference listtitle" href="{{ link }}">{{ text|e }}</a></li>
+                <a class="ui large basic label" href="{{ link }}">
+                <i class="user outline icon"></i>
+                {{ text|e }}
+                </a>
             {% endif %}
         {% endfor %}
         </ul>

@@ -90,13 +90,14 @@ BLOG_DESCRIPTION = "Share something interesting about byte ocean"  # (translatab
 # in the default language will be shown instead.
 
 # What is the default language?
-DEFAULT_LANG = "en"
+DEFAULT_LANG = "zh_cn"
 
 # What other languages do you have?
 # The format is {"translationcode" : "path/to/translation" }
 # the path will be used as a prefix for the generated pages location
 TRANSLATIONS = {
     DEFAULT_LANG: "",
+    "en": "./en",
     # Example for another language:
     # "es": "./es",
 }
@@ -521,13 +522,12 @@ AUTHOR_PAGES_ARE_INDEXES = True
 # Set descriptions for author pages to make them more interesting. The
 # default is no description. The value is used in the meta description
 # and displayed underneath the author list or index page’s title.
-AUTHOR_PAGES_DESCRIPTIONS = {
-   DEFAULT_LANG: {
-       "Juanjo Conti": "Python coder and writer.",
-       "Roberto Alsina": "Nikola father.",
-       "ashfinal": "This is a description of me."
-   },
-}
+#  AUTHOR_PAGES_DESCRIPTIONS = {
+   #  DEFAULT_LANG: {
+       #  "Juanjo Conti": "Python coder and writer.",
+       #  "Roberto Alsina": "Nikola father.",
+   #  },
+#  }
 
 
 # If you do not want to display an author publicly, you can mark it as hidden.

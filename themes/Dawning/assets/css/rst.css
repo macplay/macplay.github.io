@@ -28,13 +28,13 @@ h5 a {
     display: block;
 }
 
-h2:first-child,
-h3:first-child,
-h4:first-child,
-h5:first-child,
-p:first-child {
-    margin-top: 1rem;
-}
+/* h2:first-child, */
+/* h3:first-child, */
+/* h4:first-child, */
+/* h5:first-child, */
+/* p:first-child { */
+    /* margin-top: 1rem; */
+/* } */
 
 p {
     line-height: 1.7em;
@@ -120,6 +120,10 @@ img {
 .figure .caption {
     margin-bottom: 1rem;
     color: #aaa;
+}
+
+p:last-child {
+    margin-bottom: 1em;
 }
 
 p img {

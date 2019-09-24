@@ -10,7 +10,7 @@
     </div>
     <div class="author-description">
         {% if description %}
-            <p>{{ description }}</p>
+            <p>{{ description|e }}</p>
         {% endif %}
     </div>
     <div class="author-rssfeed">
@@ -22,7 +22,9 @@
             {% for post in posts %}
             <li>
                 <a href="{{ post.permalink() }}" class="listtitle">{{ post.title()|e }}</a>
-                <time class="listdate" datetime="{{ post.formatted_date('webiso') }}" title="{{ post.formatted_date(date_format)|e }}">{{ post.formatted_date(date_format)|e }}</time>
+                <time class="listdate" datetime="{{ post.formatted_date('webiso') }}">
+                {{ post.formatted_date(date_format)|e }}
+                </time>
             </li>
             {% endfor %}
         </ul>

@@ -2,9 +2,33 @@ header#header {
     margin-bottom: 1em;
 }
 
+#main-content {
+    padding: 0px 10px;
+}
+
+.index-featured {
+    margin-top: -2em;
+    margin-bottom: 1.5em;
+}
+
+.index-featured .ui.segment {
+    height: 16em;
+    overflow-y: hidden;
+}
+
+h1.post-title {
+    margin-bottom: 0;
+}
+
 .listingpage.page-body {
     padding: 0px 1rem;
     overflow: auto;
+}
+
+.postpage .posttrans {
+    margin-top: -0.5em;
+    padding: 0.5em 1em;
+    margin-bottom: 0.5em;
 }
 
 .post-entry {
@@ -22,29 +46,11 @@ header#header {
     font-size: 1.5rem;
     display: block;
     color: #555;
-    padding-bottom: 0.5rem;
+    /* padding-bottom: 0.5rem; */
 }
 
 .entry-title a:hover {
     color: #4183C4;
-}
-
-.post-entry .post-meta, .postpage .post-meta {
-    margin-bottom: 0.5rem;
-    margin-top: 0.5rem;
-}
-
-.post-meta-item-icon,
-.post-meta-divider,
-.post-meta-item-text a {
-    color: #888;
-}
-
-.post-meta-tag-item a {
-    color: #888;
-    padding: 1px 2px;
-    /* border: 1px solid #f1f1f1; */
-    border-radius: 2px;
 }
 
 .post-summary .more a {
@@ -127,6 +133,7 @@ header#header {
     margin-top: 1em;
     margin-left: 2em;
     text-align: center;
+    color: #777777;
 }
 
 .tag-rssfeed .feedlink a,
@@ -155,10 +162,21 @@ header#header {
     margin-bottom: 0.5em;
 }
 
-.tag-postlist a:before,
-.list-postlist a:before,
-.author-postlist a:before {
-    content: " ";
+.tag-postlist,
+.list-postlist,
+.author-postlist {
+    border-bottom: 1px solid rgba(34,36,38,.15);
+    margin-bottom: 1em;
+    padding-bottom: 1em;
+}
+
+.postitem p {
+    margin-bottom: -0.5em;
+    font-size: 1.2em;
+}
+
+.postitem p a {
+    color: #777777;
 }
 
 .list-items li {
@@ -209,16 +227,6 @@ header#header {
     padding: 0 1em 1em 1em;
     background-color: rgba(207, 247, 207, 0.1);
     margin-bottom: 1em;;
-}
-
-.addthis_inline_share_toolbox {
-    padding: 1em 0;
-}
-
-.author-postlist time,
-.tag-postlist time,
-.list-postlist time {
-    float: right;
 }
 
 .footer.social-link {
