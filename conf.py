@@ -786,7 +786,7 @@ MAX_IMAGE_SIZE = 2560
 
 # If set to True, any ICC profile will be copied when an image is thumbnailed or
 # resized.
-# PRESERVE_ICC_PROFILES = False
+PRESERVE_ICC_PROFILES = True
 
 # Folders containing images to be used in normal posts or pages.
 # IMAGE_FOLDERS is a dictionary of the form {"source": "destination"},
