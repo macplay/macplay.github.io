@@ -22,7 +22,7 @@ install:
 
 script:
   - nikola build
-  - find $HOME/output/galleries -type f -name "*.thumbnail.*" -delete
+  - find output/galleries -type f -name "*.thumbnail.*" -delete
   - nikola build -a render_galleries # Don't know why galleries task fails, so we run it once manually.
 
 deploy:
