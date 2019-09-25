@@ -5,13 +5,9 @@ sudo: false
 
 cache:
   directories:
-  - .doit.db.bak
-  - .doit.db.dat
-  - .doit.db.dir
   - $HOME/.cache/pip
   - $HOME/output
   - $HOME/cache
-  - $HOME/__pycache__
 
 git:
   depth: 3
@@ -27,6 +23,7 @@ install:
   - pip install 'Nikola[extras]'
 
 script:
+  - nikola build -a render_galleries # Don't know why galleries task fails, so we run it once manually.
   - nikola build
 
 deploy:
