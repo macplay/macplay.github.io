@@ -6,8 +6,6 @@ sudo: false
 cache:
   directories:
   - $HOME/.cache/pip
-  - $HOME/output
-  - $HOME/cache
 
 git:
   depth: 3
@@ -23,8 +21,9 @@ install:
   - pip install 'Nikola[extras]'
 
 script:
-  - nikola build -a render_galleries # Don't know why galleries task fails, so we run it once manually.
   - nikola build
+  - find $HOME/output/galleries -type f -name "*.thumbnail.*" -delete
+  - nikola build -a render_galleries # Don't know why galleries task fails, so we run it once manually.
 
 deploy:
   provider: pages
