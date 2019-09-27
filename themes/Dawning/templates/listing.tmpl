@@ -5,18 +5,22 @@
 {% block main_content %}
 <div class="listingpage page-body" itemscope="itemscope" itemtype="http://schema.org/Article">
     {% if crumbs %}
-    <div class="list-title">
+    <div class="ui breadcrumb list-title">
     {% for link, text in crumbs %}
         {% if text != index_file %}
             {% if link == '#' %}
-                {{ text.rsplit('.html', 1)[0] }}
+                <div class="section">
+                    {{ text.rsplit('.html', 1)[0] }}
+                </div>
             {% else %}
-                <a href="{{ link }}">{{ text }} /</a>
+                <a href="{{ link }}" class="section">{{ text }}</a>
+                <div class="divider"> / </div>
             {% endif %}
         {% endif %}
     {% endfor %}
     </div>
     {% endif %}
+
     {% if folders or files %}
     <ul>
     {% for name in folders %}

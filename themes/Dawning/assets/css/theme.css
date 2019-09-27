@@ -1,3 +1,7 @@
+body {
+    word-break:break-word;
+}
+
 header#header {
     margin-bottom: 1em;
 }
@@ -13,7 +17,7 @@ header#header {
 
 .index-featured .ui.segment {
     height: 16em;
-    overflow-y: hidden;
+    overflow: hidden;
 }
 
 h1.post-title {
@@ -95,7 +99,7 @@ h1.post-title {
 .tag-title,
 .author-title,
 .authorindex-title {
-    font-size: 1.5rem;
+    font-size: 1.5rem !important;
     padding-top: 1rem;
     color: #777777;
     text-align: center;;

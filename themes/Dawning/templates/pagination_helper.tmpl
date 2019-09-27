@@ -1,28 +1,46 @@
 {# -*- coding: utf-8 -*- #}
 
 {% macro page_navigation(current_page, page_links, prevlink, nextlink, prev_next_links_reversed, surrounding=5) %}
-<div class="page-navigation">
-    <div class="ui small borderless secondary pagination menu">
-    {% if prevlink %}
-    <a class="item" href="{{ prevlink }}"><i class="angle left icon"></i></a>
-    {% else %}
-    <a class="disabled item"><i class="angle left icon"></i></a>
-    {% endif %}
-    {% for i, link in enumerate(page_links) %}
-        {% if (i - current_page)|abs <= surrounding or i == 0 or i == page_links|length - 1 %}
-            {% if i == current_page %}
-                <a class="active item" href="{{ page_links[i] }}">{{ i+1 }}</a>
-            {% else %}
-                <a class="item" href="{{ page_links[i] }}">{{ i+1 }}</a>
-            {% endif %}
-        {% elif i == current_page - surrounding - 1 or i == current_page + surrounding + 1 %}
-            <a class="item">…</a>
+<div class="ui grid page-navigation">
+    <div class="computer only tablet only sixteen wide column">
+        <div class="ui small borderless secondary pagination menu">
+        {% if prevlink %}
+        <a class="item" href="{{ prevlink }}"><i class="angle left icon"></i></a>
+        {% else %}
+        <a class="disabled item"><i class="angle left icon"></i></a>
         {% endif %}
-    {% endfor %}
-    {% if nextlink %}
-    <a class="item" href="{{ nextlink }}"><i class="angle right icon"></i></a>
-    {% else %}
-    <a class="disabled item"><i class="angle right icon"></i></a>
+        {% for i, link in enumerate(page_links) %}
+            {% if (i - current_page)|abs <= surrounding or i == 0 or i == page_links|length - 1 %}
+                {% if i == current_page %}
+                    <a class="active item" href="{{ page_links[i] }}">{{ i+1 }}</a>
+                {% else %}
+                    <a class="item" href="{{ page_links[i] }}">{{ i+1 }}</a>
+                {% endif %}
+            {% elif i == current_page - surrounding - 1 or i == current_page + surrounding + 1 %}
+                <a class="item">…</a>
+            {% endif %}
+        {% endfor %}
+        {% if nextlink %}
+        <a class="item" href="{{ nextlink }}"><i class="angle right icon"></i></a>
+        {% else %}
+        <a class="disabled item"><i class="angle right icon"></i></a>
+        {% endif %}
+        </div>
+    </div>
+    <div class="mobile only sixteen wide column">
+    {% if prevlink or nextlink %}
+        <div class="pager">
+        {% if prevlink %}
+        <button class="ui basic left floated button">
+            <a href="{{ prevlink }}">{{ messages("Newer posts") }}</a>
+        </button>
+        {% endif %}
+        {% if nextlink %}
+        <button class="ui basic right floated button">
+        <a href="{{ nextlink }}">{{ messages("Older posts") }}</a>
+        </button>
+        {% endif %}
+        </div>
     {% endif %}
     </div>
 </div>

@@ -34,7 +34,7 @@
                 <div class="ui large horizontal link list post-meta">
                     {% if not post.meta('password') and edit_prefix %}
                         <span class="item">
-                            <a href="{{ edit_prefix + post.source_path }}" title="Edit on GitHub">Edit</a>
+                            <a href="{{ edit_prefix + post.source_path }}" target="_blank" title="Edit on GitHub">Edit</a>
                         </span>
                     {% endif %}
                     <span class="item">By
