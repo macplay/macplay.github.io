@@ -1341,7 +1341,7 @@ WARN_ABOUT_TAG_METADATA = False
 # Put in global_context things you want available on all your templates.
 # It can be anything, data, functions, modules, etc.
 GLOBAL_CONTEXT = {
-    "dw_notice": "从现在开始，博客可以支持站点通告了。 O(∩_∩)O~~",
+    "dw_notice": "从现在开始，支持中英双语及博文精选 O(∩_∩)O~~",
     "edit_prefix": "https://github.com/macplay/macplay.github.io/edit/src/",
     "dw_social": {
         #  "facebook": "#",
