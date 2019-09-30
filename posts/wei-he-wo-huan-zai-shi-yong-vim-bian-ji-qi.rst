@@ -1,7 +1,6 @@
 .. title: 【译】为何我还在使用 Vim 编辑器？
 .. slug: wei-he-wo-huan-zai-shi-yong-vim-bian-ji-qi
 .. date: 2017-10-31 20:45:28 UTC+08:00
-.. status: featured
 .. tags: vim, benchmark, translation
 .. category:
 .. link: https://medium.com/@caspervonb/why-i-still-use-vim-67afd76b4db6
