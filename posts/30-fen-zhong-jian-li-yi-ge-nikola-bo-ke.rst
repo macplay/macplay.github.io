@@ -1,11 +1,10 @@
 .. title: 30 分钟搭建一个 Nikola 博客
 .. slug: 30-fen-zhong-jian-li-yi-ge-nikola-bo-ke
 .. date: 2017-09-22 15:50:29 UTC+08:00
+.. updated: 2019-09-30 23:38:29 UTC+08:00
 .. tags: nikola, travis, static site
 .. author: ashfinal
 
-30 分钟搭建一个 Nikola 博客
-===========================
 
 本文将利用 `GitHub Pages`_ 服务 30 分钟内建立一个 `Nikola`_ 静态博客，静态页面的更新、维护等则交由 `TravisCI`_ 服务完成，最终效果如本博客所示。文章主要 `参考来源在此`_ ，将只涉及搭建步骤，要求读者对命令行操作有一定了解。
 
@@ -73,6 +72,10 @@
 
 配置 TravisCI
 -------------
+
+.. caution::
+
+   TravisCI 配置部分已过期，请跳过！详情参见 `Open Source on travis-ci.com <https://docs.travis-ci.com/user/migrate/open-source-on-travis-ci-com/#features-of-the-github-apps-integration>`_ 。 现在步骤更简单，只需修改 `.travis.yml` 中的 `GITHUB_TOKEN` 字段即可。
 
 .. sidebar:: 配置 TravisCI
 
