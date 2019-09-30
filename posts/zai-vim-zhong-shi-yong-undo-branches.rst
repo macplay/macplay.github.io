@@ -1,6 +1,7 @@
 .. title: 【译】在 Vim 中使用 undo branches
 .. slug: zai-vim-zhong-shi-yong-undo-branches
 .. date: 2017-11-13 11:14:24 UTC+08:00
+.. status: featured
 .. tags: vim, translation
 .. category:
 .. link: http://vim.wikia.com/wiki/Using_undo_branches
