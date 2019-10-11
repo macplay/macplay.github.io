@@ -1,7 +1,6 @@
 .. title: 从 Markdown 到 reStructuredText（二）
 .. slug: cong-markdown-dao-restructuredtexter
 .. date: 2017-10-08 14:45:54 UTC+08:00
-.. status: featured
 .. tags: reST, static site
 .. category: markup
 .. link:
