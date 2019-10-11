@@ -1,4 +1,4 @@
-.. title: Improve and Extend Your Text Objects With `targets.vim`_
+.. title: Improve and Extend Your Text Objects With targets.vim
 .. slug: improve-and-extend-your-text-objects-with-targetsvim
 .. date: 2019-10-11 17:05:40 UTC+08:00
 .. tags: vim, translation
