@@ -1,12 +1,6 @@
-let g:gitgutter_diff_args = '-w'
-
-" let g:VM_leader = "<Space>"
-" let g:VM_mouse_mappings = 1
-let g:VM_skip_shorter_lines = 1
+let g:VM_mouse_mappings   = 1
 let g:VM_skip_empty_lines = 1
-let g:VM_live_editing = 1
-let g:VM_exit_on_1_cursor_left = 0
-let g:VM_silent_exit = 1
+let g:VM_silent_exit      = 1
 
 function! VM_Start()
     if exists(":DelimitMateOff") | exe 'DelimitMateOff' | endif
@@ -16,107 +10,23 @@ function! VM_Exit()
     if exists(':DelimitMateOn') | exe 'DelimitMateOn' | endif
 endfunction
 
-let g:VM_maps                           = {}
+let g:VM_leader = {'default': '<Leader>', 'visual': '<Leader>', 'buffer': 'z'}
 
-let g:VM_maps["Find Under"]             = '<C-n>'
-let g:VM_maps["Find Subword Under"]     = '<C-n>'
-let g:VM_maps["Start Regex Search"]     = '<Leader>/'
-let g:VM_maps["Select All"]             = '<Leader>A'
+let g:VM_maps                           = {}
 let g:VM_maps["Get Operator"]           = '<Leader>a'
-let g:VM_maps["Add Cursor Down"]        = '<C-Down>'
-let g:VM_maps["Add Cursor Up"]          = '<C-Up>'
 let g:VM_maps["Add Cursor At Pos"]      = '<Leader><Space>'
 let g:VM_maps["Reselect Last"]          = '<Leader>z'
 
-let g:VM_maps["Select Cursor Down"]     = ''
-let g:VM_maps["Select Cursor Up"]       = ''
-
-let g:VM_maps["Visual Regex"]           = '<Leader>/'
-let g:VM_maps["Visual All"]             = '<Leader>A'
-let g:VM_maps["Visual Add"]             = '<Leader>a'
-let g:VM_maps["Visual Find"]            = '<Leader>f'
 let g:VM_maps["Visual Cursors"]         = '<Leader><Space>'
 
-let g:VM_maps["Select l"]               = '<S-Right>'
-let g:VM_maps["Select h"]               = '<S-Left>'
-
-let g:VM_maps["Mouse Cursor"]           = '<C-LeftMouse>'
-let g:VM_maps["Mouse Word"]             = ''
-let g:VM_maps["Mouse Column"]           = ''
-
-let g:VM_maps["Select j"]               = '<S-Down>'
-let g:VM_maps["Select k"]               = '<S-Up>'
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-let g:VM_maps["Toggle Mappings"]        = 'zz'
-
-let g:VM_maps["Visual Subtract"]        = 'zs'
-let g:VM_maps["Visual Reduce"]          = 'zr'
-
-let g:VM_maps["Single Select l"]        = '<M-Right>'
-let g:VM_maps["Single Select h"]        = '<M-Left>'
 
 let g:VM_maps["Undo"]                   = 'u'
 let g:VM_maps["Redo"]                   = '<C-r>'
 
-let g:VM_maps["Switch Mode"]            = '<Tab>'
-let g:VM_maps["Find Next"]              = 'n'
-let g:VM_maps["Find Prev"]              = 'N'
-let g:VM_maps["Goto Next"]              = ']'
-let g:VM_maps["Goto Prev"]              = '['
-let g:VM_maps["Seek Up"]                = '<C-b>'
-let g:VM_maps["Seek Down"]              = '<C-f>'
-let g:VM_maps["Skip Region"]            = 'q'
-let g:VM_maps["Remove Region"]          = 'Q'
-let g:VM_maps["Invert Direction"]       = 'o'
-let g:VM_maps["Select Operator"]        = 's'
-let g:VM_maps["Find Operator"]          = 'm'
+let g:VM_maps["Visual Subtract"]        = 'zs'
+let g:VM_maps["Visual Reduce"]          = 'zr'
 
-let g:VM_maps["Tools Menu"]             = 'z`'
-let g:VM_maps["Show Registers"]         = 'z"'
-let g:VM_maps["Case Setting"]           = ''
-let g:VM_maps["Toggle Whole Word"]      = ''
-let g:VM_maps["Transpose"]              = 'zt'
-let g:VM_maps["Align"]                  = ''
-let g:VM_maps["Duplicate"]              = ''
-let g:VM_maps["Surround"]               = ''
-let g:VM_maps["Merge Regions"]          = 'zm'
-let g:VM_maps["Split Regions"]          = 'zs'
-let g:VM_maps["Remove Last Region"]     = 'zq'
 let g:VM_maps["Erase Regions"]          = 'zQ'
-let g:VM_maps["Remove Every n Regions"] = 'zr'
-let g:VM_maps["Case Conversion Menu"]   = 'zc'
-let g:VM_maps["Show Infoline"]          = 'zi'
-let g:VM_maps["Transform Regions"]      = 'ze'
-let g:VM_maps["Filter Regions"]         = 'zf'
-let g:VM_maps["Rewrite Last Search"]    = 'zw'
-let g:VM_maps["Search Menu"]            = 'zW'
-let g:VM_maps["Replace Pattern"]        = 'R'
-
-let g:VM_maps["Run Dot"]                = 'z.'
-let g:VM_maps["Run Normal"]             = 'zn'
-let g:VM_maps["Run Last Normal"]        = 'zN'
-let g:VM_maps["Run Visual"]             = 'zv'
-let g:VM_maps["Run Last Visual"]        = 'zV'
-let g:VM_maps["Run Ex"]                 = 'zx'
-let g:VM_maps["Run Last Ex"]            = 'zX'
-let g:VM_maps["Run Macro"]              = 'z@'
-let g:VM_maps["Align Char"]             = ''
-let g:VM_maps["Align Regex"]            = ''
-let g:VM_maps["Numbers"]                = 'zD'
-let g:VM_maps["Numbers Append"]         = 'zd'
-let g:VM_maps["Zero Numbers"]           = 'z0D'
-let g:VM_maps["Zero Numbers Append"]    = 'z0d'
-let g:VM_maps["Shrink"]                 = ''
-let g:VM_maps["Enlarge"]                = ''
-let g:VM_maps["Move Right"]             = '<M-S-Right>'
-let g:VM_maps["Move Left"]              = '<M-S-Left>'
-let g:VM_maps["Goto Regex"]             = 'zg'
-let g:VM_maps["Goto Regex!"]            = 'zG'
-
-let g:VM_maps["Toggle Block"]           = 'z<BS>'
-let g:VM_maps["Toggle Multiline"]       = 'z\'
-let g:VM_maps["Toggle Single Region"]   = 'z<CR>'
 
 " vim:set ft=vim et sw=4 ts=4 tw=80:
