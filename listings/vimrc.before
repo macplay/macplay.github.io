@@ -11,22 +11,15 @@ function! VM_Exit()
 endfunction
 
 let g:VM_leader = {'default': '<Leader>', 'visual': '<Leader>', 'buffer': 'z'}
-
 let g:VM_maps                           = {}
 let g:VM_maps["Get Operator"]           = '<Leader>a'
 let g:VM_maps["Add Cursor At Pos"]      = '<Leader><Space>'
 let g:VM_maps["Reselect Last"]          = '<Leader>z'
-
 let g:VM_maps["Visual Cursors"]         = '<Leader><Space>'
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
 let g:VM_maps["Undo"]                   = 'u'
 let g:VM_maps["Redo"]                   = '<C-r>'
-
 let g:VM_maps["Visual Subtract"]        = 'zs'
 let g:VM_maps["Visual Reduce"]          = 'zr'
 
-let g:VM_maps["Erase Regions"]          = 'zQ'
 
 " vim:set ft=vim et sw=4 ts=4 tw=80:
