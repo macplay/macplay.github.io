@@ -16,7 +16,7 @@
 .. figure:: /images/oni_release.png
    :align: center
 
-.. danger::
+.. attention::
 
    Since they've moved to oni2, that changed lots of things, I'm gonna flag this post as obsolete. DON'T READ!
 
