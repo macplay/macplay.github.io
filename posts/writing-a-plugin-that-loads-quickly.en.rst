@@ -68,4 +68,4 @@ If you drop this script in your plugin directory Vim will execute it on startup.
 
 Notice that the functions that are loaded afterwards match the pattern in the `FuncUndefined <#>`_ autocommand. You must make sure that no other plugin defines functions that match this pattern.
 
-`help usr_41.txt`
+`:help usr_41.txt`
