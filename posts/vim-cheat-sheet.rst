@@ -1,6 +1,7 @@
-.. title: Vim Cheat Sheet
+.. title: Vim Cheatsheet
 .. slug: vim-cheat-sheet
 .. date: 2017-12-06 19:19:24 UTC+08:00
+.. updated: 2019-10-19 18:56:20 UTC+08:00
 .. tags: vim, chart
 .. category:
 .. link:
