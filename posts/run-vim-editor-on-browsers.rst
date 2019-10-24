@@ -8,7 +8,7 @@
 .. description:
 .. type: text
 .. nocomments:
-.. previewimage: /images/chrome_vim_wasm.png
+.. previewimage: /images/chrome_vim_wasm.thumbnail.png
 
 有人将 Vim 编辑器移植到了 WebAssembly (Wasm) 格式： `vim.wasm: Vim Ported to WebAssembly <https://github.com/rhysd/vim.wasm>`_ 。 `Wasm <https://webassembly.org/>`_ 是一种底层的二进制指令格式，理论上能实现接近 C/C++/Rust 等编译性语言的执行速度，目前已经在主流浏览器 Chrome/Safari/Firefox/Edge 中得到支持。所以现在，你可以在浏览器上体验原汁原味的 Vim 了！
 
