@@ -18,6 +18,8 @@
 
 .. TEASER_END
 
+在线体验地址： http://rhysd.github.io/vim.wasm
+
 事实上，我很早就关注了该项目，只不过那时它还只是仅仅能运行。现在，它已经包含了一些引人注目的特性：
 
 1. 编译的是 Normal 版本，这意味着几乎所有的 Vim 特性，如语法高亮、Vim script、文本对象... 包括 popup window（浮动窗口）等都可以正常运行。
