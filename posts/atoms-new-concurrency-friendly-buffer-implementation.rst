@@ -1,4 +1,4 @@
-.. title: Atom 新的并发友好型 buffer 实现
+.. title: 【译】Atom 新的并发友好型 buffer 实现
 .. slug: atoms-new-concurrency-friendly-buffer-implementation
 .. date: 2019-10-26 14:41:03 UTC+08:00
 .. updated: 2019-10-27 00:43:36 UTC+08:00
