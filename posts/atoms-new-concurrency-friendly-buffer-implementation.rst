@@ -7,6 +7,7 @@
 .. link: https://blog.atom.io/2017/10/12/atoms-new-buffer-implementation.html
 .. description:
 .. type: text
+.. has_math: true
 .. nocomments:
 .. previewimage:
 
@@ -114,7 +115,7 @@ Splay tree 的原理非常简单。每当一个节点被访问时，都会通过
    :alt: splay diagram
    :align: center
 
-整个方法的一个注意事项是 :math:`O\left(n\cdot\log_2n\right)` 是一个 *摊销范围* 。任何单次操作的成本可能高达 :math:`O\left(n\right)` ，但我们可以通过重组树以降低后续操作成本来补偿。事实上，情况还好。通常，单次线性时间（linear-time）操作不会引起性能问题。只有当我们批量执行 *多个* 线性时间运算时，时间复杂度才变成二次方，这正是 splay tree 帮助我们避免的情况。
+值得注意的一点是 :math:`O\left(n\cdot\log_2n\right)` 是 *摊销范围* 。单次操作的成本可能高达 :math:`O\left(n\right)` ，但我们可以通过重组树降低后续操作成本来补偿。事实上，情况还好。通常，单次线性时间（linear-time）操作不会引起性能问题。只有当批量执行 *多个* 线性时间运算时，时间复杂度才变成二次方，这正是 splay tree 帮助我们避免的情况。
 
 如果你想了解有关 splay tree 的更多信息， `来自 MIT 的 David Karger 的课程 <https://www.youtube.com/watch?v=QnPl_Y6EqMo>`_ 是很棒的介绍。
 
