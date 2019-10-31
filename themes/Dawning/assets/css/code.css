@@ -2,7 +2,7 @@
 pre.code .hll { background-color: #ffffcc }
 pre.code  {background: #fdfdfd;}
 pre.code .c { color: #ABB0B6; font-style: italic } /* Comment */
-pre.code .err { border: 1px solid #F71000 } /* Error */
+pre.code .err { color: #A24C4C } /* Error */
 pre.code .k { color: #FA6E32; } /* Keyword */
 pre.code .o { color: #666666 } /* Operator */
 pre.code .ch { color: #ABB0B6; font-style: italic } /* Comment.Hashbang */
