@@ -13,9 +13,8 @@
 {% macro before_content() %}
     {% if 'main_index' in pagekind and is_frontmost_index and featured %}
     <div class="index-featured">
-        <div class="ui two column grid">
-            <div class="row">
-                <div class="column">
+        <div class="ui stackable grid">
+                <div class="eight wide column">
                     <div class="ui blurring segment">
                     {% if featured[0].previewimage %}
                         <div class="ui fluid imgage">
@@ -31,7 +30,7 @@
                     </div>
                     </div>
                 </div>
-                <div class="column">
+                <div class="eight wide column">
                     <div class="ui blurring segment">
                     {% if featured|length < 2 %}
                         {% set second_post = posts|random %}
@@ -52,7 +51,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
         </div>
     </div>
     {% endif %}
