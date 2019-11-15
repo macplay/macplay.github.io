@@ -175,6 +175,10 @@ p.topic-title.first {
     padding: 0.25em 0.5em;
 }
 
+.contents.topic ul > li > p {
+    line-height: 1em;
+}
+
 .linenos {
     padding: 1px 4px;
     font-size: 0.9rem;
