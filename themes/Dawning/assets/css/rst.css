@@ -372,12 +372,16 @@ table.align-center {
 
 .strike {
     text-decoration: line-through;
-    color: #e45735;
-    background: #f4bcae;
+    /* color: #e45735; */
+    /* background: #f4bcae; */
 }
 
 .amend {
     text-decoration: underline;
-    color: #090;
-    background: #dbffdb;
+    /* color: #090; */
+    /* background: #dbffdb; */
+}
+
+ruby > rt {
+    font-size: 10px;
 }

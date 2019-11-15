@@ -1,7 +1,7 @@
 .. title: 【译】强大的文件差异比较
 .. slug: the-power-of-diff
 .. date: 2019-11-14 22:28:48 UTC+08:00
-.. updated: 2019-11-15 08:44:21 UTC+08:00
+.. updated: 2019-11-15 08:50:37 UTC+08:00
 .. tags: vim, diff, asciinema
 .. category: vim
 .. link: https://vimways.org/2018/the-power-of-diff/
