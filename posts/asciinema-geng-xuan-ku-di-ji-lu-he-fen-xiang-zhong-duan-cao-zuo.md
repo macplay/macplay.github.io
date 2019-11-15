@@ -2,9 +2,9 @@
 .. title: asciinema - 更炫酷地记录和分享终端操作
 .. slug: asciinema-geng-xuan-ku-di-ji-lu-he-fen-xiang-zhong-duan-cao-zuo
 .. date: 2016-04-21 21:34:12 UTC+08:00
-.. updated: 2018-03-05 18:57:25 UTC+08:00
+.. updated: 2019-11-15 08:55:29 UTC+08:00
 .. tags: asciinema, terminal, screencast
-.. category:
+.. category: macos
 .. link:
 .. description:
 .. type: text
@@ -30,7 +30,7 @@
 
 以下嵌入的是为本博客添加 asciinema 支持的录屏步骤：
 
-<asciinema-player src="/asciicast/asciinema_start.cast" cols=110 rows=29 poster="npt:02:29"></asciinema-player>
+<asciinema-player src="/asciicast/asciinema_start.cast" poster="npt:02:29"></asciinema-player>
 
 小结：以后嵌入录屏文件，仅需粘贴以上代码行，修改 ~~json~~ **cast** 文件指向即可。~~json~~ **cast** 文件可从录制时直接输入 `asciinema rec demo.cast` 得到。
 

@@ -1,6 +1,7 @@
 .. title: Pygal charts get started
 .. slug: pygal-charts-get-started
 .. date: 2017-09-18 11:09:34 UTC+08:00
+.. updated: 2019-11-15 08:56:00 UTC+08:00
 .. tags: reST, chart, pygal, python
 .. category: markup
 .. link:
@@ -18,9 +19,6 @@ with little effort, and i's even semi-interactive (hover your pointer over the l
        :title: 'Browser usage evolution (in %)'
        :fill: True
        :x_labels: ['2002','2003','2004','2005','2006','2007','2008','2009','2010','2011','2012']
-       :width: 600
-       :height: 400
-       :explicit_size: True
        :style: DefaultStyle
 
        ('Others',  [14.2, 15.4, 15.3,  8.9,    9, 10.4,  8.9,  5.8,  6.7,  6.8,  7.5])
@@ -38,9 +36,6 @@ with little effort, and i's even semi-interactive (hover your pointer over the l
     :title: 'Browser usage evolution (in %)'
     :fill: True
     :x_labels: ['2002','2003','2004','2005','2006','2007','2008','2009','2010','2011','2012']
-    :width: 600
-    :height: 400
-    :explicit_size: True
     :style: DefaultStyle
 
     ('Others',  [14.2, 15.4, 15.3,  8.9,    9, 10.4,  8.9,  5.8,  6.7,  6.8,  7.5])

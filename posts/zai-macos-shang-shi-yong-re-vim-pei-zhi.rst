@@ -1,9 +1,9 @@
 .. title: 在 macOS 上使用 re-vim 配置
 .. slug: zai-macos-shang-shi-yong-re-vim-pei-zhi
 .. date: 2016-05-12 21:31:51 UTC+08:00
-.. updated: 2018-03-05 19:46:48 UTC+08:00
+.. updated: 2019-11-15 08:55:11 UTC+08:00
 .. tags: asciinema, vim, terminal
-.. category:
+.. category: vim
 .. link:
 .. description:
 .. type: text
@@ -27,6 +27,6 @@
 
 .. raw:: html
 
-   <asciinema-player src="/asciicast/revim_on_mac.cast" cols=110 rows=29 poster="npt:01:32"></asciinema-player>
+   <asciinema-player src="/asciicast/revim_on_mac.cast" poster="npt:01:32"></asciinema-player>
 
 .. |l_vimrc| replace:: re-vim
