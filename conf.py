@@ -999,7 +999,7 @@ STRIP_INDEXES = True
 # from indexing and other robotic spidering. * is supported. Will only be effective
 # if SITE_URL points to server root. The list is used to exclude resources from
 # /robots.txt and /sitemap.xml, and to inform search engines about /sitemapindex.xml.
-# ROBOTS_EXCLUSIONS = ["/archive.html", "/category/*.html"]
+ROBOTS_EXCLUSIONS = ["/aria2/"]
 
 # Instead of putting files in <slug>.html, put them in <slug>/index.html.
 # No web server configuration is required. Also enables STRIP_INDEXES.
@@ -1358,11 +1358,11 @@ GLOBAL_CONTEXT = {
         },
     "dw_blogroll": [
         {"name": "AriaNg",
-         "website": "http://macplay.coding.me/aria2/",
-         "description": "漂亮的 aria2 网页管理前端"},
+         "website": "https://macplay.github.io/aria2/",
+         "description": "aria2 网页管理前端"},
         {"name": "awesome-hammerspoon",
          "website": "https://github.com/ashfinal/awesome-hammerspoon",
-         "description": "macOS 自动化软件 Hammerspoon 的必备配置"},
+         "description": "macOS 软件 Hammerspoon 必备配置"},
         {"name": "M-x Chris-An-Emacser",
          "website": "https://chriszheng.science/",
          "description": "一个非典型 Emacs 爱好者的 Blog"},

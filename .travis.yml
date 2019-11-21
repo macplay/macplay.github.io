@@ -24,6 +24,8 @@ script:
   - nikola build
   - find output/galleries -type f -name "*.thumbnail.*" -delete
   - nikola build -a render_galleries # Don't know why galleries task fails, so we run it once manually.
+  - git clone --depth 1 https://github.com/mayswind/AriaNg-DailyBuild.git output/aria2 # Integrate AriaNg to my website
+  - rm -rf output/aria2/.git
 
 deploy:
   provider: pages
