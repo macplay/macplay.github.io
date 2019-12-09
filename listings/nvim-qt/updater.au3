@@ -48,6 +48,7 @@ Local $iFileSize = FileGetSize($sFilePath)
 If $iFileSize = 0 Or $iFileSize < $iBytesSize Then
     TrayTip("Hmm...", "The file size seems not right, I will resume the download procedure in 5s.", 5)
     Sleep(5000)
+    FileDelete($sFilePath)
     Run(@AutoItExe)
     Exit
 EndIf
