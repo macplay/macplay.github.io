@@ -21,6 +21,7 @@ Global Const $SESSION_PATH = @TempDir & '\mpv_session.conf'
 Global $PLAY_LIST[0]
 Global $COM_HISTORY[0]
 Global $LAST_URL
+Global $HOSTS
 
 Global $hGUI, $g_idEdit, $g_idMemo, $g_idSend, $g_idServer, $g_idConsole, $g_idExit
 
@@ -46,6 +47,7 @@ TraySetToolTip("mmate")
 ; TraySetClick(16)
 
 $LAST_URL = IniRead($SESSION_PATH, "General", "URL", "")
+$HOSTS = IniRead($SESSION_PATH, "General", "Host", "")
 
 While True
     Local $sClip, $sNow, $sURL, $iIndex
@@ -107,18 +109,15 @@ While True
 WEnd
 
 Func FilterString($sString)
-    Local $iStrip, $iPattern, $aArray, $iURL, $sHost
+    Local $iStrip, $iPattern, $aArray, $iURL
     $iStrip = StringStripWS($sString, $STR_STRIPLEADING + $STR_STRIPTRAILING)
     $iPattern = "^((?:ht|f)tps?)\:\/\/([0-9a-zA-Z](?:[-.\w]*[0-9a-zA-Z])*)(?::([0-9]+))*\/?([a-zA-Z0-9\-\.\?\,\'\/\\\+\$=&%#_]*)?$"
     $aArray = StringRegExp($iStrip, $iPattern, $STR_REGEXPARRAYFULLMATCH)
  ; _ArrayDisplay($aArray)
     If UBound($aArray) == 5 Then
         If StringRight($aArray[0], 5) == ".m3u8" Then $iURL = $aArray[0]
-        If FileExists($SESSION_PATH) Then
-            $sHost = IniRead($SESSION_PATH, "General", "Host", "")
-            If $sHost <> "" Then
-                If StringInStr($sHost, $aArray[2]) <> 0 Then $iURL = $aArray[0]
-            EndIf
+        If $HOSTS <> "" Then
+            If StringInStr($aArray[2], $HOSTS) <> 0 Then $iURL = $aArray[0]
         EndIf
     EndIf
     Return $iURL
