@@ -31,7 +31,7 @@ $g_idServer = GUICtrlCreateEdit($PIPE_NAME, 56, 10, 200, 20, $SS_LEFT)
 GUICtrlCreateLabel("Command:", 2, 36, 52, 20, $SS_RIGHT)
 $g_idEdit = GUICtrlCreateEdit("", 56, 32, 370, 20, $SS_LEFT + $WS_HSCROLL + $ES_AUTOHSCROLL)
 $g_idSend = GUICtrlCreateButton("Send", 430, 32, 60, 20, $BS_DEFPUSHBUTTON)
-$g_idMemo = GUICtrlCreateEdit("", 0, 62, _WinAPI_GetClientWidth($hGUI), 332, $WS_VSCROLL + $ES_READONLY)
+$g_idMemo = GUICtrlCreateEdit("", 0, 62, _WinAPI_GetClientWidth($hGUI), 332, $WS_VSCROLL + $WS_HSCROLL + $ES_READONLY)
 GUICtrlSetFont($g_idMemo, 9, 400, 0, "Courier New")
 Local $srHistory = IniRead($SESSION_PATH, "General", "History", "")
 If $srHistory <> "" Then
@@ -109,7 +109,7 @@ While True
 WEnd
 
 Func FilterString($sString)
-    Local $iStrip, $iPattern, $aArray, $iURL
+    Local $iStrip, $iPattern, $aArray, $iURL, $aITEM
     $iStrip = StringStripWS($sString, $STR_STRIPLEADING + $STR_STRIPTRAILING)
     $iPattern = "^((?:ht|f)tps?)\:\/\/([0-9a-zA-Z](?:[-.\w]*[0-9a-zA-Z])*)(?::([0-9]+))*\/?([a-zA-Z0-9\-\.\?\,\'\/\\\+\$=&%#_]*)?$"
     $aArray = StringRegExp($iStrip, $iPattern, $STR_REGEXPARRAYFULLMATCH)
@@ -117,7 +117,11 @@ Func FilterString($sString)
     If UBound($aArray) == 5 Then
         If StringRight($aArray[0], 5) == ".m3u8" Then $iURL = $aArray[0]
         If $HOSTS <> "" Then
-            If StringInStr($aArray[2], $HOSTS) <> 0 Then $iURL = $aArray[0]
+			$aITEM = StringSplit($HOSTS, "|")
+			For $i = 1 To $aITEM[0]
+				If StringInStr($aArray[2], $aITEM[$i]) <> 0 Then ExitLoop
+				$iURL = $aArray[0]
+			Next
         EndIf
     EndIf
     Return $iURL
