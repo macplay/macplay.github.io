@@ -117,11 +117,13 @@ Func FilterString($sString)
     If UBound($aArray) == 5 Then
         If StringRight($aArray[0], 5) == ".m3u8" Then $iURL = $aArray[0]
         If $HOSTS <> "" Then
-			$aITEM = StringSplit($HOSTS, "|")
-			For $i = 1 To $aITEM[0]
-				If StringInStr($aArray[2], $aITEM[$i]) <> 0 Then ExitLoop
-				$iURL = $aArray[0]
-			Next
+            $aITEM = StringSplit($HOSTS, "|")
+            For $i = 1 To $aITEM[0]
+                If StringInStr($aArray[2], $aITEM[$i]) <> 0 Then
+                    $iURL = $aArray[0]
+                    ExitLoop
+                EndIf
+            Next
         EndIf
     EndIf
     Return $iURL
