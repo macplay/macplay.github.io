@@ -1,6 +1,7 @@
 .. title: ffmpeg 命令行参数调优
 .. slug: ffmpeg-ming-ling-xing-can-shu-diao-you
 .. date: 2018-03-04 17:44:20 UTC+08:00
+.. updated: 2020-02-26 17:38:02 UTC+08:00
 .. tags: ffmpeg, shell, terminal
 .. category:
 .. link:
@@ -21,7 +22,7 @@
 
 .. code:: console
 
-   ffmpeg -y -i mv.mp4 -ss 00:02:24.000 -to 00:02:29.000 -c:v libx264 -an -crf 35 -b:v 100k -r 10 -preset slow out.mp4
+   ffmpeg -y -i mv.mp4 -ss 00:02:24.000 -to 00:02:29.000 -c:v libx264 -an -crf 35 -b:v 100k -r 10 -movflags faststart -preset slow out.mp4
 
 如果加上音轨 `-b:a 11k` ，则体积上升到 350 KB。
 
