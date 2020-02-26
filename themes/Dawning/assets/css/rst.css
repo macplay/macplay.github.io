@@ -154,6 +154,34 @@ sup .footnote-ref:after {
     content: "]";
 }
 
+dl.footnote,
+dl.citation,
+dl.docinfo {
+    display: grid;
+    grid-template-columns: max-content auto;
+}
+
+dl.footnote dt,
+dl.citation dt,
+dl.docinfo dt {
+    grid-column-start: 1;
+}
+
+dl.footnote dd,
+dl.citation dd,
+dl.docinfo dd {
+    grid-column-start: 2;
+}
+
+.footnote-reference:before,
+.fn-backref:before {
+    content: "["
+}
+
+.footnote-reference:after,
+.fn-backref:after {
+    content: "]"
+}
 .contents.topic {
     margin: 1rem 0 1rem 0;
     border: 1px solid #fafafa;
