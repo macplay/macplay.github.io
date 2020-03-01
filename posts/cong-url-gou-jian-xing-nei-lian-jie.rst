@@ -33,7 +33,7 @@
 
 .. raw:: html
 
-   <video src="/videos/url_emmet.mp4" loop autoplay>
+   <video src="/videos/url_emmet.mp4" loop autoplay muted playsinline>
    Your browser does not support the video tag.
    </video>
 

@@ -31,7 +31,7 @@ Embedded Browser 内嵌浏览器
 
 .. raw:: html
 
-   <video src="/videos/embedded_browser.mp4" loop autoplay>
+   <video src="/videos/embedded_browser.mp4" loop autoplay muted playsinline>
    Your browser does not support the video tag.
    </video>
 
@@ -48,7 +48,7 @@ Interactive Tutorial 互动教程
 
 .. raw:: html
 
-   <video src="/videos/interactive_tutorial.mp4" loop autoplay>
+   <video src="/videos/interactive_tutorial.mp4" loop autoplay muted playsinline>
    Your browser does not support the video tag.
    </video>
 

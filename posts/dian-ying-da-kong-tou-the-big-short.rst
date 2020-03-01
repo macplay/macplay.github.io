@@ -31,7 +31,7 @@ Michael Burry 不顾老板兼导师 Lawrence 的质疑，也不顾市场上还�
 
 .. raw:: html
 
-   <video src="/videos/everyone_is_wrong.mp4" loop autoplay>
+   <video src="/videos/everyone_is_wrong.mp4" loop autoplay muted playsinline>
    Your browser does not support the video tag.
    </video>
 
@@ -47,7 +47,7 @@ Jared Vennett 决定：与其和其它部门一样，对着房贷证券这坨狗
 
 .. raw:: html
 
-   <video src="/videos/jared_fire_insurance.mp4" loop autoplay>
+   <video src="/videos/jared_fire_insurance.mp4" loop autoplay muted playsinline>
    Your browser does not support the video tag.
    </video>
 
@@ -55,7 +55,7 @@ Jared Vennett 的精彩演说成功「唬」住了 Mark Baum 团队。Mark Baum 
 
 .. raw:: html
 
-   <video src="/videos/housing_bubble.mp4" loop autoplay>
+   <video src="/videos/housing_bubble.mp4" loop autoplay muted playsinline>
    Your browser does not support the video tag.
    </video>
 
@@ -65,7 +65,7 @@ Jared Vennett 与 Mark Baum 双双入局。
 
 .. raw:: html
 
-   <video src="/videos/finding_shit.mp4" loop autoplay>
+   <video src="/videos/finding_shit.mp4" loop autoplay muted playsinline>
    Your browser does not support the video tag.
    </video>
 
@@ -81,7 +81,7 @@ Michael Burry 进退维谷，赛恩基金从浮盈 38% 到浮亏 9.3%，Lawrence
 
 .. raw:: html
 
-   <video src="/videos/give_my_money_back.mp4" loop autoplay>
+   <video src="/videos/give_my_money_back.mp4" loop autoplay muted playsinline>
    Your browser does not support the video tag.
    </video>
 
@@ -89,7 +89,7 @@ Michael Burry 进退维谷，赛恩基金从浮盈 38% 到浮亏 9.3%，Lawrence
 
 .. raw:: html
 
-   <video src="/videos/that_is_fraud.mp4" loop autoplay>
+   <video src="/videos/that_is_fraud.mp4" loop autoplay muted playsinline>
    Your browser does not support the video tag.
    </video>
 
@@ -99,7 +99,7 @@ Jared Vennett 认为，市场的非理性是由「愚蠢」驱动的，并提议
 
 .. raw:: html
 
-   <video src="/videos/piece_of_shit.mp4" loop autoplay>
+   <video src="/videos/piece_of_shit.mp4" loop autoplay muted playsinline>
    Your browser does not support the video tag.
    </video>
 
@@ -115,7 +115,7 @@ Jared Vennett 认为，市场的非理性是由「愚蠢」驱动的，并提议
 
 .. raw:: html
 
-   <video src="/videos/it_is_happening.mp4" loop autoplay>
+   <video src="/videos/it_is_happening.mp4" loop autoplay muted playsinline>
    Your browser does not support the video tag.
    </video>
 
@@ -123,7 +123,7 @@ Michael Burry 的信用违约互换陆续获得清偿。然而，Mark Baum 的�
 
 .. raw:: html
 
-   <video src="/videos/fuck_responsibility.mp4" loop autoplay>
+   <video src="/videos/fuck_responsibility.mp4" loop autoplay muted playsinline>
    Your browser does not support the video tag.
    </video>
 
@@ -133,7 +133,7 @@ Michael Burry 的信用违约互换陆续获得清偿。然而，Mark Baum 的�
 
 .. raw:: html
 
-   <video src="/videos/drug_dealer_or_banker.mp4" loop autoplay>
+   <video src="/videos/drug_dealer_or_banker.mp4" loop autoplay muted playsinline>
    Your browser does not support the video tag.
    </video>
 

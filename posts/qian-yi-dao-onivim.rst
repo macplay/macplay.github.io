@@ -70,7 +70,7 @@
 
 .. raw:: html
 
-   <video src="/videos/vim_nc.mp4" loop autoplay>
+   <video src="/videos/vim_nc.mp4" loop autoplay muted playsinline>
    Your browser does not support the video tag.
    </video>
 
@@ -82,7 +82,7 @@
 
 .. raw:: html
 
-   <video src="/videos/nvim_ncm.mp4" loop autoplay>
+   <video src="/videos/nvim_ncm.mp4" loop autoplay muted playsinline>
    Your browser does not support the video tag.
    </video>
 
@@ -92,7 +92,7 @@
 
 .. raw:: html
 
-   <video src="/videos/oni_lsp.mp4" loop autoplay>
+   <video src="/videos/oni_lsp.mp4" loop autoplay muted playsinline>
    Your browser does not support the video tag.
    </video>
 

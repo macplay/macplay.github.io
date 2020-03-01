@@ -155,7 +155,7 @@ abbrs.ref
 
 .. raw:: html
 
-   <video src="/videos/rest_citation.mp4" loop autoplay>
+   <video src="/videos/rest_citation.mp4" loop autoplay muted playsinline>
    Your browser does not support the video tag.
    </video>
 

@@ -110,7 +110,7 @@ testsrc
 
         .. raw:: html
 
-           <video src="/videos/movie1.mp4" loop autoplay>
+           <video src="/videos/movie1.mp4" loop autoplay muted playsinline>
                Your browser does not support the video tag.
            </video>
 
@@ -118,7 +118,7 @@ testsrc
 
         .. raw:: html
 
-           <video src="/videos/movie2.mp4" loop autoplay>
+           <video src="/videos/movie2.mp4" loop autoplay muted playsinline>
                Your browser does not support the video tag.
            </video>
 
@@ -141,7 +141,7 @@ testsrc
 
 .. raw:: html
 
-   <video src="/videos/hstack.mp4" loop autoplay>
+   <video src="/videos/hstack.mp4" loop autoplay muted playsinline>
        Your browser does not support the video tag.
    </video>
 
@@ -153,7 +153,7 @@ testsrc
 
 .. raw:: html
 
-   <video src="/videos/grainextract.mp4" loop autoplay>
+   <video src="/videos/grainextract.mp4" loop autoplay muted playsinline>
        Your browser does not support the video tag.
    </video>
 
@@ -195,7 +195,7 @@ testsrc
 
 .. raw:: html
 
-   <video src="/videos/overlay.mp4" loop autoplay>
+   <video src="/videos/overlay.mp4" loop autoplay muted playsinline>
        Your browser does not support the video tag.
    </video>
 
@@ -209,7 +209,7 @@ testsrc
 
 .. raw:: html
 
-   <video src="/videos/setpts.mp4" loop autoplay>
+   <video src="/videos/setpts.mp4" loop autoplay muted playsinline>
        Your browser does not support the video tag.
    </video>
 
@@ -314,7 +314,7 @@ vectorscope.
 
 .. raw:: html
 
-   <video src="/videos/vectorscope.mp4" loop autoplay>
+   <video src="/videos/vectorscope.mp4" loop autoplay muted playsinline>
        Your browser does not support the video tag.
    </video>
 

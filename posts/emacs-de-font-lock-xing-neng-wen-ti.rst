@@ -15,7 +15,7 @@
 
 .. raw:: html
 
-   <video src="/videos/font_lock.mp4" loop autoplay>
+   <video src="/videos/font_lock.mp4" loop autoplay muted playsinline>
    Your browser does not support the video tag.
    </video>
 

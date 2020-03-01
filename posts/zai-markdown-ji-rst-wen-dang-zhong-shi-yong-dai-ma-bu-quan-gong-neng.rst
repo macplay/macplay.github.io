@@ -24,7 +24,7 @@
 
 .. raw:: html
 
-   <video src="/videos/ncm_scope.mp4" loop autoplay>
+   <video src="/videos/ncm_scope.mp4" loop autoplay muted playsinline>
        Your browser does not support the video tag.
    </video>
 

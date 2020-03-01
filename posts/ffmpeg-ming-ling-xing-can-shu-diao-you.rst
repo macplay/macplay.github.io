@@ -12,7 +12,7 @@
 
 .. raw:: html
 
-   <video src="/videos/time_machine.mp4" loop autoplay>
+   <video src="/videos/time_machine.mp4" loop autoplay muted playsinline>
        Your browser does not support the video tag.
    </video>
 
