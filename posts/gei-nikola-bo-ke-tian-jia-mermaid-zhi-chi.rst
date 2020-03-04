@@ -1,6 +1,7 @@
 .. title: 给 Nikola 博客添加 mermaid 支持
 .. slug: gei-nikola-bo-ke-tian-jia-mermaid-zhi-chi
 .. date: 2017-10-27 14:29:49 UTC+08:00
+.. updated: 2020-03-05 06:29:46 UTC+08:00
 .. tags: mermaid, chart
 .. category:
 .. link:
@@ -9,13 +10,15 @@
 .. nocomments:
 .. previewimage:
 
+.. role:: strike
+
 还是给博客集成了 mermaid_ [#]_ 图表功能，尽管目前用的很少……与 mathjax 一样，使用的时候给文章添加 `mermaid` 标签，然后在文章中给描述文本指定 `mermaid` class 即可。就像这样：
 
 .. _mermaid: https://mermaidjs.github.io
 
 .. code:: rst
 
-   .. container:: mermaid
+   .. class:: mermaid
 
       graph TD
       A[Christmas] -->|Get money| B(Go shopping)
@@ -30,7 +33,7 @@
 
 渲染结果：
 
-.. container:: ui center aligned mermaid
+.. class:: mermaid
 
    graph TD
    A[Christmas] -->|Get money| B(Go shopping)
@@ -52,7 +55,7 @@ Markdown 文档写作应该也可以用。整个 mermaid_ 功能的集成只需�
 
 序列图：
 
-.. container:: mermaid
+.. class:: mermaid
 
    sequenceDiagram
    participant Alice
@@ -65,7 +68,7 @@ Markdown 文档写作应该也可以用。整个 mermaid_ 功能的集成只需�
 
 甘特图：
 
-.. container:: mermaid
+.. class:: mermaid
 
    gantt
    dateFormat  YYYY-MM-DD
@@ -85,7 +88,7 @@ Markdown 文档写作应该也可以用。整个 mermaid_ 功能的集成只需�
 
 .. warning::
 
-   很奇怪序列图的 loop 语法不工作，但是使用 `raw` 指令却可以显示……有空再看看。
+   :strike:`很奇怪序列图的 loop 语法不工作，但是使用 "raw" 指令却可以显示……有空再看看。`
 
 .. raw:: html
 
