@@ -20,6 +20,9 @@ Global Const $PIPE_NAME = "\\.\\pipe\\mpvsocket"
 Global Const $SESSION_PATH = @TempDir & '\mpv_session.conf'
 Global $PLAY_LIST[0]
 Global $COM_HISTORY[0]
+Global $FIRST_PROCESS = True
+Global $PIPE_HANDLER
+Global $LAST_CLIP
 Global $LAST_URL
 Global $HOSTS
 
@@ -27,7 +30,7 @@ Global $hGUI, $g_idEdit, $g_idMemo, $g_idSend, $g_idServer, $g_idConsole, $g_idE
 
 $hGUI = GUICreate("mmate", 500, 400, -1, -1, $WS_SIZEBOX)
 GUICtrlCreateLabel("Server:", 2, 14, 52, 20, $SS_RIGHT)
-$g_idServer = GUICtrlCreateEdit($PIPE_NAME, 56, 10, 200, 20, $SS_LEFT)
+$g_idServer = GUICtrlCreateEdit($PIPE_NAME, 56, 10, 200, 20, $SS_LEFT + $ES_READONLY)
 GUICtrlCreateLabel("Command:", 2, 36, 52, 20, $SS_RIGHT)
 $g_idEdit = GUICtrlCreateEdit("", 56, 32, 370, 20, $SS_LEFT + $WS_HSCROLL + $ES_AUTOHSCROLL)
 $g_idSend = GUICtrlCreateButton("Send", 430, 32, 60, 20, $BS_DEFPUSHBUTTON)
@@ -47,48 +50,62 @@ TraySetToolTip("mmate")
 ; TraySetClick(16)
 
 $LAST_URL = IniRead($SESSION_PATH, "General", "URL", "")
-$HOSTS = IniRead($SESSION_PATH, "General", "Host", "")
+$HOSTS = IniRead($SESSION_PATH, "General", "Hosts", "")
 
 While True
-    Local $sClip, $sNow, $sURL, $iIndex
+    Local $sClip, $sURL, $iPL
     $sClip = ClipGet()
-    $sNow = FilterString($sClip)
-    If $sNow == "" Then
-        If $LAST_URL <> "" And $sNow <> $LAST_URL Then
-            $sURL = $LAST_URL
-        EndIf
-    Else
-        If $sNow <> $LAST_URL Then $sURL = $sNow
-    EndIf
-    If $sURL <> "" Then
-        $iIndex = _ArraySearch($PLAY_LIST, $sURL)
-        If @error Then
-            _ArrayAdd($PLAY_LIST, $sURL)
-            IniWrite($SESSION_PATH, "General", "URL", $sURL)
-            If Not ProcessExists("mpv.exe") Then
-                Run("mpv --input-ipc-server=mpvsocket  --idle")
-                If ProcessWait("mpv.exe") Then
-                    sleep(200)
-                    WriteMsg($PIPE_NAME, "loadfile " & $sURL & " append-play" & @CRLF)
+    If $sClip <> $LAST_CLIP Then
+        ConsoleWrite('@@ Debug(' & @ScriptLineNumber & ') : $LAST_CLIP = ' & $LAST_CLIP & @CRLF & '>Error code: ' & @error & @CRLF) ;### Debug Console
+        $LAST_CLIP = $sClip
+        $sURL = FilterString($sClip)
+        If $sURL == "" Then
+            If Not _WinAPI_FileExists($PIPE_NAME) Then
+                ConsoleWrite('@@ Debug(' & @ScriptLineNumber & ') : _WinAPI_FileExists($PIPE_NAME) = ' & _WinAPI_FileExists($PIPE_NAME) & @CRLF & '>Error code: ' & @error & @CRLF) ;### Debug Console
+                If $FIRST_PROCESS Then
+                    If $LAST_URL <> "" Then
+                        _ArrayAdd($PLAY_LIST, $LAST_URL)
+                        ConsoleWrite('@@ Debug(' & @ScriptLineNumber & ') : $PLAY_LIST = ' & $PLAY_LIST & @CRLF & '>Error code: ' & @error & @CRLF) ;### Debug Console
+                        LaunchAndWrite("loadfile " & $LAST_URL & " append-play" & @CRLF)
+                        ConsoleWrite('@@ Debug(' & @ScriptLineNumber & ') : LaunchAndWrite("loadfile " & $LAST_URL & " append-play" & @CRLF) = ' & LaunchAndWrite("loadfile " & $LAST_URL & " append-play" & @CRLF) & @CRLF & '>Error code: ' & @error & @CRLF) ;### Debug Console
+                    EndIf
+                EndIf
+            EndIf
+        Else
+            If _WinAPI_FileExists($PIPE_NAME) Then
+                ConsoleWrite('@@ Debug(' & @ScriptLineNumber & ') : _WinAPI_FileExists($PIPE_NAME) = ' & _WinAPI_FileExists($PIPE_NAME) & @CRLF & '>Error code: ' & @error & @CRLF) ;### Debug Console
+                If $sURL <> $LAST_URL Then
+                    $iPL = _ArraySearch($PLAY_LIST, $sURL)
+                    If @error Then
+                        _ArrayAdd($PLAY_LIST, $sURL)
+                        IniWrite($SESSION_PATH, "General", "URL", $sURL)
+                        WriteMsg($PIPE_NAME, "loadfile " & $sURL & " append-play" & @CRLF)
+                    EndIf
                 EndIf
             Else
-                If $sURL <> $LAST_URL Then
-                    WriteMsg($PIPE_NAME, "loadfile " & $sURL & " append-play" & @CRLF)
-                EndIf
+                _ArrayDelete($PLAY_LIST, "0-" & (UBound($PLAY_LIST) - 1))
+                _ArrayAdd($PLAY_LIST, $sURL)
+                IniWrite($SESSION_PATH, "General", "URL", $sURL)
+                LaunchAndWrite("loadfile " & $sURL & " append-play" & @CRLF)
             EndIf
         EndIf
     EndIf
+    $FIRST_PROCESS = False
     Switch GUIGetMsg()
         Case $g_idSend
-            Local $iSend, $iIndex
-            $iSend = GUICtrlRead($g_idEdit)
-            If $iSend <> "" Then
-                WriteMsg(GUICtrlRead($g_idServer), $iSend & @CRLF)
+            Local $sMsg, $iHS
+            $sMsg = GUICtrlRead($g_idEdit)
+            If $sMsg <> "" Then
+                If _WinAPI_FileExists($PIPE_NAME) Then
+                    WriteMsg($PIPE_NAME, $sMsg & @CRLF)
+                Else
+                    LaunchAndWrite($sMsg & @CRLF)
+                EndIf
                 GUICtrlSetData($g_idEdit, "")
-                $iIndex = _ArraySearch($COM_HISTORY, $iSend)
+                $iHS = _ArraySearch($COM_HISTORY, $sMsg)
                 If @error Then
-                    _ArrayAdd($COM_HISTORY, $iSend)
-                    _GUICtrlEdit_InsertText($g_idMemo, $iSend & @CRLF, 0)
+                    _ArrayAdd($COM_HISTORY, $sMsg)
+                    _GUICtrlEdit_InsertText($g_idMemo, $sMsg & @CRLF, 0)
                 EndIf
                 GUICtrlSetState($g_idEdit, $GUI_FOCUS)
             EndIf
@@ -100,8 +117,9 @@ While True
             GUISetState(@SW_SHOW, $hGUI)
             GUICtrlSetState($g_idEdit, $GUI_FOCUS)
         Case $g_idExit
-            Local $sHistory
-            _ArrayDelete($COM_HISTORY, "200-")
+            Local $swHistory
+            If $PIPE_HANDLER Then _WinAPI_CloseHandle($PIPE_HANDLER)
+            _ArrayDelete($COM_HISTORY, "200-" & (UBound($COM_HISTORY) - 1))
             $swHistory = _ArrayToString($COM_HISTORY, "|")
             IniWrite($SESSION_PATH, "General", "History", $swHistory)
             Exit
@@ -113,7 +131,6 @@ Func FilterString($sString)
     $iStrip = StringStripWS($sString, $STR_STRIPLEADING + $STR_STRIPTRAILING)
     $iPattern = "^((?:ht|f)tps?)\:\/\/([0-9a-zA-Z](?:[-.\w]*[0-9a-zA-Z])*)(?::([0-9]+))*\/?([a-zA-Z0-9\-\.\?\,\'\/\\\+\$=&%#_]*)?$"
     $aArray = StringRegExp($iStrip, $iPattern, $STR_REGEXPARRAYFULLMATCH)
- ; _ArrayDisplay($aArray)
     If UBound($aArray) == 5 Then
         If StringRight($aArray[0], 5) == ".m3u8" Then $iURL = $aArray[0]
         If $HOSTS <> "" Then
@@ -129,17 +146,50 @@ Func FilterString($sString)
     Return $iURL
 EndFunc   ;==>FilterString
 
+Func LaunchAndWrite($sMessage)
+    $iPid = Run("mpv --input-ipc-server=mpvsocket --idle")
+    If $iPid Then
+        For $i = 5 To 1 Step -1
+            If WriteMsg($PIPE_NAME, $sMessage) Then
+                Return True
+            EndIf
+            Sleep(200)
+        Next
+    Else
+        TrayTip("Can't launch mpv!", "Please check your mpv path." & @CRLF & "mmate will exit now.", 3)
+        Exit (1)
+    EndIf
+    Return False
+EndFunc   ;==>LaunchAndWrite
+
 Func WriteMsg($sServer, $sMessage)
-    Local $hPipe, $iWritten, $iBuffer, $pBuffer, $tBuffer
-    $hPipe = _WinAPI_CreateFile($sServer, 2, 6)
-    If $hPipe <> -1 Then
+    Local $iWritten, $iBuffer, $pBuffer, $tBuffer
+    If Not $PIPE_HANDLER Then GetPipeHandler($sServer)
+    ConsoleWrite('@@ Debug(' & @ScriptLineNumber & ') : $PIPE_HANDLER = ' & $PIPE_HANDLER & @CRLF & '>Error code: ' & @error & @CRLF) ;### Debug Console
+    If $PIPE_HANDLER Then
         $iBuffer = StringLen($sMessage) + 1
         $tBuffer = DllStructCreate("char Text[" & $iBuffer & "]")
         $pBuffer = DllStructGetPtr($tBuffer)
         DllStructSetData($tBuffer, "Text", $sMessage)
-        If Not _WinAPI_WriteFile($hPipe, $pBuffer, $iBuffer, $iWritten, 0) Then
-            TrayTip("Hmm...", "WriteMsg: _WinAPI_WriteFile failed", 3)
+        If _WinAPI_WriteFile($PIPE_HANDLER, $pBuffer, $iBuffer, $iWritten, 0) Then
+            ConsoleWrite('@@ Debug(' & @ScriptLineNumber & ') : _WinAPI_WriteFile($PIPE_HANDLER, $pBuffer, $iBuffer, $iWritten, 0) = ' & _WinAPI_WriteFile($PIPE_HANDLER, $pBuffer, $iBuffer, $iWritten, 0) & @CRLF & '>Error code: ' & @error & @CRLF) ;### Debug Console
+            _WinAPI_CloseHandle($PIPE_HANDLER)
+            $PIPE_HANDLER = False
+            Return True
         EndIf
     EndIf
-    _WinAPI_CloseHandle($hPipe)
+    Return False
 EndFunc   ;==>WriteMsg
+
+Func GetPipeHandler($sServer)
+    Local $hPipe
+    For $i = 5 To 1 Step -1
+        $hPipe = _WinAPI_CreateFile($sServer, 2, 4)
+        If $hPipe Then
+            $PIPE_HANDLER = $hPipe
+            Return True
+        EndIf
+        Sleep(200)
+    Next
+    Return False
+EndFunc   ;==>GetPipeHandler
