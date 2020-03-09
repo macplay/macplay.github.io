@@ -1393,6 +1393,9 @@ GLOBAL_CONTEXT = {
         {"name": "(power up)",
             "website": "http://kevinjiang.info",
             "description": "(power up)"},
+        {"name": "戈楷旎",
+            "website": "https://blog.geekinney.com",
+            "description": "happy hacking emacs!"},
         ],
 }
 
