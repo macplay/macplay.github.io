@@ -1,0 +1,45 @@
+[
+    { "keys": ["ctrl+w"], "command": "close",
+    "context":
+    [
+        { "key": "setting.command_mode", "operand": true }
+    ]
+    },
+    { "keys": ["ctrl+a"], "command": "move_to", "args": {"to": "bol", "extend": false},
+    "context":
+    [
+        { "key": "setting.command_mode", "operand": false}
+    ]
+    },
+    { "keys": ["ctrl+e"], "command": "move_to", "args": {"to": "eol", "extend": false},
+    "context":
+    [
+        { "key": "setting.command_mode", "operand": false }
+    ]
+    },
+    { "keys": ["ctrl+f"], "command": "move", "args": {"by": "characters", "forward": true},
+    "context":
+    [
+        { "key": "setting.command_mode", "operand": false }
+    ]
+    },
+    { "keys": ["ctrl+b"], "command": "move", "args": {"by": "characters", "forward": false},
+    "context":
+    [
+        { "key": "setting.command_mode", "operand": false }
+    ]
+    },
+    { "keys": ["ctrl+w"], "command": "delete_word", "args": { "forward": false },
+    "context":
+    [
+        { "key": "setting.command_mode", "operand": false }
+    ]
+    },
+    { "keys": ["j", "k"], "command": "exit_insert_mode",
+    "context":
+    [
+        { "key": "setting.command_mode", "operand": false },
+        { "key": "setting.is_widget", "operand": false }
+    ]
+    }
+]
