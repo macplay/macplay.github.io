@@ -13,8 +13,14 @@
 #include <GuiEdit.au3>
 #include <TrayConstants.au3>
 #include <EditConstants.au3>
+#include <Misc.au3>
 
 Opt("TrayMenuMode", 3)
+
+If _Singleton("mmate", 1) = 0 Then
+    MsgBox($MB_ICONWARNING, "Warning!", "An occurrence of mmate is already running.", 3)
+    Exit(1)
+EndIf
 
 Global Const $PIPE_NAME = "\\.\\pipe\\mpvsocket"
 Global Const $SESSION_PATH = @TempDir & '\mpv_session.conf'
