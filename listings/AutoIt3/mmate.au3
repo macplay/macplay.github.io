@@ -138,6 +138,7 @@ Func FilterString($sString)
     $iPattern = "^((?:ht|f)tps?)\:\/\/([0-9a-zA-Z](?:[-.\w]*[0-9a-zA-Z])*)(?::([0-9]+))*\/?([a-zA-Z0-9\-\.\?\,\'\/\\\+\$\*=&%#_]*)?$"
     $aArray = StringRegExp($iStrip, $iPattern, $STR_REGEXPARRAYFULLMATCH)
     If UBound($aArray) == 5 Then
+        If _IsPressed("10") Then $iURL = $aArray[0] ; Hold Shift key to directly pass this URL to mpv
         If StringRight($aArray[0], 5) == ".m3u8" Then $iURL = $aArray[0]
         If $HOSTS <> "" Then
             $aITEM = StringSplit($HOSTS, "|")
