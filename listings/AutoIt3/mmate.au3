@@ -135,7 +135,7 @@ WEnd
 Func FilterString($sString)
     Local $iStrip, $iPattern, $aArray, $iURL, $aITEM
     $iStrip = StringStripWS($sString, $STR_STRIPLEADING + $STR_STRIPTRAILING)
-    $iPattern = "^((?:ht|f)tps?)\:\/\/([0-9a-zA-Z](?:[-.\w]*[0-9a-zA-Z])*)(?::([0-9]+))*\/?([a-zA-Z0-9\-\.\?\,\'\/\\\+\$=&%#_]*)?$"
+    $iPattern = "^((?:ht|f)tps?)\:\/\/([0-9a-zA-Z](?:[-.\w]*[0-9a-zA-Z])*)(?::([0-9]+))*\/?([a-zA-Z0-9\-\.\?\,\'\/\\\+\$\*=&%#_]*)?$"
     $aArray = StringRegExp($iStrip, $iPattern, $STR_REGEXPARRAYFULLMATCH)
     If UBound($aArray) == 5 Then
         If StringRight($aArray[0], 5) == ".m3u8" Then $iURL = $aArray[0]
