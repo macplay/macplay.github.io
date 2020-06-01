@@ -6,6 +6,8 @@
 #include <WinAPIFiles.au3>
 #include <TrayConstants.au3>
 
+Opt("TrayAutoPause", 0)
+
 TraySetState($TRAY_ICONSTATE_SHOW) ; Show the tray menu.
 
 ; Download a file in the background.
