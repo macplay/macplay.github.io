@@ -19,6 +19,7 @@ Local $sFilePath = _WinAPI_GetTempFileName(@TempDir)
 ; Download the file in the background with the selected option of 'force a reload from the remote site.'
 Local $hDownload = InetGet("https://github.com/neovim/neovim/releases/download/nightly/nvim-win32.zip", $sFilePath, $INET_FORCERELOAD, $INET_DOWNLOADBACKGROUND)
 ; Wait for the download to complete by monitoring when the 2nd index value of InetGetInfo returns True.
+
 Do
     Sleep(250)
     ; Retrieve details about the download files
@@ -33,7 +34,7 @@ Do
         $fSize = "?"
         $aPercent = "?"
     EndIf
-    TraySetToolTip($rSize & "/" & $fSize & " i.e. " & $aPercent)
+    ToolTip($rSize & "/" & $fSize & " i.e. " & $aPercent, @DesktopWidth - 118, @DesktopHeight - 50, "Current Process:", 0, 2)
     If @error Then
         ExitLoop
         FileDelete($sFilePath)
@@ -59,9 +60,9 @@ EndIf
 InetClose($hDownload)
 
 If ProcessExists("nvim-qt.exe") Or ProcessExists("nvim.exe") Then
-    $iAsk = MsgBox($MB_OKCANCEL, "Continue?", "You need to close nvim-qt/nvim before continue.")
+    $iAsk = MsgBox($MB_OK, "Continue?", "You need to close nvim-qt/nvim before continue.")
     If $iAsk == $IDOK Then
-        TraySetToolTip("Waiting for nvim-qt/nvim to exit...")
+        ToolTip("Waiting for nvim-qt/nvim to exit...", @DesktopWidth - 118, @DesktopHeight - 50, "Need your action(updater):", 0, 2)
         ProcessWaitClose("nvim-qt.exe")
         ProcessWaitClose("nvim.exe")
     Else
@@ -75,7 +76,7 @@ Local $sExtract = "c:\tools\Neovim\"
 If $s7zPath Then
     Local $e7zPath = StringRegExpReplace($s7zPath, "^(.+)", '"$1"')
     ConsoleWrite($e7zPath & @CRLF)
-    TraySetToolTip("Extracting files to designed directory...")
+    ToolTip("Extracting files to designed directory...", @DesktopWidth - 118, @DesktopHeight - 50, "Almost done :)", 0, 2)
     Local $iPID = RunWait(@ComSpec & " /c " & $e7zPath & " x " & $sFilePath & " -o" & $sExtract & " -r -y", @TempDir, @SW_HIDE)
     If @error Then
         TrayTip("Error", "Error while extracting file.", 3)
