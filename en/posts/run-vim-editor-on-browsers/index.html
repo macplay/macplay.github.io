@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="generator" content="Nikola (getnikola.com)">
+<title>在浏览器中运行 Vim 编辑器 - MacPlay</title>
+<link rel="apple-touch-icon" sizes="180x180" href="../../../apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../../../favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../../../favicon-16x16.png">
+<link rel="mask-icon" href="../../../safari-pinned-tab.svg" color="#5bbad5">
+<link href="../../../assets/css/semantic.min.css" rel="stylesheet" type="text/css">
+<link href="../../../assets/css/jquery.fancybox.min.css" rel="stylesheet" type="text/css">
+<link href="../../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<link rel="canonical" href="https://macplay.github.io/en/posts/run-vim-editor-on-browsers/">
+<meta name="author" content="ashfinal">
+<link rel="alternate" hreflang="zh_cn" href="../../../posts/run-vim-editor-on-browsers/">
+<link rel="stylesheet" type="text/css" href="../../../assets/css/gitalk.css">
+</head>
+<body>
+        <div class="ui grid">
+            <div class="computer only three wide column no-print">
+                <div id="left-side">
+                </div>
+            </div>
+            <div class="ten wide computer sixteen wide tablet sixteen wide mobile column">
+                        <div class="ui inline cookie nag no-print">
+            <span class="title">从现在开始，支持中英双语及博文精选 O(∩_∩)O~~</span>
+            <i class="close icon"></i>
+        </div>
+    <header id="header" class="no-print"><div class="ui grid">
+        <div class="computer only tablet only sixteen wide column">
+            <div class="ui large secondary stackable menu">
+                <a class="header item brand-logo" href="https://macplay.github.io/en/">
+                    MacPlay
+                </a>
+                        <a class="item" href="../../../">Posts</a>
+                        <a class="item" href="../../../listings/">Code</a>
+                        <a class="item" href="../../../galleries/">Gallery</a>
+                        <a class="item" href="../../../categories/">Tags</a>
+                        <a class="item" href="../../../archive.html">Archive</a>
+                <div class="right menu">
+                    <a class="item" href="../../../rss.xml"><i class="rss icon"></i>RSS</a>
+                </div>
+            </div>
+        </div>
+        <div class="mobile only sixteen wide column">
+            <div class="ui fluid accordion vertical menu">
+                <div class="item">
+                    <a class="title">MacPlay</a>
+                    <div class="content">
+                                <a class="item" href="../../../">Posts</a>
+                                <a class="item" href="../../../listings/">Code</a>
+                                <a class="item" href="../../../galleries/">Gallery</a>
+                                <a class="item" href="../../../categories/">Tags</a>
+                                <a class="item" href="../../../archive.html">Archive</a>
+                        <a class="item" href="../../../rss.xml"><i class="rss icon"></i>RSS</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </header><main id="main"><div id="main-content">
+<div class="postpage post-text page-body" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <h1 class="post-title" itemprop="headline">
+        <a href=".">在浏览器中运行 Vim 编辑器</a>
+    </h1>
+
+    <div class="ui large horizontal link list post-meta">
+        <span class="item">By
+            <a href="../../authors/ashfinal/">ashfinal</a>
+        </span>
+            <span class="item">
+                <a href="https://github.com/macplay/macplay.github.io/edit/src/posts/run-vim-editor-on-browsers.rst" target="_blank" title="Edit on GitHub">Edit</a>
+            </span>
+        <span class="item">
+            <time datetime="2019-10-23T21:29:00+08:00">
+            2019-10-23 21:29
+            </time></span>
+            <span class="item">
+                    <a href="../../categories/vim/">vim</a>
+            </span>
+    </div>
+
+    
+    <div class="post-content" itemprop="article text">
+        <div id="post-content">
+        <div>
+<p>有人将 Vim 编辑器移植到了 WebAssembly (Wasm) 格式： <a class="reference external" href="https://github.com/rhysd/vim.wasm">vim.wasm: Vim Ported to WebAssembly</a> 。 <a class="reference external" href="https://webassembly.org/">Wasm</a> 是一种底层的二进制指令格式，理论上能实现接近 C/C++/Rust 等编译性语言的执行速度，目前已经在主流浏览器 Chrome/Safari/Firefox/Edge 中得到支持。所以现在，你可以在浏览器上体验原汁原味的 Vim 了！</p>
+<div class="figure align-center">
+<img alt="vim.wasm on chrome" src="../../../images/chrome_vim_wasm.png">
+</div>
+<!-- TEASER_END -->
+<p>在线体验地址： <a class="reference external" href="http://rhysd.github.io/vim.wasm">http://rhysd.github.io/vim.wasm</a></p>
+<p>事实上，我很早就关注了该项目，只不过那时它还只是仅仅能运行。现在，它已经包含了一些引人注目的特性：</p>
+<ol class="arabic">
+<li><p>编译的是 Normal 版本，这意味着几乎所有的 Vim 特性，如语法高亮、Vim script、文本对象... 包括 popup window（浮动窗口）等都可以正常运行。</p></li>
+<li><p>支持读取外部 <cite>vimrc</cite> 配置，以及持久化的文件目录存储，默认为 <code class="docutils literal"><span class="pre">~/.vim</span></code> 。</p></li>
+<li>
+<p>系统剪贴板支持、文件拖放支持、文件导出功能 ... 等等</p>
+<p>...</p>
+</li>
+</ol>
+<p>经过我的简单尝试，如上图，发现 vim.wasm 还包含了 netrw，matchit 等插件--这意味着：其它 Vim script 编写的外部插件也可以运行。稍微探索一番，就可以使用原汁原味又个性化十足的 Vim 编辑器了--在浏览器中！</p>
+<p>你可以将我的 <a class="reference external" href="https://github.com/ashfinal/vimrc-config">单文件 vimrc</a> 作为开始，打造一份用于轻量级场景或初中级 Vim 教学的配置。</p>
+<p>当然，该项目还有很多不足，相信你会注意到 :) Wasm 标准和生态尚未成型，也会带来很多未知与挑战。但无论怎样，它证明了一个精简高效的“内核”所具有的持久生命力。作为新兴技术的探索者，vim.wasm 也是一个值得长期关注的项目。</p>
+<p>最后，Happy Viming！</p>
+</div>
+        </div>
+    </div>
+    <div class="post-info">
+        <p>文章链接：<a href="https://macplay.github.io/en/posts/run-vim-editor-on-browsers/" target="_blank">https://macplay.github.io/en/posts/run-vim-editor-on-browsers/</a></p>
+        <p>发布/更新于：
+            <time datetime="2019-10-24 15:46:28 UTC+08:00">
+            2019-10-24 15:46
+            </time></p>
+        <p>版权声明：如无特别说明，本站文章均遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">CC BY-NC-SA 4.0</a> 协议，转载请注明作者及出处。</p>
+    </div>
+        <div class="post-navigation no-print">
+        <div class="ui huge secondary stackable menu">
+            <a class="post-nav-item post-nav-previous item" href="../text-buffer-reimplementation/" title="Previous post"><i class="angle double left icon"></i> 【译】重新实现 Text Buffer</a>
+        <div class="right menu">
+            <a class="post-nav-item post-nav-next item" href="../vim-cheatsheet-2/" title="Next post">Vim Cheatsheet <i class="angle double right icon"></i></a>
+        </div>
+        </div>
+    </div>
+
+        <div id="gitalk-container" class="comments-block no-print"></div>
+</div>
+                    </div>
+                </main><div class="footer extra-block no-print">
+    <span class="footer_item">
+        <a href="../../../pages/you-qing-lian-jie/">友情链接</a>
+    </span>
+    <span class="footer_item">
+        <a href="../../../pages/liu-yan-ban/">留言板</a>
+    </span>
+    <span class="footer_item">
+        <a href="../../../pages/ge-ren-dong-tai/">碎碎念</a>
+    </span>
+    </div>
+            <div class="footer social-link no-print">
+            <a href="https://github.com/ashfinal" target="_blank"><i class="grey large github icon"></i></a>
+            <a href="http://weibo.com/ashfinal/" target="_blank"><i class="grey large weibo icon"></i></a>
+            <a href="mailto://ashfinal@sina.cn" target="_blank"><i class="grey large mail icon"></i></a>
+            </div>
+        <div class="ui basic center aligned segment no-print">Contents © 2020         <a href="mailto:ashfinal@sina.cn">ashfinal</a> - Powered by         <a href="https://getnikola.com" target="_blank" rel="nofollow">Nikola</a>         </div>
+
+            </div>
+            <div class="computer only three wide column no-print">
+                <div id="right-side">
+                </div>
+            </div>
+        </div>
+
+        <!-- GoStats JavaScript Based Code -->
+        <script type="text/javascript">(function(c,o,m,p,u,t,e){
+        c['GoStatsObject']=u;c[u]=c[u]||function(){(c[u].q=c[u].q||[]).push(arguments)},
+        c[u].l=1*new Date();t=o.createElement(m);t.async=1;t.src=p;
+        e=o.getElementsByTagName(m)[0];e.parentNode.insertBefore(t,e);
+        })(window,document,'script','//www.gostats.org/5.js','go');
+        go('init',100479892,{'img_counter_type':5,'img_image_type':1});go('send');</script><!-- End GoStats JavaScript Based Code --><script type="text/javascript" src="../../../assets/js/jquery-3.3.1.min.js"></script><script type="text/javascript" src="../../../assets/js/semantic.min.js"></script><script type="text/javascript" src="../../../assets/js/jquery.fancybox.min.js"></script><script type="text/javascript" src="../../../assets/js/cookie.min.js"></script><script>
+            $(document).ready(function(){
+                $(".ui.dropdown").dropdown();
+                $('.ui.accordion').accordion();
+                var newstr = $('.cookie.nag').text();
+                $('.cookie.nag').nag({
+                    key: 'globalnotice',
+                    value: newstr
+                  });
+                $('.image-reference').fancybox();
+            });
+        </script><script src="../../../assets/js/md5.min.js"></script><script src="../../../assets/js/gitalk.min.js"></script><script>
+        const gitalk = new Gitalk({
+            clientID: '12fcda845097d895a24c',
+            clientSecret: '50ed60cde5f40897205197b4265b474cefbedc49',
+            repo: 'macplay.github.io',
+            owner: 'macplay',
+            admin: ['macplay', 'ashfinal'],
+            id: md5(window.location.pathname),
+            // facebook-like distraction free mode
+            distractionFreeMode: false
+        })
+        gitalk.render('gitalk-container')
+    </script>
+</body>
+</html>

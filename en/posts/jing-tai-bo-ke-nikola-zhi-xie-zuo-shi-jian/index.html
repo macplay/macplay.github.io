@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="generator" content="Nikola (getnikola.com)">
+<title>静态博客 Nikola 之写作实践 - MacPlay</title>
+<link rel="apple-touch-icon" sizes="180x180" href="../../../apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../../../favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../../../favicon-16x16.png">
+<link rel="mask-icon" href="../../../safari-pinned-tab.svg" color="#5bbad5">
+<link href="../../../assets/css/semantic.min.css" rel="stylesheet" type="text/css">
+<link href="../../../assets/css/jquery.fancybox.min.css" rel="stylesheet" type="text/css">
+<link href="../../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<link rel="canonical" href="https://macplay.github.io/en/posts/jing-tai-bo-ke-nikola-zhi-xie-zuo-shi-jian/">
+<meta name="author" content="macplay">
+<link rel="alternate" hreflang="zh_cn" href="../../../posts/jing-tai-bo-ke-nikola-zhi-xie-zuo-shi-jian/">
+<link rel="stylesheet" type="text/css" href="../../../assets/css/gitalk.css">
+</head>
+<body>
+        <div class="ui grid">
+            <div class="computer only three wide column no-print">
+                <div id="left-side">
+                </div>
+            </div>
+            <div class="ten wide computer sixteen wide tablet sixteen wide mobile column">
+                        <div class="ui inline cookie nag no-print">
+            <span class="title">从现在开始，支持中英双语及博文精选 O(∩_∩)O~~</span>
+            <i class="close icon"></i>
+        </div>
+    <header id="header" class="no-print"><div class="ui grid">
+        <div class="computer only tablet only sixteen wide column">
+            <div class="ui large secondary stackable menu">
+                <a class="header item brand-logo" href="https://macplay.github.io/en/">
+                    MacPlay
+                </a>
+                        <a class="item" href="../../../">Posts</a>
+                        <a class="item" href="../../../listings/">Code</a>
+                        <a class="item" href="../../../galleries/">Gallery</a>
+                        <a class="item" href="../../../categories/">Tags</a>
+                        <a class="item" href="../../../archive.html">Archive</a>
+                <div class="right menu">
+                    <a class="item" href="../../../rss.xml"><i class="rss icon"></i>RSS</a>
+                </div>
+            </div>
+        </div>
+        <div class="mobile only sixteen wide column">
+            <div class="ui fluid accordion vertical menu">
+                <div class="item">
+                    <a class="title">MacPlay</a>
+                    <div class="content">
+                                <a class="item" href="../../../">Posts</a>
+                                <a class="item" href="../../../listings/">Code</a>
+                                <a class="item" href="../../../galleries/">Gallery</a>
+                                <a class="item" href="../../../categories/">Tags</a>
+                                <a class="item" href="../../../archive.html">Archive</a>
+                        <a class="item" href="../../../rss.xml"><i class="rss icon"></i>RSS</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </header><main id="main"><div id="main-content">
+<div class="postpage post-text page-body" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <h1 class="post-title" itemprop="headline">
+        <a href=".">静态博客 Nikola 之写作实践</a>
+    </h1>
+
+    <div class="ui large horizontal link list post-meta">
+        <span class="item">By
+            <a href="../../authors/macplay/">macplay</a>
+        </span>
+            <span class="item">
+                <a href="https://github.com/macplay/macplay.github.io/edit/src/posts/jing-tai-bo-ke-nikola-zhi-xie-zuo-shi-jian.rst" target="_blank" title="Edit on GitHub">Edit</a>
+            </span>
+        <span class="item">
+            <time datetime="2017-09-20T11:32:34+08:00">
+            2017-09-20 11:32
+            </time></span>
+            <span class="item">
+                    <a href="../../categories/markdown/">markdown</a>
+                    <a href="../../categories/nikola/">nikola</a>
+                    <a href="../../categories/rest/">reST</a>
+            </span>
+    </div>
+
+    
+    <div class="post-content" itemprop="article text">
+        <div id="post-content">
+        <div>
+<p>本文分享 <a class="reference external" href="https://getnikola.com">Nikola</a> 博客的写作流程及注意事项，方便读者对最基础的操作--「更新文章」有直观了解。得益于 <a class="reference external" href="https://getnikola.com">Nikola</a> 和 <a class="reference external" href="https://travis-ci.org">TravisCI</a> 的紧密协同，「更新文章」只需把源文件放到指定目录，提交到 GitHub 即可。甚至在没有安装 <a class="reference external" href="https://getnikola.com">Nikola</a> 程序的电脑或者手机上也可以随时更新你的文章。</p>
+<!-- TEASER_END -->
+<div class="section" id="id1">
+<h2><a class="toc-backref" href="#id7">一点背景知识</a></h2>
+<div class="admonition hint">
+<p class="admonition-title">提示</p>
+<p>此小结内容并不影响后续操作，如果不感兴趣的话可以直接跳过。</p>
+</div>
+<div class="sidebar">
+<p class="sidebar-title">文章目录</p>
+<div class="contents topic" id="id2">
+<p class="topic-title">目录</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#id1" id="id7">一点背景知识</a></p></li>
+<li><p><a class="reference internal" href="#markup" id="id8">只需提交 markup 文件！</a></p></li>
+<li><p><a class="reference internal" href="#meta" id="id9">不要忘记添加 meta 信息</a></p></li>
+<li><p><a class="reference internal" href="#id4" id="id10">总结</a></p></li>
+<li>
+<p><a class="reference internal" href="#id5" id="id11">补充</a></p>
+<ul>
+<li><p><a class="reference internal" href="#jupyter-notebook" id="id12">Jupyter Notebook</a></p></li>
+<li><p><a class="reference internal" href="#markdown" id="id13">Markdown</a></p></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<p>博客的输出文档和源文件均存放在 <a class="reference external" href="https://github.com/macplay/macplay.github.io">此 GitHub 仓库</a> 里面。该仓库有 <cite>master</cite> 和 <cite>src</cite> 两个分支，其中 <cite>master</cite> 分支存放输出文档，由 <a class="reference external" href="https://getnikola.com">Nikola</a> 或 <a class="reference external" href="https://travis-ci.org">TravisCI</a> 管理，不需要我们直接干预； <cite>src</cite> 分支则存放博客主题、配置文件、markup 文件等，需要关心的目录结构如下：</p>
+<pre class="code python doctest">&gt;&gt;&gt; lt -T -L2 .
+    ├── galleries
+    │  ├── bing_daily
+    │  ├── gaosongdezhuzitupian-007.jpg
+    │  ├── liuthangdeheliutupian-014.jpg
+    │  └── qiteyanshifengjingtupian-011.jpg
+    ├── listings
+    │  ├── python_plot
+    │  └── weibo_util.py
+    ├── posts
+    │  ├── jing-tai-bo-ke-nikola-zhi-xie-zuo-shi-jian.rst
+    │  ├── jupyter-notebook-get-started.ipynb
+    │  ├── markdown-reference.md
+    │  ├── nikola-internals.rst
+    │  ├── pygal-charts-get-started.rst
+    │  ├── quickstart.rst
+</pre>
+<p>从上到下的目录分别为「图册」、「代码」、「文章」，清晰明了。对静态博客的管理只需操作 <cite>src</cite> 分支，具体到「更新文章」则是 <cite>posts</cite> 目录。对其进行添加／删除／更改等操作就可以， <a class="reference external" href="https://travis-ci.org">TravisCI</a> 则会负责接下来的所有工作：渲染 markup 文件、重建静态网页、生成缩略图、发布到 <cite>master</cite> 分支等。提交更改后稍等几十秒钟，即可在博客首页看到新发布的文章。</p>
+</div>
+<div class="section" id="markup">
+<h2><a class="toc-backref" href="#id8">只需提交 markup 文件！</a></h2>
+<p>既然清楚 <strong>直接将 markup 文件丢到 src 分支的 posts 目录下</strong> 即可完成静态网站的更新，可选的方案就很多了。如果你是非技术型用户，则直接在 GitHub 网页上操作即可。GitHub 官方提供了 markdown、reST 等标记语言的在线预览，新建或者编辑文章不在话下。当然你也可以选择 markup 客户端编辑文章，然后拖放到网页上传。</p>
+<img alt="/images/nikola_upload_your_post.png" class="align-center" src="../../../images/nikola_upload_your_post.png"><p>如果是对技术熟悉的用户，则一般的操作是：本地编辑文章，然后使用 GitHub 客户端或者命令行完成 markup 文件的提交。</p>
+<p>一些情况下，电脑或者手机上使用 GitHub 网页端可以成为一个非常有用的备选方案。比如翻看文章或者评论时发现原文有一处比较明显的错误，这时你并不需要像多数静态博客那样：打开电脑 -&gt; 修正错误 -&gt; 重建页面 -&gt; 推送到远端 ——直接使用手机就可以随时随地搞定了。</p>
+<p>到目前为止，我们还没有在个人电脑上安装过任何软件。但是如果想要充分体验静态博客的魅力，建议你安装 Nikola，终端输入 <cite>pip install 'Nikola[extras]'</cite> 等待命令完成即可。</p>
+<p>本地运行 Nikola 的一大好处是支持全站预览，对刚开始接触 Nikola 或者 markup 语言的人来说，这是个非常好用的功能。将工作目录切到站点的 <cite>src</cite> 分支，输入 <cite>nikola auto -b</cite> 会在默认浏览器打开站点预览，编辑并保存任何文件，浏览器将自动刷新呈现更改。Nikola 的其它命令可通过输入 <cite>nikola help</cite> 查看。同样地，更改完毕确定发布的话，将其推送到 GitHub 即可。</p>
+</div>
+<div class="section" id="meta">
+<h2><a class="toc-backref" href="#id9">不要忘记添加 meta 信息</a></h2>
+<p>但是，且慢，我们忘记给文章添加 meta 信息了！</p>
+<p>和大多数的静态博客一样，Nikola 使用 meta 头来生成博客站点的文章作者、标签、分类等等，同时做一些有趣的事情，比如禁止评论、文章草稿、加密日志等，具体可以参看 Nikola 使用手册的相关部分 <a class="footnote-reference brackets" href="#id6" id="id3">1</a> 。</p>
+<p>因为一般以「注释」的形式存在，不支持 meta 头的客户端会忽略这些信息，markup 文件仍能得到想要的渲染效果。换言之，meta 信息对 Nikola 来说算是附加的福利。这些福利还是非常重要的。那么现在，调整发布流程为：</p>
+<!-- 测试 reST 文档的 html 录入 :) -->
+<div class="ui steps">
+    <div class="step">撰写 markup 文件</div>
+    <div class="active step">添加 meta 信息</div>
+    <div class="disabled step">提交 GitHub</div>
+</div>
+<p>添加完 meta 信息后就可以提交最终 markup 文档了。如本文的 meta 信息为（ reStructuredText 文件类型）：</p>
+<pre class="code rst"><a name="rest_code_7890a510ab2c42f291480b25392d2a6d-1"></a><span class="cp">.. title: 静态博客 Nikola 之写作实践</span>
+<a name="rest_code_7890a510ab2c42f291480b25392d2a6d-2"></a><span class="cp">.. slug: jing-tai-bo-ke-nikola-zhi-xie-zuo-shi-jian</span>
+<a name="rest_code_7890a510ab2c42f291480b25392d2a6d-3"></a><span class="cp">.. date: 2017-09-20 11:32:34 UTC+08:00</span>
+<a name="rest_code_7890a510ab2c42f291480b25392d2a6d-4"></a><span class="cp">.. tags: nikola, reST, markdown</span>
+<a name="rest_code_7890a510ab2c42f291480b25392d2a6d-5"></a><span class="cp">.. category: markdown</span>
+<a name="rest_code_7890a510ab2c42f291480b25392d2a6d-6"></a><span class="cp">.. author: macplay</span>
+</pre>
+<p>Nikola 支持提交 reStructuredText 、Markdown、Jupyter Notebook 等文件来生成博客文章，不同文件类型的 meta 头略有不同（因为注释语法不同）。推荐使用 <cite>nikola new_post -f rest/markdown/ipynb</cite> 命令来新建文件，其中 <cite>-f arg</cite> 用来指定要创建的文档格式。新创建的文件已经包含必要的 meta 信息，只需略作修改就可以了。</p>
+<p>Jupyter Notebook 的情况则比较特殊，meta 信息不在文件开头。而且其文件类型（扩展名 <cite>.ipynb</cite> ）其实是 JSON，如果不想使用文本编辑器来编辑 meta 头的话，可以依次点击 Jupyter Notebook 菜单 <cite>Edit</cite> - <cite>Edit Notebook Metadata</cite> 。</p>
+</div>
+<div class="section" id="id4">
+<h2><a class="toc-backref" href="#id10">总结</a></h2>
+<p>至此，对 Nikola 静态博客的写作流程基本就介绍完了。如果你之前用 Markdown 写过一些文章，则只需在文件开头添加 meta 头，并将文档丢到 GitHub 相应目录就完成了博客的发布。至于用何种客户端编辑文档则没有任何限制，所以你尽可以选择自己最喜爱的 Markdown 编辑器。针对几乎没有任何技术背景的读者，也提供了易于上手的工作流程和工具链。</p>
+<p>此外，对笔者个人而言，一个重要的特性是 Nikola 支持多种格式的标记语言书写，这使得更高级的页面排版和多作者协作成为可能，关于这一点会在其它博文里展开讨论。</p>
+<p>接下来要写的文章：“三十分钟建立一个 Nikola 静态博客”，敬请期待 :)</p>
+</div>
+<hr class="docutils">
+<div class="section" id="id5">
+<h2><a class="toc-backref" href="#id11">补充</a></h2>
+<p>补充一下 markdown 和 Jupyter Notebook 的 meta 头，方便电脑上没有安装 Nikola 的读者直接粘贴使用：</p>
+<div class="section" id="jupyter-notebook">
+<h3><a class="toc-backref" href="#id12">Jupyter Notebook</a></h3>
+<pre class="code json"><a name="rest_code_feaaa69c5cd34c7aa50be7bedbbbb080-1"></a><span class="s2">"nikola"</span><span class="err">:</span> <span class="p">{</span>
+<a name="rest_code_feaaa69c5cd34c7aa50be7bedbbbb080-2"></a>  <span class="nt">"title"</span><span class="p">:</span> <span class="s2">"静态博客 Nikola 之写作实践"</span><span class="p">,</span>
+<a name="rest_code_feaaa69c5cd34c7aa50be7bedbbbb080-3"></a>  <span class="nt">"slug"</span><span class="p">:</span> <span class="s2">"jing-tai-bo-ke-nikola-zhi-xie-zuo-shi-jian"</span><span class="p">,</span>
+<a name="rest_code_feaaa69c5cd34c7aa50be7bedbbbb080-4"></a>  <span class="nt">"date"</span><span class="p">:</span> <span class="s2">"2017-09-20 11:32:34 UTC+08:00"</span><span class="p">,</span>
+<a name="rest_code_feaaa69c5cd34c7aa50be7bedbbbb080-5"></a>  <span class="nt">"tags"</span><span class="p">:</span> <span class="s2">"nikola, reST, markdown"</span><span class="p">,</span>
+<a name="rest_code_feaaa69c5cd34c7aa50be7bedbbbb080-6"></a>  <span class="nt">"category"</span><span class="p">:</span> <span class="s2">"markdown"</span><span class="p">,</span>
+<a name="rest_code_feaaa69c5cd34c7aa50be7bedbbbb080-7"></a>  <span class="nt">"author"</span><span class="p">:</span> <span class="s2">"macplay"</span>
+<a name="rest_code_feaaa69c5cd34c7aa50be7bedbbbb080-8"></a><span class="p">}</span><span class="err">,</span>
+</pre>
+</div>
+<div class="section" id="markdown">
+<h3><a class="toc-backref" href="#id13">Markdown</a></h3>
+<pre class="code html"><a name="rest_code_b094486fdb9246bc8107861c78accc58-1"></a><span class="c">&lt;!--</span>
+<a name="rest_code_b094486fdb9246bc8107861c78accc58-2"></a><span class="c">.. title: 静态博客 Nikola 之写作实践</span>
+<a name="rest_code_b094486fdb9246bc8107861c78accc58-3"></a><span class="c">.. slug: jing-tai-bo-ke-nikola-zhi-xie-zuo-shi-jian</span>
+<a name="rest_code_b094486fdb9246bc8107861c78accc58-4"></a><span class="c">.. date: 2017-09-20 11:32:34 UTC+08:00</span>
+<a name="rest_code_b094486fdb9246bc8107861c78accc58-5"></a><span class="c">.. tags: nikola, reST, markdown</span>
+<a name="rest_code_b094486fdb9246bc8107861c78accc58-6"></a><span class="c">.. category: markdown</span>
+<a name="rest_code_b094486fdb9246bc8107861c78accc58-7"></a><span class="c">.. author: macplay</span>
+<a name="rest_code_b094486fdb9246bc8107861c78accc58-8"></a><span class="c">--&gt;</span>
+</pre>
+<p>Markdown 常用的 <a class="reference external" href="https://jekyllrb.com/docs/frontmatter/">YAML front matter</a> 也是支持的，毋需任何设置。</p>
+<pre class="code yaml"><a name="rest_code_c9ca8ca5b5074f24816237ce27d47f50-1"></a><span class="nn">---</span>
+<a name="rest_code_c9ca8ca5b5074f24816237ce27d47f50-2"></a>
+<a name="rest_code_c9ca8ca5b5074f24816237ce27d47f50-3"></a><span class="nt">title</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">静态博客 Nikola 之写作实践</span>
+<a name="rest_code_c9ca8ca5b5074f24816237ce27d47f50-4"></a><span class="nt">slug</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">jing-tai-bo-ke-nikola-zhi-xie-zuo-shi-jian</span>
+<a name="rest_code_c9ca8ca5b5074f24816237ce27d47f50-5"></a><span class="nt">date</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2017-09-20 11:32:34 UTC+08:00</span>
+<a name="rest_code_c9ca8ca5b5074f24816237ce27d47f50-6"></a><span class="nt">tags</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">nikola, reST, markdown</span>
+<a name="rest_code_c9ca8ca5b5074f24816237ce27d47f50-7"></a><span class="nt">category</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">markdown</span>
+<a name="rest_code_c9ca8ca5b5074f24816237ce27d47f50-8"></a><span class="nt">author</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">macplay</span>
+<a name="rest_code_c9ca8ca5b5074f24816237ce27d47f50-9"></a>
+<a name="rest_code_c9ca8ca5b5074f24816237ce27d47f50-10"></a><span class="nn">---</span>
+</pre>
+<dl class="footnote brackets">
+<dt class="label" id="id6"><span class="brackets"><a class="fn-backref" href="#id3">1</a></span></dt>
+<dd>
+<p><a class="reference external" href="https://getnikola.com/handbook.html#basic">https://getnikola.com/handbook.html#basic</a></p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+        </div>
+    </div>
+    <div class="post-info">
+        <p>文章链接：<a href="https://macplay.github.io/en/posts/jing-tai-bo-ke-nikola-zhi-xie-zuo-shi-jian/" target="_blank">https://macplay.github.io/en/posts/jing-tai-bo-ke-nikola-zhi-xie-zuo-shi-jian/</a></p>
+        <p>发布/更新于：
+            <time datetime="2017-09-20 11:32:34 UTC+08:00">
+            2017-09-20 11:32
+            </time></p>
+        <p>版权声明：如无特别说明，本站文章均遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">CC BY-NC-SA 4.0</a> 协议，转载请注明作者及出处。</p>
+    </div>
+        <div class="post-navigation no-print">
+        <div class="ui huge secondary stackable menu">
+            <a class="post-nav-item post-nav-previous item" href="../30-fen-zhong-jian-li-yi-ge-nikola-bo-ke/" title="Previous post"><i class="angle double left icon"></i> 30 分钟搭建一个 Nikola 博客</a>
+        <div class="right menu">
+            <a class="post-nav-item post-nav-next item" href="../nikola-internals/" title="Next post">Nikola Internals <i class="angle double right icon"></i></a>
+        </div>
+        </div>
+    </div>
+
+        <div id="gitalk-container" class="comments-block no-print"></div>
+</div>
+                    </div>
+                </main><div class="footer extra-block no-print">
+    <span class="footer_item">
+        <a href="../../../pages/you-qing-lian-jie/">友情链接</a>
+    </span>
+    <span class="footer_item">
+        <a href="../../../pages/liu-yan-ban/">留言板</a>
+    </span>
+    <span class="footer_item">
+        <a href="../../../pages/ge-ren-dong-tai/">碎碎念</a>
+    </span>
+    </div>
+            <div class="footer social-link no-print">
+            <a href="https://github.com/ashfinal" target="_blank"><i class="grey large github icon"></i></a>
+            <a href="http://weibo.com/ashfinal/" target="_blank"><i class="grey large weibo icon"></i></a>
+            <a href="mailto://ashfinal@sina.cn" target="_blank"><i class="grey large mail icon"></i></a>
+            </div>
+        <div class="ui basic center aligned segment no-print">Contents © 2020         <a href="mailto:ashfinal@sina.cn">ashfinal</a> - Powered by         <a href="https://getnikola.com" target="_blank" rel="nofollow">Nikola</a>         </div>
+
+            </div>
+            <div class="computer only three wide column no-print">
+                <div id="right-side">
+                </div>
+            </div>
+        </div>
+
+        <!-- GoStats JavaScript Based Code -->
+        <script type="text/javascript">(function(c,o,m,p,u,t,e){
+        c['GoStatsObject']=u;c[u]=c[u]||function(){(c[u].q=c[u].q||[]).push(arguments)},
+        c[u].l=1*new Date();t=o.createElement(m);t.async=1;t.src=p;
+        e=o.getElementsByTagName(m)[0];e.parentNode.insertBefore(t,e);
+        })(window,document,'script','//www.gostats.org/5.js','go');
+        go('init',100479892,{'img_counter_type':5,'img_image_type':1});go('send');</script><!-- End GoStats JavaScript Based Code --><script type="text/javascript" src="../../../assets/js/jquery-3.3.1.min.js"></script><script type="text/javascript" src="../../../assets/js/semantic.min.js"></script><script type="text/javascript" src="../../../assets/js/jquery.fancybox.min.js"></script><script type="text/javascript" src="../../../assets/js/cookie.min.js"></script><script>
+            $(document).ready(function(){
+                $(".ui.dropdown").dropdown();
+                $('.ui.accordion').accordion();
+                var newstr = $('.cookie.nag').text();
+                $('.cookie.nag').nag({
+                    key: 'globalnotice',
+                    value: newstr
+                  });
+                $('.image-reference').fancybox();
+            });
+        </script><script src="../../../assets/js/md5.min.js"></script><script src="../../../assets/js/gitalk.min.js"></script><script>
+        const gitalk = new Gitalk({
+            clientID: '12fcda845097d895a24c',
+            clientSecret: '50ed60cde5f40897205197b4265b474cefbedc49',
+            repo: 'macplay.github.io',
+            owner: 'macplay',
+            admin: ['macplay', 'ashfinal'],
+            id: md5(window.location.pathname),
+            // facebook-like distraction free mode
+            distractionFreeMode: false
+        })
+        gitalk.render('gitalk-container')
+    </script>
+</body>
+</html>

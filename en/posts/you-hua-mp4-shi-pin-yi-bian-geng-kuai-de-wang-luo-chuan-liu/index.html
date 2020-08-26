@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="generator" content="Nikola (getnikola.com)">
+<title>【译】优化 MP4 视频以便更快的网络串流 - MacPlay</title>
+<link rel="apple-touch-icon" sizes="180x180" href="../../../apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../../../favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../../../favicon-16x16.png">
+<link rel="mask-icon" href="../../../safari-pinned-tab.svg" color="#5bbad5">
+<link href="../../../assets/css/semantic.min.css" rel="stylesheet" type="text/css">
+<link href="../../../assets/css/jquery.fancybox.min.css" rel="stylesheet" type="text/css">
+<link href="../../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<link rel="canonical" href="https://macplay.github.io/en/posts/you-hua-mp4-shi-pin-yi-bian-geng-kuai-de-wang-luo-chuan-liu/">
+<meta name="author" content="ashfinal">
+<link rel="alternate" hreflang="zh_cn" href="../../../posts/you-hua-mp4-shi-pin-yi-bian-geng-kuai-de-wang-luo-chuan-liu/">
+<link rel="stylesheet" type="text/css" href="../../../assets/css/gitalk.css">
+</head>
+<body>
+        <div class="ui grid">
+            <div class="computer only three wide column no-print">
+                <div id="left-side">
+                </div>
+            </div>
+            <div class="ten wide computer sixteen wide tablet sixteen wide mobile column">
+                        <div class="ui inline cookie nag no-print">
+            <span class="title">从现在开始，支持中英双语及博文精选 O(∩_∩)O~~</span>
+            <i class="close icon"></i>
+        </div>
+    <header id="header" class="no-print"><div class="ui grid">
+        <div class="computer only tablet only sixteen wide column">
+            <div class="ui large secondary stackable menu">
+                <a class="header item brand-logo" href="https://macplay.github.io/en/">
+                    MacPlay
+                </a>
+                        <a class="item" href="../../../">Posts</a>
+                        <a class="item" href="../../../listings/">Code</a>
+                        <a class="item" href="../../../galleries/">Gallery</a>
+                        <a class="item" href="../../../categories/">Tags</a>
+                        <a class="item" href="../../../archive.html">Archive</a>
+                <div class="right menu">
+                    <a class="item" href="../../../rss.xml"><i class="rss icon"></i>RSS</a>
+                </div>
+            </div>
+        </div>
+        <div class="mobile only sixteen wide column">
+            <div class="ui fluid accordion vertical menu">
+                <div class="item">
+                    <a class="title">MacPlay</a>
+                    <div class="content">
+                                <a class="item" href="../../../">Posts</a>
+                                <a class="item" href="../../../listings/">Code</a>
+                                <a class="item" href="../../../galleries/">Gallery</a>
+                                <a class="item" href="../../../categories/">Tags</a>
+                                <a class="item" href="../../../archive.html">Archive</a>
+                        <a class="item" href="../../../rss.xml"><i class="rss icon"></i>RSS</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </header><main id="main"><div id="main-content">
+<div class="postpage post-text page-body" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <h1 class="post-title" itemprop="headline">
+        <a href=".">【译】优化 MP4 视频以便更快的网络串流</a>
+    </h1>
+
+    <div class="ui large horizontal link list post-meta">
+        <span class="item">By
+            <a href="../../authors/ashfinal/">ashfinal</a>
+        </span>
+            <span class="item">
+                <a href="https://github.com/macplay/macplay.github.io/edit/src/posts/you-hua-mp4-shi-pin-yi-bian-geng-kuai-de-wang-luo-chuan-liu.rst" target="_blank" title="Edit on GitHub">Edit</a>
+            </span>
+        <span class="item">
+            <time datetime="2018-03-18T18:06:03+08:00">
+            2018-03-18 18:06
+            </time></span>
+            <span class="item">
+                    <a href="../../categories/mp4/">mp4</a>
+                    <a href="../../categories/translation/">translation</a>
+                    <a href="../../categories/video/">video</a>
+                    <a href="../../categories/website/">website</a>
+            </span>
+    </div>
+
+    
+    <div class="post-content" itemprop="article text">
+        <div id="post-content">
+        <div>
+<p>随着 <a class="reference external" href="http://thenextweb.com/apps/2015/09/01/adobe-flash-just-took-another-step-towards-death-thanks-to-google/">Flash 的落寞</a> 以及 <a class="reference external" href="http://searchengineland.com/its-official-google-says-more-searches-now-on-mobile-than-on-desktop-220369">移动设备的爆发性增长</a> ，越来越多的内容以 HTML5 视频的方式传递。在上一篇文章中你甚至能看到 <a class="reference external" href="http://rigor.com/blog/2015/12/optimizing-animated-gifs-with-html5-video">使用 HTML5 视频替换 GIF 动图来优化网站访问速度</a> 这样的技巧。然而事实上，视频格式本身就有一堆优化技巧可用来改善它们的性能表现。其中非常重要的一点，就是视频文件可以合理优化以便作为 HTML5 视频在网络上串流播放。否则的话，播放视频文件可能会有数百毫秒的延迟，同时导致数兆字节的带宽被浪费，只因网站访客试图播放你的视频。在这篇文章里，我将向你展示如何优化视频文件以便在网络上更快地串流播放。</p>
+<!-- TEASER_END -->
+<div class="section" id="mp4">
+<h2>MP4 串流是如何工作的？</h2>
+<p>正如我们在 <a class="reference external" href="http://rigor.com/blog/2015/12/optimizing-animated-gifs-with-html5-video">上一篇文章</a> 中讨论过的，HTML5 视频是无需像 Flash 那样需要插件支持即可观看视频的跨浏览器方案。到现今 2016 年， <a class="reference external" href="http://rigor.com/blog/2015/12/optimizing-animated-gifs-with-html5-video">经过 H.264 编码的视频存储在 MP4 容器之中</a> （以下我将简单地称其为 MP4 视频），并统一成为所有在线 HTML5 视频的标准格式。所以，当我们谈及优化 HTML5 视频时，我们真正讨论的是如何优化 MP4 文件以便更快地串流播放。至于如何做到，则与 MP4 文件的结构以及视频串流如何工作有很大关系。</p>
+<p><a class="reference external" href="http://www.adobe.com/devnet/video/articles/mp4_movie_atom.html">MP4 文件由名为 "atoms" 的数据块构成</a> 。有存储字幕或章节的 <cite>atoms</cite> ，同样也有存储视频和音频数据的 <cite>atoms</cite> 。至于视频和音频 <cite>atoms</cite> 处于哪个位置，以及如何播放视频诸如分辨率和帧速等，这些元数据信息都存储于一个名为 <cite>moov</cite> 的特殊 <cite>atom</cite> 之中。你可以将 <cite>moov</cite> atom 理解成 MP4 文件的某种 <em>目录列表</em> 。</p>
+<p>当你播放视频时，程序搜寻整个 MP4 文件，定位 <cite>moov</cite> atom，然后使用它找到视频和音频数据的开头位置，并开始播放。然而， <cite>atoms</cite> 可能以任何顺序存储，所以程序无法提前得知 <cite>moov</cite> atom 在文件的哪个位置。如果你已经拥有整个视频文件，搜寻并找到 <cite>moov</cite> atom 问题并不大。然而，当你还没有拿到整个视频文件（比如说你串流播放 HTML5 视频时），恐怕就希望可以有另外一种方式。而这，就是串流播放视频的关键点！你无需事先下载整个视频文件，就可以立即开始观看。</p>
+<p>当串流播放时，你的浏览器会请求视频并接受文件头部，它会检查 <cite>moov</cite> atom 是否在文件开头。如果 <cite>moov</cite> atom 没有在文件开头，则它要么得下载整个文件并试图找到 <cite>moov</cite> ，要么下载视频文件的不同小块并寻找 <cite>moov</cite> atom，反复搜寻直到遍历整个视频文件。</p>
+<p>搜寻 <cite>moov</cite> atom 的整个过程需要耗费时间和带宽。很不幸的是，在 <cite>moov</cite> 被定位之前的这段时间里，视频都不能开始播放。从下面的截图中，我们能看到浏览器播放未经优化的 MP4 视频时的瀑布图。</p>
+<div class="figure align-center">
+<img alt="mp4-no-moov.png" src="../../../images/mp4-no-moov.png">
+</div>
+<p>你能看到浏览器在播放视频前进行了 3 次请求。第一个请求中，浏览器使用 <a class="reference external" href="https://en.wikipedia.org/wiki/Byte_serving">HTTP range request</a> 下载了视频文件的前 552 KB 字节。通过 HTTP 返回码的 206 Partical Content 报告，以及仔细查看请求头部数据，我们可以得知这一点。然而， <cite>moov</cite> atom 并没有被找到，浏览器仍不能开始播放视频。接下来，浏览器又使用一次范围请求（range request）拉取视频文件最末尾的 211 KB 字节。这次则包含了 <cite>moov</cite> atom，可以告知浏览器视频和音频从何处开始播放。终于，浏览器做了第三次也是最后一次请求，获得视频/音频数据，并开始播放视频。到这里，我们已经浪费了超过半兆字节的带宽，并将视频的播放推迟了 210 毫秒！仅仅是因为浏览器无法找到 <cite>moov</cite> atom。</p>
+<p>如果你没有配置服务器以支持 HTTP 范围请求（range request），事情甚至会变得更糟。浏览器将不能来回部分请求来找到 <cite>moov</cite> ，而 <strong>必须下载整个视频文件</strong> 。这也是为何你应该 <a class="reference external" href="https://zoompf.com/blog/2010/03/performance-tip-for-http-downloads">优化服务器支持部分下载技术</a> 的另一原因。</p>
+<p>将 MP4 视频用作 HTML5 串流的理想方式，就是重组视频文件，使得 <cite>moov</cite> 正好位于文件开头。这样的话，浏览器可以避免下载整个文件，或者浪费时间进行额外请求以找到 <cite>moov</cite> 。为串流优化过的视频网站请求瀑布图，如下图所示：</p>
+<div class="figure align-center">
+<img alt="mp4-fast-start.png" src="../../../images/mp4-fast-start.png">
+</div>
+<p>将 <cite>moov</cite> 置于文件开头，视频将会更快地加载和播放，带来更好的用户体验。</p>
+</div>
+<div class="section" id="id4">
+<h2>优化 MP4 以便更快的网络串流</h2>
+<p>我们已经知道，要想优化视频为 HTML5 串流播放，则需要重组 MP4 atoms，以便 <cite>moov</cite> atom 位于文件开头。那么我们究竟要如何做呢？大多数视频编码软件都有“为 web 优化”或“为串流优化”的选项，正是用来做这件事情的。当创建视频时，你应该检查一下视频编码设置，以确保它被优化。比如在下面的截图中，我们看到开源软件 <a class="reference external" href="https://handbrake.fr/">Handbrake</a> 有一个“Web Optimized”的选项，它将确保 <cite>moov</cite> atom 处于文件开头。</p>
+<div class="figure align-center">
+<img alt="handbrake.png" src="../../../images/handbrake.png">
+</div>
+<p>当从源视频创建 MP4 的时候，这是一个可行的解决方案。但是，如果你拥有的已经是 MP4 文件呢？</p>
+<p>你仍然可以重组已有的视频，优化它以适应 web 串流播放。开源编码器 <a class="reference external" href="https://www.ffmpeg.org/">FFMpeg</a> 命令行可以重组 MP4 文件，将 <cite>moov</cite> atom 放到文件开头。不像初始编码时那样消耗时间和 CPU，重组文件是一项更容易的操作，并且也不会以任何方式损失视频质量。下面是使用 ffmpeg 优化 <cite>input.mp4</cite> 文件的例子，输出文件名为 <cite>output.mp4</cite> 。</p>
+<p><code class="docutils literal">ffmpeg <span class="pre">-i</span> input.mp4 <span class="pre">-movflags</span> faststart <span class="pre">-acodec</span> copy <span class="pre">-vcodec</span> copy output.mp4</code></p>
+<p><cite>-movflags faststart</cite> 参数告诉 ffmpeg 重组 MP4 文件 atoms，将 <cite>moov</cite> 放到文件开头。我们同时告诉 ffmpeg 拷贝视频和音频数据，而非重新编码，这样其它任何东西都不会发生变动。</p>
+<p>针对 Rigor 的客户，我们已经给 Zoompf-- <a class="reference external" href="https://zoompf.com/features">我们的性能分析和优化产品</a> --添加了一项新功能，它将会检测 MP4 文件是否已经为 HTML5 视频串流优化。如果你仅仅想要快速检查一下你的网站，可以使用 <a class="reference external" href="https://zoompf.com/free">我们的免费性能报告服务</a> 。</p>
+</div>
+<div class="section" id="id7">
+<h2>结论</h2>
+<p>无论你正在将 GIF 动图转换为 MP4 视频，还是手头已经有一大堆 MP4 视频，你都可以优化文件结构，以使得这些视频更快地加载和播放。通过重组 atoms 将 <cite>moov</cite> 放到文件开头，浏览器可以避免发送额外的 HTTP range request 请求来搜寻和定位 <cite>moov</cite> atom。而这，将允许浏览器立即开始串流播放视频。通常情况下，当你初始创建视频时，可以配置选项让其为串流播放而优化。如果你已有 MP4 文件，可以使用 ffmpeg 这类工具来重组文件，而不会更改其它的内容。</p>
+</div>
+</div>
+        </div>
+    </div>
+    <div class="post-info">
+        <p>引用资源：<a href="https://rigor.com/blog/2016/01/optimizing-mp4-video-for-fast-streaming" target="_blank">https://rigor.com/blog/2016/01/optimizing-mp4-video-for-fast-streaming</a></p>
+        <p>文章链接：<a href="https://macplay.github.io/en/posts/you-hua-mp4-shi-pin-yi-bian-geng-kuai-de-wang-luo-chuan-liu/" target="_blank">https://macplay.github.io/en/posts/you-hua-mp4-shi-pin-yi-bian-geng-kuai-de-wang-luo-chuan-liu/</a></p>
+        <p>发布/更新于：
+            <time datetime="2018-03-18 18:06:03 UTC+08:00">
+            2018-03-18 18:06
+            </time></p>
+        <p>版权声明：如无特别说明，本站文章均遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">CC BY-NC-SA 4.0</a> 协议，转载请注明作者及出处。</p>
+    </div>
+        <div class="post-navigation no-print">
+        <div class="ui huge secondary stackable menu">
+            <a class="post-nav-item post-nav-previous item" href="../dian-ying-da-kong-tou-the-big-short/" title="Previous post"><i class="angle double left icon"></i> 电影《大空头》（The Big Short）</a>
+        <div class="right menu">
+            <a class="post-nav-item post-nav-next item" href="../cong-url-gou-jian-xing-nei-lian-jie/" title="Next post">从 URL 构建行内链接 <i class="angle double right icon"></i></a>
+        </div>
+        </div>
+    </div>
+
+        <div id="gitalk-container" class="comments-block no-print"></div>
+</div>
+                    </div>
+                </main><div class="footer extra-block no-print">
+    <span class="footer_item">
+        <a href="../../../pages/you-qing-lian-jie/">友情链接</a>
+    </span>
+    <span class="footer_item">
+        <a href="../../../pages/liu-yan-ban/">留言板</a>
+    </span>
+    <span class="footer_item">
+        <a href="../../../pages/ge-ren-dong-tai/">碎碎念</a>
+    </span>
+    </div>
+            <div class="footer social-link no-print">
+            <a href="https://github.com/ashfinal" target="_blank"><i class="grey large github icon"></i></a>
+            <a href="http://weibo.com/ashfinal/" target="_blank"><i class="grey large weibo icon"></i></a>
+            <a href="mailto://ashfinal@sina.cn" target="_blank"><i class="grey large mail icon"></i></a>
+            </div>
+        <div class="ui basic center aligned segment no-print">Contents © 2020         <a href="mailto:ashfinal@sina.cn">ashfinal</a> - Powered by         <a href="https://getnikola.com" target="_blank" rel="nofollow">Nikola</a>         </div>
+
+            </div>
+            <div class="computer only three wide column no-print">
+                <div id="right-side">
+                </div>
+            </div>
+        </div>
+
+        <!-- GoStats JavaScript Based Code -->
+        <script type="text/javascript">(function(c,o,m,p,u,t,e){
+        c['GoStatsObject']=u;c[u]=c[u]||function(){(c[u].q=c[u].q||[]).push(arguments)},
+        c[u].l=1*new Date();t=o.createElement(m);t.async=1;t.src=p;
+        e=o.getElementsByTagName(m)[0];e.parentNode.insertBefore(t,e);
+        })(window,document,'script','//www.gostats.org/5.js','go');
+        go('init',100479892,{'img_counter_type':5,'img_image_type':1});go('send');</script><!-- End GoStats JavaScript Based Code --><script type="text/javascript" src="../../../assets/js/jquery-3.3.1.min.js"></script><script type="text/javascript" src="../../../assets/js/semantic.min.js"></script><script type="text/javascript" src="../../../assets/js/jquery.fancybox.min.js"></script><script type="text/javascript" src="../../../assets/js/cookie.min.js"></script><script>
+            $(document).ready(function(){
+                $(".ui.dropdown").dropdown();
+                $('.ui.accordion').accordion();
+                var newstr = $('.cookie.nag').text();
+                $('.cookie.nag').nag({
+                    key: 'globalnotice',
+                    value: newstr
+                  });
+                $('.image-reference').fancybox();
+            });
+        </script><script src="../../../assets/js/md5.min.js"></script><script src="../../../assets/js/gitalk.min.js"></script><script>
+        const gitalk = new Gitalk({
+            clientID: '12fcda845097d895a24c',
+            clientSecret: '50ed60cde5f40897205197b4265b474cefbedc49',
+            repo: 'macplay.github.io',
+            owner: 'macplay',
+            admin: ['macplay', 'ashfinal'],
+            id: md5(window.location.pathname),
+            // facebook-like distraction free mode
+            distractionFreeMode: false
+        })
+        gitalk.render('gitalk-container')
+    </script>
+</body>
+</html>

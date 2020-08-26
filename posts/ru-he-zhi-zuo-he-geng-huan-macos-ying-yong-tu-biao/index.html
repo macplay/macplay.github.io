@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="zh_cn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="generator" content="Nikola (getnikola.com)">
+<title>如何制作和更换 macOS 应用图标 - MacPlay</title>
+<link rel="apple-touch-icon" sizes="180x180" href="../../apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+<link rel="mask-icon" href="../../safari-pinned-tab.svg" color="#5bbad5">
+<link href="../../assets/css/semantic.min.css" rel="stylesheet" type="text/css">
+<link href="../../assets/css/jquery.fancybox.min.css" rel="stylesheet" type="text/css">
+<link href="../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<link rel="canonical" href="https://macplay.github.io/posts/ru-he-zhi-zuo-he-geng-huan-macos-ying-yong-tu-biao/">
+<meta name="author" content="ashfinal">
+<link rel="alternate" hreflang="en" href="../../en/posts/ru-he-zhi-zuo-he-geng-huan-macos-ying-yong-tu-biao/">
+<link rel="stylesheet" type="text/css" href="../../assets/css/gitalk.css">
+</head>
+<body>
+        <div class="ui grid">
+            <div class="computer only three wide column no-print">
+                <div id="left-side">
+                </div>
+            </div>
+            <div class="ten wide computer sixteen wide tablet sixteen wide mobile column">
+                        <div class="ui inline cookie nag no-print">
+            <span class="title">从现在开始，支持中英双语及博文精选 O(∩_∩)O~~</span>
+            <i class="close icon"></i>
+        </div>
+    <header id="header" class="no-print"><div class="ui grid">
+        <div class="computer only tablet only sixteen wide column">
+            <div class="ui large secondary stackable menu">
+                <a class="header item brand-logo" href="https://macplay.github.io/">
+                    MacPlay
+                </a>
+                        <a class="item" href="../../">Posts</a>
+                        <a class="item" href="../../listings/">Code</a>
+                        <a class="item" href="../../galleries/">Gallery</a>
+                        <a class="item" href="../../categories/">Tags</a>
+                        <a class="item" href="../../archive.html">Archive</a>
+                <div class="right menu">
+                    <a class="item" href="../../rss.xml"><i class="rss icon"></i>RSS</a>
+                </div>
+            </div>
+        </div>
+        <div class="mobile only sixteen wide column">
+            <div class="ui fluid accordion vertical menu">
+                <div class="item">
+                    <a class="title">MacPlay</a>
+                    <div class="content">
+                                <a class="item" href="../../">Posts</a>
+                                <a class="item" href="../../listings/">Code</a>
+                                <a class="item" href="../../galleries/">Gallery</a>
+                                <a class="item" href="../../categories/">Tags</a>
+                                <a class="item" href="../../archive.html">Archive</a>
+                        <a class="item" href="../../rss.xml"><i class="rss icon"></i>RSS</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </header><main id="main"><div id="main-content">
+<div class="postpage post-text page-body" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <h1 class="post-title" itemprop="headline">
+        <a href=".">如何制作和更换 macOS 应用图标</a>
+    </h1>
+
+    <div class="ui large horizontal link list post-meta">
+        <span class="item">By
+            <a href="../../authors/ashfinal/">ashfinal</a>
+        </span>
+            <span class="item">
+                <a href="https://github.com/macplay/macplay.github.io/edit/src/posts/ru-he-zhi-zuo-he-geng-huan-macos-ying-yong-tu-biao.md" target="_blank" title="Edit on GitHub">Edit</a>
+            </span>
+        <span class="item">
+            <time datetime="2015-01-17T14:21:07+08:00">
+            2015-01-17 14:21
+            </time></span>
+            <span class="item">
+                    <a href="../../categories/icns/">icns</a>
+                    <a href="../../categories/macos/">macos</a>
+            </span>
+    </div>
+
+    
+    <div class="post-content" itemprop="article text">
+        <div id="post-content">
+        <div>
+<p>参考文章来自 <a href="http://www.jianshu.com/p/2d21088a4439" title="http://www.jianshu.com/p/2d21088a4439">简书</a></p>
+<p>大部分情况下OS X 的应用图标质量都过得去，并不会折磨你到发狂以至于产生要美化的念头，不过总有例外 …… 比如LICEcap。作为一款跨平台的优秀 GIF 录屏工具，之前 windows 系统时我就在用它。但是那时的美化冲动没现在这么强烈，切换到 OS X 平台后那老旧的图标显得那么格格不入。</p>
+<p>还有想要美化的软件就是 Sublime Text 3。其实平心而论 ST3 的图标还算可以，但是相对于其精美的 UI、漂亮的语法着色来说图标还是感觉差了一点点，而且作为一个 ST 衷心拥护者，但凡有折腾的空间是绝对不会放过的 :)</p>
+<!-- TEASER_END -->
+
+<h3 id="_1">如何更换应用图标</h3>
+<p>Mac 系统里更换程序图标很简单。直接双击打开任意图像文件<code>Command + C</code>，然后<code>Command + I</code>打开程序的<code>显示简介</code>界面选中左上角的缩略图标，<code>Command + V</code>粘贴替换完成。</p>
+<p><em>想要图标好看点的话，最好选择背景透明的图片</em></p>
+<p>要恢复默认的图标，选中<code>显示简介</code>中的图标（蓝框选中状态），直接按<code>delete</code>键即可。</p>
+<p>如果想要重装完系统或者分发该应用给别人时仍保持更改，则建议直接替换应用原有的图标。鼠标右键<code>Show Package Contents</code> - <code>Contents</code> - <code>Resources</code>，在该目录你应该能找到应用原图标，用下载好的 icns 图标文件替换掉其即可。根据情况，你可能需要重启<code>Finder</code>或<code>Dock</code>来刷新图标缓存以生效。</p>
+<h3 id="icns">如何制作 icns 图标</h3>
+<blockquote>
+<p>你需要明白 icns 文件实际上包含的是一组不同分辨率的图标（512、256、128、32、16），为了适应 Retina 屏幕的显示还有对应的2x 分辨率图标。双击图标文件用「预览」程序打开可以清楚的看到。</p>
+</blockquote>
+<p>首先你需要各种分辨率的 png 文件，自行绘制也好网上下载也好。一般从 <a href="https://dribbble.com/" title="https://dribbble.com/">Dribble</a>, <a href="https://deviantart.com/" title="https://deviantart.com/">Deviantart</a>, <a href="http://iconpng.com/" title="http://iconpng.com/">iconpng</a>, <a href="http://easyicon.net/" title="http://easyicon.net/">easyicon</a>, <a href="http://findicons.com/" title="http://findicons.com/">findicons</a> 等网站搜索查找。然后将各种分辨率的图片更名并保存到类似<code>WeiboX.iconset</code>的文件夹中。</p>
+<p>借一张图来看看:</p>
+<p><img alt="make_icns" src="../../images/make_icns.png" title="make_icns"></p>
+<p>然后打开<code>终端</code>程序，输入命令:</p>
+<pre class="code literal-block"><span></span><span class="err">iconutil -c icns /路径/icon.iconset</span>
+</pre>
+
+
+<p>就能生成最终的 icns 文件。例如，范例中<code>WeiboX.iconset</code>文件夹放在桌面，打开<code>终端</code>程序后，输入 iconutil -c icns 注意后面空一格，然后直接从桌面将 <code>WeiboX.iconset</code> 文件夹拖拽到命令行后，这样就不用自己输入路径了。</p>
+<p>目前我仅更换了 LICECap 和 Sublime Text 3 的图标。当然，也给自制截图小工具 <a href="../yi-xing-ming-ling-gao-ding-app-switcher-chuang-kou-jie-tu/">dcap</a> 做了个图标，只不过懒得找更高分辨率的图片，只能说凑活能用，与默认的 Automator 图标区分开就行。</p>
+<p>最后 show 下我更换完的 ST3 图标:</p>
+<p><img alt="ST3_icon" src="../../images/sublime_text_icon.png" title="ST3_icon"></p>
+</div>
+        </div>
+    </div>
+    <div class="post-info">
+        <p>文章链接：<a href="https://macplay.github.io/posts/ru-he-zhi-zuo-he-geng-huan-macos-ying-yong-tu-biao/" target="_blank">https://macplay.github.io/posts/ru-he-zhi-zuo-he-geng-huan-macos-ying-yong-tu-biao/</a></p>
+        <p>发布/更新于：
+            <time datetime="2017-10-26 10:21:07 UTC+08:00">
+            2017-10-26 10:21
+            </time></p>
+        <p>版权声明：如无特别说明，本站文章均遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">CC BY-NC-SA 4.0</a> 协议，转载请注明作者及出处。</p>
+    </div>
+        <div class="post-navigation no-print">
+        <div class="ui huge secondary stackable menu">
+            <a class="post-nav-item post-nav-previous item" href="../da-zao-shu-yu-zi-ji-de-duo-gong-neng-jian-tie-ban-clipmenu/" title="Previous post"><i class="angle double left icon"></i> 打造属于自己的多功能剪贴板 ClipMenu</a>
+        <div class="right menu">
+            <a class="post-nav-item post-nav-next item" href="../shi-yong-applescript-shi-xian-xin-xi-pi-liang-fa-song-gong-neng/" title="Next post">使用 AppleScript 实现信息批量发送功能 <i class="angle double right icon"></i></a>
+        </div>
+        </div>
+    </div>
+
+        <div id="gitalk-container" class="comments-block no-print"></div>
+</div>
+                    </div>
+                </main><div class="footer extra-block no-print">
+    <span class="footer_item">
+        <a href="../../pages/you-qing-lian-jie/">友情链接</a>
+    </span>
+    <span class="footer_item">
+        <a href="../../pages/liu-yan-ban/">留言板</a>
+    </span>
+    <span class="footer_item">
+        <a href="../../pages/ge-ren-dong-tai/">碎碎念</a>
+    </span>
+    </div>
+            <div class="footer social-link no-print">
+            <a href="https://github.com/ashfinal" target="_blank"><i class="grey large github icon"></i></a>
+            <a href="http://weibo.com/ashfinal/" target="_blank"><i class="grey large weibo icon"></i></a>
+            <a href="mailto://ashfinal@sina.cn" target="_blank"><i class="grey large mail icon"></i></a>
+            </div>
+        <div class="ui basic center aligned segment no-print">Contents © 2020         <a href="mailto:ashfinal@sina.cn">ashfinal</a> - Powered by         <a href="https://getnikola.com" target="_blank" rel="nofollow">Nikola</a>         </div>
+
+            </div>
+            <div class="computer only three wide column no-print">
+                <div id="right-side">
+                </div>
+            </div>
+        </div>
+
+        <!-- GoStats JavaScript Based Code -->
+        <script type="text/javascript">(function(c,o,m,p,u,t,e){
+        c['GoStatsObject']=u;c[u]=c[u]||function(){(c[u].q=c[u].q||[]).push(arguments)},
+        c[u].l=1*new Date();t=o.createElement(m);t.async=1;t.src=p;
+        e=o.getElementsByTagName(m)[0];e.parentNode.insertBefore(t,e);
+        })(window,document,'script','//www.gostats.org/5.js','go');
+        go('init',100479892,{'img_counter_type':5,'img_image_type':1});go('send');</script><!-- End GoStats JavaScript Based Code --><script type="text/javascript" src="../../assets/js/jquery-3.3.1.min.js"></script><script type="text/javascript" src="../../assets/js/semantic.min.js"></script><script type="text/javascript" src="../../assets/js/jquery.fancybox.min.js"></script><script type="text/javascript" src="../../assets/js/cookie.min.js"></script><script>
+            $(document).ready(function(){
+                $(".ui.dropdown").dropdown();
+                $('.ui.accordion').accordion();
+                var newstr = $('.cookie.nag').text();
+                $('.cookie.nag').nag({
+                    key: 'globalnotice',
+                    value: newstr
+                  });
+                $('.image-reference').fancybox();
+            });
+        </script><script src="../../assets/js/md5.min.js"></script><script src="../../assets/js/gitalk.min.js"></script><script>
+        const gitalk = new Gitalk({
+            clientID: '12fcda845097d895a24c',
+            clientSecret: '50ed60cde5f40897205197b4265b474cefbedc49',
+            repo: 'macplay.github.io',
+            owner: 'macplay',
+            admin: ['macplay', 'ashfinal'],
+            id: md5(window.location.pathname),
+            // facebook-like distraction free mode
+            distractionFreeMode: false
+        })
+        gitalk.render('gitalk-container')
+    </script>
+</body>
+</html>

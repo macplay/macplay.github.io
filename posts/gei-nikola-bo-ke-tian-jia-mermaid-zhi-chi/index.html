@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="zh_cn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="generator" content="Nikola (getnikola.com)">
+<title>给 Nikola 博客添加 mermaid 支持 - MacPlay</title>
+<link rel="apple-touch-icon" sizes="180x180" href="../../apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+<link rel="mask-icon" href="../../safari-pinned-tab.svg" color="#5bbad5">
+<link href="../../assets/css/semantic.min.css" rel="stylesheet" type="text/css">
+<link href="../../assets/css/jquery.fancybox.min.css" rel="stylesheet" type="text/css">
+<link href="../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<link rel="canonical" href="https://macplay.github.io/posts/gei-nikola-bo-ke-tian-jia-mermaid-zhi-chi/">
+<meta name="author" content="ashfinal">
+<link rel="alternate" hreflang="en" href="../../en/posts/gei-nikola-bo-ke-tian-jia-mermaid-zhi-chi/">
+<link rel="stylesheet" type="text/css" href="../../assets/css/gitalk.css">
+</head>
+<body>
+        <div class="ui grid">
+            <div class="computer only three wide column no-print">
+                <div id="left-side">
+                </div>
+            </div>
+            <div class="ten wide computer sixteen wide tablet sixteen wide mobile column">
+                        <div class="ui inline cookie nag no-print">
+            <span class="title">从现在开始，支持中英双语及博文精选 O(∩_∩)O~~</span>
+            <i class="close icon"></i>
+        </div>
+    <header id="header" class="no-print"><div class="ui grid">
+        <div class="computer only tablet only sixteen wide column">
+            <div class="ui large secondary stackable menu">
+                <a class="header item brand-logo" href="https://macplay.github.io/">
+                    MacPlay
+                </a>
+                        <a class="item" href="../../">Posts</a>
+                        <a class="item" href="../../listings/">Code</a>
+                        <a class="item" href="../../galleries/">Gallery</a>
+                        <a class="item" href="../../categories/">Tags</a>
+                        <a class="item" href="../../archive.html">Archive</a>
+                <div class="right menu">
+                    <a class="item" href="../../rss.xml"><i class="rss icon"></i>RSS</a>
+                </div>
+            </div>
+        </div>
+        <div class="mobile only sixteen wide column">
+            <div class="ui fluid accordion vertical menu">
+                <div class="item">
+                    <a class="title">MacPlay</a>
+                    <div class="content">
+                                <a class="item" href="../../">Posts</a>
+                                <a class="item" href="../../listings/">Code</a>
+                                <a class="item" href="../../galleries/">Gallery</a>
+                                <a class="item" href="../../categories/">Tags</a>
+                                <a class="item" href="../../archive.html">Archive</a>
+                        <a class="item" href="../../rss.xml"><i class="rss icon"></i>RSS</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </header><main id="main"><div id="main-content">
+<div class="postpage post-text page-body" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <h1 class="post-title" itemprop="headline">
+        <a href=".">给 Nikola 博客添加 mermaid 支持</a>
+    </h1>
+
+    <div class="ui large horizontal link list post-meta">
+        <span class="item">By
+            <a href="../../authors/ashfinal/">ashfinal</a>
+        </span>
+            <span class="item">
+                <a href="https://github.com/macplay/macplay.github.io/edit/src/posts/gei-nikola-bo-ke-tian-jia-mermaid-zhi-chi.rst" target="_blank" title="Edit on GitHub">Edit</a>
+            </span>
+        <span class="item">
+            <time datetime="2017-10-27T14:29:49+08:00">
+            2017-10-27 14:29
+            </time></span>
+            <span class="item">
+                    <a href="../../categories/chart/">chart</a>
+                    <a href="../../categories/mermaid/">mermaid</a>
+            </span>
+    </div>
+
+    
+    <div class="post-content" itemprop="article text">
+        <div id="post-content">
+        <div>
+<p>还是给博客集成了 <a class="reference external" href="https://mermaidjs.github.io">mermaid</a> <a class="footnote-reference brackets" href="#id2" id="id1">1</a> 图表功能，尽管目前用的很少……与 mathjax 一样，使用的时候给文章添加 <cite>mermaid</cite> 标签，然后在文章中给描述文本指定 <cite>mermaid</cite> class 即可。就像这样：</p>
+<pre class="code rst"><a name="rest_code_5d7e977a9a7f4e498cc04dc16dd2494e-1"></a><span class="p">..</span> <span class="ow">class</span><span class="p">::</span> mermaid
+<a name="rest_code_5d7e977a9a7f4e498cc04dc16dd2494e-2"></a>
+<a name="rest_code_5d7e977a9a7f4e498cc04dc16dd2494e-3"></a>   graph TD
+<a name="rest_code_5d7e977a9a7f4e498cc04dc16dd2494e-4"></a>   A[Christmas] --&gt;|Get money| B(Go shopping)
+<a name="rest_code_5d7e977a9a7f4e498cc04dc16dd2494e-5"></a>   B --&gt; C{Let me think}
+<a name="rest_code_5d7e977a9a7f4e498cc04dc16dd2494e-6"></a>   C --&gt;|One| D[Laptop]
+<a name="rest_code_5d7e977a9a7f4e498cc04dc16dd2494e-7"></a>   C --&gt;|Two| E[iPhone]
+<a name="rest_code_5d7e977a9a7f4e498cc04dc16dd2494e-8"></a>   C --&gt;|Three| F[Car]
+</pre>
+<dl class="footnote brackets">
+<dt class="label" id="id2"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd>
+<p><a class="reference external" href="https://mermaidjs.github.io">mermaid</a> 使用 javascript 从纯文本描述产生流程图、序列图、甘特图等图表类型。</p>
+</dd>
+</dl>
+<!-- TEASER_END --><p>渲染结果：</p>
+<p class="mermaid">graph TD
+A[Christmas] --&gt;|Get money| B(Go shopping)
+B --&gt; C{Let me think}
+C --&gt;|One| D[Laptop]
+C --&gt;|Two| E[iPhone]
+C --&gt;|Three| F[Car]</p>
+<p>Markdown 文档写作应该也可以用。整个 <a class="reference external" href="https://mermaidjs.github.io">mermaid</a> 功能的集成只需在博客模板里添加 4 行：</p>
+<pre class="code html+jinja"><a name="rest_code_25c7a75505a34493a7362fa087aeac82-1"></a><span class="cp">{%</span> <span class="k">if</span> <span class="s2">"mermaid"</span> <span class="k">in</span> <span class="nv">post.tags</span> <span class="cp">%}</span>
+<a name="rest_code_25c7a75505a34493a7362fa087aeac82-2"></a>    <span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">"text/javascript"</span> <span class="na">src</span><span class="o">=</span><span class="s">"/assets/js/mermaid.min.js"</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<a name="rest_code_25c7a75505a34493a7362fa087aeac82-3"></a>    <span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span><span class="nx">mermaid</span><span class="p">.</span><span class="nx">initialize</span><span class="p">({</span><span class="nx">startOnLoad</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span> <span class="nx">theme</span><span class="o">:</span> <span class="s1">'forest'</span><span class="p">});&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<a name="rest_code_25c7a75505a34493a7362fa087aeac82-4"></a><span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span>
+</pre>
+<p>使用 if 条件判断是为了仅在必要时才加载 <cite>mermaid</cite> js 文件，因为其即使压缩后也有 825 KB 的体积，可能会拖慢页面打开速度。mathjax 的情况与此类似，使用频率较低，但据说其完整加载要达到 200 MB 以上。</p>
+<p>序列图：</p>
+<p class="mermaid">sequenceDiagram
+participant Alice
+participant Bob
+Alice-&gt;John: Hello John, how are you?
+Note right of John: Rational thoughts &lt;br/&gt;prevail...
+John--&gt;Alice: Great!
+John-&gt;Bob: How about you?
+Bob--&gt;John: Jolly good!</p>
+<p>甘特图：</p>
+<p class="mermaid">gantt
+dateFormat  YYYY-MM-DD
+title Adding GANTT diagram functionality to mermaid
+section A section
+Completed task            :done,    des1, 2014-01-06,2014-01-08
+Active task               :active,  des2, 2014-01-09, 3d
+Future task               :         des3, after des2, 5d
+Future task2               :         des4, after des3, 5d
+section Critical tasks
+Completed task in the critical line :crit, done, 2014-01-06,24h
+Implement parser and jison          :crit, done, after des1, 2d
+Create tests for parser             :crit, active, 3d
+Future task in critical line        :crit, 5d
+Create tests for renderer           :2d
+Add to mermaid                      :1d</p>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p><span class="strike">很奇怪序列图的 loop 语法不工作，但是使用 "raw" 指令却可以显示……有空再看看。</span></p>
+</div>
+<div class="mermaid">
+sequenceDiagram
+loop every day
+    Alice-&gt;&gt;John: Hello John, how are you?
+    John--&gt;&gt;Alice: Great!
+end
+</div>
+</div>
+        </div>
+    </div>
+    <div class="post-info">
+        <p>文章链接：<a href="https://macplay.github.io/posts/gei-nikola-bo-ke-tian-jia-mermaid-zhi-chi/" target="_blank">https://macplay.github.io/posts/gei-nikola-bo-ke-tian-jia-mermaid-zhi-chi/</a></p>
+        <p>发布/更新于：
+            <time datetime="2020-03-05 06:29:46 UTC+08:00">
+            2020-03-05 06:29
+            </time></p>
+        <p>版权声明：如无特别说明，本站文章均遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">CC BY-NC-SA 4.0</a> 协议，转载请注明作者及出处。</p>
+    </div>
+        <div class="post-navigation no-print">
+        <div class="ui huge secondary stackable menu">
+            <a class="post-nav-item post-nav-previous item" href="../zai-tan-markdown-ji-qi-kuo-zhan/" title="Previous post"><i class="angle double left icon"></i> 再谈 Markdown 及其扩展</a>
+        <div class="right menu">
+            <a class="post-nav-item post-nav-next item" href="../nikola-bo-ke-zi-yuan-lian-jie-wen-ti/" title="Next post">Nikola 博客资源链接问题 <i class="angle double right icon"></i></a>
+        </div>
+        </div>
+    </div>
+
+        <div id="gitalk-container" class="comments-block no-print"></div>
+</div>
+                    </div>
+                </main><div class="footer extra-block no-print">
+    <span class="footer_item">
+        <a href="../../pages/you-qing-lian-jie/">友情链接</a>
+    </span>
+    <span class="footer_item">
+        <a href="../../pages/liu-yan-ban/">留言板</a>
+    </span>
+    <span class="footer_item">
+        <a href="../../pages/ge-ren-dong-tai/">碎碎念</a>
+    </span>
+    </div>
+            <div class="footer social-link no-print">
+            <a href="https://github.com/ashfinal" target="_blank"><i class="grey large github icon"></i></a>
+            <a href="http://weibo.com/ashfinal/" target="_blank"><i class="grey large weibo icon"></i></a>
+            <a href="mailto://ashfinal@sina.cn" target="_blank"><i class="grey large mail icon"></i></a>
+            </div>
+        <div class="ui basic center aligned segment no-print">Contents © 2020         <a href="mailto:ashfinal@sina.cn">ashfinal</a> - Powered by         <a href="https://getnikola.com" target="_blank" rel="nofollow">Nikola</a>         </div>
+
+            </div>
+            <div class="computer only three wide column no-print">
+                <div id="right-side">
+                </div>
+            </div>
+        </div>
+
+        <!-- GoStats JavaScript Based Code -->
+        <script type="text/javascript">(function(c,o,m,p,u,t,e){
+        c['GoStatsObject']=u;c[u]=c[u]||function(){(c[u].q=c[u].q||[]).push(arguments)},
+        c[u].l=1*new Date();t=o.createElement(m);t.async=1;t.src=p;
+        e=o.getElementsByTagName(m)[0];e.parentNode.insertBefore(t,e);
+        })(window,document,'script','//www.gostats.org/5.js','go');
+        go('init',100479892,{'img_counter_type':5,'img_image_type':1});go('send');</script><!-- End GoStats JavaScript Based Code --><script type="text/javascript" src="../../assets/js/jquery-3.3.1.min.js"></script><script type="text/javascript" src="../../assets/js/semantic.min.js"></script><script type="text/javascript" src="../../assets/js/jquery.fancybox.min.js"></script><script type="text/javascript" src="../../assets/js/cookie.min.js"></script><script>
+            $(document).ready(function(){
+                $(".ui.dropdown").dropdown();
+                $('.ui.accordion').accordion();
+                var newstr = $('.cookie.nag').text();
+                $('.cookie.nag').nag({
+                    key: 'globalnotice',
+                    value: newstr
+                  });
+                $('.image-reference').fancybox();
+            });
+        </script><script src="../../assets/js/md5.min.js"></script><script src="../../assets/js/gitalk.min.js"></script><script>
+        const gitalk = new Gitalk({
+            clientID: '12fcda845097d895a24c',
+            clientSecret: '50ed60cde5f40897205197b4265b474cefbedc49',
+            repo: 'macplay.github.io',
+            owner: 'macplay',
+            admin: ['macplay', 'ashfinal'],
+            id: md5(window.location.pathname),
+            // facebook-like distraction free mode
+            distractionFreeMode: false
+        })
+        gitalk.render('gitalk-container')
+    </script><script type="text/javascript" src="../../assets/js/mermaid.min.js"></script><script>mermaid.initialize({startOnLoad: true, theme: 'forest'});</script>
+</body>
+</html>

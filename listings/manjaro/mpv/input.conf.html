@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="zh_cn">
+<head>
+<meta charset="utf-8">
+<meta name="description" content="input.conf">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="generator" content="Nikola (getnikola.com)">
+<title>input.conf - MacPlay</title>
+<link rel="apple-touch-icon" sizes="180x180" href="../../../apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../../../favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../../../favicon-16x16.png">
+<link rel="mask-icon" href="../../../safari-pinned-tab.svg" color="#5bbad5">
+<link href="../../../assets/css/semantic.min.css" rel="stylesheet" type="text/css">
+<link href="../../../assets/css/jquery.fancybox.min.css" rel="stylesheet" type="text/css">
+<link href="../../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<link rel="canonical" href="https://macplay.github.io/listings/manjaro/mpv/input.conf.html">
+</head>
+<body>
+        <div class="ui grid">
+            <div class="computer only three wide column no-print">
+                <div id="left-side">
+                </div>
+            </div>
+            <div class="ten wide computer sixteen wide tablet sixteen wide mobile column">
+                        <div class="ui inline cookie nag no-print">
+            <span class="title">从现在开始，支持中英双语及博文精选 O(∩_∩)O~~</span>
+            <i class="close icon"></i>
+        </div>
+    <header id="header" class="no-print"><div class="ui grid">
+        <div class="computer only tablet only sixteen wide column">
+            <div class="ui large secondary stackable menu">
+                <a class="header item brand-logo" href="https://macplay.github.io/">
+                    MacPlay
+                </a>
+                        <a class="item" href="../../../">Posts</a>
+                        <a class="item" href="../../">Code</a>
+                        <a class="item" href="../../../galleries/">Gallery</a>
+                        <a class="item" href="../../../categories/">Tags</a>
+                        <a class="item" href="../../../archive.html">Archive</a>
+                <div class="right menu">
+                    <a class="item" href="../../../rss.xml"><i class="rss icon"></i>RSS</a>
+                </div>
+            </div>
+        </div>
+        <div class="mobile only sixteen wide column">
+            <div class="ui fluid accordion vertical menu">
+                <div class="item">
+                    <a class="title">MacPlay</a>
+                    <div class="content">
+                                <a class="item" href="../../../">Posts</a>
+                                <a class="item" href="../../">Code</a>
+                                <a class="item" href="../../../galleries/">Gallery</a>
+                                <a class="item" href="../../../categories/">Tags</a>
+                                <a class="item" href="../../../archive.html">Archive</a>
+                        <a class="item" href="../../../rss.xml"><i class="rss icon"></i>RSS</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </header><main id="main"><div id="main-content">
+<div class="listingpage page-body" itemscope="itemscope" itemtype="http://schema.org/Article">
+    <div class="ui breadcrumb list-title">
+                <a href="../../" class="section">listings</a>
+                <div class="divider"> / </div>
+                <a href="../" class="section">manjaro</a>
+                <div class="divider"> / </div>
+                <a href="." class="section">mpv</a>
+                <div class="divider"> / </div>
+                <div class="section">
+                    input.conf
+                </div>
+    </div>
+
+        <p class="downloadlink">
+            <i class="download icon"></i><a href="input.conf">Download</a>
+        </p>
+        <div class="code"><table class="codetable">
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompvinputconf-1"><code data-line-number=" 1"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompvinputconf-1"></a>AXIS_UP     add         volume -1
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompvinputconf-2"><code data-line-number=" 2"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompvinputconf-2"></a>AXIS_DOWN   add         volume  1
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompvinputconf-3"><code data-line-number=" 3"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompvinputconf-3"></a>AXIS_LEFT   osd-msg-bar seek   -1
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompvinputconf-4"><code data-line-number=" 4"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompvinputconf-4"></a>AXIS_RIGHT  osd-msg-bar seek    1
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompvinputconf-5"><code data-line-number=" 5"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompvinputconf-5"></a>LEFT        osd-msg-bar seek   -5
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompvinputconf-6"><code data-line-number=" 6"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompvinputconf-6"></a>RIGHT       osd-msg-bar seek    5
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompvinputconf-7"><code data-line-number=" 7"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompvinputconf-7"></a>Shift+LEFT  osd-msg-bar seek   -1 exact
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompvinputconf-8"><code data-line-number=" 8"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompvinputconf-8"></a>Shift+RIGHT osd-msg-bar seek    1 exact
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompvinputconf-9"><code data-line-number=" 9"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompvinputconf-9"></a># Skip to previous/next subtitle (subject to some restrictions; see manpage)
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompvinputconf-10"><code data-line-number="10"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompvinputconf-10"></a>Ctrl+LEFT  osd-msg-bar     sub-seek  -1
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompvinputconf-11"><code data-line-number="11"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompvinputconf-11"></a>Ctrl+RIGHT osd-msg-bar     sub-seek   1
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompvinputconf-12"><code data-line-number="12"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompvinputconf-12"></a>UP         add             volume     1
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompvinputconf-13"><code data-line-number="13"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompvinputconf-13"></a>DOWN       add             volume    -1
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompvinputconf-14"><code data-line-number="14"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompvinputconf-14"></a>.          frame-step # advance one frame and pause
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompvinputconf-15"><code data-line-number="15"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompvinputconf-15"></a>,          frame-back-step # go back by one frame and pause
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompvinputconf-16"><code data-line-number="16"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompvinputconf-16"></a>SPACE      cycle           pause
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompvinputconf-17"><code data-line-number="17"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompvinputconf-17"></a>m          cycle           mute
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompvinputconf-18"><code data-line-number="18"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompvinputconf-18"></a>ESC        cycle           ontop
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompvinputconf-19"><code data-line-number="19"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompvinputconf-19"></a>T          cycle           ontop
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompvinputconf-20"><code data-line-number="20"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompvinputconf-20"></a>f          cycle           fullscreen # toggle fullscreen
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompvinputconf-21"><code data-line-number="21"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompvinputconf-21"></a>ENTER      cycle           fullscreen
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompvinputconf-22"><code data-line-number="22"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompvinputconf-22"></a>[          multiply        speed 1/1.1
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompvinputconf-23"><code data-line-number="23"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompvinputconf-23"></a>]          multiply        speed   1.1
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompvinputconf-24"><code data-line-number="24"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompvinputconf-24"></a>\          set             speed   1.0
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompvinputconf-25"><code data-line-number="25"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompvinputconf-25"></a>/          show_text       <span class="cp">${</span><span class="n">playlist</span><span class="cp">}</span> # show playlist
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompvinputconf-26"><code data-line-number="26"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompvinputconf-26"></a>&gt;          playlist-next # skip to next file
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompvinputconf-27"><code data-line-number="27"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompvinputconf-27"></a><span class="nt">&lt;          playlist</span><span class="err">-prev</span> <span class="err">#</span> <span class="err">skip</span> <span class="err">to</span> <span class="err">previous</span> <span class="err">file</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompvinputconf-28"><code data-line-number="28"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompvinputconf-28"></a><span class="err">BS</span>         <span class="err">osd-msg-bar</span>     <span class="err">revert-seek</span> <span class="err">#</span> <span class="err">undo</span> <span class="err">previous</span> <span class="err">(or</span> <span class="err">marked)</span> <span class="err">seek</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompvinputconf-29"><code data-line-number="29"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompvinputconf-29"></a><span class="err">l</span>          <span class="err">ab-loop</span> <span class="err">#</span> <span class="err">Set/clear</span> <span class="err">A-B</span> <span class="err">loop</span> <span class="err">points</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompvinputconf-30"><code data-line-number="30"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompvinputconf-30"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompvinputconf-31"><code data-line-number="31"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompvinputconf-31"></a><span class="err">SHARP</span> <span class="err">cycle-values</span> <span class="err">video-aspect</span> <span class="err">"16:9"</span> <span class="err">"4:3"</span> <span class="err">"2.35:1"</span> <span class="err">"-1"</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompvinputconf-32"><code data-line-number="32"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompvinputconf-32"></a><span class="err">Alt+0</span> <span class="err">set</span>          <span class="err">window-scale</span> <span class="err">0.5</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompvinputconf-33"><code data-line-number="33"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompvinputconf-33"></a><span class="err">Alt+1</span> <span class="err">set</span>          <span class="err">window-scale</span> <span class="err">1.0</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompvinputconf-34"><code data-line-number="34"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompvinputconf-34"></a><span class="err">Alt+2</span> <span class="err">set</span>          <span class="err">window-scale</span> <span class="err">2.0</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompvinputconf-35"><code data-line-number="35"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompvinputconf-35"></a><span class="err">#</span> <span class="err">Zoom/unzoom</span> <span class="err">video</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompvinputconf-36"><code data-line-number="36"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompvinputconf-36"></a><span class="err">Alt++</span> <span class="err">add</span> <span class="err">video-zoom</span>  <span class="err">0.1</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompvinputconf-37"><code data-line-number="37"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompvinputconf-37"></a><span class="err">Alt+-</span> <span class="err">add</span> <span class="err">video-zoom</span> <span class="err">-0.1</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompvinputconf-38"><code data-line-number="38"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompvinputconf-38"></a><span class="err">#</span> <span class="err">Reset</span> <span class="err">video</span> <span class="err">zoom/pan</span> <span class="err">settings</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompvinputconf-39"><code data-line-number="39"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompvinputconf-39"></a><span class="err">Alt+BS</span> <span class="err">set</span> <span class="err">video-zoom</span> <span class="err">0</span> <span class="err">;</span> <span class="err">set</span> <span class="err">video-pan-x</span> <span class="err">0</span> <span class="err">;</span> <span class="err">set</span> <span class="err">video-pan-y</span> <span class="err">0</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompvinputconf-40"><code data-line-number="40"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompvinputconf-40"></a><span class="err">#</span> <span class="err">Move</span> <span class="err">video</span> <span class="err">rectangle</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompvinputconf-41"><code data-line-number="41"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompvinputconf-41"></a><span class="err">w</span>         <span class="err">add</span> <span class="err">panscan</span>     <span class="err">-0.1</span> <span class="err">#</span> <span class="err">zoom</span> <span class="err">out</span> <span class="err">with</span> <span class="err">-panscan</span> <span class="err">0</span> <span class="err">-fs</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompvinputconf-42"><code data-line-number="42"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompvinputconf-42"></a><span class="err">e</span>         <span class="err">add</span> <span class="err">panscan</span>     <span class="err">+0.1</span> <span class="err">#</span> <span class="err">in</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompvinputconf-43"><code data-line-number="43"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompvinputconf-43"></a><span class="err">Alt+LEFT</span>  <span class="err">add</span> <span class="err">video-pan-x</span>  <span class="err">0.1</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompvinputconf-44"><code data-line-number="44"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompvinputconf-44"></a><span class="err">Alt+RIGHT</span> <span class="err">add</span> <span class="err">video-pan-x</span> <span class="err">-0.1</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompvinputconf-45"><code data-line-number="45"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompvinputconf-45"></a><span class="err">Alt+UP</span>    <span class="err">add</span> <span class="err">video-pan-y</span>  <span class="err">0.1</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompvinputconf-46"><code data-line-number="46"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompvinputconf-46"></a><span class="err">Alt+DOWN</span>  <span class="err">add</span> <span class="err">video-pan-y</span> <span class="err">-0.1</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompvinputconf-47"><code data-line-number="47"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompvinputconf-47"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompvinputconf-48"><code data-line-number="48"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompvinputconf-48"></a><span class="err">z</span> <span class="err">add</span> <span class="err">sub-delay</span> <span class="err">-0.1</span> <span class="err">#</span> <span class="err">subtract</span> <span class="err">100</span> <span class="err">ms</span> <span class="err">delay</span> <span class="err">from</span> <span class="err">subs</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompvinputconf-49"><code data-line-number="49"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompvinputconf-49"></a><span class="err">x</span> <span class="err">add</span> <span class="err">sub-delay</span> <span class="err">+0.1</span> <span class="err">#</span> <span class="err">add</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompvinputconf-50"><code data-line-number="50"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompvinputconf-50"></a><span class="err">r</span> <span class="err">add</span> <span class="err">sub-pos</span>     <span class="err">-1</span> <span class="err">#</span> <span class="err">move</span> <span class="err">subtitles</span> <span class="err">up</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompvinputconf-51"><code data-line-number="51"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompvinputconf-51"></a><span class="err">t</span> <span class="err">add</span> <span class="err">sub-pos</span>     <span class="err">+1</span> <span class="err">#</span> <span class="err">down</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompvinputconf-52"><code data-line-number="52"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompvinputconf-52"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompvinputconf-53"><code data-line-number="53"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompvinputconf-53"></a><span class="err">i</span>   <span class="err">script-binding</span> <span class="err">stats/display-stats</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompvinputconf-54"><code data-line-number="54"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompvinputconf-54"></a><span class="err">I</span>   <span class="err">script-binding</span> <span class="err">stats/display-stats-toggle</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompvinputconf-55"><code data-line-number="55"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompvinputconf-55"></a><span class="err">o</span>   <span class="err">show-progress</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompvinputconf-56"><code data-line-number="56"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompvinputconf-56"></a><span class="err">TAB</span> <span class="err">show_text</span>      <span class="err">${track-list}</span> <span class="err">#</span> <span class="err">show</span> <span class="err">list</span> <span class="err">of</span> <span class="err">audio/sub</span> <span class="err">streams</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompvinputconf-57"><code data-line-number="57"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompvinputconf-57"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompvinputconf-58"><code data-line-number="58"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompvinputconf-58"></a><span class="err">~</span>      <span class="err">cycle</span>      <span class="err">video</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompvinputconf-59"><code data-line-number="59"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompvinputconf-59"></a><span class="err">a</span>      <span class="err">cycle</span>      <span class="err">audio</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompvinputconf-60"><code data-line-number="60"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompvinputconf-60"></a><span class="err">s</span>      <span class="err">cycle</span>      <span class="err">sub</span>    <span class="err">#cycle</span> <span class="err">through</span> <span class="err">subtitles</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompvinputconf-61"><code data-line-number="61"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompvinputconf-61"></a><span class="err">S</span>      <span class="err">screenshot</span> <span class="err">video</span>  <span class="err">#</span> <span class="err">take</span> <span class="err">a</span> <span class="err">screenshot</span> <span class="err">without</span> <span class="err">subtitles</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompvinputconf-62"><code data-line-number="62"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompvinputconf-62"></a><span class="err">Ctrl+s</span> <span class="err">screenshot</span> <span class="err">window</span> <span class="err">#</span> <span class="err">with</span> <span class="err">subtitles</span> <span class="err">and</span> <span class="err">OSD,</span> <span class="err">and</span> <span class="err">scaled</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompvinputconf-63"><code data-line-number="63"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompvinputconf-63"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompvinputconf-64"><code data-line-number="64"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompvinputconf-64"></a><span class="err">#</span> <span class="err">vim:set</span> <span class="na">ft=</span><span class="s">conf:</span>
+</code></td>
+</tr>
+</table></div>
+</div>
+                    </div>
+                </main><div class="footer extra-block no-print">
+    <span class="footer_item">
+        <a href="../../../pages/you-qing-lian-jie/">友情链接</a>
+    </span>
+    <span class="footer_item">
+        <a href="../../../pages/liu-yan-ban/">留言板</a>
+    </span>
+    <span class="footer_item">
+        <a href="../../../pages/ge-ren-dong-tai/">碎碎念</a>
+    </span>
+    </div>
+            <div class="footer social-link no-print">
+            <a href="https://github.com/ashfinal" target="_blank"><i class="grey large github icon"></i></a>
+            <a href="http://weibo.com/ashfinal/" target="_blank"><i class="grey large weibo icon"></i></a>
+            <a href="mailto://ashfinal@sina.cn" target="_blank"><i class="grey large mail icon"></i></a>
+            </div>
+        <div class="ui basic center aligned segment no-print">Contents © 2020         <a href="mailto:ashfinal@sina.cn">ashfinal</a> - Powered by         <a href="https://getnikola.com" target="_blank" rel="nofollow">Nikola</a>         </div>
+
+            </div>
+            <div class="computer only three wide column no-print">
+                <div id="right-side">
+                </div>
+            </div>
+        </div>
+
+        <!-- GoStats JavaScript Based Code -->
+        <script type="text/javascript">(function(c,o,m,p,u,t,e){
+        c['GoStatsObject']=u;c[u]=c[u]||function(){(c[u].q=c[u].q||[]).push(arguments)},
+        c[u].l=1*new Date();t=o.createElement(m);t.async=1;t.src=p;
+        e=o.getElementsByTagName(m)[0];e.parentNode.insertBefore(t,e);
+        })(window,document,'script','//www.gostats.org/5.js','go');
+        go('init',100479892,{'img_counter_type':5,'img_image_type':1});go('send');</script><!-- End GoStats JavaScript Based Code --><script type="text/javascript" src="../../../assets/js/jquery-3.3.1.min.js"></script><script type="text/javascript" src="../../../assets/js/semantic.min.js"></script><script type="text/javascript" src="../../../assets/js/jquery.fancybox.min.js"></script><script type="text/javascript" src="../../../assets/js/cookie.min.js"></script><script>
+            $(document).ready(function(){
+                $(".ui.dropdown").dropdown();
+                $('.ui.accordion').accordion();
+                var newstr = $('.cookie.nag').text();
+                $('.cookie.nag').nag({
+                    key: 'globalnotice',
+                    value: newstr
+                  });
+                $('.image-reference').fancybox();
+            });
+        </script>
+</body>
+</html>

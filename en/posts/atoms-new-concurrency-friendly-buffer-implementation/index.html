@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="generator" content="Nikola (getnikola.com)">
+<title>【译】Atom 新的并发友好型 buffer 实现 - MacPlay</title>
+<link rel="apple-touch-icon" sizes="180x180" href="../../../apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../../../favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../../../favicon-16x16.png">
+<link rel="mask-icon" href="../../../safari-pinned-tab.svg" color="#5bbad5">
+<link href="../../../assets/css/semantic.min.css" rel="stylesheet" type="text/css">
+<link href="../../../assets/css/jquery.fancybox.min.css" rel="stylesheet" type="text/css">
+<link href="../../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<link rel="canonical" href="https://macplay.github.io/en/posts/atoms-new-concurrency-friendly-buffer-implementation/">
+<meta name="author" content="ashfinal">
+<link rel="alternate" hreflang="zh_cn" href="../../../posts/atoms-new-concurrency-friendly-buffer-implementation/">
+<link rel="stylesheet" type="text/css" href="../../../assets/css/gitalk.css">
+<link rel="stylesheet" href="../../../assets/css/katex.min.css">
+</head>
+<body>
+        <div class="ui grid">
+            <div class="computer only three wide column no-print">
+                <div id="left-side">
+                </div>
+            </div>
+            <div class="ten wide computer sixteen wide tablet sixteen wide mobile column">
+                        <div class="ui inline cookie nag no-print">
+            <span class="title">从现在开始，支持中英双语及博文精选 O(∩_∩)O~~</span>
+            <i class="close icon"></i>
+        </div>
+    <header id="header" class="no-print"><div class="ui grid">
+        <div class="computer only tablet only sixteen wide column">
+            <div class="ui large secondary stackable menu">
+                <a class="header item brand-logo" href="https://macplay.github.io/en/">
+                    MacPlay
+                </a>
+                        <a class="item" href="../../../">Posts</a>
+                        <a class="item" href="../../../listings/">Code</a>
+                        <a class="item" href="../../../galleries/">Gallery</a>
+                        <a class="item" href="../../../categories/">Tags</a>
+                        <a class="item" href="../../../archive.html">Archive</a>
+                <div class="right menu">
+                    <a class="item" href="../../../rss.xml"><i class="rss icon"></i>RSS</a>
+                </div>
+            </div>
+        </div>
+        <div class="mobile only sixteen wide column">
+            <div class="ui fluid accordion vertical menu">
+                <div class="item">
+                    <a class="title">MacPlay</a>
+                    <div class="content">
+                                <a class="item" href="../../../">Posts</a>
+                                <a class="item" href="../../../listings/">Code</a>
+                                <a class="item" href="../../../galleries/">Gallery</a>
+                                <a class="item" href="../../../categories/">Tags</a>
+                                <a class="item" href="../../../archive.html">Archive</a>
+                        <a class="item" href="../../../rss.xml"><i class="rss icon"></i>RSS</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </header><main id="main"><div id="main-content">
+<div class="postpage post-text page-body" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <h1 class="post-title" itemprop="headline">
+        <a href=".">【译】Atom 新的并发友好型 buffer 实现</a>
+    </h1>
+
+    <div class="ui large horizontal link list post-meta">
+        <span class="item">By
+            <a href="../../authors/ashfinal/">ashfinal</a>
+        </span>
+            <span class="item">
+                <a href="https://github.com/macplay/macplay.github.io/edit/src/posts/atoms-new-concurrency-friendly-buffer-implementation.rst" target="_blank" title="Edit on GitHub">Edit</a>
+            </span>
+        <span class="item">
+            <time datetime="2019-10-26T14:41:03+08:00">
+            2019-10-26 14:41
+            </time></span>
+            <span class="item">
+                    <a href="../../categories/atom/">atom</a>
+                    <a href="../../categories/data-structure/">data structure</a>
+            </span>
+    </div>
+
+    
+    <div class="post-content" itemprop="article text">
+        <div id="post-content">
+        <div>
+<p>Atom 的一些功能依赖于缓冲区（buffer）内容基础上的运算（可能会花费很长时间），但是直到最近，还只能从运行在主线程上的 JavaScript 访问缓冲区的文本。这使得无法在所有情况下保证 Atom 的响应能力，尤其是在编辑较大文件时。</p>
+<p>这种情况随着 Atom 1.19 的发布而有所改变，该版本通过使用 C++ 实现的文本存储极大地提高了并行处理能力。这项新设计为性能和可伸缩性提供了诸多好处，其中主要优点之一是 worker 线程可以读取之前缓冲区的快照（snapshot），而不会阻塞主线程上的写入。在这篇文章中，我们将深入介绍 Atom 的文本存储新方法，然后探讨由此带来的首批优化。</p>
+<div class="contents topic" id="id1">
+<p class="topic-title">文档目录</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#layering" id="id12">分层（layering）的变动</a></p></li>
+<li>
+<p><a class="reference internal" href="#patch" id="id13">Patch 的数据结构</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id2" id="id14">存在的问题</a></p></li>
+<li><p><a class="reference internal" href="#id3" id="id15">原生的解决方案</a></p></li>
+<li><p><a class="reference internal" href="#splay-trees" id="id16">Splay trees</a></p></li>
+<li><p><a class="reference internal" href="#id4" id="id17">为我们的用例增强 splay tree</a></p></li>
+</ul>
+</li>
+<li>
+<p><a class="reference internal" href="#id6" id="id18">一些初始优化</a></p>
+<ul>
+<li><p><a class="reference internal" href="#unsaved-changes" id="id19">高效备份 unsaved changes</a></p></li>
+<li><p><a class="reference internal" href="#id8" id="id20">异步保存</a></p></li>
+<li><p><a class="reference internal" href="#id9" id="id21">自动补全时在后台进行子序列匹配</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#id11" id="id22">未来回报</a></p></li>
+</ul>
+</div>
+<!-- TEASER_END -->
+<div class="section" id="layering">
+<h2><a class="toc-backref" href="#id12">分层（layering）的变动</a></h2>
+<p>Atom 新的 buffer 实现，关键思想是将文本缓冲区内容分为两个主要状态。首先，有 <em>基本文本（base text）</em> ，对应于最近从磁盘读取或写入的文档版本。基本文本是不可变的，并存储在单个连续分配的内存块中。叠加在基本文本之上的是 <em>未保存更改（unsaved changes）</em> ，存储在被称为 <em>补丁（patch）</em> 的单独稀疏数据结构中。要记录编辑内容，无需将缓冲区的所有内容在内存中腾来挪去，我们只需对 patch 进行更改即可。</p>
+<div class="figure align-center">
+<img alt="base text plus changes" src="../../../images/base-text-plus-changes.png">
+</div>
+<p>实际上，任何时刻都可能存在多个层级的 patch。最顶层的 patch 始终是可变的，但是我们可以冻结最顶层的 patch 并将一个新的 patch 推到栈顶，来创建当前缓冲区内容的只读快照（snapshot）。编辑操作将流向这个新的 patch，直到不再需要快照为止，此时最顶层的 patch 可以被合并到上一层的 patch 之中。</p>
+<div class="figure align-center">
+<img alt="layered changes" src="../../../images/layered-changes.png">
+</div>
+<p>要读取缓冲区状态，我们遍历连续的“块（chunk）”，其中每个块对应于一次更改，来自于一个分层补丁或基本文本的数组切片。</p>
+<div class="figure align-center">
+<img alt="text composition animation" src="../../../images/text-composition-animation.png">
+</div>
+</div>
+<div class="section" id="patch">
+<h2><a class="toc-backref" href="#id13">Patch 的数据结构</a></h2>
+<p>整个系统的核心是 <code class="docutils literal">Patch</code> 数据结构，它描述了如何将一系列文本更改应用于某些输入以产生新的输出。基本上，它与你运行 <code class="docutils literal">diff</code> 所获得的信息相同，但它不是将两个缓冲区进行比较而产生，而是通过将一系列编辑组合在一起来逐步构造的。</p>
+<div class="section" id="id2">
+<h3><a class="toc-backref" href="#id14">存在的问题</a></h3>
+<p>为了更好地理解 <code class="docutils literal">Patch</code> 要解决的问题，请考虑以下示例。我们从包含 <code class="docutils literal">xxxx</code> 内容的缓冲区开始，然后执行以下插入操作：</p>
+<ul class="simple">
+<li><p><code class="docutils literal">insert B @ 2</code> -&gt; <code class="docutils literal">xxBxx</code></p></li>
+<li><p><code class="docutils literal">insert C @ 4</code> -&gt; <code class="docutils literal">xxBxCx</code></p></li>
+<li><p><code class="docutils literal">insert A @ 1</code> -&gt; <code class="docutils literal">xAxBxCx</code></p></li>
+</ul>
+<p>以字符敏感的差异比较形式（character-wise diff），总结一下我们所做的更改，如下所示：</p>
+<pre class="code javascript"><a name="rest_code_24ab69d2dc9740bba3cade2563a81cfa-1"></a><span class="p">[</span>
+<a name="rest_code_24ab69d2dc9740bba3cade2563a81cfa-2"></a>  <span class="p">{</span><span class="nx">oldRange</span><span class="o">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="nx">oldText</span><span class="o">:</span> <span class="s1">''</span><span class="p">,</span> <span class="nx">newRange</span><span class="o">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="nx">newText</span><span class="o">:</span> <span class="s1">'A'</span><span class="p">},</span>
+<a name="rest_code_24ab69d2dc9740bba3cade2563a81cfa-3"></a>  <span class="p">{</span><span class="nx">oldRange</span><span class="o">:</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="nx">oldText</span><span class="o">:</span> <span class="s1">''</span><span class="p">,</span> <span class="nx">newRange</span><span class="o">:</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="nx">newText</span><span class="o">:</span> <span class="s1">'B'</span><span class="p">},</span>
+<a name="rest_code_24ab69d2dc9740bba3cade2563a81cfa-4"></a>  <span class="p">{</span><span class="nx">oldRange</span><span class="o">:</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="nx">oldText</span><span class="o">:</span> <span class="s1">''</span><span class="p">,</span> <span class="nx">newRange</span><span class="o">:</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="nx">newText</span><span class="o">:</span> <span class="s1">'C'</span><span class="p">}</span>
+<a name="rest_code_24ab69d2dc9740bba3cade2563a81cfa-5"></a><span class="p">]</span>
+</pre>
+<p>此差异中的每个条目都有一个 <code class="docutils literal">oldRange</code> 键，它不理会 patch 中的任何其它更改。例如，插入 <code class="docutils literal">C</code> 的条目其 <code class="docutils literal">oldRange</code> 值为 <code class="docutils literal">[3, 3]</code> ，它排除了插入 <code class="docutils literal">A</code> 和 <code class="docutils literal">B</code> 的影响。与之相反，每个条目中的 <code class="docutils literal">newRange</code> 都反映了 patch 中其它更改所带来的偏移影响。例如，插入 <code class="docutils literal">C</code> 的条目其 <code class="docutils literal">newRange</code> 值为 <code class="docutils literal">[5, 6]</code> ，就考虑了缓冲区插入的 <code class="docutils literal">A</code> 和 <code class="docutils literal">B</code> 。</p>
+<p>如果没有进一步处理，则无法从原始编辑流中获得这种总结摘要。我们来看一下索引 <code class="docutils literal">4</code> 处的 <code class="docutils literal">C</code> 插入。该索引已经考虑到之前 <code class="docutils literal">B</code> 插入的影响，但没有顾及到 <code class="docutils literal">A</code> ， <code class="docutils literal">A</code> 在 <strong>空间</strong> 偏移方面在 <code class="docutils literal">C</code> 前面，但 <strong>时间</strong> 顺序上则在 <code class="docutils literal">C</code> 之后。想要在以上所示的差异比较中构建 <code class="docutils literal">oldRange</code> 和 <code class="docutils literal">newRange</code> ，我们需要了解每个更改彼此之间的空间关系，这与它们的时间顺序无关。</p>
+</div>
+<div class="section" id="id3">
+<h3><a class="toc-backref" href="#id15">原生的解决方案</a></h3>
+<p>这个问题的一个简单解决方案是，将每次更改都存储到一个列表中，每次更改分别包含 <code class="docutils literal">oldText</code> ， <code class="docutils literal">newText</code> 和 <code class="docutils literal">distanceFromPreviousChange</code> 。通过遍历已有更改来确定此列表中每个新条目的插入位置。根据以上示例中的插入操作，这是更改列表现在的样子：</p>
+<pre class="code javascript"><a name="rest_code_a16a3562f1414df6af2670d7e48423bd-1"></a><span class="nx">assert</span><span class="p">.</span><span class="nx">deepEqual</span><span class="p">(</span><span class="nx">patch</span><span class="p">.</span><span class="nx">changes</span><span class="p">,</span> <span class="p">[])</span>
+<a name="rest_code_a16a3562f1414df6af2670d7e48423bd-2"></a>
+<a name="rest_code_a16a3562f1414df6af2670d7e48423bd-3"></a><span class="nx">patch</span><span class="p">.</span><span class="nx">splice</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s1">''</span><span class="p">,</span> <span class="s1">'B'</span><span class="p">)</span>
+<a name="rest_code_a16a3562f1414df6af2670d7e48423bd-4"></a>
+<a name="rest_code_a16a3562f1414df6af2670d7e48423bd-5"></a><span class="nx">assert</span><span class="p">.</span><span class="nx">deepEqual</span><span class="p">(</span><span class="nx">patch</span><span class="p">.</span><span class="nx">changes</span><span class="p">,</span> <span class="p">[</span>
+<a name="rest_code_a16a3562f1414df6af2670d7e48423bd-6"></a>  <span class="p">{</span><span class="nx">distanceFromPreviousChange</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span> <span class="nx">oldText</span><span class="o">:</span> <span class="s1">''</span><span class="p">,</span> <span class="nx">newText</span><span class="o">:</span> <span class="s1">'B'</span><span class="p">}</span>
+<a name="rest_code_a16a3562f1414df6af2670d7e48423bd-7"></a><span class="p">])</span>
+<a name="rest_code_a16a3562f1414df6af2670d7e48423bd-8"></a>
+<a name="rest_code_a16a3562f1414df6af2670d7e48423bd-9"></a><span class="nx">patch</span><span class="p">.</span><span class="nx">splice</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="s1">''</span><span class="p">,</span> <span class="s1">'C'</span><span class="p">)</span>
+<a name="rest_code_a16a3562f1414df6af2670d7e48423bd-10"></a>
+<a name="rest_code_a16a3562f1414df6af2670d7e48423bd-11"></a><span class="nx">assert</span><span class="p">.</span><span class="nx">deepEqual</span><span class="p">(</span><span class="nx">patch</span><span class="p">.</span><span class="nx">changes</span><span class="p">,</span> <span class="p">[</span>
+<a name="rest_code_a16a3562f1414df6af2670d7e48423bd-12"></a>  <span class="p">{</span><span class="nx">oldText</span><span class="o">:</span> <span class="s1">''</span><span class="p">,</span> <span class="nx">newText</span><span class="o">:</span> <span class="s1">'B'</span><span class="p">,</span> <span class="nx">distanceFromPreviousChange</span><span class="o">:</span> <span class="mi">2</span><span class="p">},</span>
+<a name="rest_code_a16a3562f1414df6af2670d7e48423bd-13"></a>  <span class="p">{</span><span class="nx">oldText</span><span class="o">:</span> <span class="s1">''</span><span class="p">,</span> <span class="nx">newText</span><span class="o">:</span> <span class="s1">'C'</span><span class="p">,</span> <span class="nx">distanceFromPreviousChange</span><span class="o">:</span> <span class="mi">1</span><span class="p">}</span>
+<a name="rest_code_a16a3562f1414df6af2670d7e48423bd-14"></a><span class="p">])</span>
+<a name="rest_code_a16a3562f1414df6af2670d7e48423bd-15"></a>
+<a name="rest_code_a16a3562f1414df6af2670d7e48423bd-16"></a><span class="nx">patch</span><span class="p">.</span><span class="nx">splice</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">''</span><span class="p">,</span> <span class="s1">'A'</span><span class="p">)</span>
+<a name="rest_code_a16a3562f1414df6af2670d7e48423bd-17"></a>
+<a name="rest_code_a16a3562f1414df6af2670d7e48423bd-18"></a><span class="nx">assert</span><span class="p">.</span><span class="nx">deepEqual</span><span class="p">(</span><span class="nx">patch</span><span class="p">.</span><span class="nx">changes</span><span class="p">,</span> <span class="p">[</span>
+<a name="rest_code_a16a3562f1414df6af2670d7e48423bd-19"></a>  <span class="p">{</span><span class="nx">oldText</span><span class="o">:</span> <span class="s1">''</span><span class="p">,</span> <span class="nx">newText</span><span class="o">:</span> <span class="s1">'A'</span><span class="p">,</span> <span class="nx">distanceFromPreviousChange</span><span class="o">:</span> <span class="mi">1</span><span class="p">},</span>
+<a name="rest_code_a16a3562f1414df6af2670d7e48423bd-20"></a>  <span class="p">{</span><span class="nx">oldText</span><span class="o">:</span> <span class="s1">''</span><span class="p">,</span> <span class="nx">newText</span><span class="o">:</span> <span class="s1">'B'</span><span class="p">,</span> <span class="nx">distanceFromPreviousChange</span><span class="o">:</span> <span class="mi">1</span><span class="p">},</span>
+<a name="rest_code_a16a3562f1414df6af2670d7e48423bd-21"></a>  <span class="p">{</span><span class="nx">oldText</span><span class="o">:</span> <span class="s1">''</span><span class="p">,</span> <span class="nx">newText</span><span class="o">:</span> <span class="s1">'C'</span><span class="p">,</span> <span class="nx">distanceFromPreviousChange</span><span class="o">:</span> <span class="mi">1</span><span class="p">}</span>
+<a name="rest_code_a16a3562f1414df6af2670d7e48423bd-22"></a><span class="p">])</span>
+</pre>
+<p>在我们的案例中， <code class="docutils literal">oldText</code> 始终为空。因为我们仅执行了插入操作，但是通过指定 <code class="docutils literal">oldText</code> 为非空值很容易表示删除或替换。一旦我们创建了更改列表，就可以通过迭代列表，从之前更改的范围确定 <code class="docutils literal">oldRange</code> 和 <code class="docutils literal">newRange</code> 的开始位置，最终产生需要的编辑摘要。</p>
+</div>
+<div class="section" id="splay-trees">
+<h3><a class="toc-backref" href="#id16">Splay trees</a></h3>
+<p>上述方法的问题在于，在列表中插入一项更改可能需要我们检查所有其它更改，这会产生 <span class="math">\(O\left(n^2\right)\)</span> 的时间复杂度。</p>
+<p>在产品实现中为了确保良好性能，我们通过使用 <a class="reference external" href="https://en.wikipedia.org/wiki/Splay_tree">splay tree</a> 而非简单列表将时间缩短到 <span class="math">\(O\left(n\cdot\log_2n\right)\)</span> 范围内。Splay tree 是二进制搜索树（binary search tree）的一种版本，实现起来非常简单，而且具有“自我优化（self-optimizing）”的超酷特性。这意味着在查询和搜索时，它们会自动调整其结构，以便访问最近访问的节点附近的节点时更加方便。对于随机化的工作负载，此特性没有帮助。但是对于局部高密度的工作负载（例如文本编辑器）而言，这种自我优化的特性非常有用。</p>
+<p>Splay tree 的原理非常简单。每当一个节点被访问时，都会通过一系列特殊的指针旋转（称为 <code class="docutils literal">splay</code> ）将其旋转到树的根部。这种旋转（splaying）不仅将节点移动到树根，而且还减少了节点附近树的深度，从而确保下次我们访问附近的节点时，更靠近树根，因此查找速度更快。</p>
+<div class="figure align-center">
+<img alt="splay diagram" src="../../../images/splay-diagram.png">
+</div>
+<p>值得注意的一点是 <span class="math">\(O\left(n\cdot\log_2n\right)\)</span> 是 <em>摊销范围</em> 。单次操作的成本可能高达 <span class="math">\(O\left(n\right)\)</span> ，但我们可以通过重组树降低后续操作成本来补偿。事实上，情况还好。通常，单次线性时间（linear-time）操作不会引起性能问题。只有当批量执行 <em>多个</em> 线性时间运算时，时间复杂度才变成二次方，这正是 splay tree 帮助我们避免的情况。</p>
+<p>如果你想了解有关 splay tree 的更多信息， <a class="reference external" href="https://www.youtube.com/watch?v=QnPl_Y6EqMo">来自 MIT 的 David Karger 的课程</a> 是很棒的介绍。</p>
+</div>
+<div class="section" id="id4">
+<h3><a class="toc-backref" href="#id17">为我们的用例增强 splay tree</a></h3>
+<p>理论上来说，splay tree 始终被表示为键和值之间的简单有序映射。对于我们的 <code class="docutils literal">Patch</code> 来说，我们需要解决一个更复杂的问题：我们的树需要在新旧坐标空间里维护每个节点的位置，以便每当发生新的更改时，我们都可以有效地更新所有后续节点的位置。为此，我们要避免将每个节点与常量键相关联，而是将他们与相对表达值相关联，该表达值代表节点在新旧坐标空间里与其 <em>左祖先</em> 的距离。</p>
+<div class="figure align-center">
+<img alt="patch tree layout" src="../../../images/patch-tree-layout.png">
+</div>
+<p>在上图中，每个更改都显示为梯形，以图形方式表示替换字符对空间偏移的影响。在前面提到的列表表示中，在两个坐标空间中，与前一个更改的距离始终相同，因为任何两个更改之间的文本均保持不变。在 splay tree 版本中，每个更改都存储了与其左祖先的距离，这汇总了本次更改左边整个子树的空间偏移影响。上图每个深色节点都包含了它们左边子树的更改，亦即每个坐标空间里与其左祖先的距离的值都不相同。要把相对距离转换为绝对位置，我们在两个坐标空间里执行一次累加计算，因为 splay tree 从树根降格为了树叶。</p>
+<p>要插入新更改，我们将最靠近替换范围的现有更改旋转（splay）一下。旋转（splay）操作重新排列指针之时，我们根据本地可用信息更新与每个节点左祖先的距离。一旦上下方的节点旋转到树的根部，它们 <em>之间</em> 的任何节点都将被我们插入的更改所包围，这意味着它们可以被删除。然后，我们插入新更改，将其与树根上的一至两个节点合并，这取决于它是否与它们重叠。</p>
+<div class="figure align-center">
+<img alt="patch tree splice" src="../../../images/patch-tree-splice.png">
+</div>
+<p>对于 patch 结构而言，旋转（splaying）并不仅仅是将树保持平衡的机制。事实上，我们依赖于将节点移至树根的功能，以便将新的更改拼接到结构体中。如果使用严格平衡的数据结构（如红黑树），则在不违反关键不变性的情况下，以这种方式将节点旋转到根节点将更加困难。</p>
+<p>值得注意的是，在以上所有示例中，为清晰易懂起见，我们都使用了纯数值表示位置和距离。实际上，这些值都是由行和列组成的二维向量表示的。这增加了一些复杂性，但是基本思想保持不变。还值得注意的是，此结构还有一些超出本文所讲的 buffer 实现范畴的功能。最初我们创建它来汇总各项事务中所发生的所有变化，以便 <a class="reference external" href="https://github.com/atom/text-buffer/blob/042704a00354f1fd75207910b4a5736a958f6265/src/text-buffer.coffee#L1940-L1947">将差异结果通知更改监听器（change listener）</a> ，并 <a class="reference external" href="https://github.com/atom/text-buffer/blob/042704a00354f1fd75207910b4a5736a958f6265/src/default-history-provider.coffee#L69">以最紧凑的方式保存撤销堆栈（undo stack）</a> 。我们还使用 patch 来 <a class="reference external" href="https://github.com/atom/text-buffer/blob/042704a00354f1fd75207910b4a5736a958f6265/src/display-layer.js#L291">索引 buffer 与屏幕坐标间的转换</a> ，以完成展示向（presentation-oriented）事务如软换行（soft-wrapping）和代码折叠（code folding）的切换。这是一段 <a class="reference external" href="https://github.com/atom/superstring/blob/a8f727614e056bb4511084a8e483161b9691a33b/src/core/patch.cc">复杂的代码</a> ，但是我们从中受益良多。</p>
+</div>
+</div>
+<div class="section" id="id6">
+<h2><a class="toc-backref" href="#id18">一些初始优化</a></h2>
+<p>就 Atom 的整体效率而言，将 buffer 实现转移到 C++ 本身就是一个胜利。JavaScript 可以相当快，但是根本上它还是一种脚本语言，具有不可避免的开销。通过在 C++ 中实现缓冲区，我们消除了 JS 的开销，并实现了所需的效率最大化目标。通过简化堆栈并在频繁调用的代码中分配更少的短期对象，我们还减轻了 V8 垃圾回收器的压力。但是这些改进仅仅是开始，新实现的真正价值在于其分层设计所带来的优化。</p>
+<div class="section" id="unsaved-changes">
+<h3><a class="toc-backref" href="#id19">高效备份 unsaved changes</a></h3>
+<p>去年一月，我们刚刚完成了另一项改进，使得 Atom 可以处理更大的文件以消除那令人沮丧的瓶颈。编辑大文件时最大的烦恼之一是，将大缓冲区未保存状态定期写入磁盘所带来的开销。只要大小足够，即便收集缓冲区的内容异步写入，也会带来可感知的卡顿。尽管可以巧妙地使用 <code class="docutils literal">requestIdleCallback</code> 和输出流（output stream）来应付，我们依旧担心每分钟多次写入大量数据所带来的能效影响。我们考虑新的 buffer 实现已经有一段时间，进行高效的后台保存也是构建该实现很好的初始动机。</p>
+<p>为了崩溃恢复之目的，我们只关心未保存的更改，这恰恰是新的 buffer 实现极容易提供的。现在，我们无需检出缓冲区的全部内容，只要 <a class="reference external" href="https://github.com/atom/superstring/blob/a8f727614e056bb4511084a8e483161b9691a33b/src/core/text-buffer.cc#L636">将所有未完成的层级组合成一个 patch</a> ，并将其与基本文本的指纹（digest）一起序列化（serialize）到磁盘。其写入的数据量与更改数量（而非文件大小）成正比，因此在大多数情况下效率更高。有时可能仍需要处理有数十兆未保存更改的文件，但是这种情况很少见。</p>
+</div>
+<div class="section" id="id8">
+<h3><a class="toc-backref" href="#id20">异步保存</a></h3>
+<p>在 1.19 版本之前，在 Atom 中保存缓冲区是 <em>同步</em> 操作 😱。这是因为写入文件的代码早于 Electron 的诞生，并且在那时，从基于浏览器的桌面应用中执行异步 I/O 并不像现在这样简单。令人高兴的是，新的 buffer 实现为我们提供了以优雅的方式最终解决此问题的机会。现在，将缓冲区内容从 UTF-16 转换为用户所需的编码并将其写入磁盘， <a class="reference external" href="https://github.com/atom/superstring/blob/a8f727614e056bb4511084a8e483161b9691a33b/src/bindings/text-buffer-wrapper.cc#L910">完全使用 C++ 在后台线程上执行</a> 。在开始保存之前，我们将创建一个快照，以便即使在保存缓慢（例如使用网络驱动器）时，用户也可以自由进行其它更改。</p>
+</div>
+<div class="section" id="id9">
+<h3><a class="toc-backref" href="#id21">自动补全时在后台进行子序列匹配</a></h3>
+<p>默认情况下，Atom 的自动补全从打开的缓冲区提供单词建议，这是通过与光标前面的字符的子序列匹配来完成的。例如，键入 <code class="docutils literal">bna</code> 将提供 <code class="docutils literal">banana</code> ， <code class="docutils literal">bandaid</code> 以及 <code class="docutils literal">bandana</code> 作为建议。然后，我们根据匹配质量评分将单词建议进行排序。</p>
+<p>在 Atom 1.22 版之前，我们通过为每个缓冲区维护唯一的单词列表，并在主线程上运行 JavaScript 以匹配，评分和排序建议来实现此功能。尽管对于大多数文件来说，这还可以，但是随着文件大小的增加，单词列表开始占用大量内存，并且主线程上的建议匹配可能会可感知地阻塞 UI。</p>
+<p>得益于新的 buffer 实现，我们在 Atom 1.22 特性中推出了一项新的自动补全功能，利用快照（snapshot）来完成相同的工作，而没有内存开销，也不会威胁 Atom 的响应能力。现在，大多数的繁重工作都由新的 <code class="docutils literal">TextBuffer.findWordsWithSubsequence</code> 方法完成，它在后台线程中执行 <a class="reference external" href="https://github.com/atom/superstring/blob/a8f727614e056bb4511084a8e483161b9691a33b/src/core/text-buffer.cc#L407">匹配，评分和排序</a> 。这意味着我们可以在每次击键后立即开始搜索建议，而其它工作仍在主线程中运行。等到下一帧重绘时，通常建议已经可用，但是在搜索建议时我们一帧都不会延迟。在极少数情况下，单词建议需要花费比一帧更长的时间来计算，那我们将在下一帧中呈现它们。</p>
+<p>要立即尝试新的自动补全，请 <a class="reference external" href="https://atom.io/beta">下载 1.22 Beta</a> ，在“设置”视图中导航至 <code class="docutils literal"><span class="pre">autocomplete-plus</span></code> ，将选项 <code class="docutils literal">Default Provider</code> 切换为 <code class="docutils literal">Subsequence</code> 。</p>
+<div class="figure align-center">
+<img alt="subsequence provider setting" src="../../../images/subsequence-provider-setting.png">
+</div>
+<p>如果使用新的自动补全时你遇到任何问题，请告诉我们。如果一切顺利，它将是 Atom 1.23 中包含的唯一默认自动补全。</p>
+</div>
+</div>
+<div class="section" id="id11">
+<h2><a class="toc-backref" href="#id22">未来回报</a></h2>
+<p>新的 buffer 实现为将来的诸多改进奠定了基础。短期内而言，能够在 worker 线程中执行非阻塞读取，将帮助我们改善许多领域的响应能力，其中包括一些尚未探索领域。</p>
+<p>从长期来看，将 buffer 实现切换到 C++，也为我们移植其它子系统打开了大门。我们正在逐步构建一个名为 <code class="docutils literal">superstring</code> 的原生库，该库在 Atom 的核心实现了多个性能关键组件，例如本文中描述的 patch 和文本存储数据结构。我们通过 V8 嵌入 API 将该库与 JavaScript 联结，但它也有 <a class="reference external" href="https://github.com/atom/superstring/tree/master/src/bindings/em">现成的 Emscripten 绑定</a> ，可在 Electron 之外使用。现在， <code class="docutils literal">superstring</code> 中与 buffer 相关的关键代码已完成，我们可以将需要访问 buffer 内容的性能关键代码逐步移植过去。</p>
+<p>需要明确的是，JavaScript 的易用性和灵活性是一项巨大的优势。因此，放弃这些优势以换取 C++ 原生性能之前，我们将三思而后行。但是，我们希望在本文中表明一点：JavaScript 的局限性并不会成为在 Atom 中提供出色性能的根本障碍。</p>
+</div>
+</div>
+        </div>
+    </div>
+    <div class="post-info">
+        <p>引用资源：<a href="https://blog.atom.io/2017/10/12/atoms-new-buffer-implementation.html" target="_blank">https://blog.atom.io/2017/10/12/atoms-new-buffer-implementation.html</a></p>
+        <p>文章链接：<a href="https://macplay.github.io/en/posts/atoms-new-concurrency-friendly-buffer-implementation/" target="_blank">https://macplay.github.io/en/posts/atoms-new-concurrency-friendly-buffer-implementation/</a></p>
+        <p>发布/更新于：
+            <time datetime="2019-10-27 00:43:36 UTC+08:00">
+            2019-10-27 00:43
+            </time></p>
+        <p>版权声明：如无特别说明，本站文章均遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">CC BY-NC-SA 4.0</a> 协议，转载请注明作者及出处。</p>
+    </div>
+        <div class="post-navigation no-print">
+        <div class="ui huge secondary stackable menu">
+            <a class="post-nav-item post-nav-previous item" href="../the-power-of-diff/" title="Previous post"><i class="angle double left icon"></i> The power of diff</a>
+        <div class="right menu">
+            <a class="post-nav-item post-nav-next item" href="../text-buffer-reimplementation/" title="Next post">【译】重新实现 Text Buffer <i class="angle double right icon"></i></a>
+        </div>
+        </div>
+    </div>
+
+        <div id="gitalk-container" class="comments-block no-print"></div>
+</div>
+                    </div>
+                </main><div class="footer extra-block no-print">
+    <span class="footer_item">
+        <a href="../../../pages/you-qing-lian-jie/">友情链接</a>
+    </span>
+    <span class="footer_item">
+        <a href="../../../pages/liu-yan-ban/">留言板</a>
+    </span>
+    <span class="footer_item">
+        <a href="../../../pages/ge-ren-dong-tai/">碎碎念</a>
+    </span>
+    </div>
+            <div class="footer social-link no-print">
+            <a href="https://github.com/ashfinal" target="_blank"><i class="grey large github icon"></i></a>
+            <a href="http://weibo.com/ashfinal/" target="_blank"><i class="grey large weibo icon"></i></a>
+            <a href="mailto://ashfinal@sina.cn" target="_blank"><i class="grey large mail icon"></i></a>
+            </div>
+        <div class="ui basic center aligned segment no-print">Contents © 2020         <a href="mailto:ashfinal@sina.cn">ashfinal</a> - Powered by         <a href="https://getnikola.com" target="_blank" rel="nofollow">Nikola</a>         </div>
+
+            </div>
+            <div class="computer only three wide column no-print">
+                <div id="right-side">
+                </div>
+            </div>
+        </div>
+
+        <!-- GoStats JavaScript Based Code -->
+        <script type="text/javascript">(function(c,o,m,p,u,t,e){
+        c['GoStatsObject']=u;c[u]=c[u]||function(){(c[u].q=c[u].q||[]).push(arguments)},
+        c[u].l=1*new Date();t=o.createElement(m);t.async=1;t.src=p;
+        e=o.getElementsByTagName(m)[0];e.parentNode.insertBefore(t,e);
+        })(window,document,'script','//www.gostats.org/5.js','go');
+        go('init',100479892,{'img_counter_type':5,'img_image_type':1});go('send');</script><!-- End GoStats JavaScript Based Code --><script type="text/javascript" src="../../../assets/js/jquery-3.3.1.min.js"></script><script type="text/javascript" src="../../../assets/js/semantic.min.js"></script><script type="text/javascript" src="../../../assets/js/jquery.fancybox.min.js"></script><script type="text/javascript" src="../../../assets/js/cookie.min.js"></script><script>
+            $(document).ready(function(){
+                $(".ui.dropdown").dropdown();
+                $('.ui.accordion').accordion();
+                var newstr = $('.cookie.nag').text();
+                $('.cookie.nag').nag({
+                    key: 'globalnotice',
+                    value: newstr
+                  });
+                $('.image-reference').fancybox();
+            });
+        </script><script src="../../../assets/js/katex.min.js"></script><script src="../../../assets/js/auto-render.min.js"></script><script>
+                renderMathInElement(document.body,
+                    {
+                        delimiters: [
+                            {left: "$$", right: "$$", display: true},
+                            {left: "\\[", right: "\\]", display: true},
+                            {left: "\\begin{equation*}", right: "\\end{equation*}", display: true},
+                            {left: "\\(", right: "\\)", display: false}
+                        ]
+                    }
+                );
+            </script><script src="../../../assets/js/md5.min.js"></script><script src="../../../assets/js/gitalk.min.js"></script><script>
+        const gitalk = new Gitalk({
+            clientID: '12fcda845097d895a24c',
+            clientSecret: '50ed60cde5f40897205197b4265b474cefbedc49',
+            repo: 'macplay.github.io',
+            owner: 'macplay',
+            admin: ['macplay', 'ashfinal'],
+            id: md5(window.location.pathname),
+            // facebook-like distraction free mode
+            distractionFreeMode: false
+        })
+        gitalk.render('gitalk-container')
+    </script>
+</body>
+</html>

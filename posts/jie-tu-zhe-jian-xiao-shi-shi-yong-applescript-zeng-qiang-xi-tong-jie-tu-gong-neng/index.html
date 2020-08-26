@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="zh_cn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="generator" content="Nikola (getnikola.com)">
+<title>截图这件小事：使用 AppleScript 增强系统截图功能 - MacPlay</title>
+<link rel="apple-touch-icon" sizes="180x180" href="../../apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+<link rel="mask-icon" href="../../safari-pinned-tab.svg" color="#5bbad5">
+<link href="../../assets/css/semantic.min.css" rel="stylesheet" type="text/css">
+<link href="../../assets/css/jquery.fancybox.min.css" rel="stylesheet" type="text/css">
+<link href="../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<link rel="canonical" href="https://macplay.github.io/posts/jie-tu-zhe-jian-xiao-shi-shi-yong-applescript-zeng-qiang-xi-tong-jie-tu-gong-neng/">
+<meta name="author" content="ashfinal">
+<link rel="alternate" hreflang="en" href="../../en/posts/jie-tu-zhe-jian-xiao-shi-shi-yong-applescript-zeng-qiang-xi-tong-jie-tu-gong-neng/">
+<link rel="stylesheet" type="text/css" href="../../assets/css/gitalk.css">
+</head>
+<body>
+        <div class="ui grid">
+            <div class="computer only three wide column no-print">
+                <div id="left-side">
+                </div>
+            </div>
+            <div class="ten wide computer sixteen wide tablet sixteen wide mobile column">
+                        <div class="ui inline cookie nag no-print">
+            <span class="title">从现在开始，支持中英双语及博文精选 O(∩_∩)O~~</span>
+            <i class="close icon"></i>
+        </div>
+    <header id="header" class="no-print"><div class="ui grid">
+        <div class="computer only tablet only sixteen wide column">
+            <div class="ui large secondary stackable menu">
+                <a class="header item brand-logo" href="https://macplay.github.io/">
+                    MacPlay
+                </a>
+                        <a class="item" href="../../">Posts</a>
+                        <a class="item" href="../../listings/">Code</a>
+                        <a class="item" href="../../galleries/">Gallery</a>
+                        <a class="item" href="../../categories/">Tags</a>
+                        <a class="item" href="../../archive.html">Archive</a>
+                <div class="right menu">
+                    <a class="item" href="../../rss.xml"><i class="rss icon"></i>RSS</a>
+                </div>
+            </div>
+        </div>
+        <div class="mobile only sixteen wide column">
+            <div class="ui fluid accordion vertical menu">
+                <div class="item">
+                    <a class="title">MacPlay</a>
+                    <div class="content">
+                                <a class="item" href="../../">Posts</a>
+                                <a class="item" href="../../listings/">Code</a>
+                                <a class="item" href="../../galleries/">Gallery</a>
+                                <a class="item" href="../../categories/">Tags</a>
+                                <a class="item" href="../../archive.html">Archive</a>
+                        <a class="item" href="../../rss.xml"><i class="rss icon"></i>RSS</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </header><main id="main"><div id="main-content">
+<div class="postpage post-text page-body" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <h1 class="post-title" itemprop="headline">
+        <a href=".">截图这件小事：使用 AppleScript 增强系统截图功能</a>
+    </h1>
+
+    <div class="ui large horizontal link list post-meta">
+        <span class="item">By
+            <a href="../../authors/ashfinal/">ashfinal</a>
+        </span>
+            <span class="item">
+                <a href="https://github.com/macplay/macplay.github.io/edit/src/posts/jie-tu-zhe-jian-xiao-shi-shi-yong-applescript-zeng-qiang-xi-tong-jie-tu-gong-neng.md" target="_blank" title="Edit on GitHub">Edit</a>
+            </span>
+        <span class="item">
+            <time datetime="2015-05-14T15:17:02+08:00">
+            2015-05-14 15:17
+            </time></span>
+            <span class="item">
+                    <a href="../../categories/applescript/">applescript</a>
+                    <a href="../../categories/macos/">macos</a>
+            </span>
+    </div>
+
+    
+    <div class="post-content" itemprop="article text">
+        <div id="post-content">
+        <div>
+<h3 id="_1">引言</h3>
+<p>众所周知，Mac OS X 系统自带截图功能已经足够强大。默认情况下按下 <code>⌘ + ⇧ + 4</code> 快捷键即可对屏幕截图，还可使用辅助键进行模式切换、锁定高宽比、输出到剪贴板 …… 等操作。然而如果你想额外进行一些简单调整，比如改变默认存储位置、修改格式等等，则会发现困难好多：需要打开终端输入 <code>defaults write …</code> 等类似的命令。而实际上只要你稍微简单了解下 AppleScript ，即可轻松高度定制截图设置。</p>
+<p>具体到笔者的情况，个人并不喜欢默认的文件命名方式，希望所有的截图能单独归类到某文件夹，而不是全部散落在桌面，希望截图完毕后立刻检视是否有瑕疵，并根据需要进行加字、标记等简单操作，使用 markdown 语法插入图片时能更流畅自然些，而不必中途切出去再复制一遍截图文件名 …… 等等。于是趁空使用 AppleScript 实现了以上功能，近两天则将其配置选项独立出来，方便更多人根据需求来定制。其最终结果就是大家现在所看到的 <code>Capture Screen with Extended Features.workflow</code>。</p>
+<!-- TEASER_END -->
+
+<h3 id="_2">有哪些增强特性？</h3>
+<ul>
+<li>
+<p><strong>自定义截图路径和文件名</strong></p>
+</li>
+<li>
+<p><strong>截图是否包含窗口阴影？</strong></p>
+</li>
+<li>
+<p><strong>是否缩放图片？</strong></p>
+</li>
+<li>
+<p><strong>调用 Preview.app 打开截图？</strong></p>
+</li>
+<li>
+<p><strong>将文件名放入剪贴板？</strong></p>
+</li>
+<li>
+<p><strong>对应用菜单和 App Switcher 截图</strong></p>
+</li>
+</ul>
+<h3 id="_3">如何安装和使用？</h3>
+<p><strong>你可以点击 <a href="http://pan.baidu.com/s/1eQD0TFk" title="http://pan.baidu.com/s/1eQD0TFk">此处</a> 下载。</strong></p>
+<p>双击打开，选择“安装”即可。</p>
+<p><img alt="dcap_intall" src="../../images/dcap_install.png" title="dcap_intall"></p>
+<p>然后就可以使用了。默认快捷键为 <code>⌘ + ⇧ + 5</code>，其使用体验与系统自带截图基本一样的。</p>
+<h3 id="_4">详细设置</h3>
+<p>如果你想要更改默认设置，则依次打开 <code>System Preferences</code> - <code>Keyboard</code> - <code>Shortcuts</code> - <code>Services</code> 下的 <code>General</code>，在这里你可以指定其它快捷键。</p>
+<p><img alt="shortcuts_settings" src="../../images/shortcuts_settings.png" title="shortcuts_settings"></p>
+<p>右键单击选择 <code>Open in Automator</code> 则可使用机器人打开进一步配置。</p>
+<p><img alt="automator_settings" src="../../images/automator_settings.png" title="automator_settings"></p>
+<p>简单说明一下：</p>
+<ul>
+<li>
+<p><code>property pic_dir :</code></p>
+<p>截图目录设置，如不存在则自动创建。支持多级路径，比如 <code>Pictures/ahaha/hehe/screenshot/</code>。但是注意不要包含空格或其它特殊字符，会报错。</p>
+</li>
+<li>
+<p><code>property pic_prefix/suffix :</code></p>
+<p>文件名前/后缀，举个例子就明白了。默认文件名是这样的：<code>20150514-223207.png</code>，你可以添加前后缀变成这样：<code>macplay_20150514-223207_fordemo@2x.png</code>。</p>
+</li>
+<li>
+<p><code>property scale_pic/scale_factor :</code></p>
+<p>缩放截图，记得曾经有人抱怨高清屏截图贴到网上尺寸过大。你可以设置该选项缩减图片分辨率和体积。</p>
+</li>
+<li>
+<p><code>property delay_time :</code></p>
+<p>冻结 Dock 进程以对应用菜单或 App Switcher 截图，方便有特殊需求的同学。所谓 App Switcher 就是当你按下 <code>⌘+⇥</code> 出来的东东，具体可见 <a href="http://sspai.com/t/2739" title="http://sspai.com/t/2739">一行命令搞定 App Switcher 窗口截图</a> 。</p>
+</li>
+<li>
+<p><code>property to_clipbd :</code></p>
+<p>拷贝文件相对路径到剪贴板，这样使用 markdown 语法插入图片的话就非常方便。就像这样：</p>
+<p><code>![dcap_intall](../.dcap/20150514-214645.png "dcap_intall")</code></p>
+<p>如果你像笔者一样使用 Sublime Text，那么在 vim 模式下按 <code>gf</code> 即可在 ST 中查看图片。</p>
+<p><img alt="st_preview" src="../../images/st_preview.png" title="st_preview"></p>
+<p>而如果你在进行 markdown 预览，刚截取的图片也能即时在浏览器中刷新出来。</p>
+</li>
+</ul>
+<h3 id="_5">总结</h3>
+<p>在没有使用外部工具的情况下，使用该 workflow 完成了对笔者写作流程的量身定制。诚然，AppleScript 本身有不少缺点，但善加使用可使重复繁杂的工作变得简单些。希望此 workflow 能够对大家有所作用和启发，希望读者朋友们能发掘出更多更好的用法来 : )</p>
+</div>
+        </div>
+    </div>
+    <div class="post-info">
+        <p>文章链接：<a href="https://macplay.github.io/posts/jie-tu-zhe-jian-xiao-shi-shi-yong-applescript-zeng-qiang-xi-tong-jie-tu-gong-neng/" target="_blank">https://macplay.github.io/posts/jie-tu-zhe-jian-xiao-shi-shi-yong-applescript-zeng-qiang-xi-tong-jie-tu-gong-neng/</a></p>
+        <p>发布/更新于：
+            <time datetime="2017-10-26 11:17:02 UTC+08:00">
+            2017-10-26 11:17
+            </time></p>
+        <p>版权声明：如无特别说明，本站文章均遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">CC BY-NC-SA 4.0</a> 协议，转载请注明作者及出处。</p>
+    </div>
+        <div class="post-navigation no-print">
+        <div class="ui huge secondary stackable menu">
+            <a class="post-nav-item post-nav-previous item" href="../ru-he-zhi-zuo-os-x-yosemite-xi-tong-an-zhuang-pan/" title="Previous post"><i class="angle double left icon"></i> 如何制作 OS X Yosemite 系统安装盘</a>
+        <div class="right menu">
+            <a class="post-nav-item post-nav-next item" href="../shi-yong-pages-zhi-zuo-epub-ge-shi-de-dian-zi-shu/" title="Next post">使用 Pages 制作 ePub 格式的电子书 <i class="angle double right icon"></i></a>
+        </div>
+        </div>
+    </div>
+
+        <div id="gitalk-container" class="comments-block no-print"></div>
+</div>
+                    </div>
+                </main><div class="footer extra-block no-print">
+    <span class="footer_item">
+        <a href="../../pages/you-qing-lian-jie/">友情链接</a>
+    </span>
+    <span class="footer_item">
+        <a href="../../pages/liu-yan-ban/">留言板</a>
+    </span>
+    <span class="footer_item">
+        <a href="../../pages/ge-ren-dong-tai/">碎碎念</a>
+    </span>
+    </div>
+            <div class="footer social-link no-print">
+            <a href="https://github.com/ashfinal" target="_blank"><i class="grey large github icon"></i></a>
+            <a href="http://weibo.com/ashfinal/" target="_blank"><i class="grey large weibo icon"></i></a>
+            <a href="mailto://ashfinal@sina.cn" target="_blank"><i class="grey large mail icon"></i></a>
+            </div>
+        <div class="ui basic center aligned segment no-print">Contents © 2020         <a href="mailto:ashfinal@sina.cn">ashfinal</a> - Powered by         <a href="https://getnikola.com" target="_blank" rel="nofollow">Nikola</a>         </div>
+
+            </div>
+            <div class="computer only three wide column no-print">
+                <div id="right-side">
+                </div>
+            </div>
+        </div>
+
+        <!-- GoStats JavaScript Based Code -->
+        <script type="text/javascript">(function(c,o,m,p,u,t,e){
+        c['GoStatsObject']=u;c[u]=c[u]||function(){(c[u].q=c[u].q||[]).push(arguments)},
+        c[u].l=1*new Date();t=o.createElement(m);t.async=1;t.src=p;
+        e=o.getElementsByTagName(m)[0];e.parentNode.insertBefore(t,e);
+        })(window,document,'script','//www.gostats.org/5.js','go');
+        go('init',100479892,{'img_counter_type':5,'img_image_type':1});go('send');</script><!-- End GoStats JavaScript Based Code --><script type="text/javascript" src="../../assets/js/jquery-3.3.1.min.js"></script><script type="text/javascript" src="../../assets/js/semantic.min.js"></script><script type="text/javascript" src="../../assets/js/jquery.fancybox.min.js"></script><script type="text/javascript" src="../../assets/js/cookie.min.js"></script><script>
+            $(document).ready(function(){
+                $(".ui.dropdown").dropdown();
+                $('.ui.accordion').accordion();
+                var newstr = $('.cookie.nag').text();
+                $('.cookie.nag').nag({
+                    key: 'globalnotice',
+                    value: newstr
+                  });
+                $('.image-reference').fancybox();
+            });
+        </script><script src="../../assets/js/md5.min.js"></script><script src="../../assets/js/gitalk.min.js"></script><script>
+        const gitalk = new Gitalk({
+            clientID: '12fcda845097d895a24c',
+            clientSecret: '50ed60cde5f40897205197b4265b474cefbedc49',
+            repo: 'macplay.github.io',
+            owner: 'macplay',
+            admin: ['macplay', 'ashfinal'],
+            id: md5(window.location.pathname),
+            // facebook-like distraction free mode
+            distractionFreeMode: false
+        })
+        gitalk.render('gitalk-container')
+    </script>
+</body>
+</html>

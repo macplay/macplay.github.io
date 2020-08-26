@@ -1,0 +1,1688 @@
+<!DOCTYPE html>
+<html lang="zh_cn">
+<head>
+<meta charset="utf-8">
+<meta name="description" content="guicolorscheme.vim">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="generator" content="Nikola (getnikola.com)">
+<title>guicolorscheme.vim - MacPlay</title>
+<link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+<link rel="mask-icon" href="../safari-pinned-tab.svg" color="#5bbad5">
+<link href="../assets/css/semantic.min.css" rel="stylesheet" type="text/css">
+<link href="../assets/css/jquery.fancybox.min.css" rel="stylesheet" type="text/css">
+<link href="../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<link rel="canonical" href="https://macplay.github.io/listings/guicolorscheme.vim.html">
+</head>
+<body>
+        <div class="ui grid">
+            <div class="computer only three wide column no-print">
+                <div id="left-side">
+                </div>
+            </div>
+            <div class="ten wide computer sixteen wide tablet sixteen wide mobile column">
+                        <div class="ui inline cookie nag no-print">
+            <span class="title">从现在开始，支持中英双语及博文精选 O(∩_∩)O~~</span>
+            <i class="close icon"></i>
+        </div>
+    <header id="header" class="no-print"><div class="ui grid">
+        <div class="computer only tablet only sixteen wide column">
+            <div class="ui large secondary stackable menu">
+                <a class="header item brand-logo" href="https://macplay.github.io/">
+                    MacPlay
+                </a>
+                        <a class="item" href="../">Posts</a>
+                        <a class="item" href=".">Code</a>
+                        <a class="item" href="../galleries/">Gallery</a>
+                        <a class="item" href="../categories/">Tags</a>
+                        <a class="item" href="../archive.html">Archive</a>
+                <div class="right menu">
+                    <a class="item" href="../rss.xml"><i class="rss icon"></i>RSS</a>
+                </div>
+            </div>
+        </div>
+        <div class="mobile only sixteen wide column">
+            <div class="ui fluid accordion vertical menu">
+                <div class="item">
+                    <a class="title">MacPlay</a>
+                    <div class="content">
+                                <a class="item" href="../">Posts</a>
+                                <a class="item" href=".">Code</a>
+                                <a class="item" href="../galleries/">Gallery</a>
+                                <a class="item" href="../categories/">Tags</a>
+                                <a class="item" href="../archive.html">Archive</a>
+                        <a class="item" href="../rss.xml"><i class="rss icon"></i>RSS</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </header><main id="main"><div id="main-content">
+<div class="listingpage page-body" itemscope="itemscope" itemtype="http://schema.org/Article">
+    <div class="ui breadcrumb list-title">
+                <a href="." class="section">listings</a>
+                <div class="divider"> / </div>
+                <div class="section">
+                    guicolorscheme.vim
+                </div>
+    </div>
+
+        <p class="downloadlink">
+            <i class="download icon"></i><a href="guicolorscheme.vim">Download</a>
+        </p>
+        <div class="code"><table class="codetable">
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-1"><code data-line-number="  1"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-1"></a><span class="c">" guicolorscheme.vim: Convert GUI only color schems</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-2"><code data-line-number="  2"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-2"></a><span class="c">"</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-3"><code data-line-number="  3"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-3"></a><span class="c">" Maintainer:	 Aaron Griffin &lt;aaron@archlinux.org&gt;</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-4"><code data-line-number="  4"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-4"></a><span class="c">" Last Modified: Mon Feb 26 22:52:34 UTC 2007</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-5"><code data-line-number="  5"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-5"></a><span class="c">" Version:       1.2</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-6"><code data-line-number="  6"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-6"></a><span class="c">" URL:           http://www.vim.org/script.php?script_id=39</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-7"><code data-line-number="  7"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-7"></a><span class="c">"</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-8"><code data-line-number="  8"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-8"></a><span class="c">" Convert a GUI-only colorscheme to support 88 and 256 color terminals</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-9"><code data-line-number="  9"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-9"></a><span class="c">" This should also work on the GUI, so using it 100% of the time, assuming</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-10"><code data-line-number=" 10"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-10"></a><span class="c">" you always have a non 8/16 color terminal should work fine</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-11"><code data-line-number=" 11"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-11"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-12"><code data-line-number=" 12"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-12"></a><span class="c">" conversion functions {{{</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-13"><code data-line-number=" 13"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-13"></a><span class="c">" canibalized from desert256.vim</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-14"><code data-line-number=" 14"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-14"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-15"><code data-line-number=" 15"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-15"></a><span class="k">function</span><span class="p">!</span> s:greynum<span class="p">(</span><span class="k">x</span><span class="p">)</span> <span class="c">"{{{</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-16"><code data-line-number=" 16"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-16"></a>    <span class="k">if</span> &amp;<span class="nb">t_Co</span> <span class="p">==</span> <span class="m">88</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-17"><code data-line-number=" 17"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-17"></a>        <span class="k">if</span> <span class="k">a</span>:<span class="k">x</span> <span class="p">&lt;</span> <span class="m">23</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-18"><code data-line-number=" 18"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-18"></a>            <span class="k">return</span> <span class="m">0</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-19"><code data-line-number=" 19"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-19"></a>        <span class="k">elseif</span> <span class="k">a</span>:<span class="k">x</span> <span class="p">&lt;</span> <span class="m">69</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-20"><code data-line-number=" 20"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-20"></a>            <span class="k">return</span> <span class="m">1</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-21"><code data-line-number=" 21"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-21"></a>        <span class="k">elseif</span> <span class="k">a</span>:<span class="k">x</span> <span class="p">&lt;</span> <span class="m">103</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-22"><code data-line-number=" 22"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-22"></a>            <span class="k">return</span> <span class="m">2</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-23"><code data-line-number=" 23"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-23"></a>        <span class="k">elseif</span> <span class="k">a</span>:<span class="k">x</span> <span class="p">&lt;</span> <span class="m">127</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-24"><code data-line-number=" 24"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-24"></a>            <span class="k">return</span> <span class="m">3</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-25"><code data-line-number=" 25"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-25"></a>        <span class="k">elseif</span> <span class="k">a</span>:<span class="k">x</span> <span class="p">&lt;</span> <span class="m">150</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-26"><code data-line-number=" 26"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-26"></a>            <span class="k">return</span> <span class="m">4</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-27"><code data-line-number=" 27"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-27"></a>        <span class="k">elseif</span> <span class="k">a</span>:<span class="k">x</span> <span class="p">&lt;</span> <span class="m">173</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-28"><code data-line-number=" 28"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-28"></a>            <span class="k">return</span> <span class="m">5</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-29"><code data-line-number=" 29"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-29"></a>        <span class="k">elseif</span> <span class="k">a</span>:<span class="k">x</span> <span class="p">&lt;</span> <span class="m">196</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-30"><code data-line-number=" 30"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-30"></a>            <span class="k">return</span> <span class="m">6</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-31"><code data-line-number=" 31"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-31"></a>        <span class="k">elseif</span> <span class="k">a</span>:<span class="k">x</span> <span class="p">&lt;</span> <span class="m">219</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-32"><code data-line-number=" 32"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-32"></a>            <span class="k">return</span> <span class="m">7</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-33"><code data-line-number=" 33"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-33"></a>        <span class="k">elseif</span> <span class="k">a</span>:<span class="k">x</span> <span class="p">&lt;</span> <span class="m">243</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-34"><code data-line-number=" 34"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-34"></a>            <span class="k">return</span> <span class="m">8</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-35"><code data-line-number=" 35"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-35"></a>        <span class="k">else</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-36"><code data-line-number=" 36"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-36"></a>            <span class="k">return</span> <span class="m">9</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-37"><code data-line-number=" 37"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-37"></a>        <span class="k">endif</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-38"><code data-line-number=" 38"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-38"></a>    <span class="k">else</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-39"><code data-line-number=" 39"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-39"></a>        <span class="k">if</span> <span class="k">a</span>:<span class="k">x</span> <span class="p">&lt;</span> <span class="m">14</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-40"><code data-line-number=" 40"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-40"></a>            <span class="k">return</span> <span class="m">0</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-41"><code data-line-number=" 41"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-41"></a>        <span class="k">else</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-42"><code data-line-number=" 42"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-42"></a>            <span class="k">let</span> <span class="k">l</span>:<span class="k">n</span> <span class="p">=</span> <span class="p">(</span><span class="k">a</span>:<span class="k">x</span> <span class="p">-</span> <span class="m">8</span><span class="p">)</span> / <span class="m">10</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-43"><code data-line-number=" 43"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-43"></a>            <span class="k">let</span> <span class="k">l</span>:<span class="k">m</span> <span class="p">=</span> <span class="p">(</span><span class="k">a</span>:<span class="k">x</span> <span class="p">-</span> <span class="m">8</span><span class="p">)</span> % <span class="m">10</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-44"><code data-line-number=" 44"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-44"></a>            <span class="k">if</span> <span class="k">l</span>:<span class="k">m</span> <span class="p">&lt;</span> <span class="m">5</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-45"><code data-line-number=" 45"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-45"></a>                <span class="k">return</span> <span class="k">l</span>:<span class="k">n</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-46"><code data-line-number=" 46"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-46"></a>            <span class="k">else</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-47"><code data-line-number=" 47"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-47"></a>                <span class="k">return</span> <span class="k">l</span>:<span class="k">n</span> <span class="p">+</span> <span class="m">1</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-48"><code data-line-number=" 48"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-48"></a>            <span class="k">endif</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-49"><code data-line-number=" 49"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-49"></a>        <span class="k">endif</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-50"><code data-line-number=" 50"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-50"></a>    <span class="k">endif</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-51"><code data-line-number=" 51"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-51"></a><span class="k">endfunction</span> <span class="c">"}}}</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-52"><code data-line-number=" 52"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-52"></a><span class="k">function</span><span class="p">!</span> s:greylvl<span class="p">(</span><span class="k">n</span><span class="p">)</span> <span class="c">"{{{</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-53"><code data-line-number=" 53"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-53"></a>    <span class="k">if</span> &amp;<span class="nb">t_Co</span> <span class="p">==</span> <span class="m">88</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-54"><code data-line-number=" 54"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-54"></a>        <span class="k">if</span> <span class="k">a</span>:<span class="k">n</span> <span class="p">==</span> <span class="m">0</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-55"><code data-line-number=" 55"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-55"></a>            <span class="k">return</span> <span class="m">0</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-56"><code data-line-number=" 56"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-56"></a>        <span class="k">elseif</span> <span class="k">a</span>:<span class="k">n</span> <span class="p">==</span> <span class="m">1</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-57"><code data-line-number=" 57"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-57"></a>            <span class="k">return</span> <span class="m">46</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-58"><code data-line-number=" 58"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-58"></a>        <span class="k">elseif</span> <span class="k">a</span>:<span class="k">n</span> <span class="p">==</span> <span class="m">2</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-59"><code data-line-number=" 59"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-59"></a>            <span class="k">return</span> <span class="m">92</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-60"><code data-line-number=" 60"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-60"></a>        <span class="k">elseif</span> <span class="k">a</span>:<span class="k">n</span> <span class="p">==</span> <span class="m">3</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-61"><code data-line-number=" 61"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-61"></a>            <span class="k">return</span> <span class="m">115</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-62"><code data-line-number=" 62"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-62"></a>        <span class="k">elseif</span> <span class="k">a</span>:<span class="k">n</span> <span class="p">==</span> <span class="m">4</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-63"><code data-line-number=" 63"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-63"></a>            <span class="k">return</span> <span class="m">139</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-64"><code data-line-number=" 64"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-64"></a>        <span class="k">elseif</span> <span class="k">a</span>:<span class="k">n</span> <span class="p">==</span> <span class="m">5</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-65"><code data-line-number=" 65"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-65"></a>            <span class="k">return</span> <span class="m">162</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-66"><code data-line-number=" 66"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-66"></a>        <span class="k">elseif</span> <span class="k">a</span>:<span class="k">n</span> <span class="p">==</span> <span class="m">6</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-67"><code data-line-number=" 67"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-67"></a>            <span class="k">return</span> <span class="m">185</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-68"><code data-line-number=" 68"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-68"></a>        <span class="k">elseif</span> <span class="k">a</span>:<span class="k">n</span> <span class="p">==</span> <span class="m">7</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-69"><code data-line-number=" 69"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-69"></a>            <span class="k">return</span> <span class="m">208</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-70"><code data-line-number=" 70"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-70"></a>        <span class="k">elseif</span> <span class="k">a</span>:<span class="k">n</span> <span class="p">==</span> <span class="m">8</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-71"><code data-line-number=" 71"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-71"></a>            <span class="k">return</span> <span class="m">231</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-72"><code data-line-number=" 72"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-72"></a>        <span class="k">else</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-73"><code data-line-number=" 73"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-73"></a>            <span class="k">return</span> <span class="m">255</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-74"><code data-line-number=" 74"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-74"></a>        <span class="k">endif</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-75"><code data-line-number=" 75"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-75"></a>    <span class="k">else</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-76"><code data-line-number=" 76"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-76"></a>        <span class="k">if</span> <span class="k">a</span>:<span class="k">n</span> <span class="p">==</span> <span class="m">0</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-77"><code data-line-number=" 77"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-77"></a>            <span class="k">return</span> <span class="m">0</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-78"><code data-line-number=" 78"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-78"></a>        <span class="k">else</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-79"><code data-line-number=" 79"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-79"></a>            <span class="k">return</span> <span class="m">8</span> <span class="p">+</span> <span class="p">(</span><span class="k">a</span>:<span class="k">n</span> * <span class="m">10</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-80"><code data-line-number=" 80"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-80"></a>        <span class="k">endif</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-81"><code data-line-number=" 81"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-81"></a>    <span class="k">endif</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-82"><code data-line-number=" 82"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-82"></a><span class="k">endfunction</span> <span class="c">"}}}</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-83"><code data-line-number=" 83"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-83"></a><span class="k">function</span><span class="p">!</span> s:grey<span class="p">(</span><span class="k">n</span><span class="p">)</span> <span class="c">"{{{</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-84"><code data-line-number=" 84"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-84"></a>    <span class="k">if</span> &amp;<span class="nb">t_Co</span> <span class="p">==</span> <span class="m">88</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-85"><code data-line-number=" 85"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-85"></a>        <span class="k">if</span> <span class="k">a</span>:<span class="k">n</span> <span class="p">==</span> <span class="m">0</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-86"><code data-line-number=" 86"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-86"></a>            <span class="k">return</span> <span class="m">16</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-87"><code data-line-number=" 87"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-87"></a>        <span class="k">elseif</span> <span class="k">a</span>:<span class="k">n</span> <span class="p">==</span> <span class="m">9</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-88"><code data-line-number=" 88"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-88"></a>            <span class="k">return</span> <span class="m">79</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-89"><code data-line-number=" 89"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-89"></a>        <span class="k">else</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-90"><code data-line-number=" 90"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-90"></a>            <span class="k">return</span> <span class="m">79</span> <span class="p">+</span> <span class="k">a</span>:<span class="k">n</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-91"><code data-line-number=" 91"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-91"></a>        <span class="k">endif</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-92"><code data-line-number=" 92"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-92"></a>    <span class="k">else</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-93"><code data-line-number=" 93"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-93"></a>        <span class="k">if</span> <span class="k">a</span>:<span class="k">n</span> <span class="p">==</span> <span class="m">0</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-94"><code data-line-number=" 94"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-94"></a>            <span class="k">return</span> <span class="m">16</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-95"><code data-line-number=" 95"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-95"></a>        <span class="k">elseif</span> <span class="k">a</span>:<span class="k">n</span> <span class="p">==</span> <span class="m">25</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-96"><code data-line-number=" 96"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-96"></a>            <span class="k">return</span> <span class="m">231</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-97"><code data-line-number=" 97"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-97"></a>        <span class="k">else</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-98"><code data-line-number=" 98"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-98"></a>            <span class="k">return</span> <span class="m">231</span> <span class="p">+</span> <span class="k">a</span>:<span class="k">n</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-99"><code data-line-number=" 99"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-99"></a>        <span class="k">endif</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-100"><code data-line-number="100"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-100"></a>    <span class="k">endif</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-101"><code data-line-number="101"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-101"></a><span class="k">endfunction</span> <span class="c">"}}}</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-102"><code data-line-number="102"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-102"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-103"><code data-line-number="103"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-103"></a><span class="k">function</span><span class="p">!</span> s:rgbnum<span class="p">(</span><span class="k">x</span><span class="p">)</span> <span class="c">"{{{</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-104"><code data-line-number="104"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-104"></a>    <span class="k">if</span> &amp;<span class="nb">t_Co</span> <span class="p">==</span> <span class="m">88</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-105"><code data-line-number="105"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-105"></a>        <span class="k">if</span> <span class="k">a</span>:<span class="k">x</span> <span class="p">&lt;</span> <span class="m">69</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-106"><code data-line-number="106"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-106"></a>            <span class="k">return</span> <span class="m">0</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-107"><code data-line-number="107"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-107"></a>        <span class="k">elseif</span> <span class="k">a</span>:<span class="k">x</span> <span class="p">&lt;</span> <span class="m">172</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-108"><code data-line-number="108"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-108"></a>            <span class="k">return</span> <span class="m">1</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-109"><code data-line-number="109"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-109"></a>        <span class="k">elseif</span> <span class="k">a</span>:<span class="k">x</span> <span class="p">&lt;</span> <span class="m">230</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-110"><code data-line-number="110"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-110"></a>            <span class="k">return</span> <span class="m">2</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-111"><code data-line-number="111"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-111"></a>        <span class="k">else</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-112"><code data-line-number="112"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-112"></a>            <span class="k">return</span> <span class="m">3</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-113"><code data-line-number="113"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-113"></a>        <span class="k">endif</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-114"><code data-line-number="114"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-114"></a>    <span class="k">else</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-115"><code data-line-number="115"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-115"></a>        <span class="k">if</span> <span class="k">a</span>:<span class="k">x</span> <span class="p">&lt;</span> <span class="m">75</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-116"><code data-line-number="116"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-116"></a>            <span class="k">return</span> <span class="m">0</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-117"><code data-line-number="117"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-117"></a>        <span class="k">else</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-118"><code data-line-number="118"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-118"></a>            <span class="k">let</span> <span class="k">l</span>:<span class="k">n</span> <span class="p">=</span> <span class="p">(</span><span class="k">a</span>:<span class="k">x</span> <span class="p">-</span> <span class="m">55</span><span class="p">)</span> / <span class="m">40</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-119"><code data-line-number="119"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-119"></a>            <span class="k">let</span> <span class="k">l</span>:<span class="k">m</span> <span class="p">=</span> <span class="p">(</span><span class="k">a</span>:<span class="k">x</span> <span class="p">-</span> <span class="m">55</span><span class="p">)</span> % <span class="m">40</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-120"><code data-line-number="120"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-120"></a>            <span class="k">if</span> <span class="k">l</span>:<span class="k">m</span> <span class="p">&lt;</span> <span class="m">20</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-121"><code data-line-number="121"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-121"></a>                <span class="k">return</span> <span class="k">l</span>:<span class="k">n</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-122"><code data-line-number="122"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-122"></a>            <span class="k">else</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-123"><code data-line-number="123"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-123"></a>                <span class="k">return</span> <span class="k">l</span>:<span class="k">n</span> <span class="p">+</span> <span class="m">1</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-124"><code data-line-number="124"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-124"></a>            <span class="k">endif</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-125"><code data-line-number="125"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-125"></a>        <span class="k">endif</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-126"><code data-line-number="126"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-126"></a>    <span class="k">endif</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-127"><code data-line-number="127"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-127"></a><span class="k">endfunction</span> <span class="c">"}}}</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-128"><code data-line-number="128"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-128"></a><span class="k">function</span><span class="p">!</span> s:rgblvl<span class="p">(</span><span class="k">n</span><span class="p">)</span> <span class="c">"{{{</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-129"><code data-line-number="129"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-129"></a>    <span class="k">if</span> &amp;<span class="nb">t_Co</span> <span class="p">==</span> <span class="m">88</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-130"><code data-line-number="130"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-130"></a>        <span class="k">if</span> <span class="k">a</span>:<span class="k">n</span> <span class="p">==</span> <span class="m">0</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-131"><code data-line-number="131"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-131"></a>            <span class="k">return</span> <span class="m">0</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-132"><code data-line-number="132"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-132"></a>        <span class="k">elseif</span> <span class="k">a</span>:<span class="k">n</span> <span class="p">==</span> <span class="m">1</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-133"><code data-line-number="133"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-133"></a>            <span class="k">return</span> <span class="m">139</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-134"><code data-line-number="134"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-134"></a>        <span class="k">elseif</span> <span class="k">a</span>:<span class="k">n</span> <span class="p">==</span> <span class="m">2</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-135"><code data-line-number="135"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-135"></a>            <span class="k">return</span> <span class="m">205</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-136"><code data-line-number="136"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-136"></a>        <span class="k">else</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-137"><code data-line-number="137"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-137"></a>            <span class="k">return</span> <span class="m">255</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-138"><code data-line-number="138"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-138"></a>        <span class="k">endif</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-139"><code data-line-number="139"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-139"></a>    <span class="k">else</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-140"><code data-line-number="140"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-140"></a>        <span class="k">if</span> <span class="k">a</span>:<span class="k">n</span> <span class="p">==</span> <span class="m">0</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-141"><code data-line-number="141"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-141"></a>            <span class="k">return</span> <span class="m">0</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-142"><code data-line-number="142"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-142"></a>        <span class="k">else</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-143"><code data-line-number="143"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-143"></a>            <span class="k">return</span> <span class="m">55</span> <span class="p">+</span> <span class="p">(</span><span class="k">a</span>:<span class="k">n</span> * <span class="m">40</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-144"><code data-line-number="144"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-144"></a>        <span class="k">endif</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-145"><code data-line-number="145"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-145"></a>    <span class="k">endif</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-146"><code data-line-number="146"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-146"></a><span class="k">endfunction</span> <span class="c">"}}}</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-147"><code data-line-number="147"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-147"></a><span class="k">function</span><span class="p">!</span> s:rgb<span class="p">(</span><span class="k">r</span><span class="p">,</span> <span class="k">g</span><span class="p">,</span> <span class="k">b</span><span class="p">)</span> <span class="c">"{{{</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-148"><code data-line-number="148"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-148"></a>    <span class="k">if</span> &amp;<span class="nb">t_Co</span> <span class="p">==</span> <span class="m">88</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-149"><code data-line-number="149"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-149"></a>        <span class="k">return</span> <span class="m">16</span> <span class="p">+</span> <span class="p">(</span><span class="k">a</span>:<span class="k">r</span> * <span class="m">16</span><span class="p">)</span> <span class="p">+</span> <span class="p">(</span><span class="k">a</span>:<span class="k">g</span> * <span class="m">4</span><span class="p">)</span> <span class="p">+</span> <span class="k">a</span>:<span class="k">b</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-150"><code data-line-number="150"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-150"></a>    <span class="k">else</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-151"><code data-line-number="151"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-151"></a>        <span class="k">return</span> <span class="m">16</span> <span class="p">+</span> <span class="p">(</span><span class="k">a</span>:<span class="k">r</span> * <span class="m">36</span><span class="p">)</span> <span class="p">+</span> <span class="p">(</span><span class="k">a</span>:<span class="k">g</span> * <span class="m">6</span><span class="p">)</span> <span class="p">+</span> <span class="k">a</span>:<span class="k">b</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-152"><code data-line-number="152"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-152"></a>    <span class="k">endif</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-153"><code data-line-number="153"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-153"></a><span class="k">endfunction</span> <span class="c">"}}}</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-154"><code data-line-number="154"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-154"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-155"><code data-line-number="155"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-155"></a><span class="k">function</span><span class="p">!</span> s:<span class="k">color</span><span class="p">(</span><span class="k">r</span><span class="p">,</span> <span class="k">g</span><span class="p">,</span> <span class="k">b</span><span class="p">)</span> <span class="c">"{{{</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-156"><code data-line-number="156"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-156"></a><span class="c">    " get the closest grey</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-157"><code data-line-number="157"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-157"></a>    <span class="k">let</span> <span class="k">l</span>:gx <span class="p">=</span> s:greynum<span class="p">(</span><span class="k">a</span>:<span class="k">r</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-158"><code data-line-number="158"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-158"></a>    <span class="k">let</span> <span class="k">l</span>:gy <span class="p">=</span> s:greynum<span class="p">(</span><span class="k">a</span>:<span class="k">g</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-159"><code data-line-number="159"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-159"></a>    <span class="k">let</span> <span class="k">l</span>:gz <span class="p">=</span> s:greynum<span class="p">(</span><span class="k">a</span>:<span class="k">b</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-160"><code data-line-number="160"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-160"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-161"><code data-line-number="161"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-161"></a><span class="c">    " get the closest color</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-162"><code data-line-number="162"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-162"></a>    <span class="k">let</span> <span class="k">l</span>:<span class="k">x</span> <span class="p">=</span> s:rgbnum<span class="p">(</span><span class="k">a</span>:<span class="k">r</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-163"><code data-line-number="163"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-163"></a>    <span class="k">let</span> <span class="k">l</span>:<span class="k">y</span> <span class="p">=</span> s:rgbnum<span class="p">(</span><span class="k">a</span>:<span class="k">g</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-164"><code data-line-number="164"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-164"></a>    <span class="k">let</span> <span class="k">l</span>:z <span class="p">=</span> s:rgbnum<span class="p">(</span><span class="k">a</span>:<span class="k">b</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-165"><code data-line-number="165"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-165"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-166"><code data-line-number="166"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-166"></a>    <span class="k">let</span> <span class="k">l</span>:level <span class="p">=</span> <span class="p">(</span><span class="k">a</span>:<span class="k">r</span> * <span class="k">a</span>:<span class="k">r</span><span class="p">)</span> <span class="p">+</span> <span class="p">(</span><span class="k">a</span>:<span class="k">g</span> * <span class="k">a</span>:<span class="k">g</span><span class="p">)</span> <span class="p">+</span> <span class="p">(</span><span class="k">a</span>:<span class="k">b</span> * <span class="k">a</span>:<span class="k">b</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-167"><code data-line-number="167"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-167"></a>    <span class="k">if</span> <span class="k">l</span>:gx <span class="p">==</span> <span class="k">l</span>:gy &amp;&amp; <span class="k">l</span>:gy <span class="p">==</span> <span class="k">l</span>:gz
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-168"><code data-line-number="168"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-168"></a><span class="c">        " there are two possibilities</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-169"><code data-line-number="169"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-169"></a>        <span class="k">let</span> <span class="k">l</span>:dgr <span class="p">=</span> s:greylvl<span class="p">(</span><span class="k">l</span>:gx<span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-170"><code data-line-number="170"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-170"></a>        <span class="k">let</span> <span class="k">l</span>:dgg <span class="p">=</span> s:greylvl<span class="p">(</span><span class="k">l</span>:gy<span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-171"><code data-line-number="171"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-171"></a>        <span class="k">let</span> <span class="k">l</span>:dgb <span class="p">=</span> s:greylvl<span class="p">(</span><span class="k">l</span>:gz<span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-172"><code data-line-number="172"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-172"></a>        <span class="k">let</span> <span class="k">l</span>:dgrey <span class="p">=</span> <span class="p">(</span><span class="k">l</span>:dgr * <span class="k">l</span>:dgr<span class="p">)</span> <span class="p">+</span> <span class="p">(</span><span class="k">l</span>:dgg * <span class="k">l</span>:dgg<span class="p">)</span> <span class="p">+</span> <span class="p">(</span><span class="k">l</span>:dgb * <span class="k">l</span>:dgb<span class="p">)</span> <span class="p">-</span> <span class="k">l</span>:level
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-173"><code data-line-number="173"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-173"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-174"><code data-line-number="174"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-174"></a>        <span class="k">let</span> <span class="k">l</span>:<span class="k">dr</span> <span class="p">=</span> s:rgblvl<span class="p">(</span><span class="k">l</span>:gx<span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-175"><code data-line-number="175"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-175"></a>        <span class="k">let</span> <span class="k">l</span>:<span class="nb">dg</span> <span class="p">=</span> s:rgblvl<span class="p">(</span><span class="k">l</span>:gy<span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-176"><code data-line-number="176"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-176"></a>        <span class="k">let</span> <span class="k">l</span>:db <span class="p">=</span> s:rgblvl<span class="p">(</span><span class="k">l</span>:gz<span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-177"><code data-line-number="177"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-177"></a>        <span class="k">let</span> <span class="k">l</span>:drgb <span class="p">=</span> <span class="p">(</span><span class="k">l</span>:<span class="k">dr</span> * <span class="k">l</span>:<span class="k">dr</span><span class="p">)</span> <span class="p">+</span> <span class="p">(</span><span class="k">l</span>:<span class="nb">dg</span> * <span class="k">l</span>:<span class="nb">dg</span><span class="p">)</span> <span class="p">+</span> <span class="p">(</span><span class="k">l</span>:db * <span class="k">l</span>:db<span class="p">)</span> <span class="p">-</span> <span class="k">l</span>:level
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-178"><code data-line-number="178"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-178"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-179"><code data-line-number="179"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-179"></a>        <span class="k">if</span> <span class="k">l</span>:dgrey <span class="p">&lt;</span> <span class="k">l</span>:drgb
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-180"><code data-line-number="180"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-180"></a><span class="c">            " use the grey</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-181"><code data-line-number="181"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-181"></a>            <span class="k">return</span> s:grey<span class="p">(</span><span class="k">l</span>:gx<span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-182"><code data-line-number="182"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-182"></a>        <span class="k">else</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-183"><code data-line-number="183"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-183"></a><span class="c">            " use the color</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-184"><code data-line-number="184"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-184"></a>            <span class="k">return</span> s:rgb<span class="p">(</span><span class="k">l</span>:<span class="k">x</span><span class="p">,</span> <span class="k">l</span>:<span class="k">y</span><span class="p">,</span> <span class="k">l</span>:z<span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-185"><code data-line-number="185"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-185"></a>        <span class="k">endif</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-186"><code data-line-number="186"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-186"></a>    <span class="k">else</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-187"><code data-line-number="187"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-187"></a><span class="c">        " only one possibility</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-188"><code data-line-number="188"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-188"></a>        <span class="k">return</span> s:rgb<span class="p">(</span><span class="k">l</span>:<span class="k">x</span><span class="p">,</span> <span class="k">l</span>:<span class="k">y</span><span class="p">,</span> <span class="k">l</span>:z<span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-189"><code data-line-number="189"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-189"></a>    <span class="k">endif</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-190"><code data-line-number="190"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-190"></a><span class="k">endfunction</span> <span class="c">"}}}</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-191"><code data-line-number="191"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-191"></a><span class="k">function</span><span class="p">!</span> s:cindex<span class="p">(</span>rgb<span class="p">)</span> <span class="c">"{{{</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-192"><code data-line-number="192"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-192"></a><span class="c">    "convert RRGGBB to a terminal (numeric) index</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-193"><code data-line-number="193"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-193"></a>    <span class="k">let</span> <span class="k">l</span>:<span class="k">r</span> <span class="p">=</span> <span class="p">(</span><span class="s2">"0x"</span> . strpart<span class="p">(</span><span class="k">a</span>:rgb<span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">2</span><span class="p">))</span> <span class="p">+</span> <span class="m">0</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-194"><code data-line-number="194"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-194"></a>    <span class="k">let</span> <span class="k">l</span>:<span class="k">g</span> <span class="p">=</span> <span class="p">(</span><span class="s2">"0x"</span> . strpart<span class="p">(</span><span class="k">a</span>:rgb<span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">2</span><span class="p">))</span> <span class="p">+</span> <span class="m">0</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-195"><code data-line-number="195"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-195"></a>    <span class="k">let</span> <span class="k">l</span>:<span class="k">b</span> <span class="p">=</span> <span class="p">(</span><span class="s2">"0x"</span> . strpart<span class="p">(</span><span class="k">a</span>:rgb<span class="p">,</span> <span class="m">4</span><span class="p">,</span> <span class="m">2</span><span class="p">))</span> <span class="p">+</span> <span class="m">0</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-196"><code data-line-number="196"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-196"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-197"><code data-line-number="197"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-197"></a>    <span class="k">return</span> s:<span class="k">color</span><span class="p">(</span><span class="k">l</span>:<span class="k">r</span><span class="p">,</span> <span class="k">l</span>:<span class="k">g</span><span class="p">,</span> <span class="k">l</span>:<span class="k">b</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-198"><code data-line-number="198"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-198"></a><span class="k">endfunction</span> <span class="c">"}}}</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-199"><code data-line-number="199"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-199"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-200"><code data-line-number="200"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-200"></a><span class="k">function</span><span class="p">!</span> s:HL<span class="p">(</span>group<span class="p">,</span> fg<span class="p">,</span> <span class="nb">bg</span><span class="p">,</span> attr<span class="p">)</span> <span class="c">"{{{</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-201"><code data-line-number="201"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-201"></a><span class="c">    "The main highlight (HL) function</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-202"><code data-line-number="202"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-202"></a>    exec <span class="s2">"hi clear "</span> . <span class="k">a</span>:group
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-203"><code data-line-number="203"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-203"></a>    <span class="k">if</span> <span class="k">a</span>:fg <span class="p">!=</span> <span class="s2">""</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-204"><code data-line-number="204"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-204"></a>        exec <span class="s2">"hi "</span> . <span class="k">a</span>:group . <span class="s2">" guifg=#"</span> . <span class="k">a</span>:fg . <span class="s2">" ctermfg="</span> . s:cindex<span class="p">(</span><span class="k">a</span>:fg<span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-205"><code data-line-number="205"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-205"></a>    <span class="k">endif</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-206"><code data-line-number="206"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-206"></a>    <span class="k">if</span> <span class="k">a</span>:<span class="nb">bg</span> <span class="p">!=</span> <span class="s2">""</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-207"><code data-line-number="207"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-207"></a>        exec <span class="s2">"hi "</span> . <span class="k">a</span>:group . <span class="s2">" guibg=#"</span> . <span class="k">a</span>:<span class="nb">bg</span> . <span class="s2">" ctermbg="</span> . s:cindex<span class="p">(</span><span class="k">a</span>:<span class="nb">bg</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-208"><code data-line-number="208"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-208"></a>    <span class="k">endif</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-209"><code data-line-number="209"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-209"></a>    <span class="k">if</span> <span class="k">a</span>:attr <span class="p">!=</span> <span class="s2">""</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-210"><code data-line-number="210"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-210"></a>        exec <span class="s2">"hi "</span> . <span class="k">a</span>:group . <span class="s2">" gui="</span> . <span class="k">a</span>:attr . <span class="s2">" cterm="</span> . <span class="k">a</span>:attr
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-211"><code data-line-number="211"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-211"></a>    <span class="k">endif</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-212"><code data-line-number="212"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-212"></a><span class="k">endfunction</span> <span class="c">"}}}</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-213"><code data-line-number="213"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-213"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-214"><code data-line-number="214"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-214"></a><span class="c">"}}}</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-215"><code data-line-number="215"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-215"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-216"><code data-line-number="216"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-216"></a><span class="c">" Completion Helpers {{{</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-217"><code data-line-number="217"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-217"></a><span class="k">function</span><span class="p">!</span> s:Colorscheme_Complete<span class="p">(</span>A<span class="p">,</span>L<span class="p">,</span>P<span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-218"><code data-line-number="218"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-218"></a>    <span class="k">let</span> <span class="k">l</span>:<span class="k">files</span> <span class="p">=</span> split<span class="p">(</span>globpath<span class="p">(</span>&amp;<span class="nb">runtimepath</span><span class="p">,</span> <span class="s2">"colors/"</span> . <span class="k">a</span>:A . <span class="s2">"*"</span><span class="p">),</span> <span class="s2">"\n"</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-219"><code data-line-number="219"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-219"></a>    <span class="k">let</span> <span class="k">l</span>:retlist <span class="p">=</span> []
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-220"><code data-line-number="220"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-220"></a>    <span class="k">for</span> <span class="k">file</span> <span class="k">in</span> <span class="k">l</span>:<span class="k">files</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-221"><code data-line-number="221"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-221"></a>        <span class="k">let</span> <span class="k">l</span>:basename <span class="p">=</span> substitute<span class="p">(</span><span class="k">file</span><span class="p">,</span> <span class="s2">".*/"</span><span class="p">,</span> <span class="s2">""</span><span class="p">,</span> <span class="s2">""</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-222"><code data-line-number="222"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-222"></a>        <span class="k">let</span> <span class="k">l</span>:basename <span class="p">=</span> substitute<span class="p">(</span><span class="k">l</span>:basename<span class="p">,</span> <span class="s2">"\.vim"</span><span class="p">,</span> <span class="s2">""</span><span class="p">,</span> <span class="s2">""</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-223"><code data-line-number="223"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-223"></a>        <span class="k">call</span> add<span class="p">(</span><span class="k">l</span>:retlist<span class="p">,</span> <span class="k">l</span>:basename<span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-224"><code data-line-number="224"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-224"></a>    <span class="k">endfor</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-225"><code data-line-number="225"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-225"></a>    <span class="k">return</span> <span class="k">l</span>:retlist
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-226"><code data-line-number="226"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-226"></a><span class="k">endfunction</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-227"><code data-line-number="227"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-227"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-228"><code data-line-number="228"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-228"></a><span class="k">function</span><span class="p">!</span> s:GetColorschemeFile<span class="p">(</span>fname<span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-229"><code data-line-number="229"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-229"></a>    <span class="k">let</span> <span class="k">l</span>:<span class="k">files</span> <span class="p">=</span> split<span class="p">(</span>globpath<span class="p">(</span>&amp;<span class="nb">runtimepath</span><span class="p">,</span> <span class="s2">"colors/"</span> . <span class="k">a</span>:fname . <span class="s2">".vim"</span><span class="p">),</span> <span class="s2">"\n"</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-230"><code data-line-number="230"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-230"></a>    <span class="k">if</span> len<span class="p">(</span><span class="k">l</span>:<span class="k">files</span><span class="p">)</span> <span class="p">==</span> <span class="m">0</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-231"><code data-line-number="231"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-231"></a>        <span class="k">echoerr</span> <span class="s2">"Colorscheme "</span>.<span class="k">a</span>:fname.<span class="s2">" not found"</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-232"><code data-line-number="232"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-232"></a>        <span class="k">return</span> <span class="s2">""</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-233"><code data-line-number="233"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-233"></a>    <span class="k">else</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-234"><code data-line-number="234"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-234"></a>        <span class="k">return</span> <span class="k">l</span>:<span class="k">files</span>[<span class="m">0</span>]
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-235"><code data-line-number="235"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-235"></a>    <span class="k">endif</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-236"><code data-line-number="236"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-236"></a><span class="k">endfunction</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-237"><code data-line-number="237"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-237"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-238"><code data-line-number="238"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-238"></a>command<span class="p">!</span> <span class="p">-</span><span class="nb">complete</span><span class="p">=</span>customlist<span class="p">,</span>s:Colorscheme_Complete <span class="p">-</span>nargs<span class="p">=</span><span class="m">1</span> GuiColorScheme :<span class="k">call</span> s:GuiColorScheme<span class="p">(</span><span class="s2">"&lt;args&gt;"</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-239"><code data-line-number="239"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-239"></a><span class="c">" }}}</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-240"><code data-line-number="240"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-240"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-241"><code data-line-number="241"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-241"></a><span class="k">function</span><span class="p">!</span> s:GuiColorScheme<span class="p">(</span>fname<span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-242"><code data-line-number="242"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-242"></a>    <span class="k">let</span> <span class="k">l</span>:<span class="k">file</span> <span class="p">=</span> s:GetColorschemeFile<span class="p">(</span><span class="k">a</span>:fname<span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-243"><code data-line-number="243"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-243"></a>    <span class="k">if</span> <span class="k">l</span>:<span class="k">file</span> <span class="p">==</span> <span class="s2">""</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-244"><code data-line-number="244"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-244"></a>        <span class="k">return</span> <span class="m">1</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-245"><code data-line-number="245"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-245"></a>    <span class="k">endif</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-246"><code data-line-number="246"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-246"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-247"><code data-line-number="247"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-247"></a>    <span class="k">if</span> has<span class="p">(</span><span class="s2">"gui_running"</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-248"><code data-line-number="248"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-248"></a>        exec <span class="s2">"colorscheme "</span> . <span class="k">l</span>:<span class="k">file</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-249"><code data-line-number="249"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-249"></a>        <span class="k">return</span> <span class="m">0</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-250"><code data-line-number="250"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-250"></a>    <span class="k">endif</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-251"><code data-line-number="251"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-251"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-252"><code data-line-number="252"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-252"></a>    <span class="k">for</span> line <span class="k">in</span> readfile<span class="p">(</span><span class="k">l</span>:<span class="k">file</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-253"><code data-line-number="253"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-253"></a>        <span class="k">if</span> line <span class="p">=~</span> <span class="s1">'\s*hi'</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-254"><code data-line-number="254"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-254"></a>            <span class="k">let</span> <span class="k">l</span>:name <span class="p">=</span> <span class="s2">""</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-255"><code data-line-number="255"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-255"></a>            <span class="k">let</span> <span class="k">l</span>:fg <span class="p">=</span> <span class="s2">""</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-256"><code data-line-number="256"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-256"></a>            <span class="k">let</span> <span class="k">l</span>:<span class="nb">bg</span> <span class="p">=</span> <span class="s2">""</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-257"><code data-line-number="257"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-257"></a>            <span class="k">let</span> <span class="k">l</span>:attr <span class="p">=</span> <span class="s2">""</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-258"><code data-line-number="258"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-258"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-259"><code data-line-number="259"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-259"></a><span class="c">            " get highlight name</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-260"><code data-line-number="260"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-260"></a>            <span class="k">let</span> <span class="k">l</span>:<span class="k">start</span> <span class="p">=</span> <span class="k">match</span><span class="p">(</span>line<span class="p">,</span> <span class="s2">"hi"</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-261"><code data-line-number="261"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-261"></a>            <span class="k">let</span> <span class="k">l</span>:<span class="k">end</span> <span class="p">=</span> <span class="k">match</span><span class="p">(</span>line<span class="p">,</span> <span class="s2">"[ \t]"</span><span class="p">,</span> <span class="k">l</span>:<span class="k">start</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-262"><code data-line-number="262"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-262"></a>            <span class="k">let</span> <span class="k">l</span>:<span class="k">start</span> <span class="p">=</span> <span class="k">l</span>:<span class="k">end</span> <span class="p">+</span><span class="m">1</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-263"><code data-line-number="263"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-263"></a>            <span class="k">let</span> <span class="k">l</span>:<span class="k">end</span> <span class="p">=</span> <span class="k">match</span><span class="p">(</span>line<span class="p">,</span> <span class="s2">"[ \t]"</span><span class="p">,</span> <span class="k">l</span>:<span class="k">start</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-264"><code data-line-number="264"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-264"></a>            <span class="k">let</span> <span class="k">l</span>:name <span class="p">=</span> strpart<span class="p">(</span>line<span class="p">,</span> <span class="k">l</span>:<span class="k">start</span><span class="p">,</span> <span class="k">l</span>:<span class="k">end</span> <span class="p">-</span> <span class="k">l</span>:<span class="k">start</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-265"><code data-line-number="265"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-265"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-266"><code data-line-number="266"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-266"></a><span class="c">            " strip foreground color</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-267"><code data-line-number="267"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-267"></a>            <span class="k">let</span> <span class="k">l</span>:<span class="k">start</span> <span class="p">=</span> <span class="k">match</span><span class="p">(</span>line<span class="p">,</span> <span class="s2">"guifg="</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-268"><code data-line-number="268"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-268"></a>            <span class="k">if</span> <span class="k">l</span>:<span class="k">start</span> <span class="p">!=</span> <span class="m">-1</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-269"><code data-line-number="269"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-269"></a>                <span class="k">let</span> <span class="k">l</span>:<span class="k">start</span> <span class="p">=</span> <span class="k">l</span>:<span class="k">start</span> <span class="p">+</span> <span class="m">6</span> <span class="c">"strlen(guifg=)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-270"><code data-line-number="270"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-270"></a>                <span class="k">let</span> <span class="k">l</span>:<span class="k">end</span> <span class="p">=</span> <span class="k">match</span><span class="p">(</span>line<span class="p">,</span> <span class="s2">"[ \t]"</span><span class="p">,</span> <span class="k">l</span>:<span class="k">start</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-271"><code data-line-number="271"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-271"></a>                <span class="k">if</span> <span class="k">l</span>:<span class="k">end</span> <span class="p">==</span> <span class="m">-1</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-272"><code data-line-number="272"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-272"></a>                    <span class="k">let</span> <span class="k">l</span>:fg <span class="p">=</span> strpart<span class="p">(</span>line<span class="p">,</span> <span class="k">l</span>:<span class="k">start</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-273"><code data-line-number="273"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-273"></a>                <span class="k">else</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-274"><code data-line-number="274"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-274"></a>                    <span class="k">let</span> <span class="k">l</span>:fg <span class="p">=</span> strpart<span class="p">(</span>line<span class="p">,</span> <span class="k">l</span>:<span class="k">start</span><span class="p">,</span> <span class="k">l</span>:<span class="k">end</span> <span class="p">-</span> <span class="k">l</span>:<span class="k">start</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-275"><code data-line-number="275"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-275"></a>                <span class="k">endif</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-276"><code data-line-number="276"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-276"></a>                <span class="k">if</span> strpart<span class="p">(</span><span class="k">l</span>:fg<span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">1</span><span class="p">)</span> <span class="p">==</span> <span class="s2">"#"</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-277"><code data-line-number="277"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-277"></a>                    <span class="k">let</span> <span class="k">l</span>:fg <span class="p">=</span> strpart<span class="p">(</span><span class="k">l</span>:fg<span class="p">,</span> <span class="m">1</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-278"><code data-line-number="278"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-278"></a>                <span class="k">endif</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-279"><code data-line-number="279"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-279"></a>            <span class="k">endif</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-280"><code data-line-number="280"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-280"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-281"><code data-line-number="281"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-281"></a><span class="c">            " strip background color</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-282"><code data-line-number="282"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-282"></a>            <span class="k">let</span> <span class="k">l</span>:<span class="k">start</span> <span class="p">=</span> <span class="k">match</span><span class="p">(</span>line<span class="p">,</span> <span class="s2">"guibg="</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-283"><code data-line-number="283"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-283"></a>            <span class="k">if</span> <span class="k">l</span>:<span class="k">start</span> <span class="p">!=</span> <span class="m">-1</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-284"><code data-line-number="284"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-284"></a>                <span class="k">let</span> <span class="k">l</span>:<span class="k">start</span> <span class="p">=</span> <span class="k">l</span>:<span class="k">start</span> <span class="p">+</span> <span class="m">6</span> <span class="c">"strlen(guibg=)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-285"><code data-line-number="285"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-285"></a>                <span class="k">let</span> <span class="k">l</span>:<span class="k">end</span> <span class="p">=</span> <span class="k">match</span><span class="p">(</span>line<span class="p">,</span> <span class="s2">"[ \t]"</span><span class="p">,</span> <span class="k">l</span>:<span class="k">start</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-286"><code data-line-number="286"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-286"></a>                <span class="k">if</span> <span class="k">l</span>:<span class="k">end</span> <span class="p">==</span> <span class="m">-1</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-287"><code data-line-number="287"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-287"></a>                    <span class="k">let</span> <span class="k">l</span>:<span class="nb">bg</span> <span class="p">=</span> strpart<span class="p">(</span>line<span class="p">,</span> <span class="k">l</span>:<span class="k">start</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-288"><code data-line-number="288"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-288"></a>                <span class="k">else</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-289"><code data-line-number="289"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-289"></a>                    <span class="k">let</span> <span class="k">l</span>:<span class="nb">bg</span> <span class="p">=</span> strpart<span class="p">(</span>line<span class="p">,</span> <span class="k">l</span>:<span class="k">start</span><span class="p">,</span> <span class="k">l</span>:<span class="k">end</span> <span class="p">-</span> <span class="k">l</span>:<span class="k">start</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-290"><code data-line-number="290"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-290"></a>                <span class="k">endif</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-291"><code data-line-number="291"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-291"></a>                <span class="k">if</span> strpart<span class="p">(</span><span class="k">l</span>:<span class="nb">bg</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">1</span><span class="p">)</span> <span class="p">==</span> <span class="s2">"#"</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-292"><code data-line-number="292"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-292"></a>                    <span class="k">let</span> <span class="k">l</span>:<span class="nb">bg</span> <span class="p">=</span> strpart<span class="p">(</span><span class="k">l</span>:<span class="nb">bg</span><span class="p">,</span> <span class="m">1</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-293"><code data-line-number="293"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-293"></a>                <span class="k">endif</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-294"><code data-line-number="294"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-294"></a>            <span class="k">endif</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-295"><code data-line-number="295"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-295"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-296"><code data-line-number="296"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-296"></a><span class="c">            " strip attribute</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-297"><code data-line-number="297"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-297"></a>            <span class="k">let</span> <span class="k">l</span>:<span class="k">start</span> <span class="p">=</span> <span class="k">match</span><span class="p">(</span>line<span class="p">,</span> <span class="s2">"gui="</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-298"><code data-line-number="298"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-298"></a>            <span class="k">if</span> <span class="k">l</span>:<span class="k">start</span> <span class="p">!=</span> <span class="m">-1</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-299"><code data-line-number="299"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-299"></a>                <span class="k">let</span> <span class="k">l</span>:<span class="k">start</span> <span class="p">=</span> <span class="k">l</span>:<span class="k">start</span> <span class="p">+</span> <span class="m">4</span> <span class="c">"strlen(gui=)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-300"><code data-line-number="300"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-300"></a>                <span class="k">let</span> <span class="k">l</span>:<span class="k">end</span> <span class="p">=</span> <span class="k">match</span><span class="p">(</span>line<span class="p">,</span> <span class="s2">"[ \t]"</span><span class="p">,</span> <span class="k">l</span>:<span class="k">start</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-301"><code data-line-number="301"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-301"></a>                <span class="k">if</span> <span class="k">l</span>:<span class="k">end</span> <span class="p">==</span> <span class="m">-1</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-302"><code data-line-number="302"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-302"></a>                    <span class="k">let</span> <span class="k">l</span>:attr <span class="p">=</span> strpart<span class="p">(</span>line<span class="p">,</span> <span class="k">l</span>:<span class="k">start</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-303"><code data-line-number="303"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-303"></a>                <span class="k">else</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-304"><code data-line-number="304"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-304"></a>                    <span class="k">let</span> <span class="k">l</span>:attr <span class="p">=</span> strpart<span class="p">(</span>line<span class="p">,</span> <span class="k">l</span>:<span class="k">start</span><span class="p">,</span> <span class="k">l</span>:<span class="k">end</span> <span class="p">-</span> <span class="k">l</span>:<span class="k">start</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-305"><code data-line-number="305"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-305"></a>                <span class="k">endif</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-306"><code data-line-number="306"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-306"></a>            <span class="k">endif</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-307"><code data-line-number="307"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-307"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-308"><code data-line-number="308"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-308"></a>            <span class="k">call</span> s:HL<span class="p">(</span><span class="k">l</span>:name<span class="p">,</span> <span class="k">l</span>:fg<span class="p">,</span> <span class="k">l</span>:<span class="nb">bg</span><span class="p">,</span> <span class="k">l</span>:attr<span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-309"><code data-line-number="309"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-309"></a>        <span class="k">endif</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-310"><code data-line-number="310"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-310"></a>    <span class="k">endfor</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-311"><code data-line-number="311"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-311"></a><span class="k">endfunction</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-312"><code data-line-number="312"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-312"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsguicolorschemevim-313"><code data-line-number="313"></code></a></td>
+<td class="code"><code><a name="listingsguicolorschemevim-313"></a><span class="c">" vim:ft=vim:fdl=0:fdm=marker:ts=4:sw=4</span>
+</code></td>
+</tr>
+</table></div>
+</div>
+                    </div>
+                </main><div class="footer extra-block no-print">
+    <span class="footer_item">
+        <a href="../pages/you-qing-lian-jie/">友情链接</a>
+    </span>
+    <span class="footer_item">
+        <a href="../pages/liu-yan-ban/">留言板</a>
+    </span>
+    <span class="footer_item">
+        <a href="../pages/ge-ren-dong-tai/">碎碎念</a>
+    </span>
+    </div>
+            <div class="footer social-link no-print">
+            <a href="https://github.com/ashfinal" target="_blank"><i class="grey large github icon"></i></a>
+            <a href="http://weibo.com/ashfinal/" target="_blank"><i class="grey large weibo icon"></i></a>
+            <a href="mailto://ashfinal@sina.cn" target="_blank"><i class="grey large mail icon"></i></a>
+            </div>
+        <div class="ui basic center aligned segment no-print">Contents © 2020         <a href="mailto:ashfinal@sina.cn">ashfinal</a> - Powered by         <a href="https://getnikola.com" target="_blank" rel="nofollow">Nikola</a>         </div>
+
+            </div>
+            <div class="computer only three wide column no-print">
+                <div id="right-side">
+                </div>
+            </div>
+        </div>
+
+        <!-- GoStats JavaScript Based Code -->
+        <script type="text/javascript">(function(c,o,m,p,u,t,e){
+        c['GoStatsObject']=u;c[u]=c[u]||function(){(c[u].q=c[u].q||[]).push(arguments)},
+        c[u].l=1*new Date();t=o.createElement(m);t.async=1;t.src=p;
+        e=o.getElementsByTagName(m)[0];e.parentNode.insertBefore(t,e);
+        })(window,document,'script','//www.gostats.org/5.js','go');
+        go('init',100479892,{'img_counter_type':5,'img_image_type':1});go('send');</script><!-- End GoStats JavaScript Based Code --><script type="text/javascript" src="../assets/js/jquery-3.3.1.min.js"></script><script type="text/javascript" src="../assets/js/semantic.min.js"></script><script type="text/javascript" src="../assets/js/jquery.fancybox.min.js"></script><script type="text/javascript" src="../assets/js/cookie.min.js"></script><script>
+            $(document).ready(function(){
+                $(".ui.dropdown").dropdown();
+                $('.ui.accordion').accordion();
+                var newstr = $('.cookie.nag').text();
+                $('.cookie.nag').nag({
+                    key: 'globalnotice',
+                    value: newstr
+                  });
+                $('.image-reference').fancybox();
+            });
+        </script>
+</body>
+</html>

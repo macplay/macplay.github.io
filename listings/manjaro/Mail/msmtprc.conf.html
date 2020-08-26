@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="zh_cn">
+<head>
+<meta charset="utf-8">
+<meta name="description" content="msmtprc.conf">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="generator" content="Nikola (getnikola.com)">
+<title>msmtprc.conf - MacPlay</title>
+<link rel="apple-touch-icon" sizes="180x180" href="../../../apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../../../favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../../../favicon-16x16.png">
+<link rel="mask-icon" href="../../../safari-pinned-tab.svg" color="#5bbad5">
+<link href="../../../assets/css/semantic.min.css" rel="stylesheet" type="text/css">
+<link href="../../../assets/css/jquery.fancybox.min.css" rel="stylesheet" type="text/css">
+<link href="../../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<link rel="canonical" href="https://macplay.github.io/listings/manjaro/Mail/msmtprc.conf.html">
+</head>
+<body>
+        <div class="ui grid">
+            <div class="computer only three wide column no-print">
+                <div id="left-side">
+                </div>
+            </div>
+            <div class="ten wide computer sixteen wide tablet sixteen wide mobile column">
+                        <div class="ui inline cookie nag no-print">
+            <span class="title">从现在开始，支持中英双语及博文精选 O(∩_∩)O~~</span>
+            <i class="close icon"></i>
+        </div>
+    <header id="header" class="no-print"><div class="ui grid">
+        <div class="computer only tablet only sixteen wide column">
+            <div class="ui large secondary stackable menu">
+                <a class="header item brand-logo" href="https://macplay.github.io/">
+                    MacPlay
+                </a>
+                        <a class="item" href="../../../">Posts</a>
+                        <a class="item" href="../../">Code</a>
+                        <a class="item" href="../../../galleries/">Gallery</a>
+                        <a class="item" href="../../../categories/">Tags</a>
+                        <a class="item" href="../../../archive.html">Archive</a>
+                <div class="right menu">
+                    <a class="item" href="../../../rss.xml"><i class="rss icon"></i>RSS</a>
+                </div>
+            </div>
+        </div>
+        <div class="mobile only sixteen wide column">
+            <div class="ui fluid accordion vertical menu">
+                <div class="item">
+                    <a class="title">MacPlay</a>
+                    <div class="content">
+                                <a class="item" href="../../../">Posts</a>
+                                <a class="item" href="../../">Code</a>
+                                <a class="item" href="../../../galleries/">Gallery</a>
+                                <a class="item" href="../../../categories/">Tags</a>
+                                <a class="item" href="../../../archive.html">Archive</a>
+                        <a class="item" href="../../../rss.xml"><i class="rss icon"></i>RSS</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </header><main id="main"><div id="main-content">
+<div class="listingpage page-body" itemscope="itemscope" itemtype="http://schema.org/Article">
+    <div class="ui breadcrumb list-title">
+                <a href="../../" class="section">listings</a>
+                <div class="divider"> / </div>
+                <a href="../" class="section">manjaro</a>
+                <div class="divider"> / </div>
+                <a href="." class="section">Mail</a>
+                <div class="divider"> / </div>
+                <div class="section">
+                    msmtprc.conf
+                </div>
+    </div>
+
+        <p class="downloadlink">
+            <i class="download icon"></i><a href="msmtprc.conf">Download</a>
+        </p>
+        <div class="code"><table class="codetable">
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjaromailmsmtprcconf-1"><code data-line-number=" 1"></code></a></td>
+<td class="code"><code><a name="listingsmanjaromailmsmtprcconf-1"></a><span class="cp"># Set default values for all following accounts.</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjaromailmsmtprcconf-2"><code data-line-number=" 2"></code></a></td>
+<td class="code"><code><a name="listingsmanjaromailmsmtprcconf-2"></a><span class="n">defaults</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjaromailmsmtprcconf-3"><code data-line-number=" 3"></code></a></td>
+<td class="code"><code><a name="listingsmanjaromailmsmtprcconf-3"></a><span class="n">auth</span> <span class="n">on</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjaromailmsmtprcconf-4"><code data-line-number=" 4"></code></a></td>
+<td class="code"><code><a name="listingsmanjaromailmsmtprcconf-4"></a><span class="n">tls</span> <span class="n">on</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjaromailmsmtprcconf-5"><code data-line-number=" 5"></code></a></td>
+<td class="code"><code><a name="listingsmanjaromailmsmtprcconf-5"></a><span class="n">tls_trust_file</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">openssl</span><span class="o">/</span><span class="n">cert</span><span class="p">.</span><span class="n">pem</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjaromailmsmtprcconf-6"><code data-line-number=" 6"></code></a></td>
+<td class="code"><code><a name="listingsmanjaromailmsmtprcconf-6"></a><span class="n">logfile</span>  <span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">msmtp</span><span class="p">.</span><span class="n">log</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjaromailmsmtprcconf-7"><code data-line-number=" 7"></code></a></td>
+<td class="code"><code><a name="listingsmanjaromailmsmtprcconf-7"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjaromailmsmtprcconf-8"><code data-line-number=" 8"></code></a></td>
+<td class="code"><code><a name="listingsmanjaromailmsmtprcconf-8"></a><span class="cp"># Personal account</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjaromailmsmtprcconf-9"><code data-line-number=" 9"></code></a></td>
+<td class="code"><code><a name="listingsmanjaromailmsmtprcconf-9"></a><span class="n">account</span> <span class="n">Personal</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjaromailmsmtprcconf-10"><code data-line-number="10"></code></a></td>
+<td class="code"><code><a name="listingsmanjaromailmsmtprcconf-10"></a><span class="n">host</span> <span class="n">smtp</span><span class="p">.</span><span class="n">gmail</span><span class="p">.</span><span class="n">com</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjaromailmsmtprcconf-11"><code data-line-number="11"></code></a></td>
+<td class="code"><code><a name="listingsmanjaromailmsmtprcconf-11"></a><span class="n">port</span> <span class="mi">587</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjaromailmsmtprcconf-12"><code data-line-number="12"></code></a></td>
+<td class="code"><code><a name="listingsmanjaromailmsmtprcconf-12"></a><span class="n">user</span> <span class="n">ashfinal</span><span class="p">@</span><span class="n">gmail</span><span class="p">.</span><span class="n">com</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjaromailmsmtprcconf-13"><code data-line-number="13"></code></a></td>
+<td class="code"><code><a name="listingsmanjaromailmsmtprcconf-13"></a><span class="cp"># password xxxxxxxxxx</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjaromailmsmtprcconf-14"><code data-line-number="14"></code></a></td>
+<td class="code"><code><a name="listingsmanjaromailmsmtprcconf-14"></a><span class="n">passwordeval</span> <span class="n">cat</span> <span class="o">~/</span><span class="p">.</span><span class="n">mutt</span><span class="o">/</span><span class="n">accounts</span><span class="o">/</span><span class="n">Personal</span><span class="p">.</span><span class="n">pass</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjaromailmsmtprcconf-15"><code data-line-number="15"></code></a></td>
+<td class="code"><code><a name="listingsmanjaromailmsmtprcconf-15"></a><span class="n">auto_from</span> <span class="n">on</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjaromailmsmtprcconf-16"><code data-line-number="16"></code></a></td>
+<td class="code"><code><a name="listingsmanjaromailmsmtprcconf-16"></a><span class="n">from</span> <span class="n">ashfinal</span><span class="p">@</span><span class="n">gmail</span><span class="p">.</span><span class="n">com</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjaromailmsmtprcconf-17"><code data-line-number="17"></code></a></td>
+<td class="code"><code><a name="listingsmanjaromailmsmtprcconf-17"></a><span class="n">proxy_host</span> <span class="mf">127.0.0.1</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjaromailmsmtprcconf-18"><code data-line-number="18"></code></a></td>
+<td class="code"><code><a name="listingsmanjaromailmsmtprcconf-18"></a><span class="n">proxy_port</span> <span class="mi">1086</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjaromailmsmtprcconf-19"><code data-line-number="19"></code></a></td>
+<td class="code"><code><a name="listingsmanjaromailmsmtprcconf-19"></a><span class="n">tls_starttls</span> <span class="n">on</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjaromailmsmtprcconf-20"><code data-line-number="20"></code></a></td>
+<td class="code"><code><a name="listingsmanjaromailmsmtprcconf-20"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjaromailmsmtprcconf-21"><code data-line-number="21"></code></a></td>
+<td class="code"><code><a name="listingsmanjaromailmsmtprcconf-21"></a><span class="cp"># Netease163 account</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjaromailmsmtprcconf-22"><code data-line-number="22"></code></a></td>
+<td class="code"><code><a name="listingsmanjaromailmsmtprcconf-22"></a><span class="n">account</span> <span class="n">Netease163</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjaromailmsmtprcconf-23"><code data-line-number="23"></code></a></td>
+<td class="code"><code><a name="listingsmanjaromailmsmtprcconf-23"></a><span class="n">host</span> <span class="n">smtp</span><span class="mf">.163</span><span class="p">.</span><span class="n">com</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjaromailmsmtprcconf-24"><code data-line-number="24"></code></a></td>
+<td class="code"><code><a name="listingsmanjaromailmsmtprcconf-24"></a><span class="n">port</span> <span class="mi">465</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjaromailmsmtprcconf-25"><code data-line-number="25"></code></a></td>
+<td class="code"><code><a name="listingsmanjaromailmsmtprcconf-25"></a><span class="n">user</span> <span class="n">ashfinal</span><span class="mf">@163.</span><span class="n">com</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjaromailmsmtprcconf-26"><code data-line-number="26"></code></a></td>
+<td class="code"><code><a name="listingsmanjaromailmsmtprcconf-26"></a><span class="n">passwordeval</span> <span class="n">cat</span> <span class="o">~/</span><span class="p">.</span><span class="n">mutt</span><span class="o">/</span><span class="n">accounts</span><span class="o">/</span><span class="n">Netease163</span><span class="p">.</span><span class="n">pass</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjaromailmsmtprcconf-27"><code data-line-number="27"></code></a></td>
+<td class="code"><code><a name="listingsmanjaromailmsmtprcconf-27"></a><span class="cp"># auto_from on</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjaromailmsmtprcconf-28"><code data-line-number="28"></code></a></td>
+<td class="code"><code><a name="listingsmanjaromailmsmtprcconf-28"></a><span class="n">from</span> <span class="n">ashfinal</span><span class="mf">@163.</span><span class="n">com</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjaromailmsmtprcconf-29"><code data-line-number="29"></code></a></td>
+<td class="code"><code><a name="listingsmanjaromailmsmtprcconf-29"></a><span class="n">tls_starttls</span> <span class="n">off</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjaromailmsmtprcconf-30"><code data-line-number="30"></code></a></td>
+<td class="code"><code><a name="listingsmanjaromailmsmtprcconf-30"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjaromailmsmtprcconf-31"><code data-line-number="31"></code></a></td>
+<td class="code"><code><a name="listingsmanjaromailmsmtprcconf-31"></a><span class="n">account</span> <span class="k">default</span> <span class="o">:</span> <span class="n">Personal</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjaromailmsmtprcconf-32"><code data-line-number="32"></code></a></td>
+<td class="code"><code><a name="listingsmanjaromailmsmtprcconf-32"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjaromailmsmtprcconf-33"><code data-line-number="33"></code></a></td>
+<td class="code"><code><a name="listingsmanjaromailmsmtprcconf-33"></a><span class="cp"># vim:set et sw=4 ts=4 ft=conf:</span>
+</code></td>
+</tr>
+</table></div>
+</div>
+                    </div>
+                </main><div class="footer extra-block no-print">
+    <span class="footer_item">
+        <a href="../../../pages/you-qing-lian-jie/">友情链接</a>
+    </span>
+    <span class="footer_item">
+        <a href="../../../pages/liu-yan-ban/">留言板</a>
+    </span>
+    <span class="footer_item">
+        <a href="../../../pages/ge-ren-dong-tai/">碎碎念</a>
+    </span>
+    </div>
+            <div class="footer social-link no-print">
+            <a href="https://github.com/ashfinal" target="_blank"><i class="grey large github icon"></i></a>
+            <a href="http://weibo.com/ashfinal/" target="_blank"><i class="grey large weibo icon"></i></a>
+            <a href="mailto://ashfinal@sina.cn" target="_blank"><i class="grey large mail icon"></i></a>
+            </div>
+        <div class="ui basic center aligned segment no-print">Contents © 2020         <a href="mailto:ashfinal@sina.cn">ashfinal</a> - Powered by         <a href="https://getnikola.com" target="_blank" rel="nofollow">Nikola</a>         </div>
+
+            </div>
+            <div class="computer only three wide column no-print">
+                <div id="right-side">
+                </div>
+            </div>
+        </div>
+
+        <!-- GoStats JavaScript Based Code -->
+        <script type="text/javascript">(function(c,o,m,p,u,t,e){
+        c['GoStatsObject']=u;c[u]=c[u]||function(){(c[u].q=c[u].q||[]).push(arguments)},
+        c[u].l=1*new Date();t=o.createElement(m);t.async=1;t.src=p;
+        e=o.getElementsByTagName(m)[0];e.parentNode.insertBefore(t,e);
+        })(window,document,'script','//www.gostats.org/5.js','go');
+        go('init',100479892,{'img_counter_type':5,'img_image_type':1});go('send');</script><!-- End GoStats JavaScript Based Code --><script type="text/javascript" src="../../../assets/js/jquery-3.3.1.min.js"></script><script type="text/javascript" src="../../../assets/js/semantic.min.js"></script><script type="text/javascript" src="../../../assets/js/jquery.fancybox.min.js"></script><script type="text/javascript" src="../../../assets/js/cookie.min.js"></script><script>
+            $(document).ready(function(){
+                $(".ui.dropdown").dropdown();
+                $('.ui.accordion').accordion();
+                var newstr = $('.cookie.nag').text();
+                $('.cookie.nag').nag({
+                    key: 'globalnotice',
+                    value: newstr
+                  });
+                $('.image-reference').fancybox();
+            });
+        </script>
+</body>
+</html>

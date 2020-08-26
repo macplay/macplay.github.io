@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="generator" content="Nikola (getnikola.com)">
+<title>迁移到 onivim - MacPlay</title>
+<link rel="apple-touch-icon" sizes="180x180" href="../../../apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../../../favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../../../favicon-16x16.png">
+<link rel="mask-icon" href="../../../safari-pinned-tab.svg" color="#5bbad5">
+<link href="../../../assets/css/semantic.min.css" rel="stylesheet" type="text/css">
+<link href="../../../assets/css/jquery.fancybox.min.css" rel="stylesheet" type="text/css">
+<link href="../../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<link rel="canonical" href="https://macplay.github.io/en/posts/qian-yi-dao-onivim/">
+<meta name="author" content="ashfinal">
+<link rel="alternate" hreflang="zh_cn" href="../../../posts/qian-yi-dao-onivim/">
+<link rel="stylesheet" type="text/css" href="../../../assets/css/gitalk.css">
+</head>
+<body>
+        <div class="ui grid">
+            <div class="computer only three wide column no-print">
+                <div id="left-side">
+                </div>
+            </div>
+            <div class="ten wide computer sixteen wide tablet sixteen wide mobile column">
+                        <div class="ui inline cookie nag no-print">
+            <span class="title">从现在开始，支持中英双语及博文精选 O(∩_∩)O~~</span>
+            <i class="close icon"></i>
+        </div>
+    <header id="header" class="no-print"><div class="ui grid">
+        <div class="computer only tablet only sixteen wide column">
+            <div class="ui large secondary stackable menu">
+                <a class="header item brand-logo" href="https://macplay.github.io/en/">
+                    MacPlay
+                </a>
+                        <a class="item" href="../../../">Posts</a>
+                        <a class="item" href="../../../listings/">Code</a>
+                        <a class="item" href="../../../galleries/">Gallery</a>
+                        <a class="item" href="../../../categories/">Tags</a>
+                        <a class="item" href="../../../archive.html">Archive</a>
+                <div class="right menu">
+                    <a class="item" href="../../../rss.xml"><i class="rss icon"></i>RSS</a>
+                </div>
+            </div>
+        </div>
+        <div class="mobile only sixteen wide column">
+            <div class="ui fluid accordion vertical menu">
+                <div class="item">
+                    <a class="title">MacPlay</a>
+                    <div class="content">
+                                <a class="item" href="../../../">Posts</a>
+                                <a class="item" href="../../../listings/">Code</a>
+                                <a class="item" href="../../../galleries/">Gallery</a>
+                                <a class="item" href="../../../categories/">Tags</a>
+                                <a class="item" href="../../../archive.html">Archive</a>
+                        <a class="item" href="../../../rss.xml"><i class="rss icon"></i>RSS</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </header><main id="main"><div id="main-content">
+<div class="postpage post-text page-body" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <h1 class="post-title" itemprop="headline">
+        <a href=".">迁移到 onivim</a>
+    </h1>
+
+    <div class="ui large horizontal link list post-meta">
+        <span class="item">By
+            <a href="../../authors/ashfinal/">ashfinal</a>
+        </span>
+            <span class="item">
+                <a href="https://github.com/macplay/macplay.github.io/edit/src/posts/qian-yi-dao-onivim.rst" target="_blank" title="Edit on GitHub">Edit</a>
+            </span>
+        <span class="item">
+            <time datetime="2018-03-15T18:08:03+08:00">
+            2018-03-15 18:08
+            </time></span>
+            <span class="item">
+                    <a href="../../categories/linux/">linux</a>
+                    <a href="../../categories/macos/">macos</a>
+                    <a href="../../categories/manjaro/">manjaro</a>
+                    <a href="../../categories/onivim/">onivim</a>
+                    <a href="../../categories/vim/">vim</a>
+                    <a href="../../categories/vimrc/">vimrc</a>
+            </span>
+    </div>
+
+    
+    <div class="post-content" itemprop="article text">
+        <div id="post-content">
+        <div>
+<!-- vim:set et sw=4 ts=4 ft=rst: -->
+<!-- vim:set et sw=4 ts=4 ft=rst: -->
+<!-- This file interpreters the title of URL in links.ref -->
+<!-- vim:set et sw=4 ts=4 ft=rst: -->
+<p>关注 <a class="reference external" href="https://github.com/onivim/oni">Oni: Modern Modal Editing - powered by Neovim</a> 有一段时间了。根据主页描述，Oni 是个基于 Electron 技术实现的 Neovim 前端，对 <a class="reference external" href="https://langserver.org/">Language Server Protocol</a> 支持很全面。不过，之前使用 <a class="reference external" href="https://github.com/qvacua/vimr">VimR</a> 还算舒心，而 Oni 则起步较晚，一些功能还不完善。因此并没有动迁移的念头。</p>
+<p>不过最近几天在折腾 <a class="reference external" href="../../../categories/manjaro/">manjaro</a> ，当寻找 Linux 下的 Neovim 前端时，试用了一圈竟然没有一个好用的！或多或少都存在一些问题。于是，无奈之下，我在 U 盘的 manjaro 操作系统上尝试了“臃肿”的 Electron 编辑器。其结果是出乎我意料之外的：Oni 已经达到了日常堪用的水平，而且与我之前的 vimrc 配置协作良好。</p>
+<!-- TEASER_END -->
+<div class="section" id="oni">
+<h2>配置 Oni 编辑器</h2>
+<p>打开 Oni 编辑器时，我对它的一些设计和做法并不太满意。比如，Fuzzy Finder。作为已经习惯更强大的 CtrlP 插件的用户，看到 Fuzzy Finder 多少有些尴尬。如果可能的话，肯定要关闭该组件。还有 Status Bar 状态栏，Oni 追求视觉效果更丰富，无法响应鼠标事件的 Airline 插件，肯定不能继续用。但是，Oni 的状态栏还只有最基本的功能！因此，能关闭也要关闭掉。还有侧边栏，只有基本的文件浏览功能，得关闭掉。还有，曾以为无法更改 commandline 位置（太遗憾了！），结果翻遍官方 wiki 手册后，发现也能改到习惯的最下角。还有其它一些小细节，等等。</p>
+<p>事实上，折腾 Oni 配置的过程中，我不小心安装了过时的版本。这个版本存在的小 bug 与繁杂的 wiki、配置交织到一起，一度让人崩溃（因为要不断反复试验，才能知道是 Oni 的 bug 还是自己的配置问题）。但好在最后，我还是确定了两处明显的 bug，并且把配置也修改到了心理预期。</p>
+<p>但！高潮在后面，第二天软件管理器提示有更新。升级之后，Oni 那几处明显的 bug 都不见了！Github 上看到新版是在好几天前发布的，下游可能花了点时间才打包好。- - 这事告诉我们：折腾比较新潮的东西时，一定要和官方的最新版保持高度一致！</p>
+<p>不管怎样，因为已经大致读懂了官方的 wiki 手册。整个事情一下子感觉通畅起来，配置 Oni 也变得容易。整个的配置文件仅有 30 多行，把我之前的不满意基本全部消除掉了。</p>
+<p>配置文件在 <a class="reference external" href="../../../listings/manjaro/oni_config.js.html">这里</a> 。参考资料： <a class="footnote-reference brackets" href="#id6" id="id4">1</a>  <a class="footnote-reference brackets" href="#id7" id="id5">2</a></p>
+<dl class="footnote brackets">
+<dt class="label" id="id6"><span class="brackets"><a class="fn-backref" href="#id4">1</a></span></dt>
+<dd>
+<p><a class="reference external" href="https://github.com/onivim/oni/wiki/Features">https://github.com/onivim/oni/wiki/Features</a></p>
+</dd>
+<dt class="label" id="id7"><span class="brackets"><a class="fn-backref" href="#id5">2</a></span></dt>
+<dd>
+<p><a class="reference external" href="https://github.com/onivim/oni/wiki/Configuration">https://github.com/onivim/oni/wiki/Configuration</a></p>
+</dd>
+</dl>
+</div>
+<div class="section" id="id8">
+<h2>迁移 vimrc 配置</h2>
+<p>如果能把我之前的 vimrc 配置，包括按键绑定、插件等，都迁移到 Oni 上就更好了！挺早时候我曾尝试过一次 Oni，发现它有加载 Neovim 配置 <cite>init.vim</cite> 的选项，不过当时开启后并不好用，浅尝辄止后就放弃了。这次仔细看完官方 wiki 后，发现其 <a class="reference external" href="https://github.com/onivim/oni/wiki/Plugins">内置的插件</a> <cite>targets.vim</cite> 等和我的配置并不冲突。事实上，目前仅发现一处与我的 20 多个插件按键绑定相同。这一定程度上说明我 vimrc 配置比较短小精悍，方便快速融入到新的编辑器潮流中 :)</p>
+<p>另外，真正值得关注的是编辑器的自动补全功能，以及 Quick Info 功能。这两个功能是个人折腾 Oni 的原动力，绝对要保证正常工作。这样的话，说明基于 <a class="reference external" href="https://langserver.org/">Language Server Protocol</a> 的所有功能/语言都可以在 Oni 编辑器上正常运行，才有较大的想象空间。</p>
+<p>经过阅读手册和简单试验，发现受影响的只有 vimrc 配置里的补全插件。在我看来 Oni 自行实现了补全机制：与 vimrc 配置的补全插件一样，监听光标移动来弹出下拉列表。而这将会产生冲突，解决方案是配置文件里判断是否为 Oni 编辑器，把之前的补全插件禁用即可。这样的话，就可以做到 macOS、Linux、Window 平台仅需一份 vimrc 配置，Vim、Neovim、GVim、VimR、Oni... 等等也仅需这一份 vimrc 配置！真正需要更改的地方特别少，以前的操作习惯也完全不用改变！</p>
+<p>参考资料： <a class="footnote-reference brackets" href="#id11" id="id10">3</a> 。</p>
+<dl class="footnote brackets">
+<dt class="label" id="id11"><span class="brackets"><a class="fn-backref" href="#id10">3</a></span></dt>
+<dd>
+<p><a class="reference external" href="https://github.com/onivim/oni/wiki/How-To:-Make-Oni-closer-to-bare-Vim-experience">https://github.com/onivim/oni/wiki/How-To:-Make-Oni-closer-to-bare-Vim-experience</a></p>
+</dd>
+</dl>
+<p>另外，我的 vimrc 配置文件在这里： <a class="reference external" href="https://github.com/ashfinal/vimrc-config">re-vim: sensible vim configuration</a></p>
+</div>
+<div class="section" id="id12">
+<h2>最终效果</h2>
+<p>真正折腾的时间，其实是在 Oni 的 <cite>config.tsx</cite> 配置文件上。不过，考虑到对 <a class="reference external" href="https://langserver.org/">Language Server Protocol</a> 最新标准的全面靠拢，以及可能带来的未来潜在收益，这些折腾是完全值得的。</p>
+<p>经过一天的非重度使用，发现 Oni 应付日常使用是足够的，虽然它在主页上说直到 1.0 版本一切都是不稳定的（当前是 0.3.1 版本）。已发现体验下降的地方一处：写 <a class="reference external" href="../../../categories/latex/">latex</a> 文档时，补全列表不会自动弹出来，得手动按键触发才行（Vim 默认绑定 <cite>Ctrl+x, Ctrl+o</cite> ）。其它暂时没有明显感觉。但整体上，还算可以接受吧。</p>
+<p>另外，我的这篇文章就是在 Oni 编辑器中完成的。说起来，这也是我第一次在 <a class="reference external" href="../../../categories/manjaro/">manjaro</a> 下更新 Nikola 博客 :) 如果有时间的话，我也会尽快写一篇文章，介绍下我最近在尝试的 manjaro 发行版。</p>
+</div>
+<div class="section" id="id13">
+<h2>其它</h2>
+<p>写这篇文章前，考虑到对 Vim 并不太熟悉的读者，我录制了三个简短的视频片段，来说明编辑器重要功能之一：自动补全的使用体验变迁。不过真正写文章的时候，才发现并没有合适的地方放这些视频片段 - -</p>
+<p>那就放到文章末尾吧。我会配以简短的文字说明，感兴趣的读者可以下载我的 vimrc 配置自行体会。</p>
+<p><strong>Vim + neocomplete 插件</strong></p>
+<video src="../../../videos/vim_nc.mp4" loop autoplay muted playsinline>
+Your browser does not support the video tag.
+</video><p>可以看出，对第三方模块不提供补全支持。</p>
+<p>通过安装 jedi-vim 插件可以解决，不过鉴于个人已转到 Neovim，没有在配置里加该插件。</p>
+<p><strong>Neovim + nvim-completion-manager 插件</strong></p>
+<video src="../../../videos/nvim_ncm.mp4" loop autoplay muted playsinline>
+Your browser does not support the video tag.
+</video><p>有参数补全，日常使用差不多足够。</p>
+<p><strong>Oni + LSP</strong></p>
+<video src="../../../videos/oni_lsp.mp4" loop autoplay muted playsinline>
+Your browser does not support the video tag.
+</video><p>支持 <a class="reference external" href="https://langserver.org/">Language Server Protocol</a> ，依据编程语言不同，还有跳转定义、重命名、语法检查等功能。</p>
+<p>更多 LSP 支持请参看 Oni 的 wiki 页面： <a class="reference external" href="https://github.com/onivim/oni/wiki/Language-Support">https://github.com/onivim/oni/wiki/Language-Support</a></p>
+<hr class="docutils">
+<p>THE END.</p>
+</div>
+</div>
+        </div>
+    </div>
+    <div class="post-info">
+        <p>文章链接：<a href="https://macplay.github.io/en/posts/qian-yi-dao-onivim/" target="_blank">https://macplay.github.io/en/posts/qian-yi-dao-onivim/</a></p>
+        <p>发布/更新于：
+            <time datetime="2018-03-15 18:08:03 UTC+08:00">
+            2018-03-15 18:08
+            </time></p>
+        <p>版权声明：如无特别说明，本站文章均遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">CC BY-NC-SA 4.0</a> 协议，转载请注明作者及出处。</p>
+    </div>
+        <div class="post-navigation no-print">
+        <div class="ui huge secondary stackable menu">
+            <a class="post-nav-item post-nav-previous item" href="../cong-url-gou-jian-xing-nei-lian-jie/" title="Previous post"><i class="angle double left icon"></i> 从 URL 构建行内链接</a>
+        <div class="right menu">
+            <a class="post-nav-item post-nav-next item" href="../ffmpeg-ming-ling-xing-can-shu-diao-you/" title="Next post">ffmpeg 命令行参数调优 <i class="angle double right icon"></i></a>
+        </div>
+        </div>
+    </div>
+
+        <div id="gitalk-container" class="comments-block no-print"></div>
+</div>
+                    </div>
+                </main><div class="footer extra-block no-print">
+    <span class="footer_item">
+        <a href="../../../pages/you-qing-lian-jie/">友情链接</a>
+    </span>
+    <span class="footer_item">
+        <a href="../../../pages/liu-yan-ban/">留言板</a>
+    </span>
+    <span class="footer_item">
+        <a href="../../../pages/ge-ren-dong-tai/">碎碎念</a>
+    </span>
+    </div>
+            <div class="footer social-link no-print">
+            <a href="https://github.com/ashfinal" target="_blank"><i class="grey large github icon"></i></a>
+            <a href="http://weibo.com/ashfinal/" target="_blank"><i class="grey large weibo icon"></i></a>
+            <a href="mailto://ashfinal@sina.cn" target="_blank"><i class="grey large mail icon"></i></a>
+            </div>
+        <div class="ui basic center aligned segment no-print">Contents © 2020         <a href="mailto:ashfinal@sina.cn">ashfinal</a> - Powered by         <a href="https://getnikola.com" target="_blank" rel="nofollow">Nikola</a>         </div>
+
+            </div>
+            <div class="computer only three wide column no-print">
+                <div id="right-side">
+                </div>
+            </div>
+        </div>
+
+        <!-- GoStats JavaScript Based Code -->
+        <script type="text/javascript">(function(c,o,m,p,u,t,e){
+        c['GoStatsObject']=u;c[u]=c[u]||function(){(c[u].q=c[u].q||[]).push(arguments)},
+        c[u].l=1*new Date();t=o.createElement(m);t.async=1;t.src=p;
+        e=o.getElementsByTagName(m)[0];e.parentNode.insertBefore(t,e);
+        })(window,document,'script','//www.gostats.org/5.js','go');
+        go('init',100479892,{'img_counter_type':5,'img_image_type':1});go('send');</script><!-- End GoStats JavaScript Based Code --><script type="text/javascript" src="../../../assets/js/jquery-3.3.1.min.js"></script><script type="text/javascript" src="../../../assets/js/semantic.min.js"></script><script type="text/javascript" src="../../../assets/js/jquery.fancybox.min.js"></script><script type="text/javascript" src="../../../assets/js/cookie.min.js"></script><script>
+            $(document).ready(function(){
+                $(".ui.dropdown").dropdown();
+                $('.ui.accordion').accordion();
+                var newstr = $('.cookie.nag').text();
+                $('.cookie.nag').nag({
+                    key: 'globalnotice',
+                    value: newstr
+                  });
+                $('.image-reference').fancybox();
+            });
+        </script><script src="../../../assets/js/md5.min.js"></script><script src="../../../assets/js/gitalk.min.js"></script><script>
+        const gitalk = new Gitalk({
+            clientID: '12fcda845097d895a24c',
+            clientSecret: '50ed60cde5f40897205197b4265b474cefbedc49',
+            repo: 'macplay.github.io',
+            owner: 'macplay',
+            admin: ['macplay', 'ashfinal'],
+            id: md5(window.location.pathname),
+            // facebook-like distraction free mode
+            distractionFreeMode: false
+        })
+        gitalk.render('gitalk-container')
+    </script>
+</body>
+</html>

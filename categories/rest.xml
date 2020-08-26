@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>MacPlay (Posts about reST)</title><link>https://macplay.github.io/</link><description></description><atom:link href="https://macplay.github.io/categories/rest.xml" rel="self" type="application/rss+xml"></atom:link><language>zh_cn</language><copyright>Contents © 2020 &lt;a href="mailto:ashfinal@sina.cn"&gt;ashfinal&lt;/a&gt; </copyright><lastBuildDate>Wed, 26 Aug 2020 08:50:31 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>从 URL 构建行内链接</title><link>https://macplay.github.io/posts/cong-url-gou-jian-xing-nei-lian-jie/</link><dc:creator>ashfinal</dc:creator><description>&lt;div&gt;&lt;p&gt;昨天看到论坛有人谈到 &lt;a class="reference external" href="https://emacs-china.org/t/topic/5301"&gt;从 URL 构建 Markdown 行内链接 - Emacs-general - Emacs China&lt;/a&gt; 。其实，这个功能早就存在于 Emmet 插件中。之前个人写 Markdown 文档的时候就用到过，体验非常不错。具体就是：在文档内的链接处按下快捷键，将会自动提取网页标题，并插入 Markdown 风格的行内链接。这样你就不必再额外复制链接标题，甚至个别情况下还得提前在浏览器中打开链接。&lt;/p&gt;
+&lt;p&gt;实际上，该功能不仅能构建 Markdown 行内链接，还可以在网页文件中使用 &lt;code class="docutils literal"&gt;&amp;lt;a&amp;gt;&lt;/code&gt; 标签构建 HTML 风格的链接。在 Vim 编辑器中，文件类型是自动识别的，因此并不需要额外做什么设置。&lt;/p&gt;
+&lt;p&gt;鉴于我个人 &lt;a class="reference external" href="https://macplay.github.io/posts/cong-markdown-dao-restructuredtext/"&gt;从 Markdown 转向 reStructuredText&lt;/a&gt; 已久，对该功能自然而然就用的不多起来。然而，当写 reStructuredText 文档时，当插入链接时不得不皱着眉，分两次分别复制网页链接和标题，再拼凑成 reStructuredText 风格的行内链接时。我总是不由地想起 Markdown 插入链接时的惬意顺畅。只不过，个人比较懒 - - 一直没采取任何行动，忍受着书写体验下降的情况。&lt;/p&gt;
+&lt;p&gt;现在经网友这么一提，心思抖起，觉得是时候解决一下这个“小问题”了。&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://macplay.github.io/posts/cong-url-gou-jian-xing-nei-lian-jie/"&gt;Read more…&lt;/a&gt; (1 min remaining to read)&lt;/p&gt;&lt;/div&gt;</description><category>markdown</category><category>reST</category><category>vim</category><guid>https://macplay.github.io/posts/cong-url-gou-jian-xing-nei-lian-jie/</guid><pubDate>Sat, 17 Mar 2018 11:57:58 GMT</pubDate></item><item><title>在 reStructuredText 中统一管理引用链接</title><link>https://macplay.github.io/posts/zai-restructuredtext-zhong-tong-yi-guan-li-yin-yong-lian-jie/</link><dc:creator>ashfinal</dc:creator><description>&lt;div&gt;&lt;!-- vim:set et sw=4 ts=4 ft=rst: --&gt;
+&lt;!-- vim:set et sw=4 ts=4 ft=rst: --&gt;
+&lt;!-- This file interpreters the title of URL in links.ref --&gt;
+&lt;!-- vim:set et sw=4 ts=4 ft=rst: --&gt;
+&lt;!-- vim:set et sw=4 ts=4 ft=rst: --&gt;
+&lt;p&gt;最近几天又尝试了下 &lt;a class="reference external" href="https://macplay.github.io/categories/latex/"&gt;latex&lt;/a&gt;, 发现 Bibliography 的理念很好。它将文档中所有资料引用统一保存到 &lt;cite&gt;.bib&lt;/cite&gt; 文件中，然后在正文中以别名的形式插入。如果有需要的话，还可以自定义引用的显示格式。这大大简化了参考文献的管理和使用：平时统一维护所有的参考文献，甚至你一生中只需维护一份 &lt;cite&gt;.bib&lt;/cite&gt; 文件；而写作时不必麻烦地复制粘贴，用别名就可以方便地插入参考文献。&lt;/p&gt;
+&lt;div class="sidebar"&gt;
+&lt;p class="sidebar-title"&gt;LibreOffice 的「Navigator」功能&lt;/p&gt;
+&lt;div class="figure align-center"&gt;
+&lt;a class="reference external image-reference" href="https://macplay.github.io/images/libreoffice_navigator.png"&gt;&lt;img alt="/images/libreoffice_navigator.thumbnail.png" src="https://macplay.github.io/images/libreoffice_navigator.thumbnail.png"&gt;&lt;/a&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;如果要在「现代」文档处理软件中寻找对应的话，大约相当于 LibreOffice 的「Navigator」功能或者其它软件的「媒体库」功能。不同之处在于 Bibliography 针对纯文本文件而优化，不止针对单份文档还能在所有文档中依需要载入。&lt;/p&gt;
+&lt;p&gt;尽管笔者平时写博客时并不用参考资料，但插入链接是很常见的操作。而该操作还是挺麻烦的——通常需要在浏览器中输入网址，等待其打开，然后分两次粘贴网址以及网页标题到 &lt;a class="reference external" href="https://github.com/qvacua/vimr"&gt;VimR&lt;/a&gt; 编辑器中。如果能够使用 Bibliography 的方式管理引用链接，则插入链接会方便许多——仅需麻烦一次，则全站博客均可以别名方式引用，毋需再次打开浏览器。显然这种统一管理有利于写作时的思维连贯性。而且今后如果有额外需求，比如想知道某链接在全站被引用了多少次，直接使用 &lt;cite&gt;ag&lt;/cite&gt; 或 &lt;cite&gt;grep&lt;/cite&gt; 命令搜索一下即可。&lt;/p&gt;
+&lt;p&gt;另外一个麻烦点在于：博客的站内链接显然有利于读者快速寻找相关内容并跳转浏览，比如 tags 就是站内链接优化很好的一个点。然而插入 tags 也是个比较麻烦、容易打断思路的事情。完全可以将博客内的 tags 「封装」一下，在任何文章中都可以随时快速地插入 tag。实际上，也可以不局限于 tags，一些相对固定的链接均可用相同的手法操作。&lt;/p&gt;
+&lt;p&gt;于是笔者花费了半天的时间试验了一下，发现完全可以使用 reStructuredText 的 &lt;cite&gt;include&lt;/cite&gt; 指令实现类似 Bibliography 的功能，对全站所有的链接引用进行统一管理。以下将简单的介绍一下我的做法。&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://macplay.github.io/posts/zai-restructuredtext-zhong-tong-yi-guan-li-yin-yong-lian-jie/"&gt;Read more…&lt;/a&gt; (1 min remaining to read)&lt;/p&gt;&lt;/div&gt;</description><category>markdown</category><category>nikola</category><category>reST</category><guid>https://macplay.github.io/posts/zai-restructuredtext-zhong-tong-yi-guan-li-yin-yong-lian-jie/</guid><pubDate>Tue, 13 Feb 2018 02:47:00 GMT</pubDate></item><item><title>XeTeX 的中文化设置</title><link>https://macplay.github.io/posts/xetex-de-zhong-wen-hua-she-zhi/</link><dc:creator>ashfinal</dc:creator><description>&lt;div&gt;&lt;p&gt;看过一些文章得出结论：即使用 XeTeX 编译中文，也需要额外添加 &lt;cite&gt;xeCJK&lt;/cite&gt; 包设置下字体。笔者也一直是这么做的。&lt;/p&gt;
+&lt;p&gt;刚尝试了下，这一步其实是不必要的。直接用 &lt;cite&gt;fontspec&lt;/cite&gt; 设置中文字体，不必引入额外的包：&lt;/p&gt;
+&lt;div class="code"&gt;&lt;table class="codetable"&gt;&lt;tr&gt;&lt;td class="linenos linenodiv"&gt;&lt;a href="https://macplay.github.io/posts/xetex-de-zhong-wen-hua-she-zhi/#rest_code_6c261843081b4069a015a28f8a3c7a1d-1"&gt;&lt;code data-line-number=" 1"&gt;&lt;/code&gt;&lt;/a&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;code&gt;&lt;a name="rest_code_6c261843081b4069a015a28f8a3c7a1d-1"&gt;&lt;/a&gt;&lt;span class="c"&gt;%! TEX program = xelatex&lt;/span&gt;
+&lt;/code&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class="linenos linenodiv"&gt;&lt;a href="https://macplay.github.io/posts/xetex-de-zhong-wen-hua-she-zhi/#rest_code_6c261843081b4069a015a28f8a3c7a1d-2"&gt;&lt;code data-line-number=" 2"&gt;&lt;/code&gt;&lt;/a&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;code&gt;&lt;a name="rest_code_6c261843081b4069a015a28f8a3c7a1d-2"&gt;&lt;/a&gt;
+&lt;/code&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class="linenos linenodiv"&gt;&lt;a href="https://macplay.github.io/posts/xetex-de-zhong-wen-hua-she-zhi/#rest_code_6c261843081b4069a015a28f8a3c7a1d-3"&gt;&lt;code data-line-number=" 3"&gt;&lt;/code&gt;&lt;/a&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;code&gt;&lt;a name="rest_code_6c261843081b4069a015a28f8a3c7a1d-3"&gt;&lt;/a&gt;&lt;span class="k"&gt;\usepackage&lt;/span&gt;&lt;span class="nb"&gt;{&lt;/span&gt;fontspec&lt;span class="nb"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class="linenos linenodiv"&gt;&lt;a href="https://macplay.github.io/posts/xetex-de-zhong-wen-hua-she-zhi/#rest_code_6c261843081b4069a015a28f8a3c7a1d-4"&gt;&lt;code data-line-number=" 4"&gt;&lt;/code&gt;&lt;/a&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;code&gt;&lt;a name="rest_code_6c261843081b4069a015a28f8a3c7a1d-4"&gt;&lt;/a&gt;&lt;span class="k"&gt;\setmainfont&lt;/span&gt;&lt;span class="nb"&gt;{&lt;/span&gt;PingFang SC&lt;span class="nb"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class="linenos linenodiv"&gt;&lt;a href="https://macplay.github.io/posts/xetex-de-zhong-wen-hua-she-zhi/#rest_code_6c261843081b4069a015a28f8a3c7a1d-5"&gt;&lt;code data-line-number=" 5"&gt;&lt;/code&gt;&lt;/a&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;code&gt;&lt;a name="rest_code_6c261843081b4069a015a28f8a3c7a1d-5"&gt;&lt;/a&gt;&lt;span class="k"&gt;\setsansfont&lt;/span&gt;&lt;span class="nb"&gt;{&lt;/span&gt;Hiragino Sans GB&lt;span class="nb"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class="linenos linenodiv"&gt;&lt;a href="https://macplay.github.io/posts/xetex-de-zhong-wen-hua-she-zhi/#rest_code_6c261843081b4069a015a28f8a3c7a1d-6"&gt;&lt;code data-line-number=" 6"&gt;&lt;/code&gt;&lt;/a&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;code&gt;&lt;a name="rest_code_6c261843081b4069a015a28f8a3c7a1d-6"&gt;&lt;/a&gt;&lt;span class="k"&gt;\setmonofont&lt;/span&gt;&lt;span class="na"&gt;[Scale=0.9]&lt;/span&gt;&lt;span class="nb"&gt;{&lt;/span&gt;PingFang SC&lt;span class="nb"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class="linenos linenodiv"&gt;&lt;a href="https://macplay.github.io/posts/xetex-de-zhong-wen-hua-she-zhi/#rest_code_6c261843081b4069a015a28f8a3c7a1d-7"&gt;&lt;code data-line-number=" 7"&gt;&lt;/code&gt;&lt;/a&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;code&gt;&lt;a name="rest_code_6c261843081b4069a015a28f8a3c7a1d-7"&gt;&lt;/a&gt;
+&lt;/code&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class="linenos linenodiv"&gt;&lt;a href="https://macplay.github.io/posts/xetex-de-zhong-wen-hua-she-zhi/#rest_code_6c261843081b4069a015a28f8a3c7a1d-8"&gt;&lt;code data-line-number=" 8"&gt;&lt;/code&gt;&lt;/a&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;code&gt;&lt;a name="rest_code_6c261843081b4069a015a28f8a3c7a1d-8"&gt;&lt;/a&gt;&lt;span class="k"&gt;\usepackage&lt;/span&gt;&lt;span class="nb"&gt;{&lt;/span&gt;indentfirst&lt;span class="nb"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class="linenos linenodiv"&gt;&lt;a href="https://macplay.github.io/posts/xetex-de-zhong-wen-hua-she-zhi/#rest_code_6c261843081b4069a015a28f8a3c7a1d-9"&gt;&lt;code data-line-number=" 9"&gt;&lt;/code&gt;&lt;/a&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;code&gt;&lt;a name="rest_code_6c261843081b4069a015a28f8a3c7a1d-9"&gt;&lt;/a&gt;&lt;span class="k"&gt;\setlength&lt;/span&gt;&lt;span class="nb"&gt;{&lt;/span&gt;&lt;span class="k"&gt;\parindent&lt;/span&gt;&lt;span class="nb"&gt;}{&lt;/span&gt;2em&lt;span class="nb"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class="linenos linenodiv"&gt;&lt;a href="https://macplay.github.io/posts/xetex-de-zhong-wen-hua-she-zhi/#rest_code_6c261843081b4069a015a28f8a3c7a1d-10"&gt;&lt;code data-line-number="10"&gt;&lt;/code&gt;&lt;/a&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;code&gt;&lt;a name="rest_code_6c261843081b4069a015a28f8a3c7a1d-10"&gt;&lt;/a&gt;
+&lt;/code&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class="linenos linenodiv"&gt;&lt;a href="https://macplay.github.io/posts/xetex-de-zhong-wen-hua-she-zhi/#rest_code_6c261843081b4069a015a28f8a3c7a1d-11"&gt;&lt;code data-line-number="11"&gt;&lt;/code&gt;&lt;/a&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;code&gt;&lt;a name="rest_code_6c261843081b4069a015a28f8a3c7a1d-11"&gt;&lt;/a&gt;&lt;span class="k"&gt;\XeTeXlinebreaklocale&lt;/span&gt; "zh"
+&lt;/code&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class="linenos linenodiv"&gt;&lt;a href="https://macplay.github.io/posts/xetex-de-zhong-wen-hua-she-zhi/#rest_code_6c261843081b4069a015a28f8a3c7a1d-12"&gt;&lt;code data-line-number="12"&gt;&lt;/code&gt;&lt;/a&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;code&gt;&lt;a name="rest_code_6c261843081b4069a015a28f8a3c7a1d-12"&gt;&lt;/a&gt;&lt;span class="k"&gt;\XeTeXlinebreakskip&lt;/span&gt; = 0pt plus 1pt minus 0.1pt
+&lt;/code&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;&lt;p&gt;第 1 行指定编译引擎 &lt;cite&gt;xelatex&lt;/cite&gt; 。不成文的规范，LaTeX 客户端或编辑器插件不一定会遵守。&lt;/p&gt;
+&lt;p&gt;第 3-6 行使用苹方和冬青黑体，macOS 上的默认字体。&lt;/p&gt;
+&lt;p&gt;第 8-9 行分别设置首行缩进和缩进间隔。&lt;/p&gt;
+&lt;p&gt;第 11 行使用中文断行方式，否则段落会合并成一行。&lt;/p&gt;
+&lt;p&gt;第 12 行还不清楚啥意思，不过好多文章都有，暂时不删除。&lt;/p&gt;
+&lt;p&gt;这几行精简的配置，足以应付 macOS 上绝大部分编译场景。如果是其它操作系统，注意替换中文字体。通过 &lt;cite&gt;rst2xetex.py&lt;/cite&gt; 命令转换过来的 tex 文件，添加以上几行，就能顺利编译。&lt;/p&gt;&lt;/div&gt;</description><category>reST</category><category>xetex</category><guid>https://macplay.github.io/posts/xetex-de-zhong-wen-hua-she-zhi/</guid><pubDate>Mon, 16 Oct 2017 09:07:37 GMT</pubDate></item><item><title>从 Markdown 到 reStructuredText（四）</title><link>https://macplay.github.io/posts/cong-markdown-dao-restructuredtextsi/</link><dc:creator>ashfinal</dc:creator><description>&lt;div&gt;&lt;p&gt;本文是《从 Markdown 到 reStructuredText》系列文章的第四篇。和 Markdown 一样，reStructuredText 也是一种易读易写的纯文本标记语言，不过功能上更加强大（而且标准统一）。如果想了解其对应于 Markdown 的基本语法，请阅读 &lt;a class="reference external" href="https://macplay.github.io/posts/cong-markdown-dao-restructuredtext/"&gt;第一篇文章&lt;/a&gt; 。本文继续 &lt;a class="reference external" href="https://macplay.github.io/posts/cong-markdown-dao-restructuredtextsan/"&gt;上一篇文章&lt;/a&gt; 的话题，试用和探索一下 reStructuredText 导出为其它格式的功能。&lt;/p&gt;
+&lt;p&gt;reStructuredText 安装包 &lt;a class="reference external" href="http://docutils.sourceforge.net"&gt;docutils&lt;/a&gt; &lt;a class="footnote-reference brackets" href="https://macplay.github.io/posts/cong-markdown-dao-restructuredtextsi/#id5" id="id3"&gt;1&lt;/a&gt; 额外包含了一些 Python 脚本，以支持导出到其它格式。这里只谈一谈比较关心的 HTML、S5 Slides、Office 文档、PDF 等格式的支持情况。&lt;/p&gt;
+&lt;div class="contents topic" id="id4"&gt;
+&lt;p class="topic-title"&gt;文档目录&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="https://macplay.github.io/posts/cong-markdown-dao-restructuredtextsi/#html" id="id11"&gt;HTML 导出&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="https://macplay.github.io/posts/cong-markdown-dao-restructuredtextsi/#s5-slides" id="id12"&gt;S5 Slides&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="https://macplay.github.io/posts/cong-markdown-dao-restructuredtextsi/#office" id="id13"&gt;Office 文档导出&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="https://macplay.github.io/posts/cong-markdown-dao-restructuredtextsi/#pdf" id="id14"&gt;PDF 格式导出&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="https://macplay.github.io/posts/cong-markdown-dao-restructuredtextsi/#id10" id="id15"&gt;总结&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;a href="https://macplay.github.io/posts/cong-markdown-dao-restructuredtextsi/"&gt;Read more…&lt;/a&gt; (2 min remaining to read)&lt;/p&gt;&lt;/div&gt;</description><category>pdf</category><category>reST</category><category>static site</category><guid>https://macplay.github.io/posts/cong-markdown-dao-restructuredtextsi/</guid><pubDate>Sat, 14 Oct 2017 10:37:28 GMT</pubDate></item><item><title>从 Markdown 到 reStructuredText（三）</title><link>https://macplay.github.io/posts/cong-markdown-dao-restructuredtextsan/</link><dc:creator>ashfinal</dc:creator><description>&lt;div&gt;&lt;p&gt;本文是《从 Markdown 到 reStructuredText》系列文章的第三篇。和 Markdown 一样，reStructuredText 也是一种易读易写的纯文本标记语言，不过功能上更加强大（而且标准统一）。如果想了解其对应于 Markdown 的基本语法，请阅读 &lt;a class="reference external" href="https://macplay.github.io/posts/cong-markdown-dao-restructuredtext/"&gt;第一篇文章&lt;/a&gt; 。本文继续 &lt;a class="reference external" href="https://macplay.github.io/posts/cong-markdown-dao-restructuredtexter/"&gt;上一篇文章&lt;/a&gt; 的话题，聊一聊标记语言的样式问题，确切的说是 reStructuredText 在静态博客 Nikola 中的样式写法。&lt;/p&gt;
+&lt;p&gt;“样式？标记语言还需要考虑样式？”估计不少人心里会犯嘀咕。然而，标记语言一直强调的是 &lt;strong&gt;易读易写&lt;/strong&gt; ，无需专门的商业版权软件来编辑， &lt;strong&gt;同时，纯文本可被转换为其它格式的文档&lt;/strong&gt;  &lt;a class="footnote-reference brackets" href="https://macplay.github.io/posts/cong-markdown-dao-restructuredtextsan/#id4" id="id3"&gt;1&lt;/a&gt; 。转换为其它格式多半少不了样式，样式本身有助于读者对文档内容的理解，传递赏心悦目的文档对读者本人也是一种尊重。标记语言宣称的“毋需关注样式”更多的是谴责 &lt;strong&gt;过分关注样式&lt;/strong&gt; ，以至于丢掉了文档之魂——内容。&lt;/p&gt;
+&lt;p&gt;个人以为，标记语言自始至终贯彻的原则只有一点： &lt;strong&gt;内容与样式分离&lt;/strong&gt; 。摆脱束缚用最简单的纯文本书写，而必要时又可以套用现成样式模板，导出或专业或活波……不同风格的文档方便分发。&lt;/p&gt;
+&lt;dl class="footnote brackets"&gt;
+&lt;dt class="label" id="id4"&gt;&lt;span class="brackets"&gt;&lt;a class="fn-backref" href="https://macplay.github.io/posts/cong-markdown-dao-restructuredtextsan/#id3"&gt;1&lt;/a&gt;&lt;/span&gt;&lt;/dt&gt;
+&lt;dd&gt;&lt;p&gt;见 &lt;a class="reference external" href="https://macplay.github.io/posts/cong-markdown-dao-restructuredtext/"&gt;第一篇文章&lt;/a&gt; 宗旨 -&amp;gt; reStructuredText 的预期目标&lt;/p&gt;
+&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;p&gt;&lt;a href="https://macplay.github.io/posts/cong-markdown-dao-restructuredtextsan/"&gt;Read more…&lt;/a&gt; (2 min remaining to read)&lt;/p&gt;&lt;/div&gt;</description><category>reST</category><category>static site</category><guid>https://macplay.github.io/posts/cong-markdown-dao-restructuredtextsan/</guid><pubDate>Wed, 11 Oct 2017 07:26:32 GMT</pubDate></item><item><title>使用 Vim 在 Markdown 及 rst 文档中创建表格</title><link>https://macplay.github.io/posts/shi-yong-vim-zai-markdown-ji-rst-wen-dang-zhong-chuang-jian-biao-ge/</link><dc:creator>ashfinal</dc:creator><description>&lt;div&gt;&lt;p&gt;之前提到过 reStructuredText 的表格类型 &lt;a class="reference external" href="https://macplay.github.io/posts/cong-markdown-dao-restructuredtext/#table"&gt;Grid Tables&lt;/a&gt; 书写困难，普通编辑器难以胜任，可能有人好奇笔者是如何做的。对于 Vim、Emacs 两大编辑器来说，表格创建任务非常简单：&lt;/p&gt;
+&lt;video src="https://macplay.github.io/videos/vim_table.mp4" loop autoplay muted playsinline&gt;
+Your browser does not support the video tag.
+&lt;/video&gt;&lt;p&gt;笔者平时使用较多的是 Vim 编辑器，借助强大的 &lt;a class="reference external" href="https://github.com/dhruvasagar/vim-table-mode"&gt;vim-table-mode&lt;/a&gt; 插件，只需正常输入表格内容和竖线符号 &lt;code class="docutils literal"&gt;|&lt;/code&gt; 就可以，其它事情如填充和对齐等等插件会自动处理。笔者针对 &lt;a class="reference external" href="https://github.com/dhruvasagar/vim-table-mode"&gt;vim-table-mode&lt;/a&gt; 插件做了几行配置，使其支持 Markdown、rst、org 表格的创建（org 表格在上图中没有展示），如果有人感兴趣的话，可以看一下个人 &lt;a class="reference external" href="https://github.com/ashfinal/vimrc-config/blob/0cba64e3a384fc78483a431b45b65a50daba34dd/.vimrc#L750"&gt;vimrc 配置&lt;/a&gt; 的相应部分。&lt;/p&gt;
+&lt;p&gt;PS：发现录屏如果使用 GIF 格式，无论怎样压缩都达不到理想的画质和文件大小。最后使用 MP4 格式，1 分 53 秒时长的 720P 视频，压缩后仅仅 836 KB！感觉以后文章中插入动图可以抛弃 GIF 格式了。&lt;/p&gt;
+&lt;p&gt;读者们注意到上面录屏其实是视频而不是图片吗？ :)&lt;/p&gt;&lt;/div&gt;</description><category>markdown</category><category>reST</category><category>vim</category><guid>https://macplay.github.io/posts/shi-yong-vim-zai-markdown-ji-rst-wen-dang-zhong-chuang-jian-biao-ge/</guid><pubDate>Tue, 10 Oct 2017 13:15:21 GMT</pubDate></item><item><title>从 Markdown 到 reStructuredText（二）</title><link>https://macplay.github.io/posts/cong-markdown-dao-restructuredtexter/</link><dc:creator>ashfinal</dc:creator><description>&lt;div&gt;&lt;dl class="docinfo simple"&gt;
+&lt;dt class="author"&gt;Author&lt;/dt&gt;
+&lt;dd class="author"&gt;&lt;p&gt;ashfinal&lt;/p&gt;
+&lt;/dd&gt;
+&lt;dt class="contact"&gt;Contact&lt;/dt&gt;
+&lt;dd class="contact"&gt;&lt;p&gt;&lt;a class="reference external" href="mailto:ashfinal@sina.cn"&gt;ashfinal@sina.cn&lt;/a&gt;&lt;/p&gt;
+&lt;/dd&gt;
+&lt;dt class="revision"&gt;Revision&lt;/dt&gt;
+&lt;dd class="revision"&gt;&lt;p&gt;1008&lt;/p&gt;
+&lt;/dd&gt;
+&lt;dt class="date"&gt;Date&lt;/dt&gt;
+&lt;dd class="date"&gt;&lt;p&gt;2017-10-08&lt;/p&gt;
+&lt;/dd&gt;
+&lt;dt class="copyright"&gt;Copyright&lt;/dt&gt;
+&lt;dd class="copyright"&gt;&lt;p&gt;&lt;a class="reference external" href="https://creativecommons.org/licenses/by-nc-sa/3.0/deed.zh"&gt;CC BY-NC-SA 3.0&lt;/a&gt;&lt;/p&gt;
+&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;p&gt;本文是《从 Markdown 到 reStructuredText》系列文章的第二篇。和 Markdown 一样，reStructuredText 也是一种易读易写的纯文本标记语言，不过功能上更加强大（而且标准统一）。如果想了解其对应于 Markdown 的基本语法，请阅读 &lt;a class="reference external" href="https://macplay.github.io/posts/cong-markdown-dao-restructuredtext/"&gt;上一篇文章&lt;/a&gt; 。本文主要从文档写作需求出发，聊一聊 reStructuredText 相对于 Markdown 的超集部分。&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://macplay.github.io/posts/cong-markdown-dao-restructuredtexter/"&gt;Read more…&lt;/a&gt; (4 min remaining to read)&lt;/p&gt;&lt;/div&gt;</description><category>reST</category><category>static site</category><guid>https://macplay.github.io/posts/cong-markdown-dao-restructuredtexter/</guid><pubDate>Sun, 08 Oct 2017 06:45:54 GMT</pubDate></item><item><title>从 Markdown 到 reStructuredText</title><link>https://macplay.github.io/posts/cong-markdown-dao-restructuredtext/</link><dc:creator>ashfinal</dc:creator><description>&lt;div&gt;&lt;p&gt;如果你正在使用 Markdown 尚嫌其功能不足，本文提供了平滑过渡到 reStructuredText 的语法指导。从来没有接触过任何标记语言的读者，以及正在使用其它标记语言的读者，也可以通过阅读本文了解到 reStructuredText 的基本用法。文章结构基本上借鉴 &lt;a class="reference external" href="http://wowubuntu.com/markdown/"&gt;Markdown 语法说明&lt;/a&gt; ，相对 Markdown 的超集部分仅会简单提及——这些部分将会在其它文章中着重讲解。&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://macplay.github.io/posts/cong-markdown-dao-restructuredtext/"&gt;Read more…&lt;/a&gt; (5 min remaining to read)&lt;/p&gt;&lt;/div&gt;</description><category>reST</category><category>static site</category><guid>https://macplay.github.io/posts/cong-markdown-dao-restructuredtext/</guid><pubDate>Wed, 04 Oct 2017 08:20:05 GMT</pubDate></item><item><title>静态博客 Nikola 之写作实践</title><link>https://macplay.github.io/posts/jing-tai-bo-ke-nikola-zhi-xie-zuo-shi-jian/</link><dc:creator>macplay</dc:creator><description>&lt;div&gt;&lt;p&gt;本文分享 &lt;a class="reference external" href="https://getnikola.com"&gt;Nikola&lt;/a&gt; 博客的写作流程及注意事项，方便读者对最基础的操作--「更新文章」有直观了解。得益于 &lt;a class="reference external" href="https://getnikola.com"&gt;Nikola&lt;/a&gt; 和 &lt;a class="reference external" href="https://travis-ci.org"&gt;TravisCI&lt;/a&gt; 的紧密协同，「更新文章」只需把源文件放到指定目录，提交到 GitHub 即可。甚至在没有安装 &lt;a class="reference external" href="https://getnikola.com"&gt;Nikola&lt;/a&gt; 程序的电脑或者手机上也可以随时更新你的文章。&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://macplay.github.io/posts/jing-tai-bo-ke-nikola-zhi-xie-zuo-shi-jian/"&gt;Read more…&lt;/a&gt; (2 min remaining to read)&lt;/p&gt;&lt;/div&gt;</description><category>markdown</category><category>nikola</category><category>reST</category><guid>https://macplay.github.io/posts/jing-tai-bo-ke-nikola-zhi-xie-zuo-shi-jian/</guid><pubDate>Wed, 20 Sep 2017 03:32:34 GMT</pubDate></item><item><title>Nikola Internals</title><link>https://macplay.github.io/posts/nikola-internals/</link><dc:creator>ashfinal</dc:creator><description>&lt;div&gt;&lt;div class="section" id="nikola-internals"&gt;
+&lt;h2&gt;Nikola Internals&lt;/h2&gt;
+&lt;p class="lead"&gt;When trying to guide someone into adding a feature in Nikola, it hit me that
+while the way it's structured makes sense &lt;strong&gt;to me&lt;/strong&gt; it is far from obvious.&lt;/p&gt;
+&lt;p&gt;So, this is a short document explaining what each piece of Nikola does and
+how it all fits together.&lt;/p&gt;
+&lt;dl&gt;
+&lt;dt&gt;Nikola is a Pile of Plugins&lt;/dt&gt;
+&lt;dd&gt;&lt;p&gt;Most of Nikola is implemented as plugins using &lt;a class="reference external" href="http://yapsy.sourceforge.net/"&gt;Yapsy&lt;/a&gt;.
+You can ignore that they are plugins and just think of them as regular python
+modules and packages with a funny little &lt;code class="docutils literal"&gt;.plugin&lt;/code&gt; file next to them.&lt;/p&gt;
+&lt;p&gt;So, 90% of the time, what you want to do is either write a new plugin or extend
+an existing one.&lt;/p&gt;
+&lt;p&gt;There are several kinds of plugins, all implementing interfaces defined in
+&lt;code class="docutils literal"&gt;nikola/plugin_categories.py&lt;/code&gt; and documented in
+&lt;a class="reference external" href="https://getnikola.com/extending.html"&gt;Extending Nikola&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;If your plugin has a dependency, please make sure it doesn't make Nikola
+throw an exception when the dependency is missing. Try to fail gracefully
+with an informative message.&lt;/p&gt;
+&lt;/dd&gt;
+&lt;dt&gt;Commands are plugins&lt;/dt&gt;
+&lt;dd&gt;&lt;p&gt;When you use &lt;code class="docutils literal"&gt;nikola foo&lt;/code&gt; you are using the plugin &lt;code class="docutils literal"&gt;command/foo&lt;/code&gt;. Those are
+used to extend Nikola's command line. Their interface is defined in the &lt;code class="docutils literal"&gt;Command&lt;/code&gt;
+class. They take options and arguments and do whatever you want, so go wild.&lt;/p&gt;
+&lt;/dd&gt;
+&lt;dt&gt;The &lt;code class="docutils literal"&gt;build&lt;/code&gt; command is special&lt;/dt&gt;
+&lt;dd&gt;&lt;p&gt;The &lt;code class="docutils literal"&gt;build&lt;/code&gt; command triggers a whole lot of things, and is the core of Nikola
+because it's the one that you use to build sites. So it deserves its own section.&lt;/p&gt;
+&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;div class="section" id="the-build-command"&gt;
+&lt;h3&gt;The Build Command&lt;/h3&gt;
+&lt;p&gt;Nikola's goal is similar, deep at heart, to a Makefile. Take sources, compile them
+into something, in this case a website. Instead of a Makefile, Nikola uses
+&lt;a class="reference external" href="http://pydoit.org"&gt;doit&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Doit has the concept of "tasks". The 1 minute summary of tasks is that they have:&lt;/p&gt;
+&lt;dl class="simple"&gt;
+&lt;dt&gt;actions&lt;/dt&gt;
+&lt;dd&gt;&lt;p&gt;What the task &lt;strong&gt;does&lt;/strong&gt;. For example, convert a markdown document into HTML.&lt;/p&gt;
+&lt;/dd&gt;
+&lt;dt&gt;dependencies&lt;/dt&gt;
+&lt;dd&gt;&lt;p&gt;If this file changes, then we need to redo the actions. If this configuration
+option changes, redo it, etc.&lt;/p&gt;
+&lt;/dd&gt;
+&lt;dt&gt;targets&lt;/dt&gt;
+&lt;dd&gt;&lt;p&gt;Files that the action generates. No two actions can have the same targets.&lt;/p&gt;
+&lt;/dd&gt;
+&lt;dt&gt;basename:name&lt;/dt&gt;
+&lt;dd&gt;&lt;p&gt;Each task is identified by either a name or a basename:name pair.&lt;/p&gt;
+&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;div class="sidebar"&gt;
+&lt;p class="sidebar-title"&gt;More about tasks&lt;/p&gt;
+&lt;p&gt;If you ever want to do your own tasks, you really should read the doit
+&lt;a class="reference external" href="http://pydoit.org/tasks.html"&gt;documentation on tasks&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;So, what Nikola does, when you use the build command, is to read the
+configuration &lt;code class="docutils literal"&gt;conf.py&lt;/code&gt; from the current folder, instantiate
+the &lt;code class="docutils literal"&gt;Nikola&lt;/code&gt; class, and have it generate a whole list of tasks for doit
+to process. Then doit will decide which tasks need doing, and do them, in
+the right order.&lt;/p&gt;
+&lt;p&gt;The place where the tasks are generated is in &lt;code class="docutils literal"&gt;Nikola.gen_tasks&lt;/code&gt;, which collects tasks
+from all the plugins inheriting &lt;code class="docutils literal"&gt;BaseTask&lt;/code&gt;, massages them a bit, then passes them
+to doit.&lt;/p&gt;
+&lt;p&gt;So, if you want things to happen on &lt;code class="docutils literal"&gt;build&lt;/code&gt; you want to create a Task plugin, or extend
+one of the existing ones.&lt;/p&gt;
+&lt;div class="sidebar"&gt;
+&lt;p class="sidebar-title"&gt;Tests&lt;/p&gt;
+&lt;p&gt;While Nikola is not a hardcore TDD project, we like tests. So, please add them if you can.
+You can write unit tests or integration tests. (Doctests are not supported
+anymore due to fragility.)&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="posts-and-pages"&gt;
+&lt;h3&gt;Posts and Pages&lt;/h3&gt;
+&lt;p&gt;Nikola has a concept of posts and pages. Both are more or less the same thing, except
+posts are added into RSS feeds and pages are not. All of them are in a list called
+"the timeline" formed by objects of class &lt;code class="docutils literal"&gt;Post&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;When you are creating a task that needs the list of posts and/or pages (for example,
+the RSS creation plugin) on task execution time, your plugin should call &lt;code class="docutils literal"&gt;self.site.scan_posts()&lt;/code&gt;
+in &lt;code class="docutils literal"&gt;gen_tasks&lt;/code&gt; to ensure the timeline is created and available in
+&lt;code class="docutils literal"&gt;self.site.timeline&lt;/code&gt;. You should not modify the timeline, because it will cause consistency issues.&lt;/p&gt;
+&lt;div class="sidebar"&gt;
+&lt;p class="sidebar-title"&gt;scan_posts&lt;/p&gt;
+&lt;p&gt;The &lt;code class="docutils literal"&gt;Nikola.scan_posts&lt;/code&gt; function can be used in plugins to force the
+timeline creation, for example, while creating the tasks.&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Your plugin can use the timeline to generate "stuff" (technical term). For example,
+Nikola comes with plugins that use the timeline to create a website (surprised?).&lt;/p&gt;
+&lt;p&gt;The workflow included with nikola is as follows (incomplete!):&lt;/p&gt;
+&lt;ol class="arabic simple"&gt;
+&lt;li&gt;&lt;p&gt;The post is assigned a compiler based on its extension and the &lt;code class="docutils literal"&gt;COMPILERS&lt;/code&gt; option.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;The compiler is applied to the post data and a "HTML fragment" is produced. That
+fragment is stored in a cache (the &lt;code class="docutils literal"&gt;posts&lt;/code&gt; plugin).&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;The configured theme has templates (and a template engine), which are applied to the post's
+HTML fragment and metadata (the &lt;code class="docutils literal"&gt;pages&lt;/code&gt; plugin).&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;The original sources for the post are copied to some accessible place (the &lt;code class="docutils literal"&gt;sources&lt;/code&gt; plugin).&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;If the post is tagged, some pages and RSS feeds for each tag are updated (the &lt;code class="docutils literal"&gt;tags&lt;/code&gt; plugin).&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;If the post is new, it's included in the blog's RSS feed (the &lt;code class="docutils literal"&gt;rss&lt;/code&gt; plugin).&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;The post is added in the right place in the index pages for the blog (the &lt;code class="docutils literal"&gt;indexes&lt;/code&gt; plugin).&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;CSS/JS/Images for the theme are put in the right places (the &lt;code class="docutils literal"&gt;copy_assets&lt;/code&gt; and &lt;code class="docutils literal"&gt;bundles&lt;/code&gt; plugins).&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;A File describing the whole site is created (the &lt;code class="docutils literal"&gt;sitemap&lt;/code&gt; plugin).&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;You can add whatever you want to that list: just create a plugin for it.&lt;/p&gt;
+&lt;p&gt;You can also expand Nikola's capabilities at several points:&lt;/p&gt;
+&lt;dl class="simple"&gt;
+&lt;dt&gt;compilers&lt;/dt&gt;
+&lt;dd&gt;&lt;p&gt;Nikola supports a variety of markups. If you want to add another one, you need to create
+a &lt;code class="docutils literal"&gt;Compiler&lt;/code&gt; plugin.&lt;/p&gt;
+&lt;/dd&gt;
+&lt;dt&gt;templates&lt;/dt&gt;
+&lt;dd&gt;&lt;p&gt;Nikola's themes can use Jinja2 or Mako templates. If you prefer another template system,
+you have to create a &lt;code class="docutils literal"&gt;TemplateSystem&lt;/code&gt; plugin.&lt;/p&gt;
+&lt;/dd&gt;
+&lt;dt&gt;themes&lt;/dt&gt;
+&lt;dd&gt;&lt;p&gt;To change how the generated site looks, you can create custom themes.&lt;/p&gt;
+&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;p&gt;And of course, you can also replace or extend each of the existing plugins.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="nikola-architecture"&gt;
+&lt;h2&gt;Nikola Architecture&lt;/h2&gt;
+&lt;a class="reference external image-reference" href="https://getnikola.com/images/architecture.png"&gt;&lt;img alt="https://getnikola.com/images/architecture.thumbnail.png" src="https://getnikola.com/images/architecture.thumbnail.png"&gt;&lt;/a&gt;
+&lt;/div&gt;&lt;/div&gt;</description><category>nikola</category><category>reST</category><guid>https://macplay.github.io/posts/nikola-internals/</guid><pubDate>Mon, 18 Sep 2017 10:33:21 GMT</pubDate></item></channel></rss>

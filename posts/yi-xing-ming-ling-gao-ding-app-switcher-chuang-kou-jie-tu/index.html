@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="zh_cn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="generator" content="Nikola (getnikola.com)">
+<title>一行命令搞定 App Switcher 窗口截图 - MacPlay</title>
+<link rel="apple-touch-icon" sizes="180x180" href="../../apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+<link rel="mask-icon" href="../../safari-pinned-tab.svg" color="#5bbad5">
+<link href="../../assets/css/semantic.min.css" rel="stylesheet" type="text/css">
+<link href="../../assets/css/jquery.fancybox.min.css" rel="stylesheet" type="text/css">
+<link href="../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<link rel="canonical" href="https://macplay.github.io/posts/yi-xing-ming-ling-gao-ding-app-switcher-chuang-kou-jie-tu/">
+<meta name="author" content="ashfinal">
+<link rel="alternate" hreflang="en" href="../../en/posts/yi-xing-ming-ling-gao-ding-app-switcher-chuang-kou-jie-tu/">
+<link rel="stylesheet" type="text/css" href="../../assets/css/gitalk.css">
+</head>
+<body>
+        <div class="ui grid">
+            <div class="computer only three wide column no-print">
+                <div id="left-side">
+                </div>
+            </div>
+            <div class="ten wide computer sixteen wide tablet sixteen wide mobile column">
+                        <div class="ui inline cookie nag no-print">
+            <span class="title">从现在开始，支持中英双语及博文精选 O(∩_∩)O~~</span>
+            <i class="close icon"></i>
+        </div>
+    <header id="header" class="no-print"><div class="ui grid">
+        <div class="computer only tablet only sixteen wide column">
+            <div class="ui large secondary stackable menu">
+                <a class="header item brand-logo" href="https://macplay.github.io/">
+                    MacPlay
+                </a>
+                        <a class="item" href="../../">Posts</a>
+                        <a class="item" href="../../listings/">Code</a>
+                        <a class="item" href="../../galleries/">Gallery</a>
+                        <a class="item" href="../../categories/">Tags</a>
+                        <a class="item" href="../../archive.html">Archive</a>
+                <div class="right menu">
+                    <a class="item" href="../../rss.xml"><i class="rss icon"></i>RSS</a>
+                </div>
+            </div>
+        </div>
+        <div class="mobile only sixteen wide column">
+            <div class="ui fluid accordion vertical menu">
+                <div class="item">
+                    <a class="title">MacPlay</a>
+                    <div class="content">
+                                <a class="item" href="../../">Posts</a>
+                                <a class="item" href="../../listings/">Code</a>
+                                <a class="item" href="../../galleries/">Gallery</a>
+                                <a class="item" href="../../categories/">Tags</a>
+                                <a class="item" href="../../archive.html">Archive</a>
+                        <a class="item" href="../../rss.xml"><i class="rss icon"></i>RSS</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </header><main id="main"><div id="main-content">
+<div class="postpage post-text page-body" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <h1 class="post-title" itemprop="headline">
+        <a href=".">一行命令搞定 App Switcher 窗口截图</a>
+    </h1>
+
+    <div class="ui large horizontal link list post-meta">
+        <span class="item">By
+            <a href="../../authors/ashfinal/">ashfinal</a>
+        </span>
+            <span class="item">
+                <a href="https://github.com/macplay/macplay.github.io/edit/src/posts/yi-xing-ming-ling-gao-ding-app-switcher-chuang-kou-jie-tu.md" target="_blank" title="Edit on GitHub">Edit</a>
+            </span>
+        <span class="item">
+            <time datetime="2014-12-05T12:26:45+08:00">
+            2014-12-05 12:26
+            </time></span>
+            <span class="item">
+                    <a href="../../categories/applescript/">applescript</a>
+                    <a href="../../categories/macos/">macos</a>
+                    <a href="../../categories/terminal/">terminal</a>
+            </span>
+    </div>
+
+    
+    <div class="post-content" itemprop="article text">
+        <div id="post-content">
+        <div>
+<h3 id="_1">软件说明</h3>
+<p>自制截图小工具 dcap ! 功能简单，没啥技术含量 =_= 其实是对系统内置命令的简单封装，真的只有 6 行代码呀～ 除基本截图功能外，增加了对 App Switcher (按 <code>Command + Tab</code> 出来的东东)以及任何软件菜单的截图支持。</p>
+<p>适用于写科技类博客、即时聊天等演示需求多的场合，适合记不住 <code>Command + Shift + 4</code> 等快捷键的同学，适合截图后大多时候想继续编辑的同学，适合每次粘贴完都要再去桌面删除文件的同学……</p>
+<!-- TEASER_END -->
+
+<div class="toc">
+<ul>
+<li><a href="#_1">软件说明</a></li>
+<li><a href="#_2">缘起</a></li>
+<li><a href="#_3">探索</a></li>
+<li>
+<a href="#_4">总计</a><ul>
+<li><a href="#_5">建立命令：</a></li>
+<li><a href="#_6">使用方法：</a></li>
+</ul>
+</li>
+<li><a href="#_7">补充</a></li>
+<li><a href="#_8">后记</a></li>
+</ul>
+</div>
+<p>现在 dcap 使用频率还是蛮高的。甚至我还给它制作了一个图标，然后把它扔到 <code>Applications</code> 目录，通过 <code>Spotlight</code> 搜索启动。功能其实没啥可说的，3 秒钟内摆好姿势等待光标变成十字然后拍照，自动调用 <code>Preview</code> 进行编辑。若不想生成文件不想编辑，就拍照过程中按住 <code>control</code> 键强制输出到剪贴板。其它系统自带的截图功能它都有，比如按空格键切换窗口模式和框选模式，按 <code>shift</code>、<code>option</code> 等键锁定高宽长度不变……等等。</p>
+<p>原文最早发布于少数派社区。因第一次尝试 bash 脚本比较激动，文章写的比较啰嗦。现重新整理下，以作记录。对dcap制作过程感兴趣的同学，可以继续阅读以下全文。嫌麻烦的直接下载下面的链接就可以了～</p>
+<p><strong>现已更新至此, dcap下载链接：<a href="http://pan.baidu.com/s/1eQD0TFk" title="http://pan.baidu.com/s/1eQD0TFk">百度网盘下载</a></strong></p>
+<hr>
+<p><strong>以下为啰嗦的折腾过程：</strong></p>
+<h3 id="_2">缘起</h3>
+<p>之前看到少数派上<a href="http://sspai.com/27485">你不知道的 10 个 OS X 技巧</a>这篇文章，其中 Tip 10 提到截取 App Switcher 窗口的方法。</p>
+<p>但看上去就觉得好麻烦啊，而且完全没搞明白为啥需要支持 SSH 的 iOS 客户端（这意味着需要 iPhone/iPad 配合额外安装应用并开启相关设置，我就截个图啊至于么-_-#）。但该文章给了最重要的提示，原来 kill 还可以这么用！整个思路是这样的：将 App Switcher 相关进程暂停在那里等待你截图！那我们能不能直接在本机 Terminal 中输入 kill 命令让其暂停呢？经实际试验后得知快捷键调用 App Switcher 之后，完全没法在 Terminal 中进行任何操作啊 :( 这就是原文作者为啥蛋疼地引入SSH客户端的缘由了。那我们能不能在使用 App Switcher 的同时定时执行 kill -stop 命令呢？理论上应该可以。OK，那就开始干吧！</p>
+<h3 id="_3">探索</h3>
+<p>说起来容易，做起来难。对于一个刚接触 macOS 半年多的小白来说，根本不知道咋着手啊……嗯，听说 Automator 机器人好像很厉害？那就打开看看吧。可是打开 Actions Library 翻来翻去，好像就只有 <code>Run Shell Script</code>、<code>Set Value of Variable</code> 等貌似与我们有关联，可折腾来折腾去始终不得要领。摔啊！(T ^ T) 算了，反正都是通过 Terminal 命令执行，干脆直接试试写 shell 脚本吧。说起来神秘的 shell 脚本不过也就是命令的集合罢了。</p>
+<p>OK，一步一步来。<code>ps aux | grep Dock</code>获取进程ID，这命令早知道了。眼睛一瞅，嗯，进程 ID 看到了哇。但我们要自动化，自动化！好伐？！要从那一大坨输出文字中把 Dock ID 抓出来，想起来都头大。好在以前听高手说过 sed、awk 是神器。好吧，放狗搜索。…… 中间种种心酸就不一一说了，网络上各种鱼龙混杂，泥沙俱下，大家都懂得。好不容易找到几篇靠谱的文章，不能跳着看啊。挨个把人家示例命令敲一遍吧，看看是不是自己想要的。中间还顺道把正则、变量、条件、循环等等都看了下，然后组合－测试、组合－测试……Again and again.  终于！我们可以稳定得出自己想要的结果了！哦耶！</p>
+<p>接着试下，定时执行 <code>kill -stop</code> 命令。App Switcher 果然成功冻结，没问题！接下来就简单多了，我们已经知道有 screencapture 这个命令，执行 <code>screencapture -help</code> 看看有什么参数能让截图更智能吧。所有步骤测试无误后，把相关命令组装起来。最后结果令自己都大感吃惊，整个 shell 脚本只有短短的 6 行而已！真的按量计算的话，这投入产出比也太……不禁令人感慨啊 -_-#</p>
+<p>不管怎么样，脚本总算是运行起来喽。最终内容如下：</p>
+<pre class="code literal-block"><span></span><span class="o">[[</span> -d .dcap <span class="o">]]</span> <span class="o">||</span> mkdir .dcap
+sleep <span class="m">3</span>
+<span class="nv">Dockpid</span><span class="o">=</span><span class="k">$(</span>ps aux <span class="p">|</span> grep MacOS/Dock <span class="p">|</span> sort -k <span class="m">2</span> <span class="p">|</span> sed -e <span class="s1">'2,$d'</span> <span class="p">|</span> awk <span class="s1">'{print $2}'</span><span class="k">)</span>
+<span class="nb">kill</span> -stop <span class="nv">$Dockpid</span>
+screencapture -iP .dcap/DockCapt.png
+<span class="nb">kill</span> -cont <span class="nv">$Dockpid</span>
+</pre>
+
+
+<p>我们开始时的设想也终于实现了。接下来可以让它更简单些，这个东东我们以前也搞过类似的。</p>
+<pre class="code literal-block"><span></span><span class="err">mv dockcapt.sh .dockcapt</span>
+<span class="err">vim .bash_profile</span>
+</pre>
+
+
+<p>在该文件里面添加一行：</p>
+<pre class="code literal-block"><span></span><span class="err">alias dcap="sh ~/.dockcapt"</span>
+</pre>
+
+
+<p>:wq 打完收工！</p>
+<pre class="code literal-block"><span></span><span class="err">source .bash_profile</span>
+</pre>
+
+
+<p>这样我们就将所有东东组装为一个命令：<code>dcap</code>。并隐藏了繁琐的文件以及一些操作细节。</p>
+<p>测试一下，Terminal中直接执行 dcap 看看，已经支持 tab 补全了。</p>
+<p>附App Switcher截图一张：</p>
+<p><img alt="App Switcher截图" src="../../images/appswitcher.png"></p>
+<h3 id="_4">总计</h3>
+<p>OK，我们还是再总结(luosuo)下建立命令和使用方法好了：</p>
+<h4 id="_5">建立命令：</h4>
+<ol>
+<li>
+<p>Terminal 输入 vim .dockcapt</p>
+</li>
+<li>
+<p>复制上文脚本内容粘贴并:wq保存</p>
+</li>
+<li>
+<p>vim .bash_profile</p>
+</li>
+<li>
+<p>粘贴alias dcap='sh ~/.dockcapt'并:wq保存</p>
+</li>
+<li>
+<p>Terminal输入 source .bash_profile 或者重启 Terminal</p>
+</li>
+</ol>
+<h4 id="_6">使用方法：</h4>
+<blockquote>
+<p>Terminal 中输入 dcap 即可</p>
+</blockquote>
+<p>然后你有三秒钟的时间来启动 App Switcher，并调整好姿势（≧∇≦）</p>
+<p>等待光标变为十字就可以正常对 App Switcher 进行截图了。</p>
+<p>当然，截图过程中所有的辅助键都可以使用。比如空格键切换窗口模式和框选模式，Shift 键切换保持横/纵宽度不变。默认是截图完成后自动打开 Preview 以供编辑，当然你也可以按住 Control 键以强制输出到剪贴板。</p>
+<blockquote>
+<p>怎么样？经过上面的设置，以前看似无比麻烦的 App Switcher 截图是不是突然变得好简单了呢？真正实现了一行命令搞定 App Switcher 窗口截图！</p>
+</blockquote>
+<h3 id="_7">补充</h3>
+<p>以上设置对于 Terminal 常年开着装逼的用户(比如我=_=)来说，操作应该都不成问题。但对于大多数一看见 Terminal 窗口就六神无主的小小白来说，还是有点麻烦。接下来，我们来更进一步，以便让这篇文章被更多的小小白们看得懂并使用并传播！</p>
+<p>那就是：祭出之前提到的 Automator 机器人，将我们的脚本打包成 app 形式的应用。直接双击就可以使用，小小白们再也没有任何借口和理由了！</p>
+<p>打开 Automator，新建 Application：</p>
+<p><img alt="Automator创建应用" src="../../images/automatorcreate.png"></p>
+<p>拖进两个Actions：</p>
+<p><code>Ask for Confirmation</code> 和 <code>Run Shell Script</code></p>
+<p>具体内容设置直接看图，就不啰嗦了：</p>
+<p><img alt="Automator具体设置" src="../../images/automatoractionsforshell.png"></p>
+<p>保存，完毕！</p>
+<p>这样我们就可以直接双击运行了，效果如图：</p>
+<p><img alt="dcap运行效果" src="../../images/dcapsplash.png"></p>
+<p>到这里，我们一不小心就“写”了一个Mac OS X截图小应用。该应用可直接双击运行，可以到处拷贝传播。</p>
+<p>对于记不住 <code>Command + Shift + 4</code> 这类快捷键的用户来说绝对福音，就不多说了。而且截图之后可以自动调用 Preview 进行编辑，而且它比系统自带的截图功能更强大，可以截取 App Switcher 窗口呢！还可以通过 Spotlight 搜索直接启动呢……想想还有些小激动哩！(此处已经精神错乱，语无伦次了啊！ 囧rz)</p>
+<h3 id="_8">后记</h3>
+<p>此文章是对 App Switcher 窗口截图方法的补充和探讨，笔者接触 macOS 系统时间也不长。可能某些地方理解有误，或者有更好的截图方法，都烦请指出。</p>
+<p>最后感谢原文<a href="http://sspai.com/27485">你不知道的 10 个 OS X 技巧</a>提供的思路和启迪，也欢迎大家更多的使用技巧交流。</p>
+<p><del>可能有些人喜欢打包好的 dcap 多一些，所以我再优化下好饿</del></p>
+<p><del>更改启动时(有点讨厌的)弹窗为 Notification 方式，可能会有更多人使用？(^.^)链接： <a href="http://pan.baidu.com/s/1bEpOi">http://pan.baidu.com/s/1bEpOi</a></del></p>
+<p><strong>已默认禁用所有提示，并更换应用图标。如需了解更多，可直接用 Automator 打开 app 包以编辑或留言联系作者</strong></p>
+</div>
+        </div>
+    </div>
+    <div class="post-info">
+        <p>文章链接：<a href="https://macplay.github.io/posts/yi-xing-ming-ling-gao-ding-app-switcher-chuang-kou-jie-tu/" target="_blank">https://macplay.github.io/posts/yi-xing-ming-ling-gao-ding-app-switcher-chuang-kou-jie-tu/</a></p>
+        <p>发布/更新于：
+            <time datetime="2017-10-26 10:26:45 UTC+08:00">
+            2017-10-26 10:26
+            </time></p>
+        <p>版权声明：如无特别说明，本站文章均遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">CC BY-NC-SA 4.0</a> 协议，转载请注明作者及出处。</p>
+    </div>
+        <div class="post-navigation no-print">
+        <div class="ui huge secondary stackable menu">
+            <a class="post-nav-item post-nav-previous item" href="../shi-yong-applescript-shi-xian-xin-xi-pi-liang-fa-song-gong-neng/" title="Previous post"><i class="angle double left icon"></i> 使用 AppleScript 实现信息批量发送功能</a>
+        <div class="right menu">
+            <a class="post-nav-item post-nav-next item" href="../quickstart/" title="Next post">A reStructuredText Primer <i class="angle double right icon"></i></a>
+        </div>
+        </div>
+    </div>
+
+        <div id="gitalk-container" class="comments-block no-print"></div>
+</div>
+                    </div>
+                </main><div class="footer extra-block no-print">
+    <span class="footer_item">
+        <a href="../../pages/you-qing-lian-jie/">友情链接</a>
+    </span>
+    <span class="footer_item">
+        <a href="../../pages/liu-yan-ban/">留言板</a>
+    </span>
+    <span class="footer_item">
+        <a href="../../pages/ge-ren-dong-tai/">碎碎念</a>
+    </span>
+    </div>
+            <div class="footer social-link no-print">
+            <a href="https://github.com/ashfinal" target="_blank"><i class="grey large github icon"></i></a>
+            <a href="http://weibo.com/ashfinal/" target="_blank"><i class="grey large weibo icon"></i></a>
+            <a href="mailto://ashfinal@sina.cn" target="_blank"><i class="grey large mail icon"></i></a>
+            </div>
+        <div class="ui basic center aligned segment no-print">Contents © 2020         <a href="mailto:ashfinal@sina.cn">ashfinal</a> - Powered by         <a href="https://getnikola.com" target="_blank" rel="nofollow">Nikola</a>         </div>
+
+            </div>
+            <div class="computer only three wide column no-print">
+                <div id="right-side">
+                </div>
+            </div>
+        </div>
+
+        <!-- GoStats JavaScript Based Code -->
+        <script type="text/javascript">(function(c,o,m,p,u,t,e){
+        c['GoStatsObject']=u;c[u]=c[u]||function(){(c[u].q=c[u].q||[]).push(arguments)},
+        c[u].l=1*new Date();t=o.createElement(m);t.async=1;t.src=p;
+        e=o.getElementsByTagName(m)[0];e.parentNode.insertBefore(t,e);
+        })(window,document,'script','//www.gostats.org/5.js','go');
+        go('init',100479892,{'img_counter_type':5,'img_image_type':1});go('send');</script><!-- End GoStats JavaScript Based Code --><script type="text/javascript" src="../../assets/js/jquery-3.3.1.min.js"></script><script type="text/javascript" src="../../assets/js/semantic.min.js"></script><script type="text/javascript" src="../../assets/js/jquery.fancybox.min.js"></script><script type="text/javascript" src="../../assets/js/cookie.min.js"></script><script>
+            $(document).ready(function(){
+                $(".ui.dropdown").dropdown();
+                $('.ui.accordion').accordion();
+                var newstr = $('.cookie.nag').text();
+                $('.cookie.nag').nag({
+                    key: 'globalnotice',
+                    value: newstr
+                  });
+                $('.image-reference').fancybox();
+            });
+        </script><script src="../../assets/js/md5.min.js"></script><script src="../../assets/js/gitalk.min.js"></script><script>
+        const gitalk = new Gitalk({
+            clientID: '12fcda845097d895a24c',
+            clientSecret: '50ed60cde5f40897205197b4265b474cefbedc49',
+            repo: 'macplay.github.io',
+            owner: 'macplay',
+            admin: ['macplay', 'ashfinal'],
+            id: md5(window.location.pathname),
+            // facebook-like distraction free mode
+            distractionFreeMode: false
+        })
+        gitalk.render('gitalk-container')
+    </script>
+</body>
+</html>

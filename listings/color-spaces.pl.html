@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="zh_cn">
+<head>
+<meta charset="utf-8">
+<meta name="description" content="color-spaces.pl">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="generator" content="Nikola (getnikola.com)">
+<title>color-spaces.pl - MacPlay</title>
+<link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+<link rel="mask-icon" href="../safari-pinned-tab.svg" color="#5bbad5">
+<link href="../assets/css/semantic.min.css" rel="stylesheet" type="text/css">
+<link href="../assets/css/jquery.fancybox.min.css" rel="stylesheet" type="text/css">
+<link href="../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<link rel="canonical" href="https://macplay.github.io/listings/color-spaces.pl.html">
+</head>
+<body>
+        <div class="ui grid">
+            <div class="computer only three wide column no-print">
+                <div id="left-side">
+                </div>
+            </div>
+            <div class="ten wide computer sixteen wide tablet sixteen wide mobile column">
+                        <div class="ui inline cookie nag no-print">
+            <span class="title">从现在开始，支持中英双语及博文精选 O(∩_∩)O~~</span>
+            <i class="close icon"></i>
+        </div>
+    <header id="header" class="no-print"><div class="ui grid">
+        <div class="computer only tablet only sixteen wide column">
+            <div class="ui large secondary stackable menu">
+                <a class="header item brand-logo" href="https://macplay.github.io/">
+                    MacPlay
+                </a>
+                        <a class="item" href="../">Posts</a>
+                        <a class="item" href=".">Code</a>
+                        <a class="item" href="../galleries/">Gallery</a>
+                        <a class="item" href="../categories/">Tags</a>
+                        <a class="item" href="../archive.html">Archive</a>
+                <div class="right menu">
+                    <a class="item" href="../rss.xml"><i class="rss icon"></i>RSS</a>
+                </div>
+            </div>
+        </div>
+        <div class="mobile only sixteen wide column">
+            <div class="ui fluid accordion vertical menu">
+                <div class="item">
+                    <a class="title">MacPlay</a>
+                    <div class="content">
+                                <a class="item" href="../">Posts</a>
+                                <a class="item" href=".">Code</a>
+                                <a class="item" href="../galleries/">Gallery</a>
+                                <a class="item" href="../categories/">Tags</a>
+                                <a class="item" href="../archive.html">Archive</a>
+                        <a class="item" href="../rss.xml"><i class="rss icon"></i>RSS</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </header><main id="main"><div id="main-content">
+<div class="listingpage page-body" itemscope="itemscope" itemtype="http://schema.org/Article">
+    <div class="ui breadcrumb list-title">
+                <a href="." class="section">listings</a>
+                <div class="divider"> / </div>
+                <div class="section">
+                    color-spaces.pl
+                </div>
+    </div>
+
+        <p class="downloadlink">
+            <i class="download icon"></i><a href="color-spaces.pl">Download</a>
+        </p>
+        <div class="code"><table class="codetable">
+<tr>
+<td class="linenos linenodiv"><a href="#listingscolor-spacespl-1"><code data-line-number=" 1"></code></a></td>
+<td class="code"><code><a name="listingscolor-spacespl-1"></a><span class="s s-Atom">#</span><span class="p">!</span><span class="o">/</span><span class="s s-Atom">usr</span><span class="o">/</span><span class="s s-Atom">bin</span><span class="o">/</span><span class="s s-Atom">perl</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingscolor-spacespl-2"><code data-line-number=" 2"></code></a></td>
+<td class="code"><code><a name="listingscolor-spacespl-2"></a><span class="s s-Atom">#</span> <span class="nv">Author</span><span class="s s-Atom">:</span> <span class="nv">Todd</span> <span class="nv">Larason</span> <span class="o">&lt;</span><span class="s s-Atom">jtl@molehill</span><span class="p">.</span><span class="s s-Atom">org</span><span class="o">&gt;</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingscolor-spacespl-3"><code data-line-number=" 3"></code></a></td>
+<td class="code"><code><a name="listingscolor-spacespl-3"></a><span class="s s-Atom">#</span> <span class="err">$</span><span class="nv">XFree86</span><span class="s s-Atom">:</span> <span class="s s-Atom">xc</span><span class="o">/</span><span class="s s-Atom">programs</span><span class="o">/</span><span class="s s-Atom">xterm</span><span class="o">/</span><span class="s s-Atom">vttests</span><span class="o">/</span><span class="mi">256</span><span class="s s-Atom">colors2</span><span class="p">.</span><span class="s s-Atom">pl</span><span class="p">,</span><span class="s s-Atom">v</span> <span class="mf">1.1</span> <span class="mi">1999</span><span class="o">/</span><span class="mi">07</span><span class="o">/</span><span class="mi">11</span> <span class="mi">08</span><span class="s s-Atom">:</span><span class="mi">49</span><span class="s s-Atom">:</span><span class="mi">54</span> <span class="s s-Atom">dawes</span> <span class="nv">Exp</span> <span class="err">$</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingscolor-spacespl-4"><code data-line-number=" 4"></code></a></td>
+<td class="code"><code><a name="listingscolor-spacespl-4"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingscolor-spacespl-5"><code data-line-number=" 5"></code></a></td>
+<td class="code"><code><a name="listingscolor-spacespl-5"></a><span class="s s-Atom">print</span> <span class="s2">"256 color mode\n\n"</span><span class="p">;</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingscolor-spacespl-6"><code data-line-number=" 6"></code></a></td>
+<td class="code"><code><a name="listingscolor-spacespl-6"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingscolor-spacespl-7"><code data-line-number=" 7"></code></a></td>
+<td class="code"><code><a name="listingscolor-spacespl-7"></a><span class="s s-Atom">#</span> <span class="s s-Atom">display</span> <span class="s s-Atom">back</span> <span class="s s-Atom">ground</span> <span class="s s-Atom">colors</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingscolor-spacespl-8"><code data-line-number=" 8"></code></a></td>
+<td class="code"><code><a name="listingscolor-spacespl-8"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingscolor-spacespl-9"><code data-line-number=" 9"></code></a></td>
+<td class="code"><code><a name="listingscolor-spacespl-9"></a><span class="nf">for</span> <span class="p">(</span><span class="err">$</span><span class="s s-Atom">fgbg</span> <span class="o">=</span> <span class="mi">38</span><span class="p">;</span> <span class="err">$</span><span class="s s-Atom">fgbg</span> <span class="s s-Atom">&lt;=</span> <span class="mi">48</span><span class="p">;</span> <span class="err">$</span><span class="s s-Atom">fgbg</span> <span class="s s-Atom">+=</span><span class="mi">10</span><span class="p">)</span> <span class="p">{</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingscolor-spacespl-10"><code data-line-number="10"></code></a></td>
+<td class="code"><code><a name="listingscolor-spacespl-10"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingscolor-spacespl-11"><code data-line-number="11"></code></a></td>
+<td class="code"><code><a name="listingscolor-spacespl-11"></a><span class="s s-Atom">#</span> <span class="s s-Atom">first</span> <span class="s s-Atom">the</span> <span class="s s-Atom">system</span> <span class="nn">ones</span><span class="p">:</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingscolor-spacespl-12"><code data-line-number="12"></code></a></td>
+<td class="code"><code><a name="listingscolor-spacespl-12"></a><span class="s s-Atom">print</span> <span class="s2">"System colors:\n"</span><span class="p">;</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingscolor-spacespl-13"><code data-line-number="13"></code></a></td>
+<td class="code"><code><a name="listingscolor-spacespl-13"></a><span class="nf">for</span> <span class="p">(</span><span class="err">$</span><span class="s s-Atom">color</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="err">$</span><span class="s s-Atom">color</span> <span class="o">&lt;</span> <span class="mi">8</span><span class="p">;</span> <span class="err">$</span><span class="s s-Atom">color++</span><span class="p">)</span> <span class="p">{</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingscolor-spacespl-14"><code data-line-number="14"></code></a></td>
+<td class="code"><code><a name="listingscolor-spacespl-14"></a>    <span class="s s-Atom">print</span> <span class="err">"</span><span class="s s-Atom">\x1b</span><span class="p">[</span><span class="err">$</span><span class="p">{</span><span class="s s-Atom">fgbg</span><span class="p">};</span><span class="mi">5</span><span class="p">;</span><span class="err">$</span><span class="p">{</span><span class="s s-Atom">color</span><span class="p">}</span><span class="nn">m</span><span class="p">:</span><span class="s s-Atom">:</span><span class="s2">";</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingscolor-spacespl-15"><code data-line-number="15"></code></a></td>
+<td class="code"><code><a name="listingscolor-spacespl-15"></a><span class="s2">}</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingscolor-spacespl-16"><code data-line-number="16"></code></a></td>
+<td class="code"><code><a name="listingscolor-spacespl-16"></a><span class="s2">print "</span><span class="s s-Atom">\x1b</span><span class="p">[</span><span class="mi">0</span><span class="s s-Atom">m\n</span><span class="s2">";</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingscolor-spacespl-17"><code data-line-number="17"></code></a></td>
+<td class="code"><code><a name="listingscolor-spacespl-17"></a><span class="s2">for ($color = 8; $color &lt; 16; $color++) {</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingscolor-spacespl-18"><code data-line-number="18"></code></a></td>
+<td class="code"><code><a name="listingscolor-spacespl-18"></a><span class="s2">    print "</span><span class="s s-Atom">\x1b</span><span class="p">[</span><span class="err">$</span><span class="p">{</span><span class="s s-Atom">fgbg</span><span class="p">};</span><span class="mi">5</span><span class="p">;</span><span class="err">$</span><span class="p">{</span><span class="s s-Atom">color</span><span class="p">}</span><span class="nn">m</span><span class="p">:</span><span class="s s-Atom">:</span><span class="s2">";</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingscolor-spacespl-19"><code data-line-number="19"></code></a></td>
+<td class="code"><code><a name="listingscolor-spacespl-19"></a><span class="s2">}</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingscolor-spacespl-20"><code data-line-number="20"></code></a></td>
+<td class="code"><code><a name="listingscolor-spacespl-20"></a><span class="s2">print "</span><span class="s s-Atom">\x1b</span><span class="p">[</span><span class="mi">0</span><span class="s s-Atom">m\n\n</span><span class="s2">";</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingscolor-spacespl-21"><code data-line-number="21"></code></a></td>
+<td class="code"><code><a name="listingscolor-spacespl-21"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingscolor-spacespl-22"><code data-line-number="22"></code></a></td>
+<td class="code"><code><a name="listingscolor-spacespl-22"></a><span class="s2"># now the color cube</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingscolor-spacespl-23"><code data-line-number="23"></code></a></td>
+<td class="code"><code><a name="listingscolor-spacespl-23"></a><span class="s2">print "</span><span class="nv">Color</span> <span class="s s-Atom">cube</span><span class="p">,</span> <span class="mi">6</span><span class="s s-Atom">x6x6:\n</span><span class="s2">";</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingscolor-spacespl-24"><code data-line-number="24"></code></a></td>
+<td class="code"><code><a name="listingscolor-spacespl-24"></a><span class="s2">for ($green = 0; $green &lt; 6; $green++) {</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingscolor-spacespl-25"><code data-line-number="25"></code></a></td>
+<td class="code"><code><a name="listingscolor-spacespl-25"></a><span class="s2">    for ($red = 0; $red &lt; 6; $red++) {</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingscolor-spacespl-26"><code data-line-number="26"></code></a></td>
+<td class="code"><code><a name="listingscolor-spacespl-26"></a><span class="s2">	for ($blue = 0; $blue &lt; 6; $blue++) {</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingscolor-spacespl-27"><code data-line-number="27"></code></a></td>
+<td class="code"><code><a name="listingscolor-spacespl-27"></a><span class="s2">	    $color = 16 + ($red * 36) + ($green * 6) + $blue;</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingscolor-spacespl-28"><code data-line-number="28"></code></a></td>
+<td class="code"><code><a name="listingscolor-spacespl-28"></a><span class="s2">	    print "</span><span class="s s-Atom">\x1b</span><span class="p">[</span><span class="err">$</span><span class="p">{</span><span class="s s-Atom">fgbg</span><span class="p">};</span><span class="mi">5</span><span class="p">;</span><span class="err">$</span><span class="p">{</span><span class="s s-Atom">color</span><span class="p">}</span><span class="nn">m</span><span class="p">:</span><span class="s s-Atom">:</span><span class="s2">";</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingscolor-spacespl-29"><code data-line-number="29"></code></a></td>
+<td class="code"><code><a name="listingscolor-spacespl-29"></a><span class="s2">	}</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingscolor-spacespl-30"><code data-line-number="30"></code></a></td>
+<td class="code"><code><a name="listingscolor-spacespl-30"></a><span class="s2">	print "</span><span class="s s-Atom">\x1b</span><span class="p">[</span><span class="mi">0</span><span class="s s-Atom">m</span> <span class="s2">";</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingscolor-spacespl-31"><code data-line-number="31"></code></a></td>
+<td class="code"><code><a name="listingscolor-spacespl-31"></a><span class="s2">    }</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingscolor-spacespl-32"><code data-line-number="32"></code></a></td>
+<td class="code"><code><a name="listingscolor-spacespl-32"></a><span class="s2">    print "</span><span class="s s-Atom">\n</span><span class="s2">";</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingscolor-spacespl-33"><code data-line-number="33"></code></a></td>
+<td class="code"><code><a name="listingscolor-spacespl-33"></a><span class="s2">}</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingscolor-spacespl-34"><code data-line-number="34"></code></a></td>
+<td class="code"><code><a name="listingscolor-spacespl-34"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingscolor-spacespl-35"><code data-line-number="35"></code></a></td>
+<td class="code"><code><a name="listingscolor-spacespl-35"></a><span class="s2"># now the grayscale ramp</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingscolor-spacespl-36"><code data-line-number="36"></code></a></td>
+<td class="code"><code><a name="listingscolor-spacespl-36"></a><span class="s2">print "</span><span class="nv">Grayscale</span> <span class="nn">ramp</span><span class="p">:</span><span class="s s-Atom">\n</span><span class="s2">";</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingscolor-spacespl-37"><code data-line-number="37"></code></a></td>
+<td class="code"><code><a name="listingscolor-spacespl-37"></a><span class="s2">for ($color = 232; $color &lt; 256; $color++) {</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingscolor-spacespl-38"><code data-line-number="38"></code></a></td>
+<td class="code"><code><a name="listingscolor-spacespl-38"></a><span class="s2">    print "</span><span class="s s-Atom">\x1b</span><span class="p">[</span><span class="err">$</span><span class="p">{</span><span class="s s-Atom">fgbg</span><span class="p">};</span><span class="mi">5</span><span class="p">;</span><span class="err">$</span><span class="p">{</span><span class="s s-Atom">color</span><span class="p">}</span><span class="nn">m</span><span class="p">:</span><span class="s s-Atom">:</span><span class="s2">";</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingscolor-spacespl-39"><code data-line-number="39"></code></a></td>
+<td class="code"><code><a name="listingscolor-spacespl-39"></a><span class="s2">}</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingscolor-spacespl-40"><code data-line-number="40"></code></a></td>
+<td class="code"><code><a name="listingscolor-spacespl-40"></a><span class="s2">print "</span><span class="s s-Atom">\x1b</span><span class="p">[</span><span class="mi">0</span><span class="s s-Atom">m\n\n</span><span class="s2">";</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingscolor-spacespl-41"><code data-line-number="41"></code></a></td>
+<td class="code"><code><a name="listingscolor-spacespl-41"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingscolor-spacespl-42"><code data-line-number="42"></code></a></td>
+<td class="code"><code><a name="listingscolor-spacespl-42"></a><span class="s2">}</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingscolor-spacespl-43"><code data-line-number="43"></code></a></td>
+<td class="code"><code><a name="listingscolor-spacespl-43"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingscolor-spacespl-44"><code data-line-number="44"></code></a></td>
+<td class="code"><code><a name="listingscolor-spacespl-44"></a><span class="s2">print "</span><span class="nv">Examples</span> <span class="s s-Atom">for</span> <span class="s s-Atom">the</span> <span class="mi">3</span><span class="o">-</span><span class="s s-Atom">byte</span> <span class="s s-Atom">color</span> <span class="s s-Atom">mode\n\n</span><span class="s2">";</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingscolor-spacespl-45"><code data-line-number="45"></code></a></td>
+<td class="code"><code><a name="listingscolor-spacespl-45"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingscolor-spacespl-46"><code data-line-number="46"></code></a></td>
+<td class="code"><code><a name="listingscolor-spacespl-46"></a><span class="s2">for ($fgbg = 38; $fgbg &lt;= 48; $fgbg +=10) {</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingscolor-spacespl-47"><code data-line-number="47"></code></a></td>
+<td class="code"><code><a name="listingscolor-spacespl-47"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingscolor-spacespl-48"><code data-line-number="48"></code></a></td>
+<td class="code"><code><a name="listingscolor-spacespl-48"></a><span class="s2"># now the color cube</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingscolor-spacespl-49"><code data-line-number="49"></code></a></td>
+<td class="code"><code><a name="listingscolor-spacespl-49"></a><span class="s2">print "</span><span class="nv">Color</span> <span class="s s-Atom">cube\n</span><span class="s2">";</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingscolor-spacespl-50"><code data-line-number="50"></code></a></td>
+<td class="code"><code><a name="listingscolor-spacespl-50"></a><span class="s2">for ($green = 0; $green &lt; 256; $green+=51) {</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingscolor-spacespl-51"><code data-line-number="51"></code></a></td>
+<td class="code"><code><a name="listingscolor-spacespl-51"></a><span class="s2">    for ($red = 0; $red &lt; 256; $red+=51) {</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingscolor-spacespl-52"><code data-line-number="52"></code></a></td>
+<td class="code"><code><a name="listingscolor-spacespl-52"></a><span class="s2">	for ($blue = 0; $blue &lt; 256; $blue+=51) {</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingscolor-spacespl-53"><code data-line-number="53"></code></a></td>
+<td class="code"><code><a name="listingscolor-spacespl-53"></a><span class="s2">            print "</span><span class="s s-Atom">\x1b</span><span class="p">[</span><span class="err">$</span><span class="p">{</span><span class="s s-Atom">fgbg</span><span class="p">};</span><span class="mi">2</span><span class="p">;</span><span class="err">$</span><span class="p">{</span><span class="s s-Atom">red</span><span class="p">};</span><span class="err">$</span><span class="p">{</span><span class="s s-Atom">green</span><span class="p">};</span><span class="err">$</span><span class="p">{</span><span class="s s-Atom">blue</span><span class="p">}</span><span class="nn">m</span><span class="p">:</span><span class="s s-Atom">:</span><span class="s2">";</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingscolor-spacespl-54"><code data-line-number="54"></code></a></td>
+<td class="code"><code><a name="listingscolor-spacespl-54"></a><span class="s2">	}</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingscolor-spacespl-55"><code data-line-number="55"></code></a></td>
+<td class="code"><code><a name="listingscolor-spacespl-55"></a><span class="s2">	print "</span><span class="s s-Atom">\x1b</span><span class="p">[</span><span class="mi">0</span><span class="s s-Atom">m</span> <span class="s2">";</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingscolor-spacespl-56"><code data-line-number="56"></code></a></td>
+<td class="code"><code><a name="listingscolor-spacespl-56"></a><span class="s2">    }</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingscolor-spacespl-57"><code data-line-number="57"></code></a></td>
+<td class="code"><code><a name="listingscolor-spacespl-57"></a><span class="s2">    print "</span><span class="s s-Atom">\n</span><span class="s2">";</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingscolor-spacespl-58"><code data-line-number="58"></code></a></td>
+<td class="code"><code><a name="listingscolor-spacespl-58"></a><span class="s2">}</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingscolor-spacespl-59"><code data-line-number="59"></code></a></td>
+<td class="code"><code><a name="listingscolor-spacespl-59"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingscolor-spacespl-60"><code data-line-number="60"></code></a></td>
+<td class="code"><code><a name="listingscolor-spacespl-60"></a><span class="s2"># now the grayscale ramp</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingscolor-spacespl-61"><code data-line-number="61"></code></a></td>
+<td class="code"><code><a name="listingscolor-spacespl-61"></a><span class="s2">print "</span><span class="nv">Grayscale</span> <span class="nn">ramp</span><span class="p">:</span><span class="s s-Atom">\n</span><span class="s2">";</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingscolor-spacespl-62"><code data-line-number="62"></code></a></td>
+<td class="code"><code><a name="listingscolor-spacespl-62"></a><span class="s2">for ($gray = 8; $gray &lt; 256; $gray+=10) {</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingscolor-spacespl-63"><code data-line-number="63"></code></a></td>
+<td class="code"><code><a name="listingscolor-spacespl-63"></a><span class="s2">    print "</span><span class="s s-Atom">\x1b</span><span class="p">[</span><span class="err">$</span><span class="p">{</span><span class="s s-Atom">fgbg</span><span class="p">};</span><span class="mi">2</span><span class="p">;</span><span class="err">$</span><span class="p">{</span><span class="s s-Atom">gray</span><span class="p">};</span><span class="err">$</span><span class="p">{</span><span class="s s-Atom">gray</span><span class="p">};</span><span class="err">$</span><span class="p">{</span><span class="s s-Atom">gray</span><span class="p">}</span><span class="nn">m</span><span class="p">:</span><span class="s s-Atom">:</span><span class="s2">";</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingscolor-spacespl-64"><code data-line-number="64"></code></a></td>
+<td class="code"><code><a name="listingscolor-spacespl-64"></a><span class="s2">}</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingscolor-spacespl-65"><code data-line-number="65"></code></a></td>
+<td class="code"><code><a name="listingscolor-spacespl-65"></a><span class="s2">print "</span><span class="s s-Atom">\x1b</span><span class="p">[</span><span class="mi">0</span><span class="s s-Atom">m\n\n</span><span class="err">"</span><span class="p">;</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingscolor-spacespl-66"><code data-line-number="66"></code></a></td>
+<td class="code"><code><a name="listingscolor-spacespl-66"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingscolor-spacespl-67"><code data-line-number="67"></code></a></td>
+<td class="code"><code><a name="listingscolor-spacespl-67"></a><span class="p">}</span>
+</code></td>
+</tr>
+</table></div>
+</div>
+                    </div>
+                </main><div class="footer extra-block no-print">
+    <span class="footer_item">
+        <a href="../pages/you-qing-lian-jie/">友情链接</a>
+    </span>
+    <span class="footer_item">
+        <a href="../pages/liu-yan-ban/">留言板</a>
+    </span>
+    <span class="footer_item">
+        <a href="../pages/ge-ren-dong-tai/">碎碎念</a>
+    </span>
+    </div>
+            <div class="footer social-link no-print">
+            <a href="https://github.com/ashfinal" target="_blank"><i class="grey large github icon"></i></a>
+            <a href="http://weibo.com/ashfinal/" target="_blank"><i class="grey large weibo icon"></i></a>
+            <a href="mailto://ashfinal@sina.cn" target="_blank"><i class="grey large mail icon"></i></a>
+            </div>
+        <div class="ui basic center aligned segment no-print">Contents © 2020         <a href="mailto:ashfinal@sina.cn">ashfinal</a> - Powered by         <a href="https://getnikola.com" target="_blank" rel="nofollow">Nikola</a>         </div>
+
+            </div>
+            <div class="computer only three wide column no-print">
+                <div id="right-side">
+                </div>
+            </div>
+        </div>
+
+        <!-- GoStats JavaScript Based Code -->
+        <script type="text/javascript">(function(c,o,m,p,u,t,e){
+        c['GoStatsObject']=u;c[u]=c[u]||function(){(c[u].q=c[u].q||[]).push(arguments)},
+        c[u].l=1*new Date();t=o.createElement(m);t.async=1;t.src=p;
+        e=o.getElementsByTagName(m)[0];e.parentNode.insertBefore(t,e);
+        })(window,document,'script','//www.gostats.org/5.js','go');
+        go('init',100479892,{'img_counter_type':5,'img_image_type':1});go('send');</script><!-- End GoStats JavaScript Based Code --><script type="text/javascript" src="../assets/js/jquery-3.3.1.min.js"></script><script type="text/javascript" src="../assets/js/semantic.min.js"></script><script type="text/javascript" src="../assets/js/jquery.fancybox.min.js"></script><script type="text/javascript" src="../assets/js/cookie.min.js"></script><script>
+            $(document).ready(function(){
+                $(".ui.dropdown").dropdown();
+                $('.ui.accordion').accordion();
+                var newstr = $('.cookie.nag').text();
+                $('.cookie.nag').nag({
+                    key: 'globalnotice',
+                    value: newstr
+                  });
+                $('.image-reference').fancybox();
+            });
+        </script>
+</body>
+</html>

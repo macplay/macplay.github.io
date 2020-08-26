@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="generator" content="Nikola (getnikola.com)">
+<title>使用 AppleScript 实现信息批量发送功能 - MacPlay</title>
+<link rel="apple-touch-icon" sizes="180x180" href="../../../apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../../../favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../../../favicon-16x16.png">
+<link rel="mask-icon" href="../../../safari-pinned-tab.svg" color="#5bbad5">
+<link href="../../../assets/css/semantic.min.css" rel="stylesheet" type="text/css">
+<link href="../../../assets/css/jquery.fancybox.min.css" rel="stylesheet" type="text/css">
+<link href="../../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<link rel="canonical" href="https://macplay.github.io/en/posts/shi-yong-applescript-shi-xian-xin-xi-pi-liang-fa-song-gong-neng/">
+<meta name="author" content="ashfinal">
+<link rel="alternate" hreflang="zh_cn" href="../../../posts/shi-yong-applescript-shi-xian-xin-xi-pi-liang-fa-song-gong-neng/">
+<link rel="stylesheet" type="text/css" href="../../../assets/css/gitalk.css">
+</head>
+<body>
+        <div class="ui grid">
+            <div class="computer only three wide column no-print">
+                <div id="left-side">
+                </div>
+            </div>
+            <div class="ten wide computer sixteen wide tablet sixteen wide mobile column">
+                        <div class="ui inline cookie nag no-print">
+            <span class="title">从现在开始，支持中英双语及博文精选 O(∩_∩)O~~</span>
+            <i class="close icon"></i>
+        </div>
+    <header id="header" class="no-print"><div class="ui grid">
+        <div class="computer only tablet only sixteen wide column">
+            <div class="ui large secondary stackable menu">
+                <a class="header item brand-logo" href="https://macplay.github.io/en/">
+                    MacPlay
+                </a>
+                        <a class="item" href="../../../">Posts</a>
+                        <a class="item" href="../../../listings/">Code</a>
+                        <a class="item" href="../../../galleries/">Gallery</a>
+                        <a class="item" href="../../../categories/">Tags</a>
+                        <a class="item" href="../../../archive.html">Archive</a>
+                <div class="right menu">
+                    <a class="item" href="../../../rss.xml"><i class="rss icon"></i>RSS</a>
+                </div>
+            </div>
+        </div>
+        <div class="mobile only sixteen wide column">
+            <div class="ui fluid accordion vertical menu">
+                <div class="item">
+                    <a class="title">MacPlay</a>
+                    <div class="content">
+                                <a class="item" href="../../../">Posts</a>
+                                <a class="item" href="../../../listings/">Code</a>
+                                <a class="item" href="../../../galleries/">Gallery</a>
+                                <a class="item" href="../../../categories/">Tags</a>
+                                <a class="item" href="../../../archive.html">Archive</a>
+                        <a class="item" href="../../../rss.xml"><i class="rss icon"></i>RSS</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </header><main id="main"><div id="main-content">
+<div class="postpage post-text page-body" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <h1 class="post-title" itemprop="headline">
+        <a href=".">使用 AppleScript 实现信息批量发送功能</a>
+    </h1>
+
+    <div class="ui large horizontal link list post-meta">
+        <span class="item">By
+            <a href="../../authors/ashfinal/">ashfinal</a>
+        </span>
+            <span class="item">
+                <a href="https://github.com/macplay/macplay.github.io/edit/src/posts/shi-yong-applescript-shi-xian-xin-xi-pi-liang-fa-song-gong-neng.md" target="_blank" title="Edit on GitHub">Edit</a>
+            </span>
+        <span class="item">
+            <time datetime="2015-01-11T15:45:53+08:00">
+            2015-01-11 15:45
+            </time></span>
+            <span class="item">
+                    <a href="../../categories/applescript/">applescript</a>
+                    <a href="../../categories/macos/">macos</a>
+            </span>
+    </div>
+
+    
+    <div class="post-content" itemprop="article text">
+        <div id="post-content">
+        <div>
+<p>抽空又给自动举报脚本 spamshot 更新了一下。本来没啥好更新的，事实上自己水平有限 AppleScript 又那么多限制想折腾点啥大动静也折腾不起来。可一看到前一版本有些问题戳在眼跟前就忍不住要修复，这一“修复”不要紧就改那么两行不好意思发出去啊，还是增加点啥功能吧！加点啥呢？没想法没悬念啊，就前段时间微博上提过的批量发送功能吧。</p>
+<p>事实上，刚写 spamshot 时看到 Messages 的文档脑海里就闪过此念头，感觉应该是非常容易实现的。当时怕被滥用就没继续向下寻思，那就这次试试吧！事实证明也确实很简单，十几分钟就搞定了。其它时间基本是花在处理异常输入上。最后，批量发送的语法定为：想发送的信息*次数。简单吧？嘿嘿。</p>
+<!-- TEASER_END -->
+
+<p>Messages贴图：</p>
+<p><img alt="spamshot_floodattack" src="../../../images/spamshot_floodattack.png" title="spamshot_floodattack"></p>
+<p>以下为代码：</p>
+<pre class="code literal-block"><span></span><span class="k">if</span> <span class="s2">"*"</span> <span class="ow">is in</span> <span class="nv">theMessage</span> <span class="k">then</span>
+    <span class="k">set</span> <span class="no">AppleScript</span>'s <span class="no">text item delimiters</span> <span class="k">to</span> <span class="s2">"*"</span>
+    <span class="k">set</span> <span class="nv">multiby</span> <span class="k">to</span> <span class="nb">the</span> <span class="nb">last</span> <span class="nb">text</span> <span class="nb">item</span> <span class="k">of</span> <span class="nv">theMessage</span>
+    <span class="k">set</span> <span class="nv">multinum</span> <span class="k">to</span> <span class="mi">0</span>
+    <span class="k">try</span>
+        <span class="k">set</span> <span class="nv">multinum</span> <span class="k">to</span> <span class="nv">multiby</span> <span class="k">as</span> <span class="nv">integer</span>
+    <span class="k">end</span> <span class="k">try</span>
+    <span class="k">if</span> <span class="nv">multinum</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="k">then</span>
+        <span class="k">set</span> <span class="nv">msgslice</span> <span class="k">to</span> <span class="nb">text</span> <span class="nb">items</span> <span class="k">of</span> <span class="nv">theMessage</span>
+        <span class="k">set</span> <span class="nv">mscount</span> <span class="k">to</span> <span class="nb">count</span> <span class="k">of</span> <span class="nv">msgslice</span>
+        <span class="k">set</span> <span class="nv">mscontent</span> <span class="k">to</span> <span class="nb">text</span> <span class="nb">items</span> <span class="mi">1</span> <span class="nb">through</span> <span class="p">(</span><span class="nv">mscount</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="k">of</span> <span class="nv">msgslice</span> <span class="k">as </span><span class="nc">text</span>
+        <span class="k">ignoring </span><span class="nb">white space</span>
+            <span class="k">if</span> <span class="nv">mscontent</span> <span class="o">≠</span> <span class="s2">" "</span> <span class="k">then</span>
+                <span class="k">try</span>
+                    <span class="nb">display dialog</span> <span class="s2">"发送该内容 "</span> <span class="o">&amp;</span> <span class="nv">multinum</span> <span class="o">&amp;</span> <span class="s2">" 次？"</span> <span class="o">&amp;</span> <span class="no">return</span> <span class="o">&amp;</span> <span class="s2">"你可能会被对方举报！！！"</span> <span class="nb">buttons</span> <span class="p">{</span><span class="s2">"Cancel"</span><span class="p">,</span> <span class="s2">"OK"</span><span class="p">}</span> <span class="nv">default</span> <span class="nb">button</span> <span class="mi">1</span> <span class="nv">with</span> <span class="na">title</span> <span class="s2">"Are you sure?"</span> <span class="nv">with</span> <span class="nv">icon</span> <span class="nv">note</span> <span class="nv">giving</span> <span class="nv">up</span> <span class="nb">after</span> <span class="mi">5</span>
+                    <span class="k">if</span> <span class="na">button returned</span> <span class="k">of</span> <span class="nb">the</span> <span class="no">result</span> <span class="o">=</span> <span class="s2">"OK"</span> <span class="k">then</span>
+                        <span class="k">if</span> <span class="nv">multinum</span> <span class="o">&gt;</span> <span class="mi">10</span> <span class="k">then</span>
+                            <span class="nv">send</span> <span class="s2">"势不可用尽，用尽则祸必至；"</span> <span class="o">&amp;</span> <span class="no">return</span> <span class="o">&amp;</span> <span class="s2">"话不可说尽，说尽则人必易。"</span> <span class="k">to</span> <span class="nv">theChat</span>
+                            <span class="k">repeat</span> <span class="mi">10</span> <span class="k">times</span>
+                                <span class="nv">send</span> <span class="nv">mscontent</span> <span class="k">to</span> <span class="nv">theChat</span>
+                            <span class="k">end</span> <span class="k">repeat</span>
+                        <span class="k">else</span>
+                            <span class="k">repeat</span> <span class="nv">multinum</span> <span class="k">times</span>
+                                <span class="nv">send</span> <span class="nv">mscontent</span> <span class="k">to</span> <span class="nv">theChat</span>
+                            <span class="k">end</span> <span class="k">repeat</span>
+                        <span class="k">end</span> <span class="k">if</span>
+                        <span class="no">return</span> <span class="s2">" "</span>
+                    <span class="k">end</span> <span class="k">if</span>
+                <span class="nb">on</span> <span class="k">error</span> <span class="nv">eText1</span> <span class="nv">number</span> <span class="nv">eNum1</span>
+                    <span class="k">if</span> <span class="nv">eNum1</span> <span class="o">≠</span> <span class="o">-</span><span class="mi">128</span> <span class="k">then</span>
+                        <span class="nb">display dialog</span> <span class="s2">"Some errors happened: "</span> <span class="o">&amp;</span> <span class="nv">eNum1</span> <span class="o">&amp;</span> <span class="no">return</span> <span class="o">&amp;</span> <span class="nv">eText1</span> <span class="nb">buttons</span> <span class="p">{</span><span class="s2">"OK"</span><span class="p">}</span> <span class="nv">default</span> <span class="nb">button</span> <span class="mi">1</span> <span class="nv">with</span> <span class="nv">icon</span> <span class="nb">stop</span> <span class="nv">giving</span> <span class="nv">up</span> <span class="nb">after</span> <span class="mi">5</span>
+                        <span class="no">return</span> <span class="s2">" "</span>
+                    <span class="k">end</span> <span class="k">if</span>
+                <span class="k">end</span> <span class="k">try</span>
+            <span class="k">end</span> <span class="k">if</span>
+        <span class="k">end</span> <span class="k">ignoring</span>
+    <span class="k">end</span> <span class="k">if</span>
+<span class="k">end</span> <span class="k">if</span>
+</pre>
+
+
+<p>同时给加了个最多发送十次的限制，但基本是防一防小小白。不过也不必过分担心滥用，spamshot 到现在已经非常稳定，想要举报也是分分钟的事儿～ 更多希望是同事、朋友间逗逗乐子而已，无聊的时候调戏调戏 spamer 。。。</p>
+<p>其它更新的地方就是加了匿名举报选项，提高了垃圾信息接收时间的精确性，以及一些小问题的修复。。。更新点还真是少哇 -_-# 不过这次我保障 spamshot 没大 bug 的话，我再也不折腾了！！！</p>
+<p>回想起近一个月前开始写 spamshot 的时候，对 AppleScript 的了解还基本是零。边学边写就这么过来了，过程中发现 AppleScript 的很多问题。估计专业编程的都不会认为这是一门编程语言吧？大多不屑一顾怕玩这东西掉身价。还好我只是一名软件爱好者，毫无心理压力呀 -_-#</p>
+<p>AppleScript 的优势在于：与系统应用结合紧密，熟悉后半小时甚至几分钟内就能出成果。用来进行图片/PDF 处理、批量格式转换、日常文件管理、Office软件/Email 批量发送等等。刚才我又想到：过年过节还可以读取通讯录从祝福短信中随机挑一个发出去啊，保障每人收到的祝福都不一样，哈哈。</p>
+<p>使用过程最重要的还是要明白 AppleScript 的局限性在哪里，否则就会像我刚开始学那会儿痛苦异常 =_= 当然要强力的话 AppleScript 还可引入 objc，还可以用 javascript 写，但我肯定不会深入折腾。投入产出比太低，有空折腾折腾 office/email 方面的。</p>
+<p>废话貌似又写了不少，本来只想贴代码测试博客 AppleScript 语法高亮的。。。赶紧收手，贴图再想个文章标题！就酱～</p>
+<p><a href="http://pan.baidu.com/s/1eQD0TFk" title="http://pan.baidu.com/s/1eQD0TFk">百度网盘下载</a></p>
+</div>
+        </div>
+    </div>
+    <div class="post-info">
+        <p>文章链接：<a href="https://macplay.github.io/en/posts/shi-yong-applescript-shi-xian-xin-xi-pi-liang-fa-song-gong-neng/" target="_blank">https://macplay.github.io/en/posts/shi-yong-applescript-shi-xian-xin-xi-pi-liang-fa-song-gong-neng/</a></p>
+        <p>发布/更新于：
+            <time datetime="2017-10-26 11:45:53 UTC+08:00">
+            2017-10-26 11:45
+            </time></p>
+        <p>版权声明：如无特别说明，本站文章均遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">CC BY-NC-SA 4.0</a> 协议，转载请注明作者及出处。</p>
+    </div>
+        <div class="post-navigation no-print">
+        <div class="ui huge secondary stackable menu">
+            <a class="post-nav-item post-nav-previous item" href="../ru-he-zhi-zuo-he-geng-huan-macos-ying-yong-tu-biao/" title="Previous post"><i class="angle double left icon"></i> 如何制作和更换 macOS 应用图标</a>
+        <div class="right menu">
+            <a class="post-nav-item post-nav-next item" href="../yi-xing-ming-ling-gao-ding-app-switcher-chuang-kou-jie-tu/" title="Next post">一行命令搞定 App Switcher 窗口截图 <i class="angle double right icon"></i></a>
+        </div>
+        </div>
+    </div>
+
+        <div id="gitalk-container" class="comments-block no-print"></div>
+</div>
+                    </div>
+                </main><div class="footer extra-block no-print">
+    <span class="footer_item">
+        <a href="../../../pages/you-qing-lian-jie/">友情链接</a>
+    </span>
+    <span class="footer_item">
+        <a href="../../../pages/liu-yan-ban/">留言板</a>
+    </span>
+    <span class="footer_item">
+        <a href="../../../pages/ge-ren-dong-tai/">碎碎念</a>
+    </span>
+    </div>
+            <div class="footer social-link no-print">
+            <a href="https://github.com/ashfinal" target="_blank"><i class="grey large github icon"></i></a>
+            <a href="http://weibo.com/ashfinal/" target="_blank"><i class="grey large weibo icon"></i></a>
+            <a href="mailto://ashfinal@sina.cn" target="_blank"><i class="grey large mail icon"></i></a>
+            </div>
+        <div class="ui basic center aligned segment no-print">Contents © 2020         <a href="mailto:ashfinal@sina.cn">ashfinal</a> - Powered by         <a href="https://getnikola.com" target="_blank" rel="nofollow">Nikola</a>         </div>
+
+            </div>
+            <div class="computer only three wide column no-print">
+                <div id="right-side">
+                </div>
+            </div>
+        </div>
+
+        <!-- GoStats JavaScript Based Code -->
+        <script type="text/javascript">(function(c,o,m,p,u,t,e){
+        c['GoStatsObject']=u;c[u]=c[u]||function(){(c[u].q=c[u].q||[]).push(arguments)},
+        c[u].l=1*new Date();t=o.createElement(m);t.async=1;t.src=p;
+        e=o.getElementsByTagName(m)[0];e.parentNode.insertBefore(t,e);
+        })(window,document,'script','//www.gostats.org/5.js','go');
+        go('init',100479892,{'img_counter_type':5,'img_image_type':1});go('send');</script><!-- End GoStats JavaScript Based Code --><script type="text/javascript" src="../../../assets/js/jquery-3.3.1.min.js"></script><script type="text/javascript" src="../../../assets/js/semantic.min.js"></script><script type="text/javascript" src="../../../assets/js/jquery.fancybox.min.js"></script><script type="text/javascript" src="../../../assets/js/cookie.min.js"></script><script>
+            $(document).ready(function(){
+                $(".ui.dropdown").dropdown();
+                $('.ui.accordion').accordion();
+                var newstr = $('.cookie.nag').text();
+                $('.cookie.nag').nag({
+                    key: 'globalnotice',
+                    value: newstr
+                  });
+                $('.image-reference').fancybox();
+            });
+        </script><script src="../../../assets/js/md5.min.js"></script><script src="../../../assets/js/gitalk.min.js"></script><script>
+        const gitalk = new Gitalk({
+            clientID: '12fcda845097d895a24c',
+            clientSecret: '50ed60cde5f40897205197b4265b474cefbedc49',
+            repo: 'macplay.github.io',
+            owner: 'macplay',
+            admin: ['macplay', 'ashfinal'],
+            id: md5(window.location.pathname),
+            // facebook-like distraction free mode
+            distractionFreeMode: false
+        })
+        gitalk.render('gitalk-container')
+    </script>
+</body>
+</html>

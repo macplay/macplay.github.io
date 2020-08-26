@@ -1,0 +1,2137 @@
+<!DOCTYPE html>
+<html lang="zh_cn">
+<head>
+<meta charset="utf-8">
+<meta name="description" content="mpd.conf">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="generator" content="Nikola (getnikola.com)">
+<title>mpd.conf - MacPlay</title>
+<link rel="apple-touch-icon" sizes="180x180" href="../../../apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../../../favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../../../favicon-16x16.png">
+<link rel="mask-icon" href="../../../safari-pinned-tab.svg" color="#5bbad5">
+<link href="../../../assets/css/semantic.min.css" rel="stylesheet" type="text/css">
+<link href="../../../assets/css/jquery.fancybox.min.css" rel="stylesheet" type="text/css">
+<link href="../../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<link rel="canonical" href="https://macplay.github.io/listings/manjaro/mpd/mpd.conf.html">
+</head>
+<body>
+        <div class="ui grid">
+            <div class="computer only three wide column no-print">
+                <div id="left-side">
+                </div>
+            </div>
+            <div class="ten wide computer sixteen wide tablet sixteen wide mobile column">
+                        <div class="ui inline cookie nag no-print">
+            <span class="title">从现在开始，支持中英双语及博文精选 O(∩_∩)O~~</span>
+            <i class="close icon"></i>
+        </div>
+    <header id="header" class="no-print"><div class="ui grid">
+        <div class="computer only tablet only sixteen wide column">
+            <div class="ui large secondary stackable menu">
+                <a class="header item brand-logo" href="https://macplay.github.io/">
+                    MacPlay
+                </a>
+                        <a class="item" href="../../../">Posts</a>
+                        <a class="item" href="../../">Code</a>
+                        <a class="item" href="../../../galleries/">Gallery</a>
+                        <a class="item" href="../../../categories/">Tags</a>
+                        <a class="item" href="../../../archive.html">Archive</a>
+                <div class="right menu">
+                    <a class="item" href="../../../rss.xml"><i class="rss icon"></i>RSS</a>
+                </div>
+            </div>
+        </div>
+        <div class="mobile only sixteen wide column">
+            <div class="ui fluid accordion vertical menu">
+                <div class="item">
+                    <a class="title">MacPlay</a>
+                    <div class="content">
+                                <a class="item" href="../../../">Posts</a>
+                                <a class="item" href="../../">Code</a>
+                                <a class="item" href="../../../galleries/">Gallery</a>
+                                <a class="item" href="../../../categories/">Tags</a>
+                                <a class="item" href="../../../archive.html">Archive</a>
+                        <a class="item" href="../../../rss.xml"><i class="rss icon"></i>RSS</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </header><main id="main"><div id="main-content">
+<div class="listingpage page-body" itemscope="itemscope" itemtype="http://schema.org/Article">
+    <div class="ui breadcrumb list-title">
+                <a href="../../" class="section">listings</a>
+                <div class="divider"> / </div>
+                <a href="../" class="section">manjaro</a>
+                <div class="divider"> / </div>
+                <a href="." class="section">mpd</a>
+                <div class="divider"> / </div>
+                <div class="section">
+                    mpd.conf
+                </div>
+    </div>
+
+        <p class="downloadlink">
+            <i class="download icon"></i><a href="mpd.conf">Download</a>
+        </p>
+        <div class="code"><table class="codetable">
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-1"><code data-line-number="  1"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-1"></a><span class="err">#</span><span class="w"> </span><span class="n">An</span><span class="w"> </span><span class="n">example</span><span class="w"> </span><span class="n">configuration</span><span class="w"> </span><span class="k">file</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">MPD</span><span class="p">.</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-2"><code data-line-number="  2"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-2"></a><span class="err">#</span><span class="w"> </span><span class="k">Read</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="k">user</span><span class="w"> </span><span class="n">manual</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nl">documentation</span><span class="p">:</span><span class="w"> </span><span class="nl">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">musicpd</span><span class="p">.</span><span class="n">org</span><span class="o">/</span><span class="n">doc</span><span class="o">/</span><span class="k">user</span><span class="o">/</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-3"><code data-line-number="  3"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-3"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-4"><code data-line-number="  4"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-4"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-5"><code data-line-number="  5"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-5"></a><span class="err">#</span><span class="w"> </span><span class="n">Files</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">directories</span><span class="w"> </span><span class="err">#######################################################</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-6"><code data-line-number="  6"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-6"></a><span class="err">#</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-7"><code data-line-number="  7"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-7"></a><span class="err">#</span><span class="w"> </span><span class="n">This</span><span class="w"> </span><span class="n">setting</span><span class="w"> </span><span class="n">controls</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="k">top</span><span class="w"> </span><span class="n">directory</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">MPD</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="k">search</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">discover</span><span class="w"> </span><span class="n">the</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-8"><code data-line-number="  8"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-8"></a><span class="err">#</span><span class="w"> </span><span class="n">available</span><span class="w"> </span><span class="n">audio</span><span class="w"> </span><span class="n">files</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="k">add</span><span class="w"> </span><span class="n">them</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">daemon</span><span class="s1">'s online database. This</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-9"><code data-line-number="  9"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-9"></a><span class="s1"># setting defaults to the XDG directory, otherwise the music directory will be</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-10"><code data-line-number=" 10"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-10"></a><span class="s1"># be disabled and audio files will only be accepted over ipc socket (using</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-11"><code data-line-number=" 11"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-11"></a><span class="s1"># file:// protocol) or streaming files over an accepted protocol.</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-12"><code data-line-number=" 12"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-12"></a><span class="s1">#</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-13"><code data-line-number=" 13"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-13"></a><span class="s1">music_directory		"~/Music"</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-14"><code data-line-number=" 14"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-14"></a><span class="s1">#</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-15"><code data-line-number=" 15"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-15"></a><span class="s1"># This setting sets the MPD internal playlist directory. The purpose of this</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-16"><code data-line-number=" 16"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-16"></a><span class="s1"># directory is storage for playlists created by MPD. The server will use</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-17"><code data-line-number=" 17"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-17"></a><span class="s1"># playlist files not created by the server but only if they are in the MPD</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-18"><code data-line-number=" 18"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-18"></a><span class="s1"># format. This setting defaults to playlist saving being disabled.</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-19"><code data-line-number=" 19"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-19"></a><span class="s1">#</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-20"><code data-line-number=" 20"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-20"></a><span class="s1">playlist_directory		"~/.config/mpd/playlists"</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-21"><code data-line-number=" 21"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-21"></a><span class="s1">#</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-22"><code data-line-number=" 22"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-22"></a><span class="s1"># This setting sets the location of the MPD database. This file is used to</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-23"><code data-line-number=" 23"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-23"></a><span class="s1"># load the database at server start up and store the database while the</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-24"><code data-line-number=" 24"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-24"></a><span class="s1"># server is not up. This setting defaults to disabled which will allow</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-25"><code data-line-number=" 25"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-25"></a><span class="s1"># MPD to accept files over ipc socket (using file:// protocol) or streaming</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-26"><code data-line-number=" 26"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-26"></a><span class="s1"># files over an accepted protocol.</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-27"><code data-line-number=" 27"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-27"></a><span class="s1">#</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-28"><code data-line-number=" 28"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-28"></a><span class="s1">db_file			"~/.config/mpd/database"</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-29"><code data-line-number=" 29"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-29"></a><span class="s1">#</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-30"><code data-line-number=" 30"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-30"></a><span class="s1"># These settings are the locations for the daemon log files for the daemon.</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-31"><code data-line-number=" 31"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-31"></a><span class="s1"># These logs are great for troubleshooting, depending on your log_level</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-32"><code data-line-number=" 32"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-32"></a><span class="s1"># settings.</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-33"><code data-line-number=" 33"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-33"></a><span class="s1">#</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-34"><code data-line-number=" 34"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-34"></a><span class="s1"># The special value "syslog" makes MPD use the local syslog daemon. This</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-35"><code data-line-number=" 35"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-35"></a><span class="s1"># setting defaults to logging to syslog, otherwise logging is disabled.</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-36"><code data-line-number=" 36"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-36"></a><span class="s1">#</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-37"><code data-line-number=" 37"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-37"></a><span class="s1">log_file			"~/.config/mpd/log"</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-38"><code data-line-number=" 38"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-38"></a><span class="s1">#</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-39"><code data-line-number=" 39"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-39"></a><span class="s1"># This setting sets the location of the file which stores the process ID</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-40"><code data-line-number=" 40"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-40"></a><span class="s1"># for use of mpd --kill and some init scripts. This setting is disabled by</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-41"><code data-line-number=" 41"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-41"></a><span class="s1"># default and the pid file will not be stored.</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-42"><code data-line-number=" 42"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-42"></a><span class="s1">#</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-43"><code data-line-number=" 43"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-43"></a><span class="s1">pid_file			"~/.config/mpd/pid"</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-44"><code data-line-number=" 44"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-44"></a><span class="s1">#</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-45"><code data-line-number=" 45"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-45"></a><span class="s1"># This setting sets the location of the file which contains information about</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-46"><code data-line-number=" 46"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-46"></a><span class="s1"># most variables to get MPD back into the same general shape it was in before</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-47"><code data-line-number=" 47"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-47"></a><span class="s1"># it was brought down. This setting is disabled by default and the server</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-48"><code data-line-number=" 48"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-48"></a><span class="s1"># state will be reset on server start up.</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-49"><code data-line-number=" 49"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-49"></a><span class="s1">#</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-50"><code data-line-number=" 50"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-50"></a><span class="s1">state_file			"~/.config/mpd/state"</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-51"><code data-line-number=" 51"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-51"></a><span class="s1">#</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-52"><code data-line-number=" 52"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-52"></a><span class="s1"># The location of the sticker database.  This is a database which</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-53"><code data-line-number=" 53"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-53"></a><span class="s1"># manages dynamic information attached to songs.</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-54"><code data-line-number=" 54"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-54"></a><span class="s1">#</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-55"><code data-line-number=" 55"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-55"></a><span class="s1">sticker_file			"~/.config/mpd/sticker.sql"</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-56"><code data-line-number=" 56"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-56"></a><span class="s1">#</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-57"><code data-line-number=" 57"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-57"></a><span class="s1">###############################################################################</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-58"><code data-line-number=" 58"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-58"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-59"><code data-line-number=" 59"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-59"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-60"><code data-line-number=" 60"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-60"></a><span class="s1"># General music daemon options ################################################</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-61"><code data-line-number=" 61"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-61"></a><span class="s1">#</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-62"><code data-line-number=" 62"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-62"></a><span class="s1"># This setting specifies the user that MPD will run as. MPD should never run as</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-63"><code data-line-number=" 63"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-63"></a><span class="s1"># root and you may use this setting to make MPD change its user ID after</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-64"><code data-line-number=" 64"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-64"></a><span class="s1"># initialization. This setting is disabled by default and MPD is run as the</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-65"><code data-line-number=" 65"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-65"></a><span class="s1"># current user.</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-66"><code data-line-number=" 66"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-66"></a><span class="s1">#</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-67"><code data-line-number=" 67"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-67"></a><span class="s1">#user				"nobody"</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-68"><code data-line-number=" 68"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-68"></a><span class="s1">#</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-69"><code data-line-number=" 69"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-69"></a><span class="s1"># This setting specifies the group that MPD will run as. If not specified</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-70"><code data-line-number=" 70"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-70"></a><span class="s1"># primary group of user specified with "user" setting will be used (if set).</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-71"><code data-line-number=" 71"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-71"></a><span class="s1"># This is useful if MPD needs to be a member of group such as "audio" to</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-72"><code data-line-number=" 72"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-72"></a><span class="s1"># have permission to use sound card.</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-73"><code data-line-number=" 73"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-73"></a><span class="s1">#</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-74"><code data-line-number=" 74"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-74"></a><span class="s1">#group				"nogroup"</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-75"><code data-line-number=" 75"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-75"></a><span class="s1">#</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-76"><code data-line-number=" 76"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-76"></a><span class="s1"># This setting sets the address for the daemon to listen on. Careful attention</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-77"><code data-line-number=" 77"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-77"></a><span class="s1"># should be paid if this is assigned to anything other then the default, any.</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-78"><code data-line-number=" 78"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-78"></a><span class="s1"># This setting can deny access to control of the daemon. Not effective if</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-79"><code data-line-number=" 79"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-79"></a><span class="s1"># systemd socket activiation is in use.</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-80"><code data-line-number=" 80"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-80"></a><span class="s1">#</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-81"><code data-line-number=" 81"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-81"></a><span class="s1"># For network</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-82"><code data-line-number=" 82"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-82"></a><span class="s1">#bind_to_address		"any"</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-83"><code data-line-number=" 83"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-83"></a><span class="s1">#</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-84"><code data-line-number=" 84"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-84"></a><span class="s1"># And for Unix Socket</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-85"><code data-line-number=" 85"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-85"></a><span class="s1"># bind_to_address		"~/.config/mpd/socket"</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-86"><code data-line-number=" 86"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-86"></a><span class="s1">#</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-87"><code data-line-number=" 87"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-87"></a><span class="s1"># This setting is the TCP port that is desired for the daemon to get assigned</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-88"><code data-line-number=" 88"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-88"></a><span class="s1"># to.</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-89"><code data-line-number=" 89"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-89"></a><span class="s1">#</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-90"><code data-line-number=" 90"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-90"></a><span class="s1">#port				"6600"</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-91"><code data-line-number=" 91"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-91"></a><span class="s1">#</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-92"><code data-line-number=" 92"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-92"></a><span class="s1"># This setting controls the type of information which is logged. Available</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-93"><code data-line-number=" 93"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-93"></a><span class="s1"># setting arguments are "default", "secure" or "verbose". The "verbose" setting</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-94"><code data-line-number=" 94"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-94"></a><span class="s1"># argument is recommended for troubleshooting, though can quickly stretch</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-95"><code data-line-number=" 95"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-95"></a><span class="s1"># available resources on limited hardware storage.</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-96"><code data-line-number=" 96"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-96"></a><span class="s1">#</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-97"><code data-line-number=" 97"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-97"></a><span class="s1">#log_level			"default"</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-98"><code data-line-number=" 98"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-98"></a><span class="s1">#</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-99"><code data-line-number=" 99"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-99"></a><span class="s1"># If you have a problem with your MP3s ending abruptly it is recommended that</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-100"><code data-line-number="100"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-100"></a><span class="s1"># you set this argument to "no" to attempt to fix the problem. If this solves</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-101"><code data-line-number="101"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-101"></a><span class="s1"># the problem, it is highly recommended to fix the MP3 files with vbrfix</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-102"><code data-line-number="102"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-102"></a><span class="s1"># (available from &lt;http://www.willwap.co.uk/Programs/vbrfix.php&gt;), at which</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-103"><code data-line-number="103"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-103"></a><span class="s1"># point gapless MP3 playback can be enabled.</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-104"><code data-line-number="104"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-104"></a><span class="s1">#</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-105"><code data-line-number="105"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-105"></a><span class="s1">#gapless_mp3_playback			"yes"</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-106"><code data-line-number="106"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-106"></a><span class="s1">#</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-107"><code data-line-number="107"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-107"></a><span class="s1"># Setting "restore_paused" to "yes" puts MPD into pause mode instead</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-108"><code data-line-number="108"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-108"></a><span class="s1"># of starting playback after startup.</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-109"><code data-line-number="109"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-109"></a><span class="s1">#</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-110"><code data-line-number="110"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-110"></a><span class="s1">#restore_paused "no"</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-111"><code data-line-number="111"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-111"></a><span class="s1">#</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-112"><code data-line-number="112"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-112"></a><span class="s1"># This setting enables MPD to create playlists in a format usable by other</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-113"><code data-line-number="113"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-113"></a><span class="s1"># music players.</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-114"><code data-line-number="114"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-114"></a><span class="s1">#</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-115"><code data-line-number="115"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-115"></a><span class="s1">#save_absolute_paths_in_playlists	"no"</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-116"><code data-line-number="116"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-116"></a><span class="s1">#</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-117"><code data-line-number="117"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-117"></a><span class="s1"># This setting defines a list of tag types that will be extracted during the</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-118"><code data-line-number="118"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-118"></a><span class="s1"># audio file discovery process. The complete list of possible values can be</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-119"><code data-line-number="119"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-119"></a><span class="s1"># found in the user manual.</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-120"><code data-line-number="120"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-120"></a><span class="s1">#metadata_to_use	"artist,album,title,track,name,genre,date,composer,performer,disc"</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-121"><code data-line-number="121"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-121"></a><span class="s1">#</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-122"><code data-line-number="122"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-122"></a><span class="s1"># This setting enables automatic update of MPD'</span><span class="n">s</span><span class="w"> </span><span class="k">database</span><span class="w"> </span><span class="k">when</span><span class="w"> </span><span class="n">files</span><span class="w"> </span><span class="ow">in</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-123"><code data-line-number="123"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-123"></a><span class="err">#</span><span class="w"> </span><span class="n">music_directory</span><span class="w"> </span><span class="k">are</span><span class="w"> </span><span class="n">changed</span><span class="p">.</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-124"><code data-line-number="124"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-124"></a><span class="err">#</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-125"><code data-line-number="125"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-125"></a><span class="n">#auto_update</span><span class="w">	</span><span class="ss">"yes"</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-126"><code data-line-number="126"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-126"></a><span class="err">#</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-127"><code data-line-number="127"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-127"></a><span class="err">#</span><span class="w"> </span><span class="k">Limit</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="k">depth</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">directories</span><span class="w"> </span><span class="n">being</span><span class="w"> </span><span class="n">watched</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="n">means</span><span class="w"> </span><span class="k">only</span><span class="w"> </span><span class="n">watch</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-128"><code data-line-number="128"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-128"></a><span class="err">#</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">music</span><span class="w"> </span><span class="n">directory</span><span class="w"> </span><span class="n">itself</span><span class="p">.</span><span class="w">  </span><span class="n">There</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="k">no</span><span class="w"> </span><span class="k">limit</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="k">default</span><span class="p">.</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-129"><code data-line-number="129"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-129"></a><span class="err">#</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-130"><code data-line-number="130"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-130"></a><span class="n">#auto_update_depth</span><span class="w"> </span><span class="ss">"3"</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-131"><code data-line-number="131"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-131"></a><span class="err">#</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-132"><code data-line-number="132"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-132"></a><span class="err">###############################################################################</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-133"><code data-line-number="133"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-133"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-134"><code data-line-number="134"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-134"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-135"><code data-line-number="135"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-135"></a><span class="err">#</span><span class="w"> </span><span class="n">Symbolic</span><span class="w"> </span><span class="n">link</span><span class="w"> </span><span class="n">behavior</span><span class="w"> </span><span class="err">######################################################</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-136"><code data-line-number="136"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-136"></a><span class="err">#</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-137"><code data-line-number="137"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-137"></a><span class="err">#</span><span class="w"> </span><span class="k">If</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">setting</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="ss">"yes"</span><span class="p">,</span><span class="w"> </span><span class="n">MPD</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">discover</span><span class="w"> </span><span class="n">audio</span><span class="w"> </span><span class="n">files</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">following</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-138"><code data-line-number="138"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-138"></a><span class="err">#</span><span class="w"> </span><span class="n">symbolic</span><span class="w"> </span><span class="n">links</span><span class="w"> </span><span class="n">outside</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">configured</span><span class="w"> </span><span class="n">music_directory</span><span class="p">.</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-139"><code data-line-number="139"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-139"></a><span class="err">#</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-140"><code data-line-number="140"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-140"></a><span class="n">#follow_outside_symlinks</span><span class="w">	</span><span class="ss">"yes"</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-141"><code data-line-number="141"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-141"></a><span class="err">#</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-142"><code data-line-number="142"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-142"></a><span class="err">#</span><span class="w"> </span><span class="k">If</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">setting</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="ss">"yes"</span><span class="p">,</span><span class="w"> </span><span class="n">MPD</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">discover</span><span class="w"> </span><span class="n">audio</span><span class="w"> </span><span class="n">files</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">following</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-143"><code data-line-number="143"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-143"></a><span class="err">#</span><span class="w"> </span><span class="n">symbolic</span><span class="w"> </span><span class="n">links</span><span class="w"> </span><span class="n">inside</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">configured</span><span class="w"> </span><span class="n">music_directory</span><span class="p">.</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-144"><code data-line-number="144"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-144"></a><span class="err">#</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-145"><code data-line-number="145"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-145"></a><span class="n">#follow_inside_symlinks</span><span class="w">		</span><span class="ss">"yes"</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-146"><code data-line-number="146"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-146"></a><span class="err">#</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-147"><code data-line-number="147"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-147"></a><span class="err">###############################################################################</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-148"><code data-line-number="148"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-148"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-149"><code data-line-number="149"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-149"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-150"><code data-line-number="150"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-150"></a><span class="err">#</span><span class="w"> </span><span class="n">Zeroconf</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">Avahi</span><span class="w"> </span><span class="n">Service</span><span class="w"> </span><span class="n">Discovery</span><span class="w"> </span><span class="err">##########################################</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-151"><code data-line-number="151"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-151"></a><span class="err">#</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-152"><code data-line-number="152"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-152"></a><span class="err">#</span><span class="w"> </span><span class="k">If</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">setting</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="ss">"yes"</span><span class="p">,</span><span class="w"> </span><span class="n">service</span><span class="w"> </span><span class="n">information</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">published</span><span class="w"> </span><span class="k">with</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-153"><code data-line-number="153"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-153"></a><span class="err">#</span><span class="w"> </span><span class="n">Zeroconf</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">Avahi</span><span class="p">.</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-154"><code data-line-number="154"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-154"></a><span class="err">#</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-155"><code data-line-number="155"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-155"></a><span class="n">#zeroconf_enabled</span><span class="w">		</span><span class="ss">"yes"</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-156"><code data-line-number="156"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-156"></a><span class="err">#</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-157"><code data-line-number="157"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-157"></a><span class="err">#</span><span class="w"> </span><span class="n">The</span><span class="w"> </span><span class="n">argument</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">setting</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">Zeroconf</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">Avahi</span><span class="w"> </span><span class="k">unique</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="k">for</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-158"><code data-line-number="158"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-158"></a><span class="err">#</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">MPD</span><span class="w"> </span><span class="n">server</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">network</span><span class="p">.</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-159"><code data-line-number="159"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-159"></a><span class="err">#</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-160"><code data-line-number="160"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-160"></a><span class="n">#zeroconf_name</span><span class="w">			</span><span class="ss">"Music Player"</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-161"><code data-line-number="161"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-161"></a><span class="err">#</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-162"><code data-line-number="162"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-162"></a><span class="err">###############################################################################</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-163"><code data-line-number="163"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-163"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-164"><code data-line-number="164"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-164"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-165"><code data-line-number="165"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-165"></a><span class="err">#</span><span class="w"> </span><span class="nf">Permissions</span><span class="w"> </span><span class="err">#################################################################</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-166"><code data-line-number="166"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-166"></a><span class="err">#</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-167"><code data-line-number="167"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-167"></a><span class="err">#</span><span class="w"> </span><span class="k">If</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">setting</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="k">set</span><span class="p">,</span><span class="w"> </span><span class="n">MPD</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">require</span><span class="w"> </span><span class="n">password</span><span class="w"> </span><span class="k">authorization</span><span class="p">.</span><span class="w"> </span><span class="n">The</span><span class="w"> </span><span class="n">password</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-168"><code data-line-number="168"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-168"></a><span class="err">#</span><span class="w"> </span><span class="n">setting</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">specified</span><span class="w"> </span><span class="n">multiple</span><span class="w"> </span><span class="n">times</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">different</span><span class="w"> </span><span class="n">password</span><span class="w"> </span><span class="n">profiles</span><span class="p">.</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-169"><code data-line-number="169"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-169"></a><span class="err">#</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-170"><code data-line-number="170"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-170"></a><span class="n">#password</span><span class="w">                        </span><span class="ss">"password@read,add,control,admin"</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-171"><code data-line-number="171"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-171"></a><span class="err">#</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-172"><code data-line-number="172"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-172"></a><span class="err">#</span><span class="w"> </span><span class="n">This</span><span class="w"> </span><span class="n">setting</span><span class="w"> </span><span class="n">specifies</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nf">permissions</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="k">user</span><span class="w"> </span><span class="n">has</span><span class="w"> </span><span class="n">who</span><span class="w"> </span><span class="n">has</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">yet</span><span class="w"> </span><span class="n">logged</span><span class="w"> </span><span class="ow">in</span><span class="p">.</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-173"><code data-line-number="173"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-173"></a><span class="err">#</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-174"><code data-line-number="174"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-174"></a><span class="n">#default_permissions</span><span class="w">             </span><span class="ss">"read,add,control,admin"</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-175"><code data-line-number="175"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-175"></a><span class="err">#</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-176"><code data-line-number="176"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-176"></a><span class="err">###############################################################################</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-177"><code data-line-number="177"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-177"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-178"><code data-line-number="178"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-178"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-179"><code data-line-number="179"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-179"></a><span class="err">#</span><span class="w"> </span><span class="k">Database</span><span class="w"> </span><span class="err">#######################################################################</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-180"><code data-line-number="180"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-180"></a><span class="err">#</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-181"><code data-line-number="181"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-181"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-182"><code data-line-number="182"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-182"></a><span class="n">#database</span><span class="w"> </span><span class="err">{</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-183"><code data-line-number="183"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-183"></a><span class="err">#</span><span class="w">       </span><span class="n">plugin</span><span class="w"> </span><span class="ss">"proxy"</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-184"><code data-line-number="184"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-184"></a><span class="err">#</span><span class="w">       </span><span class="k">host</span><span class="w"> </span><span class="ss">"other.mpd.host"</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-185"><code data-line-number="185"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-185"></a><span class="err">#</span><span class="w">       </span><span class="n">port</span><span class="w"> </span><span class="ss">"6600"</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-186"><code data-line-number="186"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-186"></a><span class="err">#}</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-187"><code data-line-number="187"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-187"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-188"><code data-line-number="188"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-188"></a><span class="err">#</span><span class="w"> </span><span class="k">Input</span><span class="w"> </span><span class="err">#######################################################################</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-189"><code data-line-number="189"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-189"></a><span class="err">#</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-190"><code data-line-number="190"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-190"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-191"><code data-line-number="191"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-191"></a><span class="k">input</span><span class="w"> </span><span class="err">{</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-192"><code data-line-number="192"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-192"></a><span class="w">        </span><span class="n">plugin</span><span class="w"> </span><span class="ss">"curl"</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-193"><code data-line-number="193"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-193"></a><span class="err">#</span><span class="w">       </span><span class="n">proxy</span><span class="w"> </span><span class="ss">"proxy.isp.com:8080"</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-194"><code data-line-number="194"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-194"></a><span class="err">#</span><span class="w">       </span><span class="n">proxy_user</span><span class="w"> </span><span class="ss">"user"</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-195"><code data-line-number="195"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-195"></a><span class="err">#</span><span class="w">       </span><span class="n">proxy_password</span><span class="w"> </span><span class="ss">"password"</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-196"><code data-line-number="196"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-196"></a><span class="err">}</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-197"><code data-line-number="197"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-197"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-198"><code data-line-number="198"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-198"></a><span class="err">#</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-199"><code data-line-number="199"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-199"></a><span class="err">###############################################################################</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-200"><code data-line-number="200"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-200"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-201"><code data-line-number="201"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-201"></a><span class="err">#</span><span class="w"> </span><span class="n">Audio</span><span class="w"> </span><span class="k">Output</span><span class="w"> </span><span class="err">################################################################</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-202"><code data-line-number="202"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-202"></a><span class="err">#</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-203"><code data-line-number="203"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-203"></a><span class="err">#</span><span class="w"> </span><span class="n">MPD</span><span class="w"> </span><span class="n">supports</span><span class="w"> </span><span class="n">various</span><span class="w"> </span><span class="n">audio</span><span class="w"> </span><span class="k">output</span><span class="w"> </span><span class="n">types</span><span class="p">,</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">well</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">playing</span><span class="w"> </span><span class="n">through</span><span class="w"> </span><span class="n">multiple</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-204"><code data-line-number="204"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-204"></a><span class="err">#</span><span class="w"> </span><span class="n">audio</span><span class="w"> </span><span class="n">outputs</span><span class="w"> </span><span class="k">at</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">same</span><span class="w"> </span><span class="nc">time</span><span class="p">,</span><span class="w"> </span><span class="n">through</span><span class="w"> </span><span class="n">multiple</span><span class="w"> </span><span class="n">audio_output</span><span class="w"> </span><span class="n">settings</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-205"><code data-line-number="205"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-205"></a><span class="err">#</span><span class="w"> </span><span class="n">blocks</span><span class="p">.</span><span class="w"> </span><span class="n">Setting</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">block</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">optional</span><span class="p">,</span><span class="w"> </span><span class="n">though</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">server</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="k">only</span><span class="w"> </span><span class="n">attempt</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-206"><code data-line-number="206"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-206"></a><span class="err">#</span><span class="w"> </span><span class="n">autodetection</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">one</span><span class="w"> </span><span class="n">sound</span><span class="w"> </span><span class="n">card</span><span class="p">.</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-207"><code data-line-number="207"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-207"></a><span class="err">#</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-208"><code data-line-number="208"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-208"></a><span class="err">#</span><span class="w"> </span><span class="n">An</span><span class="w"> </span><span class="n">example</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">ALSA</span><span class="w"> </span><span class="k">output</span><span class="err">:</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-209"><code data-line-number="209"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-209"></a><span class="err">#</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-210"><code data-line-number="210"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-210"></a><span class="n">#audio_output</span><span class="w"> </span><span class="err">{</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-211"><code data-line-number="211"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-211"></a><span class="err">#</span><span class="w">	</span><span class="n">type</span><span class="w">		</span><span class="ss">"alsa"</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-212"><code data-line-number="212"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-212"></a><span class="err">#</span><span class="w">	</span><span class="n">name</span><span class="w">		</span><span class="ss">"My ALSA Device"</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-213"><code data-line-number="213"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-213"></a><span class="err">##</span><span class="w">	</span><span class="n">device</span><span class="w">		</span><span class="ss">"hw:0,0"</span><span class="w">	</span><span class="err">#</span><span class="w"> </span><span class="n">optional</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-214"><code data-line-number="214"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-214"></a><span class="err">##</span><span class="w">	</span><span class="n">mixer_type</span><span class="w">      </span><span class="ss">"hardware"</span><span class="w">	</span><span class="err">#</span><span class="w"> </span><span class="n">optional</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-215"><code data-line-number="215"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-215"></a><span class="err">##</span><span class="w">	</span><span class="n">mixer_device</span><span class="w">	</span><span class="ss">"default"</span><span class="w">	</span><span class="err">#</span><span class="w"> </span><span class="n">optional</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-216"><code data-line-number="216"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-216"></a><span class="err">##</span><span class="w">	</span><span class="n">mixer_control</span><span class="w">	</span><span class="ss">"PCM"</span><span class="w">		</span><span class="err">#</span><span class="w"> </span><span class="n">optional</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-217"><code data-line-number="217"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-217"></a><span class="err">##</span><span class="w">	</span><span class="n">mixer_index</span><span class="w">	</span><span class="ss">"0"</span><span class="w">		</span><span class="err">#</span><span class="w"> </span><span class="n">optional</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-218"><code data-line-number="218"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-218"></a><span class="err">#}</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-219"><code data-line-number="219"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-219"></a><span class="err">#</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-220"><code data-line-number="220"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-220"></a><span class="err">#</span><span class="w"> </span><span class="n">An</span><span class="w"> </span><span class="n">example</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">OSS</span><span class="w"> </span><span class="k">output</span><span class="err">:</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-221"><code data-line-number="221"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-221"></a><span class="err">#</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-222"><code data-line-number="222"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-222"></a><span class="n">#audio_output</span><span class="w"> </span><span class="err">{</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-223"><code data-line-number="223"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-223"></a><span class="err">#</span><span class="w">	</span><span class="n">type</span><span class="w">		</span><span class="ss">"oss"</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-224"><code data-line-number="224"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-224"></a><span class="err">#</span><span class="w">	</span><span class="n">name</span><span class="w">		</span><span class="ss">"My OSS Device"</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-225"><code data-line-number="225"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-225"></a><span class="err">##</span><span class="w">	</span><span class="n">device</span><span class="w">		</span><span class="ss">"/dev/dsp"</span><span class="w">	</span><span class="err">#</span><span class="w"> </span><span class="n">optional</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-226"><code data-line-number="226"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-226"></a><span class="err">##</span><span class="w">	</span><span class="n">mixer_type</span><span class="w">      </span><span class="ss">"hardware"</span><span class="w">	</span><span class="err">#</span><span class="w"> </span><span class="n">optional</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-227"><code data-line-number="227"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-227"></a><span class="err">##</span><span class="w">	</span><span class="n">mixer_device</span><span class="w">	</span><span class="ss">"/dev/mixer"</span><span class="w">	</span><span class="err">#</span><span class="w"> </span><span class="n">optional</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-228"><code data-line-number="228"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-228"></a><span class="err">##</span><span class="w">	</span><span class="n">mixer_control</span><span class="w">	</span><span class="ss">"PCM"</span><span class="w">		</span><span class="err">#</span><span class="w"> </span><span class="n">optional</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-229"><code data-line-number="229"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-229"></a><span class="err">#}</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-230"><code data-line-number="230"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-230"></a><span class="err">#</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-231"><code data-line-number="231"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-231"></a><span class="err">#</span><span class="w"> </span><span class="n">An</span><span class="w"> </span><span class="n">example</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">shout</span><span class="w"> </span><span class="k">output</span><span class="w"> </span><span class="p">(</span><span class="k">for</span><span class="w"> </span><span class="n">streaming</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">Icecast</span><span class="p">)</span><span class="err">:</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-232"><code data-line-number="232"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-232"></a><span class="err">#</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-233"><code data-line-number="233"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-233"></a><span class="n">#audio_output</span><span class="w"> </span><span class="err">{</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-234"><code data-line-number="234"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-234"></a><span class="err">#</span><span class="w">	</span><span class="n">type</span><span class="w">		</span><span class="ss">"shout"</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-235"><code data-line-number="235"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-235"></a><span class="err">#</span><span class="w">	</span><span class="n">encoder</span><span class="w">		</span><span class="ss">"vorbis"</span><span class="w">		</span><span class="err">#</span><span class="w"> </span><span class="n">optional</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-236"><code data-line-number="236"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-236"></a><span class="err">#</span><span class="w">	</span><span class="n">name</span><span class="w">		</span><span class="ss">"My Shout Stream"</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-237"><code data-line-number="237"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-237"></a><span class="err">#</span><span class="w">	</span><span class="k">host</span><span class="w">		</span><span class="ss">"localhost"</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-238"><code data-line-number="238"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-238"></a><span class="err">#</span><span class="w">	</span><span class="n">port</span><span class="w">		</span><span class="ss">"8000"</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-239"><code data-line-number="239"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-239"></a><span class="err">#</span><span class="w">	</span><span class="n">mount</span><span class="w">		</span><span class="ss">"/mpd.ogg"</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-240"><code data-line-number="240"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-240"></a><span class="err">#</span><span class="w">	</span><span class="n">password</span><span class="w">	</span><span class="ss">"hackme"</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-241"><code data-line-number="241"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-241"></a><span class="err">#</span><span class="w">	</span><span class="n">quality</span><span class="w">		</span><span class="ss">"5.0"</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-242"><code data-line-number="242"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-242"></a><span class="err">#</span><span class="w">	</span><span class="n">bitrate</span><span class="w">		</span><span class="ss">"128"</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-243"><code data-line-number="243"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-243"></a><span class="err">#</span><span class="w">	</span><span class="nf">format</span><span class="w">		</span><span class="ss">"44100:16:1"</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-244"><code data-line-number="244"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-244"></a><span class="err">##</span><span class="w">	</span><span class="n">protocol</span><span class="w">	</span><span class="ss">"icecast2"</span><span class="w">		</span><span class="err">#</span><span class="w"> </span><span class="n">optional</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-245"><code data-line-number="245"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-245"></a><span class="err">##</span><span class="w">	</span><span class="k">user</span><span class="w">		</span><span class="ss">"source"</span><span class="w">		</span><span class="err">#</span><span class="w"> </span><span class="n">optional</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-246"><code data-line-number="246"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-246"></a><span class="err">##</span><span class="w">	</span><span class="n">description</span><span class="w">	</span><span class="ss">"My Stream Description"</span><span class="w">	</span><span class="err">#</span><span class="w"> </span><span class="n">optional</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-247"><code data-line-number="247"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-247"></a><span class="err">##</span><span class="w">	</span><span class="n">url</span><span class="w">		</span><span class="ss">"http://example.com"</span><span class="w">	</span><span class="err">#</span><span class="w"> </span><span class="n">optional</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-248"><code data-line-number="248"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-248"></a><span class="err">##</span><span class="w">	</span><span class="n">genre</span><span class="w">		</span><span class="ss">"jazz"</span><span class="w">			</span><span class="err">#</span><span class="w"> </span><span class="n">optional</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-249"><code data-line-number="249"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-249"></a><span class="err">##</span><span class="w">	</span><span class="k">public</span><span class="w">		</span><span class="ss">"no"</span><span class="w">			</span><span class="err">#</span><span class="w"> </span><span class="n">optional</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-250"><code data-line-number="250"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-250"></a><span class="err">##</span><span class="w">	</span><span class="n">timeout</span><span class="w">		</span><span class="ss">"2"</span><span class="w">			</span><span class="err">#</span><span class="w"> </span><span class="n">optional</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-251"><code data-line-number="251"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-251"></a><span class="err">##</span><span class="w">	</span><span class="n">mixer_type</span><span class="w">      </span><span class="ss">"software"</span><span class="w">		</span><span class="err">#</span><span class="w"> </span><span class="n">optional</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-252"><code data-line-number="252"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-252"></a><span class="err">#}</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-253"><code data-line-number="253"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-253"></a><span class="err">#</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-254"><code data-line-number="254"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-254"></a><span class="err">#</span><span class="w"> </span><span class="n">An</span><span class="w"> </span><span class="n">example</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">recorder</span><span class="w"> </span><span class="k">output</span><span class="err">:</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-255"><code data-line-number="255"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-255"></a><span class="err">#</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-256"><code data-line-number="256"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-256"></a><span class="n">#audio_output</span><span class="w"> </span><span class="err">{</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-257"><code data-line-number="257"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-257"></a><span class="err">#</span><span class="w">	</span><span class="n">type</span><span class="w">		</span><span class="ss">"recorder"</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-258"><code data-line-number="258"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-258"></a><span class="err">#</span><span class="w">	</span><span class="n">name</span><span class="w">		</span><span class="ss">"My recorder"</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-259"><code data-line-number="259"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-259"></a><span class="err">#</span><span class="w">	</span><span class="n">encoder</span><span class="w">		</span><span class="ss">"vorbis"</span><span class="w">		</span><span class="err">#</span><span class="w"> </span><span class="n">optional</span><span class="p">,</span><span class="w"> </span><span class="n">vorbis</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">lame</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-260"><code data-line-number="260"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-260"></a><span class="err">#</span><span class="w">	</span><span class="k">path</span><span class="w">		</span><span class="ss">"/var/lib/mpd/recorder/mpd.ogg"</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-261"><code data-line-number="261"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-261"></a><span class="err">##</span><span class="w">	</span><span class="n">quality</span><span class="w">		</span><span class="ss">"5.0"</span><span class="w">			</span><span class="err">#</span><span class="w"> </span><span class="n">do</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">define</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">bitrate</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">defined</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-262"><code data-line-number="262"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-262"></a><span class="err">#</span><span class="w">	</span><span class="n">bitrate</span><span class="w">		</span><span class="ss">"128"</span><span class="w">			</span><span class="err">#</span><span class="w"> </span><span class="n">do</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">define</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">quality</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">defined</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-263"><code data-line-number="263"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-263"></a><span class="err">#</span><span class="w">	</span><span class="nf">format</span><span class="w">		</span><span class="ss">"44100:16:1"</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-264"><code data-line-number="264"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-264"></a><span class="err">#}</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-265"><code data-line-number="265"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-265"></a><span class="err">#</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-266"><code data-line-number="266"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-266"></a><span class="err">#</span><span class="w"> </span><span class="n">An</span><span class="w"> </span><span class="n">example</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">httpd</span><span class="w"> </span><span class="k">output</span><span class="w"> </span><span class="p">(</span><span class="n">built</span><span class="o">-</span><span class="ow">in</span><span class="w"> </span><span class="n">HTTP</span><span class="w"> </span><span class="n">streaming</span><span class="w"> </span><span class="n">server</span><span class="p">)</span><span class="err">:</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-267"><code data-line-number="267"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-267"></a><span class="err">#</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-268"><code data-line-number="268"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-268"></a><span class="n">#audio_output</span><span class="w"> </span><span class="err">{</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-269"><code data-line-number="269"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-269"></a><span class="err">#</span><span class="w">	</span><span class="n">type</span><span class="w">		</span><span class="ss">"httpd"</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-270"><code data-line-number="270"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-270"></a><span class="err">#</span><span class="w">	</span><span class="n">name</span><span class="w">		</span><span class="ss">"My HTTP Stream"</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-271"><code data-line-number="271"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-271"></a><span class="err">#</span><span class="w">	</span><span class="n">encoder</span><span class="w">		</span><span class="ss">"vorbis"</span><span class="w">		</span><span class="err">#</span><span class="w"> </span><span class="n">optional</span><span class="p">,</span><span class="w"> </span><span class="n">vorbis</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">lame</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-272"><code data-line-number="272"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-272"></a><span class="err">#</span><span class="w">	</span><span class="n">port</span><span class="w">		</span><span class="ss">"8000"</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-273"><code data-line-number="273"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-273"></a><span class="err">#</span><span class="w">	</span><span class="n">bind_to_address</span><span class="w">	</span><span class="ss">"0.0.0.0"</span><span class="w">		</span><span class="err">#</span><span class="w"> </span><span class="n">optional</span><span class="p">,</span><span class="w"> </span><span class="n">IPv4</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">IPv6</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-274"><code data-line-number="274"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-274"></a><span class="err">##</span><span class="w">	</span><span class="n">quality</span><span class="w">		</span><span class="ss">"5.0"</span><span class="w">			</span><span class="err">#</span><span class="w"> </span><span class="n">do</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">define</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">bitrate</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">defined</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-275"><code data-line-number="275"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-275"></a><span class="err">#</span><span class="w">	</span><span class="n">bitrate</span><span class="w">		</span><span class="ss">"128"</span><span class="w">			</span><span class="err">#</span><span class="w"> </span><span class="n">do</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">define</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">quality</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">defined</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-276"><code data-line-number="276"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-276"></a><span class="err">#</span><span class="w">	</span><span class="nf">format</span><span class="w">		</span><span class="ss">"44100:16:1"</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-277"><code data-line-number="277"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-277"></a><span class="err">#</span><span class="w">	</span><span class="n">max_clients</span><span class="w">	</span><span class="ss">"0"</span><span class="w">			</span><span class="err">#</span><span class="w"> </span><span class="n">optional</span><span class="w"> </span><span class="mi">0</span><span class="o">=</span><span class="k">no</span><span class="w"> </span><span class="k">limit</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-278"><code data-line-number="278"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-278"></a><span class="err">#}</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-279"><code data-line-number="279"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-279"></a><span class="err">#</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-280"><code data-line-number="280"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-280"></a><span class="err">#</span><span class="w"> </span><span class="n">An</span><span class="w"> </span><span class="n">example</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">pulseaudio</span><span class="w"> </span><span class="k">output</span><span class="w"> </span><span class="p">(</span><span class="n">streaming</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">remote</span><span class="w"> </span><span class="n">pulseaudio</span><span class="w"> </span><span class="n">server</span><span class="p">)</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-281"><code data-line-number="281"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-281"></a><span class="err">#</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-282"><code data-line-number="282"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-282"></a><span class="n">audio_output</span><span class="w"> </span><span class="err">{</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-283"><code data-line-number="283"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-283"></a><span class="w">    </span><span class="n">type</span><span class="w">		</span><span class="ss">"pulse"</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-284"><code data-line-number="284"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-284"></a><span class="w">    </span><span class="n">name</span><span class="w">		</span><span class="ss">"PulseAudio Sound Server"</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-285"><code data-line-number="285"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-285"></a><span class="w">    </span><span class="n">mixer_type</span><span class="w">  </span><span class="ss">"software"</span><span class="w">      </span><span class="err">#</span><span class="w"> </span><span class="n">optional</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-286"><code data-line-number="286"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-286"></a><span class="err">#</span><span class="w">	</span><span class="n">server</span><span class="w">		</span><span class="ss">"remote_server"</span><span class="w">		</span><span class="err">#</span><span class="w"> </span><span class="n">optional</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-287"><code data-line-number="287"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-287"></a><span class="err">#</span><span class="w">	</span><span class="n">sink</span><span class="w">		</span><span class="ss">"remote_server_sink"</span><span class="w">	</span><span class="err">#</span><span class="w"> </span><span class="n">optional</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-288"><code data-line-number="288"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-288"></a><span class="err">}</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-289"><code data-line-number="289"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-289"></a><span class="err">#</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-290"><code data-line-number="290"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-290"></a><span class="err">#</span><span class="w"> </span><span class="n">An</span><span class="w"> </span><span class="n">example</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">winmm</span><span class="w"> </span><span class="k">output</span><span class="w"> </span><span class="p">(</span><span class="n">Windows</span><span class="w"> </span><span class="n">multimedia</span><span class="w"> </span><span class="n">API</span><span class="p">).</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-291"><code data-line-number="291"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-291"></a><span class="err">#</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-292"><code data-line-number="292"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-292"></a><span class="n">#audio_output</span><span class="w"> </span><span class="err">{</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-293"><code data-line-number="293"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-293"></a><span class="err">#</span><span class="w">	</span><span class="n">type</span><span class="w">		</span><span class="ss">"winmm"</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-294"><code data-line-number="294"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-294"></a><span class="err">#</span><span class="w">	</span><span class="n">name</span><span class="w">		</span><span class="ss">"My WinMM output"</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-295"><code data-line-number="295"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-295"></a><span class="err">##</span><span class="w">	</span><span class="n">device</span><span class="w">		</span><span class="ss">"Digital Audio (S/PDIF) (High Definition Audio Device)"</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="n">optional</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-296"><code data-line-number="296"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-296"></a><span class="err">#</span><span class="w">		</span><span class="ow">or</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-297"><code data-line-number="297"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-297"></a><span class="err">##</span><span class="w">	</span><span class="n">device</span><span class="w">		</span><span class="ss">"0"</span><span class="w">		</span><span class="err">#</span><span class="w"> </span><span class="n">optional</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-298"><code data-line-number="298"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-298"></a><span class="err">##</span><span class="w">	</span><span class="n">mixer_type</span><span class="w">	</span><span class="ss">"hardware"</span><span class="w">	</span><span class="err">#</span><span class="w"> </span><span class="n">optional</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-299"><code data-line-number="299"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-299"></a><span class="err">#}</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-300"><code data-line-number="300"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-300"></a><span class="err">#</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-301"><code data-line-number="301"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-301"></a><span class="err">#</span><span class="w"> </span><span class="n">An</span><span class="w"> </span><span class="n">example</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">openal</span><span class="w"> </span><span class="k">output</span><span class="p">.</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-302"><code data-line-number="302"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-302"></a><span class="err">#</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-303"><code data-line-number="303"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-303"></a><span class="n">#audio_output</span><span class="w"> </span><span class="err">{</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-304"><code data-line-number="304"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-304"></a><span class="err">#</span><span class="w">	</span><span class="n">type</span><span class="w">		</span><span class="ss">"openal"</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-305"><code data-line-number="305"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-305"></a><span class="err">#</span><span class="w">	</span><span class="n">name</span><span class="w">		</span><span class="ss">"My OpenAL output"</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-306"><code data-line-number="306"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-306"></a><span class="err">##</span><span class="w">	</span><span class="n">device</span><span class="w">		</span><span class="ss">"Digital Audio (S/PDIF) (High Definition Audio Device)"</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="n">optional</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-307"><code data-line-number="307"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-307"></a><span class="err">#}</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-308"><code data-line-number="308"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-308"></a><span class="err">#</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-309"><code data-line-number="309"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-309"></a><span class="err">#</span><span class="w"> </span><span class="n">An</span><span class="w"> </span><span class="n">example</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">sndio</span><span class="w"> </span><span class="k">output</span><span class="p">.</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-310"><code data-line-number="310"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-310"></a><span class="err">#</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-311"><code data-line-number="311"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-311"></a><span class="n">#audio_output</span><span class="w"> </span><span class="err">{</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-312"><code data-line-number="312"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-312"></a><span class="err">#</span><span class="w">	</span><span class="n">type</span><span class="w">		</span><span class="ss">"sndio"</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-313"><code data-line-number="313"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-313"></a><span class="err">#</span><span class="w">	</span><span class="n">name</span><span class="w">		</span><span class="ss">"sndio output"</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-314"><code data-line-number="314"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-314"></a><span class="err">#</span><span class="w">	</span><span class="n">mixer_type</span><span class="w">	</span><span class="ss">"software"</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-315"><code data-line-number="315"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-315"></a><span class="err">#}</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-316"><code data-line-number="316"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-316"></a><span class="err">#</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-317"><code data-line-number="317"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-317"></a><span class="err">#</span><span class="w"> </span><span class="n">An</span><span class="w"> </span><span class="n">example</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">OS</span><span class="w"> </span><span class="n">X</span><span class="w"> </span><span class="k">output</span><span class="err">:</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-318"><code data-line-number="318"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-318"></a><span class="err">#</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-319"><code data-line-number="319"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-319"></a><span class="n">#audio_output</span><span class="w"> </span><span class="err">{</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-320"><code data-line-number="320"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-320"></a><span class="err">#</span><span class="w">	</span><span class="n">type</span><span class="w">		</span><span class="ss">"osx"</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-321"><code data-line-number="321"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-321"></a><span class="err">#</span><span class="w">	</span><span class="n">name</span><span class="w">		</span><span class="ss">"My OS X Device"</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-322"><code data-line-number="322"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-322"></a><span class="err">##</span><span class="w">	</span><span class="n">device</span><span class="w">		</span><span class="ss">"Built-in Output"</span><span class="w">	</span><span class="err">#</span><span class="w"> </span><span class="n">optional</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-323"><code data-line-number="323"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-323"></a><span class="err">##</span><span class="w">	</span><span class="n">channel_map</span><span class="w">      </span><span class="ss">"-1,-1,0,1"</span><span class="w">	</span><span class="err">#</span><span class="w"> </span><span class="n">optional</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-324"><code data-line-number="324"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-324"></a><span class="err">#}</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-325"><code data-line-number="325"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-325"></a><span class="err">#</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-326"><code data-line-number="326"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-326"></a><span class="err">##</span><span class="w"> </span><span class="n">Example</span><span class="w"> </span><span class="ss">"pipe"</span><span class="w"> </span><span class="k">output</span><span class="err">:</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-327"><code data-line-number="327"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-327"></a><span class="err">#</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-328"><code data-line-number="328"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-328"></a><span class="n">#audio_output</span><span class="w"> </span><span class="err">{</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-329"><code data-line-number="329"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-329"></a><span class="err">#</span><span class="w">	</span><span class="n">type</span><span class="w">		</span><span class="ss">"pipe"</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-330"><code data-line-number="330"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-330"></a><span class="err">#</span><span class="w">	</span><span class="n">name</span><span class="w">		</span><span class="ss">"my pipe"</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-331"><code data-line-number="331"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-331"></a><span class="err">#</span><span class="w">	</span><span class="n">command</span><span class="w">		</span><span class="ss">"aplay -f cd 2&gt;/dev/null"</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-332"><code data-line-number="332"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-332"></a><span class="err">##</span><span class="w"> </span><span class="ow">Or</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">you</span><span class="err">'</span><span class="n">re</span><span class="w"> </span><span class="n">want</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="k">use</span><span class="w"> </span><span class="n">AudioCompress</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-333"><code data-line-number="333"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-333"></a><span class="err">#</span><span class="w">	</span><span class="n">command</span><span class="w">		</span><span class="ss">"AudioCompress -m | aplay -f cd 2&gt;/dev/null"</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-334"><code data-line-number="334"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-334"></a><span class="err">##</span><span class="w"> </span><span class="ow">Or</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">send</span><span class="w"> </span><span class="n">raw</span><span class="w"> </span><span class="n">PCM</span><span class="w"> </span><span class="n">stream</span><span class="w"> </span><span class="n">through</span><span class="w"> </span><span class="nl">PCM</span><span class="p">:</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-335"><code data-line-number="335"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-335"></a><span class="err">#</span><span class="w">	</span><span class="n">command</span><span class="w">		</span><span class="ss">"nc example.org 8765"</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-336"><code data-line-number="336"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-336"></a><span class="err">#</span><span class="w">	</span><span class="nf">format</span><span class="w">		</span><span class="ss">"44100:16:2"</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-337"><code data-line-number="337"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-337"></a><span class="err">#}</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-338"><code data-line-number="338"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-338"></a><span class="err">#</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-339"><code data-line-number="339"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-339"></a><span class="n">audio_output</span><span class="w"> </span><span class="err">{</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-340"><code data-line-number="340"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-340"></a><span class="w">    </span><span class="n">type</span><span class="w">        </span><span class="ss">"fifo"</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-341"><code data-line-number="341"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-341"></a><span class="w">    </span><span class="n">name</span><span class="w">        </span><span class="ss">"Visualizer Feed"</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-342"><code data-line-number="342"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-342"></a><span class="w">    </span><span class="k">path</span><span class="w">        </span><span class="ss">"/tmp/mpd.fifo"</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-343"><code data-line-number="343"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-343"></a><span class="w">    </span><span class="nf">format</span><span class="w">      </span><span class="ss">"44100:16:2"</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-344"><code data-line-number="344"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-344"></a><span class="err">}</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-345"><code data-line-number="345"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-345"></a><span class="err">#</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-346"><code data-line-number="346"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-346"></a><span class="err">##</span><span class="w"> </span><span class="n">An</span><span class="w"> </span><span class="n">example</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="k">null</span><span class="w"> </span><span class="k">output</span><span class="w"> </span><span class="p">(</span><span class="k">for</span><span class="w"> </span><span class="k">no</span><span class="w"> </span><span class="n">audio</span><span class="w"> </span><span class="k">output</span><span class="p">)</span><span class="err">:</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-347"><code data-line-number="347"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-347"></a><span class="err">#</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-348"><code data-line-number="348"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-348"></a><span class="n">#audio_output</span><span class="w"> </span><span class="err">{</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-349"><code data-line-number="349"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-349"></a><span class="err">#</span><span class="w">	</span><span class="n">type</span><span class="w">		</span><span class="ss">"null"</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-350"><code data-line-number="350"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-350"></a><span class="err">#</span><span class="w">	</span><span class="n">name</span><span class="w">		</span><span class="ss">"My Null Output"</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-351"><code data-line-number="351"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-351"></a><span class="err">#</span><span class="w">	</span><span class="n">mixer_type</span><span class="w">      </span><span class="ss">"none"</span><span class="w">			</span><span class="err">#</span><span class="w"> </span><span class="n">optional</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-352"><code data-line-number="352"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-352"></a><span class="err">#}</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-353"><code data-line-number="353"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-353"></a><span class="err">#</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-354"><code data-line-number="354"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-354"></a><span class="err">###############################################################################</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-355"><code data-line-number="355"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-355"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-356"><code data-line-number="356"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-356"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-357"><code data-line-number="357"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-357"></a><span class="err">#</span><span class="w"> </span><span class="n">Normalization</span><span class="w"> </span><span class="n">automatic</span><span class="w"> </span><span class="n">volume</span><span class="w"> </span><span class="n">adjustments</span><span class="w"> </span><span class="err">##################################</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-358"><code data-line-number="358"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-358"></a><span class="err">#</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-359"><code data-line-number="359"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-359"></a><span class="err">#</span><span class="w"> </span><span class="n">This</span><span class="w"> </span><span class="n">setting</span><span class="w"> </span><span class="n">specifies</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="n">ReplayGain</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="k">use</span><span class="p">.</span><span class="w"> </span><span class="n">This</span><span class="w"> </span><span class="n">setting</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">have</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-360"><code data-line-number="360"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-360"></a><span class="err">#</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">argument</span><span class="w"> </span><span class="ss">"off"</span><span class="p">,</span><span class="w"> </span><span class="ss">"album"</span><span class="p">,</span><span class="w"> </span><span class="ss">"track"</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="ss">"auto"</span><span class="p">.</span><span class="w"> </span><span class="ss">"auto"</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">special</span><span class="w"> </span><span class="n">mode</span><span class="w"> </span><span class="n">that</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-361"><code data-line-number="361"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-361"></a><span class="err">#</span><span class="w"> </span><span class="n">chooses</span><span class="w"> </span><span class="ow">between</span><span class="w"> </span><span class="ss">"track"</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="ss">"album"</span><span class="w"> </span><span class="n">depending</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="k">current</span><span class="w"> </span><span class="k">state</span><span class="w"> </span><span class="k">of</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-362"><code data-line-number="362"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-362"></a><span class="err">#</span><span class="w"> </span><span class="n">random</span><span class="w"> </span><span class="n">playback</span><span class="p">.</span><span class="w"> </span><span class="k">If</span><span class="w"> </span><span class="n">random</span><span class="w"> </span><span class="n">playback</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">enabled</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="ss">"track"</span><span class="w"> </span><span class="n">mode</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">used</span><span class="p">.</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-363"><code data-line-number="363"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-363"></a><span class="err">#</span><span class="w"> </span><span class="n">See</span><span class="w"> </span><span class="o">&lt;</span><span class="nl">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">replaygain</span><span class="p">.</span><span class="n">org</span><span class="o">&gt;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">more</span><span class="w"> </span><span class="n">details</span><span class="w"> </span><span class="n">about</span><span class="w"> </span><span class="n">ReplayGain</span><span class="p">.</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-364"><code data-line-number="364"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-364"></a><span class="err">#</span><span class="w"> </span><span class="n">This</span><span class="w"> </span><span class="n">setting</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="k">off</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="k">default</span><span class="p">.</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-365"><code data-line-number="365"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-365"></a><span class="err">#</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-366"><code data-line-number="366"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-366"></a><span class="n">#replaygain</span><span class="w">			</span><span class="ss">"album"</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-367"><code data-line-number="367"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-367"></a><span class="err">#</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-368"><code data-line-number="368"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-368"></a><span class="err">#</span><span class="w"> </span><span class="n">This</span><span class="w"> </span><span class="n">setting</span><span class="w"> </span><span class="k">sets</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">pre</span><span class="o">-</span><span class="n">amp</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">files</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">have</span><span class="w"> </span><span class="n">ReplayGain</span><span class="w"> </span><span class="n">tags</span><span class="p">.</span><span class="w"> </span><span class="k">By</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-369"><code data-line-number="369"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-369"></a><span class="err">#</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">setting</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">disabled</span><span class="p">.</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-370"><code data-line-number="370"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-370"></a><span class="err">#</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-371"><code data-line-number="371"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-371"></a><span class="n">#replaygain_preamp</span><span class="w">		</span><span class="ss">"0"</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-372"><code data-line-number="372"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-372"></a><span class="err">#</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-373"><code data-line-number="373"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-373"></a><span class="err">#</span><span class="w"> </span><span class="n">This</span><span class="w"> </span><span class="n">setting</span><span class="w"> </span><span class="k">sets</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">pre</span><span class="o">-</span><span class="n">amp</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">files</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">do</span><span class="w"> </span><span class="ow">NOT</span><span class="w"> </span><span class="n">have</span><span class="w"> </span><span class="n">ReplayGain</span><span class="w"> </span><span class="n">tags</span><span class="p">.</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-374"><code data-line-number="374"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-374"></a><span class="err">#</span><span class="w"> </span><span class="k">By</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">setting</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">disabled</span><span class="p">.</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-375"><code data-line-number="375"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-375"></a><span class="err">#</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-376"><code data-line-number="376"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-376"></a><span class="n">#replaygain_missing_preamp</span><span class="w">	</span><span class="ss">"0"</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-377"><code data-line-number="377"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-377"></a><span class="err">#</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-378"><code data-line-number="378"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-378"></a><span class="err">#</span><span class="w"> </span><span class="n">This</span><span class="w"> </span><span class="n">setting</span><span class="w"> </span><span class="n">enables</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">disables</span><span class="w"> </span><span class="n">ReplayGain</span><span class="w"> </span><span class="n">limiting</span><span class="p">.</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-379"><code data-line-number="379"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-379"></a><span class="err">#</span><span class="w"> </span><span class="n">MPD</span><span class="w"> </span><span class="n">calculates</span><span class="w"> </span><span class="n">actual</span><span class="w"> </span><span class="n">amplification</span><span class="w"> </span><span class="n">based</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">ReplayGain</span><span class="w"> </span><span class="n">tags</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-380"><code data-line-number="380"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-380"></a><span class="err">#</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">replaygain_preamp</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">replaygain_missing_preamp</span><span class="w"> </span><span class="n">setting</span><span class="p">.</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-381"><code data-line-number="381"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-381"></a><span class="err">#</span><span class="w"> </span><span class="k">If</span><span class="w"> </span><span class="n">replaygain_limit</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">enabled</span><span class="w"> </span><span class="n">MPD</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">never</span><span class="w"> </span><span class="n">amplify</span><span class="w"> </span><span class="n">audio</span><span class="w"> </span><span class="n">signal</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-382"><code data-line-number="382"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-382"></a><span class="err">#</span><span class="w"> </span><span class="n">above</span><span class="w"> </span><span class="n">its</span><span class="w"> </span><span class="n">original</span><span class="w"> </span><span class="k">level</span><span class="p">.</span><span class="w"> </span><span class="k">If</span><span class="w"> </span><span class="n">replaygain_limit</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">disabled</span><span class="w"> </span><span class="n">such</span><span class="w"> </span><span class="n">amplification</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-383"><code data-line-number="383"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-383"></a><span class="err">#</span><span class="w"> </span><span class="n">might</span><span class="w"> </span><span class="n">occur</span><span class="p">.</span><span class="w"> </span><span class="k">By</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">setting</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">enabled</span><span class="p">.</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-384"><code data-line-number="384"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-384"></a><span class="err">#</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-385"><code data-line-number="385"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-385"></a><span class="n">#replaygain_limit</span><span class="w">		</span><span class="ss">"yes"</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-386"><code data-line-number="386"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-386"></a><span class="err">#</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-387"><code data-line-number="387"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-387"></a><span class="err">#</span><span class="w"> </span><span class="n">This</span><span class="w"> </span><span class="n">setting</span><span class="w"> </span><span class="n">enables</span><span class="w"> </span><span class="k">on</span><span class="o">-</span><span class="n">the</span><span class="o">-</span><span class="n">fly</span><span class="w"> </span><span class="n">normalization</span><span class="w"> </span><span class="n">volume</span><span class="w"> </span><span class="n">adjustment</span><span class="p">.</span><span class="w"> </span><span class="n">This</span><span class="w"> </span><span class="n">will</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-388"><code data-line-number="388"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-388"></a><span class="err">#</span><span class="w"> </span><span class="k">result</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">volume</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="ow">all</span><span class="w"> </span><span class="n">playing</span><span class="w"> </span><span class="n">audio</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">adjusted</span><span class="w"> </span><span class="n">so</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="k">output</span><span class="w"> </span><span class="n">has</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-389"><code data-line-number="389"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-389"></a><span class="err">#</span><span class="w"> </span><span class="n">equal</span><span class="w"> </span><span class="ss">"loudness"</span><span class="p">.</span><span class="w"> </span><span class="n">This</span><span class="w"> </span><span class="n">setting</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">disabled</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="k">default</span><span class="p">.</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-390"><code data-line-number="390"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-390"></a><span class="err">#</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-391"><code data-line-number="391"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-391"></a><span class="n">#volume_normalization</span><span class="w">		</span><span class="ss">"no"</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-392"><code data-line-number="392"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-392"></a><span class="err">#</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-393"><code data-line-number="393"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-393"></a><span class="err">###############################################################################</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-394"><code data-line-number="394"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-394"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-395"><code data-line-number="395"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-395"></a><span class="err">#</span><span class="w"> </span><span class="k">Character</span><span class="w"> </span><span class="n">Encoding</span><span class="w"> </span><span class="err">##########################################################</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-396"><code data-line-number="396"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-396"></a><span class="err">#</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-397"><code data-line-number="397"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-397"></a><span class="err">#</span><span class="w"> </span><span class="k">If</span><span class="w"> </span><span class="k">file</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">directory</span><span class="w"> </span><span class="k">names</span><span class="w"> </span><span class="n">do</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">display</span><span class="w"> </span><span class="n">correctly</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">your</span><span class="w"> </span><span class="n">locale</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="n">you</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-398"><code data-line-number="398"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-398"></a><span class="err">#</span><span class="w"> </span><span class="n">may</span><span class="w"> </span><span class="n">need</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="k">modify</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">setting</span><span class="p">.</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-399"><code data-line-number="399"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-399"></a><span class="err">#</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-400"><code data-line-number="400"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-400"></a><span class="n">#filesystem_charset</span><span class="w">		</span><span class="ss">"UTF-8"</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-401"><code data-line-number="401"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-401"></a><span class="err">#</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdmpdconf-402"><code data-line-number="402"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdmpdconf-402"></a><span class="err">###############################################################################</span><span class="w"></span>
+</code></td>
+</tr>
+</table></div>
+</div>
+                    </div>
+                </main><div class="footer extra-block no-print">
+    <span class="footer_item">
+        <a href="../../../pages/you-qing-lian-jie/">友情链接</a>
+    </span>
+    <span class="footer_item">
+        <a href="../../../pages/liu-yan-ban/">留言板</a>
+    </span>
+    <span class="footer_item">
+        <a href="../../../pages/ge-ren-dong-tai/">碎碎念</a>
+    </span>
+    </div>
+            <div class="footer social-link no-print">
+            <a href="https://github.com/ashfinal" target="_blank"><i class="grey large github icon"></i></a>
+            <a href="http://weibo.com/ashfinal/" target="_blank"><i class="grey large weibo icon"></i></a>
+            <a href="mailto://ashfinal@sina.cn" target="_blank"><i class="grey large mail icon"></i></a>
+            </div>
+        <div class="ui basic center aligned segment no-print">Contents © 2020         <a href="mailto:ashfinal@sina.cn">ashfinal</a> - Powered by         <a href="https://getnikola.com" target="_blank" rel="nofollow">Nikola</a>         </div>
+
+            </div>
+            <div class="computer only three wide column no-print">
+                <div id="right-side">
+                </div>
+            </div>
+        </div>
+
+        <!-- GoStats JavaScript Based Code -->
+        <script type="text/javascript">(function(c,o,m,p,u,t,e){
+        c['GoStatsObject']=u;c[u]=c[u]||function(){(c[u].q=c[u].q||[]).push(arguments)},
+        c[u].l=1*new Date();t=o.createElement(m);t.async=1;t.src=p;
+        e=o.getElementsByTagName(m)[0];e.parentNode.insertBefore(t,e);
+        })(window,document,'script','//www.gostats.org/5.js','go');
+        go('init',100479892,{'img_counter_type':5,'img_image_type':1});go('send');</script><!-- End GoStats JavaScript Based Code --><script type="text/javascript" src="../../../assets/js/jquery-3.3.1.min.js"></script><script type="text/javascript" src="../../../assets/js/semantic.min.js"></script><script type="text/javascript" src="../../../assets/js/jquery.fancybox.min.js"></script><script type="text/javascript" src="../../../assets/js/cookie.min.js"></script><script>
+            $(document).ready(function(){
+                $(".ui.dropdown").dropdown();
+                $('.ui.accordion').accordion();
+                var newstr = $('.cookie.nag').text();
+                $('.cookie.nag').nag({
+                    key: 'globalnotice',
+                    value: newstr
+                  });
+                $('.image-reference').fancybox();
+            });
+        </script>
+</body>
+</html>

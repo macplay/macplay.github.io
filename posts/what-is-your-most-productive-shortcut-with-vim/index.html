@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="zh_cn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="generator" content="Nikola (getnikola.com)">
+<title>最能提升效率的 Vim 快捷键是什么？ - MacPlay</title>
+<link rel="apple-touch-icon" sizes="180x180" href="../../apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+<link rel="mask-icon" href="../../safari-pinned-tab.svg" color="#5bbad5">
+<link href="../../assets/css/semantic.min.css" rel="stylesheet" type="text/css">
+<link href="../../assets/css/jquery.fancybox.min.css" rel="stylesheet" type="text/css">
+<link href="../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<link rel="canonical" href="https://macplay.github.io/posts/what-is-your-most-productive-shortcut-with-vim/">
+<meta name="author" content="ashfinal">
+<link rel="alternate" hreflang="en" href="../../en/posts/what-is-your-most-productive-shortcut-with-vim/">
+<link rel="stylesheet" type="text/css" href="../../assets/css/gitalk.css">
+</head>
+<body>
+        <div class="ui grid">
+            <div class="computer only three wide column no-print">
+                <div id="left-side">
+                </div>
+            </div>
+            <div class="ten wide computer sixteen wide tablet sixteen wide mobile column">
+                        <div class="ui inline cookie nag no-print">
+            <span class="title">从现在开始，支持中英双语及博文精选 O(∩_∩)O~~</span>
+            <i class="close icon"></i>
+        </div>
+    <header id="header" class="no-print"><div class="ui grid">
+        <div class="computer only tablet only sixteen wide column">
+            <div class="ui large secondary stackable menu">
+                <a class="header item brand-logo" href="https://macplay.github.io/">
+                    MacPlay
+                </a>
+                        <a class="item" href="../../">Posts</a>
+                        <a class="item" href="../../listings/">Code</a>
+                        <a class="item" href="../../galleries/">Gallery</a>
+                        <a class="item" href="../../categories/">Tags</a>
+                        <a class="item" href="../../archive.html">Archive</a>
+                <div class="right menu">
+                    <a class="item" href="../../rss.xml"><i class="rss icon"></i>RSS</a>
+                </div>
+            </div>
+        </div>
+        <div class="mobile only sixteen wide column">
+            <div class="ui fluid accordion vertical menu">
+                <div class="item">
+                    <a class="title">MacPlay</a>
+                    <div class="content">
+                                <a class="item" href="../../">Posts</a>
+                                <a class="item" href="../../listings/">Code</a>
+                                <a class="item" href="../../galleries/">Gallery</a>
+                                <a class="item" href="../../categories/">Tags</a>
+                                <a class="item" href="../../archive.html">Archive</a>
+                        <a class="item" href="../../rss.xml"><i class="rss icon"></i>RSS</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </header><main id="main"><div id="main-content">
+<div class="postpage post-text page-body" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <h1 class="post-title" itemprop="headline">
+        <a href=".">最能提升效率的 Vim 快捷键是什么？</a>
+    </h1>
+
+    <div class="ui large horizontal link list post-meta">
+        <span class="item">By
+            <a href="../../authors/ashfinal/">ashfinal</a>
+        </span>
+            <span class="item">
+                <a href="https://github.com/macplay/macplay.github.io/edit/src/posts/what-is-your-most-productive-shortcut-with-vim.rst" target="_blank" title="Edit on GitHub">Edit</a>
+            </span>
+        <span class="item">
+            <time datetime="2019-09-29T08:50:23+08:00">
+            2019-09-29 08:50
+            </time></span>
+            <span class="item">
+                    <a href="../../categories/linux/">linux</a>
+                    <a href="../../categories/vim/">vim</a>
+            </span>
+    </div>
+
+        <div class="posttrans ui message">
+        <span class="title">Also available in:
+            <span><a href="../../en/posts/what-is-your-most-productive-shortcut-with-vim/" rel="alternate" hreflang="en">English</a></span>
+        </span>
+    </div>
+
+    <div class="post-content" itemprop="article text">
+        <div id="post-content">
+        <div>
+<div class="figure align-center">
+<a class="reference external image-reference" href="../../images/vim-keyboard-cover-macbook.jpg"><img alt="/images/vim-keyboard-cover-macbook.thumbnail.jpg" src="../../images/vim-keyboard-cover-macbook.thumbnail.jpg"></a>
+</div>
+<p><a class="reference external" href="http://www.vim.org">Vim</a>  编辑器的优势和劣势，我已经了解了不少。作为开发者，使用 Vim 要比其它编辑器要快一些，看起来确是如此。然而，我正在使用 Vim 做一些基础编辑，却时常感到效率慢了 10 倍不止。</p>
+<p>当谈及编辑速度时（你应该更多地关注于此），我们把重点放在两个方面：</p>
+<ol class="arabic simple">
+<li><p>交替地使用左右手，是操作键盘 <strong>最快</strong> 的方式；</p></li>
+<li><p>尽可能不碰鼠标，是追求极致速度的唯二法门。移动手腕，抓取鼠标，移动鼠标，手指返回键盘……需要花费极长时间（更别说，通常你不得不低头盯着键盘，确保手指放到了正确的位置）。，</p></li>
+</ol>
+<p>我有以下两个例子，来说明使用 Vim 为何没有体验到效率提升。</p>
+<!-- TEASER_END -->
+<p><strong>复制/剪切 和 粘贴</strong> 。我经常得做这事。如果是现代的其它编辑器，我用左手按住 <cite>Shift</cite> 键，右手移动光标选择文字。然后， <cite>Ctrl</cite> +  <cite>C</cite> 拷贝，移动光标， <cite>Ctrl</cite> + <cite>V</cite> 粘贴。</p>
+<p>而使用 Vim 就很糟糕：</p>
+<ul class="simple">
+<li><p><cite>yy</cite> 拷贝一行（通常我才不需要一整行啊！）</p></li>
+<li><p><cite>[number xx]yy</cite> 拷贝 <cite>xx</cite> 行到缓冲区。但是，你不知道是否选对了想要的行，以至于我经常不得不 <cite>[number xx]dd</cite> ，然后再按 <cite>u</cite> 来撤销！</p></li>
+</ul>
+<p>另一个例子？ <strong>搜索和替换</strong> 。</p>
+<ul class="simple">
+<li><p>使用 <a class="reference external" href="https://en.wikipedia.org/wiki/PSPad">PSPad</a> ： <cite>Ctrl</cite> + <cite>f</cite> 然后键入想要搜索的，再按 <cite>Enter</cite> 。</p></li>
+<li><p>使用 Vim： <cite>/</cite> ，然后键入搜索内容，如有特殊字符则在前面加个 <code class="docutils literal">\</code> ，然后按 <cite>Enter</cite> 键。</p></li>
+</ul>
+<p>Vim 里的其它东西，看起来亦是如此：我不知道如何正确地使用它们。</p>
+<p>提示： 我已经读过 Vim <a class="reference external" href="http://www.viemu.com/vi-vim-cheat-sheet.gif">备忘</a> <a class="reference external" href="http://www.fprintf.net/vimCheatSheet.html">小抄</a> :)</p>
+<p>我的问题是：</p>
+<p>你是如何使用 Vim 编辑器的，以使得它比其它编辑器更有效率？</p>
+<hr class="docutils">
+<p><strong>关于 Vim 编辑器，你的问题是没有领悟 Vi 的精髓。</strong></p>
+<p>你提到使用 <cite>yy</cite> 剪切，然后抱怨几乎从没想要剪切整个行。事实是，程序员编辑代码时，经常需要对整个行，多个行以及代码块进行操作。然而， <cite>yy</cite> 只是将文本复制到匿名缓冲区（ <strong>vi</strong> 称之为寄存器）的其中一种方法。</p>
+<p><strong>vi</strong> 之禅在于，你是在说一种语言。此处的第一个 <cite>y</cite> 是个动词，而 <cite>yy</cite> 则与 <cite>y_</cite> 是同一种意思。两个 <cite>y</cite> 使得它更容易输入，因为这是一个常用操作。</p>
+<p>再用 <cite>dd</cite> <cite>P</cite> 来解释一遍（删除当前行，再把它粘贴回原处；同时，在匿名寄存器内留下一份拷贝）。动词 <cite>y</cite> 和 <cite>d</cite> 对其“主体”执行动作。因此 ， <cite>yW</cite> 是从此处（光标处）拷贝到当前/下一个(big)单词末尾，而 <cite>y'a</cite> 则是从此处拷贝到 <cite>a</cite> 标记所在的行。</p>
+<p>如果你仅了解基本的上下左右光标移动，则 <strong>vi</strong> 不会比 notepad 更有效率（好吧，你仍然拥有语法高亮以及打开超过 45KB 文件的能力。但是，意义何在呢？）。</p>
+<p><strong>vi</strong> 拥有 26 个“标记”和 26 个“寄存器”。标记使用 <cite>m</cite> 命令，放置到任何光标位置，由单个小写字符指定。因此 <cite>ma</cite> 将当前位置设置为 <cite>a</cite> ，而 <cite>mz</cite> 设置为 <cite>z</cite> 标记。你可以使用 <cite>'</cite> 单引号跳转到标记的行。因此， <cite>'a</cite> 跳转到 <cite>a</cite> 标记的那一行的开头。使用 <code class="docutils literal">`</code> 反引号可跳转到任何标记的精确位置。因此， <code class="docutils literal">`z</code> 将跳转到 <cite>z</cite> 标记的精确位置。</p>
+<p>因为这些都是“动作”，它们也可作用于其它指令的“主体”。</p>
+<p>所以，剪切任意文本的一种方式是：首先进行标记（我通常使用 "a" 作为第一个标记，"z" 作为下一个标记，"b" 是下一个，"e" 下一个；在使用 vi 的 15 年中，我从不记得使用过 4 个以上的标记；在不影响交互场景的前提下，决定在宏中使用多少个标记和寄存器，并养成自己的习惯）。然后，我们就可以使用 <code class="docutils literal">d`a</code> 来剪切或 <code class="docutils literal">y`a</code> 来拷贝。因此整个流程仅需要 5 次键击（如果处在“插入”模式则是 6 次，需要按 <cite>Esc</cite> 键进入命令模式）。一旦完成剪切或拷贝，只需要一次按键 <cite>p</cite> 就可以粘贴了。</p>
+<p>我说过，这是剪切或复制文本的一种方式。然而，它只是众多方式中的一种。通常，我们可以更简练地描述文本范围，而无需移动光标并放置标记。比如，如果在段落中，可以使用 <cite>{}</cite> 和 <cite>}</cite> 分别跳转到其开头或结尾。想要移动文本段落，可使用 <cite>{</cite> <cite>d}</cite> （三次键击）来剪切。如果碰巧在段落的首行或末行，可以直接分别使用 <cite>d}</cite> 或 <cite>d{</cite> 。</p>
+<p>此处的“段落”，与我们通用的概念意思一致。因此，它适用于代码和散文。</p>
+<p>通常，我们知道有某些模式（正则表达式），可标记感兴趣文本的一端或另一端。在 <strong>vi</strong> 里，向前或向后搜索被视为动作。因此，在“指令”中，亦可作用于“主体”。我们可以使用 <cite>d/foo</cite> 从当前行剪切，直到包含 "foo" 的那一行，用 <cite>y?bar</cite> 来从当前行向前拷贝到包含 "bar" 最近的那一行。如果不想要整个行，还可以使用搜索动作，像之前那样，放置标记然后使用 <code class="docutils literal">`x</code> 标记。</p>
+<p>除了“动词”和“主体”之外， <strong>vi</strong> 还有语法含义上的“对象”。目前为止，我只讲了匿名寄存器的使用。然而，你还可以在“对象”前添加 <cite>"</cite> 双引号，来使用 26 个“命名”寄存器中的任何一个。因此，使用 <cite>"add</cite> 意为剪切当前行存入 "a" 寄存器，而 <cite>"by/foo"</cite> 则是从此处拷贝到包含 "foo" 的那一行，并存入 "b" 寄存器。要从某寄存器粘贴，则在粘贴前按同样的按键序列： <cite>"ap</cite> 将 "a" 寄存器的内容粘贴到光标之后，而 <cite>"bP</cite> 将 "b" 寄存器内容粘贴到之前。</p>
+<p>“前缀”的概念，也给我们的文本操作“语言”引入了“形容词”和“副词”。大多数命令（动词）以及动作（动词或对象，依赖于上下文），也可采用数字前缀。因此， <cite>3J</cite> 意为“合并之后三行”，而 <cite>d5}</cite> 意为“删除行直到第 5 个段落末尾”。</p>
+<p>以上这些都是中级 <strong>vi</strong> 。没有一个是 <strong>Vim</strong> 特定的，如果你想要学习，还有更多更高级的 <strong>vi</strong> 技巧。仅掌握这些中级概念，你可能就会发现，你极少需要编写任何宏，因为该文本操作语言是如此地简洁有力，使用编辑器的“原生”语言，你就可以轻而易举地做到大多数事情。</p>
+<hr class="docutils">
+<p><strong>更高级的例子：</strong></p>
+<p><strong>vi</strong> 编辑器有一系列 <cite>:</cite> 命令，最有名的莫过于 <cite>:%s/foo/bar/g</cite> 全局替换（它并不高级，还有其他一堆高级 <cite>:</cite> 命令）。 <cite>:</cite> 命令从 <strong>vi</strong> 的前辈 <strong>ed</strong> （行编辑器）， <strong>ex</strong> （增强行编辑器）继承而来。事实上， <strong>vi</strong> 之所以如此命名，是因为它是 <strong>ex</strong> 的可视化界面。</p>
+<p><cite>:</cite> 命令通常对几行文本进行操作。 <strong>ed</strong> 和 <strong>ex</strong> 编写于那个终端屏幕都少见，许多终端是电传（TTY）设备的年代。通常手边放着打印稿，然后通过极其简陋的界面键入命令（连接速度一般为 100 波特，或者说每秒 11 个字符--比快速打字员还要慢些；多用户交互过程中延滞经常发生；此外，往往还有节约纸张的考虑）。</p>
+<p><cite>:</cite> 命令语法通常包含某一地址或地址范围（行号），后面紧跟一条命令。当然，你可以直接使用行号： <cite>:127,215s/foo/bar</cite> 将第 127 行到 215 行之间的第一处 "foo" 替换为 "bar"。你也可以使用缩写比如 <cite>.</cite> 或 <cite>$</cite> ，分别代表当前行和最后行。你也可以使用相对前缀 <cite>+</cite> 和 <cite>-</cite> 分别代表当前行之后或之前的偏移。因此， <cite>:.,$j</cite> 意为从当前行到最后一行，将它们合并为一行。 <cite>:%</cite> 与 <cite>:1,$</cite> （所有行）意思则相同。</p>
+<p><cite>:... g</cite> 和 <cite>:... v</cite> 功能异常强大，需要费一番口舌解释。 <cite>:... g</cite> 是 "globally" 的前缀，将后续命令应用于与模式（正则表达式）匹配的所有行，而 <cite>:... v</cite> 则将此命令应用于与模式不匹配的所有行（"v" 源自 "conVerse"）。与其它 <strong>ex</strong> 命令一样，它们也可以使用地址/范围引用来添加前缀。因此， <cite>:.,+21g/foo/d</cite> 意为从当前行到之后 21 行间删除掉包含 "foo" 的所有行。而 <cite>:.,$v/bar/d</cite> 意为从当前行到文件末尾，删除掉任何不包含 "bar" 的行。</p>
+<p>有趣的是，常见 Unix 命令 <strong>grep</strong> 事实上也是 <strong>ex</strong> 启发而来的（其命名方式也是如此）。<strong>ex</strong> 命令 <cite>:g/re/p</cite> (grep) 正是如何 "globally" "print" 包含某 "regular expression" (re) 的方式。使用 <strong>ed</strong> 和 <strong>ex</strong> 时， <cite>:p</cite> 常常是人们学习的首批命令之一，也是编辑文件时使用的第一个命令。也就是如何打印当前文本内容（通常是全部打印，偶尔使用 <cite>:.,+25p</cite> 或类似命令打印）。</p>
+<p>注意到， <cite>:% g/.../d</cite> 或它的反面对应 <cite>:% v/.../d</cite> ，是最常使用到的模式。然而，还有其它一些值得记住的 <strong>ex</strong> 命令。</p>
+<p>你可以使用 <cite>m</cite> 来移动行，使用 <cite>j</cite> 来合并行。比如有一个列表，你想要不经删除将所有匹配的行（或反之，不匹配的行）分离，则可以使用 <cite>:% g/foo/m$</cite> 类似的命令，然后所有 "foo" 行将会被移动到文件末尾（注意另一个将文件末尾当作草稿区的技巧）。在将 "foo" 行分离的同时，还能保留它们原有的相对顺序（等价于类似命令： <cite>1G!GGmap!Ggrep foo&lt;ENTER&gt;1G:1,'a g/foo'/d</cite> 拷贝文件到末尾，通过 <cite>grep</cite> 进行过滤，从开头删除所有东西）。</p>
+<p>要合并行，通常我是找到要合并行的前置字符（比如，无序列表均以 <code class="docutils literal">^ `` 开头而非 ``^ *</code> 。这种情况下，我使用 <cite>:% g/^ /-1j</cite> (将匹配的行，与往上一行合并)。（顺便说下：搜索无序列表行合并到下一行，不知什么原因无法工作……将某项无序列表合并到另一个是可以的，但无法将列表项与它的所有续行合并；仅适用于成对的匹配行。）</p>
+<p>更无需提及，你可以将先前的 <cite>s</cite> (substitute) 与 <cite>g</cite> 和 <cite>v</cite> (global/converse-global) 命令配合使用。一般情况下，我们并不需要这么做。然而，某些时候你想仅对那些匹配的行执行替换。当然，你可以使用捕获和回溯的复杂表达式，以保留那些你不想更改的部分。然而，使用替换来分离匹配常常更加简单些： <cite>:% g/foo/s/bar/zzz/g</cite> -- 将包含 "foo" 的每一行里的 "bar" 均替换为 "zzz"（ <cite>:% s/(.*foo.*)bar(.*)/1zzz2/g</cite> 命令仅对同一行中 "bar" 前面是 "foo" 的情况有用；它已经有些蹩脚难懂，如果考虑到 "bar" 在 "foo" 之前的情况，还需要对表达式进一步的包裹）。</p>
+<p>我的意思是，在 <strong>ex</strong> 命令集中还有比 <cite>p</cite> , <cite>s</cite> , <cite>d</cite> 更有用的命令。</p>
+<p><cite>:</cite> 命令的地址也可引用标记。因此，你可以使用 <cite>:'a,'bg/foo/j</cite> 命令将包含 "foo" 的行合并到下一行，如果它们处于 "a" 标记与 "b" 标记之间的话（是的，之前提到的 <strong>ex</strong> 命令例子，均可用各种范围表达式进行约束）。</p>
+<p>这看起来有些晦涩难懂（在过去的 15 年中，有些命令我仅使用过几次）。然而，我坦承我时常重复做一些繁杂的琐事，如果我早先花时间想出正确方法的话，肯定能更高效地完成。</p>
+<p>关于 <strong>vi</strong> 或 <strong>ex</strong> 另一个非常有用的命令是 <cite>:r</cite> ，读取另一个文件的内容。因此， <cite>:r foo</cite> 意即在当前行插入文件 "foo" 的内容。</p>
+<p>还有个更强大的 <cite>:r!</cite> 命令，它读取命令执行的结果。暂停当前 <strong>vi</strong> 会话，运行一个命令，将其输出重定向到临时文件，恢复 <strong>vi</strong> 会话，从临时文件读取内容。</p>
+<p>还有更强大的 <cite>!</cite> (bang) 和 <cite>:... !</cite> (<strong>ex</strong> bang) 命令。它们也是执行外部命令并将结果读取到当前文件。然而，它们也可以通过命令过滤所选择的文本！这样的话，我们就可以使用 <cite>1G!Gsort</cite> （ <cite>G</cite> 是 <strong>vi</strong> 的 "goto" 命令；默认是跳转到文件的最后一行，但是可以在前面加上行号，比如 1 跳转到第一行）来对文件的所有行进行排序。这等价于 <strong>ex</strong> 命令 <cite>:1,$!sort</cite> 。写作者通常使用 <cite>!</cite> 配合 Unix 的 <cite>fmt</cite> 或 <cite>fold</cite> 来格式化或换行选中的文本。一个常用的宏是 <cite>{!}fmt</cite> （格式化当前段落）。程序员有时用它配合 <cite>indent</cite> 或其它代码格式化工具来运行代码，或者某一部分代码，</p>
+<p>另一个有用的 <strong>ex</strong> 命令是 <cite>:so</cite> （ <cite>:source</cite> 缩写）。它读取文件内容，并将其内容视为一系列命令。当你正常启动 <strong>vi</strong> 时，隐式地对 <cite>~/.exinitrc</cite> 文件执行了 <cite>:source</cite> 命令（ <strong>Vim</strong> 则通常是 <cite>~/.vimrc</cite> ）。该命令的用处是你可以通过读取一系列宏，缩略词和编辑器设置，瞬间地改变 Vim 的外观行为。你还可以将一系列 <strong>ex</strong> 命令序列存储，然后再静默地应用到想要更改的文件。</p>
+<p>比如，有一个 7 行（36 个字符）的文件，它运行 <cite>wc</cite> 命令，并在文件开头插入包含字数统计的 C 语言风格的注释。我就可以执行 <cite>vim +'so mymacro.ex' ./mytarget</cite> 命令，将“宏”应用到该文件。</p>
+<p>（ <strong>vi</strong> 以及 <strong>Vim</strong> 的 <cite>+</cite> 命令行选项，常被用来在指定行上开始文件编辑。然而很少有人知道，也可以在 <cite>+</cite> 后面跟任何合法的 <strong>ex</strong> 命令/表达式，正如我在此处使用的 "source" 命令；另一个简单例子是： <cite>vi +'/foo/d|wq!' ~/.ssh/known_hosts</cite> 从 SSH 已知主机里静默地删除某条目。）</p>
+<p>通常来说，使用 Perl, AWK, <strong>sed</strong> （与 <strong>grep</strong> 一样由 <strong>ed</strong> 启发的工具）写出这样的“宏”，可一点都不容易。</p>
+<p><cite>@</cite> 可能是 <strong>vi</strong> 里最晦涩的命令。在将近 10 年的时常给高级系统管理员授课的过程中，我没碰见几个人使用它。 <cite>@</cite> 如 <strong>vi</strong> 或 <strong>ex</strong> 命令一样，执行寄存器里的内容。</p>
+<p>例子：我常使用 <cite>:r!locate ...</cite> 查找系统里的文件，并读取其文件名称。删除掉所有无关命中，仅留下感兴趣的文件的完整路径。与其不辞劳苦地按 <cite>Tab</cite> 遍历文件路径（或者更糟，我登陆的机器上碰巧没有 Tab 补全支持），我是这样做的：</p>
+<ol class="arabic simple">
+<li><p><cite>0i:r</cite> （把当前行变为合法的 <cite>:r</cite> 命令）；</p></li>
+<li><p><cite>:cdd</cite> （删除行并存入 "c" 寄存器），然后</p></li>
+<li><p><cite>@c</cite> 执行命令</p></li>
+</ol>
+<p>仅需要 10 次键击（表达式 <cite>"cdd</cite> <cite>@c</cite> 于我而言，是一指之隔的效率宏，因此我能将这 6 个字符像其它常见字符一样快速地键入）。</p>
+<hr class="docutils">
+<p><strong>一点警醒</strong></p>
+<p>此处对 <strong>vi</strong> 强大之处的介绍，还仅仅是浮光掠影。我在这里所讲的，甚至没有一点是 <strong>vim</strong> “改进”（vim 名称由此而来）的地方！我在这里讲的所有东西，均可以在 20 至 30 年前的 <strong>vi</strong> 上正常运行。</p>
+<p>还有很多人对 <strong>vi</strong> 的使用，比我更出神入化。</p>
+</div>
+        </div>
+    </div>
+    <div class="post-info">
+        <p>引用资源：<a href="https://stackoverflow.com/questions/1218390/what-is-your-most-productive-shortcut-with-vim" target="_blank">https://stackoverflow.com/questions/1218390/what-is-your-most-productive-shortcut-with-vim</a></p>
+        <p>文章链接：<a href="https://macplay.github.io/posts/what-is-your-most-productive-shortcut-with-vim/" target="_blank">https://macplay.github.io/posts/what-is-your-most-productive-shortcut-with-vim/</a></p>
+        <p>发布/更新于：
+            <time datetime="2019-09-29 08:50:23 UTC+08:00">
+            2019-09-29 08:50
+            </time></p>
+        <p>版权声明：如无特别说明，本站文章均遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">CC BY-NC-SA 4.0</a> 协议，转载请注明作者及出处。</p>
+    </div>
+        <div class="post-navigation no-print">
+        <div class="ui huge secondary stackable menu">
+            <a class="post-nav-item post-nav-previous item" href="../improve-and-extend-your-text-objects-with-targetsvim/" title="Previous post"><i class="angle double left icon"></i> 使用 targets.vim 改进和扩展文本对象</a>
+        <div class="right menu">
+            <a class="post-nav-item post-nav-next item" href="../oni-032-ban-ben-shi-chu/" title="Next post">Oni 0.32 版本释出 <i class="angle double right icon"></i></a>
+        </div>
+        </div>
+    </div>
+
+        <div id="gitalk-container" class="comments-block no-print"></div>
+</div>
+                    </div>
+                </main><div class="footer extra-block no-print">
+    <span class="footer_item">
+        <a href="../../pages/you-qing-lian-jie/">友情链接</a>
+    </span>
+    <span class="footer_item">
+        <a href="../../pages/liu-yan-ban/">留言板</a>
+    </span>
+    <span class="footer_item">
+        <a href="../../pages/ge-ren-dong-tai/">碎碎念</a>
+    </span>
+    </div>
+            <div class="footer social-link no-print">
+            <a href="https://github.com/ashfinal" target="_blank"><i class="grey large github icon"></i></a>
+            <a href="http://weibo.com/ashfinal/" target="_blank"><i class="grey large weibo icon"></i></a>
+            <a href="mailto://ashfinal@sina.cn" target="_blank"><i class="grey large mail icon"></i></a>
+            </div>
+        <div class="ui basic center aligned segment no-print">Contents © 2020         <a href="mailto:ashfinal@sina.cn">ashfinal</a> - Powered by         <a href="https://getnikola.com" target="_blank" rel="nofollow">Nikola</a>         </div>
+
+            </div>
+            <div class="computer only three wide column no-print">
+                <div id="right-side">
+                </div>
+            </div>
+        </div>
+
+        <!-- GoStats JavaScript Based Code -->
+        <script type="text/javascript">(function(c,o,m,p,u,t,e){
+        c['GoStatsObject']=u;c[u]=c[u]||function(){(c[u].q=c[u].q||[]).push(arguments)},
+        c[u].l=1*new Date();t=o.createElement(m);t.async=1;t.src=p;
+        e=o.getElementsByTagName(m)[0];e.parentNode.insertBefore(t,e);
+        })(window,document,'script','//www.gostats.org/5.js','go');
+        go('init',100479892,{'img_counter_type':5,'img_image_type':1});go('send');</script><!-- End GoStats JavaScript Based Code --><script type="text/javascript" src="../../assets/js/jquery-3.3.1.min.js"></script><script type="text/javascript" src="../../assets/js/semantic.min.js"></script><script type="text/javascript" src="../../assets/js/jquery.fancybox.min.js"></script><script type="text/javascript" src="../../assets/js/cookie.min.js"></script><script>
+            $(document).ready(function(){
+                $(".ui.dropdown").dropdown();
+                $('.ui.accordion').accordion();
+                var newstr = $('.cookie.nag').text();
+                $('.cookie.nag').nag({
+                    key: 'globalnotice',
+                    value: newstr
+                  });
+                $('.image-reference').fancybox();
+            });
+        </script><script src="../../assets/js/md5.min.js"></script><script src="../../assets/js/gitalk.min.js"></script><script>
+        const gitalk = new Gitalk({
+            clientID: '12fcda845097d895a24c',
+            clientSecret: '50ed60cde5f40897205197b4265b474cefbedc49',
+            repo: 'macplay.github.io',
+            owner: 'macplay',
+            admin: ['macplay', 'ashfinal'],
+            id: md5(window.location.pathname),
+            // facebook-like distraction free mode
+            distractionFreeMode: false
+        })
+        gitalk.render('gitalk-container')
+    </script>
+</body>
+</html>

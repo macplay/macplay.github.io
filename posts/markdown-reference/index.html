@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="zh_cn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="generator" content="Nikola (getnikola.com)">
+<title>Markdown Reference - MacPlay</title>
+<link rel="apple-touch-icon" sizes="180x180" href="../../apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+<link rel="mask-icon" href="../../safari-pinned-tab.svg" color="#5bbad5">
+<link href="../../assets/css/semantic.min.css" rel="stylesheet" type="text/css">
+<link href="../../assets/css/jquery.fancybox.min.css" rel="stylesheet" type="text/css">
+<link href="../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<link rel="canonical" href="https://macplay.github.io/posts/markdown-reference/">
+<meta name="author" content="ashfinal">
+<link rel="alternate" hreflang="en" href="../../en/posts/markdown-reference/">
+<link rel="stylesheet" type="text/css" href="../../assets/css/gitalk.css">
+</head>
+<body>
+        <div class="ui grid">
+            <div class="computer only three wide column no-print">
+                <div id="left-side">
+                </div>
+            </div>
+            <div class="ten wide computer sixteen wide tablet sixteen wide mobile column">
+                        <div class="ui inline cookie nag no-print">
+            <span class="title">从现在开始，支持中英双语及博文精选 O(∩_∩)O~~</span>
+            <i class="close icon"></i>
+        </div>
+    <header id="header" class="no-print"><div class="ui grid">
+        <div class="computer only tablet only sixteen wide column">
+            <div class="ui large secondary stackable menu">
+                <a class="header item brand-logo" href="https://macplay.github.io/">
+                    MacPlay
+                </a>
+                        <a class="item" href="../../">Posts</a>
+                        <a class="item" href="../../listings/">Code</a>
+                        <a class="item" href="../../galleries/">Gallery</a>
+                        <a class="item" href="../../categories/">Tags</a>
+                        <a class="item" href="../../archive.html">Archive</a>
+                <div class="right menu">
+                    <a class="item" href="../../rss.xml"><i class="rss icon"></i>RSS</a>
+                </div>
+            </div>
+        </div>
+        <div class="mobile only sixteen wide column">
+            <div class="ui fluid accordion vertical menu">
+                <div class="item">
+                    <a class="title">MacPlay</a>
+                    <div class="content">
+                                <a class="item" href="../../">Posts</a>
+                                <a class="item" href="../../listings/">Code</a>
+                                <a class="item" href="../../galleries/">Gallery</a>
+                                <a class="item" href="../../categories/">Tags</a>
+                                <a class="item" href="../../archive.html">Archive</a>
+                        <a class="item" href="../../rss.xml"><i class="rss icon"></i>RSS</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </header><main id="main"><div id="main-content">
+<div class="postpage post-text page-body" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <h1 class="post-title" itemprop="headline">
+        <a href=".">Markdown Reference</a>
+    </h1>
+
+    <div class="ui large horizontal link list post-meta">
+        <span class="item">By
+            <a href="../../authors/ashfinal/">ashfinal</a>
+        </span>
+            <span class="item">
+                <a href="https://github.com/macplay/macplay.github.io/edit/src/posts/markdown-reference.md" target="_blank" title="Edit on GitHub">Edit</a>
+            </span>
+        <span class="item">
+            <time datetime="2017-09-18T17:47:12+08:00">
+            2017-09-18 17:47
+            </time></span>
+            <span class="item">
+                    <a href="../../categories/markdown/">markdown</a>
+                    <a href="../../categories/reference/">reference</a>
+            </span>
+    </div>
+
+    
+    <div class="post-content" itemprop="article text">
+        <div id="post-content">
+        <div>
+<h3 id="overview">Overview</h3>
+<p><strong>Markdown</strong> is created by <a href="http://daringfireball.net/">Daring Fireball</a>, the original guideline is <a href="http://daringfireball.net/projects/markdown/syntax">here</a>. Its syntax, however, varies between different parsers or editors. <strong>Typora</strong> is using <a href="https://help.github.com/articles/github-flavored-markdown/">GitHub Flavored Markdown</a>.</p>
+<p>Please note that HTML fragments in markdown source will be recognized but not parsed or rendered. Also, there may be small reformatting on the original markdown source code after saving.</p>
+<!-- TEASER_END -->
+
+<p><em>Outline</em></p>
+<div class="toc">
+<ul>
+<li><a href="#overview">Overview</a></li>
+<li>
+<a href="#block-elements">Block Elements</a><ul>
+<li><a href="#paragraph-and-line-breaks">Paragraph and line breaks</a></li>
+<li><a href="#headers">Headers</a></li>
+<li><a href="#blockquotes">Blockquotes</a></li>
+<li><a href="#lists">Lists</a></li>
+<li><a href="#task-list">Task List</a></li>
+<li><a href="#fenced-code-blocks">(Fenced) Code Blocks</a></li>
+<li><a href="#math-blocks">Math Blocks</a></li>
+<li><a href="#tables">Tables</a></li>
+<li><a href="#footnotes">Footnotes</a></li>
+<li><a href="#horizontal-rules">Horizontal Rules</a></li>
+<li><a href="#yaml-front-matter">YAML Front Matter</a></li>
+<li><a href="#table-of-contents-toc">Table of Contents (TOC)</a></li>
+<li><a href="#diagrams-sequence-flowchart-and-mermaid">Diagrams (Sequence, Flowchart and Mermaid)</a></li>
+</ul>
+</li>
+<li>
+<a href="#span-elements">Span Elements</a><ul>
+<li>
+<a href="#links">Links</a><ul>
+<li><a href="#internal-links">Internal Links</a></li>
+<li><a href="#reference-links">Reference Links</a></li>
+</ul>
+</li>
+<li><a href="#urls">URLs</a></li>
+<li><a href="#images">Images</a></li>
+<li><a href="#emphasis">Emphasis</a></li>
+<li><a href="#strong">Strong</a></li>
+<li><a href="#code">Code</a></li>
+<li><a href="#strikethrough">Strikethrough</a></li>
+<li><a href="#underline">Underline</a></li>
+<li><a href="#emoji-happy">Emoji :happy:</a></li>
+<li><a href="#html">HTML</a></li>
+<li><a href="#inline-math">Inline Math</a></li>
+<li><a href="#subscript">Subscript</a></li>
+<li><a href="#superscript">Superscript</a></li>
+<li><a href="#highlight">Highlight</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h3 id="block-elements">Block Elements</h3>
+<h4 id="paragraph-and-line-breaks">Paragraph and line breaks</h4>
+<p>A paragraph is simply one or more consecutive lines of text. In markdown source code, paragraphs are separated by more than one blank lines. In Typora, you only need to press <code>Return</code> to create a new paragraph.</p>
+<p>Press <code>Shift</code> + <code>Return</code> to create a single line break. However, most markdown parser will ignore single line break, to make other markdown parsers recognize your line break, you can leave two whitespace at the end of the line, or insert <code>&lt;br/&gt;</code>.</p>
+<h4 id="headers">Headers</h4>
+<p>Headers use 1-6 hash characters at the start of the line, corresponding to header levels 1-6. For example:</p>
+<pre class="code literal-block"><span></span><span class="o">#</span> <span class="n">This</span> <span class="k">is</span> <span class="n">an</span> <span class="n">H1</span>
+
+<span class="o">##</span> <span class="n">This</span> <span class="k">is</span> <span class="n">an</span> <span class="n">H2</span>
+
+<span class="o">######</span> <span class="n">This</span> <span class="k">is</span> <span class="n">an</span> <span class="n">H6</span>
+</pre>
+
+
+<p>In typora, input ‘#’s followed by title content, and press <code>Return</code> key will create a header.</p>
+<h4 id="blockquotes">Blockquotes</h4>
+<p>Markdown uses email-style &gt; characters for block quoting. They are presented as:</p>
+<pre class="code literal-block"><span></span><span class="o">&gt;</span> <span class="n">This</span> <span class="k">is</span> <span class="n">a</span> <span class="n">blockquote</span> <span class="k">with</span> <span class="n">two</span> <span class="n">paragraphs</span><span class="p">.</span> <span class="n">This</span> <span class="k">is</span> <span class="k">first</span> <span class="n">paragraph</span><span class="p">.</span>
+<span class="o">&gt;</span>
+<span class="o">&gt;</span> <span class="n">This</span> <span class="k">is</span> <span class="k">second</span> <span class="n">pragraph</span><span class="p">.</span><span class="n">Vestibulum</span> <span class="n">enim</span> <span class="n">wisi</span><span class="p">,</span> <span class="n">viverra</span> <span class="n">nec</span><span class="p">,</span> <span class="n">fringilla</span> <span class="k">in</span><span class="p">,</span> <span class="n">laoreet</span> <span class="n">vitae</span><span class="p">,</span> <span class="n">risus</span><span class="p">.</span>
+
+
+
+<span class="o">&gt;</span> <span class="n">This</span> <span class="k">is</span> <span class="n">another</span> <span class="n">blockquote</span> <span class="k">with</span> <span class="n">one</span> <span class="n">paragraph</span><span class="p">.</span> <span class="n">There</span> <span class="k">is</span> <span class="n">three</span> <span class="n">empty</span> <span class="n">line</span> <span class="k">to</span> <span class="n">seperate</span> <span class="n">two</span> <span class="n">blockquote</span><span class="p">.</span>
+</pre>
+
+
+<p>In typora, just input ‘&gt;’ followed by quote contents a block quote is  generated. Typora will insert proper ‘&gt;’ or line break for you. Block quote inside anther block quote is allowed by adding additional levels of ‘&gt;’.</p>
+<h4 id="lists">Lists</h4>
+<p>Input <code>* list item 1</code> will create an un-ordered list, the <code>*</code> symbol can be replace with <code>+</code> or <code>-</code>.</p>
+<p>Input <code>1. list item 1</code> will create an ordered list, their markdown source code is like:</p>
+<pre class="code literal-block"><span></span><span class="o">##</span> <span class="n">un</span><span class="o">-</span><span class="n">ordered</span> <span class="n">list</span>
+<span class="o">*</span>   <span class="n">Red</span>
+<span class="o">*</span>   <span class="n">Green</span>
+<span class="o">*</span>   <span class="n">Blue</span>
+
+<span class="o">##</span> <span class="n">ordered</span> <span class="n">list</span>
+<span class="mi">1</span><span class="p">.</span>  <span class="n">Red</span>
+<span class="mi">2</span><span class="p">.</span>  <span class="n">Green</span>
+<span class="mi">3</span><span class="p">.</span>  <span class="n">Blue</span>
+</pre>
+
+
+<h4 id="task-list">Task List</h4>
+<p>Task lists are lists with items marked as either [ ] or [x] (incomplete or complete). For example:</p>
+<pre class="code literal-block"><span></span><span class="o">-</span><span class="w"> </span><span class="o">[</span><span class="n"> </span><span class="o">]</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">task</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="n">item</span><span class="w"></span>
+<span class="o">-</span><span class="w"> </span><span class="o">[</span><span class="n"> </span><span class="o">]</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="n">syntax</span><span class="w"> </span><span class="n">required</span><span class="w"></span>
+<span class="o">-</span><span class="w"> </span><span class="o">[</span><span class="n"> </span><span class="o">]</span><span class="w"> </span><span class="n">normal</span><span class="w"> </span><span class="o">**</span><span class="n">formatting</span><span class="o">**</span><span class="p">,</span><span class="w"> </span><span class="nv">@mentions</span><span class="p">,</span><span class="w"> </span><span class="n">#1234</span><span class="w"> </span><span class="n">refs</span><span class="w"></span>
+<span class="o">-</span><span class="w"> </span><span class="o">[</span><span class="n"> </span><span class="o">]</span><span class="w"> </span><span class="n">incomplete</span><span class="w"></span>
+<span class="o">-</span><span class="w"> </span><span class="o">[</span><span class="n">x</span><span class="o">]</span><span class="w"> </span><span class="n">completed</span><span class="w"></span>
+</pre>
+
+
+<p>You can change the complete/incomplete state by click the checkbox before the item.</p>
+<h4 id="fenced-code-blocks">(Fenced) Code Blocks</h4>
+<p>Typora only support fences in Github Flavored Markdown. Original code blocks in markdown is not supported.</p>
+<p>Using fences is easy: Input ``` and press <code>return</code>. Add an optional language identifier after ``` and we'll run it through syntax highlighting:</p>
+<pre class="code literal-block"><span></span><span class="n">Here</span><span class="s1">'s an example:</span>
+
+<span class="s1">​```</span>
+<span class="s1">function test() {</span>
+<span class="s1">  console.log("notice the blank line before this function?");</span>
+<span class="s1">}</span>
+<span class="s1">​```</span>
+
+<span class="s1">syntax highlighting:</span>
+<span class="s1">​```ruby</span>
+<span class="s1">require '</span><span class="n">redcarpet</span><span class="err">'</span>
+<span class="n">markdown</span> <span class="o">=</span> <span class="n">Redcarpet</span><span class="p">.</span><span class="k">new</span><span class="p">(</span><span class="ss">"Hello World!"</span><span class="p">)</span>
+<span class="n">puts</span> <span class="n">markdown</span><span class="p">.</span><span class="n">to_html</span>
+<span class="err">​</span><span class="o">```</span>
+</pre>
+
+
+<h4 id="math-blocks">Math Blocks</h4>
+<p>You can render <em>LaTeX</em> mathematical expressions using <strong>MathJax</strong>.</p>
+<p>Input <code>$$</code>, then press 'Return' key will trigger an input field which accept <em>Tex/LaTex</em> source. Following is an example:
+$$
+\mathbf{V}_1 \times \mathbf{V}_2 =  \begin{vmatrix}
+\mathbf{i} &amp; \mathbf{j} &amp; \mathbf{k} \
+\frac{\partial X}{\partial u} &amp;  \frac{\partial Y}{\partial u} &amp; 0 \
+\frac{\partial X}{\partial v} &amp;  \frac{\partial Y}{\partial v} &amp; 0 \
+\end{vmatrix}
+$$</p>
+<p>In markdown source file, math block is <em>LaTeX</em> expression wrapped by ‘$$’ mark:</p>
+<pre class="code literal-block"><span></span><span class="err">$$</span>
+<span class="err">\mathbf{V}_1 \times \mathbf{V}_2 =  \begin{vmatrix}</span>
+<span class="err">\mathbf{i} &amp; \mathbf{j} &amp; \mathbf{k} \\</span>
+<span class="err">\frac{\partial X}{\partial u} &amp;  \frac{\partial Y}{\partial u} &amp; 0 \\</span>
+<span class="err">\frac{\partial X}{\partial v} &amp;  \frac{\partial Y}{\partial v} &amp; 0 \\</span>
+<span class="err">\end{vmatrix}</span>
+<span class="err">$$</span>
+</pre>
+
+
+<h4 id="tables">Tables</h4>
+<p>Input <code>| First Header  | Second Header |</code> and press <code>return</code> key will create a table with two column.</p>
+<p>After table is created, focus on that table will pop up a toolbar for table, where you can resize, align, or delete table. You can also use context menu to copy and add/delete column/row.</p>
+<p>Following descriptions can be skipped, as markdown source code for tables are generated by typora automatically.</p>
+<p>In markdown source code, they look like:</p>
+<pre class="code literal-block"><span></span><span class="err">| First Header  | Second Header |</span>
+<span class="err">| ------------- | ------------- |</span>
+<span class="err">| Content Cell  | Content Cell  |</span>
+<span class="err">| Content Cell  | Content Cell  |</span>
+</pre>
+
+
+<p>You can also include inline Markdown such as links, bold, italics, or strikethrough.</p>
+<p>Finally, by including colons : within the header row, you can define text to be left-aligned, right-aligned, or center-aligned:</p>
+<pre class="code literal-block"><span></span><span class="p">|</span> <span class="nv">Left</span><span class="o">-</span><span class="nv">Aligned</span>  <span class="p">|</span> <span class="nv">Center</span> <span class="nv">Aligned</span>    <span class="p">|</span> <span class="nv">Right</span> <span class="nv">Aligned</span> <span class="p">|</span>
+<span class="p">|</span> <span class="p">:-</span><span class="s s-Atom">-----------</span> <span class="p">|</span> <span class="p">:-</span><span class="s s-Atom">--------------:</span> <span class="p">|</span> <span class="s s-Atom">-------------:</span><span class="p">|</span>
+<span class="p">|</span> <span class="s s-Atom">col</span> <span class="mi">3</span> <span class="o">is</span>      <span class="p">|</span> <span class="s s-Atom">some</span> <span class="s s-Atom">wordy</span> <span class="s s-Atom">text</span>   <span class="p">|</span> <span class="err">$</span><span class="mi">1600</span>         <span class="p">|</span>
+<span class="p">|</span> <span class="s s-Atom">col</span> <span class="mi">2</span> <span class="o">is</span>      <span class="p">|</span> <span class="s s-Atom">centered</span>          <span class="p">|</span> <span class="err">$</span><span class="mi">12</span>           <span class="p">|</span>
+<span class="p">|</span> <span class="s s-Atom">zebra</span> <span class="s s-Atom">stripes</span> <span class="p">|</span> <span class="s s-Atom">are</span> <span class="s s-Atom">neat</span>          <span class="p">|</span> <span class="err">$</span><span class="mi">1</span>            <span class="p">|</span>
+</pre>
+
+
+<p>A colon on the left-most side indicates a left-aligned column; a colon on the right-most side indicates a right-aligned column; a colon on both sides indicates a center-aligned column.</p>
+<h4 id="footnotes">Footnotes</h4>
+<pre class="code literal-block"><span></span><span class="n">You</span> <span class="n">can</span> <span class="k">create</span> <span class="n">footnotes</span> <span class="k">like</span> <span class="n">this</span><span class="p">[</span><span class="o">^</span><span class="n">footnote</span><span class="p">].</span>
+
+<span class="p">[</span><span class="o">^</span><span class="n">footnote</span><span class="p">]:</span> <span class="n">Here</span> <span class="k">is</span> <span class="n">the</span> <span class="o">*</span><span class="nb">text</span><span class="o">*</span> <span class="k">of</span> <span class="n">the</span> <span class="o">**</span><span class="n">footnote</span><span class="o">**</span><span class="p">.</span>
+</pre>
+
+
+<p>will produce:</p>
+<p>You can create footnotes like this<sup id="fnref:footnote"><a class="footnote-ref" href="#fn:footnote">1</a></sup>.</p>
+<p>Mouse on the ‘footnote’ superscript to see content of the footnote.</p>
+<h4 id="horizontal-rules">Horizontal Rules</h4>
+<p>Input <code>***</code> or <code>---</code> on a blank line and press <code>return</code> will draw a horizontal line.</p>
+<hr>
+<h4 id="yaml-front-matter">YAML Front Matter</h4>
+<p>Typora support <a href="http://jekyllrb.com/docs/frontmatter/">YAML Front Matter</a> now. Input <code>---</code> at the top of the article and then press <code>Enter</code> will introduce one. Or insert one metadata block from the menu.</p>
+<h4 id="table-of-contents-toc">Table of Contents (TOC)</h4>
+<p>Input <code>[toc]</code> then press <code>Return</code> key will create a section for “Table of Contents” extracting all headers from one’s writing, its contents will be updated automatically.</p>
+<h4 id="diagrams-sequence-flowchart-and-mermaid">Diagrams (Sequence, Flowchart and Mermaid)</h4>
+<p>Typora supports, <a href="https://bramp.github.io/js-sequence-diagrams/">sequence</a>, <a href="http://flowchart.js.org/">flowchart</a> and <a href="https://knsv.github.io/mermaid/#mermaid">mermaid</a>, after this feature is enabled from preference panel.</p>
+<p>See this <a href="http://support.typora.io/Draw-Diagrams-With-Markdown/">document</a> for detail.</p>
+<h3 id="span-elements">Span Elements</h3>
+<p>Span elements will be parsed and rendered right after your typing. Moving cursor in middle of those span elements will expand those elements into markdown source. Following will explain the syntax of those span element.</p>
+<h4 id="links">Links</h4>
+<p>Markdown supports two style of links: inline and reference.</p>
+<p>In both styles, the link text is delimited by [square brackets].</p>
+<p>To create an inline link, use a set of regular parentheses immediately after the link text’s closing square bracket. Inside the parentheses, put the URL where you want the link to point, along with an optional title for the link, surrounded in quotes. For example:</p>
+<pre class="code literal-block"><span></span><span class="n">This</span> <span class="n">is</span> <span class="p">[</span><span class="n">an</span> <span class="n">example</span><span class="p">](</span><span class="nl">http</span><span class="p">:</span><span class="c1">//example.com/ "Title") inline link.</span>
+
+<span class="p">[</span><span class="n">This</span> <span class="n">link</span><span class="p">](</span><span class="nl">http</span><span class="p">:</span><span class="c1">//example.net/) has no title attribute.</span>
+</pre>
+
+
+<p>will produce:</p>
+<p>This is <a href="http://example.com/" title="Title">an example</a> inline link. (<code>&lt;p&gt;This is &lt;a href="http://example.com/" title="Title"&gt;</code>)</p>
+<p><a href="http://example.net/">This link</a> has no title attribute. (<code>&lt;p&gt;&lt;a href="http://example.net/"&gt;This link&lt;/a&gt; has no</code>)</p>
+<h5 id="internal-links">Internal Links</h5>
+<p><strong>You can set the href to headers</strong>, which will create a bookmark that allow you to jump to that section after clicking. For example:</p>
+<p>Command(on Windows: Ctrl) + Click <a href="#block-elements">This link</a> will jump to header <code>Block Elements</code>. To see how to write that, please move cursor or click that link with <code>⌘</code> key pressed to expand the element into markdown source.</p>
+<h5 id="reference-links">Reference Links</h5>
+<p>Reference-style links use a second set of square brackets, inside which you place a label of your choosing to identify the link:</p>
+<pre class="code literal-block"><span></span><span class="n">This</span> <span class="n">is</span> <span class="p">[</span><span class="n">an</span> <span class="n">example</span><span class="p">][</span><span class="kt">id</span><span class="p">]</span> <span class="n">reference</span><span class="o">-</span><span class="n">style</span> <span class="n">link</span><span class="p">.</span>
+
+<span class="n">Then</span><span class="p">,</span> <span class="n">anywhere</span> <span class="k">in</span> <span class="n">the</span> <span class="n">document</span><span class="p">,</span> <span class="n">you</span> <span class="n">define</span> <span class="n">your</span> <span class="n">link</span> <span class="n">label</span> <span class="n">like</span> <span class="n">this</span><span class="p">,</span> <span class="n">on</span> <span class="n">a</span> <span class="n">line</span> <span class="n">by</span> <span class="nl">itself</span><span class="p">:</span>
+
+<span class="p">[</span><span class="kt">id</span><span class="p">]</span><span class="o">:</span> <span class="nl">http</span><span class="p">:</span><span class="c1">//example.com/  "Optional Title Here"</span>
+</pre>
+
+
+<p>In typora, they will be rendered like:</p>
+<p>This is <a href="http://example.com/" title="Optional Title Here">an example</a> reference-style link.</p>
+<p>The implicit link name shortcut allows you to omit the name of the link, in which case the link text itself is used as the name. Just use an empty set of square brackets — e.g., to link the word “Google” to the google.com web site, you could simply write:</p>
+<pre class="code literal-block"><span></span><span class="k">[Google][]</span>
+<span class="na">And then define the link:</span>
+
+<span class="na">[Google]: http://google.com/</span>
+</pre>
+
+
+<p>In typora click link will expand it for editing, command+click will open the hyperlink in web browser.</p>
+<h4 id="urls">URLs</h4>
+<p>Typora allows you to insert urls as links, wrapped by <code>&lt;</code>brackets<code>&gt;</code>.</p>
+<p><code>&lt;i@typora.io&gt;</code> becomes <a href="mailto:i@typora.io">i@typora.io</a>.</p>
+<p>Typora will aslo auto link standard URLs. e.g: www.google.com.</p>
+<h4 id="images">Images</h4>
+<p>Image looks similar with links, but it requires an additional <code>!</code> char before the start of link. Image syntax looks like this:</p>
+<pre class="code literal-block"><span></span><span class="o">!</span><span class="p">[</span><span class="n">Alt</span> <span class="n">text</span><span class="p">](</span><span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">img</span><span class="p">.</span><span class="n">jpg</span><span class="p">)</span>
+
+<span class="o">!</span><span class="p">[</span><span class="n">Alt</span> <span class="n">text</span><span class="p">](</span><span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">img</span><span class="p">.</span><span class="n">jpg</span> <span class="s">"Optional title"</span><span class="p">)</span>
+</pre>
+
+
+<p>You are able to use drag &amp; drop to insert image from image file or we browser. And modify the markdown source code by clicking on the image. Relative path will be used if image is in same directory or sub-directory with current editing document when drag &amp; drop.</p>
+<p>For more tips on images, please read <a href="http://support.typora.io//Images/">http://support.typora.io//Images/</a></p>
+<h4 id="emphasis">Emphasis</h4>
+<p>Markdown treats asterisks (<code>*</code>) and underscores (<code>_</code>) as indicators of emphasis. Text wrapped with one <code>*</code> or <code>_</code> will be wrapped with an HTML <code>&lt;em&gt;</code> tag. E.g:</p>
+<pre class="code literal-block"><span></span><span class="o">*</span><span class="n">single</span> <span class="n">asterisks</span><span class="o">*</span>
+
+<span class="n">_single</span> <span class="n">underscores_</span>
+</pre>
+
+
+<p>output:</p>
+<p><em>single asterisks</em></p>
+<p><em>single underscores</em></p>
+<p>GFM will ignores underscores in words, which is commonly used in code and names, like this:</p>
+<blockquote>
+<p>wow_great_stuff</p>
+<p>do_this_and_do_that_and_another_thing.</p>
+</blockquote>
+<p>To produce a literal asterisk or underscore at a position where it would otherwise be used as an emphasis delimiter, you can backslash escape it:</p>
+<pre class="code literal-block"><span></span><span class="err">\*this text is surrounded by literal asterisks\*</span>
+</pre>
+
+
+<p>Typora recommends to use <code>*</code> symbol.</p>
+<h4 id="strong">Strong</h4>
+<p>double *’s or _’s will be wrapped with an HTML <code>&lt;strong&gt;</code> tag, e.g:</p>
+<pre class="code literal-block"><span></span><span class="o">**</span><span class="n">double</span> <span class="n">asterisks</span><span class="o">**</span>
+
+<span class="n">__double</span> <span class="n">underscores__</span>
+</pre>
+
+
+<p>output:</p>
+<p><strong>double asterisks</strong></p>
+<p><strong>double underscores</strong></p>
+<p>Typora recommends to use <code>**</code> symbol.</p>
+<h4 id="code">Code</h4>
+<p>To indicate a span of code, wrap it with backtick quotes (`). Unlike a pre-formatted code block, a code span indicates code within a normal paragraph. For example:</p>
+<pre class="code literal-block"><span></span><span class="err">Use the `printf()` function.</span>
+</pre>
+
+
+<p>will produce:</p>
+<p>Use the <code>printf()</code> function.</p>
+<h4 id="strikethrough">Strikethrough</h4>
+<p>GFM adds syntax to create strikethrough text, which is missing from standard Markdown.</p>
+<p><code>~~Mistaken text.~~</code> becomes <del>Mistaken text.</del></p>
+<h4 id="underline">Underline</h4>
+<p>Underline is powered by raw HTML.</p>
+<p><code>&lt;u&gt;Underline&lt;/u&gt;</code> becomes <u>Underline</u>.</p>
+<h4 id="emoji-happy">Emoji :happy:</h4>
+<p>Input emoji with syntax <code>:smile:</code>.</p>
+<p>User can trigger auto-complete suggestions for emoji by pressing <code>ESC</code> key, or trigger it automatically after enable it on preference panel. Also, input UTF8 emoji char directly from <code>Edit</code> -&gt; <code>Emoji &amp; Symbols</code> from menu bar is also supported.</p>
+<h4 id="html">HTML</h4>
+<p>Typora cannot render html fragments. But typora can parse and render very limited HTML fragments, as an extension of Markdown, including:</p>
+<ul>
+<li>Underline: <code>&lt;u&gt;underline&lt;/u&gt;</code>
+</li>
+<li>Image: <code>&lt;img src="http://www.w3.org/html/logo/img/mark-word-icon.png" width="200px" /&gt;</code> (And <code>width</code>, <code>height</code> attribute in HTML tag, and <code>width</code>, <code>height</code>, <code>zoom</code> style in <code>style</code> attribute will be applied.)</li>
+<li>Comments: <code>&lt;!-- This is some comments --&gt;</code>
+</li>
+<li>Hyperlink: <code>&lt;a href="http://typora.io" target="_blank"&gt;link&lt;/a&gt;</code>.</li>
+</ul>
+<p>Most of their attributes, styles, or classes will be ignored. For other tags, typora will render them as raw HTML snippets.</p>
+<p>But those HTML will be exported on print or export.</p>
+<h4 id="inline-math">Inline Math</h4>
+<p>To use this feature, first, please enable it in <code>Preference</code> Panel -&gt; <code>Markdown</code> Tab. Then use <code>$</code> to wrap TeX command, for example: <code>$\lim_{x \to \infty} \exp(-x) = 0$</code> will be rendered as LaTeX command.</p>
+<p>To trigger inline preview for inline math: input “$”, then press <code>ESC</code> key, then input TeX command, a preview tooltip will be visible like below:</p>
+<p><img src="http://typora.io/img/inline-math.gif" style="zoom:50%;"></p>
+<h4 id="subscript">Subscript</h4>
+<p>To use this feature, first, please enable it in <code>Preference</code> Panel -&gt; <code>Markdown</code> Tab. Then use <code>~</code> to wrap subscript content, for example: <code>H~2~O</code>, <code>X~long\ text~</code>/</p>
+<h4 id="superscript">Superscript</h4>
+<p>To use this feature, first, please enable it in <code>Preference</code> Panel -&gt; <code>Markdown</code> Tab. Then use <code>^</code> to wrap superscript content, for example: <code>X^2^</code>.</p>
+<h4 id="highlight">Highlight</h4>
+<p>To use this feature, first, please enable it in <code>Preference</code> Panel -&gt; <code>Markdown</code> Tab. Then use <code>==</code> to wrap superscript content, for example: <code>==highlight==</code>.</p>
+<div class="footnote">
+<hr>
+<ol>
+<li id="fn:footnote">
+<p>Here is the <em>text</em> of the <strong>footnote</strong>. <a class="footnote-backref" href="#fnref:footnote" title="Jump back to footnote 1 in the text">↩</a></p>
+</li>
+</ol>
+</div>
+</div>
+        </div>
+    </div>
+    <div class="post-info">
+        <p>文章链接：<a href="https://macplay.github.io/posts/markdown-reference/" target="_blank">https://macplay.github.io/posts/markdown-reference/</a></p>
+        <p>发布/更新于：
+            <time datetime="2017-09-18 17:47:12 UTC+08:00">
+            2017-09-18 17:47
+            </time></p>
+        <p>版权声明：如无特别说明，本站文章均遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">CC BY-NC-SA 4.0</a> 协议，转载请注明作者及出处。</p>
+    </div>
+        <div class="post-navigation no-print">
+        <div class="ui huge secondary stackable menu">
+            <a class="post-nav-item post-nav-previous item" href="../jupyter-notebook-get-started/" title="Previous post"><i class="angle double left icon"></i> Jupyter-notebook get started</a>
+        <div class="right menu">
+            <a class="post-nav-item post-nav-next item" href="../pygal-charts-get-started/" title="Next post">Pygal charts get started <i class="angle double right icon"></i></a>
+        </div>
+        </div>
+    </div>
+
+        <div id="gitalk-container" class="comments-block no-print"></div>
+</div>
+                    </div>
+                </main><div class="footer extra-block no-print">
+    <span class="footer_item">
+        <a href="../../pages/you-qing-lian-jie/">友情链接</a>
+    </span>
+    <span class="footer_item">
+        <a href="../../pages/liu-yan-ban/">留言板</a>
+    </span>
+    <span class="footer_item">
+        <a href="../../pages/ge-ren-dong-tai/">碎碎念</a>
+    </span>
+    </div>
+            <div class="footer social-link no-print">
+            <a href="https://github.com/ashfinal" target="_blank"><i class="grey large github icon"></i></a>
+            <a href="http://weibo.com/ashfinal/" target="_blank"><i class="grey large weibo icon"></i></a>
+            <a href="mailto://ashfinal@sina.cn" target="_blank"><i class="grey large mail icon"></i></a>
+            </div>
+        <div class="ui basic center aligned segment no-print">Contents © 2020         <a href="mailto:ashfinal@sina.cn">ashfinal</a> - Powered by         <a href="https://getnikola.com" target="_blank" rel="nofollow">Nikola</a>         </div>
+
+            </div>
+            <div class="computer only three wide column no-print">
+                <div id="right-side">
+                </div>
+            </div>
+        </div>
+
+        <!-- GoStats JavaScript Based Code -->
+        <script type="text/javascript">(function(c,o,m,p,u,t,e){
+        c['GoStatsObject']=u;c[u]=c[u]||function(){(c[u].q=c[u].q||[]).push(arguments)},
+        c[u].l=1*new Date();t=o.createElement(m);t.async=1;t.src=p;
+        e=o.getElementsByTagName(m)[0];e.parentNode.insertBefore(t,e);
+        })(window,document,'script','//www.gostats.org/5.js','go');
+        go('init',100479892,{'img_counter_type':5,'img_image_type':1});go('send');</script><!-- End GoStats JavaScript Based Code --><script type="text/javascript" src="../../assets/js/jquery-3.3.1.min.js"></script><script type="text/javascript" src="../../assets/js/semantic.min.js"></script><script type="text/javascript" src="../../assets/js/jquery.fancybox.min.js"></script><script type="text/javascript" src="../../assets/js/cookie.min.js"></script><script>
+            $(document).ready(function(){
+                $(".ui.dropdown").dropdown();
+                $('.ui.accordion').accordion();
+                var newstr = $('.cookie.nag').text();
+                $('.cookie.nag').nag({
+                    key: 'globalnotice',
+                    value: newstr
+                  });
+                $('.image-reference').fancybox();
+            });
+        </script><script src="../../assets/js/md5.min.js"></script><script src="../../assets/js/gitalk.min.js"></script><script>
+        const gitalk = new Gitalk({
+            clientID: '12fcda845097d895a24c',
+            clientSecret: '50ed60cde5f40897205197b4265b474cefbedc49',
+            repo: 'macplay.github.io',
+            owner: 'macplay',
+            admin: ['macplay', 'ashfinal'],
+            id: md5(window.location.pathname),
+            // facebook-like distraction free mode
+            distractionFreeMode: false
+        })
+        gitalk.render('gitalk-container')
+    </script>
+</body>
+</html>

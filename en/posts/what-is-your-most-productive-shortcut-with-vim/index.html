@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="generator" content="Nikola (getnikola.com)">
+<title>What is your most productive shortcut with Vim? - MacPlay</title>
+<link rel="apple-touch-icon" sizes="180x180" href="../../../apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../../../favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../../../favicon-16x16.png">
+<link rel="mask-icon" href="../../../safari-pinned-tab.svg" color="#5bbad5">
+<link href="../../../assets/css/semantic.min.css" rel="stylesheet" type="text/css">
+<link href="../../../assets/css/jquery.fancybox.min.css" rel="stylesheet" type="text/css">
+<link href="../../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<link rel="canonical" href="https://macplay.github.io/en/posts/what-is-your-most-productive-shortcut-with-vim/">
+<meta name="author" content="ashfinal">
+<link rel="alternate" hreflang="zh_cn" href="../../../posts/what-is-your-most-productive-shortcut-with-vim/">
+<link rel="stylesheet" type="text/css" href="../../../assets/css/gitalk.css">
+</head>
+<body>
+        <div class="ui grid">
+            <div class="computer only three wide column no-print">
+                <div id="left-side">
+                </div>
+            </div>
+            <div class="ten wide computer sixteen wide tablet sixteen wide mobile column">
+                        <div class="ui inline cookie nag no-print">
+            <span class="title">从现在开始，支持中英双语及博文精选 O(∩_∩)O~~</span>
+            <i class="close icon"></i>
+        </div>
+    <header id="header" class="no-print"><div class="ui grid">
+        <div class="computer only tablet only sixteen wide column">
+            <div class="ui large secondary stackable menu">
+                <a class="header item brand-logo" href="https://macplay.github.io/en/">
+                    MacPlay
+                </a>
+                        <a class="item" href="../../../">Posts</a>
+                        <a class="item" href="../../../listings/">Code</a>
+                        <a class="item" href="../../../galleries/">Gallery</a>
+                        <a class="item" href="../../../categories/">Tags</a>
+                        <a class="item" href="../../../archive.html">Archive</a>
+                <div class="right menu">
+                    <a class="item" href="../../../rss.xml"><i class="rss icon"></i>RSS</a>
+                </div>
+            </div>
+        </div>
+        <div class="mobile only sixteen wide column">
+            <div class="ui fluid accordion vertical menu">
+                <div class="item">
+                    <a class="title">MacPlay</a>
+                    <div class="content">
+                                <a class="item" href="../../../">Posts</a>
+                                <a class="item" href="../../../listings/">Code</a>
+                                <a class="item" href="../../../galleries/">Gallery</a>
+                                <a class="item" href="../../../categories/">Tags</a>
+                                <a class="item" href="../../../archive.html">Archive</a>
+                        <a class="item" href="../../../rss.xml"><i class="rss icon"></i>RSS</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </header><main id="main"><div id="main-content">
+<div class="postpage post-text page-body" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <h1 class="post-title" itemprop="headline">
+        <a href=".">What is your most productive shortcut with Vim?</a>
+    </h1>
+
+    <div class="ui large horizontal link list post-meta">
+        <span class="item">By
+            <a href="../../authors/ashfinal/">ashfinal</a>
+        </span>
+            <span class="item">
+                <a href="https://github.com/macplay/macplay.github.io/edit/src/posts/what-is-your-most-productive-shortcut-with-vim.rst" target="_blank" title="Edit on GitHub">Edit</a>
+            </span>
+        <span class="item">
+            <time datetime="2019-09-29T08:50:23+08:00">
+            2019-09-29 08:50
+            </time></span>
+            <span class="item">
+                    <a href="../../categories/linux/">linux</a>
+                    <a href="../../categories/vim/">vim</a>
+            </span>
+    </div>
+
+        <div class="posttrans ui message">
+        <span class="title">Also available in:
+            <span><a href="../../../posts/what-is-your-most-productive-shortcut-with-vim/" rel="alternate" hreflang="zh_cn">简体中文</a></span>
+        </span>
+    </div>
+
+    <div class="post-content" itemprop="article text">
+        <div id="post-content">
+        <div>
+<div class="figure align-center">
+<a class="reference external image-reference" href="../../../images/vim-keyboard-cover-macbook.jpg"><img alt="/images/vim-keyboard-cover-macbook.thumbnail.jpg" src="../../../images/vim-keyboard-cover-macbook.thumbnail.jpg"></a>
+</div>
+<p>I've heard a lot about <a class="reference external" href="http://www.vim.org">Vim</a> , both pros and cons. It really seems you should be (as a developer) faster with Vim than with any other editor. I'm using Vim to do some basic stuff and I'm at best 10 times less productive with Vim.</p>
+<p>The only two things you should care about when you talk about speed (you may not care enough about them, but you should) are:</p>
+<ol class="arabic simple">
+<li><p>Using alternatively left and right hands is the <strong>fastest</strong> way to use the keyboard.</p></li>
+<li><p>Never touching the mouse is the second way to be as fast as possible. It takes ages for you to move your hand, grab the mouse, move it, and bring it back to the keyboard (and you often have to look at the keyboard to be sure you returned your hand properly to the right place)</p></li>
+</ol>
+<p>Here are two examples demonstrating why I'm far less productive with Vim.</p>
+<!-- TEASER_END -->
+<p><strong>Copy/Cut &amp; paste</strong> . I do it all the time. With all the contemporary editors you press <cite>Shift</cite> with the left hand, and you move the cursor with your right hand to select text. Then <cite>Ctrl</cite> + <cite>C</cite> copies, you move the cursor and <cite>Ctrl</cite> + <cite>V</cite> pastes.</p>
+<p>With Vim it's horrible:</p>
+<blockquote>
+<p><cite>yy</cite> to copy one line (you almost never want the whole line!)
+<cite>[number xx]yy</cite> to copy <cite>xx</cite> lines into the buffer. But you never know exactly if you've selected what you wanted. I often have to do <cite>[number xx]dd</cite> then <cite>u</cite> to undo!</p>
+</blockquote>
+<p>Another example? <strong>Search &amp; replace</strong> .</p>
+<blockquote>
+<p>In <a class="reference external" href="https://en.wikipedia.org/wiki/PSPad">PSPad</a> : <cite>Ctrl</cite> + <cite>f</cite> then type what you want you search for, then press <cite>Enter</cite> .</p>
+<p>In Vim: <cite>/</cite> , then type what you want to search for, then if there are some special characters put <code class="docutils literal">\</code>  before each special character, then press <cite>Enter</cite> .</p>
+</blockquote>
+<p>And everything with Vim is like that: it seems I don't know how to handle it the right way.</p>
+<p>NB: I've already read the Vim <a class="reference external" href="http://www.viemu.com/vi-vim-cheat-sheet.gif">cheat</a> <a class="reference external" href="http://www.fprintf.net/vimCheatSheet.html">sheet</a> :)</p>
+<p>My question is:</p>
+<p>What is the way you use Vim that makes you more productive than with a contemporary editor?</p>
+<hr class="docutils">
+<p><strong>Your problem with Vim is that you don't grok vi</strong> .</p>
+<p>You mention cutting with <cite>yy</cite> and complain that you almost never want to cut whole lines. In fact programmers, editing source code, very often want to work on whole lines, ranges of lines and blocks of code. However, <cite>yy</cite> is only one of many way to yank text into the anonymous copy buffer (or "register" as it's called in <strong>vi</strong> ).</p>
+<p>The "Zen" of <strong>vi</strong> is that you're speaking a language. The initial <cite>y</cite> is a verb. The statement <cite>yy</cite> is a synonym for <cite>y_</cite> . The <cite>y</cite> is doubled up to make it easier to type, since it is such a common operation.</p>
+<p>This can also be expressed as <cite>dd</cite> <cite>P</cite> (delete the current line and paste a copy back into place; leaving a copy in the anonymous register as a side effect). The <cite>y</cite> and <cite>d</cite> "verbs" take any movement as their "subject." Thus <cite>yW</cite> is "yank from here (the cursor) to the end of the current/next (big) word" and <cite>y'a</cite> is "yank from here to the line containing the mark named 'a'."</p>
+<p>If you only understand basic up, down, left, and right cursor movements then <strong>vi</strong> will be no more productive than a copy of "notepad" for you. (Okay, you'll still have syntax highlighting and the ability to handle files larger than a piddling ~45KB or so; but work with me here).</p>
+<p><strong>vi</strong> has 26 "marks" and 26 "registers." A mark is set to any cursor location using the <cite>m</cite> command. Each mark is designated by a single lower case letter. Thus <cite>ma</cite> sets the 'a' mark to the current location, and <cite>mz</cite> sets the 'z' mark. You can move to the line containing a mark using the <cite>'</cite> (single quote) command. Thus <cite>'a</cite> moves to the beginning of the line containing the 'a' mark. You can move to the precise location of any mark using the <code class="docutils literal">`</code> (backquote) command. Thus <code class="docutils literal">`z</code> will move directly to the exact location of the 'z' mark.</p>
+<p>Because these are "movements" they can also be used as subjects for other "statements."</p>
+<p>So, one way to cut an arbitrary selection of text would be to drop a mark (I usually use 'a' as my "first" mark, 'z' as my next mark, 'b' as another, and 'e' as yet another (I don't recall ever having interactively used more than four marks in 15 years of using <strong>vi</strong> ; one creates one's own conventions regarding how marks and registers are used by macros that don't disturb one's interactive context). Then we go to the other end of our desired text; we can start at either end, it doesn't matter. Then we can simply use <cite>d`a</cite> to cut or <cite>y`a</cite> to copy. Thus the whole process has a 5 keystrokes overhead (six if we started in "insert" mode and needed to <cite>Esc</cite> out command mode). Once we've cut or copied then pasting in a copy is a single keystroke: <cite>p</cite> .</p>
+<p>I say that this is one way to cut or copy text. However, it is only one of many. Frequently we can more succinctly describe the range of text without moving our cursor around and dropping a mark. For example if I'm in a paragraph of text I can use <cite>{</cite> and <cite>}</cite> movements to the beginning or end of the paragraph respectively. So, to move a paragraph of text I cut it using <cite>{</cite> <cite>d}</cite> (3 keystrokes). (If I happen to already be on the first or last line of the paragraph I can then simply use <cite>d}</cite> or <cite>d{</cite> respectively.</p>
+<p>The notion of "paragraph" defaults to something which is usually intuitively reasonable. Thus it often works for code as well as prose.</p>
+<p>Frequently we know some pattern (regular expression) that marks one end or the other of the text in which we're interested. Searching forwards or backwards are movements in <strong>vi</strong> . Thus they can also be used as "subjects" in our "statements." So I can use <cite>d/foo</cite> to cut from the current line to the next line containing the string "foo" and <cite>y?bar</cite> to copy from the current line to the most recent (previous) line containing "bar." If I don't want whole lines I can still use the search movements (as statements of their own), drop my mark(s) and use the <code class="docutils literal">`x</code> commands as described previously.</p>
+<p>In addition to "verbs" and "subjects" <cite>vi</cite> also has "objects" (in the grammatical sense of the term). So far I've only described the use of the anonymous register. However, I can use any of the 26 "named" registers by <em>prefixing</em>  the "object" reference with <cite>"</cite> (the double quote modifier). Thus if I use <cite>"add</cite> I'm cutting the current line into the 'a' register and if I use <cite>"by/foo</cite> then I'm yanking a copy of the text from here to the next line containing "foo" into the 'b' register. To paste from a register I simply prefix the paste with the same modifier sequence: <cite>"ap</cite> pastes a copy of the 'a' register's contents into the text after the cursor and <cite>"bP</cite> pastes a copy from 'b' to before the current line.</p>
+<p>This notion of "prefixes" also adds the analogs of grammatical "adjectives" and "adverbs' to our text manipulation "language." Most commands (verbs) and movement (verbs or objects, depending on context) can also take numeric prefixes. Thus <cite>3J</cite> means "join the next three lines" and <cite>d5}</cite> means "delete from the current line through the end of the fifth paragraph down from here."</p>
+<p>This is all intermediate level <cite>vi</cite>. None of it is <cite>Vim</cite> specific and there are far more advanced tricks in <cite>vi</cite> if you're ready to learn them. If you were to master just these intermediate concepts then you'd probably find that you rarely need to write any macros because the text manipulation language is sufficiently concise and expressive to do most things easily enough using the editor's "native" language.</p>
+<hr class="docutils">
+<p><strong>A sampling of more advanced tricks:</strong></p>
+<p>There are a number of <cite>:</cite> commands, most notably the <cite>:% s/foo/bar/g</cite> global substitution technique. (That's not advanced but other <cite>:</cite> commands can be). The whole : set of commands was historically inherited by <strong>vi</strong> 's previous incarnations as the <strong>ed</strong> (line editor) and later the <strong>ex</strong> (extended line editor) utilities. In fact <strong>vi</strong> is so named because it's the visual interface to <strong>ex</strong> .</p>
+<p><cite>:</cite> commands normally operate over lines of text. <strong>ed</strong> and <strong>ex</strong> were written in an era when terminal screens were uncommon and many terminals were "teletype" (TTY) devices. So it was common to work from printed copies of the text, using commands through an extremely terse interface (common connection speeds were 110 baud, or, roughly, 11 characters per second -- which is slower than a fast typist; lags were common on multi-user interactive sessions; additionally there was often some motivation to conserve paper).</p>
+<p>So the syntax of most <cite>:</cite> commands includes an address or range of addresses (line number) followed by a command. Naturally one could use literal line numbers: <cite>:127,215 s/foo/bar</cite> to change the first occurrence of "foo" into "bar" on each line between 127 and 215. One could also use some abbreviations such as <cite>.</cite> or <cite>$</cite> for current and last lines respectively. One could also use relative prefixes <cite>+</cite> and <cite>-</cite> to refer to offsets after or before the curent line, respectively. Thus: <cite>:.,$j</cite> meaning "from the current line to the last line, join them all into one line". <cite>:%</cite> is synonymous with <cite>:1,$</cite> (all the lines).</p>
+<p>The <cite>:... g</cite> and <cite>:... v</cite> commands bear some explanation as they are incredibly powerful. <cite>:... g</cite> is a prefix for "globally" applying a subsequent command to all lines which match a pattern (regular expression) while <cite>:... v</cite> applies such a command to all lines which do NOT match the given pattern ("v" from "conVerse"). As with other <strong>ex</strong> commands these can be prefixed by addressing/range references. Thus <cite>:.,+21g/foo/d</cite> means "delete any lines containing the string "foo" from the current one through the next 21 lines" while <cite>:.,$v/bar/d</cite> means "from here to the end of the file, delete any lines which DON'T contain the string "bar."</p>
+<p>It's interesting that the common Unix command <strong>grep</strong> was actually inspired by this <strong>ex</strong> command (and is named after the way in which it was documented). The <strong>ex</strong> command <cite>:g/re/p</cite> (grep) was the way they documented how to "globally" "print" lines containing a "regular expression" (re). When <strong>ed</strong> and <strong>ex</strong> were used, the <cite>:p</cite> command was one of the first that anyone learned and often the first one used when editing any file. It was how you printed the current contents (usually just one page full at a time using <cite>:.,+25p</cite> or some such).</p>
+<p>Note that <cite>:% g/.../d</cite> or (its reVerse/conVerse counterpart: <cite>:% v/.../d</cite> are the most common usage patterns. However there are couple of other <strong>ex</strong> commands which are worth remembering:</p>
+<p>We can use <cite>m</cite> to move lines around, and <cite>j</cite> to join lines. For example if you have a list and you want to separate all the stuff matching (or conversely NOT matching some pattern) without deleting them, then you can use something like: <cite>:% g/foo/m$</cite> ... and all the "foo" lines will have been moved to the end of the file. (Note the other tip about using the end of your file as a scratch space). This will have preserved the relative order of all the "foo" lines while having extracted them from the rest of the list. (This would be equivalent to doing something like: <cite>1G!GGmap!Ggrep foo&lt;ENTER&gt;1G:1,'a g/foo'/d</cite> (copy the file to its own tail, filter the tail through <strong>grep</strong> , and delete all the stuff from the head).</p>
+<p>To join lines usually I can find a pattern for all the lines which need to be joined to their predecessor (all the lines which start with "^ " rather than "^ * " in some bullet list, for example). For that case I'd use: <cite>:% g/^   /-1j</cite> (for every matching line, go up one line and join them). (BTW: for bullet lists trying to search for the bullet lines and join to the next doesn't work for a couple reasons ... it can join one bullet line to another, and it won't join any bullet line to all of its continuations; it'll only work pairwise on the matches).</p>
+<p>Almost needless to mention you can use our old friend <cite>s</cite> (substitute) with the <cite>g</cite> and <cite>v</cite> (global/converse-global) commands. Usually you don't need to do so. However, consider some case where you want to perform a substitution only on lines matching some other pattern. Often you can use a complicated pattern with captures and use back references to preserve the portions of the lines that you DON'T want to change. However, it will often be easier to separate the match from the substitution: <cite>:% g/foo/s/bar/zzz/g</cite> -- for every line containing "foo" substitute all "bar" with "zzz." (Something like <cite>:% s/(.*foo.*)bar(.*)/1zzz2/g</cite> would only work for the cases those instances of "bar" which were PRECEDED by "foo" on the same line; it's ungainly enough already, and would have to be mangled further to catch all the cases where "bar" preceded "foo")</p>
+<p>The point is that there are more than just <cite>p</cite> , <cite>s</cite> , and <cite>d</cite> lines in the <strong>ex</strong> command set.</p>
+<p>The <cite>:</cite> addresses can also refer to marks. Thus you can use: <cite>:'a,'bg/foo/j</cite> to join any line containing the string foo to its subsequent line, if it lies between the lines between the 'a' and 'b' marks. (Yes, all of the preceding <strong>ex</strong> command examples can be limited to subsets of the file's lines by prefixing with these sorts of addressing expressions).</p>
+<p>That's pretty obscure (I've only used something like that a few times in the last 15 years). However, I'll freely admit that I've often done things iteratively and interactively that could probably have been done more efficiently if I'd taken the time to think out the correct incantation.</p>
+<p>Another very useful <strong>vi</strong> or <strong>ex</strong> command is <cite>:r</cite> to read in the contents of another file. Thus: <cite>:r foo</cite> inserts the contents of the file named "foo" at the current line.</p>
+<p>More powerful is the <cite>:r!</cite> command. This reads the results of a command. It's the same as suspending the <strong>vi</strong> session, running a command, redirecting its output to a temporary file, resuming your <strong>vi</strong> session, and reading in the contents from the temp. file.</p>
+<p>Even more powerful are the <cite>!</cite> (bang) and <cite>:... !</cite> ( <strong>ex</strong>  bang) commands. These also execute external commands and read the results into the current text. However, they also filter selections of our text through the command! This we can sort all the lines in our file using <cite>1G!Gsort</cite> ( <cite>G</cite> is the <strong>vi</strong> "goto" command; it defaults to going to the last line of the file, but can be prefixed by a line number, such as 1, the first line). This is equivalent to the <strong>ex</strong> variant <cite>:1,$!sort</cite> . Writers often use <cite>!</cite> with the Unix <strong>fmt</strong> or <strong>fold</strong> utilities for reformating or "word wrapping" selections of text. A very common macro is <cite>{!}fmt</cite> (reformat the current paragraph). Programmers sometimes use it to run their code, or just portions of it, through <strong>indent</strong> or other code reformatting tools.</p>
+<p>Using the <cite>:r!</cite> and <cite>!</cite> commands means that any external utility or filter can be treated as an extension of our editor. I have occasionally used these with scripts that pulled data from a database, or with <strong>wget</strong> or <strong>lynx</strong> commands that pulled data off a website, or <strong>ssh</strong> commands that pulled data from remote systems.</p>
+<p>Another useful <strong>ex</strong> command is <cite>:so</cite> (short for <cite>:source</cite> ). This reads the contents of a file as a series of commands. When you start <cite>vi</cite> it normally, implicitly, performs a <cite>:source</cite> on <cite>~/.exinitrc</cite> file (and <strong>Vim</strong> usually does this on <cite>~/.vimrc</cite> , naturally enough). The use of this is that you can change your editor profile on the fly by simply sourcing in a new set of macros, abbreviations, and editor settings. If you're sneaky you can even use this as a trick for storing sequences of <strong>ex</strong> editing commands to apply to files on demand.</p>
+<p>For example I have a seven line file (36 characters) which runs a file through <strong>wc</strong> , and inserts a C-style comment at the top of the file containing that word count data. I can apply that "macro" to a file by using a command like: <cite>vim +'so mymacro.ex' ./mytarget</cite></p>
+<p>(The <cite>+</cite> command line option to <cite>vi</cite> and <cite>Vim</cite> is normally used to start the editing session at a given line number. However it's a little known fact that one can follow the <cite>+</cite> by any valid <strong>ex</strong> command/expression, such as a "source" command as I've done here; for a simple example I have scripts which invoke: <cite>vi +'/foo/d|wq!' ~/.ssh/known_hosts</cite> to remove an entry from my SSH known hosts file non-interactively while I'm re-imaging a set of servers).</p>
+<p>Usually it's far easier to write such "macros" using Perl, AWK, <strong>sed</strong> (which is, in fact, like <strong>grep</strong> a utility inspired by the <strong>ed</strong> command).</p>
+<p>The <cite>@</cite> command is probably the most obscure <strong>vi</strong> command. In occasionally teaching advanced systems administration courses for close to a decade I've met very few people who've ever used it. <cite>@</cite> executes the contents of a register as if it were a <strong>vi</strong> or <strong>ex</strong> command.
+Example: I often use: <cite>:r!locate ...</cite> to find some file on my system and read its name into my document. From there I delete any extraneous hits, leaving only the full path to the file I'm interested in. Rather than laboriously <cite>Tab</cite> -ing through each component of the path (or worse, if I happen to be stuck on a machine without Tab completion support in its copy of <strong>vi</strong>) I just use:</p>
+<ol class="arabic simple">
+<li><p><cite>0i:r</cite> (to turn the current line into a valid <cite>:r</cite> command),</p></li>
+<li><p><cite>"cdd</cite> (to delete the line into the "c" register) and</p></li>
+<li><p><cite>@c</cite> execute that command.</p></li>
+</ol>
+<p>That's only 10 keystrokes (and the expression <cite>"cdd</cite> <cite>@c</cite> is effectively a finger macro for me, so I can type it almost as quickly as any common six letter word).</p>
+<hr class="docutils">
+<p><strong>A sobering thought</strong></p>
+<p>I've only scratched to surface of <strong>vi</strong> 's power and none of what I've described here is even part of the "improvements" for which <strong>vim</strong> is named! All of what I've described here should work on any old copy of <strong>vi</strong> from 20 or 30 years ago.</p>
+<p>There are people who have used considerably more of <strong>vi</strong> 's power than I ever will.</p>
+</div>
+        </div>
+    </div>
+    <div class="post-info">
+        <p>引用资源：<a href="https://stackoverflow.com/questions/1218390/what-is-your-most-productive-shortcut-with-vim" target="_blank">https://stackoverflow.com/questions/1218390/what-is-your-most-productive-shortcut-with-vim</a></p>
+        <p>文章链接：<a href="https://macplay.github.io/en/posts/what-is-your-most-productive-shortcut-with-vim/" target="_blank">https://macplay.github.io/en/posts/what-is-your-most-productive-shortcut-with-vim/</a></p>
+        <p>发布/更新于：
+            <time datetime="2019-09-29 08:50:23 UTC+08:00">
+            2019-09-29 08:50
+            </time></p>
+        <p>版权声明：如无特别说明，本站文章均遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">CC BY-NC-SA 4.0</a> 协议，转载请注明作者及出处。</p>
+    </div>
+        <div class="post-navigation no-print">
+        <div class="ui huge secondary stackable menu">
+            <a class="post-nav-item post-nav-previous item" href="../improve-and-extend-your-text-objects-with-targetsvim/" title="Previous post"><i class="angle double left icon"></i> Improve and Extend Your Text Objects With targets.vim</a>
+        <div class="right menu">
+            <a class="post-nav-item post-nav-next item" href="../oni-032-ban-ben-shi-chu/" title="Next post">Oni 0.32 版本释出 <i class="angle double right icon"></i></a>
+        </div>
+        </div>
+    </div>
+
+        <div id="gitalk-container" class="comments-block no-print"></div>
+</div>
+                    </div>
+                </main><div class="footer extra-block no-print">
+    <span class="footer_item">
+        <a href="../../../pages/you-qing-lian-jie/">友情链接</a>
+    </span>
+    <span class="footer_item">
+        <a href="../../../pages/liu-yan-ban/">留言板</a>
+    </span>
+    <span class="footer_item">
+        <a href="../../../pages/ge-ren-dong-tai/">碎碎念</a>
+    </span>
+    </div>
+            <div class="footer social-link no-print">
+            <a href="https://github.com/ashfinal" target="_blank"><i class="grey large github icon"></i></a>
+            <a href="http://weibo.com/ashfinal/" target="_blank"><i class="grey large weibo icon"></i></a>
+            <a href="mailto://ashfinal@sina.cn" target="_blank"><i class="grey large mail icon"></i></a>
+            </div>
+        <div class="ui basic center aligned segment no-print">Contents © 2020         <a href="mailto:ashfinal@sina.cn">ashfinal</a> - Powered by         <a href="https://getnikola.com" target="_blank" rel="nofollow">Nikola</a>         </div>
+
+            </div>
+            <div class="computer only three wide column no-print">
+                <div id="right-side">
+                </div>
+            </div>
+        </div>
+
+        <!-- GoStats JavaScript Based Code -->
+        <script type="text/javascript">(function(c,o,m,p,u,t,e){
+        c['GoStatsObject']=u;c[u]=c[u]||function(){(c[u].q=c[u].q||[]).push(arguments)},
+        c[u].l=1*new Date();t=o.createElement(m);t.async=1;t.src=p;
+        e=o.getElementsByTagName(m)[0];e.parentNode.insertBefore(t,e);
+        })(window,document,'script','//www.gostats.org/5.js','go');
+        go('init',100479892,{'img_counter_type':5,'img_image_type':1});go('send');</script><!-- End GoStats JavaScript Based Code --><script type="text/javascript" src="../../../assets/js/jquery-3.3.1.min.js"></script><script type="text/javascript" src="../../../assets/js/semantic.min.js"></script><script type="text/javascript" src="../../../assets/js/jquery.fancybox.min.js"></script><script type="text/javascript" src="../../../assets/js/cookie.min.js"></script><script>
+            $(document).ready(function(){
+                $(".ui.dropdown").dropdown();
+                $('.ui.accordion').accordion();
+                var newstr = $('.cookie.nag').text();
+                $('.cookie.nag').nag({
+                    key: 'globalnotice',
+                    value: newstr
+                  });
+                $('.image-reference').fancybox();
+            });
+        </script><script src="../../../assets/js/md5.min.js"></script><script src="../../../assets/js/gitalk.min.js"></script><script>
+        const gitalk = new Gitalk({
+            clientID: '12fcda845097d895a24c',
+            clientSecret: '50ed60cde5f40897205197b4265b474cefbedc49',
+            repo: 'macplay.github.io',
+            owner: 'macplay',
+            admin: ['macplay', 'ashfinal'],
+            id: md5(window.location.pathname),
+            // facebook-like distraction free mode
+            distractionFreeMode: false
+        })
+        gitalk.render('gitalk-container')
+    </script>
+</body>
+</html>

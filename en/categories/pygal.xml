@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="../../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>MacPlay (Posts about pygal)</title><link>https://macplay.github.io/</link><description></description><atom:link href="https://macplay.github.io/en/categories/pygal.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><copyright>Contents © 2020 &lt;a href="mailto:ashfinal@sina.cn"&gt;ashfinal&lt;/a&gt; </copyright><lastBuildDate>Wed, 26 Aug 2020 08:50:32 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Pygal charts get started</title><link>https://macplay.github.io/en/posts/pygal-charts-get-started/</link><dc:creator>ashfinal</dc:creator><description>&lt;div&gt;&lt;p&gt;If you are using reStructuredText and install pygal, Nikola has support for rather nice charts
+with little effort, and i's even semi-interactive (hover your pointer over the legend!):&lt;/p&gt;
+&lt;pre class="code rest"&gt;&lt;a name="rest_code_655baa50b6f8406b8bfa9b4f5eed0abd-1"&gt;&lt;/a&gt;&lt;span class="p"&gt;..&lt;/span&gt; &lt;span class="ow"&gt;chart&lt;/span&gt;&lt;span class="p"&gt;::&lt;/span&gt; StackedLine
+&lt;a name="rest_code_655baa50b6f8406b8bfa9b4f5eed0abd-2"&gt;&lt;/a&gt;   &lt;span class="nc"&gt;:title:&lt;/span&gt; 'Browser usage evolution (in %)'
+&lt;a name="rest_code_655baa50b6f8406b8bfa9b4f5eed0abd-3"&gt;&lt;/a&gt;   &lt;span class="nc"&gt;:fill:&lt;/span&gt; True
+&lt;a name="rest_code_655baa50b6f8406b8bfa9b4f5eed0abd-4"&gt;&lt;/a&gt;   &lt;span class="nc"&gt;:x_labels:&lt;/span&gt; ['2002','2003','2004','2005','2006','2007','2008','2009','2010','2011','2012']
+&lt;a name="rest_code_655baa50b6f8406b8bfa9b4f5eed0abd-5"&gt;&lt;/a&gt;   &lt;span class="nc"&gt;:style:&lt;/span&gt; DefaultStyle
+&lt;a name="rest_code_655baa50b6f8406b8bfa9b4f5eed0abd-6"&gt;&lt;/a&gt;
+&lt;a name="rest_code_655baa50b6f8406b8bfa9b4f5eed0abd-7"&gt;&lt;/a&gt;   ('Others',  [14.2, 15.4, 15.3,  8.9,    9, 10.4,  8.9,  5.8,  6.7,  6.8,  7.5])
+&lt;a name="rest_code_655baa50b6f8406b8bfa9b4f5eed0abd-8"&gt;&lt;/a&gt;   ('IE',      [85.8, 84.6, 84.7, 74.5,   66, 58.6, 54.7, 44.8, 36.2, 26.6, 20.1])
+&lt;a name="rest_code_655baa50b6f8406b8bfa9b4f5eed0abd-9"&gt;&lt;/a&gt;   ('Firefox', [None, None, None, 16.6,   25,   31, 36.4, 45.5, 46.3, 42.8, 37.1])
+&lt;a name="rest_code_655baa50b6f8406b8bfa9b4f5eed0abd-10"&gt;&lt;/a&gt;   ('Chrome',  [None, None, None, None, None, None,    0,  3.9, 10.8, 23.8, 35.3])
+&lt;/pre&gt;&lt;p&gt;&lt;a href="https://macplay.github.io/en/posts/pygal-charts-get-started/"&gt;Read more…&lt;/a&gt; (3 min remaining to read)&lt;/p&gt;&lt;/div&gt;</description><guid>https://macplay.github.io/en/posts/pygal-charts-get-started/</guid><pubDate>Mon, 18 Sep 2017 03:09:34 GMT</pubDate></item></channel></rss>

@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="zh_cn">
+<head>
+<meta charset="utf-8">
+<meta name="description" content="config.conf">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="generator" content="Nikola (getnikola.com)">
+<title>config.conf - MacPlay</title>
+<link rel="apple-touch-icon" sizes="180x180" href="../../../apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../../../favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../../../favicon-16x16.png">
+<link rel="mask-icon" href="../../../safari-pinned-tab.svg" color="#5bbad5">
+<link href="../../../assets/css/semantic.min.css" rel="stylesheet" type="text/css">
+<link href="../../../assets/css/jquery.fancybox.min.css" rel="stylesheet" type="text/css">
+<link href="../../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<link rel="canonical" href="https://macplay.github.io/listings/manjaro/vimb/config.conf.html">
+</head>
+<body>
+        <div class="ui grid">
+            <div class="computer only three wide column no-print">
+                <div id="left-side">
+                </div>
+            </div>
+            <div class="ten wide computer sixteen wide tablet sixteen wide mobile column">
+                        <div class="ui inline cookie nag no-print">
+            <span class="title">从现在开始，支持中英双语及博文精选 O(∩_∩)O~~</span>
+            <i class="close icon"></i>
+        </div>
+    <header id="header" class="no-print"><div class="ui grid">
+        <div class="computer only tablet only sixteen wide column">
+            <div class="ui large secondary stackable menu">
+                <a class="header item brand-logo" href="https://macplay.github.io/">
+                    MacPlay
+                </a>
+                        <a class="item" href="../../../">Posts</a>
+                        <a class="item" href="../../">Code</a>
+                        <a class="item" href="../../../galleries/">Gallery</a>
+                        <a class="item" href="../../../categories/">Tags</a>
+                        <a class="item" href="../../../archive.html">Archive</a>
+                <div class="right menu">
+                    <a class="item" href="../../../rss.xml"><i class="rss icon"></i>RSS</a>
+                </div>
+            </div>
+        </div>
+        <div class="mobile only sixteen wide column">
+            <div class="ui fluid accordion vertical menu">
+                <div class="item">
+                    <a class="title">MacPlay</a>
+                    <div class="content">
+                                <a class="item" href="../../../">Posts</a>
+                                <a class="item" href="../../">Code</a>
+                                <a class="item" href="../../../galleries/">Gallery</a>
+                                <a class="item" href="../../../categories/">Tags</a>
+                                <a class="item" href="../../../archive.html">Archive</a>
+                        <a class="item" href="../../../rss.xml"><i class="rss icon"></i>RSS</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </header><main id="main"><div id="main-content">
+<div class="listingpage page-body" itemscope="itemscope" itemtype="http://schema.org/Article">
+    <div class="ui breadcrumb list-title">
+                <a href="../../" class="section">listings</a>
+                <div class="divider"> / </div>
+                <a href="../" class="section">manjaro</a>
+                <div class="divider"> / </div>
+                <a href="." class="section">vimb</a>
+                <div class="divider"> / </div>
+                <div class="section">
+                    config.conf
+                </div>
+    </div>
+
+        <p class="downloadlink">
+            <i class="download icon"></i><a href="config.conf">Download</a>
+        </p>
+        <div class="code"><table class="codetable">
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarovimbconfigconf-1"><code data-line-number=" 1"></code></a></td>
+<td class="code"><code><a name="listingsmanjarovimbconfigconf-1"></a># Homepage that vimb opens if started without a URI.
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarovimbconfigconf-2"><code data-line-number=" 2"></code></a></td>
+<td class="code"><code><a name="listingsmanjarovimbconfigconf-2"></a>set home-page=https://bing.com
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarovimbconfigconf-3"><code data-line-number=" 3"></code></a></td>
+<td class="code"><code><a name="listingsmanjarovimbconfigconf-3"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarovimbconfigconf-4"><code data-line-number=" 4"></code></a></td>
+<td class="code"><code><a name="listingsmanjarovimbconfigconf-4"></a># User-agent IPad by default
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarovimbconfigconf-5"><code data-line-number=" 5"></code></a></td>
+<td class="code"><code><a name="listingsmanjarovimbconfigconf-5"></a>set user-agent=Mozilla/5.0 (iPad; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarovimbconfigconf-6"><code data-line-number=" 6"></code></a></td>
+<td class="code"><code><a name="listingsmanjarovimbconfigconf-6"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarovimbconfigconf-7"><code data-line-number=" 7"></code></a></td>
+<td class="code"><code><a name="listingsmanjarovimbconfigconf-7"></a># Path to the default download directory. If no download directory is set,
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarovimbconfigconf-8"><code data-line-number=" 8"></code></a></td>
+<td class="code"><code><a name="listingsmanjarovimbconfigconf-8"></a># download will be written into current directory. The following pattern will
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarovimbconfigconf-9"><code data-line-number=" 9"></code></a></td>
+<td class="code"><code><a name="listingsmanjarovimbconfigconf-9"></a># be expanded if the download is started '~/', '~user', '<span class="nv">$VAR</span>' and '<span class="cp">${</span><span class="n">VAR</span><span class="cp">}</span>'.
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarovimbconfigconf-10"><code data-line-number="10"></code></a></td>
+<td class="code"><code><a name="listingsmanjarovimbconfigconf-10"></a>set download-path=~/Downloads/
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarovimbconfigconf-11"><code data-line-number="11"></code></a></td>
+<td class="code"><code><a name="listingsmanjarovimbconfigconf-11"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarovimbconfigconf-12"><code data-line-number="12"></code></a></td>
+<td class="code"><code><a name="listingsmanjarovimbconfigconf-12"></a># Command with placeholder '%s' called if form field is opened with <span class="nv">$EDITOR</span> to
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarovimbconfigconf-13"><code data-line-number="13"></code></a></td>
+<td class="code"><code><a name="listingsmanjarovimbconfigconf-13"></a># spawn the editor-like `x-terminal-emulator -e vim %s'. To use Gvim as the
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarovimbconfigconf-14"><code data-line-number="14"></code></a></td>
+<td class="code"><code><a name="listingsmanjarovimbconfigconf-14"></a># editor, it's necessary to call it with `-f' to run it in the foreground.
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarovimbconfigconf-15"><code data-line-number="15"></code></a></td>
+<td class="code"><code><a name="listingsmanjarovimbconfigconf-15"></a>set editor-command=konsole -e nvim %s
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarovimbconfigconf-16"><code data-line-number="16"></code></a></td>
+<td class="code"><code><a name="listingsmanjarovimbconfigconf-16"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarovimbconfigconf-17"><code data-line-number="17"></code></a></td>
+<td class="code"><code><a name="listingsmanjarovimbconfigconf-17"></a># If enabled the inputbox will be hidden whenever it contains no text.
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarovimbconfigconf-18"><code data-line-number="18"></code></a></td>
+<td class="code"><code><a name="listingsmanjarovimbconfigconf-18"></a>set input-autohide=true
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarovimbconfigconf-19"><code data-line-number="19"></code></a></td>
+<td class="code"><code><a name="listingsmanjarovimbconfigconf-19"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarovimbconfigconf-20"><code data-line-number="20"></code></a></td>
+<td class="code"><code><a name="listingsmanjarovimbconfigconf-20"></a># Enable or disable the spell checking feature.
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarovimbconfigconf-21"><code data-line-number="21"></code></a></td>
+<td class="code"><code><a name="listingsmanjarovimbconfigconf-21"></a>set spell-checking=false
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarovimbconfigconf-22"><code data-line-number="22"></code></a></td>
+<td class="code"><code><a name="listingsmanjarovimbconfigconf-22"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarovimbconfigconf-23"><code data-line-number="23"></code></a></td>
+<td class="code"><code><a name="listingsmanjarovimbconfigconf-23"></a># Set comma separated list of spell checking languages to be used for
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarovimbconfigconf-24"><code data-line-number="24"></code></a></td>
+<td class="code"><code><a name="listingsmanjarovimbconfigconf-24"></a># spell checking.
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarovimbconfigconf-25"><code data-line-number="25"></code></a></td>
+<td class="code"><code><a name="listingsmanjarovimbconfigconf-25"></a>set spell-checking-languages=en,de
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarovimbconfigconf-26"><code data-line-number="26"></code></a></td>
+<td class="code"><code><a name="listingsmanjarovimbconfigconf-26"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarovimbconfigconf-27"><code data-line-number="27"></code></a></td>
+<td class="code"><code><a name="listingsmanjarovimbconfigconf-27"></a># Enable or disable support for WebGL on pages.
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarovimbconfigconf-28"><code data-line-number="28"></code></a></td>
+<td class="code"><code><a name="listingsmanjarovimbconfigconf-28"></a>set webgl=false
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarovimbconfigconf-29"><code data-line-number="29"></code></a></td>
+<td class="code"><code><a name="listingsmanjarovimbconfigconf-29"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarovimbconfigconf-30"><code data-line-number="30"></code></a></td>
+<td class="code"><code><a name="listingsmanjarovimbconfigconf-30"></a># While typing a search command, show where the pattern typed so far matches.
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarovimbconfigconf-31"><code data-line-number="31"></code></a></td>
+<td class="code"><code><a name="listingsmanjarovimbconfigconf-31"></a>set incsearch=true
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarovimbconfigconf-32"><code data-line-number="32"></code></a></td>
+<td class="code"><code><a name="listingsmanjarovimbconfigconf-32"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarovimbconfigconf-33"><code data-line-number="33"></code></a></td>
+<td class="code"><code><a name="listingsmanjarovimbconfigconf-33"></a># The font family to use as the default for content that does not specify a
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarovimbconfigconf-34"><code data-line-number="34"></code></a></td>
+<td class="code"><code><a name="listingsmanjarovimbconfigconf-34"></a># font.
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarovimbconfigconf-35"><code data-line-number="35"></code></a></td>
+<td class="code"><code><a name="listingsmanjarovimbconfigconf-35"></a>set default-font=Sarasa Gothic TC
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarovimbconfigconf-36"><code data-line-number="36"></code></a></td>
+<td class="code"><code><a name="listingsmanjarovimbconfigconf-36"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarovimbconfigconf-37"><code data-line-number="37"></code></a></td>
+<td class="code"><code><a name="listingsmanjarovimbconfigconf-37"></a># The font family used as the default for content using monospace font.
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarovimbconfigconf-38"><code data-line-number="38"></code></a></td>
+<td class="code"><code><a name="listingsmanjarovimbconfigconf-38"></a>set monospace-font=Noto Mono
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarovimbconfigconf-39"><code data-line-number="39"></code></a></td>
+<td class="code"><code><a name="listingsmanjarovimbconfigconf-39"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarovimbconfigconf-40"><code data-line-number="40"></code></a></td>
+<td class="code"><code><a name="listingsmanjarovimbconfigconf-40"></a># The font family used as the default for content using sans-serif font.
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarovimbconfigconf-41"><code data-line-number="41"></code></a></td>
+<td class="code"><code><a name="listingsmanjarovimbconfigconf-41"></a>set sans-serif-font=Sarasa Gothic SC
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarovimbconfigconf-42"><code data-line-number="42"></code></a></td>
+<td class="code"><code><a name="listingsmanjarovimbconfigconf-42"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarovimbconfigconf-43"><code data-line-number="43"></code></a></td>
+<td class="code"><code><a name="listingsmanjarovimbconfigconf-43"></a># The font family used as the default for content using serif font.
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarovimbconfigconf-44"><code data-line-number="44"></code></a></td>
+<td class="code"><code><a name="listingsmanjarovimbconfigconf-44"></a>set serif-font=Sarasa Gothic SC
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarovimbconfigconf-45"><code data-line-number="45"></code></a></td>
+<td class="code"><code><a name="listingsmanjarovimbconfigconf-45"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarovimbconfigconf-46"><code data-line-number="46"></code></a></td>
+<td class="code"><code><a name="listingsmanjarovimbconfigconf-46"></a># The default font size used to display text.
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarovimbconfigconf-47"><code data-line-number="47"></code></a></td>
+<td class="code"><code><a name="listingsmanjarovimbconfigconf-47"></a>set font-size=16
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarovimbconfigconf-48"><code data-line-number="48"></code></a></td>
+<td class="code"><code><a name="listingsmanjarovimbconfigconf-48"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarovimbconfigconf-49"><code data-line-number="49"></code></a></td>
+<td class="code"><code><a name="listingsmanjarovimbconfigconf-49"></a># Default font size for the monospace font.
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarovimbconfigconf-50"><code data-line-number="50"></code></a></td>
+<td class="code"><code><a name="listingsmanjarovimbconfigconf-50"></a>set monospace-font-size=14
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarovimbconfigconf-51"><code data-line-number="51"></code></a></td>
+<td class="code"><code><a name="listingsmanjarovimbconfigconf-51"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarovimbconfigconf-52"><code data-line-number="52"></code></a></td>
+<td class="code"><code><a name="listingsmanjarovimbconfigconf-52"></a># Default Full-Content zoom level in percent. Default is 100.
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarovimbconfigconf-53"><code data-line-number="53"></code></a></td>
+<td class="code"><code><a name="listingsmanjarovimbconfigconf-53"></a>set default-zoom=150
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarovimbconfigconf-54"><code data-line-number="54"></code></a></td>
+<td class="code"><code><a name="listingsmanjarovimbconfigconf-54"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarovimbconfigconf-55"><code data-line-number="55"></code></a></td>
+<td class="code"><code><a name="listingsmanjarovimbconfigconf-55"></a># Shortcuts allow the opening of an URI built up from a named template with
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarovimbconfigconf-56"><code data-line-number="56"></code></a></td>
+<td class="code"><code><a name="listingsmanjarovimbconfigconf-56"></a># additional parameters.
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarovimbconfigconf-57"><code data-line-number="57"></code></a></td>
+<td class="code"><code><a name="listingsmanjarovimbconfigconf-57"></a>shortcut-add duck=https://duckduckgo.com/?q=$0
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarovimbconfigconf-58"><code data-line-number="58"></code></a></td>
+<td class="code"><code><a name="listingsmanjarovimbconfigconf-58"></a>shortcut-add bing=https://bing.com/?q=$0
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarovimbconfigconf-59"><code data-line-number="59"></code></a></td>
+<td class="code"><code><a name="listingsmanjarovimbconfigconf-59"></a>shortcut-add d=http://dict.cc/?s=$0
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarovimbconfigconf-60"><code data-line-number="60"></code></a></td>
+<td class="code"><code><a name="listingsmanjarovimbconfigconf-60"></a>shortcut-add g=https://encrypted.google.com/search?q=$0
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarovimbconfigconf-61"><code data-line-number="61"></code></a></td>
+<td class="code"><code><a name="listingsmanjarovimbconfigconf-61"></a>shortcut-add y=http://www.youtube.com/results?search_query=$0
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarovimbconfigconf-62"><code data-line-number="62"></code></a></td>
+<td class="code"><code><a name="listingsmanjarovimbconfigconf-62"></a>shortcut-add s=https://www.startpage.com/do/dsearch?query=$0
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarovimbconfigconf-63"><code data-line-number="63"></code></a></td>
+<td class="code"><code><a name="listingsmanjarovimbconfigconf-63"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarovimbconfigconf-64"><code data-line-number="64"></code></a></td>
+<td class="code"><code><a name="listingsmanjarovimbconfigconf-64"></a># Set the shortcut as the default, that is the shortcut to be used if no
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarovimbconfigconf-65"><code data-line-number="65"></code></a></td>
+<td class="code"><code><a name="listingsmanjarovimbconfigconf-65"></a># shortcut is given and the string to open is not an URI.
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarovimbconfigconf-66"><code data-line-number="66"></code></a></td>
+<td class="code"><code><a name="listingsmanjarovimbconfigconf-66"></a>shortcut-default bing
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarovimbconfigconf-67"><code data-line-number="67"></code></a></td>
+<td class="code"><code><a name="listingsmanjarovimbconfigconf-67"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarovimbconfigconf-68"><code data-line-number="68"></code></a></td>
+<td class="code"><code><a name="listingsmanjarovimbconfigconf-68"></a># Map page zoom in normal mode to keys commonly used across applications
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarovimbconfigconf-69"><code data-line-number="69"></code></a></td>
+<td class="code"><code><a name="listingsmanjarovimbconfigconf-69"></a># + (zoom in), - (zoom out), = (zoom reset)
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarovimbconfigconf-70"><code data-line-number="70"></code></a></td>
+<td class="code"><code><a name="listingsmanjarovimbconfigconf-70"></a>nmap + zI
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarovimbconfigconf-71"><code data-line-number="71"></code></a></td>
+<td class="code"><code><a name="listingsmanjarovimbconfigconf-71"></a>nmap - zO
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarovimbconfigconf-72"><code data-line-number="72"></code></a></td>
+<td class="code"><code><a name="listingsmanjarovimbconfigconf-72"></a>nmap = zz
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarovimbconfigconf-73"><code data-line-number="73"></code></a></td>
+<td class="code"><code><a name="listingsmanjarovimbconfigconf-73"></a>nnoremap [ <span class="nt">&lt;C</span><span class="err">-o</span><span class="nt">&gt;</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarovimbconfigconf-74"><code data-line-number="74"></code></a></td>
+<td class="code"><code><a name="listingsmanjarovimbconfigconf-74"></a>nnoremap ] <span class="nt">&lt;C</span><span class="err">-i</span><span class="nt">&gt;</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarovimbconfigconf-75"><code data-line-number="75"></code></a></td>
+<td class="code"><code><a name="listingsmanjarovimbconfigconf-75"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarovimbconfigconf-76"><code data-line-number="76"></code></a></td>
+<td class="code"><code><a name="listingsmanjarovimbconfigconf-76"></a># GUI color settings
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarovimbconfigconf-77"><code data-line-number="77"></code></a></td>
+<td class="code"><code><a name="listingsmanjarovimbconfigconf-77"></a># Color scheme: Base16 Eighties (https://github.com/chriskempson/base16)
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarovimbconfigconf-78"><code data-line-number="78"></code></a></td>
+<td class="code"><code><a name="listingsmanjarovimbconfigconf-78"></a>set completion-css=color:#d3d0c8;background-color:#393939;font:10pt Noto Mono;
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarovimbconfigconf-79"><code data-line-number="79"></code></a></td>
+<td class="code"><code><a name="listingsmanjarovimbconfigconf-79"></a>set completion-hover-css=color:#d3d0c8;background-color:#393939;font:10pt Noto Mono;
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarovimbconfigconf-80"><code data-line-number="80"></code></a></td>
+<td class="code"><code><a name="listingsmanjarovimbconfigconf-80"></a>set completion-selected-css=color:#d3d0c8;background-color:#515151;font:10pt Noto Mono;
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarovimbconfigconf-81"><code data-line-number="81"></code></a></td>
+<td class="code"><code><a name="listingsmanjarovimbconfigconf-81"></a>set input-css=color:#d3d0c8;background-color:#393939;font:10pt Noto Mono;
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarovimbconfigconf-82"><code data-line-number="82"></code></a></td>
+<td class="code"><code><a name="listingsmanjarovimbconfigconf-82"></a>set input-error-css=color:#f2777a;background-color:#393939;font:10pt Noto Mono;
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarovimbconfigconf-83"><code data-line-number="83"></code></a></td>
+<td class="code"><code><a name="listingsmanjarovimbconfigconf-83"></a>set status-css=color:#ffcc66;background-color:rgba(40,51,57,0.9);font:10pt Noto Mono;
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarovimbconfigconf-84"><code data-line-number="84"></code></a></td>
+<td class="code"><code><a name="listingsmanjarovimbconfigconf-84"></a>set status-ssl-css=color:#99cc99;background-color:rgba(40,51,57,0.9);font:10pt Noto Mono;
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarovimbconfigconf-85"><code data-line-number="85"></code></a></td>
+<td class="code"><code><a name="listingsmanjarovimbconfigconf-85"></a>set status-ssl-invalid-css=color:#f2777a;background-color:#283339;font:10pt Noto Mono;
+</code></td>
+</tr>
+</table></div>
+</div>
+                    </div>
+                </main><div class="footer extra-block no-print">
+    <span class="footer_item">
+        <a href="../../../pages/you-qing-lian-jie/">友情链接</a>
+    </span>
+    <span class="footer_item">
+        <a href="../../../pages/liu-yan-ban/">留言板</a>
+    </span>
+    <span class="footer_item">
+        <a href="../../../pages/ge-ren-dong-tai/">碎碎念</a>
+    </span>
+    </div>
+            <div class="footer social-link no-print">
+            <a href="https://github.com/ashfinal" target="_blank"><i class="grey large github icon"></i></a>
+            <a href="http://weibo.com/ashfinal/" target="_blank"><i class="grey large weibo icon"></i></a>
+            <a href="mailto://ashfinal@sina.cn" target="_blank"><i class="grey large mail icon"></i></a>
+            </div>
+        <div class="ui basic center aligned segment no-print">Contents © 2020         <a href="mailto:ashfinal@sina.cn">ashfinal</a> - Powered by         <a href="https://getnikola.com" target="_blank" rel="nofollow">Nikola</a>         </div>
+
+            </div>
+            <div class="computer only three wide column no-print">
+                <div id="right-side">
+                </div>
+            </div>
+        </div>
+
+        <!-- GoStats JavaScript Based Code -->
+        <script type="text/javascript">(function(c,o,m,p,u,t,e){
+        c['GoStatsObject']=u;c[u]=c[u]||function(){(c[u].q=c[u].q||[]).push(arguments)},
+        c[u].l=1*new Date();t=o.createElement(m);t.async=1;t.src=p;
+        e=o.getElementsByTagName(m)[0];e.parentNode.insertBefore(t,e);
+        })(window,document,'script','//www.gostats.org/5.js','go');
+        go('init',100479892,{'img_counter_type':5,'img_image_type':1});go('send');</script><!-- End GoStats JavaScript Based Code --><script type="text/javascript" src="../../../assets/js/jquery-3.3.1.min.js"></script><script type="text/javascript" src="../../../assets/js/semantic.min.js"></script><script type="text/javascript" src="../../../assets/js/jquery.fancybox.min.js"></script><script type="text/javascript" src="../../../assets/js/cookie.min.js"></script><script>
+            $(document).ready(function(){
+                $(".ui.dropdown").dropdown();
+                $('.ui.accordion').accordion();
+                var newstr = $('.cookie.nag').text();
+                $('.cookie.nag').nag({
+                    key: 'globalnotice',
+                    value: newstr
+                  });
+                $('.image-reference').fancybox();
+            });
+        </script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="../../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>MacPlay (Posts about vimrc)</title><link>https://macplay.github.io/</link><description></description><atom:link href="https://macplay.github.io/en/categories/vimrc.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><copyright>Contents © 2020 &lt;a href="mailto:ashfinal@sina.cn"&gt;ashfinal&lt;/a&gt; </copyright><lastBuildDate>Wed, 26 Aug 2020 08:50:32 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Oni 0.32 版本释出</title><link>https://macplay.github.io/en/posts/oni-032-ban-ben-shi-chu/</link><dc:creator>ashfinal</dc:creator><description>&lt;div&gt;&lt;!-- vim:set et sw=4 ts=4 ft=rst: --&gt;
+&lt;!-- This file interpreters the title of URL in links.ref --&gt;
+&lt;!-- vim:set et sw=4 ts=4 ft=rst: --&gt;
+&lt;div class="figure align-center"&gt;
+&lt;img alt="/images/oni_release.png" src="https://macplay.github.io/images/oni_release.png"&gt;
+&lt;/div&gt;
+&lt;div class="admonition attention"&gt;
+&lt;p class="admonition-title"&gt;注意&lt;/p&gt;
+&lt;p&gt;Since they've moved to oni2, that changed lots of things, I'm gonna flag this post as obsolete. DON'T READ!&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;本来对这次版本更新还有些不以为然：为何不把精力放在完善 &lt;a class="reference external" href="https://langserver.org/"&gt;Language Server Protocol&lt;/a&gt; 支持，而跑去写什么新手教程呢？直到今天尝试了下教程，又看了文字版更新内容，才明白过来：Oni 编辑器正朝着我期待的方向前进！&lt;/p&gt;
+&lt;p&gt;来看看本次更新的两个重要功能：&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://macplay.github.io/en/posts/oni-032-ban-ben-shi-chu/"&gt;Read more…&lt;/a&gt; (2 min remaining to read)&lt;/p&gt;&lt;/div&gt;</description><guid>https://macplay.github.io/en/posts/oni-032-ban-ben-shi-chu/</guid><pubDate>Sat, 14 Apr 2018 14:55:50 GMT</pubDate></item><item><title>迁移到 onivim</title><link>https://macplay.github.io/en/posts/qian-yi-dao-onivim/</link><dc:creator>ashfinal</dc:creator><description>&lt;div&gt;&lt;!-- vim:set et sw=4 ts=4 ft=rst: --&gt;
+&lt;!-- vim:set et sw=4 ts=4 ft=rst: --&gt;
+&lt;!-- This file interpreters the title of URL in links.ref --&gt;
+&lt;!-- vim:set et sw=4 ts=4 ft=rst: --&gt;
+&lt;p&gt;关注 &lt;a class="reference external" href="https://github.com/onivim/oni"&gt;Oni: Modern Modal Editing - powered by Neovim&lt;/a&gt; 有一段时间了。根据主页描述，Oni 是个基于 Electron 技术实现的 Neovim 前端，对 &lt;a class="reference external" href="https://langserver.org/"&gt;Language Server Protocol&lt;/a&gt; 支持很全面。不过，之前使用 &lt;a class="reference external" href="https://github.com/qvacua/vimr"&gt;VimR&lt;/a&gt; 还算舒心，而 Oni 则起步较晚，一些功能还不完善。因此并没有动迁移的念头。&lt;/p&gt;
+&lt;p&gt;不过最近几天在折腾 &lt;a class="reference external" href="https://macplay.github.io/categories/manjaro/"&gt;manjaro&lt;/a&gt; ，当寻找 Linux 下的 Neovim 前端时，试用了一圈竟然没有一个好用的！或多或少都存在一些问题。于是，无奈之下，我在 U 盘的 manjaro 操作系统上尝试了“臃肿”的 Electron 编辑器。其结果是出乎我意料之外的：Oni 已经达到了日常堪用的水平，而且与我之前的 vimrc 配置协作良好。&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://macplay.github.io/en/posts/qian-yi-dao-onivim/"&gt;Read more…&lt;/a&gt; (2 min remaining to read)&lt;/p&gt;&lt;/div&gt;</description><guid>https://macplay.github.io/en/posts/qian-yi-dao-onivim/</guid><pubDate>Thu, 15 Mar 2018 10:08:03 GMT</pubDate></item><item><title>Vim 弄丢了我的数据！</title><link>https://macplay.github.io/en/posts/vim-nong-diu-liao-wo-de-shu-ju/</link><dc:creator>ashfinal</dc:creator><description>&lt;div class="section" id="id1"&gt;
+&lt;h2&gt;悲剧&lt;/h2&gt;
+&lt;p&gt;昨天（啊不， &lt;span class="strike"&gt;前天&lt;/span&gt; &lt;span class="amend"&gt;大前天&lt;/span&gt; ）在写 &lt;a class="reference external" href="https://macplay.github.io/posts/zai-vim-zhong-shi-yong-undo-branches/"&gt;undo branches&lt;/a&gt; 那篇文章的时候，&lt;a class="reference external" href="https://github.com/qvacua/vimr"&gt;VimR&lt;/a&gt; 编辑器突然毫无征兆的崩溃退出，导致花费好半天翻译过来的几段文字全部丢失。颇具有讽刺意味的是，当时写的文章正是关于在 Vim 编辑器中如何使用 undo branches，避免丢失你宝贵的资料。事情发生时笔者从浏览器中复制了一段文字，然后直接按下 &lt;cite&gt;CMD + V&lt;/cite&gt; 粘贴，可能是其中含有一些特殊字符……悲剧就这样发生了。&lt;/p&gt;
+&lt;p&gt;第一反应是去查看 undo 历史，很不幸那几段文字并没有保存其中。于是悲哀地意识到它们是永远也找不回来了：因为 undo branches 其实是保存文件撤销记录，而不是用来应对这种意外灾难的。&lt;strong&gt;真正的灾难应对机制已经被我关闭。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://macplay.github.io/en/posts/vim-nong-diu-liao-wo-de-shu-ju/"&gt;Read more…&lt;/a&gt; (1 min remaining to read)&lt;/p&gt;&lt;/div&gt;</description><guid>https://macplay.github.io/en/posts/vim-nong-diu-liao-wo-de-shu-ju/</guid><pubDate>Mon, 13 Nov 2017 11:57:10 GMT</pubDate></item></channel></rss>

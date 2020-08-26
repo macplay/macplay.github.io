@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>MacPlay (Posts about ffmpeg)</title><link>https://macplay.github.io/</link><description></description><atom:link href="https://macplay.github.io/categories/ffmpeg.xml" rel="self" type="application/rss+xml"></atom:link><language>zh_cn</language><copyright>Contents © 2020 &lt;a href="mailto:ashfinal@sina.cn"&gt;ashfinal&lt;/a&gt; </copyright><lastBuildDate>Wed, 26 Aug 2020 08:50:31 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>FFmpeg Filtering Guide</title><link>https://macplay.github.io/posts/ffmpeg-filtering-guide/</link><dc:creator>ashfinal</dc:creator><description>&lt;div&gt;&lt;div class="figure align-center"&gt;
+&lt;a class="reference external image-reference" href="https://macplay.github.io/images/ffmpeg_datascope.png"&gt;&lt;img alt="ffmpeg_datascope" src="https://macplay.github.io/images/ffmpeg_datascope.thumbnail.png"&gt;&lt;/a&gt;
+&lt;/div&gt;
+&lt;div class="contents topic" id="id1"&gt;
+&lt;p class="topic-title"&gt;文档目录&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="https://macplay.github.io/posts/ffmpeg-filtering-guide/#ffmpeg-filtering" id="id12"&gt;FFmpeg Filtering 介绍&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="https://macplay.github.io/posts/ffmpeg-filtering-guide/#testsrc" id="id13"&gt;testsrc&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="https://macplay.github.io/posts/ffmpeg-filtering-guide/#ffmpeg-ffplay-filters" id="id14"&gt;在 ffmpeg/ffplay 中使用 filters&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="https://macplay.github.io/posts/ffmpeg-filtering-guide/#mpv-player" id="id15"&gt;mpv player&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="https://macplay.github.io/posts/ffmpeg-filtering-guide/#mmate" id="id16"&gt;mmate&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="section" id="ffmpeg-filtering"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="https://macplay.github.io/posts/ffmpeg-filtering-guide/#id12"&gt;FFmpeg Filtering 介绍&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Filtering in FFmpeg is enabled through the libavfilter library.&lt;/p&gt;
+&lt;p&gt;In libavfilter, a filter can have multiple inputs and multiple outputs. To illustrate the sorts of things that are possible, we consider the following filtergraph:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;                [main]
+input --&amp;gt; split ---------------------&amp;gt; overlay --&amp;gt; output
+            |                             ^
+            |[tmp]                  [flip]|
+            +-----&amp;gt; crop --&amp;gt; vflip -------+&lt;/pre&gt;
+&lt;p&gt;This filtergraph splits the input stream in two streams, then sends one stream through the crop filter and the vflip filter, before merging it back with the other stream by overlaying it on top. You can use the following command to achieve this:&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://macplay.github.io/posts/ffmpeg-filtering-guide/"&gt;Read more…&lt;/a&gt; (8 min remaining to read)&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;</description><category>ffmpeg</category><guid>https://macplay.github.io/posts/ffmpeg-filtering-guide/</guid><pubDate>Mon, 24 Feb 2020 12:50:03 GMT</pubDate></item><item><title>ffmpeg 命令行参数调优</title><link>https://macplay.github.io/posts/ffmpeg-ming-ling-xing-can-shu-diao-you/</link><dc:creator>ashfinal</dc:creator><description>&lt;div&gt;&lt;video src="https://macplay.github.io/videos/time_machine.mp4" loop autoplay muted playsinline&gt;
+    Your browser does not support the video tag.
+&lt;/video&gt;&lt;p&gt;文件大小 325 KB。&lt;/p&gt;
+&lt;p&gt;完整命令：&lt;/p&gt;
+&lt;pre class="code console"&gt;&lt;a name="rest_code_08c03bcef0794635ac66c55c05f292df-1"&gt;&lt;/a&gt;&lt;span class="go"&gt;ffmpeg -y -i mv.mp4 -ss 00:02:24.000 -to 00:02:29.000 -c:v libx264 -an -crf 35 -b:v 100k -r 10 -movflags faststart -preset slow out.mp4&lt;/span&gt;
+&lt;/pre&gt;&lt;p&gt;如果加上音轨 &lt;cite&gt;-b:a 11k&lt;/cite&gt; ，则体积上升到 350 KB。&lt;/p&gt;
+&lt;p&gt;很理想了。&lt;/p&gt;&lt;/div&gt;</description><category>ffmpeg</category><category>shell</category><category>terminal</category><guid>https://macplay.github.io/posts/ffmpeg-ming-ling-xing-can-shu-diao-you/</guid><pubDate>Sun, 04 Mar 2018 09:44:20 GMT</pubDate></item></channel></rss>

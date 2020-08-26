@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="generator" content="Nikola (getnikola.com)">
+<title>使用 Pages 制作 ePub 格式的电子书 - MacPlay</title>
+<link rel="apple-touch-icon" sizes="180x180" href="../../../apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../../../favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../../../favicon-16x16.png">
+<link rel="mask-icon" href="../../../safari-pinned-tab.svg" color="#5bbad5">
+<link href="../../../assets/css/semantic.min.css" rel="stylesheet" type="text/css">
+<link href="../../../assets/css/jquery.fancybox.min.css" rel="stylesheet" type="text/css">
+<link href="../../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<link rel="canonical" href="https://macplay.github.io/en/posts/shi-yong-pages-zhi-zuo-epub-ge-shi-de-dian-zi-shu/">
+<meta name="author" content="ashfinal">
+<link rel="alternate" hreflang="zh_cn" href="../../../posts/shi-yong-pages-zhi-zuo-epub-ge-shi-de-dian-zi-shu/">
+<link rel="stylesheet" type="text/css" href="../../../assets/css/gitalk.css">
+</head>
+<body>
+        <div class="ui grid">
+            <div class="computer only three wide column no-print">
+                <div id="left-side">
+                </div>
+            </div>
+            <div class="ten wide computer sixteen wide tablet sixteen wide mobile column">
+                        <div class="ui inline cookie nag no-print">
+            <span class="title">从现在开始，支持中英双语及博文精选 O(∩_∩)O~~</span>
+            <i class="close icon"></i>
+        </div>
+    <header id="header" class="no-print"><div class="ui grid">
+        <div class="computer only tablet only sixteen wide column">
+            <div class="ui large secondary stackable menu">
+                <a class="header item brand-logo" href="https://macplay.github.io/en/">
+                    MacPlay
+                </a>
+                        <a class="item" href="../../../">Posts</a>
+                        <a class="item" href="../../../listings/">Code</a>
+                        <a class="item" href="../../../galleries/">Gallery</a>
+                        <a class="item" href="../../../categories/">Tags</a>
+                        <a class="item" href="../../../archive.html">Archive</a>
+                <div class="right menu">
+                    <a class="item" href="../../../rss.xml"><i class="rss icon"></i>RSS</a>
+                </div>
+            </div>
+        </div>
+        <div class="mobile only sixteen wide column">
+            <div class="ui fluid accordion vertical menu">
+                <div class="item">
+                    <a class="title">MacPlay</a>
+                    <div class="content">
+                                <a class="item" href="../../../">Posts</a>
+                                <a class="item" href="../../../listings/">Code</a>
+                                <a class="item" href="../../../galleries/">Gallery</a>
+                                <a class="item" href="../../../categories/">Tags</a>
+                                <a class="item" href="../../../archive.html">Archive</a>
+                        <a class="item" href="../../../rss.xml"><i class="rss icon"></i>RSS</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </header><main id="main"><div id="main-content">
+<div class="postpage post-text page-body" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <h1 class="post-title" itemprop="headline">
+        <a href=".">使用 Pages 制作 ePub 格式的电子书</a>
+    </h1>
+
+    <div class="ui large horizontal link list post-meta">
+        <span class="item">By
+            <a href="../../authors/ashfinal/">ashfinal</a>
+        </span>
+            <span class="item">
+                <a href="https://github.com/macplay/macplay.github.io/edit/src/posts/shi-yong-pages-zhi-zuo-epub-ge-shi-de-dian-zi-shu.md" target="_blank" title="Edit on GitHub">Edit</a>
+            </span>
+        <span class="item">
+            <time datetime="2015-04-07T15:09:14+08:00">
+            2015-04-07 15:09
+            </time></span>
+            <span class="item">
+                    <a href="../../categories/ebook/">ebook</a>
+                    <a href="../../categories/office/">office</a>
+            </span>
+    </div>
+
+    
+    <div class="post-content" itemprop="article text">
+        <div id="post-content">
+        <div>
+<h3 id="_1">缘起</h3>
+<p>最近没事就使用 iPhone 上的 iBooks 来阅读点东西，渐渐喜欢上了该应用。相较于波澜不惊的 Mac 版，iPhone 内置的 iBooks 应用翻页效果堪称惊艳，而其它功能如书签、标注、跳转等用户体验也相当不错。无奈书籍资源实在太少，遂产生制作/修改 ePub 格式电子书的念头。作为「原生党」，自然而然就想到使用 Pages 来尝试制作啦。完成以后感觉整体效果还不错，于是把制作过程记录一下，希望于读者朋友们能够有所参考。</p>
+<!-- TEASER_END -->
+
+<p><img alt="iBooks 翻页效果" src="../../../images/bookflip.png" title="iBooks 翻页效果"></p>
+<div class="toc">
+<ul>
+<li><a href="#_1">缘起</a></li>
+<li><a href="#_2">前期准备</a></li>
+<li>
+<a href="#_3">制作过程</a><ul>
+<li><a href="#_4">文档目录</a></li>
+<li><a href="#_5">章节样式</a></li>
+<li><a href="#_6">图文混排</a></li>
+<li><a href="#_7">封面图片</a></li>
+</ul>
+</li>
+<li><a href="#_8">导出电子书</a></li>
+<li><a href="#_9">了解更多</a></li>
+</ul>
+</div>
+<h3 id="_2">前期准备</h3>
+<p>既然涉及到电子书制作，首当其冲的任务当然是获得文本「原料」。如果你本身即是作者，那「原料」当然不成问题。但如若想要从技术教程或网络博客制作电子书，则多数情况下你获取到的可能为 TXT 格式文本甚至 HTML 源文件。无论哪种情况，考虑到 Pages 正则替换功能缺失，强烈建议事先使用 <a href="http://sublimetext.com" title="http://sublimetext.com">Sublime Text</a> 处理下章节、空行、缩进等问题。此外另有两个小技巧可介绍给大家：</p>
+<ol>
+<li>
+<p>打开终端输入 <code>cat chapter-[1-9].xhtml &gt;&gt; 上卷.xhtml</code>，该命令将1~9章节内容合并到「上卷」文件中；</p>
+</li>
+<li>
+<p>使用之前介绍过的 <a href="http://macplay.leanote.com/post/54c5e19f225c553534000001" title="http://macplay.leanote.com/post/54c5e19f225c553534000001">ClipMenu</a> 的 <code>Strip Tags</code>功能，可将 HTML/XHTML 源文件转换为纯文本；</p>
+</li>
+</ol>
+<p>因该处遇到的情况各不相同，不便深入展开。需要说明的是：前期准备并非必要步骤，但是妥当处理可减少许多 Pages 不必要的麻烦操作。</p>
+<h3 id="_3">制作过程</h3>
+<p>接下来打开 Pages 新建文档，并粘贴文本。从右侧面板选择 <code>Body</code> 样式，并设置字号为 <code>14pt</code> 。当然其它字号也可以，但笔者发现这样 iPhone 上不需额外调整即可方便阅读。所以在此以该字号为基础设置吧！</p>
+<p><img alt="基础样式" src="../../../images/ji_chu_yang_shi.png" title="基础样式"></p>
+<h4 id="_4">文档目录</h4>
+<p>定位光标到文档开头，点击菜单栏 <code>Insert</code> - <code>Table of Contents</code> - <code>Document</code> 插入目录列表。Pages 将会出现类似的提示：</p>
+<blockquote>
+<p>The table of contents is empty because you aren't using the paragraph styles set to appear in it.</p>
+</blockquote>
+<p>需要知道的是：多数文字处理器均通过段落样式来产生目录列表。该提示说明我们该去设置章节样式啦，目录列表在设置样式时会自动更新内容。</p>
+<h4 id="_5">章节样式</h4>
+<p>建议开始前脑海里简单规划下文档层级和样式，避免前后不一致重复返工。这里我们仅将「上/下卷」、「第 * 章」等分别设置为 <code>Heading 2</code>, <code>Heading 3</code> 样式，两者均为加粗并居中，段落后添加一行空隙。操作过程中可使用查找功能及页面缩略图快速跳转，设置完毕可到首页目录列表对照查看是否有遗漏的章节。</p>
+<h4 id="_6">图文混排</h4>
+<p>因 iPhone 屏幕阅读面积有限，大部分情况下我们需要图片能铺满屏幕。然而遗憾的是，Pages 生成的电子书中的图片尺寸并不能自适应屏幕，而是固定大小。为使图片不超出边界，建议给图片设置的格式为水平居中，宽高约为200pt x 300pt。</p>
+<h4 id="_7">封面图片</h4>
+<p>依旧是文档开头插入新页，复制并粘贴制作好的封面图片，将图片大小调整为铺满整个页面。设置对齐方式为「垂直/水平居中」即可。</p>
+<p><em>看到这里读者朋友们可能已经注意到了，以上所谓的「制作过程」仅为文字处理器一般的操作步骤(仅需注意下细节设置)。也就是说，只要你之前 MS Word 或者 Pages 使用很熟练的话，制作 ePub 格式的电子书并没有给你增加多余的学习成本。</em></p>
+<h3 id="_8">导出电子书</h3>
+<p>将制作的文档保存后，就可以点击菜单栏 <code>File</code> - <code>Export To</code> - <code>ePub…</code> 导出电子书。依序填写弹出的菜单中书名、作者、分类等信息，注意勾选 <code>Use the first page as the book cover image</code> 选项以生成书籍封面。然后点击 <code>Next…</code> 保存即可。</p>
+<p><img alt="导出电子书" src="../../../images/dao_chu_dian_zi_shu.png" title="导出电子书"></p>
+<p>OK，至此 ePub 电子书制作完毕。接下来你就可以将其通过 iTunes 同步到 iPhone，然后随时随地阅读啦。</p>
+<h3 id="_9">了解更多</h3>
+<blockquote>
+<p>EPub是一个自由的开放标准，属于一种可以“自动重新编排”的内容；也就是文字内容可以根据阅读设备的特性，以最适于阅读的方式显示。EPub文件内部使用了XHTML或DTBook（一种由DAISY Consortium提出的XML标准）来展现文字、并以zip压缩格式来包裹文件内容。EPub格式中包含了数字版权管理（DRM）相关功能可供选用。 <sup id="fnref:epub"><a class="footnote-ref" href="#fn:epub">1</a></sup></p>
+</blockquote>
+<p>从维基百科我们知道 ePub 格式电子书使用 XHTML(+CSS) 来定义文档结构及样式，使用 zip 来打包文件。这意味着我们能方便地解包 ePub 文件，对源码进行高度自定义修改，然后再打包回去。 <a href="http://www.mobileread.com/forums/showthread.php?t=55681" title="http://www.mobileread.com/forums/showthread.php?t=55681">这里</a> 提供了方便的 ePub 解压缩工具：<strong>ePub Zip/Unzip 3.0.app</strong>。 维基百科 <a href="http://zh.wikipedia.org/zh-cn/EPUB" title="http://zh.wikipedia.org/zh-cn/EPUB">此页面</a> 也囊括了一些制作 ePub 格式电子书的第三方软件，感兴趣的读者可以自行安装尝试。</p>
+<div class="footnote">
+<hr>
+<ol>
+<li id="fn:epub">
+<p><a href="http://zh.wikipedia.org/zh-cn/EPUB" title="http://zh.wikipedia.org/zh-cn/EPUB">http://zh.wikipedia.org/zh-cn/EPUB</a> <a class="footnote-backref" href="#fnref:epub" title="Jump back to footnote 1 in the text">↩</a></p>
+</li>
+</ol>
+</div>
+</div>
+        </div>
+    </div>
+    <div class="post-info">
+        <p>文章链接：<a href="https://macplay.github.io/en/posts/shi-yong-pages-zhi-zuo-epub-ge-shi-de-dian-zi-shu/" target="_blank">https://macplay.github.io/en/posts/shi-yong-pages-zhi-zuo-epub-ge-shi-de-dian-zi-shu/</a></p>
+        <p>发布/更新于：
+            <time datetime="2017-10-26 11:09:14 UTC+08:00">
+            2017-10-26 11:09
+            </time></p>
+        <p>版权声明：如无特别说明，本站文章均遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">CC BY-NC-SA 4.0</a> 协议，转载请注明作者及出处。</p>
+    </div>
+        <div class="post-navigation no-print">
+        <div class="ui huge secondary stackable menu">
+            <a class="post-nav-item post-nav-previous item" href="../jie-tu-zhe-jian-xiao-shi-shi-yong-applescript-zeng-qiang-xi-tong-jie-tu-gong-neng/" title="Previous post"><i class="angle double left icon"></i> 截图这件小事：使用 AppleScript 增强系统截图功能</a>
+        <div class="right menu">
+            <a class="post-nav-item post-nav-next item" href="../ru-he-jie-ya-macos-xia-de-pkg-wen-jian/" title="Next post">如何解压 macOS 下的 pkg 文件 <i class="angle double right icon"></i></a>
+        </div>
+        </div>
+    </div>
+
+        <div id="gitalk-container" class="comments-block no-print"></div>
+</div>
+                    </div>
+                </main><div class="footer extra-block no-print">
+    <span class="footer_item">
+        <a href="../../../pages/you-qing-lian-jie/">友情链接</a>
+    </span>
+    <span class="footer_item">
+        <a href="../../../pages/liu-yan-ban/">留言板</a>
+    </span>
+    <span class="footer_item">
+        <a href="../../../pages/ge-ren-dong-tai/">碎碎念</a>
+    </span>
+    </div>
+            <div class="footer social-link no-print">
+            <a href="https://github.com/ashfinal" target="_blank"><i class="grey large github icon"></i></a>
+            <a href="http://weibo.com/ashfinal/" target="_blank"><i class="grey large weibo icon"></i></a>
+            <a href="mailto://ashfinal@sina.cn" target="_blank"><i class="grey large mail icon"></i></a>
+            </div>
+        <div class="ui basic center aligned segment no-print">Contents © 2020         <a href="mailto:ashfinal@sina.cn">ashfinal</a> - Powered by         <a href="https://getnikola.com" target="_blank" rel="nofollow">Nikola</a>         </div>
+
+            </div>
+            <div class="computer only three wide column no-print">
+                <div id="right-side">
+                </div>
+            </div>
+        </div>
+
+        <!-- GoStats JavaScript Based Code -->
+        <script type="text/javascript">(function(c,o,m,p,u,t,e){
+        c['GoStatsObject']=u;c[u]=c[u]||function(){(c[u].q=c[u].q||[]).push(arguments)},
+        c[u].l=1*new Date();t=o.createElement(m);t.async=1;t.src=p;
+        e=o.getElementsByTagName(m)[0];e.parentNode.insertBefore(t,e);
+        })(window,document,'script','//www.gostats.org/5.js','go');
+        go('init',100479892,{'img_counter_type':5,'img_image_type':1});go('send');</script><!-- End GoStats JavaScript Based Code --><script type="text/javascript" src="../../../assets/js/jquery-3.3.1.min.js"></script><script type="text/javascript" src="../../../assets/js/semantic.min.js"></script><script type="text/javascript" src="../../../assets/js/jquery.fancybox.min.js"></script><script type="text/javascript" src="../../../assets/js/cookie.min.js"></script><script>
+            $(document).ready(function(){
+                $(".ui.dropdown").dropdown();
+                $('.ui.accordion').accordion();
+                var newstr = $('.cookie.nag').text();
+                $('.cookie.nag').nag({
+                    key: 'globalnotice',
+                    value: newstr
+                  });
+                $('.image-reference').fancybox();
+            });
+        </script><script src="../../../assets/js/md5.min.js"></script><script src="../../../assets/js/gitalk.min.js"></script><script>
+        const gitalk = new Gitalk({
+            clientID: '12fcda845097d895a24c',
+            clientSecret: '50ed60cde5f40897205197b4265b474cefbedc49',
+            repo: 'macplay.github.io',
+            owner: 'macplay',
+            admin: ['macplay', 'ashfinal'],
+            id: md5(window.location.pathname),
+            // facebook-like distraction free mode
+            distractionFreeMode: false
+        })
+        gitalk.render('gitalk-container')
+    </script>
+</body>
+</html>

@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="zh_cn">
+<head>
+<meta charset="utf-8">
+<meta name="description" content="MarkArea.au3">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="generator" content="Nikola (getnikola.com)">
+<title>MarkArea.au3 - MacPlay</title>
+<link rel="apple-touch-icon" sizes="180x180" href="../../apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+<link rel="mask-icon" href="../../safari-pinned-tab.svg" color="#5bbad5">
+<link href="../../assets/css/semantic.min.css" rel="stylesheet" type="text/css">
+<link href="../../assets/css/jquery.fancybox.min.css" rel="stylesheet" type="text/css">
+<link href="../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<link rel="canonical" href="https://macplay.github.io/listings/AutoIt3/MarkArea.au3.html">
+</head>
+<body>
+        <div class="ui grid">
+            <div class="computer only three wide column no-print">
+                <div id="left-side">
+                </div>
+            </div>
+            <div class="ten wide computer sixteen wide tablet sixteen wide mobile column">
+                        <div class="ui inline cookie nag no-print">
+            <span class="title">从现在开始，支持中英双语及博文精选 O(∩_∩)O~~</span>
+            <i class="close icon"></i>
+        </div>
+    <header id="header" class="no-print"><div class="ui grid">
+        <div class="computer only tablet only sixteen wide column">
+            <div class="ui large secondary stackable menu">
+                <a class="header item brand-logo" href="https://macplay.github.io/">
+                    MacPlay
+                </a>
+                        <a class="item" href="../../">Posts</a>
+                        <a class="item" href="../">Code</a>
+                        <a class="item" href="../../galleries/">Gallery</a>
+                        <a class="item" href="../../categories/">Tags</a>
+                        <a class="item" href="../../archive.html">Archive</a>
+                <div class="right menu">
+                    <a class="item" href="../../rss.xml"><i class="rss icon"></i>RSS</a>
+                </div>
+            </div>
+        </div>
+        <div class="mobile only sixteen wide column">
+            <div class="ui fluid accordion vertical menu">
+                <div class="item">
+                    <a class="title">MacPlay</a>
+                    <div class="content">
+                                <a class="item" href="../../">Posts</a>
+                                <a class="item" href="../">Code</a>
+                                <a class="item" href="../../galleries/">Gallery</a>
+                                <a class="item" href="../../categories/">Tags</a>
+                                <a class="item" href="../../archive.html">Archive</a>
+                        <a class="item" href="../../rss.xml"><i class="rss icon"></i>RSS</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </header><main id="main"><div id="main-content">
+<div class="listingpage page-body" itemscope="itemscope" itemtype="http://schema.org/Article">
+    <div class="ui breadcrumb list-title">
+                <a href="../" class="section">listings</a>
+                <div class="divider"> / </div>
+                <a href="." class="section">AutoIt3</a>
+                <div class="divider"> / </div>
+                <div class="section">
+                    MarkArea.au3
+                </div>
+    </div>
+
+        <p class="downloadlink">
+            <i class="download icon"></i><a href="MarkArea.au3">Download</a>
+        </p>
+        <div class="code"><table class="codetable">
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3markareaau3-1"><code data-line-number="  1"></code></a></td>
+<td class="code"><code><a name="listingsautoit3markareaau3-1"></a><span class="nb">#include</span> <span class="o">&lt;</span><span class="n">GuiConstantsEx</span><span class="o">.</span><span class="n">au3</span><span class="o">&gt;</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3markareaau3-2"><code data-line-number="  2"></code></a></td>
+<td class="code"><code><a name="listingsautoit3markareaau3-2"></a><span class="nb">#include</span> <span class="o">&lt;</span><span class="n">WindowsConstants</span><span class="o">.</span><span class="n">au3</span><span class="o">&gt;</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3markareaau3-3"><code data-line-number="  3"></code></a></td>
+<td class="code"><code><a name="listingsautoit3markareaau3-3"></a><span class="nb">#include</span> <span class="o">&lt;</span><span class="n">ScreenCapture</span><span class="o">.</span><span class="n">au3</span><span class="o">&gt;</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3markareaau3-4"><code data-line-number="  4"></code></a></td>
+<td class="code"><code><a name="listingsautoit3markareaau3-4"></a><span class="nb">#include</span> <span class="o">&lt;</span><span class="n">Misc</span><span class="o">.</span><span class="n">au3</span><span class="o">&gt;</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3markareaau3-5"><code data-line-number="  5"></code></a></td>
+<td class="code"><code><a name="listingsautoit3markareaau3-5"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3markareaau3-6"><code data-line-number="  6"></code></a></td>
+<td class="code"><code><a name="listingsautoit3markareaau3-6"></a><span class="nb">Global</span> <span class="nv">$iX1</span><span class="p">,</span> <span class="nv">$iY1</span><span class="p">,</span> <span class="nv">$iX2</span><span class="p">,</span> <span class="nv">$iY2</span><span class="p">,</span> <span class="nv">$aPos</span><span class="p">,</span> <span class="nv">$sMsg</span><span class="p">,</span> <span class="nv">$sBMP_Path</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3markareaau3-7"><code data-line-number="  7"></code></a></td>
+<td class="code"><code><a name="listingsautoit3markareaau3-7"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3markareaau3-8"><code data-line-number="  8"></code></a></td>
+<td class="code"><code><a name="listingsautoit3markareaau3-8"></a><span class="c1">; Create GUI</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3markareaau3-9"><code data-line-number="  9"></code></a></td>
+<td class="code"><code><a name="listingsautoit3markareaau3-9"></a><span class="nv">$hMain_GUI</span> <span class="o">=</span> <span class="nf">GUICreate</span><span class="p">(</span><span class="s">"Select Rectangle"</span><span class="p">,</span> <span class="mi">240</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3markareaau3-10"><code data-line-number=" 10"></code></a></td>
+<td class="code"><code><a name="listingsautoit3markareaau3-10"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3markareaau3-11"><code data-line-number=" 11"></code></a></td>
+<td class="code"><code><a name="listingsautoit3markareaau3-11"></a><span class="nv">$hRect_Button</span> <span class="o">=</span> <span class="nf">GUICtrlCreateButton</span><span class="p">(</span><span class="s">"Mark Area"</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3markareaau3-12"><code data-line-number=" 12"></code></a></td>
+<td class="code"><code><a name="listingsautoit3markareaau3-12"></a><span class="nv">$hCancel_Button</span> <span class="o">=</span> <span class="nf">GUICtrlCreateButton</span><span class="p">(</span><span class="s">"Cancel"</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3markareaau3-13"><code data-line-number=" 13"></code></a></td>
+<td class="code"><code><a name="listingsautoit3markareaau3-13"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3markareaau3-14"><code data-line-number=" 14"></code></a></td>
+<td class="code"><code><a name="listingsautoit3markareaau3-14"></a><span class="nf">GUISetState</span><span class="p">()</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3markareaau3-15"><code data-line-number=" 15"></code></a></td>
+<td class="code"><code><a name="listingsautoit3markareaau3-15"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3markareaau3-16"><code data-line-number=" 16"></code></a></td>
+<td class="code"><code><a name="listingsautoit3markareaau3-16"></a><span class="nb">While</span> <span class="mi">1</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3markareaau3-17"><code data-line-number=" 17"></code></a></td>
+<td class="code"><code><a name="listingsautoit3markareaau3-17"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3markareaau3-18"><code data-line-number=" 18"></code></a></td>
+<td class="code"><code><a name="listingsautoit3markareaau3-18"></a>	<span class="n">Switch</span> <span class="nf">GUIGetMsg</span><span class="p">()</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3markareaau3-19"><code data-line-number=" 19"></code></a></td>
+<td class="code"><code><a name="listingsautoit3markareaau3-19"></a>		<span class="nb">Case</span> <span class="nv">$GUI_EVENT_CLOSE</span><span class="p">,</span> <span class="nv">$hCancel_Button</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3markareaau3-20"><code data-line-number=" 20"></code></a></td>
+<td class="code"><code><a name="listingsautoit3markareaau3-20"></a>			<span class="nf">FileDelete</span><span class="p">(</span><span class="nv">@ScriptDir</span> <span class="o">&amp;</span> <span class="s">"Rect.bmp"</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3markareaau3-21"><code data-line-number=" 21"></code></a></td>
+<td class="code"><code><a name="listingsautoit3markareaau3-21"></a>			<span class="nb">Exit</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3markareaau3-22"><code data-line-number=" 22"></code></a></td>
+<td class="code"><code><a name="listingsautoit3markareaau3-22"></a>		<span class="nb">Case</span> <span class="nv">$hRect_Button</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3markareaau3-23"><code data-line-number=" 23"></code></a></td>
+<td class="code"><code><a name="listingsautoit3markareaau3-23"></a>			<span class="nf">GUISetState</span><span class="p">(</span><span class="nv">@SW_HIDE</span><span class="p">,</span> <span class="nv">$hMain_GUI</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3markareaau3-24"><code data-line-number=" 24"></code></a></td>
+<td class="code"><code><a name="listingsautoit3markareaau3-24"></a>			<span class="n">Mark_Rect</span><span class="p">()</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3markareaau3-25"><code data-line-number=" 25"></code></a></td>
+<td class="code"><code><a name="listingsautoit3markareaau3-25"></a>			<span class="c1">; Capture selected area</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3markareaau3-26"><code data-line-number=" 26"></code></a></td>
+<td class="code"><code><a name="listingsautoit3markareaau3-26"></a>			<span class="nv">$sBMP_Path</span> <span class="o">=</span> <span class="nv">@ScriptDir</span> <span class="o">&amp;</span> <span class="s">"Rect.bmp"</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3markareaau3-27"><code data-line-number=" 27"></code></a></td>
+<td class="code"><code><a name="listingsautoit3markareaau3-27"></a>			<span class="n">_ScreenCapture_Capture</span><span class="p">(</span><span class="nv">$sBMP_Path</span><span class="p">,</span> <span class="nv">$iX1</span><span class="p">,</span> <span class="nv">$iY1</span><span class="p">,</span> <span class="nv">$iX2</span><span class="p">,</span> <span class="nv">$iY2</span><span class="p">,</span> <span class="n">False</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3markareaau3-28"><code data-line-number=" 28"></code></a></td>
+<td class="code"><code><a name="listingsautoit3markareaau3-28"></a>			<span class="nf">GUISetState</span><span class="p">(</span><span class="nv">@SW_SHOW</span><span class="p">,</span> <span class="nv">$hMain_GUI</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3markareaau3-29"><code data-line-number=" 29"></code></a></td>
+<td class="code"><code><a name="listingsautoit3markareaau3-29"></a>			<span class="c1">; Display image</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3markareaau3-30"><code data-line-number=" 30"></code></a></td>
+<td class="code"><code><a name="listingsautoit3markareaau3-30"></a>			<span class="nv">$hBitmap_GUI</span> <span class="o">=</span> <span class="nf">GUICreate</span><span class="p">(</span><span class="s">"Selected Rectangle"</span><span class="p">,</span> <span class="nv">$iX2</span> <span class="o">-</span> <span class="nv">$iX1</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="nv">$iY2</span> <span class="o">-</span> <span class="nv">$iY1</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3markareaau3-31"><code data-line-number=" 31"></code></a></td>
+<td class="code"><code><a name="listingsautoit3markareaau3-31"></a>			<span class="nv">$hPic</span> <span class="o">=</span> <span class="nf">GUICtrlCreatePic</span><span class="p">(</span><span class="nv">@ScriptDir</span> <span class="o">&amp;</span> <span class="s">"Rect.bmp"</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nv">$iX2</span> <span class="o">-</span> <span class="nv">$iX1</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="nv">$iY2</span> <span class="o">-</span> <span class="nv">$iY1</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3markareaau3-32"><code data-line-number=" 32"></code></a></td>
+<td class="code"><code><a name="listingsautoit3markareaau3-32"></a>			<span class="nf">GUISetState</span><span class="p">()</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3markareaau3-33"><code data-line-number=" 33"></code></a></td>
+<td class="code"><code><a name="listingsautoit3markareaau3-33"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3markareaau3-34"><code data-line-number=" 34"></code></a></td>
+<td class="code"><code><a name="listingsautoit3markareaau3-34"></a>	<span class="n">EndSwitch</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3markareaau3-35"><code data-line-number=" 35"></code></a></td>
+<td class="code"><code><a name="listingsautoit3markareaau3-35"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3markareaau3-36"><code data-line-number=" 36"></code></a></td>
+<td class="code"><code><a name="listingsautoit3markareaau3-36"></a><span class="nb">WEnd</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3markareaau3-37"><code data-line-number=" 37"></code></a></td>
+<td class="code"><code><a name="listingsautoit3markareaau3-37"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3markareaau3-38"><code data-line-number=" 38"></code></a></td>
+<td class="code"><code><a name="listingsautoit3markareaau3-38"></a><span class="c1">; -------------</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3markareaau3-39"><code data-line-number=" 39"></code></a></td>
+<td class="code"><code><a name="listingsautoit3markareaau3-39"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3markareaau3-40"><code data-line-number=" 40"></code></a></td>
+<td class="code"><code><a name="listingsautoit3markareaau3-40"></a><span class="nb">Func</span> <span class="n">Mark_Rect</span><span class="p">()</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3markareaau3-41"><code data-line-number=" 41"></code></a></td>
+<td class="code"><code><a name="listingsautoit3markareaau3-41"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3markareaau3-42"><code data-line-number=" 42"></code></a></td>
+<td class="code"><code><a name="listingsautoit3markareaau3-42"></a>	<span class="nb">Local</span> <span class="nv">$aMouse_Pos</span><span class="p">,</span> <span class="nv">$hMask</span><span class="p">,</span> <span class="nv">$hMaster_Mask</span><span class="p">,</span> <span class="nv">$iTemp</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3markareaau3-43"><code data-line-number=" 43"></code></a></td>
+<td class="code"><code><a name="listingsautoit3markareaau3-43"></a>	<span class="nb">Local</span> <span class="nv">$UserDLL</span> <span class="o">=</span> <span class="nf">DllOpen</span><span class="p">(</span><span class="s">"user32.dll"</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3markareaau3-44"><code data-line-number=" 44"></code></a></td>
+<td class="code"><code><a name="listingsautoit3markareaau3-44"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3markareaau3-45"><code data-line-number=" 45"></code></a></td>
+<td class="code"><code><a name="listingsautoit3markareaau3-45"></a>	<span class="c1">; Create transparent GUI with Cross cursor</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3markareaau3-46"><code data-line-number=" 46"></code></a></td>
+<td class="code"><code><a name="listingsautoit3markareaau3-46"></a>	<span class="nv">$hCross_GUI</span> <span class="o">=</span> <span class="nf">GUICreate</span><span class="p">(</span><span class="s">"Test"</span><span class="p">,</span> <span class="nv">@DesktopWidth</span><span class="p">,</span> <span class="nv">@DesktopHeight</span> <span class="o">-</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nv">$WS_POPUP</span><span class="p">,</span> <span class="nv">$WS_EX_TOPMOST</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3markareaau3-47"><code data-line-number=" 47"></code></a></td>
+<td class="code"><code><a name="listingsautoit3markareaau3-47"></a>	<span class="nf">WinSetTrans</span><span class="p">(</span><span class="nv">$hCross_GUI</span><span class="p">,</span> <span class="s">""</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3markareaau3-48"><code data-line-number=" 48"></code></a></td>
+<td class="code"><code><a name="listingsautoit3markareaau3-48"></a>	<span class="nf">GUISetState</span><span class="p">(</span><span class="nv">@SW_SHOW</span><span class="p">,</span> <span class="nv">$hCross_GUI</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3markareaau3-49"><code data-line-number=" 49"></code></a></td>
+<td class="code"><code><a name="listingsautoit3markareaau3-49"></a>	<span class="nf">GUISetCursor</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="nv">$hCross_GUI</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3markareaau3-50"><code data-line-number=" 50"></code></a></td>
+<td class="code"><code><a name="listingsautoit3markareaau3-50"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3markareaau3-51"><code data-line-number=" 51"></code></a></td>
+<td class="code"><code><a name="listingsautoit3markareaau3-51"></a>	<span class="nb">Global</span> <span class="nv">$hRectangle_GUI</span> <span class="o">=</span> <span class="nf">GUICreate</span><span class="p">(</span><span class="s">""</span><span class="p">,</span> <span class="nv">@DesktopWidth</span><span class="p">,</span> <span class="nv">@DesktopHeight</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nv">$WS_POPUP</span><span class="p">,</span> <span class="nv">$WS_EX_TOOLWINDOW</span> <span class="o">+</span> <span class="nv">$WS_EX_TOPMOST</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3markareaau3-52"><code data-line-number=" 52"></code></a></td>
+<td class="code"><code><a name="listingsautoit3markareaau3-52"></a>	<span class="nf">GUISetBkColor</span><span class="p">(</span><span class="mh">0x000000</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3markareaau3-53"><code data-line-number=" 53"></code></a></td>
+<td class="code"><code><a name="listingsautoit3markareaau3-53"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3markareaau3-54"><code data-line-number=" 54"></code></a></td>
+<td class="code"><code><a name="listingsautoit3markareaau3-54"></a>	<span class="c1">; Wait until mouse button pressed</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3markareaau3-55"><code data-line-number=" 55"></code></a></td>
+<td class="code"><code><a name="listingsautoit3markareaau3-55"></a>	<span class="nb">While</span> <span class="nb">Not</span> <span class="n">_IsPressed</span><span class="p">(</span><span class="s">"01"</span><span class="p">,</span> <span class="nv">$UserDLL</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3markareaau3-56"><code data-line-number=" 56"></code></a></td>
+<td class="code"><code><a name="listingsautoit3markareaau3-56"></a>		<span class="nf">Sleep</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3markareaau3-57"><code data-line-number=" 57"></code></a></td>
+<td class="code"><code><a name="listingsautoit3markareaau3-57"></a>	<span class="nb">WEnd</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3markareaau3-58"><code data-line-number=" 58"></code></a></td>
+<td class="code"><code><a name="listingsautoit3markareaau3-58"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3markareaau3-59"><code data-line-number=" 59"></code></a></td>
+<td class="code"><code><a name="listingsautoit3markareaau3-59"></a>	<span class="c1">; Get first mouse position</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3markareaau3-60"><code data-line-number=" 60"></code></a></td>
+<td class="code"><code><a name="listingsautoit3markareaau3-60"></a>	<span class="nv">$aMouse_Pos</span> <span class="o">=</span> <span class="nf">MouseGetPos</span><span class="p">()</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3markareaau3-61"><code data-line-number=" 61"></code></a></td>
+<td class="code"><code><a name="listingsautoit3markareaau3-61"></a>	<span class="nv">$iX1</span> <span class="o">=</span> <span class="nv">$aMouse_Pos</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3markareaau3-62"><code data-line-number=" 62"></code></a></td>
+<td class="code"><code><a name="listingsautoit3markareaau3-62"></a>	<span class="nv">$iY1</span> <span class="o">=</span> <span class="nv">$aMouse_Pos</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3markareaau3-63"><code data-line-number=" 63"></code></a></td>
+<td class="code"><code><a name="listingsautoit3markareaau3-63"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3markareaau3-64"><code data-line-number=" 64"></code></a></td>
+<td class="code"><code><a name="listingsautoit3markareaau3-64"></a>	<span class="c1">; Draw rectangle while mouse button pressed</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3markareaau3-65"><code data-line-number=" 65"></code></a></td>
+<td class="code"><code><a name="listingsautoit3markareaau3-65"></a>	<span class="nb">While</span> <span class="n">_IsPressed</span><span class="p">(</span><span class="s">"01"</span><span class="p">,</span> <span class="nv">$UserDLL</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3markareaau3-66"><code data-line-number=" 66"></code></a></td>
+<td class="code"><code><a name="listingsautoit3markareaau3-66"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3markareaau3-67"><code data-line-number=" 67"></code></a></td>
+<td class="code"><code><a name="listingsautoit3markareaau3-67"></a>		<span class="nv">$aMouse_Pos</span> <span class="o">=</span> <span class="nf">MouseGetPos</span><span class="p">()</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3markareaau3-68"><code data-line-number=" 68"></code></a></td>
+<td class="code"><code><a name="listingsautoit3markareaau3-68"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3markareaau3-69"><code data-line-number=" 69"></code></a></td>
+<td class="code"><code><a name="listingsautoit3markareaau3-69"></a>		<span class="nv">$hMaster_Mask</span> <span class="o">=</span> <span class="n">_WinAPI_CreateRectRgn</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3markareaau3-70"><code data-line-number=" 70"></code></a></td>
+<td class="code"><code><a name="listingsautoit3markareaau3-70"></a>		<span class="nv">$hMask</span> <span class="o">=</span> <span class="n">_WinAPI_CreateRectRgn</span><span class="p">(</span><span class="nv">$iX1</span><span class="p">,</span> <span class="nv">$aMouse_Pos</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="nv">$aMouse_Pos</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="nv">$aMouse_Pos</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>   <span class="c1">; Bottom of rectangle</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3markareaau3-71"><code data-line-number=" 71"></code></a></td>
+<td class="code"><code><a name="listingsautoit3markareaau3-71"></a>		<span class="n">_WinAPI_CombineRgn</span><span class="p">(</span><span class="nv">$hMaster_Mask</span><span class="p">,</span> <span class="nv">$hMask</span><span class="p">,</span> <span class="nv">$hMaster_Mask</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3markareaau3-72"><code data-line-number=" 72"></code></a></td>
+<td class="code"><code><a name="listingsautoit3markareaau3-72"></a>		<span class="n">_WinAPI_DeleteObject</span><span class="p">(</span><span class="nv">$hMask</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3markareaau3-73"><code data-line-number=" 73"></code></a></td>
+<td class="code"><code><a name="listingsautoit3markareaau3-73"></a>		<span class="nv">$hMask</span> <span class="o">=</span> <span class="n">_WinAPI_CreateRectRgn</span><span class="p">(</span><span class="nv">$iX1</span><span class="p">,</span> <span class="nv">$iY1</span><span class="p">,</span> <span class="nv">$iX1</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="nv">$aMouse_Pos</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="c1">; Left of rectangle</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3markareaau3-74"><code data-line-number=" 74"></code></a></td>
+<td class="code"><code><a name="listingsautoit3markareaau3-74"></a>		<span class="n">_WinAPI_CombineRgn</span><span class="p">(</span><span class="nv">$hMaster_Mask</span><span class="p">,</span> <span class="nv">$hMask</span><span class="p">,</span> <span class="nv">$hMaster_Mask</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3markareaau3-75"><code data-line-number=" 75"></code></a></td>
+<td class="code"><code><a name="listingsautoit3markareaau3-75"></a>		<span class="n">_WinAPI_DeleteObject</span><span class="p">(</span><span class="nv">$hMask</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3markareaau3-76"><code data-line-number=" 76"></code></a></td>
+<td class="code"><code><a name="listingsautoit3markareaau3-76"></a>		<span class="nv">$hMask</span> <span class="o">=</span> <span class="n">_WinAPI_CreateRectRgn</span><span class="p">(</span><span class="nv">$iX1</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="nv">$iY1</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="nv">$aMouse_Pos</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="nv">$iY1</span><span class="p">)</span> <span class="c1">; Top of rectangle</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3markareaau3-77"><code data-line-number=" 77"></code></a></td>
+<td class="code"><code><a name="listingsautoit3markareaau3-77"></a>		<span class="n">_WinAPI_CombineRgn</span><span class="p">(</span><span class="nv">$hMaster_Mask</span><span class="p">,</span> <span class="nv">$hMask</span><span class="p">,</span> <span class="nv">$hMaster_Mask</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3markareaau3-78"><code data-line-number=" 78"></code></a></td>
+<td class="code"><code><a name="listingsautoit3markareaau3-78"></a>		<span class="n">_WinAPI_DeleteObject</span><span class="p">(</span><span class="nv">$hMask</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3markareaau3-79"><code data-line-number=" 79"></code></a></td>
+<td class="code"><code><a name="listingsautoit3markareaau3-79"></a>		<span class="nv">$hMask</span> <span class="o">=</span> <span class="n">_WinAPI_CreateRectRgn</span><span class="p">(</span><span class="nv">$aMouse_Pos</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="nv">$iY1</span><span class="p">,</span> <span class="nv">$aMouse_Pos</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="nv">$aMouse_Pos</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>  <span class="c1">; Right of rectangle</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3markareaau3-80"><code data-line-number=" 80"></code></a></td>
+<td class="code"><code><a name="listingsautoit3markareaau3-80"></a>		<span class="n">_WinAPI_CombineRgn</span><span class="p">(</span><span class="nv">$hMaster_Mask</span><span class="p">,</span> <span class="nv">$hMask</span><span class="p">,</span> <span class="nv">$hMaster_Mask</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3markareaau3-81"><code data-line-number=" 81"></code></a></td>
+<td class="code"><code><a name="listingsautoit3markareaau3-81"></a>		<span class="n">_WinAPI_DeleteObject</span><span class="p">(</span><span class="nv">$hMask</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3markareaau3-82"><code data-line-number=" 82"></code></a></td>
+<td class="code"><code><a name="listingsautoit3markareaau3-82"></a>		<span class="c1">; Set overall region</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3markareaau3-83"><code data-line-number=" 83"></code></a></td>
+<td class="code"><code><a name="listingsautoit3markareaau3-83"></a>		<span class="n">_WinAPI_SetWindowRgn</span><span class="p">(</span><span class="nv">$hRectangle_GUI</span><span class="p">,</span> <span class="nv">$hMaster_Mask</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3markareaau3-84"><code data-line-number=" 84"></code></a></td>
+<td class="code"><code><a name="listingsautoit3markareaau3-84"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3markareaau3-85"><code data-line-number=" 85"></code></a></td>
+<td class="code"><code><a name="listingsautoit3markareaau3-85"></a>		<span class="nb">If</span> <span class="nf">WinGetState</span><span class="p">(</span><span class="nv">$hRectangle_GUI</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">15</span> <span class="nb">Then</span> <span class="nf">GUISetState</span><span class="p">()</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3markareaau3-86"><code data-line-number=" 86"></code></a></td>
+<td class="code"><code><a name="listingsautoit3markareaau3-86"></a>		<span class="nf">Sleep</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3markareaau3-87"><code data-line-number=" 87"></code></a></td>
+<td class="code"><code><a name="listingsautoit3markareaau3-87"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3markareaau3-88"><code data-line-number=" 88"></code></a></td>
+<td class="code"><code><a name="listingsautoit3markareaau3-88"></a>	<span class="nb">WEnd</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3markareaau3-89"><code data-line-number=" 89"></code></a></td>
+<td class="code"><code><a name="listingsautoit3markareaau3-89"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3markareaau3-90"><code data-line-number=" 90"></code></a></td>
+<td class="code"><code><a name="listingsautoit3markareaau3-90"></a>	<span class="c1">; Get second mouse position</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3markareaau3-91"><code data-line-number=" 91"></code></a></td>
+<td class="code"><code><a name="listingsautoit3markareaau3-91"></a>	<span class="nv">$iX2</span> <span class="o">=</span> <span class="nv">$aMouse_Pos</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3markareaau3-92"><code data-line-number=" 92"></code></a></td>
+<td class="code"><code><a name="listingsautoit3markareaau3-92"></a>	<span class="nv">$iY2</span> <span class="o">=</span> <span class="nv">$aMouse_Pos</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3markareaau3-93"><code data-line-number=" 93"></code></a></td>
+<td class="code"><code><a name="listingsautoit3markareaau3-93"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3markareaau3-94"><code data-line-number=" 94"></code></a></td>
+<td class="code"><code><a name="listingsautoit3markareaau3-94"></a>	<span class="c1">; Set in correct order if required</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3markareaau3-95"><code data-line-number=" 95"></code></a></td>
+<td class="code"><code><a name="listingsautoit3markareaau3-95"></a>	<span class="nb">If</span> <span class="nv">$iX2</span> <span class="o">&lt;</span> <span class="nv">$iX1</span> <span class="nb">Then</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3markareaau3-96"><code data-line-number=" 96"></code></a></td>
+<td class="code"><code><a name="listingsautoit3markareaau3-96"></a>		<span class="nv">$iTemp</span> <span class="o">=</span> <span class="nv">$iX1</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3markareaau3-97"><code data-line-number=" 97"></code></a></td>
+<td class="code"><code><a name="listingsautoit3markareaau3-97"></a>		<span class="nv">$iX1</span> <span class="o">=</span> <span class="nv">$iX2</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3markareaau3-98"><code data-line-number=" 98"></code></a></td>
+<td class="code"><code><a name="listingsautoit3markareaau3-98"></a>		<span class="nv">$iX2</span> <span class="o">=</span> <span class="nv">$iTemp</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3markareaau3-99"><code data-line-number=" 99"></code></a></td>
+<td class="code"><code><a name="listingsautoit3markareaau3-99"></a>	<span class="nb">EndIf</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3markareaau3-100"><code data-line-number="100"></code></a></td>
+<td class="code"><code><a name="listingsautoit3markareaau3-100"></a>	<span class="nb">If</span> <span class="nv">$iY2</span> <span class="o">&lt;</span> <span class="nv">$iY1</span> <span class="nb">Then</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3markareaau3-101"><code data-line-number="101"></code></a></td>
+<td class="code"><code><a name="listingsautoit3markareaau3-101"></a>		<span class="nv">$iTemp</span> <span class="o">=</span> <span class="nv">$iY1</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3markareaau3-102"><code data-line-number="102"></code></a></td>
+<td class="code"><code><a name="listingsautoit3markareaau3-102"></a>		<span class="nv">$iY1</span> <span class="o">=</span> <span class="nv">$iY2</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3markareaau3-103"><code data-line-number="103"></code></a></td>
+<td class="code"><code><a name="listingsautoit3markareaau3-103"></a>		<span class="nv">$iY2</span> <span class="o">=</span> <span class="nv">$iTemp</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3markareaau3-104"><code data-line-number="104"></code></a></td>
+<td class="code"><code><a name="listingsautoit3markareaau3-104"></a>	<span class="nb">EndIf</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3markareaau3-105"><code data-line-number="105"></code></a></td>
+<td class="code"><code><a name="listingsautoit3markareaau3-105"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3markareaau3-106"><code data-line-number="106"></code></a></td>
+<td class="code"><code><a name="listingsautoit3markareaau3-106"></a>	<span class="nf">GUIDelete</span><span class="p">(</span><span class="nv">$hRectangle_GUI</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3markareaau3-107"><code data-line-number="107"></code></a></td>
+<td class="code"><code><a name="listingsautoit3markareaau3-107"></a>	<span class="nf">GUIDelete</span><span class="p">(</span><span class="nv">$hCross_GUI</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3markareaau3-108"><code data-line-number="108"></code></a></td>
+<td class="code"><code><a name="listingsautoit3markareaau3-108"></a>	<span class="nf">DllClose</span><span class="p">(</span><span class="nv">$UserDLL</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3markareaau3-109"><code data-line-number="109"></code></a></td>
+<td class="code"><code><a name="listingsautoit3markareaau3-109"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3markareaau3-110"><code data-line-number="110"></code></a></td>
+<td class="code"><code><a name="listingsautoit3markareaau3-110"></a><span class="nb">EndFunc</span>   <span class="c1">;==&gt;Mark_Rect</span>
+</code></td>
+</tr>
+</table></div>
+</div>
+                    </div>
+                </main><div class="footer extra-block no-print">
+    <span class="footer_item">
+        <a href="../../pages/you-qing-lian-jie/">友情链接</a>
+    </span>
+    <span class="footer_item">
+        <a href="../../pages/liu-yan-ban/">留言板</a>
+    </span>
+    <span class="footer_item">
+        <a href="../../pages/ge-ren-dong-tai/">碎碎念</a>
+    </span>
+    </div>
+            <div class="footer social-link no-print">
+            <a href="https://github.com/ashfinal" target="_blank"><i class="grey large github icon"></i></a>
+            <a href="http://weibo.com/ashfinal/" target="_blank"><i class="grey large weibo icon"></i></a>
+            <a href="mailto://ashfinal@sina.cn" target="_blank"><i class="grey large mail icon"></i></a>
+            </div>
+        <div class="ui basic center aligned segment no-print">Contents © 2020         <a href="mailto:ashfinal@sina.cn">ashfinal</a> - Powered by         <a href="https://getnikola.com" target="_blank" rel="nofollow">Nikola</a>         </div>
+
+            </div>
+            <div class="computer only three wide column no-print">
+                <div id="right-side">
+                </div>
+            </div>
+        </div>
+
+        <!-- GoStats JavaScript Based Code -->
+        <script type="text/javascript">(function(c,o,m,p,u,t,e){
+        c['GoStatsObject']=u;c[u]=c[u]||function(){(c[u].q=c[u].q||[]).push(arguments)},
+        c[u].l=1*new Date();t=o.createElement(m);t.async=1;t.src=p;
+        e=o.getElementsByTagName(m)[0];e.parentNode.insertBefore(t,e);
+        })(window,document,'script','//www.gostats.org/5.js','go');
+        go('init',100479892,{'img_counter_type':5,'img_image_type':1});go('send');</script><!-- End GoStats JavaScript Based Code --><script type="text/javascript" src="../../assets/js/jquery-3.3.1.min.js"></script><script type="text/javascript" src="../../assets/js/semantic.min.js"></script><script type="text/javascript" src="../../assets/js/jquery.fancybox.min.js"></script><script type="text/javascript" src="../../assets/js/cookie.min.js"></script><script>
+            $(document).ready(function(){
+                $(".ui.dropdown").dropdown();
+                $('.ui.accordion').accordion();
+                var newstr = $('.cookie.nag').text();
+                $('.cookie.nag').nag({
+                    key: 'globalnotice',
+                    value: newstr
+                  });
+                $('.image-reference').fancybox();
+            });
+        </script>
+</body>
+</html>

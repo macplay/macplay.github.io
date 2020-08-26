@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="generator" content="Nikola (getnikola.com)">
+<title>Nikola 博客资源链接问题 - MacPlay</title>
+<link rel="apple-touch-icon" sizes="180x180" href="../../../apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../../../favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../../../favicon-16x16.png">
+<link rel="mask-icon" href="../../../safari-pinned-tab.svg" color="#5bbad5">
+<link href="../../../assets/css/semantic.min.css" rel="stylesheet" type="text/css">
+<link href="../../../assets/css/jquery.fancybox.min.css" rel="stylesheet" type="text/css">
+<link href="../../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<link rel="canonical" href="https://macplay.github.io/en/posts/nikola-bo-ke-zi-yuan-lian-jie-wen-ti/">
+<meta name="author" content="ashfinal">
+<link rel="alternate" hreflang="zh_cn" href="../../../posts/nikola-bo-ke-zi-yuan-lian-jie-wen-ti/">
+<link rel="stylesheet" type="text/css" href="../../../assets/css/gitalk.css">
+</head>
+<body>
+        <div class="ui grid">
+            <div class="computer only three wide column no-print">
+                <div id="left-side">
+                </div>
+            </div>
+            <div class="ten wide computer sixteen wide tablet sixteen wide mobile column">
+                        <div class="ui inline cookie nag no-print">
+            <span class="title">从现在开始，支持中英双语及博文精选 O(∩_∩)O~~</span>
+            <i class="close icon"></i>
+        </div>
+    <header id="header" class="no-print"><div class="ui grid">
+        <div class="computer only tablet only sixteen wide column">
+            <div class="ui large secondary stackable menu">
+                <a class="header item brand-logo" href="https://macplay.github.io/en/">
+                    MacPlay
+                </a>
+                        <a class="item" href="../../../">Posts</a>
+                        <a class="item" href="../../../listings/">Code</a>
+                        <a class="item" href="../../../galleries/">Gallery</a>
+                        <a class="item" href="../../../categories/">Tags</a>
+                        <a class="item" href="../../../archive.html">Archive</a>
+                <div class="right menu">
+                    <a class="item" href="../../../rss.xml"><i class="rss icon"></i>RSS</a>
+                </div>
+            </div>
+        </div>
+        <div class="mobile only sixteen wide column">
+            <div class="ui fluid accordion vertical menu">
+                <div class="item">
+                    <a class="title">MacPlay</a>
+                    <div class="content">
+                                <a class="item" href="../../../">Posts</a>
+                                <a class="item" href="../../../listings/">Code</a>
+                                <a class="item" href="../../../galleries/">Gallery</a>
+                                <a class="item" href="../../../categories/">Tags</a>
+                                <a class="item" href="../../../archive.html">Archive</a>
+                        <a class="item" href="../../../rss.xml"><i class="rss icon"></i>RSS</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </header><main id="main"><div id="main-content">
+<div class="postpage post-text page-body" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <h1 class="post-title" itemprop="headline">
+        <a href=".">Nikola 博客资源链接问题</a>
+    </h1>
+
+    <div class="ui large horizontal link list post-meta">
+        <span class="item">By
+            <a href="../../authors/ashfinal/">ashfinal</a>
+        </span>
+            <span class="item">
+                <a href="https://github.com/macplay/macplay.github.io/edit/src/posts/nikola-bo-ke-zi-yuan-lian-jie-wen-ti.rst" target="_blank" title="Edit on GitHub">Edit</a>
+            </span>
+        <span class="item">
+            <time datetime="2017-10-19T17:41:40+08:00">
+            2017-10-19 17:41
+            </time></span>
+            <span class="item">
+                    <a href="../../categories/nikola/">nikola</a>
+                    <a href="../../categories/static-site/">static site</a>
+            </span>
+    </div>
+
+    
+    <div class="post-content" itemprop="article text">
+        <div id="post-content">
+        <div>
+<p>写博客的时候，经常会插入各种超链接。外部链接不必理会，正常插入即可。但是博客内部链接（譬如，请参阅上一篇文章： <a class="reference external" href="../../../posts/30-fen-zhong-jian-li-yi-ge-nikola-bo-ke/">30 分钟搭建一个 Nikola 博客</a> ）却是需要额外关注，规范做法应该是这样： <cite>/posts/30-fen-zhong-jian-li-yi-ge-nikola-bo-ke/</cite> ，而不是这样： <cite>https://macplay.github.com/posts/30-fen-zhong-jian-li-yi-ge-nikola-bo-ke/</cite> 。从最终效果来看貌似没有区别，但是如果发布到其它站点或者将来更换域名，第二种做法的缺陷就暴露出来了：届时需要将成百上千篇文章中的链接进行相应替换。因此，及早规范博客内部链接还是比较重要的。</p>
+<!-- TEASER_END -->
+<div class="contents topic" id="id1">
+<p class="topic-title">文章目录</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#id2" id="id10">使用相对链接</a></p></li>
+<li>
+<p><a class="reference internal" href="#id3" id="id11">图片资源链接</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id4" id="id12">插入本地图片</a></p></li>
+<li><p><a class="reference internal" href="#id5" id="id13">控制仓库容量</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#id8" id="id14">其它资源链接</a></p></li>
+<li><p><a class="reference internal" href="#id9" id="id15">总结</a></p></li>
+</ul>
+</div>
+<div class="section" id="id2">
+<h2><a class="toc-backref" href="#id10">使用相对链接</a></h2>
+<p>第一种规范做法其实就是“尽量使用相对链接”，避免外部环境变动对博客/文档造成不必要的影响。对于 Nikola 博客而言，这里的“相对”指的是网站根目录。作为静态博客，Nikola 的文件输出层级比较简单，概况如下：</p>
+<pre class="code python doctest">&gt;&gt;&gt; lt -T ~/mysite/output/
+/Users/ashfinal/mysite/output
+├── categories
+├── documents
+│  ├── print_output.pdf
+│  └── xetex_output.tex
+├── favicon.ico
+├── galleries
+│  ├── liuthangdeheliutupian-014.jpg
+│  ├── liuthangdeheliutupian-014.thumbnail.jpg
+├── images
+│  ├── avatar.png
+│  ├── avatar.thumbnail.png
+├── listings
+├── posts
+│  ├── 30-fen-zhong-jian-li-yi-ge-nikola-bo-ke
+│  │  ├── index.html
+│  │  └── index.rst
+└── videos
+   ├── ncm_scope.mp4
+   └── vim_table.mp4
+</pre>
+<p>链接语法则像这样：</p>
+<pre class="code rst"><a name="rest_code_186ec2d8f1a84c0e8bb3f2f37e77d190-1"></a><span class="p">..</span> <span class="nt">_`30 分钟搭建一个 Nikola 博客`:</span> /posts/30-fen-zhong-jian-li-yi-ge-nikola-bo-ke/
+</pre>
+<p>其中 <cite>posts</cite> 是所有文章的输出目录，而紧跟其后的则是文章的 URL 字符串，由文章的 meta 信息 <cite>slug</cite> 自动生成。如果使用 <cite>nikola new_post</cite> 命令新建文章，则文件名称和 <cite>slug</cite> 是默认一致的。</p>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>你当然可以自定义文章 <cite>slug</cite> ，但最好还是不要做任何改动。这样引用文章就可以直接输入文件名，而不必打开文件去查看文章的 <cite>slug</cite> 。</p>
+</div>
+<p>除此之外，Nikola 博客其实提供了专门的 <a class="reference external" href="https://getnikola.com/handbook.html#id98">doc 指令</a> ，用来链接内部文档，语法如下：</p>
+<pre class="code rst"><a name="rest_code_41cac927713e4b9b954aa284ad38daae-1"></a>Take a look at <span class="na">:doc:</span><span class="nv">`my other post &lt;creating-a-theme&gt;`</span> about theme creating.
+</pre>
+<p>个人觉得相对链接的方式已经足够，就没有使用该指令。</p>
+<p>既然说到资源链接，那就再顺便说一下 Nikola 博客中插入图片及其它资源的问题。</p>
+</div>
+<div class="section" id="id3">
+<h2><a class="toc-backref" href="#id11">图片资源链接</a></h2>
+<p>通常来说，如果有专用图床的话，那再好不过。即便使用 <cite>https://username.somecdn.com/myphoto1.jpg</cite> 这样的绝对链接，问题也不大，因为一般图床的图片链接是很稳定的，不会轻易变更。如果你没在使用图床，那么笔者推荐将图片与文章放到同一个 GitHub 仓库。这样做的原因有以下几点：</p>
+<ul>
+<li>
+<p><strong>Nikola 博客支持</strong></p>
+<p>和所有文章一样，可使用相对链接的方式引用本地图片。Nikola 甚至默认生成缩略图，方便将图片资源用于不同场景。</p>
+</li>
+<li>
+<p><strong>管理方便</strong></p>
+<p>插入图片再也不必重复“上传到图床 -&gt; 获取链接 -&gt; 粘贴到文章”等步骤，直接引用本地图片，最终与文章等一起推送到远端仓库。不必担心图床服务下线无法访问，或者因过期未续费而面临数据清除的风险。</p>
+</li>
+<li>
+<p><strong>访问速度快</strong></p>
+<p>和所有图床服务一样，直接从 GitHub Pages 存取图片，可充分利用其全球 CDN 网络优势，提升博客静态资源的加载速度。</p>
+</li>
+<li>
+<p><strong>随时迁移</strong></p>
+<p>和所有图床服务一样，如果将来更换域名，甚至整体迁出 GitHub，图片链接毋需任何更改。</p>
+</li>
+</ul>
+<div class="section" id="id4">
+<h3><a class="toc-backref" href="#id12">插入本地图片</a></h3>
+<p>只需将图片放入网站源文件的 <cite>images</cite> 目录，就可以使用相对链接的方式在文章中随处引用。Nikola 默认会将 <cite>images</cite> 目录里的所有图片压缩，将其缩放到 1080p 尺寸，并且为其生成 400 像素的缩略图，文件名形如： <cite>myimage.thumbnail.jpg</cite> ，如果有必要的话可充分利用这一点——文章页面仅加载缩略图，点击再加载高清大图，提升博客网页的加载速度及在移动设备上的访问体验。</p>
+<pre class="code rst"><a name="rest_code_cbf78e11e01e4c7685f570fe7320ad5f-1"></a><span class="p">..</span> <span class="ow">image</span><span class="p">::</span> /images/avatar.thumbnail.png
+<a name="rest_code_cbf78e11e01e4c7685f570fe7320ad5f-2"></a>   <span class="nc">:target:</span> /images/avatar.png
+<a name="rest_code_cbf78e11e01e4c7685f570fe7320ad5f-3"></a>   <span class="nc">:align:</span> center
+</pre>
+<a class="reference external image-reference" href="../../../images/avatar.png"><img alt="/images/avatar.thumbnail.png" class="align-center" src="../../../images/avatar.thumbnail.png"></a>
+<p>已放入 <cite>相册（galleries）</cite> 中的图片也会生成缩略图，也可以在文章中引用。</p>
+<pre class="code rst"><a name="rest_code_56aa4bb1ce3a4a01a0891448f7b289a3-1"></a><span class="p">..</span> <span class="ow">image</span><span class="p">::</span> /galleries/liuthangdeheliutupian-014.jpg
+</pre>
+</div>
+<div class="section" id="id5">
+<h3><a class="toc-backref" href="#id13">控制仓库容量</a></h3>
+<p>有些人担心将图片这种二进制文件放到 GitHub 仓库，仓库容量可能会暴增，因为图片本身很不适合版本管理。</p>
+<p>从个人实际使用经验来说，容量占用其实没那么大，还可以接受。根据 GitHub Pages 的服务说明 <a class="footnote-reference brackets" href="#id7" id="id6">1</a> ，单个仓库容量的限制为 1 GB，指的是网站源文件大小，渲染的网站文件并不占据空间。目前本博客 20 余篇文章，图片数量 20 余张，空间占用为 17 MB。平均一篇文章不到 1 MB，这样的话，就算笔耕不辍每天写一篇文章，也可以足足使用三年。如果仓库容量真的满了以后，可以选择付费扩展空间；或者注册新账号（GitHub 并没有限制单 IP 申请），使用同样的主题模版继续写作。</p>
+<dl class="footnote brackets">
+<dt class="label" id="id7"><span class="brackets"><a class="fn-backref" href="#id6">1</a></span></dt>
+<dd>
+<p><a class="reference external" href="https://help.github.com/articles/what-is-github-pages/">https://help.github.com/articles/what-is-github-pages/</a></p>
+</dd>
+</dl>
+<p>当然在日常使用中，对图片文件大小还是要稍微关注一下。比如写游记的时候，就不要将相机拍摄的照片未经任何压缩处理直接添加到仓库中。而对于网络图片或者屏幕截图，其文件大小均在合理范围之内，一般是不需要任何处理的。</p>
+<p>总体而言，将图片和文章等放到同一 GitHub 仓库，带来的好处在笔者看来是显而易见的。</p>
+</div>
+</div>
+<div class="section" id="id8">
+<h2><a class="toc-backref" href="#id14">其它资源链接</a></h2>
+<p>如果想在博客上展示 PDF、音乐、短视频等等其它二进制文件，也是可以的——将其放到网站源文件的 <cite>files</cite> 目录即可。建议根据文件类型单独建立子文件夹，比如“pdfs”、“music”等。Nikola 博客在进行静态页面渲染的时候，会将 <cite>files</cite> 目录下的所有文件（夹）都复制到网站根目录下。所以其引用链接如下：</p>
+<pre class="code rst"><a name="rest_code_cfbe1320b1a34468b34a376c3935cb5a-1"></a>查看 <span class="s">`pdf 样张`_</span> 。
+<a name="rest_code_cfbe1320b1a34468b34a376c3935cb5a-2"></a>
+<a name="rest_code_cfbe1320b1a34468b34a376c3935cb5a-3"></a><span class="p">..</span> <span class="nt">_`pdf 样张`:</span> /pdfs/myfile.pdf
+</pre>
+<p>此外，如果你有一些图片并不希望 Nikola 对其进行处理，也可以建立子文件夹存放到 <cite>files</cite> 目录。</p>
+</div>
+<div class="section" id="id9">
+<h2><a class="toc-backref" href="#id15">总结</a></h2>
+<p>及早建立良好的静态博客写作规范，可以避免以后更改带来的繁复任务量。链接、图片或其它资源的站内引用，原则上应尽量使用相对链接。本博客根据自身情况，将图片等二进制资源与文章存放到一起，读者朋友们的博客是如何处理的呢？欢迎在评论区谈谈你的看法。</p>
+</div>
+</div>
+        </div>
+    </div>
+    <div class="post-info">
+        <p>文章链接：<a href="https://macplay.github.io/en/posts/nikola-bo-ke-zi-yuan-lian-jie-wen-ti/" target="_blank">https://macplay.github.io/en/posts/nikola-bo-ke-zi-yuan-lian-jie-wen-ti/</a></p>
+        <p>发布/更新于：
+            <time datetime="2017-10-19 17:41:40 UTC+08:00">
+            2017-10-19 17:41
+            </time></p>
+        <p>版权声明：如无特别说明，本站文章均遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">CC BY-NC-SA 4.0</a> 协议，转载请注明作者及出处。</p>
+    </div>
+        <div class="post-navigation no-print">
+        <div class="ui huge secondary stackable menu">
+            <a class="post-nav-item post-nav-previous item" href="../gei-nikola-bo-ke-tian-jia-mermaid-zhi-chi/" title="Previous post"><i class="angle double left icon"></i> 给 Nikola 博客添加 mermaid 支持</a>
+        <div class="right menu">
+            <a class="post-nav-item post-nav-next item" href="../xetex-de-zhong-wen-hua-she-zhi/" title="Next post">XeTeX 的中文化设置 <i class="angle double right icon"></i></a>
+        </div>
+        </div>
+    </div>
+
+        <div id="gitalk-container" class="comments-block no-print"></div>
+</div>
+                    </div>
+                </main><div class="footer extra-block no-print">
+    <span class="footer_item">
+        <a href="../../../pages/you-qing-lian-jie/">友情链接</a>
+    </span>
+    <span class="footer_item">
+        <a href="../../../pages/liu-yan-ban/">留言板</a>
+    </span>
+    <span class="footer_item">
+        <a href="../../../pages/ge-ren-dong-tai/">碎碎念</a>
+    </span>
+    </div>
+            <div class="footer social-link no-print">
+            <a href="https://github.com/ashfinal" target="_blank"><i class="grey large github icon"></i></a>
+            <a href="http://weibo.com/ashfinal/" target="_blank"><i class="grey large weibo icon"></i></a>
+            <a href="mailto://ashfinal@sina.cn" target="_blank"><i class="grey large mail icon"></i></a>
+            </div>
+        <div class="ui basic center aligned segment no-print">Contents © 2020         <a href="mailto:ashfinal@sina.cn">ashfinal</a> - Powered by         <a href="https://getnikola.com" target="_blank" rel="nofollow">Nikola</a>         </div>
+
+            </div>
+            <div class="computer only three wide column no-print">
+                <div id="right-side">
+                </div>
+            </div>
+        </div>
+
+        <!-- GoStats JavaScript Based Code -->
+        <script type="text/javascript">(function(c,o,m,p,u,t,e){
+        c['GoStatsObject']=u;c[u]=c[u]||function(){(c[u].q=c[u].q||[]).push(arguments)},
+        c[u].l=1*new Date();t=o.createElement(m);t.async=1;t.src=p;
+        e=o.getElementsByTagName(m)[0];e.parentNode.insertBefore(t,e);
+        })(window,document,'script','//www.gostats.org/5.js','go');
+        go('init',100479892,{'img_counter_type':5,'img_image_type':1});go('send');</script><!-- End GoStats JavaScript Based Code --><script type="text/javascript" src="../../../assets/js/jquery-3.3.1.min.js"></script><script type="text/javascript" src="../../../assets/js/semantic.min.js"></script><script type="text/javascript" src="../../../assets/js/jquery.fancybox.min.js"></script><script type="text/javascript" src="../../../assets/js/cookie.min.js"></script><script>
+            $(document).ready(function(){
+                $(".ui.dropdown").dropdown();
+                $('.ui.accordion').accordion();
+                var newstr = $('.cookie.nag').text();
+                $('.cookie.nag').nag({
+                    key: 'globalnotice',
+                    value: newstr
+                  });
+                $('.image-reference').fancybox();
+            });
+        </script><script src="../../../assets/js/md5.min.js"></script><script src="../../../assets/js/gitalk.min.js"></script><script>
+        const gitalk = new Gitalk({
+            clientID: '12fcda845097d895a24c',
+            clientSecret: '50ed60cde5f40897205197b4265b474cefbedc49',
+            repo: 'macplay.github.io',
+            owner: 'macplay',
+            admin: ['macplay', 'ashfinal'],
+            id: md5(window.location.pathname),
+            // facebook-like distraction free mode
+            distractionFreeMode: false
+        })
+        gitalk.render('gitalk-container')
+    </script>
+</body>
+</html>

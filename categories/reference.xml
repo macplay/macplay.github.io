@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>MacPlay (Posts about reference)</title><link>https://macplay.github.io/</link><description></description><atom:link href="https://macplay.github.io/categories/reference.xml" rel="self" type="application/rss+xml"></atom:link><language>zh_cn</language><copyright>Contents © 2020 &lt;a href="mailto:ashfinal@sina.cn"&gt;ashfinal&lt;/a&gt; </copyright><lastBuildDate>Wed, 26 Aug 2020 08:50:33 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Markdown Reference</title><link>https://macplay.github.io/posts/markdown-reference/</link><dc:creator>ashfinal</dc:creator><description>&lt;div&gt;&lt;h3 id="overview"&gt;Overview&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Markdown&lt;/strong&gt; is created by &lt;a href="http://daringfireball.net/"&gt;Daring Fireball&lt;/a&gt;, the original guideline is &lt;a href="http://daringfireball.net/projects/markdown/syntax"&gt;here&lt;/a&gt;. Its syntax, however, varies between different parsers or editors. &lt;strong&gt;Typora&lt;/strong&gt; is using &lt;a href="https://help.github.com/articles/github-flavored-markdown/"&gt;GitHub Flavored Markdown&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Please note that HTML fragments in markdown source will be recognized but not parsed or rendered. Also, there may be small reformatting on the original markdown source code after saving.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://macplay.github.io/posts/markdown-reference/"&gt;Read more…&lt;/a&gt; (9 min remaining to read)&lt;/p&gt;&lt;/div&gt;</description><category>markdown</category><category>reference</category><guid>https://macplay.github.io/posts/markdown-reference/</guid><pubDate>Mon, 18 Sep 2017 09:47:12 GMT</pubDate></item><item><title>A reStructuredText Primer</title><link>https://macplay.github.io/posts/quickstart/</link><dc:creator>ashfinal</dc:creator><description>&lt;div class="section" id="a-restructuredtext-primer"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="https://macplay.github.io/posts/quickstart/#id17"&gt;A ReStructuredText Primer&lt;/a&gt;&lt;/h2&gt;
+&lt;dl class="field-list simple"&gt;
+&lt;dt&gt;Author&lt;/dt&gt;
+&lt;dd&gt;&lt;p&gt;Richard Jones&lt;/p&gt;
+&lt;/dd&gt;
+&lt;dt&gt;Version&lt;/dt&gt;
+&lt;dd&gt;&lt;p&gt;$Revision: 5801 $&lt;/p&gt;
+&lt;/dd&gt;
+&lt;dt&gt;Copyright&lt;/dt&gt;
+&lt;dd&gt;&lt;p&gt;This document has been placed in the public domain.&lt;/p&gt;
+&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;div class="contents topic" id="id1"&gt;
+&lt;p class="topic-title"&gt;目录&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="https://macplay.github.io/posts/quickstart/#a-restructuredtext-primer" id="id17"&gt;A ReStructuredText Primer&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="https://macplay.github.io/posts/quickstart/#structure" id="id18"&gt;Structure&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="https://macplay.github.io/posts/quickstart/#text-styles" id="id19"&gt;Text styles&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="https://macplay.github.io/posts/quickstart/#lists" id="id20"&gt;Lists&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="https://macplay.github.io/posts/quickstart/#preformatting-code-samples" id="id21"&gt;Preformatting (code samples)&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="https://macplay.github.io/posts/quickstart/#sections" id="id22"&gt;Sections&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="https://macplay.github.io/posts/quickstart/#document-title-subtitle" id="id23"&gt;Document Title / Subtitle&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="https://macplay.github.io/posts/quickstart/#images" id="id24"&gt;Images&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="https://macplay.github.io/posts/quickstart/#what-next" id="id25"&gt;What Next?&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;p&gt;The text below contains links that look like "(&lt;a class="reference external" href="https://macplay.github.io/posts/quickstart/quickref.html"&gt;quickref&lt;/a&gt;)".  These
+are relative links that point to the &lt;a class="reference external" href="https://macplay.github.io/posts/quickstart/quickref.html"&gt;Quick reStructuredText&lt;/a&gt; user
+reference.  If these links don't work, please refer to the &lt;a class="reference external" href="http://docutils.sourceforge.net/docs/user/rst/quickref.html"&gt;master
+quick reference&lt;/a&gt; document.&lt;/p&gt;
+&lt;div class="admonition note"&gt;
+&lt;p class="admonition-title"&gt;注解&lt;/p&gt;
+&lt;p&gt;This document is an informal introduction to
+reStructuredText.  The &lt;a class="reference internal" href="https://macplay.github.io/posts/quickstart/#what-next"&gt;What Next?&lt;/a&gt; section below has links to
+further resources, including a formal reference.&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;a href="https://macplay.github.io/posts/quickstart/"&gt;Read more…&lt;/a&gt; (7 min remaining to read)&lt;/p&gt;&lt;/div&gt;</description><category>reference</category><category>reST</category><guid>https://macplay.github.io/posts/quickstart/</guid><pubDate>Sat, 31 Mar 2012 02:00:00 GMT</pubDate></item></channel></rss>

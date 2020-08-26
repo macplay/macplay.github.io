@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="zh_cn">
+<head>
+<meta charset="utf-8">
+<meta name="description" content="imagemagick_tornpaper.applescript">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="generator" content="Nikola (getnikola.com)">
+<title>imagemagick_tornpaper.applescript - MacPlay</title>
+<link rel="apple-touch-icon" sizes="180x180" href="../../apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+<link rel="mask-icon" href="../../safari-pinned-tab.svg" color="#5bbad5">
+<link href="../../assets/css/semantic.min.css" rel="stylesheet" type="text/css">
+<link href="../../assets/css/jquery.fancybox.min.css" rel="stylesheet" type="text/css">
+<link href="../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<link rel="canonical" href="https://macplay.github.io/listings/AppleScript/imagemagick_tornpaper.applescript.html">
+</head>
+<body>
+        <div class="ui grid">
+            <div class="computer only three wide column no-print">
+                <div id="left-side">
+                </div>
+            </div>
+            <div class="ten wide computer sixteen wide tablet sixteen wide mobile column">
+                        <div class="ui inline cookie nag no-print">
+            <span class="title">从现在开始，支持中英双语及博文精选 O(∩_∩)O~~</span>
+            <i class="close icon"></i>
+        </div>
+    <header id="header" class="no-print"><div class="ui grid">
+        <div class="computer only tablet only sixteen wide column">
+            <div class="ui large secondary stackable menu">
+                <a class="header item brand-logo" href="https://macplay.github.io/">
+                    MacPlay
+                </a>
+                        <a class="item" href="../../">Posts</a>
+                        <a class="item" href="../">Code</a>
+                        <a class="item" href="../../galleries/">Gallery</a>
+                        <a class="item" href="../../categories/">Tags</a>
+                        <a class="item" href="../../archive.html">Archive</a>
+                <div class="right menu">
+                    <a class="item" href="../../rss.xml"><i class="rss icon"></i>RSS</a>
+                </div>
+            </div>
+        </div>
+        <div class="mobile only sixteen wide column">
+            <div class="ui fluid accordion vertical menu">
+                <div class="item">
+                    <a class="title">MacPlay</a>
+                    <div class="content">
+                                <a class="item" href="../../">Posts</a>
+                                <a class="item" href="../">Code</a>
+                                <a class="item" href="../../galleries/">Gallery</a>
+                                <a class="item" href="../../categories/">Tags</a>
+                                <a class="item" href="../../archive.html">Archive</a>
+                        <a class="item" href="../../rss.xml"><i class="rss icon"></i>RSS</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </header><main id="main"><div id="main-content">
+<div class="listingpage page-body" itemscope="itemscope" itemtype="http://schema.org/Article">
+    <div class="ui breadcrumb list-title">
+                <a href="../" class="section">listings</a>
+                <div class="divider"> / </div>
+                <a href="." class="section">AppleScript</a>
+                <div class="divider"> / </div>
+                <div class="section">
+                    imagemagick_tornpaper.applescript
+                </div>
+    </div>
+
+        <p class="downloadlink">
+            <i class="download icon"></i><a href="imagemagick_tornpaper.applescript">Download</a>
+        </p>
+        <div class="code"><table class="codetable">
+<tr>
+<td class="linenos linenodiv"><a href="#listingsapplescriptimagemagick_tornpaperapplescript-1"><code data-line-number=" 1"></code></a></td>
+<td class="code"><code><a name="listingsapplescriptimagemagick_tornpaperapplescript-1"></a><span class="cm">(*</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsapplescriptimagemagick_tornpaperapplescript-2"><code data-line-number=" 2"></code></a></td>
+<td class="code"><code><a name="listingsapplescriptimagemagick_tornpaperapplescript-2"></a><span class="cm">    简介：Torn!.app — 给图片添加撕纸效果</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsapplescriptimagemagick_tornpaperapplescript-3"><code data-line-number=" 3"></code></a></td>
+<td class="code"><code><a name="listingsapplescriptimagemagick_tornpaperapplescript-3"></a><span class="cm">    使用方法：将(多张)图片拖动到Torn!图标即可</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsapplescriptimagemagick_tornpaperapplescript-4"><code data-line-number=" 4"></code></a></td>
+<td class="code"><code><a name="listingsapplescriptimagemagick_tornpaperapplescript-4"></a><span class="cm">    注意事项：依赖于ImageMagick命令行(功能强大的图片处理库)，推荐使用brew安装。</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsapplescriptimagemagick_tornpaperapplescript-5"><code data-line-number=" 5"></code></a></td>
+<td class="code"><code><a name="listingsapplescriptimagemagick_tornpaperapplescript-5"></a><span class="cm">    当然目前Torn!功能比较简单，后续视时间和精力增加功能。</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsapplescriptimagemagick_tornpaperapplescript-6"><code data-line-number=" 6"></code></a></td>
+<td class="code"><code><a name="listingsapplescriptimagemagick_tornpaperapplescript-6"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsapplescriptimagemagick_tornpaperapplescript-7"><code data-line-number=" 7"></code></a></td>
+<td class="code"><code><a name="listingsapplescriptimagemagick_tornpaperapplescript-7"></a><span class="cm">                                                by ashfinal 2015.02.16</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsapplescriptimagemagick_tornpaperapplescript-8"><code data-line-number=" 8"></code></a></td>
+<td class="code"><code><a name="listingsapplescriptimagemagick_tornpaperapplescript-8"></a><span class="cm">*)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsapplescriptimagemagick_tornpaperapplescript-9"><code data-line-number=" 9"></code></a></td>
+<td class="code"><code><a name="listingsapplescriptimagemagick_tornpaperapplescript-9"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsapplescriptimagemagick_tornpaperapplescript-10"><code data-line-number="10"></code></a></td>
+<td class="code"><code><a name="listingsapplescriptimagemagick_tornpaperapplescript-10"></a><span class="k">property</span> <span class="nv">exec_path</span> <span class="p">:</span> <span class="s2">"/usr/local/bin/"</span> <span class="c">-- ImageMagick 路径</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsapplescriptimagemagick_tornpaperapplescript-11"><code data-line-number="11"></code></a></td>
+<td class="code"><code><a name="listingsapplescriptimagemagick_tornpaperapplescript-11"></a><span class="k">property</span> <span class="nv">resize_span</span> <span class="p">:</span> <span class="mi">640</span> <span class="c">-- 高于该值的图片会被resize</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsapplescriptimagemagick_tornpaperapplescript-12"><code data-line-number="12"></code></a></td>
+<td class="code"><code><a name="listingsapplescriptimagemagick_tornpaperapplescript-12"></a><span class="k">property</span> <span class="nv">all_corner</span> <span class="p">:</span> <span class="no">false</span> <span class="c">-- 左上边角是否也添加撕纸效果？</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsapplescriptimagemagick_tornpaperapplescript-13"><code data-line-number="13"></code></a></td>
+<td class="code"><code><a name="listingsapplescriptimagemagick_tornpaperapplescript-13"></a><span class="k">property</span> <span class="nv">intensity</span> <span class="p">:</span> <span class="mi">80</span> <span class="c">-- 撕边强度，单位为像素(px)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsapplescriptimagemagick_tornpaperapplescript-14"><code data-line-number="14"></code></a></td>
+<td class="code"><code><a name="listingsapplescriptimagemagick_tornpaperapplescript-14"></a><span class="k">property</span> <span class="nv">has_shadow</span> <span class="p">:</span> <span class="no">true</span> <span class="c">-- 是否加上阴影？</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsapplescriptimagemagick_tornpaperapplescript-15"><code data-line-number="15"></code></a></td>
+<td class="code"><code><a name="listingsapplescriptimagemagick_tornpaperapplescript-15"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsapplescriptimagemagick_tornpaperapplescript-16"><code data-line-number="16"></code></a></td>
+<td class="code"><code><a name="listingsapplescriptimagemagick_tornpaperapplescript-16"></a><span class="k">on</span> <span class="nb">open</span> <span class="nv">filelist</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsapplescriptimagemagick_tornpaperapplescript-17"><code data-line-number="17"></code></a></td>
+<td class="code"><code><a name="listingsapplescriptimagemagick_tornpaperapplescript-17"></a>    <span class="k">tell</span> <span class="nb">application</span> <span class="s2">"Finder"</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsapplescriptimagemagick_tornpaperapplescript-18"><code data-line-number="18"></code></a></td>
+<td class="code"><code><a name="listingsapplescriptimagemagick_tornpaperapplescript-18"></a>        <span class="k">set</span> <span class="nv">file_pool</span> <span class="k">to</span> <span class="p">{}</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsapplescriptimagemagick_tornpaperapplescript-19"><code data-line-number="19"></code></a></td>
+<td class="code"><code><a name="listingsapplescriptimagemagick_tornpaperapplescript-19"></a>        <span class="k">repeat</span> <span class="nv">with</span> <span class="nv">i</span> <span class="k">in</span> <span class="nv">filelist</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsapplescriptimagemagick_tornpaperapplescript-20"><code data-line-number="20"></code></a></td>
+<td class="code"><code><a name="listingsapplescriptimagemagick_tornpaperapplescript-20"></a>            <span class="k">set</span> <span class="nv">file_type</span> <span class="k">to</span> <span class="na">name</span> <span class="nv">extension</span> <span class="k">of</span> <span class="nv">i</span> <span class="k">as </span><span class="nc">string</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsapplescriptimagemagick_tornpaperapplescript-21"><code data-line-number="21"></code></a></td>
+<td class="code"><code><a name="listingsapplescriptimagemagick_tornpaperapplescript-21"></a>            <span class="k">set</span> <span class="nv">lower_type</span> <span class="k">to</span> <span class="nb">do shell script</span> <span class="s2">"echo "</span> <span class="o">&amp;</span> <span class="nb">quoted form</span> <span class="k">of</span> <span class="p">(</span><span class="nv">file_type</span><span class="p">)</span> <span class="o">&amp;</span> <span class="s2">" | tr A-Z a-z"</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsapplescriptimagemagick_tornpaperapplescript-22"><code data-line-number="22"></code></a></td>
+<td class="code"><code><a name="listingsapplescriptimagemagick_tornpaperapplescript-22"></a>            <span class="k">if</span> <span class="nv">lower_type</span> <span class="ow">is in</span> <span class="p">{</span><span class="s2">"tiff"</span><span class="p">,</span> <span class="s2">"png"</span><span class="p">,</span> <span class="s2">"jpg"</span><span class="p">,</span> <span class="s2">"jpeg"</span><span class="p">}</span> <span class="k">then</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsapplescriptimagemagick_tornpaperapplescript-23"><code data-line-number="23"></code></a></td>
+<td class="code"><code><a name="listingsapplescriptimagemagick_tornpaperapplescript-23"></a>                <span class="nb">copy</span> <span class="nv">i</span> <span class="k">to</span> <span class="nb">the</span> <span class="k">end</span> <span class="k">of</span> <span class="nv">file_pool</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsapplescriptimagemagick_tornpaperapplescript-24"><code data-line-number="24"></code></a></td>
+<td class="code"><code><a name="listingsapplescriptimagemagick_tornpaperapplescript-24"></a>            <span class="k">end</span> <span class="k">if</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsapplescriptimagemagick_tornpaperapplescript-25"><code data-line-number="25"></code></a></td>
+<td class="code"><code><a name="listingsapplescriptimagemagick_tornpaperapplescript-25"></a>        <span class="k">end</span> <span class="k">repeat</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsapplescriptimagemagick_tornpaperapplescript-26"><code data-line-number="26"></code></a></td>
+<td class="code"><code><a name="listingsapplescriptimagemagick_tornpaperapplescript-26"></a>        <span class="k">if</span> <span class="p">(</span><span class="nb">count</span> <span class="k">of</span> <span class="nv">file_pool</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">then</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsapplescriptimagemagick_tornpaperapplescript-27"><code data-line-number="27"></code></a></td>
+<td class="code"><code><a name="listingsapplescriptimagemagick_tornpaperapplescript-27"></a>            <span class="nb">do shell script</span> <span class="s2">"[[ -d ~/Desktop/IM-Out ]] || mkdir ~/Desktop/IM-Out"</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsapplescriptimagemagick_tornpaperapplescript-28"><code data-line-number="28"></code></a></td>
+<td class="code"><code><a name="listingsapplescriptimagemagick_tornpaperapplescript-28"></a>            <span class="k">if</span> <span class="nv">all_corner</span> <span class="ow">is</span> <span class="no">false</span> <span class="k">then</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsapplescriptimagemagick_tornpaperapplescript-29"><code data-line-number="29"></code></a></td>
+<td class="code"><code><a name="listingsapplescriptimagemagick_tornpaperapplescript-29"></a>                <span class="k">set</span> <span class="nv">extend_width</span> <span class="k">to</span> <span class="nv">intensity</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsapplescriptimagemagick_tornpaperapplescript-30"><code data-line-number="30"></code></a></td>
+<td class="code"><code><a name="listingsapplescriptimagemagick_tornpaperapplescript-30"></a>            <span class="k">else</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsapplescriptimagemagick_tornpaperapplescript-31"><code data-line-number="31"></code></a></td>
+<td class="code"><code><a name="listingsapplescriptimagemagick_tornpaperapplescript-31"></a>                <span class="k">set</span> <span class="nv">extend_width</span> <span class="k">to</span> <span class="mi">0</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsapplescriptimagemagick_tornpaperapplescript-32"><code data-line-number="32"></code></a></td>
+<td class="code"><code><a name="listingsapplescriptimagemagick_tornpaperapplescript-32"></a>            <span class="k">end</span> <span class="k">if</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsapplescriptimagemagick_tornpaperapplescript-33"><code data-line-number="33"></code></a></td>
+<td class="code"><code><a name="listingsapplescriptimagemagick_tornpaperapplescript-33"></a>            <span class="k">repeat</span> <span class="nv">with</span> <span class="nv">j</span> <span class="k">in</span> <span class="nv">file_pool</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsapplescriptimagemagick_tornpaperapplescript-34"><code data-line-number="34"></code></a></td>
+<td class="code"><code><a name="listingsapplescriptimagemagick_tornpaperapplescript-34"></a>                <span class="k">set</span> <span class="nv">file_name</span> <span class="k">to</span> <span class="na">name</span> <span class="k">of</span> <span class="nv">j</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsapplescriptimagemagick_tornpaperapplescript-35"><code data-line-number="35"></code></a></td>
+<td class="code"><code><a name="listingsapplescriptimagemagick_tornpaperapplescript-35"></a>                <span class="k">set</span> <span class="nv">file_ext</span> <span class="k">to</span> <span class="na">name</span> <span class="nv">extension</span> <span class="k">of</span> <span class="nv">j</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsapplescriptimagemagick_tornpaperapplescript-36"><code data-line-number="36"></code></a></td>
+<td class="code"><code><a name="listingsapplescriptimagemagick_tornpaperapplescript-36"></a>                <span class="k">set</span> <span class="nv">name_len</span> <span class="k">to</span> <span class="p">(</span><span class="nv">length</span> <span class="k">of</span> <span class="nv">file_name</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="nv">length</span> <span class="k">of</span> <span class="nv">file_ext</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsapplescriptimagemagick_tornpaperapplescript-37"><code data-line-number="37"></code></a></td>
+<td class="code"><code><a name="listingsapplescriptimagemagick_tornpaperapplescript-37"></a>                <span class="k">set</span> <span class="nv">pure_name</span> <span class="k">to</span> <span class="nb">text</span> <span class="mi">1</span> <span class="nb">through</span> <span class="nv">name_len</span> <span class="k">of</span> <span class="nv">file_name</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsapplescriptimagemagick_tornpaperapplescript-38"><code data-line-number="38"></code></a></td>
+<td class="code"><code><a name="listingsapplescriptimagemagick_tornpaperapplescript-38"></a>                <span class="k">set</span> <span class="nv">satisfy_name</span> <span class="k">to</span> <span class="nv">findandreplace</span><span class="p">(</span><span class="s2">" "</span><span class="p">,</span> <span class="s2">"\\ "</span><span class="p">,</span> <span class="nv">pure_name</span><span class="p">)</span> <span class="k">of</span> <span class="k">me</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsapplescriptimagemagick_tornpaperapplescript-39"><code data-line-number="39"></code></a></td>
+<td class="code"><code><a name="listingsapplescriptimagemagick_tornpaperapplescript-39"></a>                <span class="k">set</span> <span class="nv">file_path</span> <span class="k">to</span> <span class="nv">POSIX</span> <span class="na">path</span> <span class="k">of</span> <span class="nv">j</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsapplescriptimagemagick_tornpaperapplescript-40"><code data-line-number="40"></code></a></td>
+<td class="code"><code><a name="listingsapplescriptimagemagick_tornpaperapplescript-40"></a>                <span class="k">set</span> <span class="nv">satisfy_path</span> <span class="k">to</span> <span class="nv">findandreplace</span><span class="p">(</span><span class="s2">" "</span><span class="p">,</span> <span class="s2">"\\ "</span><span class="p">,</span> <span class="nv">file_path</span><span class="p">)</span> <span class="k">of</span> <span class="k">me</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsapplescriptimagemagick_tornpaperapplescript-41"><code data-line-number="41"></code></a></td>
+<td class="code"><code><a name="listingsapplescriptimagemagick_tornpaperapplescript-41"></a>                <span class="k">try</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsapplescriptimagemagick_tornpaperapplescript-42"><code data-line-number="42"></code></a></td>
+<td class="code"><code><a name="listingsapplescriptimagemagick_tornpaperapplescript-42"></a>                    <span class="c">--set width_x to do shell script exec_path &amp; "identify -format '%w' " &amp; satisfy_path</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsapplescriptimagemagick_tornpaperapplescript-43"><code data-line-number="43"></code></a></td>
+<td class="code"><code><a name="listingsapplescriptimagemagick_tornpaperapplescript-43"></a>                    <span class="c">--set height_y to do shell script exec_path &amp; "identify -format '%h' " &amp; satisfy_path</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsapplescriptimagemagick_tornpaperapplescript-44"><code data-line-number="44"></code></a></td>
+<td class="code"><code><a name="listingsapplescriptimagemagick_tornpaperapplescript-44"></a>                    <span class="c">--set pic_res to do shell script exec_path &amp; "identify -format '%wx%h' " &amp; satisfy_path</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsapplescriptimagemagick_tornpaperapplescript-45"><code data-line-number="45"></code></a></td>
+<td class="code"><code><a name="listingsapplescriptimagemagick_tornpaperapplescript-45"></a>                    <span class="k">set</span> <span class="nv">resize_opt</span> <span class="k">to</span> <span class="s2">" -resize "</span> <span class="o">&amp;</span> <span class="s2">"x"</span> <span class="o">&amp;</span> <span class="nv">resize_span</span> <span class="o">&amp;</span> <span class="s2">"\\&gt;"</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsapplescriptimagemagick_tornpaperapplescript-46"><code data-line-number="46"></code></a></td>
+<td class="code"><code><a name="listingsapplescriptimagemagick_tornpaperapplescript-46"></a>                    <span class="nb">do shell script</span> <span class="nv">exec_path</span> <span class="o">&amp;</span> <span class="s2">"convert "</span> <span class="o">&amp;</span> <span class="nv">satisfy_path</span> <span class="o">&amp;</span> <span class="nv">resize_opt</span> <span class="o">&amp;</span> <span class="s2">" -gravity northwest -splice "</span> <span class="o">&amp;</span> <span class="nv">extend_width</span> <span class="o">&amp;</span> <span class="s2">"x"</span> <span class="o">&amp;</span> <span class="nv">extend_width</span> <span class="o">&amp;</span> <span class="s2">"+0+0 \\( +clone -alpha extract -virtual-pixel black -spread "</span> <span class="o">&amp;</span> <span class="nv">intensity</span> <span class="o">&amp;</span> <span class="s2">" -blur 0x3 -threshold 50% -spread 1 -blur 0x.7 \\) -alpha off -compose copy_opacity -composite -gravity northwest -chop "</span> <span class="o">&amp;</span> <span class="nv">extend_width</span> <span class="o">&amp;</span> <span class="s2">"x"</span> <span class="o">&amp;</span> <span class="nv">extend_width</span> <span class="o">&amp;</span> <span class="s2">" ~/Desktop/IM-Out/"</span> <span class="o">&amp;</span> <span class="nv">satisfy_name</span> <span class="o">&amp;</span> <span class="s2">"-tp.png"</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsapplescriptimagemagick_tornpaperapplescript-47"><code data-line-number="47"></code></a></td>
+<td class="code"><code><a name="listingsapplescriptimagemagick_tornpaperapplescript-47"></a>                    <span class="k">if</span> <span class="nv">has_shadow</span> <span class="ow">is</span> <span class="no">true</span> <span class="k">then</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsapplescriptimagemagick_tornpaperapplescript-48"><code data-line-number="48"></code></a></td>
+<td class="code"><code><a name="listingsapplescriptimagemagick_tornpaperapplescript-48"></a>                        <span class="nb">do shell script</span> <span class="nv">exec_path</span> <span class="o">&amp;</span> <span class="s2">"convert ~/Desktop/IM-Out/"</span> <span class="o">&amp;</span> <span class="nv">satisfy_name</span> <span class="o">&amp;</span> <span class="s2">"-tp.png"</span> <span class="o">&amp;</span> <span class="s2">" \\( +clone -background black -shadow 60x4+4+4 \\) +swap -background white -layers merge +repage"</span> <span class="o">&amp;</span> <span class="s2">" ~/Desktop/IM-Out/"</span> <span class="o">&amp;</span> <span class="nv">satisfy_name</span> <span class="o">&amp;</span> <span class="s2">"-tp.png"</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsapplescriptimagemagick_tornpaperapplescript-49"><code data-line-number="49"></code></a></td>
+<td class="code"><code><a name="listingsapplescriptimagemagick_tornpaperapplescript-49"></a>                    <span class="k">end</span> <span class="k">if</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsapplescriptimagemagick_tornpaperapplescript-50"><code data-line-number="50"></code></a></td>
+<td class="code"><code><a name="listingsapplescriptimagemagick_tornpaperapplescript-50"></a>                <span class="nb">on</span> <span class="k">error</span> <span class="nv">eText</span> <span class="nv">number</span> <span class="nv">eNum</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsapplescriptimagemagick_tornpaperapplescript-51"><code data-line-number="51"></code></a></td>
+<td class="code"><code><a name="listingsapplescriptimagemagick_tornpaperapplescript-51"></a>                    <span class="nb">display dialog</span> <span class="s2">"错误代码："</span> <span class="o">&amp;</span> <span class="nv">eNum</span> <span class="o">&amp;</span> <span class="s2">" 详情："</span> <span class="o">&amp;</span> <span class="nv">eText</span> <span class="o">&amp;</span> <span class="no">return</span> <span class="o">&amp;</span> <span class="s2">"请确认ImageMagick已安装并正确配置，如仍有问题请联系：ashfinal@sina.cn"</span> <span class="o">&amp;</span> <span class="s2">" 微博：敢和蜗牛赛跑"</span> <span class="nb">buttons</span> <span class="p">{</span><span class="s2">"OK"</span><span class="p">}</span> <span class="nv">default</span> <span class="nb">button</span> <span class="mi">1</span> <span class="nv">with</span> <span class="na">title</span> <span class="s2">"出现错误   （；￣ェ￣）"</span> <span class="nv">with</span> <span class="nv">icon</span> <span class="nv">note</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsapplescriptimagemagick_tornpaperapplescript-52"><code data-line-number="52"></code></a></td>
+<td class="code"><code><a name="listingsapplescriptimagemagick_tornpaperapplescript-52"></a>                    <span class="k">exit</span> <span class="k">repeat</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsapplescriptimagemagick_tornpaperapplescript-53"><code data-line-number="53"></code></a></td>
+<td class="code"><code><a name="listingsapplescriptimagemagick_tornpaperapplescript-53"></a>                <span class="k">end</span> <span class="k">try</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsapplescriptimagemagick_tornpaperapplescript-54"><code data-line-number="54"></code></a></td>
+<td class="code"><code><a name="listingsapplescriptimagemagick_tornpaperapplescript-54"></a>            <span class="k">end</span> <span class="k">repeat</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsapplescriptimagemagick_tornpaperapplescript-55"><code data-line-number="55"></code></a></td>
+<td class="code"><code><a name="listingsapplescriptimagemagick_tornpaperapplescript-55"></a>            <span class="nb">do shell script</span> <span class="s2">"open ~/Desktop/IM-Out"</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsapplescriptimagemagick_tornpaperapplescript-56"><code data-line-number="56"></code></a></td>
+<td class="code"><code><a name="listingsapplescriptimagemagick_tornpaperapplescript-56"></a>        <span class="k">end</span> <span class="k">if</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsapplescriptimagemagick_tornpaperapplescript-57"><code data-line-number="57"></code></a></td>
+<td class="code"><code><a name="listingsapplescriptimagemagick_tornpaperapplescript-57"></a>    <span class="k">end</span> <span class="k">tell</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsapplescriptimagemagick_tornpaperapplescript-58"><code data-line-number="58"></code></a></td>
+<td class="code"><code><a name="listingsapplescriptimagemagick_tornpaperapplescript-58"></a><span class="k">end</span> <span class="nb">open</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsapplescriptimagemagick_tornpaperapplescript-59"><code data-line-number="59"></code></a></td>
+<td class="code"><code><a name="listingsapplescriptimagemagick_tornpaperapplescript-59"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsapplescriptimagemagick_tornpaperapplescript-60"><code data-line-number="60"></code></a></td>
+<td class="code"><code><a name="listingsapplescriptimagemagick_tornpaperapplescript-60"></a><span class="k">on</span> <span class="nb">run</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsapplescriptimagemagick_tornpaperapplescript-61"><code data-line-number="61"></code></a></td>
+<td class="code"><code><a name="listingsapplescriptimagemagick_tornpaperapplescript-61"></a>    <span class="nb">display dialog</span> <span class="s2">"简介：Torn!.app — 给图片添加撕纸效果</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsapplescriptimagemagick_tornpaperapplescript-62"><code data-line-number="62"></code></a></td>
+<td class="code"><code><a name="listingsapplescriptimagemagick_tornpaperapplescript-62"></a><span class="s2">使用方法：将(多张)图片拖动到Torn!图标即可</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsapplescriptimagemagick_tornpaperapplescript-63"><code data-line-number="63"></code></a></td>
+<td class="code"><code><a name="listingsapplescriptimagemagick_tornpaperapplescript-63"></a><span class="s2">注意事项：依赖于ImageMagick命令行，推荐使用brew安装。"</span> <span class="nb">buttons</span> <span class="p">{</span><span class="s2">"OK"</span><span class="p">}</span> <span class="nv">default</span> <span class="nb">button</span> <span class="mi">1</span> <span class="nv">with</span> <span class="na">title</span> <span class="s2">"关于"</span> <span class="nv">with</span> <span class="nv">icon</span> <span class="nv">note</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsapplescriptimagemagick_tornpaperapplescript-64"><code data-line-number="64"></code></a></td>
+<td class="code"><code><a name="listingsapplescriptimagemagick_tornpaperapplescript-64"></a><span class="k">end</span> <span class="nb">run</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsapplescriptimagemagick_tornpaperapplescript-65"><code data-line-number="65"></code></a></td>
+<td class="code"><code><a name="listingsapplescriptimagemagick_tornpaperapplescript-65"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsapplescriptimagemagick_tornpaperapplescript-66"><code data-line-number="66"></code></a></td>
+<td class="code"><code><a name="listingsapplescriptimagemagick_tornpaperapplescript-66"></a><span class="k">on</span> <span class="nv">findandreplace</span><span class="p">(</span><span class="nv">toFind</span><span class="p">,</span> <span class="nv">replaceWith</span><span class="p">,</span> <span class="nv">theText</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsapplescriptimagemagick_tornpaperapplescript-67"><code data-line-number="67"></code></a></td>
+<td class="code"><code><a name="listingsapplescriptimagemagick_tornpaperapplescript-67"></a>    <span class="k">set</span> <span class="nv">tid</span> <span class="k">to</span> <span class="no">AppleScript</span>'s <span class="no">text item delimiters</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsapplescriptimagemagick_tornpaperapplescript-68"><code data-line-number="68"></code></a></td>
+<td class="code"><code><a name="listingsapplescriptimagemagick_tornpaperapplescript-68"></a>    <span class="k">set</span> <span class="no">AppleScript</span>'s <span class="no">text item delimiters</span> <span class="k">to</span> <span class="nv">toFind</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsapplescriptimagemagick_tornpaperapplescript-69"><code data-line-number="69"></code></a></td>
+<td class="code"><code><a name="listingsapplescriptimagemagick_tornpaperapplescript-69"></a>    <span class="k">set</span> <span class="nv">textItems</span> <span class="k">to</span> <span class="nv">theText</span>'s <span class="nb">text</span> <span class="nb">items</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsapplescriptimagemagick_tornpaperapplescript-70"><code data-line-number="70"></code></a></td>
+<td class="code"><code><a name="listingsapplescriptimagemagick_tornpaperapplescript-70"></a>    <span class="k">set</span> <span class="no">AppleScript</span>'s <span class="no">text item delimiters</span> <span class="k">to</span> <span class="nv">replaceWith</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsapplescriptimagemagick_tornpaperapplescript-71"><code data-line-number="71"></code></a></td>
+<td class="code"><code><a name="listingsapplescriptimagemagick_tornpaperapplescript-71"></a>    <span class="k">set</span> <span class="nv">editedText</span> <span class="k">to</span> <span class="nv">textItems</span> <span class="k">as </span><span class="nc">text</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsapplescriptimagemagick_tornpaperapplescript-72"><code data-line-number="72"></code></a></td>
+<td class="code"><code><a name="listingsapplescriptimagemagick_tornpaperapplescript-72"></a>    <span class="k">set</span> <span class="no">AppleScript</span>'s <span class="no">text item delimiters</span> <span class="k">to</span> <span class="nv">tid</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsapplescriptimagemagick_tornpaperapplescript-73"><code data-line-number="73"></code></a></td>
+<td class="code"><code><a name="listingsapplescriptimagemagick_tornpaperapplescript-73"></a>    <span class="no">return</span> <span class="nv">editedText</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsapplescriptimagemagick_tornpaperapplescript-74"><code data-line-number="74"></code></a></td>
+<td class="code"><code><a name="listingsapplescriptimagemagick_tornpaperapplescript-74"></a><span class="k">end</span> <span class="nv">findandreplace</span>
+</code></td>
+</tr>
+</table></div>
+</div>
+                    </div>
+                </main><div class="footer extra-block no-print">
+    <span class="footer_item">
+        <a href="../../pages/you-qing-lian-jie/">友情链接</a>
+    </span>
+    <span class="footer_item">
+        <a href="../../pages/liu-yan-ban/">留言板</a>
+    </span>
+    <span class="footer_item">
+        <a href="../../pages/ge-ren-dong-tai/">碎碎念</a>
+    </span>
+    </div>
+            <div class="footer social-link no-print">
+            <a href="https://github.com/ashfinal" target="_blank"><i class="grey large github icon"></i></a>
+            <a href="http://weibo.com/ashfinal/" target="_blank"><i class="grey large weibo icon"></i></a>
+            <a href="mailto://ashfinal@sina.cn" target="_blank"><i class="grey large mail icon"></i></a>
+            </div>
+        <div class="ui basic center aligned segment no-print">Contents © 2020         <a href="mailto:ashfinal@sina.cn">ashfinal</a> - Powered by         <a href="https://getnikola.com" target="_blank" rel="nofollow">Nikola</a>         </div>
+
+            </div>
+            <div class="computer only three wide column no-print">
+                <div id="right-side">
+                </div>
+            </div>
+        </div>
+
+        <!-- GoStats JavaScript Based Code -->
+        <script type="text/javascript">(function(c,o,m,p,u,t,e){
+        c['GoStatsObject']=u;c[u]=c[u]||function(){(c[u].q=c[u].q||[]).push(arguments)},
+        c[u].l=1*new Date();t=o.createElement(m);t.async=1;t.src=p;
+        e=o.getElementsByTagName(m)[0];e.parentNode.insertBefore(t,e);
+        })(window,document,'script','//www.gostats.org/5.js','go');
+        go('init',100479892,{'img_counter_type':5,'img_image_type':1});go('send');</script><!-- End GoStats JavaScript Based Code --><script type="text/javascript" src="../../assets/js/jquery-3.3.1.min.js"></script><script type="text/javascript" src="../../assets/js/semantic.min.js"></script><script type="text/javascript" src="../../assets/js/jquery.fancybox.min.js"></script><script type="text/javascript" src="../../assets/js/cookie.min.js"></script><script>
+            $(document).ready(function(){
+                $(".ui.dropdown").dropdown();
+                $('.ui.accordion').accordion();
+                var newstr = $('.cookie.nag').text();
+                $('.cookie.nag').nag({
+                    key: 'globalnotice',
+                    value: newstr
+                  });
+                $('.image-reference').fancybox();
+            });
+        </script>
+</body>
+</html>

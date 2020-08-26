@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="zh_cn">
+<head>
+<meta charset="utf-8">
+<meta name="description" content="weibo_util.py">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="generator" content="Nikola (getnikola.com)">
+<title>weibo_util.py - MacPlay</title>
+<link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+<link rel="mask-icon" href="../safari-pinned-tab.svg" color="#5bbad5">
+<link href="../assets/css/semantic.min.css" rel="stylesheet" type="text/css">
+<link href="../assets/css/jquery.fancybox.min.css" rel="stylesheet" type="text/css">
+<link href="../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<link rel="canonical" href="https://macplay.github.io/listings/weibo_util.py.html">
+</head>
+<body>
+        <div class="ui grid">
+            <div class="computer only three wide column no-print">
+                <div id="left-side">
+                </div>
+            </div>
+            <div class="ten wide computer sixteen wide tablet sixteen wide mobile column">
+                        <div class="ui inline cookie nag no-print">
+            <span class="title">从现在开始，支持中英双语及博文精选 O(∩_∩)O~~</span>
+            <i class="close icon"></i>
+        </div>
+    <header id="header" class="no-print"><div class="ui grid">
+        <div class="computer only tablet only sixteen wide column">
+            <div class="ui large secondary stackable menu">
+                <a class="header item brand-logo" href="https://macplay.github.io/">
+                    MacPlay
+                </a>
+                        <a class="item" href="../">Posts</a>
+                        <a class="item" href=".">Code</a>
+                        <a class="item" href="../galleries/">Gallery</a>
+                        <a class="item" href="../categories/">Tags</a>
+                        <a class="item" href="../archive.html">Archive</a>
+                <div class="right menu">
+                    <a class="item" href="../rss.xml"><i class="rss icon"></i>RSS</a>
+                </div>
+            </div>
+        </div>
+        <div class="mobile only sixteen wide column">
+            <div class="ui fluid accordion vertical menu">
+                <div class="item">
+                    <a class="title">MacPlay</a>
+                    <div class="content">
+                                <a class="item" href="../">Posts</a>
+                                <a class="item" href=".">Code</a>
+                                <a class="item" href="../galleries/">Gallery</a>
+                                <a class="item" href="../categories/">Tags</a>
+                                <a class="item" href="../archive.html">Archive</a>
+                        <a class="item" href="../rss.xml"><i class="rss icon"></i>RSS</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </header><main id="main"><div id="main-content">
+<div class="listingpage page-body" itemscope="itemscope" itemtype="http://schema.org/Article">
+    <div class="ui breadcrumb list-title">
+                <a href="." class="section">listings</a>
+                <div class="divider"> / </div>
+                <div class="section">
+                    weibo_util.py
+                </div>
+    </div>
+
+        <p class="downloadlink">
+            <i class="download icon"></i><a href="weibo_util.py">Download</a>
+        </p>
+        <div class="code"><table class="codetable">
+<tr>
+<td class="linenos linenodiv"><a href="#listingsweibo_utilpy-1"><code data-line-number="  1"></code></a></td>
+<td class="code"><code><a name="listingsweibo_utilpy-1"></a><span class="c1"># encoding:utf8</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsweibo_utilpy-2"><code data-line-number="  2"></code></a></td>
+<td class="code"><code><a name="listingsweibo_utilpy-2"></a><span class="n">__author__</span> <span class="o">=</span> <span class="s1">'brianyang'</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsweibo_utilpy-3"><code data-line-number="  3"></code></a></td>
+<td class="code"><code><a name="listingsweibo_utilpy-3"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsweibo_utilpy-4"><code data-line-number="  4"></code></a></td>
+<td class="code"><code><a name="listingsweibo_utilpy-4"></a><span class="kn">import</span> <span class="nn">re</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsweibo_utilpy-5"><code data-line-number="  5"></code></a></td>
+<td class="code"><code><a name="listingsweibo_utilpy-5"></a><span class="kn">import</span> <span class="nn">json</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsweibo_utilpy-6"><code data-line-number="  6"></code></a></td>
+<td class="code"><code><a name="listingsweibo_utilpy-6"></a><span class="kn">import</span> <span class="nn">requests</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsweibo_utilpy-7"><code data-line-number="  7"></code></a></td>
+<td class="code"><code><a name="listingsweibo_utilpy-7"></a><span class="kn">import</span> <span class="nn">cookielib</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsweibo_utilpy-8"><code data-line-number="  8"></code></a></td>
+<td class="code"><code><a name="listingsweibo_utilpy-8"></a><span class="kn">import</span> <span class="nn">rsa</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsweibo_utilpy-9"><code data-line-number="  9"></code></a></td>
+<td class="code"><code><a name="listingsweibo_utilpy-9"></a><span class="kn">import</span> <span class="nn">urllib</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsweibo_utilpy-10"><code data-line-number=" 10"></code></a></td>
+<td class="code"><code><a name="listingsweibo_utilpy-10"></a><span class="kn">import</span> <span class="nn">urllib2</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsweibo_utilpy-11"><code data-line-number=" 11"></code></a></td>
+<td class="code"><code><a name="listingsweibo_utilpy-11"></a><span class="kn">import</span> <span class="nn">binascii</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsweibo_utilpy-12"><code data-line-number=" 12"></code></a></td>
+<td class="code"><code><a name="listingsweibo_utilpy-12"></a><span class="kn">import</span> <span class="nn">base64</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsweibo_utilpy-13"><code data-line-number=" 13"></code></a></td>
+<td class="code"><code><a name="listingsweibo_utilpy-13"></a><span class="kn">from</span> <span class="nn">optparse</span> <span class="kn">import</span> <span class="n">OptionParser</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsweibo_utilpy-14"><code data-line-number=" 14"></code></a></td>
+<td class="code"><code><a name="listingsweibo_utilpy-14"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsweibo_utilpy-15"><code data-line-number=" 15"></code></a></td>
+<td class="code"><code><a name="listingsweibo_utilpy-15"></a><span class="n">cookie_file</span> <span class="o">=</span> <span class="s1">'cookie.txt'</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsweibo_utilpy-16"><code data-line-number=" 16"></code></a></td>
+<td class="code"><code><a name="listingsweibo_utilpy-16"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsweibo_utilpy-17"><code data-line-number=" 17"></code></a></td>
+<td class="code"><code><a name="listingsweibo_utilpy-17"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsweibo_utilpy-18"><code data-line-number=" 18"></code></a></td>
+<td class="code"><code><a name="listingsweibo_utilpy-18"></a><span class="k">def</span> <span class="nf">pre_login</span><span class="p">():</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsweibo_utilpy-19"><code data-line-number=" 19"></code></a></td>
+<td class="code"><code><a name="listingsweibo_utilpy-19"></a>    <span class="n">pre_login_url</span> <span class="o">=</span> <span class="s1">'http://login.sina.com.cn/sso/prelogin.php?entry=weibo&amp;callback=sinaSSOController.preloginCallBack&amp;su=MTUyNTUxMjY3OTY%3D&amp;rsakt=mod&amp;checkpin=1&amp;client=ssologin.js%28v1.4.18%29&amp;_=1458836718537'</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsweibo_utilpy-20"><code data-line-number=" 20"></code></a></td>
+<td class="code"><code><a name="listingsweibo_utilpy-20"></a>    <span class="n">pre_response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">pre_login_url</span><span class="p">)</span><span class="o">.</span><span class="n">text</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsweibo_utilpy-21"><code data-line-number=" 21"></code></a></td>
+<td class="code"><code><a name="listingsweibo_utilpy-21"></a>    <span class="n">pre_content_regex</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">'\((.*?)\)'</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsweibo_utilpy-22"><code data-line-number=" 22"></code></a></td>
+<td class="code"><code><a name="listingsweibo_utilpy-22"></a>    <span class="n">patten</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">pre_content_regex</span><span class="p">,</span> <span class="n">pre_response</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsweibo_utilpy-23"><code data-line-number=" 23"></code></a></td>
+<td class="code"><code><a name="listingsweibo_utilpy-23"></a>    <span class="n">nonce</span> <span class="o">=</span> <span class="kc">None</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsweibo_utilpy-24"><code data-line-number=" 24"></code></a></td>
+<td class="code"><code><a name="listingsweibo_utilpy-24"></a>    <span class="n">pubkey</span> <span class="o">=</span> <span class="kc">None</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsweibo_utilpy-25"><code data-line-number=" 25"></code></a></td>
+<td class="code"><code><a name="listingsweibo_utilpy-25"></a>    <span class="n">servertime</span> <span class="o">=</span> <span class="kc">None</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsweibo_utilpy-26"><code data-line-number=" 26"></code></a></td>
+<td class="code"><code><a name="listingsweibo_utilpy-26"></a>    <span class="n">rsakv</span> <span class="o">=</span> <span class="kc">None</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsweibo_utilpy-27"><code data-line-number=" 27"></code></a></td>
+<td class="code"><code><a name="listingsweibo_utilpy-27"></a>    <span class="k">if</span> <span class="n">patten</span><span class="o">.</span><span class="n">groups</span><span class="p">():</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsweibo_utilpy-28"><code data-line-number=" 28"></code></a></td>
+<td class="code"><code><a name="listingsweibo_utilpy-28"></a>        <span class="n">pre_content</span> <span class="o">=</span> <span class="n">patten</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsweibo_utilpy-29"><code data-line-number=" 29"></code></a></td>
+<td class="code"><code><a name="listingsweibo_utilpy-29"></a>        <span class="n">pre_result</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">pre_content</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsweibo_utilpy-30"><code data-line-number=" 30"></code></a></td>
+<td class="code"><code><a name="listingsweibo_utilpy-30"></a>        <span class="n">nonce</span> <span class="o">=</span> <span class="n">pre_result</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"nonce"</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsweibo_utilpy-31"><code data-line-number=" 31"></code></a></td>
+<td class="code"><code><a name="listingsweibo_utilpy-31"></a>        <span class="n">pubkey</span> <span class="o">=</span> <span class="n">pre_result</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'pubkey'</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsweibo_utilpy-32"><code data-line-number=" 32"></code></a></td>
+<td class="code"><code><a name="listingsweibo_utilpy-32"></a>        <span class="n">servertime</span> <span class="o">=</span> <span class="n">pre_result</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'servertime'</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsweibo_utilpy-33"><code data-line-number=" 33"></code></a></td>
+<td class="code"><code><a name="listingsweibo_utilpy-33"></a>        <span class="n">rsakv</span> <span class="o">=</span> <span class="n">pre_result</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"rsakv"</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsweibo_utilpy-34"><code data-line-number=" 34"></code></a></td>
+<td class="code"><code><a name="listingsweibo_utilpy-34"></a>    <span class="k">return</span> <span class="n">nonce</span><span class="p">,</span> <span class="n">pubkey</span><span class="p">,</span> <span class="n">servertime</span><span class="p">,</span> <span class="n">rsakv</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsweibo_utilpy-35"><code data-line-number=" 35"></code></a></td>
+<td class="code"><code><a name="listingsweibo_utilpy-35"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsweibo_utilpy-36"><code data-line-number=" 36"></code></a></td>
+<td class="code"><code><a name="listingsweibo_utilpy-36"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsweibo_utilpy-37"><code data-line-number=" 37"></code></a></td>
+<td class="code"><code><a name="listingsweibo_utilpy-37"></a><span class="k">def</span> <span class="nf">generate_form_data</span><span class="p">(</span><span class="n">nonce</span><span class="p">,</span> <span class="n">pubkey</span><span class="p">,</span> <span class="n">servertime</span><span class="p">,</span> <span class="n">rsakv</span><span class="p">,</span> <span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="p">):</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsweibo_utilpy-38"><code data-line-number=" 38"></code></a></td>
+<td class="code"><code><a name="listingsweibo_utilpy-38"></a>    <span class="n">rsa_public_key</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">pubkey</span><span class="p">,</span> <span class="mi">16</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsweibo_utilpy-39"><code data-line-number=" 39"></code></a></td>
+<td class="code"><code><a name="listingsweibo_utilpy-39"></a>    <span class="n">key</span> <span class="o">=</span> <span class="n">rsa</span><span class="o">.</span><span class="n">PublicKey</span><span class="p">(</span><span class="n">rsa_public_key</span><span class="p">,</span> <span class="mi">65537</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsweibo_utilpy-40"><code data-line-number=" 40"></code></a></td>
+<td class="code"><code><a name="listingsweibo_utilpy-40"></a>    <span class="n">message</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">servertime</span><span class="p">)</span> <span class="o">+</span> <span class="s1">'</span><span class="se">\t</span><span class="s1">'</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">nonce</span><span class="p">)</span> <span class="o">+</span> <span class="s1">'</span><span class="se">\n</span><span class="s1">'</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">password</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsweibo_utilpy-41"><code data-line-number=" 41"></code></a></td>
+<td class="code"><code><a name="listingsweibo_utilpy-41"></a>    <span class="n">passwd</span> <span class="o">=</span> <span class="n">rsa</span><span class="o">.</span><span class="n">encrypt</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsweibo_utilpy-42"><code data-line-number=" 42"></code></a></td>
+<td class="code"><code><a name="listingsweibo_utilpy-42"></a>    <span class="n">passwd</span> <span class="o">=</span> <span class="n">binascii</span><span class="o">.</span><span class="n">b2a_hex</span><span class="p">(</span><span class="n">passwd</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsweibo_utilpy-43"><code data-line-number=" 43"></code></a></td>
+<td class="code"><code><a name="listingsweibo_utilpy-43"></a>    <span class="n">username</span> <span class="o">=</span> <span class="n">urllib2</span><span class="o">.</span><span class="n">quote</span><span class="p">(</span><span class="n">username</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsweibo_utilpy-44"><code data-line-number=" 44"></code></a></td>
+<td class="code"><code><a name="listingsweibo_utilpy-44"></a>    <span class="n">username</span> <span class="o">=</span> <span class="n">base64</span><span class="o">.</span><span class="n">encodestring</span><span class="p">(</span><span class="n">username</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsweibo_utilpy-45"><code data-line-number=" 45"></code></a></td>
+<td class="code"><code><a name="listingsweibo_utilpy-45"></a>    <span class="n">form_data</span> <span class="o">=</span> <span class="p">{</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsweibo_utilpy-46"><code data-line-number=" 46"></code></a></td>
+<td class="code"><code><a name="listingsweibo_utilpy-46"></a>        <span class="s1">'entry'</span><span class="p">:</span> <span class="s1">'weibo'</span><span class="p">,</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsweibo_utilpy-47"><code data-line-number=" 47"></code></a></td>
+<td class="code"><code><a name="listingsweibo_utilpy-47"></a>        <span class="s1">'gateway'</span><span class="p">:</span> <span class="s1">'1'</span><span class="p">,</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsweibo_utilpy-48"><code data-line-number=" 48"></code></a></td>
+<td class="code"><code><a name="listingsweibo_utilpy-48"></a>        <span class="s1">'from'</span><span class="p">:</span> <span class="s1">''</span><span class="p">,</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsweibo_utilpy-49"><code data-line-number=" 49"></code></a></td>
+<td class="code"><code><a name="listingsweibo_utilpy-49"></a>        <span class="s1">'savestate'</span><span class="p">:</span> <span class="s1">'7'</span><span class="p">,</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsweibo_utilpy-50"><code data-line-number=" 50"></code></a></td>
+<td class="code"><code><a name="listingsweibo_utilpy-50"></a>        <span class="s1">'useticket'</span><span class="p">:</span> <span class="s1">'1'</span><span class="p">,</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsweibo_utilpy-51"><code data-line-number=" 51"></code></a></td>
+<td class="code"><code><a name="listingsweibo_utilpy-51"></a>        <span class="s1">'pagerefer'</span><span class="p">:</span> <span class="s1">'http://weibo.com/p/1005052679342531/home?from=page_100505&amp;mod=TAB&amp;pids=plc_main'</span><span class="p">,</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsweibo_utilpy-52"><code data-line-number=" 52"></code></a></td>
+<td class="code"><code><a name="listingsweibo_utilpy-52"></a>        <span class="s1">'vsnf'</span><span class="p">:</span> <span class="s1">'1'</span><span class="p">,</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsweibo_utilpy-53"><code data-line-number=" 53"></code></a></td>
+<td class="code"><code><a name="listingsweibo_utilpy-53"></a>        <span class="s1">'su'</span><span class="p">:</span> <span class="n">username</span><span class="p">,</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsweibo_utilpy-54"><code data-line-number=" 54"></code></a></td>
+<td class="code"><code><a name="listingsweibo_utilpy-54"></a>        <span class="s1">'service'</span><span class="p">:</span> <span class="s1">'miniblog'</span><span class="p">,</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsweibo_utilpy-55"><code data-line-number=" 55"></code></a></td>
+<td class="code"><code><a name="listingsweibo_utilpy-55"></a>        <span class="s1">'servertime'</span><span class="p">:</span> <span class="n">servertime</span><span class="p">,</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsweibo_utilpy-56"><code data-line-number=" 56"></code></a></td>
+<td class="code"><code><a name="listingsweibo_utilpy-56"></a>        <span class="s1">'nonce'</span><span class="p">:</span> <span class="n">nonce</span><span class="p">,</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsweibo_utilpy-57"><code data-line-number=" 57"></code></a></td>
+<td class="code"><code><a name="listingsweibo_utilpy-57"></a>        <span class="s1">'pwencode'</span><span class="p">:</span> <span class="s1">'rsa2'</span><span class="p">,</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsweibo_utilpy-58"><code data-line-number=" 58"></code></a></td>
+<td class="code"><code><a name="listingsweibo_utilpy-58"></a>        <span class="s1">'rsakv'</span><span class="p">:</span> <span class="n">rsakv</span><span class="p">,</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsweibo_utilpy-59"><code data-line-number=" 59"></code></a></td>
+<td class="code"><code><a name="listingsweibo_utilpy-59"></a>        <span class="s1">'sp'</span><span class="p">:</span> <span class="n">passwd</span><span class="p">,</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsweibo_utilpy-60"><code data-line-number=" 60"></code></a></td>
+<td class="code"><code><a name="listingsweibo_utilpy-60"></a>        <span class="s1">'sr'</span><span class="p">:</span> <span class="s1">'1366*768'</span><span class="p">,</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsweibo_utilpy-61"><code data-line-number=" 61"></code></a></td>
+<td class="code"><code><a name="listingsweibo_utilpy-61"></a>        <span class="s1">'encoding'</span><span class="p">:</span> <span class="s1">'UTF-8'</span><span class="p">,</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsweibo_utilpy-62"><code data-line-number=" 62"></code></a></td>
+<td class="code"><code><a name="listingsweibo_utilpy-62"></a>        <span class="s1">'prelt'</span><span class="p">:</span> <span class="s1">'115'</span><span class="p">,</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsweibo_utilpy-63"><code data-line-number=" 63"></code></a></td>
+<td class="code"><code><a name="listingsweibo_utilpy-63"></a>        <span class="s1">'url'</span><span class="p">:</span> <span class="s1">'http://weibo.com/ajaxlogin.php?framelogin=1&amp;callback=parent.sinaSSOController.feedBackUrlCallBack'</span><span class="p">,</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsweibo_utilpy-64"><code data-line-number=" 64"></code></a></td>
+<td class="code"><code><a name="listingsweibo_utilpy-64"></a>        <span class="s1">'returntype'</span><span class="p">:</span> <span class="s1">'META'</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsweibo_utilpy-65"><code data-line-number=" 65"></code></a></td>
+<td class="code"><code><a name="listingsweibo_utilpy-65"></a>    <span class="p">}</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsweibo_utilpy-66"><code data-line-number=" 66"></code></a></td>
+<td class="code"><code><a name="listingsweibo_utilpy-66"></a>    <span class="n">form_data</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">urlencode</span><span class="p">(</span><span class="n">form_data</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsweibo_utilpy-67"><code data-line-number=" 67"></code></a></td>
+<td class="code"><code><a name="listingsweibo_utilpy-67"></a>    <span class="k">return</span> <span class="n">form_data</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsweibo_utilpy-68"><code data-line-number=" 68"></code></a></td>
+<td class="code"><code><a name="listingsweibo_utilpy-68"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsweibo_utilpy-69"><code data-line-number=" 69"></code></a></td>
+<td class="code"><code><a name="listingsweibo_utilpy-69"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsweibo_utilpy-70"><code data-line-number=" 70"></code></a></td>
+<td class="code"><code><a name="listingsweibo_utilpy-70"></a><span class="k">def</span> <span class="nf">login</span><span class="p">(</span><span class="n">form_data</span><span class="p">):</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsweibo_utilpy-71"><code data-line-number=" 71"></code></a></td>
+<td class="code"><code><a name="listingsweibo_utilpy-71"></a>    <span class="n">url</span> <span class="o">=</span> <span class="s1">'http://login.sina.com.cn/sso/login.php?client=ssologin.js(v1.4.18)'</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsweibo_utilpy-72"><code data-line-number=" 72"></code></a></td>
+<td class="code"><code><a name="listingsweibo_utilpy-72"></a>    <span class="n">headers</span> <span class="o">=</span> <span class="p">(</span><span class="s1">'User-Agent'</span><span class="p">,</span> <span class="s1">'Mozilla/5.0 (Windows NT 6.3; WOW64; rv:41.0) Gecko/20100101 Firefox/41.0'</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsweibo_utilpy-73"><code data-line-number=" 73"></code></a></td>
+<td class="code"><code><a name="listingsweibo_utilpy-73"></a>    <span class="n">cookie</span> <span class="o">=</span> <span class="n">cookielib</span><span class="o">.</span><span class="n">MozillaCookieJar</span><span class="p">(</span><span class="n">cookie_file</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsweibo_utilpy-74"><code data-line-number=" 74"></code></a></td>
+<td class="code"><code><a name="listingsweibo_utilpy-74"></a>    <span class="n">handler</span> <span class="o">=</span> <span class="n">urllib2</span><span class="o">.</span><span class="n">HTTPCookieProcessor</span><span class="p">(</span><span class="n">cookie</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsweibo_utilpy-75"><code data-line-number=" 75"></code></a></td>
+<td class="code"><code><a name="listingsweibo_utilpy-75"></a>    <span class="n">opener</span> <span class="o">=</span> <span class="n">urllib2</span><span class="o">.</span><span class="n">build_opener</span><span class="p">(</span><span class="n">handler</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsweibo_utilpy-76"><code data-line-number=" 76"></code></a></td>
+<td class="code"><code><a name="listingsweibo_utilpy-76"></a>    <span class="n">opener</span><span class="o">.</span><span class="n">addheaders</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">headers</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsweibo_utilpy-77"><code data-line-number=" 77"></code></a></td>
+<td class="code"><code><a name="listingsweibo_utilpy-77"></a>    <span class="n">req</span> <span class="o">=</span> <span class="n">opener</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">form_data</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsweibo_utilpy-78"><code data-line-number=" 78"></code></a></td>
+<td class="code"><code><a name="listingsweibo_utilpy-78"></a>    <span class="n">redirect_result</span> <span class="o">=</span> <span class="n">req</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsweibo_utilpy-79"><code data-line-number=" 79"></code></a></td>
+<td class="code"><code><a name="listingsweibo_utilpy-79"></a>    <span class="n">login_pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">'location.replace\(</span><span class="se">\'</span><span class="s1">(.*?)</span><span class="se">\'</span><span class="s1">\)'</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsweibo_utilpy-80"><code data-line-number=" 80"></code></a></td>
+<td class="code"><code><a name="listingsweibo_utilpy-80"></a>    <span class="n">login_url</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">login_pattern</span><span class="p">,</span> <span class="n">redirect_result</span><span class="p">)</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsweibo_utilpy-81"><code data-line-number=" 81"></code></a></td>
+<td class="code"><code><a name="listingsweibo_utilpy-81"></a>    <span class="n">opener</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">login_url</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsweibo_utilpy-82"><code data-line-number=" 82"></code></a></td>
+<td class="code"><code><a name="listingsweibo_utilpy-82"></a>    <span class="n">cookie</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">cookie_file</span><span class="p">,</span> <span class="n">ignore_discard</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">ignore_expires</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsweibo_utilpy-83"><code data-line-number=" 83"></code></a></td>
+<td class="code"><code><a name="listingsweibo_utilpy-83"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsweibo_utilpy-84"><code data-line-number=" 84"></code></a></td>
+<td class="code"><code><a name="listingsweibo_utilpy-84"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsweibo_utilpy-85"><code data-line-number=" 85"></code></a></td>
+<td class="code"><code><a name="listingsweibo_utilpy-85"></a><span class="k">def</span> <span class="nf">request_image_url</span><span class="p">(</span><span class="n">image_path</span><span class="p">):</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsweibo_utilpy-86"><code data-line-number=" 86"></code></a></td>
+<td class="code"><code><a name="listingsweibo_utilpy-86"></a>    <span class="n">cookie</span> <span class="o">=</span> <span class="n">cookielib</span><span class="o">.</span><span class="n">MozillaCookieJar</span><span class="p">()</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsweibo_utilpy-87"><code data-line-number=" 87"></code></a></td>
+<td class="code"><code><a name="listingsweibo_utilpy-87"></a>    <span class="n">cookie</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">cookie_file</span><span class="p">,</span> <span class="n">ignore_expires</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">ignore_discard</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsweibo_utilpy-88"><code data-line-number=" 88"></code></a></td>
+<td class="code"><code><a name="listingsweibo_utilpy-88"></a>    <span class="n">opener</span> <span class="o">=</span> <span class="n">urllib2</span><span class="o">.</span><span class="n">build_opener</span><span class="p">(</span><span class="n">urllib2</span><span class="o">.</span><span class="n">HTTPCookieProcessor</span><span class="p">(</span><span class="n">cookie</span><span class="p">))</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsweibo_utilpy-89"><code data-line-number=" 89"></code></a></td>
+<td class="code"><code><a name="listingsweibo_utilpy-89"></a>    <span class="n">image_url</span> <span class="o">=</span> <span class="s1">'http://picupload.service.weibo.com/interface/pic_upload.php?mime=image</span><span class="si">%2F</span><span class="s1">jpeg&amp;data=base64&amp;url=0&amp;markpos=1&amp;logo=&amp;nick=0&amp;marks=1&amp;app=miniblog'</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsweibo_utilpy-90"><code data-line-number=" 90"></code></a></td>
+<td class="code"><code><a name="listingsweibo_utilpy-90"></a>    <span class="n">b</span> <span class="o">=</span> <span class="n">base64</span><span class="o">.</span><span class="n">b64encode</span><span class="p">(</span><span class="n">file</span><span class="p">(</span><span class="n">image_path</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsweibo_utilpy-91"><code data-line-number=" 91"></code></a></td>
+<td class="code"><code><a name="listingsweibo_utilpy-91"></a>    <span class="n">data</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">urlencode</span><span class="p">({</span><span class="s1">'b64_data'</span><span class="p">:</span> <span class="n">b</span><span class="p">})</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsweibo_utilpy-92"><code data-line-number=" 92"></code></a></td>
+<td class="code"><code><a name="listingsweibo_utilpy-92"></a>    <span class="n">result</span> <span class="o">=</span> <span class="n">opener</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">image_url</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsweibo_utilpy-93"><code data-line-number=" 93"></code></a></td>
+<td class="code"><code><a name="listingsweibo_utilpy-93"></a>    <span class="n">result</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s2">"&lt;meta.*&lt;/script&gt;"</span><span class="p">,</span> <span class="s2">""</span><span class="p">,</span> <span class="n">result</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsweibo_utilpy-94"><code data-line-number=" 94"></code></a></td>
+<td class="code"><code><a name="listingsweibo_utilpy-94"></a>    <span class="n">image_result</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsweibo_utilpy-95"><code data-line-number=" 95"></code></a></td>
+<td class="code"><code><a name="listingsweibo_utilpy-95"></a>    <span class="n">image_id</span> <span class="o">=</span> <span class="n">image_result</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'data'</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'pics'</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'pic_1'</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'pid'</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsweibo_utilpy-96"><code data-line-number=" 96"></code></a></td>
+<td class="code"><code><a name="listingsweibo_utilpy-96"></a>    <span class="k">return</span> <span class="s1">'http://ww3.sinaimg.cn/large/</span><span class="si">%s</span><span class="s1">'</span> <span class="o">%</span> <span class="n">image_id</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsweibo_utilpy-97"><code data-line-number=" 97"></code></a></td>
+<td class="code"><code><a name="listingsweibo_utilpy-97"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsweibo_utilpy-98"><code data-line-number=" 98"></code></a></td>
+<td class="code"><code><a name="listingsweibo_utilpy-98"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsweibo_utilpy-99"><code data-line-number=" 99"></code></a></td>
+<td class="code"><code><a name="listingsweibo_utilpy-99"></a><span class="k">def</span> <span class="nf">get_image</span><span class="p">(</span><span class="n">image_path</span><span class="p">,</span> <span class="n">username</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsweibo_utilpy-100"><code data-line-number="100"></code></a></td>
+<td class="code"><code><a name="listingsweibo_utilpy-100"></a>    <span class="n">url</span> <span class="o">=</span> <span class="s1">''</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsweibo_utilpy-101"><code data-line-number="101"></code></a></td>
+<td class="code"><code><a name="listingsweibo_utilpy-101"></a>    <span class="k">try</span><span class="p">:</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsweibo_utilpy-102"><code data-line-number="102"></code></a></td>
+<td class="code"><code><a name="listingsweibo_utilpy-102"></a>        <span class="n">url</span> <span class="o">=</span> <span class="n">request_image_url</span><span class="p">(</span><span class="n">image_path</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsweibo_utilpy-103"><code data-line-number="103"></code></a></td>
+<td class="code"><code><a name="listingsweibo_utilpy-103"></a>    <span class="k">except</span><span class="p">:</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsweibo_utilpy-104"><code data-line-number="104"></code></a></td>
+<td class="code"><code><a name="listingsweibo_utilpy-104"></a>        <span class="k">try</span><span class="p">:</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsweibo_utilpy-105"><code data-line-number="105"></code></a></td>
+<td class="code"><code><a name="listingsweibo_utilpy-105"></a>            <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">username</span> <span class="ow">and</span> <span class="n">password</span><span class="p">):</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsweibo_utilpy-106"><code data-line-number="106"></code></a></td>
+<td class="code"><code><a name="listingsweibo_utilpy-106"></a>                <span class="n">username</span> <span class="o">=</span> <span class="n">raw_input</span><span class="p">(</span><span class="s2">"输入新浪微博用户名："</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsweibo_utilpy-107"><code data-line-number="107"></code></a></td>
+<td class="code"><code><a name="listingsweibo_utilpy-107"></a>                <span class="n">password</span> <span class="o">=</span> <span class="n">raw_input</span><span class="p">(</span><span class="s2">"输入新浪微博密码："</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsweibo_utilpy-108"><code data-line-number="108"></code></a></td>
+<td class="code"><code><a name="listingsweibo_utilpy-108"></a>            <span class="n">nonce</span><span class="p">,</span> <span class="n">pubkey</span><span class="p">,</span> <span class="n">servertime</span><span class="p">,</span> <span class="n">rsakv</span> <span class="o">=</span> <span class="n">pre_login</span><span class="p">()</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsweibo_utilpy-109"><code data-line-number="109"></code></a></td>
+<td class="code"><code><a name="listingsweibo_utilpy-109"></a>            <span class="n">form_data</span> <span class="o">=</span> <span class="n">generate_form_data</span><span class="p">(</span><span class="n">nonce</span><span class="p">,</span> <span class="n">pubkey</span><span class="p">,</span> <span class="n">servertime</span><span class="p">,</span> <span class="n">rsakv</span><span class="p">,</span> <span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsweibo_utilpy-110"><code data-line-number="110"></code></a></td>
+<td class="code"><code><a name="listingsweibo_utilpy-110"></a>            <span class="n">login</span><span class="p">(</span><span class="n">form_data</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsweibo_utilpy-111"><code data-line-number="111"></code></a></td>
+<td class="code"><code><a name="listingsweibo_utilpy-111"></a>            <span class="n">url</span> <span class="o">=</span> <span class="n">request_image_url</span><span class="p">(</span><span class="n">image_path</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsweibo_utilpy-112"><code data-line-number="112"></code></a></td>
+<td class="code"><code><a name="listingsweibo_utilpy-112"></a>        <span class="k">except</span> <span class="ne">Exception</span><span class="p">,</span> <span class="n">e</span><span class="p">:</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsweibo_utilpy-113"><code data-line-number="113"></code></a></td>
+<td class="code"><code><a name="listingsweibo_utilpy-113"></a>            <span class="nb">print</span> <span class="s2">"登录失败,程序退出"</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsweibo_utilpy-114"><code data-line-number="114"></code></a></td>
+<td class="code"><code><a name="listingsweibo_utilpy-114"></a>            <span class="n">exit</span><span class="p">()</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsweibo_utilpy-115"><code data-line-number="115"></code></a></td>
+<td class="code"><code><a name="listingsweibo_utilpy-115"></a>    <span class="k">return</span> <span class="n">url</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsweibo_utilpy-116"><code data-line-number="116"></code></a></td>
+<td class="code"><code><a name="listingsweibo_utilpy-116"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsweibo_utilpy-117"><code data-line-number="117"></code></a></td>
+<td class="code"><code><a name="listingsweibo_utilpy-117"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsweibo_utilpy-118"><code data-line-number="118"></code></a></td>
+<td class="code"><code><a name="listingsweibo_utilpy-118"></a><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsweibo_utilpy-119"><code data-line-number="119"></code></a></td>
+<td class="code"><code><a name="listingsweibo_utilpy-119"></a>    <span class="n">usage</span> <span class="o">=</span> <span class="s2">"usage: %prog [options] arg"</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsweibo_utilpy-120"><code data-line-number="120"></code></a></td>
+<td class="code"><code><a name="listingsweibo_utilpy-120"></a>    <span class="n">parser</span> <span class="o">=</span> <span class="n">OptionParser</span><span class="p">(</span><span class="n">usage</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsweibo_utilpy-121"><code data-line-number="121"></code></a></td>
+<td class="code"><code><a name="listingsweibo_utilpy-121"></a>    <span class="n">parser</span><span class="o">.</span><span class="n">add_option</span><span class="p">(</span><span class="s2">"-f"</span><span class="p">,</span> <span class="s2">"--file"</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s1">'filepath'</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">'image file path'</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsweibo_utilpy-122"><code data-line-number="122"></code></a></td>
+<td class="code"><code><a name="listingsweibo_utilpy-122"></a>    <span class="n">parser</span><span class="o">.</span><span class="n">add_option</span><span class="p">(</span><span class="s2">"-u"</span><span class="p">,</span> <span class="s2">"--username"</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s2">"username"</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">"weibo username"</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsweibo_utilpy-123"><code data-line-number="123"></code></a></td>
+<td class="code"><code><a name="listingsweibo_utilpy-123"></a>    <span class="n">parser</span><span class="o">.</span><span class="n">add_option</span><span class="p">(</span><span class="s2">"-p"</span><span class="p">,</span> <span class="s2">"--password"</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s2">"password"</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">"weibo password"</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsweibo_utilpy-124"><code data-line-number="124"></code></a></td>
+<td class="code"><code><a name="listingsweibo_utilpy-124"></a>    <span class="p">(</span><span class="n">options</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsweibo_utilpy-125"><code data-line-number="125"></code></a></td>
+<td class="code"><code><a name="listingsweibo_utilpy-125"></a>    <span class="n">filename</span> <span class="o">=</span> <span class="n">options</span><span class="o">.</span><span class="n">filepath</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsweibo_utilpy-126"><code data-line-number="126"></code></a></td>
+<td class="code"><code><a name="listingsweibo_utilpy-126"></a>    <span class="n">username</span> <span class="o">=</span> <span class="n">options</span><span class="o">.</span><span class="n">username</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsweibo_utilpy-127"><code data-line-number="127"></code></a></td>
+<td class="code"><code><a name="listingsweibo_utilpy-127"></a>    <span class="n">password</span> <span class="o">=</span> <span class="n">options</span><span class="o">.</span><span class="n">password</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsweibo_utilpy-128"><code data-line-number="128"></code></a></td>
+<td class="code"><code><a name="listingsweibo_utilpy-128"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="n">filename</span><span class="p">:</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsweibo_utilpy-129"><code data-line-number="129"></code></a></td>
+<td class="code"><code><a name="listingsweibo_utilpy-129"></a>        <span class="n">parser</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">"Incorrect number of arguments"</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsweibo_utilpy-130"><code data-line-number="130"></code></a></td>
+<td class="code"><code><a name="listingsweibo_utilpy-130"></a>    <span class="nb">print</span> <span class="n">get_image</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="p">)</span>
+</code></td>
+</tr>
+</table></div>
+</div>
+                    </div>
+                </main><div class="footer extra-block no-print">
+    <span class="footer_item">
+        <a href="../pages/you-qing-lian-jie/">友情链接</a>
+    </span>
+    <span class="footer_item">
+        <a href="../pages/liu-yan-ban/">留言板</a>
+    </span>
+    <span class="footer_item">
+        <a href="../pages/ge-ren-dong-tai/">碎碎念</a>
+    </span>
+    </div>
+            <div class="footer social-link no-print">
+            <a href="https://github.com/ashfinal" target="_blank"><i class="grey large github icon"></i></a>
+            <a href="http://weibo.com/ashfinal/" target="_blank"><i class="grey large weibo icon"></i></a>
+            <a href="mailto://ashfinal@sina.cn" target="_blank"><i class="grey large mail icon"></i></a>
+            </div>
+        <div class="ui basic center aligned segment no-print">Contents © 2020         <a href="mailto:ashfinal@sina.cn">ashfinal</a> - Powered by         <a href="https://getnikola.com" target="_blank" rel="nofollow">Nikola</a>         </div>
+
+            </div>
+            <div class="computer only three wide column no-print">
+                <div id="right-side">
+                </div>
+            </div>
+        </div>
+
+        <!-- GoStats JavaScript Based Code -->
+        <script type="text/javascript">(function(c,o,m,p,u,t,e){
+        c['GoStatsObject']=u;c[u]=c[u]||function(){(c[u].q=c[u].q||[]).push(arguments)},
+        c[u].l=1*new Date();t=o.createElement(m);t.async=1;t.src=p;
+        e=o.getElementsByTagName(m)[0];e.parentNode.insertBefore(t,e);
+        })(window,document,'script','//www.gostats.org/5.js','go');
+        go('init',100479892,{'img_counter_type':5,'img_image_type':1});go('send');</script><!-- End GoStats JavaScript Based Code --><script type="text/javascript" src="../assets/js/jquery-3.3.1.min.js"></script><script type="text/javascript" src="../assets/js/semantic.min.js"></script><script type="text/javascript" src="../assets/js/jquery.fancybox.min.js"></script><script type="text/javascript" src="../assets/js/cookie.min.js"></script><script>
+            $(document).ready(function(){
+                $(".ui.dropdown").dropdown();
+                $('.ui.accordion').accordion();
+                var newstr = $('.cookie.nag').text();
+                $('.cookie.nag').nag({
+                    key: 'globalnotice',
+                    value: newstr
+                  });
+                $('.image-reference').fancybox();
+            });
+        </script>
+</body>
+</html>

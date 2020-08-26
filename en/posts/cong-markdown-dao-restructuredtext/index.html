@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="generator" content="Nikola (getnikola.com)">
+<title>从 Markdown 到 reStructuredText - MacPlay</title>
+<link rel="apple-touch-icon" sizes="180x180" href="../../../apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../../../favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../../../favicon-16x16.png">
+<link rel="mask-icon" href="../../../safari-pinned-tab.svg" color="#5bbad5">
+<link href="../../../assets/css/semantic.min.css" rel="stylesheet" type="text/css">
+<link href="../../../assets/css/jquery.fancybox.min.css" rel="stylesheet" type="text/css">
+<link href="../../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<link rel="canonical" href="https://macplay.github.io/en/posts/cong-markdown-dao-restructuredtext/">
+<meta name="author" content="ashfinal">
+<link rel="alternate" hreflang="zh_cn" href="../../../posts/cong-markdown-dao-restructuredtext/">
+<link rel="stylesheet" type="text/css" href="../../../assets/css/gitalk.css">
+<link rel="stylesheet" href="../../../assets/css/katex.min.css">
+</head>
+<body>
+        <div class="ui grid">
+            <div class="computer only three wide column no-print">
+                <div id="left-side">
+                </div>
+            </div>
+            <div class="ten wide computer sixteen wide tablet sixteen wide mobile column">
+                        <div class="ui inline cookie nag no-print">
+            <span class="title">从现在开始，支持中英双语及博文精选 O(∩_∩)O~~</span>
+            <i class="close icon"></i>
+        </div>
+    <header id="header" class="no-print"><div class="ui grid">
+        <div class="computer only tablet only sixteen wide column">
+            <div class="ui large secondary stackable menu">
+                <a class="header item brand-logo" href="https://macplay.github.io/en/">
+                    MacPlay
+                </a>
+                        <a class="item" href="../../../">Posts</a>
+                        <a class="item" href="../../../listings/">Code</a>
+                        <a class="item" href="../../../galleries/">Gallery</a>
+                        <a class="item" href="../../../categories/">Tags</a>
+                        <a class="item" href="../../../archive.html">Archive</a>
+                <div class="right menu">
+                    <a class="item" href="../../../rss.xml"><i class="rss icon"></i>RSS</a>
+                </div>
+            </div>
+        </div>
+        <div class="mobile only sixteen wide column">
+            <div class="ui fluid accordion vertical menu">
+                <div class="item">
+                    <a class="title">MacPlay</a>
+                    <div class="content">
+                                <a class="item" href="../../../">Posts</a>
+                                <a class="item" href="../../../listings/">Code</a>
+                                <a class="item" href="../../../galleries/">Gallery</a>
+                                <a class="item" href="../../../categories/">Tags</a>
+                                <a class="item" href="../../../archive.html">Archive</a>
+                        <a class="item" href="../../../rss.xml"><i class="rss icon"></i>RSS</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </header><main id="main"><div id="main-content">
+<div class="postpage post-text page-body" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <h1 class="post-title" itemprop="headline">
+        <a href=".">从 Markdown 到 reStructuredText</a>
+    </h1>
+
+    <div class="ui large horizontal link list post-meta">
+        <span class="item">By
+            <a href="../../authors/ashfinal/">ashfinal</a>
+        </span>
+            <span class="item">
+                <a href="https://github.com/macplay/macplay.github.io/edit/src/posts/cong-markdown-dao-restructuredtext.rst" target="_blank" title="Edit on GitHub">Edit</a>
+            </span>
+        <span class="item">
+            <time datetime="2017-10-04T16:20:05+08:00">
+            2017-10-04 16:20
+            </time></span>
+            <span class="item">
+                    <a href="../../categories/rest/">reST</a>
+                    <a href="../../categories/static-site/">static site</a>
+            </span>
+    </div>
+
+    
+    <div class="post-content" itemprop="article text">
+        <div id="post-content">
+        <div>
+<p>如果你正在使用 Markdown 尚嫌其功能不足，本文提供了平滑过渡到 reStructuredText 的语法指导。从来没有接触过任何标记语言的读者，以及正在使用其它标记语言的读者，也可以通过阅读本文了解到 reStructuredText 的基本用法。文章结构基本上借鉴 <a class="reference external" href="http://wowubuntu.com/markdown/">Markdown 语法说明</a> ，相对 Markdown 的超集部分仅会简单提及——这些部分将会在其它文章中着重讲解。</p>
+<!-- TEASER_END -->
+<div class="contents topic" id="id1">
+<p class="topic-title">文档目录</p>
+<ul class="simple">
+<li>
+<p><a class="reference internal" href="#id2" id="id43">概述</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id3" id="id44">宗旨</a></p></li>
+<li><p><a class="reference internal" href="#html" id="id45">兼容 HTML 语法</a></p></li>
+<li><p><a class="reference internal" href="#id8" id="id46">特殊字符转换</a></p></li>
+</ul>
+</li>
+<li>
+<p><a class="reference internal" href="#id9" id="id47">区块元素</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id10" id="id48">段落和换行</a></p></li>
+<li><p><a class="reference internal" href="#id11" id="id49">标题</a></p></li>
+<li><p><a class="reference internal" href="#id14" id="id50">区块引用</a></p></li>
+<li>
+<p><a class="reference internal" href="#id15" id="id51">列表</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id16" id="id52">有序列表</a></p></li>
+<li><p><a class="reference internal" href="#id17" id="id53">无序列表</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#id18" id="id54">代码区块</a></p></li>
+<li><p><a class="reference internal" href="#id19" id="id55">分割线</a></p></li>
+</ul>
+</li>
+<li>
+<p><a class="reference internal" href="#id20" id="id56">区段元素</a></p>
+<ul>
+<li>
+<p><a class="reference internal" href="#id21" id="id57">链接</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id22" id="id58">参考式链接</a></p></li>
+<li><p><a class="reference internal" href="#id24" id="id59">行内式链接</a></p></li>
+<li><p><a class="reference internal" href="#id26" id="id60">自动标题链接</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#id27" id="id61">强调</a></p></li>
+<li><p><a class="reference internal" href="#id28" id="id62">图片</a></p></li>
+</ul>
+</li>
+<li>
+<p><a class="reference internal" href="#id29" id="id63">其它</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id30" id="id64">行内标记</a></p></li>
+<li>
+<p><a class="reference internal" href="#id35" id="id65">交叉参考</a></p>
+<ul>
+<li><p><a class="reference internal" href="#footnotes" id="id66">脚注（Footnotes）</a></p></li>
+<li><p><a class="reference internal" href="#citations" id="id67">引文（Citations)</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#tables-of-contents-toc" id="id68">Tables of Contents(TOC)</a></p></li>
+<li><p><a class="reference internal" href="#table" id="id69">表格（table）</a></p></li>
+<li><p><a class="reference internal" href="#id38" id="id70">数学公式</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#id39" id="id71">reStructuredText 编辑器</a></p></li>
+<li><p><a class="reference internal" href="#id40" id="id72">总结</a></p></li>
+</ul>
+</div>
+<div class="section" id="id2">
+<h2><a class="toc-backref" href="#id43">概述</a></h2>
+<div class="section" id="id3">
+<h3><a class="toc-backref" href="#id44">宗旨</a></h3>
+<blockquote>
+<p>reStructuredText 是一种易于阅读、所见即所得的纯文本标记语言，常被用于编写行内文档（譬如 Python <a class="footnote-reference brackets" href="#id6" id="id4">1</a> ），快速创建简单网页，或者作为独立文档存在。——David Goodger <a class="footnote-reference brackets" href="#id7" id="id5">2</a></p>
+</blockquote>
+<dl class="footnote brackets">
+<dt class="label" id="id6"><span class="brackets"><a class="fn-backref" href="#id4">1</a></span></dt>
+<dd>
+<p>Python 官方文档生成器 <a class="reference external" href="http://www.sphinx-doc.org/en/stable/">Sphinx</a> 基于 reStructuredText 。</p>
+</dd>
+<dt class="label" id="id7"><span class="brackets"><a class="fn-backref" href="#id5">2</a></span></dt>
+<dd>
+<p>reStructuredText 标记语言主要贡献者之一。</p>
+</dd>
+</dl>
+<p>reStructuredText 的最初目标是定义一种可被 Python 文档和其它格式使用的标记语法，这种语法应该做到既简单易读，同时又功能强大可满足其它专业需要。 reStructuredText 的预期目标是：</p>
+<ul class="simple">
+<li><p>建立一套通用标准，使得纯文本发挥强大的表达能力</p></li>
+<li><p>如有必要，纯文本可被转换为其它格式的结构化文档</p></li>
+</ul>
+</div>
+<div class="section" id="html">
+<h3><a class="toc-backref" href="#id45">兼容 HTML 语法</a></h3>
+<p>reStructuredText 开箱支持转换为其它多种格式，其被设计为“Output-format-neutral（输出格式中性）”，即：并不会明确“偏袒”于哪种输出格式。</p>
+<div class="figure align-center">
+<img alt="/images/rst_outputs.png" src="../../../images/rst_outputs.png"><p class="caption"><em>rst 转换为其它格式</em></p>
+</div>
+<p>理所当然地，reStructuredText 提供了混合书写 HTML 语言的能力：</p>
+<pre class="code html"><a name="rest_code_10076a110fff43c1933294831ac55187-1"></a>.. raw:: html
+<a name="rest_code_10076a110fff43c1933294831ac55187-2"></a>
+<a name="rest_code_10076a110fff43c1933294831ac55187-3"></a>    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"ui steps"</span><span class="p">&gt;</span>
+<a name="rest_code_10076a110fff43c1933294831ac55187-4"></a>        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"step"</span><span class="p">&gt;</span>撰写 markup 文件<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<a name="rest_code_10076a110fff43c1933294831ac55187-5"></a>        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"active step"</span><span class="p">&gt;</span>添加 meta 信息<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<a name="rest_code_10076a110fff43c1933294831ac55187-6"></a>        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"disabled step"</span><span class="p">&gt;</span>提交 GitHub<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<a name="rest_code_10076a110fff43c1933294831ac55187-7"></a>    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</pre>
+<p>输出结果为：</p>
+<div class="ui steps">
+    <div class="step">撰写 markup 文件</div>
+    <div class="active step">添加 meta 信息</div>
+    <div class="disabled step">提交 GitHub</div>
+</div>
+</div>
+<div class="section" id="id8">
+<h3><a class="toc-backref" href="#id46">特殊字符转换</a></h3>
+<p>和 Markdown 一样，对于特殊字符 reStructuredText 会自动处理。你只需像正常字符那样书写就行。比如 4 &lt; 5，版权所有 ©，Bill &amp; Jobs……</p>
+</div>
+</div>
+<div class="section" id="id9">
+<h2><a class="toc-backref" href="#id47">区块元素</a></h2>
+<div class="section" id="id10">
+<h3><a class="toc-backref" href="#id48">段落和换行</a></h3>
+<p>和 Markdown 一样，reStructuredText 段落是由一个或多个连续的文本行组成。它的前后应该有一个以上的空行。</p>
+<p><em>如果你有首行缩进、强行断行、段落空行等需求，可以查看 reStructuredText 的 “Line Blocks” 部分。</em></p>
+</div>
+<div class="section" id="id11">
+<h3><a class="toc-backref" href="#id49">标题</a></h3>
+<p>reStructuredText 中的“标题”被称为“Sections”，一般在文字下方加特殊字符 <a class="footnote-reference brackets" href="#id13" id="id12">3</a> 以示区别：</p>
+<pre class="code rst"><a name="rest_code_a7122a59e97943e89bfddd1d345b9746-1"></a><span class="gh">Section Title H1</span>
+<a name="rest_code_a7122a59e97943e89bfddd1d345b9746-2"></a><span class="gh">================</span>
+<a name="rest_code_a7122a59e97943e89bfddd1d345b9746-3"></a>
+<a name="rest_code_a7122a59e97943e89bfddd1d345b9746-4"></a><span class="gh">Section Title H2</span>
+<a name="rest_code_a7122a59e97943e89bfddd1d345b9746-5"></a><span class="gh">----------------</span>
+<a name="rest_code_a7122a59e97943e89bfddd1d345b9746-6"></a>
+<a name="rest_code_a7122a59e97943e89bfddd1d345b9746-7"></a><span class="gh">Section Title H3</span>
+<a name="rest_code_a7122a59e97943e89bfddd1d345b9746-8"></a><span class="gh">````````````````</span>
+</pre>
+<dl class="footnote brackets">
+<dt class="label" id="id13"><span class="brackets"><a class="fn-backref" href="#id12">3</a></span></dt>
+<dd>
+<p>推荐使用的字符：<cite>= - ` : . ' " ~ ^ _ * + #</cite></p>
+</dd>
+</dl>
+<p>特殊字符的重复长度应该大于等于标题（Sections）的长度。需要说明的是： reStructuredText 并不像 Markdown 那样，限定某一字符只表示特定的标题层级（比如 <cite>=</cite> 固定表示 <cite>H1</cite> )。而是解析器将遇到的第一个特殊字符渲染为 <cite>H1</cite> ，第二个其它特殊字符渲染为 <cite>H2</cite> ……以此类推。</p>
+<div class="admonition admonition-">
+<p class="admonition-title">为何这样设计？</p>
+<p>这样的设计更方便调整标题层级。想象一下：你正在写《三国演义》，写到一半想把前 50 回总括为一章，接下来 30 回总括为第二章……如果你使用 Markdown，到第一回前面直接插入 <cite>## 第一章：枭雄的崛起</cite> 是不行的，因为所有的回数用的都是 <cite>## 第一回：桃源三结义</cite> 这样的二级标题，你还需要将 50 回，哦不，至少 80 回的所有标题都降级为三级标题……要修改 80 处是个烦人但可以接受的任务，而如果你维护的是 Python 文档库这样庞大繁杂的项目，仅仅是看似简单地调整下标题，对大多数人来说也是一场灾难。幸好有先见之明的维护者们选用了 reStructuredText ，这样只需选择一个没被占用的特殊字符配合总括标题就可以——文档的其它部分根本就不必修改。</p>
+</div>
+<p>当然，在 reStructuredText 的日常使用中，仍然建议养成习惯使用固定的特殊符号，方便别人一看到 <cite>=</cite> 就知道这是一级标题。 除了 “Sections”外， reStructuredText 还支持“Title”和“SubTitle”，它们可以被配置为不在文档中出现。其实际作用更类似于“书名”，如《钢铁是怎样炼成的——保尔柯察金自传》。语法如下：</p>
+<pre class="code rst"><a name="rest_code_862193fc97d74b08bc939e3ac8b9c9be-1"></a><span class="gh">==================</span>
+<a name="rest_code_862193fc97d74b08bc939e3ac8b9c9be-2"></a><span class="gh"> 钢铁是怎样炼成的</span>
+<a name="rest_code_862193fc97d74b08bc939e3ac8b9c9be-3"></a><span class="gh">==================</span>
+<a name="rest_code_862193fc97d74b08bc939e3ac8b9c9be-4"></a>
+<a name="rest_code_862193fc97d74b08bc939e3ac8b9c9be-5"></a><span class="gh">----------------</span>
+<a name="rest_code_862193fc97d74b08bc939e3ac8b9c9be-6"></a><span class="gh"> 保尔柯察金自传</span>
+<a name="rest_code_862193fc97d74b08bc939e3ac8b9c9be-7"></a><span class="gh">----------------</span>
+</pre>
+</div>
+<div class="section" id="id14">
+<h3><a class="toc-backref" href="#id50">区块引用</a></h3>
+<p>reStructuredText 的区块引用使用空格或制表符的方式，一般是 4 个空格。</p>
+<pre class="code rst"><a name="rest_code_e47e6e859a5b48989845d2bde4eec345-1"></a>Amet omnis animi doloribus.
+<a name="rest_code_e47e6e859a5b48989845d2bde4eec345-2"></a>Consectetur culpa veniam earum provident tempora saepe adipisci!
+<a name="rest_code_e47e6e859a5b48989845d2bde4eec345-3"></a>Ipsum quidem adipisci ab officia sed blanditiis, eum non. Eos dignissimos odit.
+<a name="rest_code_e47e6e859a5b48989845d2bde4eec345-4"></a>
+<a name="rest_code_e47e6e859a5b48989845d2bde4eec345-5"></a>    当然嵌套也是可以的（中间加空行）：
+<a name="rest_code_e47e6e859a5b48989845d2bde4eec345-6"></a>    Consectetur assumenda eveniet nihil nemo recusandae, voluptas id, voluptates voluptatibus, quod harum recusandae cumque labore non?
+</pre>
+<p>渲染效果：</p>
+<blockquote>
+<p>Amet omnis animi doloribus.
+Consectetur culpa veniam earum provident tempora saepe adipisci!
+Ipsum quidem adipisci ab officia sed blanditiis, eum non. Eos dignissimos odit.</p>
+<blockquote>
+<p>当然嵌套也是可以的（中间加空行）：
+Consectetur assumenda eveniet nihil nemo recusandae, voluptas id, voluptates voluptatibus, quod harum recusandae cumque labore non?</p>
+</blockquote>
+</blockquote>
+</div>
+<div class="section" id="id15">
+<h3><a class="toc-backref" href="#id51">列表</a></h3>
+<p>reStructuredText 支持有序列表和无序列表，语法与 Markdown 基本一致：</p>
+<div class="section" id="id16">
+<h4><a class="toc-backref" href="#id52">有序列表</a></h4>
+<pre class="code rst"><a name="rest_code_ca5d3ecbe3124474ba43e220c4c8d94e-1"></a><span class="m">2.</span> Consectetur est iure.
+<a name="rest_code_ca5d3ecbe3124474ba43e220c4c8d94e-2"></a><span class="m">3.</span> Adipisicing velit ad laborum libero.
+<a name="rest_code_ca5d3ecbe3124474ba43e220c4c8d94e-3"></a>   第二行
+<a name="rest_code_ca5d3ecbe3124474ba43e220c4c8d94e-4"></a><span class="m">4.</span> Sit atque atque aliquid assumenda voluptates.
+<a name="rest_code_ca5d3ecbe3124474ba43e220c4c8d94e-5"></a>
+<a name="rest_code_ca5d3ecbe3124474ba43e220c4c8d94e-6"></a>   试着分段
+<a name="rest_code_ca5d3ecbe3124474ba43e220c4c8d94e-7"></a>   Libero provident quia temporibus deleniti quam.
+</pre>
+<p>渲染结果：</p>
+<ol class="arabic" start="2">
+<li><p>Consectetur est iure.</p></li>
+<li><p>Adipisicing velit ad laborum libero.
+第二行</p></li>
+<li>
+<p>Sit atque atque aliquid assumenda voluptates.</p>
+<p>试着分段
+Libero provident quia temporibus deleniti quam.</p>
+</li>
+</ol>
+<p><em>注意到有序列表的起始数可以从非 1 的数字开始。</em></p>
+</div>
+<div class="section" id="id17">
+<h4><a class="toc-backref" href="#id53">无序列表</a></h4>
+<p>与 Markdown 没有什么差别：</p>
+<pre class="code rst"><a name="rest_code_f7203d36dbd045b7881f0d39dabbddc4-1"></a><span class="m">-</span> Amet sit magnam!
+<a name="rest_code_f7203d36dbd045b7881f0d39dabbddc4-2"></a><span class="m">-</span> Consectetur cum hic deserunt laudantium.
+<a name="rest_code_f7203d36dbd045b7881f0d39dabbddc4-3"></a><span class="m">-</span> Adipisicing impedit nulla aspernatur nam illo eos.
+</pre>
+<p>渲染结果：</p>
+<ul class="simple">
+<li><p>Amet sit magnam!</p></li>
+<li><p>Consectetur cum hic deserunt laudantium.</p></li>
+<li><p>Adipisicing impedit nulla aspernatur nam illo eos.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="id18">
+<h3><a class="toc-backref" href="#id54">代码区块</a></h3>
+<p>与 Markdown 的 "Fenced Code Blocks" 非常相似，reStructuredText 将调用 pygments 进行语法高亮：</p>
+<pre class="code rst"><a name="rest_code_2a5c5fd0ac3444a0951941a7ff867fb3-1"></a><span class="p">..</span> <span class="ow">code</span><span class="p">::</span> <span class="k">python</span>
+<a name="rest_code_2a5c5fd0ac3444a0951941a7ff867fb3-2"></a>
+<a name="rest_code_2a5c5fd0ac3444a0951941a7ff867fb3-3"></a>   <span class="kn">import</span> <span class="nn">sys</span>
+<a name="rest_code_2a5c5fd0ac3444a0951941a7ff867fb3-4"></a>   <span class="nb">print</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">version</span><span class="p">)</span>
+</pre>
+<p>渲染结果：</p>
+<pre class="code python"><a name="rest_code_992c75f5a41943548973269cac00f77e-1"></a><span class="kn">import</span> <span class="nn">sys</span>
+<a name="rest_code_992c75f5a41943548973269cac00f77e-2"></a><span class="nb">print</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">version</span><span class="p">)</span>
+</pre>
+</div>
+<div class="section" id="id19">
+<h3><a class="toc-backref" href="#id55">分割线</a></h3>
+<p>与 Markdown 语法基本一致：</p>
+<pre class="code rst"><a name="rest_code_23097eea7c8a4119b1f948363887ed21-1"></a>-----------------
+</pre>
+<p>渲染结果：</p>
+</div>
+</div>
+<hr class="docutils">
+<div class="section" id="id20">
+<h2><a class="toc-backref" href="#id56">区段元素</a></h2>
+<div class="section" id="id21">
+<h3><a class="toc-backref" href="#id57">链接</a></h3>
+<p>reStructuredText 的链接语法大体上也可以分为两类： <strong>行内式</strong> 和 <strong>参考式</strong> 。一般推荐做法是：为了增强可读性尽量使用参考式，如果在一篇文档中多次引用该链接，则更是推荐使用参考式。</p>
+<div class="section" id="id22">
+<h4><a class="toc-backref" href="#id58">参考式链接</a></h4>
+<p>常见语法：</p>
+<pre class="code rst"><a name="rest_code_ff9fca86a5b14591abe107264e2597d6-1"></a>欢迎访问 reStructuredText_ 官方主页。
+<a name="rest_code_ff9fca86a5b14591abe107264e2597d6-2"></a>
+<a name="rest_code_ff9fca86a5b14591abe107264e2597d6-3"></a><span class="p">..</span> <span class="nt">_reStructuredText:</span> http://docutils.sf.net/
+</pre>
+<p>渲染结果：</p>
+<p>欢迎访问 <a class="reference external" href="http://docutils.sf.net/">reStructuredText</a> 官方主页。</p>
+<p>如果是多个词组或者中文链接文本，则使用 <code class="docutils literal">`</code> 将其括住，就像这样：</p>
+<pre class="code rst"><a name="rest_code_c2969396c0364b00ad4eeac070f19f49-1"></a>欢迎访问 <span class="s">`reStructuredText 结构化文本`_</span> 官方主页。
+<a name="rest_code_c2969396c0364b00ad4eeac070f19f49-2"></a>
+<a name="rest_code_c2969396c0364b00ad4eeac070f19f49-3"></a><span class="p">..</span> <span class="nt">_`reStructuredText 结构化文本`:</span> http://docutils.sf.net/
+</pre>
+<p>如果文档中多个链接指向的其实是同一地址，可以简略点只写一次：</p>
+<pre class="code rst"><a name="rest_code_cbae49dfa96c486eaf2d4d7e332320ed-1"></a>Python_ 是 <span class="s">`我最喜欢的编程语言`_</span> 。用英语来说，就是 <span class="s">`my favorite programming language`_</span> 。
+<a name="rest_code_cbae49dfa96c486eaf2d4d7e332320ed-2"></a>
+<a name="rest_code_cbae49dfa96c486eaf2d4d7e332320ed-3"></a><span class="p">..</span> <span class="nt">_Python:</span>
+<a name="rest_code_cbae49dfa96c486eaf2d4d7e332320ed-4"></a><span class="p">..</span> <span class="nt">_`最喜欢的编程语言`:</span>
+<a name="rest_code_cbae49dfa96c486eaf2d4d7e332320ed-5"></a><span class="p">..</span> <span class="nt">_`my favorite programming language`:</span> http://www.python.org/
+</pre>
+<p>渲染结果：</p>
+<p><a class="reference external" href="http://www.python.org/">Python</a> 是 <a class="reference external" href="http://www.python.org/">我最喜欢的编程语言</a> 。用英语来说，就是 <a class="reference external" href="http://www.python.org/">my favorite programming language</a> 。</p>
+</div>
+<div class="section" id="id24">
+<h4><a class="toc-backref" href="#id59">行内式链接</a></h4>
+<p>当然在文档中使用行内式链接也是可以的。直接在文档中插入简单链接： <a class="reference external" href="http://docutils.sf.net/">http://docutils.sf.net/</a> 。如果 URL 地址中含有特殊字符甚至是中文，则使用尖括号将其括住：</p>
+<pre class="code rst"><a name="rest_code_deaa756e524e4e7a9bd51bbb3d8cfebb-1"></a><span class="nt">&lt;http://docutils.sf.net/&gt;</span>
+</pre>
+<p>也可以自定义链接文本：</p>
+<pre class="code rst"><a name="rest_code_ee17fcc4d1d448e09204d652de9129d0-1"></a><span class="s">`Python 编程语言 </span><span class="si">&lt;http://www.python.org/&gt;</span><span class="s">`_</span> 其实也有一些缺陷。
+</pre>
+<p>渲染结果：</p>
+<p><a class="reference external" href="http://www.python.org/">Python 编程语言</a> 其实也有一些缺陷。</p>
+</div>
+<div class="section" id="id26">
+<h4><a class="toc-backref" href="#id60">自动标题链接</a></h4>
+<p>reStructuredText 文档的各级标题（Sections）会自动生成链接，就像 GFM 风格的 Markdown 标记语言一样。这在 reStructuredText 语法手册中被称为“隐式链接（Implicit Hyperlink）”。无论名称为何，我们将可以在文档中快速跳转到其它小节（Sections）：</p>
+<pre class="code rst"><a name="rest_code_c5380a12ef7c42f0b612c01914cdff93-1"></a>本小节内容应该与 <span class="s">`行内标记`_</span> 结合学习。
+</pre>
+<p>渲染结果：</p>
+<p>本小节内容应该与 <a class="reference internal" href="#id30">行内标记</a> 结合学习。</p>
+<div class="admonition attention">
+<p class="admonition-title">注意</p>
+<p><strong>使用中英文混合书写 reStructuredText 过程中注意添加空格。</strong></p>
+</div>
+</div>
+</div>
+<div class="section" id="id27">
+<h3><a class="toc-backref" href="#id61">强调</a></h3>
+<p>与 Markdown 语法基本相同。参看 <a class="reference internal" href="#id30">行内标记</a> 。</p>
+</div>
+<div class="section" id="id28">
+<h3><a class="toc-backref" href="#id62">图片</a></h3>
+<p>reStructuredText 使用指令（Directives)的方式来插入图片。指令（Directives）作为 reStructuredText 语言的一种扩展机制，允许快速添加新的文档结构而无需对底层语法进行更改。reStructuredText 开箱已经内置了一批常用指令，上文中使用的 <cite>raw</cite> 和 <cite>code</cite> 其实就是指令。指令的重要功能之一是可以添加选项以控制解析器对该元素的渲染方式，譬如让图片以两倍高宽居中进行展示：</p>
+<pre class="code rst"><a name="rest_code_65eac99012a64aa7b2f6661830ea718d-1"></a><span class="p">..</span> <span class="ow">image</span><span class="p">::</span> /images/nikola.png
+<a name="rest_code_65eac99012a64aa7b2f6661830ea718d-2"></a>   <span class="nc">:align:</span> center
+<a name="rest_code_65eac99012a64aa7b2f6661830ea718d-3"></a>   <span class="nc">:width:</span> 236px
+<a name="rest_code_65eac99012a64aa7b2f6661830ea718d-4"></a>   <span class="nc">:height:</span> 100px
+</pre>
+<p>渲染结果：</p>
+<img alt="/images/nikola.png" class="align-center" src="../../../images/nikola.png" style="width: 236px; height: 100px;"><p>插入图片的另一种方法是使用 <cite>figure</cite> 指令。该指令与 <cite>image</cite> 基本一样，不过可以为图片添加标题和说明文字。两个指令共有的一个选项为 <cite>target</cite> ，可以为图片添加可点击的链接，甚至链接到另一张图片。那么结合 Nikola 博客的特定主题，就可以实现点击缩略图查看原图的效果：</p>
+<pre class="code rst"><a name="rest_code_d252507ea7e546b8a199a0dcfd3dc453-1"></a><span class="p">..</span> <span class="ow">figure</span><span class="p">::</span> /images/icarus.thumbnail.jpg
+<a name="rest_code_d252507ea7e546b8a199a0dcfd3dc453-2"></a>   <span class="nc">:align:</span> center
+<a name="rest_code_d252507ea7e546b8a199a0dcfd3dc453-3"></a>   <span class="nc">:target:</span> /images/icarus.jpg
+<a name="rest_code_d252507ea7e546b8a199a0dcfd3dc453-4"></a>
+<a name="rest_code_d252507ea7e546b8a199a0dcfd3dc453-5"></a>   <span class="ge">*飞向太阳*</span>
+</pre>
+<p>渲染结果：</p>
+<div class="figure align-center">
+<a class="reference external image-reference" href="../../../images/icarus.jpg"><img alt="/images/icarus.thumbnail.jpg" src="../../../images/icarus.thumbnail.jpg"></a>
+<p class="caption"><em>飞向太阳</em></p>
+</div>
+</div>
+</div>
+<div class="section" id="id29">
+<h2><a class="toc-backref" href="#id63">其它</a></h2>
+<div class="section" id="id30">
+<h3><a class="toc-backref" href="#id64">行内标记</a></h3>
+<table>
+<colgroup>
+<col style="width: 32%">
+<col style="width: 27%">
+<col style="width: 41%">
+</colgroup>
+<thead><tr>
+<th class="head"><p>文本</p></th>
+<th class="head"><p>结果</p></th>
+<th class="head"><p>说明</p></th>
+</tr></thead>
+<tbody>
+<tr>
+<td><p><code class="docutils literal">*强调*</code></p></td>
+<td><p><em>强调</em></p></td>
+<td><p>一般被渲染为斜体</p></td>
+</tr>
+<tr>
+<td><p><code class="docutils literal">**着重强调**</code></p></td>
+<td><p><strong>着重强调</strong></p></td>
+<td><p>一般被渲染为加粗</p></td>
+</tr>
+<tr>
+<td><p><code class="docutils literal">`解释文本`</code></p></td>
+<td><p><cite>解释文本</cite></p></td>
+<td><p>一般用于专用名词、文本引用、说明性文字等</p></td>
+</tr>
+<tr>
+<td><p><code class="docutils literal">``原样文本``</code></p></td>
+<td><p><code class="docutils literal">原样文本</code></p></td>
+<td><p>与上面的区别在于：不会被转义。可用于行内代码书写。</p></td>
+</tr>
+<tr>
+<td><p><code class="docutils literal"><span class="pre">http://docutils.sf.net/</span></code></p></td>
+<td><p><a class="reference external" href="http://docutils.sf.net/">http://docutils.sf.net/</a></p></td>
+<td><p>最简单的链接。如果怕链接文本断裂，用尖括号包住。</p></td>
+</tr>
+<tr>
+<td><p><code class="docutils literal">reference_</code></p></td>
+<td><p><a class="reference external" href="http://docutils.sf.net/">reference</a></p></td>
+<td><p>简单的一个单词的链接。与 Markdown 的参考型链接非常相似。具体参看下文 <a class="reference internal" href="#id21">链接</a> 。</p></td>
+</tr>
+<tr>
+<td><p><code class="docutils literal">`词组链接`_</code></p></td>
+<td><p><a class="reference external" href="http://docutils.sf.net/">词组链接</a></p></td>
+<td><p>与上面基本相似。如果是词组或中文，则把链接文本用 <code class="docutils literal">`</code> 括起来。</p></td>
+</tr>
+<tr>
+<td><p><code class="docutils literal">|TMD|</code></p></td>
+<td><p>战区导弹防御系统</p></td>
+<td><p>替换语法。可与文本、图片、链接等配合使用。</p></td>
+</tr>
+<tr>
+<td><p><code class="docutils literal">脚注 <span class="pre">[#]_</span></code></p></td>
+<td><p>脚注 <a class="footnote-reference brackets" href="#id34" id="id31">4</a></p></td>
+<td><p>参看下文 <a class="reference internal" href="#footnotes">脚注（Footnotes）</a> 。</p></td>
+</tr>
+<tr>
+<td><p><code class="docutils literal">引文 [CIT2002]_</code></p></td>
+<td><p>引文 <a class="citation-reference" href="#cit2002" id="id32">[CIT2002]</a></p></td>
+<td><p>与上面的脚注基本相同。不过可以自定义引文文本。</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="footnote brackets">
+<dt class="label" id="id34"><span class="brackets"><a class="fn-backref" href="#id31">4</a></span></dt>
+<dd>
+<p>这是一个脚注，但是不一定要放到文章结尾。</p>
+</dd>
+</dl>
+<dl class="citation">
+<dt class="label" id="cit2002"><span class="brackets"><a class="fn-backref" href="#id32">CIT2002</a></span></dt>
+<dd>
+<p>这是一个引文，当然你也可以添加 <a class="reference internal" href="#id21">链接</a> 。</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="id35">
+<h3><a class="toc-backref" href="#id65">交叉参考</a></h3>
+<div class="section" id="footnotes">
+<h4><a class="toc-backref" href="#id66">脚注（Footnotes）</a></h4>
+<pre class="code rst"><a name="rest_code_efb1749cc8374c1a803a4af0bffdae66-1"></a>就像这样创建一个脚注 <span class="s">[#]_</span> 。
+<a name="rest_code_efb1749cc8374c1a803a4af0bffdae66-2"></a>
+<a name="rest_code_efb1749cc8374c1a803a4af0bffdae66-3"></a><span class="p">..</span> <span class="nt">[#]</span> 这里是 <span class="gs">**脚注**</span> 的 <span class="ge">*文本*</span> 。
+</pre>
+<p>渲染结果：</p>
+<p>就像这样创建一个脚注 <a class="footnote-reference brackets" href="#id41" id="id36">5</a> 。</p>
+<p>脚注内容在文档的任何位置定义都可以，脚注也不一定必须得放到文档末尾。使用 <code class="docutils literal">#</code> 则是让脚注自动编号，使用自动编号时注意保持脚注和脚注内容的相对位置。当然你也可以直接指定使用特定数字，就像这样： <code class="docutils literal">[1]_</code> 。</p>
+</div>
+<div class="section" id="citations">
+<h4><a class="toc-backref" href="#id67">引文（Citations)</a></h4>
+<p>如果给脚注指定标签，则被解析为引文（Citations）：</p>
+<pre class="code rst"><a name="rest_code_e430711a8f3a463693e3b6736372d87e-1"></a>请参阅我们去年发表在《自然》期刊上的文章 <span class="s">[NT202329]_</span>
+<a name="rest_code_e430711a8f3a463693e3b6736372d87e-2"></a>
+<a name="rest_code_e430711a8f3a463693e3b6736372d87e-3"></a><span class="p">..</span> <span class="nt">[NT202329]</span> <span class="s">`用流体力学来研究猫究竟是固态的还是液态的 </span><span class="si">&lt;https://www.invalid.org/somelink/&gt;</span><span class="s">`_</span>
+</pre>
+<p>渲染结果：</p>
+<p>请参阅我们去年发表在《自然》期刊上的文章 <a class="citation-reference" href="#nt202329" id="id37">[NT202329]</a></p>
+</div>
+</div>
+<div class="section" id="tables-of-contents-toc">
+<h3><a class="toc-backref" href="#id68">Tables of Contents(TOC)</a></h3>
+<p>文档目录生成则使用了 reStructuredText 的指令（Directives） <cite>contents</cite> 。</p>
+<pre class="code rst"><a name="rest_code_8e02e7d164534ebcb6a465077d29e122-1"></a><span class="p">..</span> <span class="ow">contents</span><span class="p">::</span> 文档目录
+</pre>
+<p>渲染结果具体查看文档开头。 <code class="docutils literal">::</code> 后面的 <cite>文档目录</cite> 被用来指定目录块的标题，为空的话则默认为 <cite>Contents</cite> 。另外该指令可使用 <cite>depth</cite> 选项指定目录生成层级， <cite>local</cite> 指定仅生成本节及下层的目录列表。</p>
+</div>
+<div class="section" id="table">
+<h3><a class="toc-backref" href="#id69">表格（table）</a></h3>
+<pre class="code rst"><a name="rest_code_29d40798546c478eb58338611ed762c1-1"></a>+------------------------+------------+----------+----------+
+<a name="rest_code_29d40798546c478eb58338611ed762c1-2"></a><span class="o">|</span> Header row, column 1   | Header 2   | Header 3 | Header 4 |
+<a name="rest_code_29d40798546c478eb58338611ed762c1-3"></a><span class="o">|</span> (header rows optional) |            |          |          |
+<a name="rest_code_29d40798546c478eb58338611ed762c1-4"></a>+========================+============+==========+==========+
+<a name="rest_code_29d40798546c478eb58338611ed762c1-5"></a><span class="o">|</span> body row 1, column 1   | column 2   | column 3 | column 4 |
+<a name="rest_code_29d40798546c478eb58338611ed762c1-6"></a>+------------------------+------------+----------+----------+
+<a name="rest_code_29d40798546c478eb58338611ed762c1-7"></a><span class="o">|</span> body row 2             | Cells may span columns.          |
+<a name="rest_code_29d40798546c478eb58338611ed762c1-8"></a>+------------------------+------------+---------------------+
+<a name="rest_code_29d40798546c478eb58338611ed762c1-9"></a><span class="o">|</span> body row 3             | Cells may  | - Table cells       |
+<a name="rest_code_29d40798546c478eb58338611ed762c1-10"></a>+------------------------+ span rows. | - contain           |
+<a name="rest_code_29d40798546c478eb58338611ed762c1-11"></a><span class="o">|</span> body row 4             |            | - body elements.    |
+<a name="rest_code_29d40798546c478eb58338611ed762c1-12"></a>+------------------------+------------+---------------------+
+</pre>
+<p>渲染结果：</p>
+<table>
+<colgroup>
+<col style="width: 43%">
+<col style="width: 21%">
+<col style="width: 18%">
+<col style="width: 18%">
+</colgroup>
+<thead><tr>
+<th class="head"><p>Header row, column 1
+(header rows optional)</p></th>
+<th class="head"><p>Header 2</p></th>
+<th class="head"><p>Header 3</p></th>
+<th class="head"><p>Header 4</p></th>
+</tr></thead>
+<tbody>
+<tr>
+<td><p>body row 1, column 1</p></td>
+<td><p>column 2</p></td>
+<td><p>column 3</p></td>
+<td><p>column 4</p></td>
+</tr>
+<tr>
+<td><p>body row 2</p></td>
+<td colspan="3"><p>Cells may span columns.</p></td>
+</tr>
+<tr>
+<td><p>body row 3</p></td>
+<td rowspan="2"><p>Cells may
+span rows.</p></td>
+<td colspan="2" rowspan="2"><ul class="simple">
+<li><p>Table cells</p></li>
+<li><p>contain</p></li>
+<li><p>body elements.</p></li>
+</ul></td>
+</tr>
+<tr>
+<td><p>body row 4</p></td>
+</tr>
+</tbody>
+</table>
+<p>这种表格语法被称为 <cite>Grid Tables</cite> 。如上所见， <cite>Grid Tables</cite> 支持跨行跨列。如果你使用的编辑器创建该表格有困难，reStructuredText 还提供 <cite>Simple Tables</cite> 表格语法：</p>
+<pre class="code rst"><a name="rest_code_d78f3c2954cb4b4694fa69c64b94b10e-1"></a>=====  =====  ======
+<a name="rest_code_d78f3c2954cb4b4694fa69c64b94b10e-2"></a>   Inputs     Output
+<a name="rest_code_d78f3c2954cb4b4694fa69c64b94b10e-3"></a>------------  ------
+<a name="rest_code_d78f3c2954cb4b4694fa69c64b94b10e-4"></a>  A      B    A or B
+<a name="rest_code_d78f3c2954cb4b4694fa69c64b94b10e-5"></a>=====  =====  ======
+<a name="rest_code_d78f3c2954cb4b4694fa69c64b94b10e-6"></a>False  False  False
+<a name="rest_code_d78f3c2954cb4b4694fa69c64b94b10e-7"></a>True   True   True
+<a name="rest_code_d78f3c2954cb4b4694fa69c64b94b10e-8"></a>=====  =====  ======
+</pre>
+<p>渲染结果：</p>
+<table>
+<colgroup>
+<col style="width: 31%">
+<col style="width: 31%">
+<col style="width: 38%">
+</colgroup>
+<thead>
+<tr>
+<th class="head" colspan="2"><p>Inputs</p></th>
+<th class="head"><p>Output</p></th>
+</tr>
+<tr>
+<th class="head"><p>A</p></th>
+<th class="head"><p>B</p></th>
+<th class="head"><p>A or B</p></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><p>False</p></td>
+<td><p>False</p></td>
+<td><p>False</p></td>
+</tr>
+<tr>
+<td><p>True</p></td>
+<td><p>True</p></td>
+<td><p>True</p></td>
+</tr>
+</tbody>
+</table>
+<p>此外，reStructuredText 还有两种表格指令（Directives）： <cite>list-table</cite> 和 <cite>csv-table</cite> 。分别以无序列表和 csv 数据（一般逗号分割）的方式创建表格，这里就不继续展开了。总体上来说，4 种表格的“纯手工”书写难度逐次降低。</p>
+</div>
+<div class="section" id="id38">
+<h3><a class="toc-backref" href="#id70">数学公式</a></h3>
+<p>reStructuredText 的数学公式书写通过指令（Directives）： <cite>math</cite> 完成。如需网页上显示的话，则和其它所有标记语言一样需要引入 <a class="reference external" href="https://www.mathjax.org/">MathJax</a> 或 <a class="reference external" href="https://github.com/Khan/KaTeX">KaTex</a> js 库。</p>
+<pre class="code rst"><a name="rest_code_d78d6d6de06f4d3bb6f8b1e8ed33a32c-1"></a><span class="p">..</span> <span class="ow">math</span><span class="p">::</span>
+<a name="rest_code_d78d6d6de06f4d3bb6f8b1e8ed33a32c-2"></a>
+<a name="rest_code_d78d6d6de06f4d3bb6f8b1e8ed33a32c-3"></a>   \alpha _t(i) = P(O_1, O_2, \ldots  O_t, q_t = S_i \lambda )
+</pre>
+<div class="math">
+\begin{equation*}
+\alpha _t(i) = P(O_1, O_2, \ldots  O_t, q_t = S_i \lambda )
+\end{equation*}
+</div>
+<p><strong>行内数学公式</strong> 则是通过 <cite>math role</cite> 实现的：</p>
+<pre class="code rst"><a name="rest_code_29b7a42a568e4c8bb3e7cf7c0d797244-1"></a>该圆的面积为 <span class="na">:math:</span><span class="nv">`A_\text{c} = (\pi/4) d^2`</span>.
+</pre>
+<p>渲染结果：</p>
+<p>该圆的面积为 <span class="math">\(A_\text{c} = (\pi/4) d^2\)</span>.</p>
+</div>
+</div>
+<div class="section" id="id39">
+<h2><a class="toc-backref" href="#id71">reStructuredText 编辑器</a></h2>
+<p>很遗憾的是，相对于 Markdown “预览器”百花齐放争奇斗艳的盛况， reStructuredText 上可用的“预览器”则很寥寥。不过根据本人之前使用 Markdown 的经历，一旦度过了学习上手阶段，对“预览器”的需求就会大幅下降——书写时有语法高亮就基本可以应付。以下为部分工具推荐：</p>
+<ul>
+<li>
+<p><a class="reference external" href="https://www.sublimetext.com/">Sublime Text</a> + <a class="reference external" href="https://github.com/timonwong/OmniMarkupPreviewer">OmniMarkupPreviewer</a></p>
+<p>性感的编辑器 + 多种格式实时预览插件</p>
+</li>
+<li>
+<p><a class="reference external" href="http://rst.ninjs.org/">Online reStructuredText editor</a></p>
+<p>网页版的 reST 编辑器。</p>
+</li>
+<li>
+<p><a class="reference external" href="https://github.com/ShiraNai7/rstpad">rstpad</a></p>
+<p>跨平台的 reST 本地客户端。</p>
+</li>
+<li>
+<p><a class="reference external" href="https://github.com/">GitHub</a></p>
+<p>GitHub 支持 Markdown、reST、org 等在线编辑和预览。</p>
+</li>
+<li>
+<p><a class="reference external" href="https://getnikola.com/">Nikola</a></p>
+<p>支持 reST 文档的静态博客程序。</p>
+</li>
+<li>
+<p><a class="reference external" href="https://github.com/vim/vim">Vim</a></p>
+<p>编辑器之神</p>
+</li>
+<li>
+<p><a class="reference external" href="http://www.gnu.org/software/emacs/">Emacs</a></p>
+<p>神之编辑器</p>
+</li>
+</ul>
+</div>
+<div class="section" id="id40">
+<h2><a class="toc-backref" href="#id72">总结</a></h2>
+<p>通过本文的介绍，有没有发现 reST 的语法其实与 Markdown 很相似，而且也很简单呢？ :) 文章基本上覆盖了 Markdown （及其扩展）的主要功能，可以看出 reST 满足日常使用是没有问题的，而读者们也清楚了 reST 的一些基本用法。</p>
+<p>前面已经提过：在一定程度上，reST 可以看作是 Markdown 的超集。接下来的文章将会结合文档需求写一写 reST 的其它语法，敬请期待～</p>
+<hr class="docutils">
+<dl class="footnote brackets">
+<dt class="label" id="id41"><span class="brackets"><a class="fn-backref" href="#id36">5</a></span></dt>
+<dd>
+<p>这里是 <strong>脚注</strong> 的 <em>文本</em> 。</p>
+</dd>
+</dl>
+<dl class="citation">
+<dt class="label" id="nt202329"><span class="brackets"><a class="fn-backref" href="#id37">NT202329</a></span></dt>
+<dd>
+<p><a class="reference external" href="https://www.invalid.org/somelink/">用流体力学来研究猫究竟是固态的还是液态的</a></p>
+<p>如果想查看该文章，请先确定你已经进化为气态人 :)</p>
+</dd>
+</dl>
+</div>
+</div>
+        </div>
+    </div>
+    <div class="post-info">
+        <p>文章链接：<a href="https://macplay.github.io/en/posts/cong-markdown-dao-restructuredtext/" target="_blank">https://macplay.github.io/en/posts/cong-markdown-dao-restructuredtext/</a></p>
+        <p>发布/更新于：
+            <time datetime="2017-10-04 16:20:05 UTC+08:00">
+            2017-10-04 16:20
+            </time></p>
+        <p>版权声明：如无特别说明，本站文章均遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">CC BY-NC-SA 4.0</a> 协议，转载请注明作者及出处。</p>
+    </div>
+        <div class="post-navigation no-print">
+        <div class="ui huge secondary stackable menu">
+            <a class="post-nav-item post-nav-previous item" href="../at-home-outdoors/" title="Previous post"><i class="angle double left icon"></i> At Home Outdoors</a>
+        <div class="right menu">
+            <a class="post-nav-item post-nav-next item" href="../ji-ge-you-yong-de-zhong-duan-ming-ling-zheng-li/" title="Next post">有用的终端命令整理 <i class="angle double right icon"></i></a>
+        </div>
+        </div>
+    </div>
+
+        <div id="gitalk-container" class="comments-block no-print"></div>
+</div>
+                    </div>
+                </main><div class="footer extra-block no-print">
+    <span class="footer_item">
+        <a href="../../../pages/you-qing-lian-jie/">友情链接</a>
+    </span>
+    <span class="footer_item">
+        <a href="../../../pages/liu-yan-ban/">留言板</a>
+    </span>
+    <span class="footer_item">
+        <a href="../../../pages/ge-ren-dong-tai/">碎碎念</a>
+    </span>
+    </div>
+            <div class="footer social-link no-print">
+            <a href="https://github.com/ashfinal" target="_blank"><i class="grey large github icon"></i></a>
+            <a href="http://weibo.com/ashfinal/" target="_blank"><i class="grey large weibo icon"></i></a>
+            <a href="mailto://ashfinal@sina.cn" target="_blank"><i class="grey large mail icon"></i></a>
+            </div>
+        <div class="ui basic center aligned segment no-print">Contents © 2020         <a href="mailto:ashfinal@sina.cn">ashfinal</a> - Powered by         <a href="https://getnikola.com" target="_blank" rel="nofollow">Nikola</a>         </div>
+
+            </div>
+            <div class="computer only three wide column no-print">
+                <div id="right-side">
+                </div>
+            </div>
+        </div>
+
+        <!-- GoStats JavaScript Based Code -->
+        <script type="text/javascript">(function(c,o,m,p,u,t,e){
+        c['GoStatsObject']=u;c[u]=c[u]||function(){(c[u].q=c[u].q||[]).push(arguments)},
+        c[u].l=1*new Date();t=o.createElement(m);t.async=1;t.src=p;
+        e=o.getElementsByTagName(m)[0];e.parentNode.insertBefore(t,e);
+        })(window,document,'script','//www.gostats.org/5.js','go');
+        go('init',100479892,{'img_counter_type':5,'img_image_type':1});go('send');</script><!-- End GoStats JavaScript Based Code --><script type="text/javascript" src="../../../assets/js/jquery-3.3.1.min.js"></script><script type="text/javascript" src="../../../assets/js/semantic.min.js"></script><script type="text/javascript" src="../../../assets/js/jquery.fancybox.min.js"></script><script type="text/javascript" src="../../../assets/js/cookie.min.js"></script><script>
+            $(document).ready(function(){
+                $(".ui.dropdown").dropdown();
+                $('.ui.accordion').accordion();
+                var newstr = $('.cookie.nag').text();
+                $('.cookie.nag').nag({
+                    key: 'globalnotice',
+                    value: newstr
+                  });
+                $('.image-reference').fancybox();
+            });
+        </script><script src="../../../assets/js/katex.min.js"></script><script src="../../../assets/js/auto-render.min.js"></script><script>
+                renderMathInElement(document.body,
+                    {
+                        delimiters: [
+                            {left: "$$", right: "$$", display: true},
+                            {left: "\\[", right: "\\]", display: true},
+                            {left: "\\begin{equation*}", right: "\\end{equation*}", display: true},
+                            {left: "\\(", right: "\\)", display: false}
+                        ]
+                    }
+                );
+            </script><script src="../../../assets/js/md5.min.js"></script><script src="../../../assets/js/gitalk.min.js"></script><script>
+        const gitalk = new Gitalk({
+            clientID: '12fcda845097d895a24c',
+            clientSecret: '50ed60cde5f40897205197b4265b474cefbedc49',
+            repo: 'macplay.github.io',
+            owner: 'macplay',
+            admin: ['macplay', 'ashfinal'],
+            id: md5(window.location.pathname),
+            // facebook-like distraction free mode
+            distractionFreeMode: false
+        })
+        gitalk.render('gitalk-container')
+    </script>
+</body>
+</html>

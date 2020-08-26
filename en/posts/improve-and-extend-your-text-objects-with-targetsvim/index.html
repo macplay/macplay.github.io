@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="generator" content="Nikola (getnikola.com)">
+<title>Improve and Extend Your Text Objects With targets.vim - MacPlay</title>
+<link rel="apple-touch-icon" sizes="180x180" href="../../../apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../../../favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../../../favicon-16x16.png">
+<link rel="mask-icon" href="../../../safari-pinned-tab.svg" color="#5bbad5">
+<link href="../../../assets/css/semantic.min.css" rel="stylesheet" type="text/css">
+<link href="../../../assets/css/jquery.fancybox.min.css" rel="stylesheet" type="text/css">
+<link href="../../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<link rel="canonical" href="https://macplay.github.io/en/posts/improve-and-extend-your-text-objects-with-targetsvim/">
+<meta name="author" content="ashfinal">
+<link rel="alternate" hreflang="zh_cn" href="../../../posts/improve-and-extend-your-text-objects-with-targetsvim/">
+<link rel="stylesheet" type="text/css" href="../../../assets/css/gitalk.css">
+</head>
+<body>
+        <div class="ui grid">
+            <div class="computer only three wide column no-print">
+                <div id="left-side">
+                </div>
+            </div>
+            <div class="ten wide computer sixteen wide tablet sixteen wide mobile column">
+                        <div class="ui inline cookie nag no-print">
+            <span class="title">从现在开始，支持中英双语及博文精选 O(∩_∩)O~~</span>
+            <i class="close icon"></i>
+        </div>
+    <header id="header" class="no-print"><div class="ui grid">
+        <div class="computer only tablet only sixteen wide column">
+            <div class="ui large secondary stackable menu">
+                <a class="header item brand-logo" href="https://macplay.github.io/en/">
+                    MacPlay
+                </a>
+                        <a class="item" href="../../../">Posts</a>
+                        <a class="item" href="../../../listings/">Code</a>
+                        <a class="item" href="../../../galleries/">Gallery</a>
+                        <a class="item" href="../../../categories/">Tags</a>
+                        <a class="item" href="../../../archive.html">Archive</a>
+                <div class="right menu">
+                    <a class="item" href="../../../rss.xml"><i class="rss icon"></i>RSS</a>
+                </div>
+            </div>
+        </div>
+        <div class="mobile only sixteen wide column">
+            <div class="ui fluid accordion vertical menu">
+                <div class="item">
+                    <a class="title">MacPlay</a>
+                    <div class="content">
+                                <a class="item" href="../../../">Posts</a>
+                                <a class="item" href="../../../listings/">Code</a>
+                                <a class="item" href="../../../galleries/">Gallery</a>
+                                <a class="item" href="../../../categories/">Tags</a>
+                                <a class="item" href="../../../archive.html">Archive</a>
+                        <a class="item" href="../../../rss.xml"><i class="rss icon"></i>RSS</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </header><main id="main"><div id="main-content">
+<div class="postpage post-text page-body" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <h1 class="post-title" itemprop="headline">
+        <a href=".">Improve and Extend Your Text Objects With targets.vim</a>
+    </h1>
+
+    <div class="ui large horizontal link list post-meta">
+        <span class="item">By
+            <a href="../../authors/ashfinal/">ashfinal</a>
+        </span>
+            <span class="item">
+                <a href="https://github.com/macplay/macplay.github.io/edit/src/posts/improve-and-extend-your-text-objects-with-targetsvim.rst" target="_blank" title="Edit on GitHub">Edit</a>
+            </span>
+        <span class="item">
+            <time datetime="2019-10-11T17:05:40+08:00">
+            2019-10-11 17:05
+            </time></span>
+            <span class="item">
+                    <a href="../../categories/translation/">translation</a>
+                    <a href="../../categories/vim/">vim</a>
+            </span>
+    </div>
+
+        <div class="posttrans ui message">
+        <span class="title">Also available in:
+            <span><a href="../../../posts/improve-and-extend-your-text-objects-with-targetsvim/" rel="alternate" hreflang="zh_cn">简体中文</a></span>
+        </span>
+    </div>
+
+    <div class="post-content" itemprop="article text">
+        <div id="post-content">
+        <div>
+<p>Welcome back to the <a class="reference external" href="https://www.barbarianmeetscoding.com/blog/categories/exploring-vim-plugins">Exploring Vim Plugins series</a> ! In this series you learn how to become a little bit more productive each day by discovering awesome Vim plugins and how to master them. And today, it’s time for one of my favorites: <a class="reference external" href="https://github.com/wellle/targets.vim">targets.vim</a> .</p>
+<div class="figure align-center">
+<img alt="become 1 percent better" src="../../../images/become-1-percent-better.jpg">
+</div>
+<!-- TEASER_END -->
+<div class="contents topic" id="contents">
+<p class="topic-title">Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#text-objects-in-vim" id="id1">Text Objects In Vim</a></p></li>
+<li><p><a class="reference internal" href="#more-text-objects" id="id2">MORE Text Objects!!!!</a></p></li>
+<li><p><a class="reference internal" href="#wait-theres-more-unifying-and-improving-seeking-behavior" id="id3">Wait There’s More! Unifying and Improving Seeking Behavior</a></p></li>
+<li><p><a class="reference internal" href="#wait-again-theres-even-more-a-in-around-and-inside" id="id4">Wait Again! There’s Even More! A, In, Around and Inside</a></p></li>
+<li><p><a class="reference internal" href="#getting-started-with-targets-vim" id="id5">Getting Started with targets.vim</a></p></li>
+<li><p><a class="reference internal" href="#find-out-more" id="id6">Find out More</a></p></li>
+</ul>
+</div>
+<p><a class="reference external" href="https://github.com/wellle/targets.vim">targets.vim</a> is one of those plugins that truly enhances the way you work by supercharging one of the most fundamental Vim features: <strong>text objects</strong> .</p>
+<div class="section" id="text-objects-in-vim">
+<h2><a class="toc-backref" href="#id1">Text Objects In Vim</a></h2>
+<p>One of the best things about Vim is how it allows you to edit text with high precision. You type <cite>daw</cite> and Vim follows your command and <strong>d</strong> eletes a <strong>w</strong> ord. You type <cite>ci'</cite> and Vim goes ahead and helps you <strong>c</strong> hange some text <strong>i</strong> nside single quotes. Vim gives you this precision by combining its useful operators (delete, change, yank, etc) with a host of motions amongst which the most powerful are <strong>text objects</strong> .</p>
+<p><strong>Text objects</strong> describe the parts of a document: a word, a sentence, a paragraph, text within quotes, code blocks, HTML tags and more. In the previous examples, the <cite>aw</cite> and <cite>i'</cite> particles in <cite>daw</cite> and <cite>ci'</cite> are text objects:</p>
+<ul class="simple">
+<li><p><cite>aw</cite> stands for <strong>a word</strong></p></li>
+<li><p><cite>i'</cite> stands for <strong>inside single quotes</strong></p></li>
+</ul>
+<p>Using operators in combination with text objects Vim gives you fine granularity and a lot of power to edit text-based documents and code.</p>
+<p>So, if <strong>text objects are so awesome, what do we need a plugin for</strong> ? Well, What is more awesome than text-objects? <strong>MORE</strong> of them!</p>
+</div>
+<div class="section" id="more-text-objects">
+<h2><a class="toc-backref" href="#id2">MORE Text Objects!!!!</a></h2>
+<p><strong>Have you ever wanted to change text between commas</strong> ? Now you can! Let’s say we have this sentence:</p>
+<pre class="code ReST"><a name="rest_code_04fad269134147ca9951dce1c30111c4-1"></a>I think, most of the time, therefore I am.
+</pre>
+<p>Type <cite>ci</cite>, followed by <cite>all of the time</cite> and <cite>&lt;ESC&gt;</cite> and voila!</p>
+<pre class="code ReST"><a name="rest_code_f8a6fa2095ce4635a4c295fc2f1f4819-1"></a>I think, all of the time, therefore I am.
+</pre>
+<p><strong>Have you ever wanted to edit the parameters and arguments of a function</strong> ? Now you can too!</p>
+<p>Imagine that we have this <strong>obliterate</strong> function that allows us to inflict inordinate amount on pain amongst our foes:</p>
+<pre class="code javascript"><a name="rest_code_51ae967b4a624df69aeb2977698bd689-1"></a><span class="kd">function</span> <span class="nx">obliterate</span><span class="p">(</span><span class="nx">target</span><span class="p">,</span> <span class="nx">mana</span><span class="p">)</span> <span class="p">{</span>
+<a name="rest_code_51ae967b4a624df69aeb2977698bd689-2"></a>  <span class="kr">const</span> <span class="nx">damage</span> <span class="o">=</span> <span class="nx">mana</span><span class="o">*</span><span class="mi">1</span><span class="nx">d20</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span><span class="nx">d100</span><span class="p">();</span>
+<a name="rest_code_51ae967b4a624df69aeb2977698bd689-3"></a>  <span class="nx">target</span><span class="p">.</span><span class="nx">hp</span> <span class="o">-=</span> <span class="nx">damage</span><span class="p">;</span>
+<a name="rest_code_51ae967b4a624df69aeb2977698bd689-4"></a>  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`</span><span class="si">${</span><span class="nx">target</span><span class="si">}</span><span class="sb"> is obliterated with a ray of dark energy`</span><span class="p">);</span>
+<a name="rest_code_51ae967b4a624df69aeb2977698bd689-5"></a><span class="p">}</span>
+</pre>
+<p>We’d like the <cite>mana</cite> parameter to be optional and have a default value. Using <a class="reference external" href="https://github.com/wellle/targets.vim">targets.vim</a> <strong>argument</strong> text object we can directly edit the <cite>mana</cite> argument as follows:</p>
+<ol class="arabic simple">
+<li><p><cite>c2ina</cite> to change <strong>i</strong> nside the second <strong>n</strong> ext <strong>a</strong> rgument</p></li>
+<li><p><cite>{mana=20}={}&lt;ESC&gt;</cite> to have this argument be optional and provide a default value of <cite>20</cite></p></li>
+</ol>
+<p><strong>Isn’t it awesome?!</strong></p>
+<p><a class="reference external" href="https://github.com/wellle/targets.vim">targets.vim</a> comes with lots of new text objects that give you a whole new level of precision, control, repeatability and speed when using Vim:</p>
+<ul class="simple">
+<li><p>Separators like <code class="docutils literal"><span class="pre">,.;:+-=~_*#/|\&amp;$</span></code></p></li>
+<li><p>Arguments and parameters within functions</p></li>
+<li><p>Multitext objects that work with several pairs at once: <cite>b</cite> which can operate on any block (<cite>{([</cite>) and <cite>q</cite> that can operate on any quote.</p></li>
+</ul>
+</div>
+<div class="section" id="wait-theres-more-unifying-and-improving-seeking-behavior">
+<h2><a class="toc-backref" href="#id3">Wait There’s More! Unifying and Improving Seeking Behavior</a></h2>
+<p><a class="reference external" href="https://github.com/wellle/targets.vim">targets.vim</a> doesn’t stop at adding new operators. It also improves the user experience and usefulness of all text objects.</p>
+<p>One inconsistency that you may have noticed when using operators on text objects is how any quote text object behaves slightly different from the other ones. Unlike other text objects, quotes support seeking forward so that the cursor doesn’t need to be on top of the text object to operate on it. This is better illustrated with an example so imagine that you have a string like this one:</p>
+<pre class="code javascript"><a name="rest_code_1fc3880a765649018bb1dc72426258a7-1"></a><span class="kr">const</span> <span class="nx">greeting</span> <span class="o">=</span> <span class="s2">"Hello Oh Mighty Wizard! I salute you!"</span>
+<a name="rest_code_1fc3880a765649018bb1dc72426258a7-2"></a><span class="o">^</span>
+</pre>
+<p>where the cursor is located on the first letter and represented by that <cite>^</cite> sign. Using <cite>ci"</cite> when can change the contents of that string even when we are not on top of the quotes themselves.</p>
+<p>This seeking behavior is great because it means that we can save ourselves the keystrokes needed to position the cursor on top of the quotes. Alas, with other text objects there’s no seeking behavior.</p>
+<p>Examine the following function:</p>
+<pre class="code javascript"><a name="rest_code_715826e92282427ab8d92305aa969998-1"></a><span class="kr">const</span> <span class="nx">salute</span> <span class="o">=</span> <span class="p">(</span><span class="nx">name</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="sb">`Hello Oh Mighty </span><span class="si">${</span><span class="nx">name</span><span class="si">}</span><span class="sb">! I salute you`</span>
+<a name="rest_code_715826e92282427ab8d92305aa969998-2"></a><span class="o">^</span>
+</pre>
+<p>Now let’s say that we’d like to change the name of that <cite>name</cite> argument. You may think that typing <cite>ci(</cite> would let you change the <cite>name</cite> argument at once but that is not the case.</p>
+<p>The <cite>(</cite> text object doesn’t support seeking forward and so you’d need to perform the transformation in two separate steps.</p>
+<p>First, you’d need to move the cursor with <cite>f(</cite>:</p>
+<pre class="code javascript"><a name="rest_code_c7693c2ccca94188a276ec49684df9c2-1"></a><span class="kr">const</span> <span class="nx">salute</span> <span class="o">=</span> <span class="p">(</span><span class="nx">name</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="sb">`Hello Oh Mighty </span><span class="si">${</span><span class="nx">name</span><span class="si">}</span><span class="sb">! I salute you`</span>
+<a name="rest_code_c7693c2ccca94188a276ec49684df9c2-2"></a>               <span class="o">^</span>
+</pre>
+<p>And then you’d be in the position of changing that <cite>name</cite> with <cite>ci(</cite> since the <cite>(</cite> text object is under your cursor.</p>
+<p><strong>The seeking behavior is superior because it allows you to do more with less keystrokes and because it lets changes be more easily repeated with the `.` command</strong>. Unfortunately, such is not our luck and vanilla Vim only supports this behavior for quote text objects.</p>
+<p>So what if I told you that <a class="reference external" href="https://github.com/wellle/targets.vim">targets.vim</a> unifies and extends this seeking behavior to all text objects? Extend it so that we could use <cite>ci(</cite> in the previous example and be able to change that argument at once?</p>
+<p>Yes! That would be awesome news just by itself. But <a class="reference external" href="https://github.com/wellle/targets.vim">targets.vim</a> doesn’t stop there. <a class="reference external" href="https://github.com/wellle/targets.vim">targets.vim</a> <strong>gives you forward and backward seeking behavior across multiple lines</strong> .</p>
+<p>This is a simplified version of how seeking works:</p>
+<ol class="arabic simple">
+<li><p>If your cursor is on top of a text object, the operator applies to that text object</p></li>
+<li><p>Otherwise it seeks forward within a line</p></li>
+<li><p>If there’s no text object forward, it seeks backwards within a line</p></li>
+<li><p>If there’s no text object in this line, it seeks forward</p></li>
+<li><p>If there’s no text object in this line nor anywhere down a document, it seeks backwards.</p></li>
+</ol>
+<p>Awesome right? This means that you can save even more keystrokes and edit text that much faster. Wihoo!</p>
+<p>But what if you don’t want to change the next occurrence of a text object? What if you want to change the previous one? Does that mean that you need to move the cursor there first? No. The makers of <a class="reference external" href="https://github.com/wellle/targets.vim">targets.vim</a> had great foresight and allow you to explicitly specify which text object you want to operate on with the <cite>n</cite> (for <strong>n</strong> ext) and <cite>l</cite> (for <strong>l</strong> ast) commands. Type:</p>
+<ul class="simple">
+<li><p><cite>cin[</cite> and you’ll change the contents of the <strong>next</strong> pair of square brackets (this behaves exactly the same as <cite>ci[</cite>)</p></li>
+<li><p><cite>cil[</cite> and you’ll change the contents of the <strong>previous</strong> pair of square brackets</p></li>
+</ul>
+<p>These commands can also be combined with <strong>counts</strong> to operate on distant text objects:</p>
+<ul class="simple">
+<li><p><cite>c2in[</cite> lets you change the contents of the second next pair of square brackets and so on.</p></li>
+</ul>
+<p>Isn’t all of this extremely awesome?</p>
+</div>
+<div class="section" id="wait-again-theres-even-more-a-in-around-and-inside">
+<h2><a class="toc-backref" href="#id4">Wait Again! There’s Even More! A, In, Around and Inside</a></h2>
+<p>With vanilla Vim you have two modifiers that you can use when operating on text objects: <cite>a</cite> and <cite>i</cite> .</p>
+<ul class="simple">
+<li><p><cite>a"</cite> means <strong>a quoted string</strong> and it includes all the characters of a quoted string including the quotes</p></li>
+<li><p><cite>i"</cite> means <strong>in quoted string</strong> and it includes all the characters of a quoted string minus the quotes</p></li>
+</ul>
+<p><a class="reference external" href="https://github.com/wellle/targets.vim">targets.vim</a> offers two new modifiers that let you be even more accurate: <cite>A</cite> and <cite>I</cite> .</p>
+<ul class="simple">
+<li><p><cite>A"</cite> means <strong>around a quote string</strong> and includes one trailing whitespace in addition to the whole string including the quotes.</p></li>
+<li><p><cite>I"</cite> means <strong>inside a quote string</strong> and includes the content inside quoted string excluding the quotes and any inner trailing whitespace. This is useful if you want to preserve whitespace inside a quotes, blocks and such.</p></li>
+</ul>
+<div class="figure align-center">
+<img alt="targets vim modifiers" src="../../../images/targets-vim-modifiers.jpg">
+</div>
+</div>
+<div class="section" id="getting-started-with-targets-vim">
+<h2><a class="toc-backref" href="#id5">Getting Started with targets.vim</a></h2>
+<ol class="arabic simple">
+<li><p>Install the plugin using your favorite plugin manager. You can find <a class="reference external" href="https://www.barbarianmeetscoding.com/blog/2019/05/31/exploring-vim-plugins-a-methodology-to-become-1-percent-better-every-week">more info about plugins managers and how to install plugins in this article</a></p></li>
+<li><p>Practice as follows</p></li>
+</ol>
+<p><a class="reference external" href="https://github.com/wellle/targets.vim">targets.vim</a> is one of those plugins that are seamless to learn and practice because they fit so well inside the philosophy of Vim. Since it extends such a core feature of Vim as text objects, using the new separators or argument text objects just feels natural to experienced Vim users. So natural in fact, that you probably wonder why these text objects aren’t built inside of Vim from the start.</p>
+<p>From my personal experience, some of the things that will require some additional deliberate practice are the explicit seeking behaviors which aren’t present in the vanilla Vim experience:</p>
+<ol class="arabic simple" start="0">
+<li><p>Start using the new separators (this will just come naturally so I don’t think you’ll need to practice it deliberately)</p></li>
+<li><p>Start taking advantage of the seeking behavior by using text objects directly from wherever the cursor is instead of moving on top a text object itself. This will make you faster, and it will make your changes more repeatable (using the <cite>.</cite> operator).</p></li>
+<li><p>Practice with the explicit <cite>n</cite> and <cite>l</cite> seeking modifiers.</p></li>
+<li><p>Practice using <cite>A</cite> instead of <cite>a</cite> and <cite>I</cite> instead of <cite>i</cite> and notice the different result.</p></li>
+</ol>
+</div>
+<div class="section" id="find-out-more">
+<h2><a class="toc-backref" href="#id6">Find out More</a></h2>
+<p>The <a class="reference external" href="https://github.com/wellle/targets.vim">documentation</a> for this Vim plugin is truly <strong>exceptional</strong> , very thorough and with lots of helpful diagrams. So take a look at it <a class="reference external" href="https://github.com/wellle/targets.vim">on GitHub</a> or within Vim via the <cite>:help targets</cite> command.</p>
+<p>Additionally, the <a class="reference external" href="https://github.com/wellle/targets.vim/blob/master/cheatsheet.md">targets.vim cheatsheet</a> is also very useful summary reference and provides lots of visual aids.</p>
+</div>
+</div>
+        </div>
+    </div>
+    <div class="post-info">
+        <p>引用资源：<a href="https://www.barbarianmeetscoding.com/blog/2019/08/11/exploring-vim-plugins-improve-and-extend-your-text-objects-with-targets-vim" target="_blank">https://www.barbarianmeetscoding.com/blog/2019/08/11/exploring-vim-plugins-improve-and-extend-your-text-objects-with-targets-vim</a></p>
+        <p>文章链接：<a href="https://macplay.github.io/en/posts/improve-and-extend-your-text-objects-with-targetsvim/" target="_blank">https://macplay.github.io/en/posts/improve-and-extend-your-text-objects-with-targetsvim/</a></p>
+        <p>发布/更新于：
+            <time datetime="2019-10-11 17:05:40 UTC+08:00">
+            2019-10-11 17:05
+            </time></p>
+        <p>版权声明：如无特别说明，本站文章均遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">CC BY-NC-SA 4.0</a> 协议，转载请注明作者及出处。</p>
+    </div>
+        <div class="post-navigation no-print">
+        <div class="ui huge secondary stackable menu">
+            <a class="post-nav-item post-nav-previous item" href="../writing-a-plugin-that-loads-quickly/" title="Previous post"><i class="angle double left icon"></i> Writing a plugin that loads quickly</a>
+        <div class="right menu">
+            <a class="post-nav-item post-nav-next item" href="../what-is-your-most-productive-shortcut-with-vim/" title="Next post">What is your most productive shortcut with Vim? <i class="angle double right icon"></i></a>
+        </div>
+        </div>
+    </div>
+
+        <div id="gitalk-container" class="comments-block no-print"></div>
+</div>
+                    </div>
+                </main><div class="footer extra-block no-print">
+    <span class="footer_item">
+        <a href="../../../pages/you-qing-lian-jie/">友情链接</a>
+    </span>
+    <span class="footer_item">
+        <a href="../../../pages/liu-yan-ban/">留言板</a>
+    </span>
+    <span class="footer_item">
+        <a href="../../../pages/ge-ren-dong-tai/">碎碎念</a>
+    </span>
+    </div>
+            <div class="footer social-link no-print">
+            <a href="https://github.com/ashfinal" target="_blank"><i class="grey large github icon"></i></a>
+            <a href="http://weibo.com/ashfinal/" target="_blank"><i class="grey large weibo icon"></i></a>
+            <a href="mailto://ashfinal@sina.cn" target="_blank"><i class="grey large mail icon"></i></a>
+            </div>
+        <div class="ui basic center aligned segment no-print">Contents © 2020         <a href="mailto:ashfinal@sina.cn">ashfinal</a> - Powered by         <a href="https://getnikola.com" target="_blank" rel="nofollow">Nikola</a>         </div>
+
+            </div>
+            <div class="computer only three wide column no-print">
+                <div id="right-side">
+                </div>
+            </div>
+        </div>
+
+        <!-- GoStats JavaScript Based Code -->
+        <script type="text/javascript">(function(c,o,m,p,u,t,e){
+        c['GoStatsObject']=u;c[u]=c[u]||function(){(c[u].q=c[u].q||[]).push(arguments)},
+        c[u].l=1*new Date();t=o.createElement(m);t.async=1;t.src=p;
+        e=o.getElementsByTagName(m)[0];e.parentNode.insertBefore(t,e);
+        })(window,document,'script','//www.gostats.org/5.js','go');
+        go('init',100479892,{'img_counter_type':5,'img_image_type':1});go('send');</script><!-- End GoStats JavaScript Based Code --><script type="text/javascript" src="../../../assets/js/jquery-3.3.1.min.js"></script><script type="text/javascript" src="../../../assets/js/semantic.min.js"></script><script type="text/javascript" src="../../../assets/js/jquery.fancybox.min.js"></script><script type="text/javascript" src="../../../assets/js/cookie.min.js"></script><script>
+            $(document).ready(function(){
+                $(".ui.dropdown").dropdown();
+                $('.ui.accordion').accordion();
+                var newstr = $('.cookie.nag').text();
+                $('.cookie.nag').nag({
+                    key: 'globalnotice',
+                    value: newstr
+                  });
+                $('.image-reference').fancybox();
+            });
+        </script><script src="../../../assets/js/md5.min.js"></script><script src="../../../assets/js/gitalk.min.js"></script><script>
+        const gitalk = new Gitalk({
+            clientID: '12fcda845097d895a24c',
+            clientSecret: '50ed60cde5f40897205197b4265b474cefbedc49',
+            repo: 'macplay.github.io',
+            owner: 'macplay',
+            admin: ['macplay', 'ashfinal'],
+            id: md5(window.location.pathname),
+            // facebook-like distraction free mode
+            distractionFreeMode: false
+        })
+        gitalk.render('gitalk-container')
+    </script>
+</body>
+</html>

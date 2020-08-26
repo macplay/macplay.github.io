@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="zh_cn">
+<head>
+<meta charset="utf-8">
+<meta name="description" content="netsurf_makefile.config">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="generator" content="Nikola (getnikola.com)">
+<title>netsurf_makefile.config - MacPlay</title>
+<link rel="apple-touch-icon" sizes="180x180" href="../../apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+<link rel="mask-icon" href="../../safari-pinned-tab.svg" color="#5bbad5">
+<link href="../../assets/css/semantic.min.css" rel="stylesheet" type="text/css">
+<link href="../../assets/css/jquery.fancybox.min.css" rel="stylesheet" type="text/css">
+<link href="../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<link rel="canonical" href="https://macplay.github.io/listings/manjaro/netsurf_makefile.config.html">
+</head>
+<body>
+        <div class="ui grid">
+            <div class="computer only three wide column no-print">
+                <div id="left-side">
+                </div>
+            </div>
+            <div class="ten wide computer sixteen wide tablet sixteen wide mobile column">
+                        <div class="ui inline cookie nag no-print">
+            <span class="title">从现在开始，支持中英双语及博文精选 O(∩_∩)O~~</span>
+            <i class="close icon"></i>
+        </div>
+    <header id="header" class="no-print"><div class="ui grid">
+        <div class="computer only tablet only sixteen wide column">
+            <div class="ui large secondary stackable menu">
+                <a class="header item brand-logo" href="https://macplay.github.io/">
+                    MacPlay
+                </a>
+                        <a class="item" href="../../">Posts</a>
+                        <a class="item" href="../">Code</a>
+                        <a class="item" href="../../galleries/">Gallery</a>
+                        <a class="item" href="../../categories/">Tags</a>
+                        <a class="item" href="../../archive.html">Archive</a>
+                <div class="right menu">
+                    <a class="item" href="../../rss.xml"><i class="rss icon"></i>RSS</a>
+                </div>
+            </div>
+        </div>
+        <div class="mobile only sixteen wide column">
+            <div class="ui fluid accordion vertical menu">
+                <div class="item">
+                    <a class="title">MacPlay</a>
+                    <div class="content">
+                                <a class="item" href="../../">Posts</a>
+                                <a class="item" href="../">Code</a>
+                                <a class="item" href="../../galleries/">Gallery</a>
+                                <a class="item" href="../../categories/">Tags</a>
+                                <a class="item" href="../../archive.html">Archive</a>
+                        <a class="item" href="../../rss.xml"><i class="rss icon"></i>RSS</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </header><main id="main"><div id="main-content">
+<div class="listingpage page-body" itemscope="itemscope" itemtype="http://schema.org/Article">
+    <div class="ui breadcrumb list-title">
+                <a href="../" class="section">listings</a>
+                <div class="divider"> / </div>
+                <a href="." class="section">manjaro</a>
+                <div class="divider"> / </div>
+                <div class="section">
+                    netsurf_makefile.config
+                </div>
+    </div>
+
+        <p class="downloadlink">
+            <i class="download icon"></i><a href="netsurf_makefile.config">Download</a>
+        </p>
+        <div class="code"><table class="codetable">
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjaronetsurf_makefileconfig-1"><code data-line-number=" 1"></code></a></td>
+<td class="code"><code><a name="listingsmanjaronetsurf_makefileconfig-1"></a><span class="o">#</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjaronetsurf_makefileconfig-2"><code data-line-number=" 2"></code></a></td>
+<td class="code"><code><a name="listingsmanjaronetsurf_makefileconfig-2"></a><span class="o">#</span> <span class="n">NetSurf</span> <span class="n">build</span> <span class="n">configuration</span> <span class="n">example</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjaronetsurf_makefileconfig-3"><code data-line-number=" 3"></code></a></td>
+<td class="code"><code><a name="listingsmanjaronetsurf_makefileconfig-3"></a><span class="o">#</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjaronetsurf_makefileconfig-4"><code data-line-number=" 4"></code></a></td>
+<td class="code"><code><a name="listingsmanjaronetsurf_makefileconfig-4"></a><span class="o">#</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjaronetsurf_makefileconfig-5"><code data-line-number=" 5"></code></a></td>
+<td class="code"><code><a name="listingsmanjaronetsurf_makefileconfig-5"></a><span class="o">#</span> <span class="k">To</span> <span class="n">configure</span> <span class="n">NetSurf</span><span class="s1">'s build options create a Makefile.config file. This is</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjaronetsurf_makefileconfig-6"><code data-line-number=" 6"></code></a></td>
+<td class="code"><code><a name="listingsmanjaronetsurf_makefileconfig-6"></a><span class="s1"># an example Makefile.config.</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjaronetsurf_makefileconfig-7"><code data-line-number=" 7"></code></a></td>
+<td class="code"><code><a name="listingsmanjaronetsurf_makefileconfig-7"></a><span class="s1">#</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjaronetsurf_makefileconfig-8"><code data-line-number=" 8"></code></a></td>
+<td class="code"><code><a name="listingsmanjaronetsurf_makefileconfig-8"></a><span class="s1"># To see the available config options, look at Makefile.defaults, but make any</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjaronetsurf_makefileconfig-9"><code data-line-number=" 9"></code></a></td>
+<td class="code"><code><a name="listingsmanjaronetsurf_makefileconfig-9"></a><span class="s1"># alterations in your Makefile.config</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjaronetsurf_makefileconfig-10"><code data-line-number="10"></code></a></td>
+<td class="code"><code><a name="listingsmanjaronetsurf_makefileconfig-10"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjaronetsurf_makefileconfig-11"><code data-line-number="11"></code></a></td>
+<td class="code"><code><a name="listingsmanjaronetsurf_makefileconfig-11"></a><span class="s1">### To enable/disable PNG support, uncomment the appropriate line below.</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjaronetsurf_makefileconfig-12"><code data-line-number="12"></code></a></td>
+<td class="code"><code><a name="listingsmanjaronetsurf_makefileconfig-12"></a><span class="s1"># override NETSURF_USE_PNG := YES</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjaronetsurf_makefileconfig-13"><code data-line-number="13"></code></a></td>
+<td class="code"><code><a name="listingsmanjaronetsurf_makefileconfig-13"></a><span class="s1"># override NETSURF_USE_PNG := NO</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjaronetsurf_makefileconfig-14"><code data-line-number="14"></code></a></td>
+<td class="code"><code><a name="listingsmanjaronetsurf_makefileconfig-14"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjaronetsurf_makefileconfig-15"><code data-line-number="15"></code></a></td>
+<td class="code"><code><a name="listingsmanjaronetsurf_makefileconfig-15"></a><span class="s1">### To enable/disable SVGTiny support, uncomment the appropriate line below.</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjaronetsurf_makefileconfig-16"><code data-line-number="16"></code></a></td>
+<td class="code"><code><a name="listingsmanjaronetsurf_makefileconfig-16"></a><span class="s1"># override NETSURF_USE_NSSVG := YES</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjaronetsurf_makefileconfig-17"><code data-line-number="17"></code></a></td>
+<td class="code"><code><a name="listingsmanjaronetsurf_makefileconfig-17"></a><span class="s1"># override NETSURF_USE_NSSVG := NO</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjaronetsurf_makefileconfig-18"><code data-line-number="18"></code></a></td>
+<td class="code"><code><a name="listingsmanjaronetsurf_makefileconfig-18"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjaronetsurf_makefileconfig-19"><code data-line-number="19"></code></a></td>
+<td class="code"><code><a name="listingsmanjaronetsurf_makefileconfig-19"></a><span class="s1">### To enable/disable RSVG support, uncomment the appropriate line below.</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjaronetsurf_makefileconfig-20"><code data-line-number="20"></code></a></td>
+<td class="code"><code><a name="listingsmanjaronetsurf_makefileconfig-20"></a><span class="s1"># override NETSURF_USE_RSVG := YES</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjaronetsurf_makefileconfig-21"><code data-line-number="21"></code></a></td>
+<td class="code"><code><a name="listingsmanjaronetsurf_makefileconfig-21"></a><span class="s1"># override NETSURF_USE_RSVG := NO</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjaronetsurf_makefileconfig-22"><code data-line-number="22"></code></a></td>
+<td class="code"><code><a name="listingsmanjaronetsurf_makefileconfig-22"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjaronetsurf_makefileconfig-23"><code data-line-number="23"></code></a></td>
+<td class="code"><code><a name="listingsmanjaronetsurf_makefileconfig-23"></a><span class="s1">### To enable/disable BMP support, uncomment the appropriate line below.</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjaronetsurf_makefileconfig-24"><code data-line-number="24"></code></a></td>
+<td class="code"><code><a name="listingsmanjaronetsurf_makefileconfig-24"></a><span class="s1"># override NETSURF_USE_BMP := YES</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjaronetsurf_makefileconfig-25"><code data-line-number="25"></code></a></td>
+<td class="code"><code><a name="listingsmanjaronetsurf_makefileconfig-25"></a><span class="s1"># override NETSURF_USE_BMP := NO</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjaronetsurf_makefileconfig-26"><code data-line-number="26"></code></a></td>
+<td class="code"><code><a name="listingsmanjaronetsurf_makefileconfig-26"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjaronetsurf_makefileconfig-27"><code data-line-number="27"></code></a></td>
+<td class="code"><code><a name="listingsmanjaronetsurf_makefileconfig-27"></a><span class="s1">### To make the framebuffer front end use freetype for text, uncomment the</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjaronetsurf_makefileconfig-28"><code data-line-number="28"></code></a></td>
+<td class="code"><code><a name="listingsmanjaronetsurf_makefileconfig-28"></a><span class="s1">### following line</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjaronetsurf_makefileconfig-29"><code data-line-number="29"></code></a></td>
+<td class="code"><code><a name="listingsmanjaronetsurf_makefileconfig-29"></a><span class="s1">override NETSURF_FB_FONTLIB := freetype</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjaronetsurf_makefileconfig-30"><code data-line-number="30"></code></a></td>
+<td class="code"><code><a name="listingsmanjaronetsurf_makefileconfig-30"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjaronetsurf_makefileconfig-31"><code data-line-number="31"></code></a></td>
+<td class="code"><code><a name="listingsmanjaronetsurf_makefileconfig-31"></a><span class="s1">### To disable JavaScript support, uncomment the appropriate line below.</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjaronetsurf_makefileconfig-32"><code data-line-number="32"></code></a></td>
+<td class="code"><code><a name="listingsmanjaronetsurf_makefileconfig-32"></a><span class="s1"># override NETSURF_USE_DUKTAPE := NO</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjaronetsurf_makefileconfig-33"><code data-line-number="33"></code></a></td>
+<td class="code"><code><a name="listingsmanjaronetsurf_makefileconfig-33"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjaronetsurf_makefileconfig-34"><code data-line-number="34"></code></a></td>
+<td class="code"><code><a name="listingsmanjaronetsurf_makefileconfig-34"></a><span class="s1">### To change flags to javascript binding generator</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjaronetsurf_makefileconfig-35"><code data-line-number="35"></code></a></td>
+<td class="code"><code><a name="listingsmanjaronetsurf_makefileconfig-35"></a><span class="s1"># GBFLAGS:=-g</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjaronetsurf_makefileconfig-36"><code data-line-number="36"></code></a></td>
+<td class="code"><code><a name="listingsmanjaronetsurf_makefileconfig-36"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjaronetsurf_makefileconfig-37"><code data-line-number="37"></code></a></td>
+<td class="code"><code><a name="listingsmanjaronetsurf_makefileconfig-37"></a><span class="s1"># Enable NetSurf'</span><span class="n">s</span> <span class="n">use</span> <span class="k">of</span> <span class="n">gstreamer</span> <span class="k">for</span> <span class="n">displaying</span> <span class="n">videos</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjaronetsurf_makefileconfig-38"><code data-line-number="38"></code></a></td>
+<td class="code"><code><a name="listingsmanjaronetsurf_makefileconfig-38"></a><span class="o">#</span> <span class="k">Valid</span> <span class="k">options</span><span class="p">:</span> <span class="n">YES</span><span class="p">,</span> <span class="k">NO</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjaronetsurf_makefileconfig-39"><code data-line-number="39"></code></a></td>
+<td class="code"><code><a name="listingsmanjaronetsurf_makefileconfig-39"></a><span class="o">#</span> <span class="n">override</span> <span class="n">NETSURF_USE_VIDEO</span> <span class="p">:</span><span class="o">=</span> <span class="n">YES</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjaronetsurf_makefileconfig-40"><code data-line-number="40"></code></a></td>
+<td class="code"><code><a name="listingsmanjaronetsurf_makefileconfig-40"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjaronetsurf_makefileconfig-41"><code data-line-number="41"></code></a></td>
+<td class="code"><code><a name="listingsmanjaronetsurf_makefileconfig-41"></a><span class="o">#</span> <span class="k">Set</span> <span class="k">default</span> <span class="n">GTK</span> <span class="k">version</span> <span class="k">to</span> <span class="n">build</span> <span class="k">for</span> <span class="p">(</span><span class="mi">2</span> <span class="k">or</span> <span class="mi">3</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjaronetsurf_makefileconfig-42"><code data-line-number="42"></code></a></td>
+<td class="code"><code><a name="listingsmanjaronetsurf_makefileconfig-42"></a><span class="n">override</span> <span class="n">NETSURF_GTK_MAJOR</span> <span class="o">?=</span> <span class="mi">3</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjaronetsurf_makefileconfig-43"><code data-line-number="43"></code></a></td>
+<td class="code"><code><a name="listingsmanjaronetsurf_makefileconfig-43"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjaronetsurf_makefileconfig-44"><code data-line-number="44"></code></a></td>
+<td class="code"><code><a name="listingsmanjaronetsurf_makefileconfig-44"></a><span class="o">#</span> <span class="n">freetype</span> <span class="n">compiled</span> <span class="k">in</span> <span class="n">font</span> <span class="n">serch</span> <span class="n">path</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjaronetsurf_makefileconfig-45"><code data-line-number="45"></code></a></td>
+<td class="code"><code><a name="listingsmanjaronetsurf_makefileconfig-45"></a><span class="n">override</span> <span class="n">NETSURF_FB_FONTPATH</span> <span class="p">:</span><span class="o">=</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="k">share</span><span class="o">/</span><span class="n">fonts</span><span class="o">/</span><span class="n">noto</span><span class="p">:</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="k">share</span><span class="o">/</span><span class="n">fonts</span><span class="o">/</span><span class="n">TTF</span><span class="p">:</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="k">share</span><span class="o">/</span><span class="n">fonts</span><span class="o">/</span><span class="n">noto</span><span class="o">-</span><span class="n">cjk</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjaronetsurf_makefileconfig-46"><code data-line-number="46"></code></a></td>
+<td class="code"><code><a name="listingsmanjaronetsurf_makefileconfig-46"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjaronetsurf_makefileconfig-47"><code data-line-number="47"></code></a></td>
+<td class="code"><code><a name="listingsmanjaronetsurf_makefileconfig-47"></a><span class="o">#</span> <span class="k">Default</span> <span class="n">freetype</span> <span class="n">font</span> <span class="n">files</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjaronetsurf_makefileconfig-48"><code data-line-number="48"></code></a></td>
+<td class="code"><code><a name="listingsmanjaronetsurf_makefileconfig-48"></a><span class="o">#</span> <span class="n">override</span> <span class="n">NETSURF_FB_FONT_SANS_SERIF</span> <span class="p">:</span><span class="o">=</span> <span class="n">NotoSansCJK</span><span class="o">-</span><span class="n">Regular</span><span class="p">.</span><span class="n">ttc</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjaronetsurf_makefileconfig-49"><code data-line-number="49"></code></a></td>
+<td class="code"><code><a name="listingsmanjaronetsurf_makefileconfig-49"></a><span class="o">#</span> <span class="n">override</span> <span class="n">NETSURF_FB_FONT_SANS_SERIF_BOLD</span> <span class="p">:</span><span class="o">=</span> <span class="n">NotoSansCJK</span><span class="o">-</span><span class="n">Bold</span><span class="p">.</span><span class="n">ttc</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjaronetsurf_makefileconfig-50"><code data-line-number="50"></code></a></td>
+<td class="code"><code><a name="listingsmanjaronetsurf_makefileconfig-50"></a><span class="o">#</span> <span class="n">override</span> <span class="n">NETSURF_FB_FONT_SANS_SERIF_ITALIC</span> <span class="p">:</span><span class="o">=</span> <span class="n">NotoSansCJK</span><span class="o">-</span><span class="n">DemiLight</span><span class="p">.</span><span class="n">ttc</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjaronetsurf_makefileconfig-51"><code data-line-number="51"></code></a></td>
+<td class="code"><code><a name="listingsmanjaronetsurf_makefileconfig-51"></a><span class="o">#</span> <span class="n">override</span> <span class="n">NETSURF_FB_FONT_SANS_SERIF_ITALIC_BOLD</span> <span class="p">:</span><span class="o">=</span> <span class="n">NotoSansCJK</span><span class="o">-</span><span class="n">Medium</span><span class="p">.</span><span class="n">ttc</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjaronetsurf_makefileconfig-52"><code data-line-number="52"></code></a></td>
+<td class="code"><code><a name="listingsmanjaronetsurf_makefileconfig-52"></a><span class="o">#</span> <span class="n">override</span> <span class="n">NETSURF_FB_FONT_SERIF</span> <span class="p">:</span><span class="o">=</span> <span class="n">NotoSerifCJK</span><span class="o">-</span><span class="n">Regular</span><span class="p">.</span><span class="n">ttc</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjaronetsurf_makefileconfig-53"><code data-line-number="53"></code></a></td>
+<td class="code"><code><a name="listingsmanjaronetsurf_makefileconfig-53"></a><span class="o">#</span> <span class="n">override</span> <span class="n">NETSURF_FB_FONT_SERIF_BOLD</span> <span class="p">:</span><span class="o">=</span> <span class="n">NotoSerifCJK</span><span class="o">-</span><span class="n">Black</span><span class="p">.</span><span class="n">ttc</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjaronetsurf_makefileconfig-54"><code data-line-number="54"></code></a></td>
+<td class="code"><code><a name="listingsmanjaronetsurf_makefileconfig-54"></a><span class="o">#</span> <span class="n">override</span> <span class="n">NETSURF_FB_FONT_MONOSPACE</span> <span class="p">:</span><span class="o">=</span> <span class="n">NotoSansMono</span><span class="o">-</span><span class="n">Regular</span><span class="p">.</span><span class="n">ttf</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjaronetsurf_makefileconfig-55"><code data-line-number="55"></code></a></td>
+<td class="code"><code><a name="listingsmanjaronetsurf_makefileconfig-55"></a><span class="o">#</span> <span class="n">override</span> <span class="n">NETSURF_FB_FONT_MONOSPACE_BOLD</span> <span class="p">:</span><span class="o">=</span> <span class="n">NotoSansMono</span><span class="o">-</span><span class="n">Bold</span><span class="p">.</span><span class="n">ttf</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjaronetsurf_makefileconfig-56"><code data-line-number="56"></code></a></td>
+<td class="code"><code><a name="listingsmanjaronetsurf_makefileconfig-56"></a><span class="o">#</span> <span class="n">override</span> <span class="n">NETSURF_FB_FONT_CURSIVE</span> <span class="p">:</span><span class="o">=</span> <span class="n">comic</span><span class="p">.</span><span class="n">ttf</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjaronetsurf_makefileconfig-57"><code data-line-number="57"></code></a></td>
+<td class="code"><code><a name="listingsmanjaronetsurf_makefileconfig-57"></a><span class="o">#</span> <span class="n">override</span> <span class="n">NETSURF_FB_FONT_FANTASY</span> <span class="p">:</span><span class="o">=</span> <span class="n">impact</span><span class="p">.</span><span class="n">ttf</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjaronetsurf_makefileconfig-58"><code data-line-number="58"></code></a></td>
+<td class="code"><code><a name="listingsmanjaronetsurf_makefileconfig-58"></a><span class="o">#</span> <span class="k">Using</span> <span class="n">Noto</span> <span class="n">fonts</span> <span class="k">some</span> <span class="n">characters</span> <span class="n">may</span> <span class="n">could</span> <span class="k">not</span> <span class="n">display</span><span class="p">,</span> <span class="k">and</span> <span class="n">I</span> <span class="n">cann</span><span class="err">'</span><span class="n">t</span> <span class="n">figure</span> <span class="k">out</span> <span class="n">WHY</span><span class="p">.</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjaronetsurf_makefileconfig-59"><code data-line-number="59"></code></a></td>
+<td class="code"><code><a name="listingsmanjaronetsurf_makefileconfig-59"></a><span class="n">override</span> <span class="n">NETSURF_FB_FONT_SANS_SERIF</span> <span class="p">:</span><span class="o">=</span> <span class="n">Unifont</span><span class="p">.</span><span class="n">ttf</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjaronetsurf_makefileconfig-60"><code data-line-number="60"></code></a></td>
+<td class="code"><code><a name="listingsmanjaronetsurf_makefileconfig-60"></a><span class="n">override</span> <span class="n">NETSURF_FB_FONT_SANS_SERIF_BOLD</span> <span class="p">:</span><span class="o">=</span> <span class="n">Unifont</span><span class="p">.</span><span class="n">ttf</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjaronetsurf_makefileconfig-61"><code data-line-number="61"></code></a></td>
+<td class="code"><code><a name="listingsmanjaronetsurf_makefileconfig-61"></a><span class="n">override</span> <span class="n">NETSURF_FB_FONT_SANS_SERIF_ITALIC</span> <span class="p">:</span><span class="o">=</span> <span class="n">Unifont</span><span class="p">.</span><span class="n">ttf</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjaronetsurf_makefileconfig-62"><code data-line-number="62"></code></a></td>
+<td class="code"><code><a name="listingsmanjaronetsurf_makefileconfig-62"></a><span class="n">override</span> <span class="n">NETSURF_FB_FONT_SANS_SERIF_ITALIC_BOLD</span> <span class="p">:</span><span class="o">=</span> <span class="n">Unifont</span><span class="p">.</span><span class="n">ttf</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjaronetsurf_makefileconfig-63"><code data-line-number="63"></code></a></td>
+<td class="code"><code><a name="listingsmanjaronetsurf_makefileconfig-63"></a><span class="n">override</span> <span class="n">NETSURF_FB_FONT_SERIF</span> <span class="p">:</span><span class="o">=</span> <span class="n">Unifont</span><span class="p">.</span><span class="n">ttf</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjaronetsurf_makefileconfig-64"><code data-line-number="64"></code></a></td>
+<td class="code"><code><a name="listingsmanjaronetsurf_makefileconfig-64"></a><span class="n">override</span> <span class="n">NETSURF_FB_FONT_SERIF_BOLD</span> <span class="p">:</span><span class="o">=</span> <span class="n">Unifont</span><span class="p">.</span><span class="n">ttf</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjaronetsurf_makefileconfig-65"><code data-line-number="65"></code></a></td>
+<td class="code"><code><a name="listingsmanjaronetsurf_makefileconfig-65"></a><span class="n">override</span> <span class="n">NETSURF_FB_FONT_MONOSPACE</span> <span class="p">:</span><span class="o">=</span> <span class="n">Unifont</span><span class="p">.</span><span class="n">ttf</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjaronetsurf_makefileconfig-66"><code data-line-number="66"></code></a></td>
+<td class="code"><code><a name="listingsmanjaronetsurf_makefileconfig-66"></a><span class="n">override</span> <span class="n">NETSURF_FB_FONT_MONOSPACE_BOLD</span> <span class="p">:</span><span class="o">=</span> <span class="n">Unifont</span><span class="p">.</span><span class="n">ttf</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjaronetsurf_makefileconfig-67"><code data-line-number="67"></code></a></td>
+<td class="code"><code><a name="listingsmanjaronetsurf_makefileconfig-67"></a><span class="n">override</span> <span class="n">NETSURF_FB_FONT_CURSIVE</span> <span class="p">:</span><span class="o">=</span> <span class="n">comic</span><span class="p">.</span><span class="n">ttf</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjaronetsurf_makefileconfig-68"><code data-line-number="68"></code></a></td>
+<td class="code"><code><a name="listingsmanjaronetsurf_makefileconfig-68"></a><span class="n">override</span> <span class="n">NETSURF_FB_FONT_FANTASY</span> <span class="p">:</span><span class="o">=</span> <span class="n">impact</span><span class="p">.</span><span class="n">ttf</span>
+</code></td>
+</tr>
+</table></div>
+</div>
+                    </div>
+                </main><div class="footer extra-block no-print">
+    <span class="footer_item">
+        <a href="../../pages/you-qing-lian-jie/">友情链接</a>
+    </span>
+    <span class="footer_item">
+        <a href="../../pages/liu-yan-ban/">留言板</a>
+    </span>
+    <span class="footer_item">
+        <a href="../../pages/ge-ren-dong-tai/">碎碎念</a>
+    </span>
+    </div>
+            <div class="footer social-link no-print">
+            <a href="https://github.com/ashfinal" target="_blank"><i class="grey large github icon"></i></a>
+            <a href="http://weibo.com/ashfinal/" target="_blank"><i class="grey large weibo icon"></i></a>
+            <a href="mailto://ashfinal@sina.cn" target="_blank"><i class="grey large mail icon"></i></a>
+            </div>
+        <div class="ui basic center aligned segment no-print">Contents © 2020         <a href="mailto:ashfinal@sina.cn">ashfinal</a> - Powered by         <a href="https://getnikola.com" target="_blank" rel="nofollow">Nikola</a>         </div>
+
+            </div>
+            <div class="computer only three wide column no-print">
+                <div id="right-side">
+                </div>
+            </div>
+        </div>
+
+        <!-- GoStats JavaScript Based Code -->
+        <script type="text/javascript">(function(c,o,m,p,u,t,e){
+        c['GoStatsObject']=u;c[u]=c[u]||function(){(c[u].q=c[u].q||[]).push(arguments)},
+        c[u].l=1*new Date();t=o.createElement(m);t.async=1;t.src=p;
+        e=o.getElementsByTagName(m)[0];e.parentNode.insertBefore(t,e);
+        })(window,document,'script','//www.gostats.org/5.js','go');
+        go('init',100479892,{'img_counter_type':5,'img_image_type':1});go('send');</script><!-- End GoStats JavaScript Based Code --><script type="text/javascript" src="../../assets/js/jquery-3.3.1.min.js"></script><script type="text/javascript" src="../../assets/js/semantic.min.js"></script><script type="text/javascript" src="../../assets/js/jquery.fancybox.min.js"></script><script type="text/javascript" src="../../assets/js/cookie.min.js"></script><script>
+            $(document).ready(function(){
+                $(".ui.dropdown").dropdown();
+                $('.ui.accordion').accordion();
+                var newstr = $('.cookie.nag').text();
+                $('.cookie.nag').nag({
+                    key: 'globalnotice',
+                    value: newstr
+                  });
+                $('.image-reference').fancybox();
+            });
+        </script>
+</body>
+</html>

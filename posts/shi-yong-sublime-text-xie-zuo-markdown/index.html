@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="zh_cn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="generator" content="Nikola (getnikola.com)">
+<title>使用 Sublime Text 写作 Markdown - MacPlay</title>
+<link rel="apple-touch-icon" sizes="180x180" href="../../apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+<link rel="mask-icon" href="../../safari-pinned-tab.svg" color="#5bbad5">
+<link href="../../assets/css/semantic.min.css" rel="stylesheet" type="text/css">
+<link href="../../assets/css/jquery.fancybox.min.css" rel="stylesheet" type="text/css">
+<link href="../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<link rel="canonical" href="https://macplay.github.io/posts/shi-yong-sublime-text-xie-zuo-markdown/">
+<meta name="author" content="ashfinal">
+<link rel="alternate" hreflang="en" href="../../en/posts/shi-yong-sublime-text-xie-zuo-markdown/">
+<link rel="stylesheet" type="text/css" href="../../assets/css/gitalk.css">
+</head>
+<body>
+        <div class="ui grid">
+            <div class="computer only three wide column no-print">
+                <div id="left-side">
+                </div>
+            </div>
+            <div class="ten wide computer sixteen wide tablet sixteen wide mobile column">
+                        <div class="ui inline cookie nag no-print">
+            <span class="title">从现在开始，支持中英双语及博文精选 O(∩_∩)O~~</span>
+            <i class="close icon"></i>
+        </div>
+    <header id="header" class="no-print"><div class="ui grid">
+        <div class="computer only tablet only sixteen wide column">
+            <div class="ui large secondary stackable menu">
+                <a class="header item brand-logo" href="https://macplay.github.io/">
+                    MacPlay
+                </a>
+                        <a class="item" href="../../">Posts</a>
+                        <a class="item" href="../../listings/">Code</a>
+                        <a class="item" href="../../galleries/">Gallery</a>
+                        <a class="item" href="../../categories/">Tags</a>
+                        <a class="item" href="../../archive.html">Archive</a>
+                <div class="right menu">
+                    <a class="item" href="../../rss.xml"><i class="rss icon"></i>RSS</a>
+                </div>
+            </div>
+        </div>
+        <div class="mobile only sixteen wide column">
+            <div class="ui fluid accordion vertical menu">
+                <div class="item">
+                    <a class="title">MacPlay</a>
+                    <div class="content">
+                                <a class="item" href="../../">Posts</a>
+                                <a class="item" href="../../listings/">Code</a>
+                                <a class="item" href="../../galleries/">Gallery</a>
+                                <a class="item" href="../../categories/">Tags</a>
+                                <a class="item" href="../../archive.html">Archive</a>
+                        <a class="item" href="../../rss.xml"><i class="rss icon"></i>RSS</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </header><main id="main"><div id="main-content">
+<div class="postpage post-text page-body" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <h1 class="post-title" itemprop="headline">
+        <a href=".">使用 Sublime Text 写作 Markdown</a>
+    </h1>
+
+    <div class="ui large horizontal link list post-meta">
+        <span class="item">By
+            <a href="../../authors/ashfinal/">ashfinal</a>
+        </span>
+            <span class="item">
+                <a href="https://github.com/macplay/macplay.github.io/edit/src/posts/shi-yong-sublime-text-xie-zuo-markdown.md" target="_blank" title="Edit on GitHub">Edit</a>
+            </span>
+        <span class="item">
+            <time datetime="2016-12-24T08:00:00+08:00">
+            2016-12-24 08:00
+            </time></span>
+            <span class="item">
+                    <a href="../../categories/markdown/">markdown</a>
+                    <a href="../../categories/sublime-text/">sublime text</a>
+            </span>
+    </div>
+
+    
+    <div class="post-content" itemprop="article text">
+        <div id="post-content">
+        <div>
+<h3 id="markdown">什么是 Markdown</h3>
+<blockquote>
+<p>Markdown 是一种轻量级标记语言，创始人为约翰·格鲁伯（John Gruber）。它允许人们“使用易读易写的纯文本格式编写文档，然后转换成有效的XHTML(或者HTML)文档”。 —— 来自维基百科 <sup id="fnref:Markdown"><a class="footnote-ref" href="#fn:Markdown">1</a></sup></p>
+</blockquote>
+<p>Markdown 创立的宗旨是实现「易读易写」。其语法简洁直观，你可以使用任何喜爱的文本编辑器来阅读和写作，更专注于书写的文字内容而不是排版样式。编辑完毕可轻松地导出成 HTML、PDF 等其它格式。</p>
+<p>语法学习参考 : <a href="http://wowubuntu.com/markdown/" title="http://wowubuntu.com/markdown/">Markdown 语法说明(简体中文版)</a></p>
+<!-- TEASER_END -->
+
+<div class="toc">
+<ul>
+<li><a href="#markdown">什么是 Markdown</a></li>
+<li><a href="#sublime-text-3-omnimarkuppreviewer">Sublime Text 3 以及 OmniMarkupPreviewer</a></li>
+<li>
+<a href="#omnimarkuppreviewer">OmniMarkupPreviewer 设置详解</a><ul>
+<li><a href="#_1">安装和使用</a></li>
+<li><a href="#_2">详细设置</a></li>
+</ul>
+</li>
+<li>
+<a href="#sublime-text">Sublime Text 相关功能说明</a><ul>
+<li><a href="#_3">项目管理</a></li>
+<li><a href="#_4">版本修订</a></li>
+<li><a href="#docnav">文档导航</a></li>
+<li><a href="#_5">语法着色</a></li>
+<li><a href="#vimmode">Vim 模式</a></li>
+<li><a href="#snipsupport">Code Snippet</a></li>
+<li><a href="#zenmode">无干扰模式</a></li>
+</ul>
+</li>
+<li><a href="#_6">功能总结</a></li>
+<li><a href="#_7">结束语</a></li>
+<li><a href="#_8">附录</a></li>
+</ul>
+</div>
+<h3 id="sublime-text-3-omnimarkuppreviewer">Sublime Text 3 以及 OmniMarkupPreviewer</h3>
+<blockquote>
+<p>Sublime Text 是一套跨平台的文字編輯器，支持基於Python的外掛程式。Sublime Text 是專有軟體，可透過套件（Package）擴充本身的功能。大多數的套件使用自由軟體授權釋出，並由社群建置維護。 —— 来自维基百科 <sup id="fnref:Sublime Text"><a class="footnote-ref" href="#fn:Sublime%20Text">2</a></sup></p>
+</blockquote>
+<p><strong>Sublime Text</strong> 作为近些年迅速崛起的后起之秀，凭借其精美的 UI 交互、完备的特色功能俘虏了一大批忠实用户。其风靡之势刺激了一些新老文本编辑器的重新思考和开发，开源实现 <a href="http://limetext.org" title="http://limetext.org">Lime Text Editor</a> 无需多说，Github 主导的 <a href="https://atom.io/" title="https://atom.io/">Atom</a> 以及号称下一代 Vim 编辑器的 <a href="http://neovim.org" title="http://neovim.org">neovim</a> 都明确受到 Sublime Text 的影响。</p>
+<p>而 <strong>OmniMarkupPreviewer</strong> 作为 Sublime Text 的一款强大插件，支持将标记语言渲染为 HTML 并在浏览器上实时预览，同时支持导出 HTML 源码文件。</p>
+<p>支持的标记类语言:</p>
+<ul>
+<li><strong>Markdown</strong></li>
+<li><strong>reStructuredText</strong></li>
+<li>WikiCreole</li>
+<li>Textile</li>
+<li>Pod (Requires Perl &gt;= 5.10)</li>
+<li>RDoc (Requires ruby in your PATH)</li>
+<li>Org Mode (Requires ruby, and gem org-ruby should be installed)</li>
+<li>MediaWiki (Requires ruby, as well as gem wikicloth)</li>
+<li>AsciiDoc (Requires ruby, as well as gem asciidoctor)</li>
+<li>Literate Haskell</li>
+</ul>
+<h3 id="omnimarkuppreviewer">OmniMarkupPreviewer 设置详解</h3>
+<p>文章仅提供了简单的安装使用说明，以及个人较为关注的设置选项。</p>
+<p>想了解更多相关信息，请点击文档内链接并参考脚注部分。</p>
+<h4 id="_1">安装和使用</h4>
+<p>你可以在 Sublime Text 内通过 <a href="https://packagecontrol.io/" title="https://packagecontrol.io/">Package Control</a> 输入 <code>Install Package</code> 来安装 OmniMarkupPreviewer, 也可以从其 <a href="http://timonwong.github.io/OmniMarkupPreviewer/" title="http://timonwong.github.io/OmniMarkupPreviewer/">Github主页</a> 下载压缩包，解压到 Sublime Text 的 <code>Packages</code> 目录即可完成安装。</p>
+<blockquote>
+<p><em><a href="https://packagecontrol.io/" title="https://packagecontrol.io/">Package Control</a> - Sublime Text 的包管理器，简单好用，推荐安装</em></p>
+</blockquote>
+<p><strong>使用方法:</strong> Sublime Text 内 Markdown 标签页点击鼠标右键 - 选择<code>Preview Current Markup in Browser</code>。 或者使用快捷键 (macOS <code>⌘+⌥+O</code>; Windows/Linux<code>Ctrl+Alt+O</code>) 来预览。</p>
+<h4 id="_2">详细设置</h4>
+<p>OmniMarkupPreviewer 默认配置基本够用，但详细设置后才能将其特色功能充分发挥。</p>
+<p>分享一下 <code>${packages}/User/OmniMarkupPreviewer.sublime-settings</code> 文件:</p>
+<blockquote>
+<p><em><code>${packages}</code> 路径为 <code>/Users/ashfinal/Library/Application Support/Sublime Text 3/Packages/</code></em></p>
+<p><em>注意用户账号替换。可通过点击菜单栏 <code>Preferences</code> - <code>Browse Packages</code> 打开其 Finder 窗口</em></p>
+</blockquote>
+<pre class="code literal-block"><span></span>{
+    "server_host": "192.168.1.100",
+
+    "browser_command": ["open", "-a", "Google Chrome", "{url}"],
+
+    // User public static files should be placed into
+    //   <span class="cp">${</span><span class="n">packages</span><span class="cp">}</span>/User/OmniMarkupPreviewer/public/
+    // User templates should be placed into:
+    //   <span class="cp">${</span><span class="n">packages</span><span class="cp">}</span>/User/OmniMarkupPreviewer/templates/
+    // Requires browser reload
+    "html_template_name": "Evolution Yellow",
+
+    // list of renderers to be ignored, case sensitive.
+    // Valid renderers are: "CreoleRenderer", "MarkdownRenderer", "PodRenderer",
+    //     "RDocRenderer", "RstRenderer", "TextitleRenderer"
+    // for example, to disable Textile and Pod renderer:
+    //   "ignored_renderers": ["TextitleRenderer", "PodRenderer"]
+    "ignored_renderers": ["CreoleRenderer", "PodRenderer", "RDocRenderer", "TextitleRenderer", "LiterateHaskellRenderer"],
+
+    "mathjax_enabled": false,
+
+    // MarkdownRenderer options
+    "renderer_options-MarkdownRenderer": {
+        // Valid extensions:
+        // - OFFICIAL (Python Markdown) -
+        //   "extra": Combines ["abbr", "attr_list", "def_list", "fenced_code", "footnotes", "tables", "smart_strong"]
+        //            For PHP Markdown Extra(http://michelf.ca/projects/php-markdown/extra/)
+        //   "abbr": http://packages.python.org/Markdown/extensions/abbreviations.html
+        //   "attr_list": http://packages.python.org/Markdown/extensions/attr_list.html
+        //   "def_list": http://packages.python.org/Markdown/extensions/definition_lists.html
+        //   "fenced_code": http://packages.python.org/Markdown/extensions/fenced_code_blocks.html
+        //   "footnotes": http://packages.python.org/Markdown/extensions/footnotes.html
+        //   "tables": http://packages.python.org/Markdown/extensions/tables.html
+        //   "smart_strong": http://packages.python.org/Markdown/extensions/smart_strong.html
+        //   "codehilite": http://packages.python.org/Markdown/extensions/code_hilite.html
+        //   "meta": http://packages.python.org/Markdown/extensions/meta_data.html
+        //   "toc": http://packages.python.org/Markdown/extensions/toc.html
+        //   "nl2br": http://packages.python.org/Markdown/extensions/nl2br.html
+        // - 3RD PARTY -
+        //   "strikeout": Strikeout extension syntax - `This ~~is deleted text.~~`
+        //   "subscript": Subscript extension syntax - `This is water: H~2~O`
+        //   "superscript": Superscript extension syntax 0 `2^10^ = 1024`
+        //   "smarty" or "smartypants": Python-Markdown extension using smartypants to emit
+        //                   typographically nicer ("curly") quotes, proper
+        //                   ("em" and "en") dashes, etc.
+        //                   See: http://daringfireball.net/projects/smartypants/
+        //                   And: https://github.com/waylan/Python-Markdown/blob/master/docs/extensions/smarty.txt
+        "extensions": ["extra", "codehilite", "toc", "strikeout", "smarty", "subscript", "superscript"]
+    }
+}
+</pre>
+
+
+<p>结合配置文件注释，来一起看下让 OmniMarkupPreviewer 更好用的诸多选项:</p>
+<pre class="code literal-block"><span></span><span class="err">"server_host": "192.168.1.100",</span>
+</pre>
+
+
+<p id="multipre">开启预览服务的 IP 地址, 默认为 localhost.</p>
+<p>此处建议设置为本机固定 IP. 其好处在于：从局域网内的任意一台设备均可访问，可多设备同时在线，实现 <strong>一处编辑、多端预览</strong> 的效果。</p>
+<p>你完全可以在 Mac 上编辑 Markdown 文档，而把 iPad 当作外接显示器来实时预览。</p>
+<p>实际效果堪称完美，搞得我开始分外怀念已出手的 iPad ~ （；￣ェ￣）</p>
+<pre class="code literal-block"><span></span><span class="err">"browser_command": ["open", "-a", "Google Chrome", "{url}"],</span>
+</pre>
+
+
+<p>预览默认为 Safari 浏览器，但一段时间下来发现最好使用 Google Chrome.</p>
+<pre class="code literal-block"><span></span><span class="err">"html_template_name": "Evolution Yellow",</span>
+</pre>
+
+
+<p id="usertpl">预览使用的模板名称，默认为 Github.</p>
+<p>此处为自定义模版 <code>Evolution Yellow</code>. 所谓模板其实就是非常简单的 CSS + HTML 文件，你可以修改背景、行宽、字体、边距 …… 等等样式相关的所有东西，甚至引入一些花哨的动画效果(你确定要这么做？)。</p>
+<p>你可以在内置模板 Github 的基础上进行自定义，其路径为 <code>${packages}/OmniMarkupPreviewer/public/github.css</code>, <code>${packages}/OmniMarkupPreviewer/templates/github.tpl</code>. 修改完毕后依据注释提示分别放到相关路径即可。</p>
+<pre class="code literal-block"><span></span><span class="err">"ignored_renderers": ["CreoleRenderer", "PodRenderer", "RDocRenderer", "TextitleRenderer", "LiterateHaskellRenderer"],</span>
+</pre>
+
+
+<p>忽略/关闭的标记语言渲染器。</p>
+<p>如前文介绍，OmniMarkupPreviewer 支持的标记语言非常多，但是笔者接触的种类比较有限，所以此处只开启了 <code>MarkdownRenderer</code> 和 <code>RstRenderer</code> 渲染器。</p>
+<pre class="code literal-block"><span></span><span class="err">"mathjax_enabled": false,</span>
+</pre>
+
+
+<p id="mathjaxsupport">强大的 JavaScript 引擎, 支持 <strong>LaTeX</strong> 编辑显示数学公式。</p>
+<p>访问 <a href="http://www.mathjax.org/" title="http://www.mathjax.org/">MathJax</a> 查看介绍及使用方法。不过笔者暂用不到这么高级的功能，所以此处禁用掉。</p>
+<pre class="code literal-block"><span></span><span class="err">"renderer_options-MarkdownRenderer": {</span>
+<span class="err">        "extensions": ["extra", "codehilite", "toc", "strikeout", "smarty", "subscript", "superscript"]</span>
+<span class="err">    }</span>
+</pre>
+
+
+<p id="renderoption">Markdown 渲染扩展选项。</p>
+<p>对比某些功能缺失的 Markdown 编辑器就知道 OmniMarkupPreviewer 的强大之处，简单说下：</p>
+<ul>
+<li>
+<p><strong>attr_list</strong>: 定义 HTML 标签属性 <sup id="fnref:attrlist"><a class="footnote-ref" href="#fn:attrlist">3</a></sup></p>
+<p>语法：<code>{#someid .someclass somekey='some value' }</code></p>
+<p>基本用途是实现篇幅较长的文档内的随意跳转。如果你网上查过相关资料的话，会发现搜索结果中的实现方式比较繁琐和 dirty.</p>
+<p>开启 attr_list 支持后，实现语法非常简洁：</p>
+<pre class="code literal-block"><span></span><span class="o">###</span> <span class="err">想要跳转到这里？</span> <span class="err">{</span><span class="o">#</span><span class="n">jumpid</span><span class="err">}</span>
+
+<span class="err">从页面的任何地方跳转到</span> <span class="p">[</span><span class="err">以上位置</span><span class="p">](</span><span class="o">#</span><span class="n">jumpid</span> <span class="ss">"跳转到'想要跳转到这里？'"</span><span class="p">)</span>
+</pre>
+
+
+</li>
+<li>
+<p><strong>footnotes</strong>: 文档脚注 <sup id="fnref:footnote"><a class="footnote-ref" href="#fn:footnote">4</a></sup></p>
+<p>本文就使用了一些脚注来标记参考文档的网址。</p>
+<p>语法：</p>
+<pre class="code literal-block"><span></span><span class="n">Footnotes</span><span class="p">[</span><span class="o">^</span><span class="mi">1</span><span class="p">]</span> <span class="n">have</span> <span class="n">a</span> <span class="n">label</span> <span class="k">and</span> <span class="n">content</span><span class="p">.</span>
+
+<span class="p">[</span><span class="o">^</span><span class="mi">1</span><span class="p">]:</span> <span class="n">This</span> <span class="k">is</span> <span class="n">a</span> <span class="n">footnote</span> <span class="n">content</span><span class="p">.</span>
+</pre>
+
+
+</li>
+<li>
+<p><strong>codehilite</strong>: 代码块语法高亮支持 <sup id="fnref:codehilite"><a class="footnote-ref" href="#fn:codehilite">5</a></sup></p>
+<p>需要 <a href="http://pygments.org/" title="http://pygments.org/">Pygments</a> 库，支持300种语言及其它文本格式的语法高亮，并可以方便地自定义代码高亮样式。</p>
+<p>如果之前没安装过 Pygments 的话，打开终端输入 <code>pip install pygments</code> 即可。</p>
+</li>
+<li>
+<p><strong>toc</strong>: 文档目录 <sup id="fnref:toc"><a class="footnote-ref" href="#fn:toc">6</a></sup></p>
+<p>文章开头自动生成文档目录，并附带跳转链接。对了解长篇文章结构和快速跳转有较大帮助。</p>
+<p>语法： Markdown 文档相应位置输入 <code>[TOC]</code> 即可。</p>
+</li>
+<li>
+<p><strong>其它</strong>：</p>
+<p>strikeout 删除线 - <code>This ~~is deleted text.~~</code></p>
+<p>superscript 上标 - <code>2^10^ = 1024</code></p>
+<p>subscript: 下标 - <code>This is water: H~2~O</code></p>
+<p>……</p>
+</li>
+</ul>
+<p><em>对 Markdown 语法的完备支持是选择和推荐 OmniMarkupPreviewer 的重要原因。</em></p>
+<h3 id="sublime-text">Sublime Text 相关功能说明</h3>
+<p>Sublime Text 作为一款功能强大、易于扩展的文本编辑器，提供了许多收费 Markdown 编辑器都不具备的增强功能。</p>
+<h4 id="_3">项目管理</h4>
+<p><img alt="Project&amp;Workspace" src="../../images/xiang_mu_guan_li.png" title="Project&amp;Workspace"></p>
+<p>只需将想添加的目录拖放到 Sublime Text 即可轻松实现文件系统导航，支持多级目录和右键快捷操作，并可保存项目和工作空间。这样下次你打开该项目时，打开的标签页和编辑状态都一如从前。</p>
+<p><em>因笔者刚开始写稿文章数量较少，图片部分借用之前 Django 项目来做直观展示</em></p>
+<h4 id="_4">版本修订</h4>
+<p><img alt="gitmgmr" src="../../images/ban_ben_xiu_ding.png" title="gitmgmr"></p>
+<p>使用系统自带的 Git 来做版本管理， 同时推荐安装 <a href="https://packagecontrol.io/packages/GitGutter" title="https://packagecontrol.io/packages/GitGutter">Git Gutter</a>,  该插件可在 ST 左侧边栏显示修改标记，配合鼠标右键 <code>Show Unsaved Changes</code> 能很好的追踪文档修改纪录。</p>
+<blockquote>
+<p><a href="http://zh.wikipedia.org/wiki/Git" title="http://zh.wikipedia.org/wiki/Git">Git</a> 作为目前最先进的分布式版本控制系统，最初是由开源领袖 Linus Torvalds 研发并创立社区针对程序员们提供服务的，但现在也被越来越多的科研工作者、开源爱好者、著书翻译者以及科技博客接受并使用。</p>
+</blockquote>
+<p>此处我们仅使用 <a href="http://zh.wikipedia.org/wiki/Git" title="http://zh.wikipedia.org/wiki/Git">Git</a> 强大系统的一部分功能，基本上只用来进行本地修订版本跟踪，当然你也可以推送到远端 <a href="http://github.com" title="http://github.com">Github</a> 备份或者与他人进行分工协作。</p>
+<p>关于 <a href="http://zh.wikipedia.org/wiki/Git" title="http://zh.wikipedia.org/wiki/Git">Git</a> 的使用近期会整理一份初学者手册，视时间和精力尽可能全面详尽些。但是不用过分担心，只用到博客版本管理功能的话，只有非常简单的几个命令而已～</p>
+<h4 id="docnav">文档导航</h4>
+<p><img alt="mdsymbol" src="../../images/wen_dang_dao_hang.png" title="mdsymbol"></p>
+<p>点击菜单栏 <code>Goto</code> - <code>Goto Symbol</code>, 或者快捷键 <code>⌘+R</code> 即可调出文档内导航面板，实现迅速在文章各标题间跳转的功能。感兴趣的读者还可以尝试 <code>Goto Anything</code> 、<code>书签</code>等等高级功能。</p>
+<h4 id="_5">语法着色</h4>
+<p>Sublime Text 内置 Markdown 文档的语法高亮，只是默认的颜色有点少。但是好消息是你可以方便快捷地增强和自定义，<a href="https://packagecontrol.io/" title="https://packagecontrol.io/">Packages Control</a> 网站上也有很多分享的语法高亮文件，你只需在此基础上简单修改就可定制属于自己的个性特色啦。</p>
+<p>一款柔和养眼的淡黄色主题：</p>
+<p><img alt="syntaxhighlighting" src="../../images/yu_fa_zhuo_se.png" title="syntaxhighlighting"></p>
+<h4 id="vimmode">Vim 模式</h4>
+<p>Sublime Text 内置 Vim 模式支持，你只需到用户设置文件将 <code>"ignored_packages": ["vintage"]</code> 中的 vintage 删除即可。Sublime Text 并没有试图将 Vim 的按键映射全盘照搬过来，而是较好的进行了提炼融合。这使得大部分操作都能同时在编辑模式和命令模式下完成，有效地减少了在两种模式间不停切换的次数。</p>
+<p>关于 Vim 相关操作请直接参考其网络教程，Sublime Text 对于绝大多数命令均支持。</p>
+<p>坚持一段时间，相信你可以完全脱离鼠标的束缚，大大提高文本编辑的操作效率。</p>
+<h4 id="snipsupport">Code Snippet</h4>
+<p>如果想要在 Markdown 文档中插入链接、脚注 … 的话，你会怎么做？笔者刚学 Markdown 的时候傻乎乎地挨个敲入字符，而且经常搞混。后来接触到一些 Markdown 编辑器，使用菜单/快捷键的方式来插入，但笔者对此种操作方式不是非常认同，总觉得打断了正常的文档编辑流程。随着 Markdown 工具链的确定和完善，使用以前给人深刻印象的 Code Snippet 特性来实现就显得顺理成章了。</p>
+<p>如何插入参考型链接如图所示：</p>
+<p><img alt="mdacrgif" src="../../images/dai_ma_pian_duan.gif" title="mdacrgif"></p>
+<p>只需在文本编辑流中正常输入 Code Snippet 后按 <code>Tab</code> 键，修改相应值就可以。对于不想修改的非必要值可按 <code>Tab</code> 键直接跳过，不小心输错可按 <code>Shift+Tab</code> 键往回跳转。输入过程中光标的移动全键盘操作，无需再腾手用鼠标点击。</p>
+<p>目前笔者定义了四枚 Code Snippet, 对应如下：</p>
+<ul>
+<li>
+<code>mdlink</code> - 插入链接</li>
+<li>
+<code>mdimg</code> - 插入图片</li>
+<li>
+<code>mdacr</code> - 插入参考式链接</li>
+<li>
+<code>mdfn</code>- 插入脚注</li>
+</ul>
+<h4 id="zenmode">无干扰模式</h4>
+<p>隐藏菜单栏、状态栏等无关界面元素，提供全沉浸、无干扰的写作模式。</p>
+<p>点击菜单栏 <code>View</code> - <code>Enter/Exit Distraction Mode</code> 即可切换，快捷键为 <code>⌃+⇧+⌘+F</code>.</p>
+<hr>
+<p>此外，Sublime Text 还提供了诸多细节设计和功能，如多光标编辑、缩进参考线、代码地图、窗口分割、正则搜索替换等等。</p>
+<h3 id="_6">功能总结</h3>
+<p>与某些号称简洁但缺失功能的软件不同，Sublime Text 在保持优雅设计和体验的同时，其功能性和扩展性可谓强悍无匹。而凭借 OmniMarkupPreviewer 插件，实现了对 Markdown 扩展语法的支持、 MathJax 公式编辑、 模板自定义等功能。
+两者的结合还产生了大多数 Markdown 编辑器所不具有的特性，如多设备同步预览、Vim 模式、项目管理、Snippet 支持等等。</p>
+<p>即使从专业 Markdown 编辑器的角度来看：</p>
+<ul>
+<li>
+<p><a href="#renderoption"><strong>扩展语法的完备支持</strong></a> (toc, tables, footnotes, attr_list …)</p>
+</li>
+<li>
+<p><a href="#mathjaxsupport"><strong>MathJax 公式编辑</strong></a></p>
+</li>
+<li>
+<p><a href="#usertpl"><strong>模板高度自定义</strong></a> (CSS 修改预览/导出模板)</p>
+</li>
+<li>
+<p><a href="#docnav"><strong>文档内标题导航</strong></a></p>
+</li>
+<li>
+<p><a href="#multipre"><strong>多屏幕同步刷新</strong></a> (包含移动设备)</p>
+</li>
+<li>
+<p><a href="#vimmode"><strong>Vim 编辑模式</strong></a></p>
+</li>
+<li>
+<p><a href="#snipsupport"><strong>Snippet 扩展</strong></a></p>
+</li>
+<li>
+<p><a href="#zenmode"><strong>无干扰写作模式</strong></a></p>
+</li>
+<li>
+<p>……</p>
+</li>
+</ul>
+<p>Sublime Text + OmniMarkupPreviewer 的组合也达到乃至超越了相当一部分 Markdown 编辑器，而且其整个实现方案是近乎免费的！实现了近乎完美的 Markdown 写作体验。</p>
+<p><em>以上特色功能均作了文档内跳转，可点击链接回顾相关内容。</em></p>
+<h3 id="_7">结束语</h3>
+<p>对 Sublime Text 及 OmniMarkupPreviewer 的介绍就到这里，欢迎感兴趣的读者朋友们一起讨论交流～</p>
+<h3 id="_8">附录</h3>
+<p>用户 OmniMarkupPreviewer 配置文件已在前文提供，再附录上 Code Snippet 四枚：</p>
+<blockquote>
+<p><em>分别保存后放到 <code>${packages}/User/</code> 目录即可生效</em></p>
+</blockquote>
+<ul>
+<li>
+<p>Markdown_Link_(mdlink).sublime-snippet</p>
+<pre class="code literal-block"><span></span><span class="nt">&lt;snippet&gt;</span>
+    <span class="nt">&lt;content&gt;</span><span class="cp">&lt;![CDATA[</span>
+<span class="cp">[${</span><span class="mi">1</span><span class="p">:</span><span class="n">Display_Text</span><span class="cp">}](${</span><span class="mi">2</span><span class="p">:</span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">example</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="cp">} ${</span><span class="mi">3</span><span class="p">:</span><span class="s2">"$2"</span><span class="cp">})</span>
+<span class="cp">]]&gt;</span><span class="nt">&lt;/content&gt;</span>
+    <span class="nt">&lt;tabTrigger&gt;</span>mdlink<span class="nt">&lt;/tabTrigger&gt;</span>
+    <span class="nt">&lt;scope&gt;</span>text.html.markdown.multimarkdown, text.html.markdown<span class="nt">&lt;/scope&gt;</span>
+    <span class="nt">&lt;description&gt;</span>Insert Link<span class="nt">&lt;/description&gt;</span>
+<span class="nt">&lt;/snippet&gt;</span>
+</pre>
+
+
+</li>
+<li>
+<p>Markdown_Image_(mdimg).sublime-snippet</p>
+<pre class="code literal-block"><span></span><span class="nt">&lt;snippet&gt;</span>
+    <span class="nt">&lt;content&gt;</span><span class="cp">&lt;![CDATA[</span>
+<span class="cp">![${</span><span class="mi">1</span><span class="p">:</span><span class="n">Some_Text</span><span class="cp">}](${</span><span class="mi">2</span><span class="p">:</span><span class="n">url_to_image</span><span class="cp">} ${</span><span class="mi">3</span><span class="p">:</span><span class="s2">"$1"</span><span class="cp">})</span>
+<span class="cp">]]&gt;</span><span class="nt">&lt;/content&gt;</span>
+    <span class="nt">&lt;tabTrigger&gt;</span>mdimg<span class="nt">&lt;/tabTrigger&gt;</span>
+    <span class="nt">&lt;scope&gt;</span>text.html.markdown.multimarkdown, text.html.markdown<span class="nt">&lt;/scope&gt;</span>
+    <span class="nt">&lt;description&gt;</span>Insert Image<span class="nt">&lt;/description&gt;</span>
+<span class="nt">&lt;/snippet&gt;</span>
+</pre>
+
+
+</li>
+<li>
+<p>Markdown_Anchor_(mdarch).sublime-snippet</p>
+<pre class="code literal-block"><span></span><span class="nt">&lt;snippet&gt;</span>
+    <span class="nt">&lt;content&gt;</span><span class="cp">&lt;![CDATA[</span>
+<span class="cp">[${</span><span class="mi">1</span><span class="p">:</span><span class="n">Display_Text</span><span class="cp">}][${</span><span class="mi">2</span><span class="p">:</span><span class="nb">id</span><span class="cp">}]$5</span>
+
+<span class="cp">[$2]:${</span><span class="mi">3</span><span class="p">:</span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">example</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="cp">} ${</span><span class="mi">4</span><span class="p">:</span><span class="s2">"$3"</span><span class="cp">}</span>
+<span class="cp">]]&gt;</span><span class="nt">&lt;/content&gt;</span>
+    <span class="nt">&lt;tabTrigger&gt;</span>mdacr<span class="nt">&lt;/tabTrigger&gt;</span>
+    <span class="nt">&lt;scope&gt;</span>text.html.markdown.multimarkdown, text.html.markdown<span class="nt">&lt;/scope&gt;</span>
+    <span class="nt">&lt;description&gt;</span>Link Anchor<span class="nt">&lt;/description&gt;</span>
+<span class="nt">&lt;/snippet&gt;</span>
+</pre>
+
+
+</li>
+<li>
+<p>Markdown_Footnote_(mdfn).sublime-snippet</p>
+<pre class="code literal-block"><span></span><span class="nt">&lt;snippet&gt;</span>
+    <span class="nt">&lt;content&gt;</span><span class="cp">&lt;![CDATA[</span>
+<span class="cp">[^${</span><span class="mi">1</span><span class="p">:</span><span class="n">Footnote</span><span class="cp">}]$3</span>
+
+<span class="cp">[^$1]:${</span><span class="mi">2</span><span class="p">:</span><span class="n">Footnote_Text</span><span class="cp">}</span>
+<span class="cp">]]&gt;</span><span class="nt">&lt;/content&gt;</span>
+    <span class="nt">&lt;tabTrigger&gt;</span>mdfn<span class="nt">&lt;/tabTrigger&gt;</span>
+    <span class="nt">&lt;scope&gt;</span>text.html.markdown.multimarkdown, text.html.markdown<span class="nt">&lt;/scope&gt;</span>
+    <span class="nt">&lt;description&gt;</span>Insert Footnote<span class="nt">&lt;/description&gt;</span>
+<span class="nt">&lt;/snippet&gt;</span>
+</pre>
+
+
+</li>
+</ul>
+<div class="footnote">
+<hr>
+<ol>
+<li id="fn:Markdown">
+<p><a href="http://zh.wikipedia.org/zh-cn/Markdown">http://zh.wikipedia.org/zh-cn/Markdown</a> <a class="footnote-backref" href="#fnref:Markdown" title="Jump back to footnote 1 in the text">↩</a></p>
+</li>
+<li id="fn:Sublime Text">
+<p><a href="http://zh.wikipedia.org/wiki/Sublime_Text">http://zh.wikipedia.org/wiki/Sublime_Text</a> <a class="footnote-backref" href="#fnref:Sublime%20Text" title="Jump back to footnote 2 in the text">↩</a></p>
+</li>
+<li id="fn:attrlist">
+<p><a href="http://packages.python.org/Markdown/extensions/attr_list.html">http://packages.python.org/Markdown/extensions/attr_list.html</a> <a class="footnote-backref" href="#fnref:attrlist" title="Jump back to footnote 3 in the text">↩</a></p>
+</li>
+<li id="fn:footnote">
+<p><a href="http://packages.python.org/Markdown/extensions/footnotes.html">http://packages.python.org/Markdown/extensions/footnotes.html</a> <a class="footnote-backref" href="#fnref:footnote" title="Jump back to footnote 4 in the text">↩</a></p>
+</li>
+<li id="fn:codehilite">
+<p><a href="http://packages.python.org/Markdown/extensions/code_hilite.html">http://packages.python.org/Markdown/extensions/code_hilite.html</a> <a class="footnote-backref" href="#fnref:codehilite" title="Jump back to footnote 5 in the text">↩</a></p>
+</li>
+<li id="fn:toc">
+<p><a href="http://packages.python.org/Markdown/extensions/toc.html">http://packages.python.org/Markdown/extensions/toc.html</a> <a class="footnote-backref" href="#fnref:toc" title="Jump back to footnote 6 in the text">↩</a></p>
+</li>
+</ol>
+</div>
+</div>
+        </div>
+    </div>
+    <div class="post-info">
+        <p>文章链接：<a href="https://macplay.github.io/posts/shi-yong-sublime-text-xie-zuo-markdown/" target="_blank">https://macplay.github.io/posts/shi-yong-sublime-text-xie-zuo-markdown/</a></p>
+        <p>发布/更新于：
+            <time datetime="2017-10-26 02:12:19 UTC+08:00">
+            2017-10-26 02:12
+            </time></p>
+        <p>版权声明：如无特别说明，本站文章均遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">CC BY-NC-SA 4.0</a> 协议，转载请注明作者及出处。</p>
+    </div>
+        <div class="post-navigation no-print">
+        <div class="ui huge secondary stackable menu">
+            <a class="post-nav-item post-nav-previous item" href="../jian-ji-chun-cui-de-foxit-mobilepdf-yue-du-qi/" title="Previous post"><i class="angle double left icon"></i> 简洁纯粹的 Foxit MobilePDF 阅读器</a>
+        <div class="right menu">
+            <a class="post-nav-item post-nav-next item" href="../zai-macos-shang-shi-yong-re-vim-pei-zhi/" title="Next post">在 macOS 上使用 re-vim 配置 <i class="angle double right icon"></i></a>
+        </div>
+        </div>
+    </div>
+
+        <div id="gitalk-container" class="comments-block no-print"></div>
+</div>
+                    </div>
+                </main><div class="footer extra-block no-print">
+    <span class="footer_item">
+        <a href="../../pages/you-qing-lian-jie/">友情链接</a>
+    </span>
+    <span class="footer_item">
+        <a href="../../pages/liu-yan-ban/">留言板</a>
+    </span>
+    <span class="footer_item">
+        <a href="../../pages/ge-ren-dong-tai/">碎碎念</a>
+    </span>
+    </div>
+            <div class="footer social-link no-print">
+            <a href="https://github.com/ashfinal" target="_blank"><i class="grey large github icon"></i></a>
+            <a href="http://weibo.com/ashfinal/" target="_blank"><i class="grey large weibo icon"></i></a>
+            <a href="mailto://ashfinal@sina.cn" target="_blank"><i class="grey large mail icon"></i></a>
+            </div>
+        <div class="ui basic center aligned segment no-print">Contents © 2020         <a href="mailto:ashfinal@sina.cn">ashfinal</a> - Powered by         <a href="https://getnikola.com" target="_blank" rel="nofollow">Nikola</a>         </div>
+
+            </div>
+            <div class="computer only three wide column no-print">
+                <div id="right-side">
+                </div>
+            </div>
+        </div>
+
+        <!-- GoStats JavaScript Based Code -->
+        <script type="text/javascript">(function(c,o,m,p,u,t,e){
+        c['GoStatsObject']=u;c[u]=c[u]||function(){(c[u].q=c[u].q||[]).push(arguments)},
+        c[u].l=1*new Date();t=o.createElement(m);t.async=1;t.src=p;
+        e=o.getElementsByTagName(m)[0];e.parentNode.insertBefore(t,e);
+        })(window,document,'script','//www.gostats.org/5.js','go');
+        go('init',100479892,{'img_counter_type':5,'img_image_type':1});go('send');</script><!-- End GoStats JavaScript Based Code --><script type="text/javascript" src="../../assets/js/jquery-3.3.1.min.js"></script><script type="text/javascript" src="../../assets/js/semantic.min.js"></script><script type="text/javascript" src="../../assets/js/jquery.fancybox.min.js"></script><script type="text/javascript" src="../../assets/js/cookie.min.js"></script><script>
+            $(document).ready(function(){
+                $(".ui.dropdown").dropdown();
+                $('.ui.accordion').accordion();
+                var newstr = $('.cookie.nag').text();
+                $('.cookie.nag').nag({
+                    key: 'globalnotice',
+                    value: newstr
+                  });
+                $('.image-reference').fancybox();
+            });
+        </script><script src="../../assets/js/md5.min.js"></script><script src="../../assets/js/gitalk.min.js"></script><script>
+        const gitalk = new Gitalk({
+            clientID: '12fcda845097d895a24c',
+            clientSecret: '50ed60cde5f40897205197b4265b474cefbedc49',
+            repo: 'macplay.github.io',
+            owner: 'macplay',
+            admin: ['macplay', 'ashfinal'],
+            id: md5(window.location.pathname),
+            // facebook-like distraction free mode
+            distractionFreeMode: false
+        })
+        gitalk.render('gitalk-container')
+    </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+unset realname
+set realname = "ashfinal"
+unset from
+set from = "ashfinal@gmail.com"
+unset envelope_from_address
+set envelope_from_address = "ashfinal@gmail.com"
+unset sendmail
+set sendmail = "/usr/local/bin/msmtp -a Personal"
+unset spoolfile
+set spoolfile = "+Personal/INBOX"
+unset postponed
+set postponed = "+Personal/Drafts"
+unset record
+set record = "+Personal/Sent Mail"
+unset record
+set trash = "+Personal/Trash"
+
+# unset signature
+# set signature = "~/.mutt/accounts/Personal.sig"
+# unset alias_file
+# set alias_file = "~/.mutt/accounts/Personal.alias"
+# source $alias_file
+
+color status green default
+
+
+# vim:set et sw=4 ts=4 ft=conf:

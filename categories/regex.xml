@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>MacPlay (Posts about regex)</title><link>https://macplay.github.io/</link><description></description><atom:link href="https://macplay.github.io/categories/regex.xml" rel="self" type="application/rss+xml"></atom:link><language>zh_cn</language><copyright>Contents © 2020 &lt;a href="mailto:ashfinal@sina.cn"&gt;ashfinal&lt;/a&gt; </copyright><lastBuildDate>Wed, 26 Aug 2020 08:50:32 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Emacs 的 Font Lock 性能问题</title><link>https://macplay.github.io/posts/emacs-de-font-lock-xing-neng-wen-ti/</link><dc:creator>ashfinal</dc:creator><description>&lt;div&gt;&lt;p&gt;之前使用 Emacs 总是有点慢，没有 Vim 那种爽冽干脆的感觉。但多半是归咎于臃肿的 spacemacs 配置，不会轻易怀疑 Emacs 本身有什么问题。最近基本上是接近裸状态使用 Emacs 了，不安装第三方插件，也不搞乱七八糟的配置。不过两天前我又遇到了状况，翻来覆去尝试半天，感觉很有可能是 Emacs 的 Font Lock 性能有问题。&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://macplay.github.io/posts/emacs-de-font-lock-xing-neng-wen-ti/"&gt;Read more…&lt;/a&gt; (1 min remaining to read)&lt;/p&gt;&lt;/div&gt;</description><category>emacs</category><category>regex</category><category>vim</category><guid>https://macplay.github.io/posts/emacs-de-font-lock-xing-neng-wen-ti/</guid><pubDate>Fri, 24 Nov 2017 03:53:52 GMT</pubDate></item><item><title>Vim 技巧：匹配数字递增</title><link>https://macplay.github.io/posts/vim-ji-qiao-pi-pei-shu-zi-di-zeng/</link><dc:creator>ashfinal</dc:creator><description>&lt;div&gt;&lt;p&gt;有时候会有将代码中的数字递增/递减的需求，一直没有找到相对简单优雅的做法。今天通过网络搜索加上幸运值暴增，感觉终于比较完善地解决了这个问题，遂作此文记录一下。&lt;/p&gt;
+&lt;p&gt;如果我们想将以下代码块中的所有数字，在原有基础上均递增两次：&lt;/p&gt;
+&lt;pre class="code text"&gt;&lt;a name="rest_code_ab0721f88fe74099acb0983b448a9a93-1"&gt;&lt;/a&gt;my_array[1] = 0;
+&lt;a name="rest_code_ab0721f88fe74099acb0983b448a9a93-2"&gt;&lt;/a&gt;my_array[2] = 0;
+&lt;a name="rest_code_ab0721f88fe74099acb0983b448a9a93-3"&gt;&lt;/a&gt;my_array[3] = 0;
+&lt;a name="rest_code_ab0721f88fe74099acb0983b448a9a93-4"&gt;&lt;/a&gt;my_array[4] = 0;
+&lt;a name="rest_code_ab0721f88fe74099acb0983b448a9a93-5"&gt;&lt;/a&gt;my_array[5] = 0;
+&lt;a name="rest_code_ab0721f88fe74099acb0983b448a9a93-6"&gt;&lt;/a&gt;my_array[6] = 0;
+&lt;a name="rest_code_ab0721f88fe74099acb0983b448a9a93-7"&gt;&lt;/a&gt;my_array[7] = 0;
+&lt;/pre&gt;&lt;p&gt;即变成以下这样：&lt;/p&gt;
+&lt;pre class="code text"&gt;&lt;a name="rest_code_dcdbe57fddc64f2bbe710eacf2d86e18-1"&gt;&lt;/a&gt;my_array[3] = 2;
+&lt;a name="rest_code_dcdbe57fddc64f2bbe710eacf2d86e18-2"&gt;&lt;/a&gt;my_array[4] = 2;
+&lt;a name="rest_code_dcdbe57fddc64f2bbe710eacf2d86e18-3"&gt;&lt;/a&gt;my_array[5] = 2;
+&lt;a name="rest_code_dcdbe57fddc64f2bbe710eacf2d86e18-4"&gt;&lt;/a&gt;my_array[6] = 2;
+&lt;a name="rest_code_dcdbe57fddc64f2bbe710eacf2d86e18-5"&gt;&lt;/a&gt;my_array[7] = 2;
+&lt;a name="rest_code_dcdbe57fddc64f2bbe710eacf2d86e18-6"&gt;&lt;/a&gt;my_array[8] = 2;
+&lt;a name="rest_code_dcdbe57fddc64f2bbe710eacf2d86e18-7"&gt;&lt;/a&gt;my_array[9] = 2;
+&lt;/pre&gt;&lt;p&gt;&lt;a href="https://macplay.github.io/posts/vim-ji-qiao-pi-pei-shu-zi-di-zeng/"&gt;Read more…&lt;/a&gt; (1 min remaining to read)&lt;/p&gt;&lt;/div&gt;</description><category>regex</category><category>vim</category><guid>https://macplay.github.io/posts/vim-ji-qiao-pi-pei-shu-zi-di-zeng/</guid><pubDate>Sun, 05 Nov 2017 12:09:47 GMT</pubDate></item></channel></rss>

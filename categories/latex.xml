@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>MacPlay (Posts about latex)</title><link>https://macplay.github.io/</link><description></description><atom:link href="https://macplay.github.io/categories/latex.xml" rel="self" type="application/rss+xml"></atom:link><language>zh_cn</language><copyright>Contents © 2020 &lt;a href="mailto:ashfinal@sina.cn"&gt;ashfinal&lt;/a&gt; </copyright><lastBuildDate>Wed, 26 Aug 2020 08:50:32 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>使用 Latexmk 编译 tex 文件</title><link>https://macplay.github.io/posts/shi-yong-latexmk-bian-yi-tex-wen-jian/</link><dc:creator>ashfinal</dc:creator><description>&lt;div&gt;&lt;p&gt;尽管老早以前就听说过 Latexmk，但是一直没有用起来。昨天折腾的心思又蠢蠢欲动，于是翻阅了下 Latexmk 手册，最终将其配置为理想状态，于是便有了这篇分享文章。&lt;/p&gt;
+&lt;p&gt;如果你还不了解 Latexmk 是什么东东，这里简单的介绍一下：LaTeX 要生成最终的 PDF 文档，如果含有交叉引用、BibTeX、术语表等等，通常需要多次编译才行。而使用 Latexmk 则只需运行一次，它会自动帮你做好其它所有事情。通常情况下，你安装的 LaTeX 发行版已经包含了 Latexmk，我们并不需要手动安装它。&lt;a class="footnote-reference brackets" href="https://macplay.github.io/posts/shi-yong-latexmk-bian-yi-tex-wen-jian/#id5" id="id1"&gt;1&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;因为之前对 Latexmk 有一定了解，翻阅手册前确定了基本的目标：&lt;/p&gt;
+&lt;ol class="arabic simple"&gt;
+&lt;li&gt;&lt;p&gt;Latexmk 有文件监测的机制。它应该可以做到只需运行一次，然后每次文件保存动作后，自动重新编译。&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;它应该最终生成 PDF 文件并预览。之前折腾 LaTeX 的过程中，我发现有时生成的是 xdv 文件。&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;最好能直接调用 xelatex 引擎。默认调用 pdflatex 太糟糕了，使用万国码是个很常见的需求。&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;修改 Vim 编辑器中的相应配置。个人使用的是 &lt;a class="reference external" href="https://github.com/lervag/vimtex"&gt;vimtex&lt;/a&gt; 插件，记得它是支持 Latexmk 的，但可能需要配置一下。&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;a href="https://macplay.github.io/posts/shi-yong-latexmk-bian-yi-tex-wen-jian/"&gt;Read more…&lt;/a&gt; (2 min remaining to read)&lt;/p&gt;&lt;/div&gt;</description><category>latex</category><category>shell</category><guid>https://macplay.github.io/posts/shi-yong-latexmk-bian-yi-tex-wen-jian/</guid><pubDate>Sat, 13 Jan 2018 11:19:48 GMT</pubDate></item></channel></rss>

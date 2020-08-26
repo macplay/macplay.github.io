@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="generator" content="Nikola (getnikola.com)">
+<title>Nikola Internals - MacPlay</title>
+<link rel="apple-touch-icon" sizes="180x180" href="../../../apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../../../favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../../../favicon-16x16.png">
+<link rel="mask-icon" href="../../../safari-pinned-tab.svg" color="#5bbad5">
+<link href="../../../assets/css/semantic.min.css" rel="stylesheet" type="text/css">
+<link href="../../../assets/css/jquery.fancybox.min.css" rel="stylesheet" type="text/css">
+<link href="../../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<link rel="canonical" href="https://macplay.github.io/en/posts/nikola-internals/">
+<meta name="author" content="ashfinal">
+<link rel="alternate" hreflang="zh_cn" href="../../../posts/nikola-internals/">
+<link rel="stylesheet" type="text/css" href="../../../assets/css/gitalk.css">
+</head>
+<body>
+        <div class="ui grid">
+            <div class="computer only three wide column no-print">
+                <div id="left-side">
+                </div>
+            </div>
+            <div class="ten wide computer sixteen wide tablet sixteen wide mobile column">
+                        <div class="ui inline cookie nag no-print">
+            <span class="title">从现在开始，支持中英双语及博文精选 O(∩_∩)O~~</span>
+            <i class="close icon"></i>
+        </div>
+    <header id="header" class="no-print"><div class="ui grid">
+        <div class="computer only tablet only sixteen wide column">
+            <div class="ui large secondary stackable menu">
+                <a class="header item brand-logo" href="https://macplay.github.io/en/">
+                    MacPlay
+                </a>
+                        <a class="item" href="../../../">Posts</a>
+                        <a class="item" href="../../../listings/">Code</a>
+                        <a class="item" href="../../../galleries/">Gallery</a>
+                        <a class="item" href="../../../categories/">Tags</a>
+                        <a class="item" href="../../../archive.html">Archive</a>
+                <div class="right menu">
+                    <a class="item" href="../../../rss.xml"><i class="rss icon"></i>RSS</a>
+                </div>
+            </div>
+        </div>
+        <div class="mobile only sixteen wide column">
+            <div class="ui fluid accordion vertical menu">
+                <div class="item">
+                    <a class="title">MacPlay</a>
+                    <div class="content">
+                                <a class="item" href="../../../">Posts</a>
+                                <a class="item" href="../../../listings/">Code</a>
+                                <a class="item" href="../../../galleries/">Gallery</a>
+                                <a class="item" href="../../../categories/">Tags</a>
+                                <a class="item" href="../../../archive.html">Archive</a>
+                        <a class="item" href="../../../rss.xml"><i class="rss icon"></i>RSS</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </header><main id="main"><div id="main-content">
+<div class="postpage post-text page-body" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <h1 class="post-title" itemprop="headline">
+        <a href=".">Nikola Internals</a>
+    </h1>
+
+    <div class="ui large horizontal link list post-meta">
+        <span class="item">By
+            <a href="../../authors/ashfinal/">ashfinal</a>
+        </span>
+            <span class="item">
+                <a href="https://github.com/macplay/macplay.github.io/edit/src/posts/nikola-internals.rst" target="_blank" title="Edit on GitHub">Edit</a>
+            </span>
+        <span class="item">
+            <time datetime="2017-09-18T18:33:21+08:00">
+            2017-09-18 18:33
+            </time></span>
+            <span class="item">
+                    <a href="../../categories/nikola/">nikola</a>
+                    <a href="../../categories/rest/">reST</a>
+            </span>
+    </div>
+
+    
+    <div class="post-content" itemprop="article text">
+        <div id="post-content">
+        <div>
+<div class="section" id="nikola-internals">
+<h2>Nikola Internals</h2>
+<p class="lead">When trying to guide someone into adding a feature in Nikola, it hit me that
+while the way it's structured makes sense <strong>to me</strong> it is far from obvious.</p>
+<p>So, this is a short document explaining what each piece of Nikola does and
+how it all fits together.</p>
+<dl>
+<dt>Nikola is a Pile of Plugins</dt>
+<dd>
+<p>Most of Nikola is implemented as plugins using <a class="reference external" href="http://yapsy.sourceforge.net/">Yapsy</a>.
+You can ignore that they are plugins and just think of them as regular python
+modules and packages with a funny little <code class="docutils literal">.plugin</code> file next to them.</p>
+<p>So, 90% of the time, what you want to do is either write a new plugin or extend
+an existing one.</p>
+<p>There are several kinds of plugins, all implementing interfaces defined in
+<code class="docutils literal">nikola/plugin_categories.py</code> and documented in
+<a class="reference external" href="https://getnikola.com/extending.html">Extending Nikola</a></p>
+<p>If your plugin has a dependency, please make sure it doesn't make Nikola
+throw an exception when the dependency is missing. Try to fail gracefully
+with an informative message.</p>
+</dd>
+<dt>Commands are plugins</dt>
+<dd>
+<p>When you use <code class="docutils literal">nikola foo</code> you are using the plugin <code class="docutils literal">command/foo</code>. Those are
+used to extend Nikola's command line. Their interface is defined in the <code class="docutils literal">Command</code>
+class. They take options and arguments and do whatever you want, so go wild.</p>
+</dd>
+<dt>The <code class="docutils literal">build</code> command is special</dt>
+<dd>
+<p>The <code class="docutils literal">build</code> command triggers a whole lot of things, and is the core of Nikola
+because it's the one that you use to build sites. So it deserves its own section.</p>
+</dd>
+</dl>
+<div class="section" id="the-build-command">
+<h3>The Build Command</h3>
+<p>Nikola's goal is similar, deep at heart, to a Makefile. Take sources, compile them
+into something, in this case a website. Instead of a Makefile, Nikola uses
+<a class="reference external" href="http://pydoit.org">doit</a></p>
+<p>Doit has the concept of "tasks". The 1 minute summary of tasks is that they have:</p>
+<dl class="simple">
+<dt>actions</dt>
+<dd>
+<p>What the task <strong>does</strong>. For example, convert a markdown document into HTML.</p>
+</dd>
+<dt>dependencies</dt>
+<dd>
+<p>If this file changes, then we need to redo the actions. If this configuration
+option changes, redo it, etc.</p>
+</dd>
+<dt>targets</dt>
+<dd>
+<p>Files that the action generates. No two actions can have the same targets.</p>
+</dd>
+<dt>basename:name</dt>
+<dd>
+<p>Each task is identified by either a name or a basename:name pair.</p>
+</dd>
+</dl>
+<div class="sidebar">
+<p class="sidebar-title">More about tasks</p>
+<p>If you ever want to do your own tasks, you really should read the doit
+<a class="reference external" href="http://pydoit.org/tasks.html">documentation on tasks</a></p>
+</div>
+<p>So, what Nikola does, when you use the build command, is to read the
+configuration <code class="docutils literal">conf.py</code> from the current folder, instantiate
+the <code class="docutils literal">Nikola</code> class, and have it generate a whole list of tasks for doit
+to process. Then doit will decide which tasks need doing, and do them, in
+the right order.</p>
+<p>The place where the tasks are generated is in <code class="docutils literal">Nikola.gen_tasks</code>, which collects tasks
+from all the plugins inheriting <code class="docutils literal">BaseTask</code>, massages them a bit, then passes them
+to doit.</p>
+<p>So, if you want things to happen on <code class="docutils literal">build</code> you want to create a Task plugin, or extend
+one of the existing ones.</p>
+<div class="sidebar">
+<p class="sidebar-title">Tests</p>
+<p>While Nikola is not a hardcore TDD project, we like tests. So, please add them if you can.
+You can write unit tests or integration tests. (Doctests are not supported
+anymore due to fragility.)</p>
+</div>
+</div>
+<div class="section" id="posts-and-pages">
+<h3>Posts and Pages</h3>
+<p>Nikola has a concept of posts and pages. Both are more or less the same thing, except
+posts are added into RSS feeds and pages are not. All of them are in a list called
+"the timeline" formed by objects of class <code class="docutils literal">Post</code>.</p>
+<p>When you are creating a task that needs the list of posts and/or pages (for example,
+the RSS creation plugin) on task execution time, your plugin should call <code class="docutils literal">self.site.scan_posts()</code>
+in <code class="docutils literal">gen_tasks</code> to ensure the timeline is created and available in
+<code class="docutils literal">self.site.timeline</code>. You should not modify the timeline, because it will cause consistency issues.</p>
+<div class="sidebar">
+<p class="sidebar-title">scan_posts</p>
+<p>The <code class="docutils literal">Nikola.scan_posts</code> function can be used in plugins to force the
+timeline creation, for example, while creating the tasks.</p>
+</div>
+<p>Your plugin can use the timeline to generate "stuff" (technical term). For example,
+Nikola comes with plugins that use the timeline to create a website (surprised?).</p>
+<p>The workflow included with nikola is as follows (incomplete!):</p>
+<ol class="arabic simple">
+<li><p>The post is assigned a compiler based on its extension and the <code class="docutils literal">COMPILERS</code> option.</p></li>
+<li><p>The compiler is applied to the post data and a "HTML fragment" is produced. That
+fragment is stored in a cache (the <code class="docutils literal">posts</code> plugin).</p></li>
+<li><p>The configured theme has templates (and a template engine), which are applied to the post's
+HTML fragment and metadata (the <code class="docutils literal">pages</code> plugin).</p></li>
+<li><p>The original sources for the post are copied to some accessible place (the <code class="docutils literal">sources</code> plugin).</p></li>
+<li><p>If the post is tagged, some pages and RSS feeds for each tag are updated (the <code class="docutils literal">tags</code> plugin).</p></li>
+<li><p>If the post is new, it's included in the blog's RSS feed (the <code class="docutils literal">rss</code> plugin).</p></li>
+<li><p>The post is added in the right place in the index pages for the blog (the <code class="docutils literal">indexes</code> plugin).</p></li>
+<li><p>CSS/JS/Images for the theme are put in the right places (the <code class="docutils literal">copy_assets</code> and <code class="docutils literal">bundles</code> plugins).</p></li>
+<li><p>A File describing the whole site is created (the <code class="docutils literal">sitemap</code> plugin).</p></li>
+</ol>
+<p>You can add whatever you want to that list: just create a plugin for it.</p>
+<p>You can also expand Nikola's capabilities at several points:</p>
+<dl class="simple">
+<dt>compilers</dt>
+<dd>
+<p>Nikola supports a variety of markups. If you want to add another one, you need to create
+a <code class="docutils literal">Compiler</code> plugin.</p>
+</dd>
+<dt>templates</dt>
+<dd>
+<p>Nikola's themes can use Jinja2 or Mako templates. If you prefer another template system,
+you have to create a <code class="docutils literal">TemplateSystem</code> plugin.</p>
+</dd>
+<dt>themes</dt>
+<dd>
+<p>To change how the generated site looks, you can create custom themes.</p>
+</dd>
+</dl>
+<p>And of course, you can also replace or extend each of the existing plugins.</p>
+</div>
+</div>
+<div class="section" id="nikola-architecture">
+<h2>Nikola Architecture</h2>
+<a class="reference external image-reference" href="https://getnikola.com/images/architecture.png"><img alt="https://getnikola.com/images/architecture.thumbnail.png" src="https://getnikola.com/images/architecture.thumbnail.png"></a>
+</div>
+</div>
+        </div>
+    </div>
+    <div class="post-info">
+        <p>文章链接：<a href="https://macplay.github.io/en/posts/nikola-internals/" target="_blank">https://macplay.github.io/en/posts/nikola-internals/</a></p>
+        <p>发布/更新于：
+            <time datetime="2017-09-18 18:33:21 UTC+08:00">
+            2017-09-18 18:33
+            </time></p>
+        <p>版权声明：如无特别说明，本站文章均遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">CC BY-NC-SA 4.0</a> 协议，转载请注明作者及出处。</p>
+    </div>
+        <div class="post-navigation no-print">
+        <div class="ui huge secondary stackable menu">
+            <a class="post-nav-item post-nav-previous item" href="../jing-tai-bo-ke-nikola-zhi-xie-zuo-shi-jian/" title="Previous post"><i class="angle double left icon"></i> 静态博客 Nikola 之写作实践</a>
+        <div class="right menu">
+            <a class="post-nav-item post-nav-next item" href="../jupyter-notebook-get-started/" title="Next post">Jupyter-notebook get started <i class="angle double right icon"></i></a>
+        </div>
+        </div>
+    </div>
+
+        <div id="gitalk-container" class="comments-block no-print"></div>
+</div>
+                    </div>
+                </main><div class="footer extra-block no-print">
+    <span class="footer_item">
+        <a href="../../../pages/you-qing-lian-jie/">友情链接</a>
+    </span>
+    <span class="footer_item">
+        <a href="../../../pages/liu-yan-ban/">留言板</a>
+    </span>
+    <span class="footer_item">
+        <a href="../../../pages/ge-ren-dong-tai/">碎碎念</a>
+    </span>
+    </div>
+            <div class="footer social-link no-print">
+            <a href="https://github.com/ashfinal" target="_blank"><i class="grey large github icon"></i></a>
+            <a href="http://weibo.com/ashfinal/" target="_blank"><i class="grey large weibo icon"></i></a>
+            <a href="mailto://ashfinal@sina.cn" target="_blank"><i class="grey large mail icon"></i></a>
+            </div>
+        <div class="ui basic center aligned segment no-print">Contents © 2020         <a href="mailto:ashfinal@sina.cn">ashfinal</a> - Powered by         <a href="https://getnikola.com" target="_blank" rel="nofollow">Nikola</a>         </div>
+
+            </div>
+            <div class="computer only three wide column no-print">
+                <div id="right-side">
+                </div>
+            </div>
+        </div>
+
+        <!-- GoStats JavaScript Based Code -->
+        <script type="text/javascript">(function(c,o,m,p,u,t,e){
+        c['GoStatsObject']=u;c[u]=c[u]||function(){(c[u].q=c[u].q||[]).push(arguments)},
+        c[u].l=1*new Date();t=o.createElement(m);t.async=1;t.src=p;
+        e=o.getElementsByTagName(m)[0];e.parentNode.insertBefore(t,e);
+        })(window,document,'script','//www.gostats.org/5.js','go');
+        go('init',100479892,{'img_counter_type':5,'img_image_type':1});go('send');</script><!-- End GoStats JavaScript Based Code --><script type="text/javascript" src="../../../assets/js/jquery-3.3.1.min.js"></script><script type="text/javascript" src="../../../assets/js/semantic.min.js"></script><script type="text/javascript" src="../../../assets/js/jquery.fancybox.min.js"></script><script type="text/javascript" src="../../../assets/js/cookie.min.js"></script><script>
+            $(document).ready(function(){
+                $(".ui.dropdown").dropdown();
+                $('.ui.accordion').accordion();
+                var newstr = $('.cookie.nag').text();
+                $('.cookie.nag').nag({
+                    key: 'globalnotice',
+                    value: newstr
+                  });
+                $('.image-reference').fancybox();
+            });
+        </script><script src="../../../assets/js/md5.min.js"></script><script src="../../../assets/js/gitalk.min.js"></script><script>
+        const gitalk = new Gitalk({
+            clientID: '12fcda845097d895a24c',
+            clientSecret: '50ed60cde5f40897205197b4265b474cefbedc49',
+            repo: 'macplay.github.io',
+            owner: 'macplay',
+            admin: ['macplay', 'ashfinal'],
+            id: md5(window.location.pathname),
+            // facebook-like distraction free mode
+            distractionFreeMode: false
+        })
+        gitalk.render('gitalk-container')
+    </script>
+</body>
+</html>

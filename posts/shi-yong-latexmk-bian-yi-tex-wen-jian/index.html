@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="zh_cn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="generator" content="Nikola (getnikola.com)">
+<title>使用 Latexmk 编译 tex 文件 - MacPlay</title>
+<link rel="apple-touch-icon" sizes="180x180" href="../../apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+<link rel="mask-icon" href="../../safari-pinned-tab.svg" color="#5bbad5">
+<link href="../../assets/css/semantic.min.css" rel="stylesheet" type="text/css">
+<link href="../../assets/css/jquery.fancybox.min.css" rel="stylesheet" type="text/css">
+<link href="../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<link rel="canonical" href="https://macplay.github.io/posts/shi-yong-latexmk-bian-yi-tex-wen-jian/">
+<meta name="author" content="ashfinal">
+<link rel="alternate" hreflang="en" href="../../en/posts/shi-yong-latexmk-bian-yi-tex-wen-jian/">
+<link rel="stylesheet" type="text/css" href="../../assets/css/gitalk.css">
+</head>
+<body>
+        <div class="ui grid">
+            <div class="computer only three wide column no-print">
+                <div id="left-side">
+                </div>
+            </div>
+            <div class="ten wide computer sixteen wide tablet sixteen wide mobile column">
+                        <div class="ui inline cookie nag no-print">
+            <span class="title">从现在开始，支持中英双语及博文精选 O(∩_∩)O~~</span>
+            <i class="close icon"></i>
+        </div>
+    <header id="header" class="no-print"><div class="ui grid">
+        <div class="computer only tablet only sixteen wide column">
+            <div class="ui large secondary stackable menu">
+                <a class="header item brand-logo" href="https://macplay.github.io/">
+                    MacPlay
+                </a>
+                        <a class="item" href="../../">Posts</a>
+                        <a class="item" href="../../listings/">Code</a>
+                        <a class="item" href="../../galleries/">Gallery</a>
+                        <a class="item" href="../../categories/">Tags</a>
+                        <a class="item" href="../../archive.html">Archive</a>
+                <div class="right menu">
+                    <a class="item" href="../../rss.xml"><i class="rss icon"></i>RSS</a>
+                </div>
+            </div>
+        </div>
+        <div class="mobile only sixteen wide column">
+            <div class="ui fluid accordion vertical menu">
+                <div class="item">
+                    <a class="title">MacPlay</a>
+                    <div class="content">
+                                <a class="item" href="../../">Posts</a>
+                                <a class="item" href="../../listings/">Code</a>
+                                <a class="item" href="../../galleries/">Gallery</a>
+                                <a class="item" href="../../categories/">Tags</a>
+                                <a class="item" href="../../archive.html">Archive</a>
+                        <a class="item" href="../../rss.xml"><i class="rss icon"></i>RSS</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </header><main id="main"><div id="main-content">
+<div class="postpage post-text page-body" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <h1 class="post-title" itemprop="headline">
+        <a href=".">使用 Latexmk 编译 tex 文件</a>
+    </h1>
+
+    <div class="ui large horizontal link list post-meta">
+        <span class="item">By
+            <a href="../../authors/ashfinal/">ashfinal</a>
+        </span>
+            <span class="item">
+                <a href="https://github.com/macplay/macplay.github.io/edit/src/posts/shi-yong-latexmk-bian-yi-tex-wen-jian.rst" target="_blank" title="Edit on GitHub">Edit</a>
+            </span>
+        <span class="item">
+            <time datetime="2018-01-13T19:19:48+08:00">
+            2018-01-13 19:19
+            </time></span>
+            <span class="item">
+                    <a href="../../categories/latex/">latex</a>
+                    <a href="../../categories/shell/">shell</a>
+            </span>
+    </div>
+
+    
+    <div class="post-content" itemprop="article text">
+        <div id="post-content">
+        <div>
+<p>尽管老早以前就听说过 Latexmk，但是一直没有用起来。昨天折腾的心思又蠢蠢欲动，于是翻阅了下 Latexmk 手册，最终将其配置为理想状态，于是便有了这篇分享文章。</p>
+<p>如果你还不了解 Latexmk 是什么东东，这里简单的介绍一下：LaTeX 要生成最终的 PDF 文档，如果含有交叉引用、BibTeX、术语表等等，通常需要多次编译才行。而使用 Latexmk 则只需运行一次，它会自动帮你做好其它所有事情。通常情况下，你安装的 LaTeX 发行版已经包含了 Latexmk，我们并不需要手动安装它。<a class="footnote-reference brackets" href="#id5" id="id1">1</a></p>
+<p>因为之前对 Latexmk 有一定了解，翻阅手册前确定了基本的目标：</p>
+<ol class="arabic simple">
+<li><p>Latexmk 有文件监测的机制。它应该可以做到只需运行一次，然后每次文件保存动作后，自动重新编译。</p></li>
+<li><p>它应该最终生成 PDF 文件并预览。之前折腾 LaTeX 的过程中，我发现有时生成的是 xdv 文件。</p></li>
+<li><p>最好能直接调用 xelatex 引擎。默认调用 pdflatex 太糟糕了，使用万国码是个很常见的需求。</p></li>
+<li><p>修改 Vim 编辑器中的相应配置。个人使用的是 <a class="reference external" href="https://github.com/lervag/vimtex">vimtex</a> 插件，记得它是支持 Latexmk 的，但可能需要配置一下。</p></li>
+</ol>
+<!-- TEASER_END --><p>最终折腾结果：以上提到的目标均已达到，但花费时间比预想的久的多。开始以为肯定要写个复杂的 <cite>.latexmkrc</cite> 配置文件，才能实现以上目标。然而把 <cite>.latexmkrc</cite> 折腾完后才发现，这个配置文件并不复杂，而且使用 Latexmk 的命令行参数就可实现所有目标。当然 <cite>.latexmkrc</cite> 也不算白折腾，Latexmk 允许每个工程文件夹下各含有一个 <cite>.latexmkrc</cite> 配置，那这样的话我们把 tex 源文件分发给别人，他们就可以直接在该文件夹下运行 <cite>latexmk</cite> 命令来生成最终文件。</p>
+<p>另外一个坑，个人深度怀疑是 <a class="reference external" href="https://github.com/qvacua/vimr/">vimr</a> 编辑器的 bug，修改试验 <cite>.latexmkrc</cite> 配置以及 vimtex 插件的过程中，经常发现某项配置有时起作用，有时失效。直到后来，笔者换用终端下的 vim/nvim 编辑器后一切正常，才发现 vimr 的文件监测机制有问题，保存文件后它并不会触发重新编译，这个可能的 bug 仍有待进一步验证。</p>
+<p>扯远了。不管折腾过程怎样，一旦我们熟悉 Latexmk 之后，会发现它的使用异常简单。接下来简单介绍下个人认为的 Latexmk 使用最佳实践：</p>
+<div class="contents topic" id="id2">
+<p class="topic-title">目录</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#latexmk" id="id6">终端中直接敲 latexmk 命令</a></p></li>
+<li><p><a class="reference internal" href="#latexmkrc" id="id7">在工程文件夹下添加 .latexmkrc 文件</a></p></li>
+<li><p><a class="reference internal" href="#vim-vimtex" id="id8">与 Vim 的 vimtex 插件配合使用</a></p></li>
+<li><p><a class="reference internal" href="#id4" id="id9">简单总结</a></p></li>
+</ul>
+</div>
+<div class="section" id="latexmk">
+<h2><a class="toc-backref" href="#id6">终端中直接敲 latexmk 命令</a></h2>
+<p>Latexmk 本身是个 perl 命令行脚本，直接在终端中敲 <cite>latexmk</cite> 命令加上参数，即可实现我们以上提到的目标。</p>
+<pre class="code bash"><a name="rest_code_5b9e1a2c518542928c1748b26f554781-1"></a>latexmk -pvc -xelatex file.tex
+</pre>
+<p>这将会使用 xelatex 引擎编译 <cite>file.tex</cite> 文件，并在 PDF 阅读器中打开预览。 <cite>-pvc</cite> 参数的含义是在 PDF 阅读器中进行预览，并持续更新文件。当然，它也会监测文件保存动作，并自动重新编译。</p>
+<pre class="code text"><a name="rest_code_74920643e2264237a412a51771e4ea2c-1"></a>6453 bytes written
+<a name="rest_code_74920643e2264237a412a51771e4ea2c-2"></a>Latexmk: All targets (new.pdf new.xdv) are up-to-date
+<a name="rest_code_74920643e2264237a412a51771e4ea2c-3"></a>Latexmk: I have not found a previewer that is already running.
+<a name="rest_code_74920643e2264237a412a51771e4ea2c-4"></a>   So I will start it for 'new.pdf'
+<a name="rest_code_74920643e2264237a412a51771e4ea2c-5"></a>------------
+<a name="rest_code_74920643e2264237a412a51771e4ea2c-6"></a>For rule 'view', running '&amp;if_source(  )' ...
+<a name="rest_code_74920643e2264237a412a51771e4ea2c-7"></a>------------
+<a name="rest_code_74920643e2264237a412a51771e4ea2c-8"></a>Running 'start open "new.pdf"'
+<a name="rest_code_74920643e2264237a412a51771e4ea2c-9"></a>------------
+<a name="rest_code_74920643e2264237a412a51771e4ea2c-10"></a>
+<a name="rest_code_74920643e2264237a412a51771e4ea2c-11"></a>=== Watching for updated files. Use ctrl/C to stop ...
+</pre>
+<p>可以看出 Latexmk 监测文件变动，这样我们只管在编辑器中写 tex 文件，想看预览则直接按下保存按钮，然后到 PDF 阅读器即可查看。至于 PDF 阅读器，macOS 平台下个人推荐使用 <a class="reference external" href="http://skim-app.sourceforge.net">Skim</a> 。它可以监测 PDF 文件变动，并自动重载，记得到设置里开启相关选项即可。</p>
+<div class="figure align-center">
+<a class="reference external image-reference" href="../../images/skim_settings.png"><img alt="/images/skim_settings.thumbnail.png" src="../../images/skim_settings.thumbnail.png"></a>
+<p class="caption">开启监测文件变动和自动重载功能</p>
+</div>
+<p>当然，图中提到的 PDF-TeX Sync 功能也是支持的。在 Skim 阅读器中按下 <cite>cmd</cite> + <cite>shift</cite> 键，并点击 PDF 文档某处，则会自动跳转到编辑器中 tex 源文件的对应处。Skim 预置了一些编辑器的配置，当然你也可以自行定义。</p>
+<p>写完 tex 文件之后，检查 PDF 预览无误，即可在终端中按下 <cite>ctrl</cite> + <cite>c</cite> 终止 <cite>latexmk</cite> 命令。PDF 编译过程中可能生成了一些中间文件，我们并不需要这些，仅保留 tex 文件及最终的 PDF 文档就行。终端中敲下 <cite>latexmk -c</cite> 命令即可清除这些讨厌的中间文件。</p>
+<p>基本上，这便是使用 Latexmk 写 latex 的基本流程。了解 Latexmk 的功能和操作之后，其它一些使用场景和编辑器配置应该就不在话下了。</p>
+</div>
+<div class="section" id="latexmkrc">
+<h2><a class="toc-backref" href="#id7">在工程文件夹下添加 .latexmkrc 文件</a></h2>
+<p>前面提到 <cite>.latexmkrc</cite> 这种全局配置文件其实是不必要的——命令行参数即可实现全部目标。但查阅 Latexmk 手册的过程中，笔者发现其实 Latexmk 会检测工程文件夹下是否存在 <cite>.latexmkrc</cite> 文件，并读取里面的配置来编译 PDF 文档。这样的话，如果你有分发 tex 源文件的需求，而且非常为他人着想，希望减轻受众的认知负担。则只需在工程文件夹下添加 <cite>.latexmkrc</cite> 文件，然后告诉他们运行下 <cite>latexmk</cite> 命令，就可以得到最终的 PDF 文件啦！</p>
+<p>我这里整理了个简单的 <cite>.latexmkrc</cite> 配置模版。如果你有进一步定制的需求，可以去翻下 Latexmk 手册的相应部分。</p>
+<pre class="code text"><a name="rest_code_6f1937b94c2a44a494f30d1b0376df39-1"></a># .latexmkrc starts
+<a name="rest_code_6f1937b94c2a44a494f30d1b0376df39-2"></a># $pdf_previewer = 'open -a Skim';
+<a name="rest_code_6f1937b94c2a44a494f30d1b0376df39-3"></a>$pdflatex = "xelatex -synctex=1 -interaction=nonstopmode";
+<a name="rest_code_6f1937b94c2a44a494f30d1b0376df39-4"></a># @generated_exts = (@generated_exts, 'synctex.gz');
+<a name="rest_code_6f1937b94c2a44a494f30d1b0376df39-5"></a># $cleanup_mode = 1;
+<a name="rest_code_6f1937b94c2a44a494f30d1b0376df39-6"></a># $preview_continuous_mode = 1;
+<a name="rest_code_6f1937b94c2a44a494f30d1b0376df39-7"></a># @default_files = ('main.tex');
+<a name="rest_code_6f1937b94c2a44a494f30d1b0376df39-8"></a># .latexmkrc ends
+</pre>
+<p>简单解释下：第 2 行说明使用 Skim 阅读器来预览 PDF；第 3 行指定使用 xelatex 引擎编译文件，并打开同步对照跳转功能；分发给别人的时候，通常只需要编译一次，因此需把持续预览模式关闭（第 6 行）；如果你希望编译完成后清理无关的中间文件，则注意把清理模式打开（第 5 行）。</p>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>关于 tex 工程文件分发以及 <cite>.latexmkrc</cite> 配置，个人并没有严格测试。如果你在实际使用过程中发现问题，欢迎反馈到本文章的评论区。</p>
+</div>
+</div>
+<div class="section" id="vim-vimtex">
+<h2><a class="toc-backref" href="#id8">与 Vim 的 vimtex 插件配合使用</a></h2>
+<p>作为 Vim 编辑器的忠实拥趸，笔者平时的绝大部分文本编辑工作都是在 <a class="reference external" href="https://github.com/qvacua/vimr/">vimr</a> （neovim GUI 前端）中完成的，写 tex 当然也不例外。而 vimtex 可能是 Vim 编辑器下最好的 tex 插件，开始折腾前我已经知道该插件支持 Latexmk，我们只需要找到 vimtex 插件中的设置。经过一番查找和试验之后，只需要在 <cite>.vimrc</cite> 配置中添加以下行即可。</p>
+<pre class="code vim"><a name="rest_code_782180d5e8434425a5fedc7102bd9053-1"></a><span class="k">let</span> <span class="k">g</span>:vimtex_compiler_latexmk <span class="p">=</span> {
+<a name="rest_code_782180d5e8434425a5fedc7102bd9053-2"></a>    \ <span class="s1">'options'</span> : [
+<a name="rest_code_782180d5e8434425a5fedc7102bd9053-3"></a>    \   <span class="s1">'-xelatex'</span><span class="p">,</span>
+<a name="rest_code_782180d5e8434425a5fedc7102bd9053-4"></a>    \   <span class="s1">'-verbose'</span><span class="p">,</span>
+<a name="rest_code_782180d5e8434425a5fedc7102bd9053-5"></a>    \   <span class="s1">'-file-line-error'</span><span class="p">,</span>
+<a name="rest_code_782180d5e8434425a5fedc7102bd9053-6"></a>    \   <span class="s1">'-synctex=1'</span><span class="p">,</span>
+<a name="rest_code_782180d5e8434425a5fedc7102bd9053-7"></a>    \   <span class="s1">'-interaction=nonstopmode'</span><span class="p">,</span>
+<a name="rest_code_782180d5e8434425a5fedc7102bd9053-8"></a>    \ ]<span class="p">,</span>
+<a name="rest_code_782180d5e8434425a5fedc7102bd9053-9"></a>    \}
+</pre>
+<p>这样我们只需要在 tex 文件 buffer 中运行 <cite>:VimtexCompile</cite> 命令或者按下其默认按键绑定 <cite>&lt;leader&gt;</cite> + <cite>ll</cite> 即可。这将会编译 tex 文件并打开 PDF 预览，并持续监测文件变动。如果文件编译过程中出现错误，则会将错误提示和文件行数显示在 Vim 的 QuickFix 窗口中，在 QuickFix 窗口中按下回车键，即可跳转到文件语法错误处进行快速修复。如果想停止持续编译，则再次运行 <cite>:VimtexCompile</cite> 命令即可。vimtex 插件还有很多其它方面的功能，这里就不再继续介绍了。</p>
+<p>我的 <cite>.vimrc</cite> 配置文件可以在这里找到： <a class="reference external" href="https://github.com/ashfinal/vimrc-config">https://github.com/ashfinal/vimrc-config</a></p>
+</div>
+<div class="section" id="id4">
+<h2><a class="toc-backref" href="#id9">简单总结</a></h2>
+<p>笔者仍然是一名 LaTeX 初学者，但是有了 Latexmk 和 vimtex 之后，觉得 LaTeX 的书写过程轻松了许多。过段时间，大概会写文章介绍一下个人的 LaTeX 写作实践，敬请期待。如果你也在学习 LaTeX，欢迎分享你的学习体会，与笔者进行交流。:)</p>
+<dl class="footnote brackets">
+<dt class="label" id="id5"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd>
+<p><a class="reference external" href="https://mg.readthedocs.io/latexmk.html">https://mg.readthedocs.io/latexmk.html</a></p>
+</dd>
+</dl>
+</div>
+</div>
+        </div>
+    </div>
+    <div class="post-info">
+        <p>文章链接：<a href="https://macplay.github.io/posts/shi-yong-latexmk-bian-yi-tex-wen-jian/" target="_blank">https://macplay.github.io/posts/shi-yong-latexmk-bian-yi-tex-wen-jian/</a></p>
+        <p>发布/更新于：
+            <time datetime="2018-01-13 19:19:48 UTC+08:00">
+            2018-01-13 19:19
+            </time></p>
+        <p>版权声明：如无特别说明，本站文章均遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">CC BY-NC-SA 4.0</a> 协议，转载请注明作者及出处。</p>
+    </div>
+        <div class="post-navigation no-print">
+        <div class="ui huge secondary stackable menu">
+            <a class="post-nav-item post-nav-previous item" href="../shu-ju-ke-shi-hua-seaborn/" title="Previous post"><i class="angle double left icon"></i> 数据可视化--Seaborn</a>
+        <div class="right menu">
+            <a class="post-nav-item post-nav-next item" href="../vim-cheat-sheet/" title="Next post">Vim Cheatsheet <i class="angle double right icon"></i></a>
+        </div>
+        </div>
+    </div>
+
+        <div id="gitalk-container" class="comments-block no-print"></div>
+</div>
+                    </div>
+                </main><div class="footer extra-block no-print">
+    <span class="footer_item">
+        <a href="../../pages/you-qing-lian-jie/">友情链接</a>
+    </span>
+    <span class="footer_item">
+        <a href="../../pages/liu-yan-ban/">留言板</a>
+    </span>
+    <span class="footer_item">
+        <a href="../../pages/ge-ren-dong-tai/">碎碎念</a>
+    </span>
+    </div>
+            <div class="footer social-link no-print">
+            <a href="https://github.com/ashfinal" target="_blank"><i class="grey large github icon"></i></a>
+            <a href="http://weibo.com/ashfinal/" target="_blank"><i class="grey large weibo icon"></i></a>
+            <a href="mailto://ashfinal@sina.cn" target="_blank"><i class="grey large mail icon"></i></a>
+            </div>
+        <div class="ui basic center aligned segment no-print">Contents © 2020         <a href="mailto:ashfinal@sina.cn">ashfinal</a> - Powered by         <a href="https://getnikola.com" target="_blank" rel="nofollow">Nikola</a>         </div>
+
+            </div>
+            <div class="computer only three wide column no-print">
+                <div id="right-side">
+                </div>
+            </div>
+        </div>
+
+        <!-- GoStats JavaScript Based Code -->
+        <script type="text/javascript">(function(c,o,m,p,u,t,e){
+        c['GoStatsObject']=u;c[u]=c[u]||function(){(c[u].q=c[u].q||[]).push(arguments)},
+        c[u].l=1*new Date();t=o.createElement(m);t.async=1;t.src=p;
+        e=o.getElementsByTagName(m)[0];e.parentNode.insertBefore(t,e);
+        })(window,document,'script','//www.gostats.org/5.js','go');
+        go('init',100479892,{'img_counter_type':5,'img_image_type':1});go('send');</script><!-- End GoStats JavaScript Based Code --><script type="text/javascript" src="../../assets/js/jquery-3.3.1.min.js"></script><script type="text/javascript" src="../../assets/js/semantic.min.js"></script><script type="text/javascript" src="../../assets/js/jquery.fancybox.min.js"></script><script type="text/javascript" src="../../assets/js/cookie.min.js"></script><script>
+            $(document).ready(function(){
+                $(".ui.dropdown").dropdown();
+                $('.ui.accordion').accordion();
+                var newstr = $('.cookie.nag').text();
+                $('.cookie.nag').nag({
+                    key: 'globalnotice',
+                    value: newstr
+                  });
+                $('.image-reference').fancybox();
+            });
+        </script><script src="../../assets/js/md5.min.js"></script><script src="../../assets/js/gitalk.min.js"></script><script>
+        const gitalk = new Gitalk({
+            clientID: '12fcda845097d895a24c',
+            clientSecret: '50ed60cde5f40897205197b4265b474cefbedc49',
+            repo: 'macplay.github.io',
+            owner: 'macplay',
+            admin: ['macplay', 'ashfinal'],
+            id: md5(window.location.pathname),
+            // facebook-like distraction free mode
+            distractionFreeMode: false
+        })
+        gitalk.render('gitalk-container')
+    </script>
+</body>
+</html>

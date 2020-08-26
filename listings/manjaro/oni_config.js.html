@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="zh_cn">
+<head>
+<meta charset="utf-8">
+<meta name="description" content="oni_config.js">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="generator" content="Nikola (getnikola.com)">
+<title>oni_config.js - MacPlay</title>
+<link rel="apple-touch-icon" sizes="180x180" href="../../apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+<link rel="mask-icon" href="../../safari-pinned-tab.svg" color="#5bbad5">
+<link href="../../assets/css/semantic.min.css" rel="stylesheet" type="text/css">
+<link href="../../assets/css/jquery.fancybox.min.css" rel="stylesheet" type="text/css">
+<link href="../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<link rel="canonical" href="https://macplay.github.io/listings/manjaro/oni_config.js.html">
+</head>
+<body>
+        <div class="ui grid">
+            <div class="computer only three wide column no-print">
+                <div id="left-side">
+                </div>
+            </div>
+            <div class="ten wide computer sixteen wide tablet sixteen wide mobile column">
+                        <div class="ui inline cookie nag no-print">
+            <span class="title">从现在开始，支持中英双语及博文精选 O(∩_∩)O~~</span>
+            <i class="close icon"></i>
+        </div>
+    <header id="header" class="no-print"><div class="ui grid">
+        <div class="computer only tablet only sixteen wide column">
+            <div class="ui large secondary stackable menu">
+                <a class="header item brand-logo" href="https://macplay.github.io/">
+                    MacPlay
+                </a>
+                        <a class="item" href="../../">Posts</a>
+                        <a class="item" href="../">Code</a>
+                        <a class="item" href="../../galleries/">Gallery</a>
+                        <a class="item" href="../../categories/">Tags</a>
+                        <a class="item" href="../../archive.html">Archive</a>
+                <div class="right menu">
+                    <a class="item" href="../../rss.xml"><i class="rss icon"></i>RSS</a>
+                </div>
+            </div>
+        </div>
+        <div class="mobile only sixteen wide column">
+            <div class="ui fluid accordion vertical menu">
+                <div class="item">
+                    <a class="title">MacPlay</a>
+                    <div class="content">
+                                <a class="item" href="../../">Posts</a>
+                                <a class="item" href="../">Code</a>
+                                <a class="item" href="../../galleries/">Gallery</a>
+                                <a class="item" href="../../categories/">Tags</a>
+                                <a class="item" href="../../archive.html">Archive</a>
+                        <a class="item" href="../../rss.xml"><i class="rss icon"></i>RSS</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </header><main id="main"><div id="main-content">
+<div class="listingpage page-body" itemscope="itemscope" itemtype="http://schema.org/Article">
+    <div class="ui breadcrumb list-title">
+                <a href="../" class="section">listings</a>
+                <div class="divider"> / </div>
+                <a href="." class="section">manjaro</a>
+                <div class="divider"> / </div>
+                <div class="section">
+                    oni_config.js
+                </div>
+    </div>
+
+        <p class="downloadlink">
+            <i class="download icon"></i><a href="oni_config.js">Download</a>
+        </p>
+        <div class="code"><table class="codetable">
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarooni_configjs-1"><code data-line-number=" 1"></code></a></td>
+<td class="code"><code><a name="listingsmanjarooni_configjs-1"></a><span class="c1">// For more information on customizing Oni,</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarooni_configjs-2"><code data-line-number=" 2"></code></a></td>
+<td class="code"><code><a name="listingsmanjarooni_configjs-2"></a><span class="c1">// check out our wiki page:</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarooni_configjs-3"><code data-line-number=" 3"></code></a></td>
+<td class="code"><code><a name="listingsmanjarooni_configjs-3"></a><span class="c1">// https://github.com/onivim/oni/wiki/Configuration</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarooni_configjs-4"><code data-line-number=" 4"></code></a></td>
+<td class="code"><code><a name="listingsmanjarooni_configjs-4"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarooni_configjs-5"><code data-line-number=" 5"></code></a></td>
+<td class="code"><code><a name="listingsmanjarooni_configjs-5"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarooni_configjs-6"><code data-line-number=" 6"></code></a></td>
+<td class="code"><code><a name="listingsmanjarooni_configjs-6"></a><span class="c1">// https://github.com/onivim/oni/wiki/How-To:-Make-Oni-closer-to-bare-Vim-experience</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarooni_configjs-7"><code data-line-number=" 7"></code></a></td>
+<td class="code"><code><a name="listingsmanjarooni_configjs-7"></a><span class="kr">const</span> <span class="nx">activate</span> <span class="o">=</span> <span class="p">(</span><span class="nx">oni</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarooni_configjs-8"><code data-line-number=" 8"></code></a></td>
+<td class="code"><code><a name="listingsmanjarooni_configjs-8"></a>  <span class="nx">oni</span><span class="p">.</span><span class="nx">input</span><span class="p">.</span><span class="nx">unbind</span><span class="p">(</span><span class="s2">"&lt;c-g&gt;"</span><span class="p">)</span> <span class="c1">// make C-g work as expected in vim</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarooni_configjs-9"><code data-line-number=" 9"></code></a></td>
+<td class="code"><code><a name="listingsmanjarooni_configjs-9"></a>  <span class="nx">oni</span><span class="p">.</span><span class="nx">input</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="s2">"&lt;s-c-g&gt;"</span><span class="p">,</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="nx">oni</span><span class="p">.</span><span class="nx">commands</span><span class="p">.</span><span class="nx">executeCommand</span><span class="p">(</span><span class="s2">"sneak.show"</span><span class="p">))</span> <span class="c1">// You can rebind Oni's behaviour to a new keybinding</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarooni_configjs-10"><code data-line-number="10"></code></a></td>
+<td class="code"><code><a name="listingsmanjarooni_configjs-10"></a>  <span class="nx">oni</span><span class="p">.</span><span class="nx">input</span><span class="p">.</span><span class="nx">unbind</span><span class="p">(</span><span class="s2">"&lt;c-p&gt;"</span><span class="p">)</span> <span class="c1">// Disable Fuzzy Finder keybinding because it conflicts with yankring plugin</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarooni_configjs-11"><code data-line-number="11"></code></a></td>
+<td class="code"><code><a name="listingsmanjarooni_configjs-11"></a><span class="p">};</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarooni_configjs-12"><code data-line-number="12"></code></a></td>
+<td class="code"><code><a name="listingsmanjarooni_configjs-12"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarooni_configjs-13"><code data-line-number="13"></code></a></td>
+<td class="code"><code><a name="listingsmanjarooni_configjs-13"></a><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="p">{</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarooni_configjs-14"><code data-line-number="14"></code></a></td>
+<td class="code"><code><a name="listingsmanjarooni_configjs-14"></a>    <span class="nx">activate</span><span class="p">,</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarooni_configjs-15"><code data-line-number="15"></code></a></td>
+<td class="code"><code><a name="listingsmanjarooni_configjs-15"></a>    <span class="s2">"oni.hideMenu"</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span> <span class="c1">// Hide default menu, can be opened with &lt;alt&gt;</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarooni_configjs-16"><code data-line-number="16"></code></a></td>
+<td class="code"><code><a name="listingsmanjarooni_configjs-16"></a>    <span class="s2">"oni.loadInitVim"</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span> <span class="c1">// Load user's init.vim</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarooni_configjs-17"><code data-line-number="17"></code></a></td>
+<td class="code"><code><a name="listingsmanjarooni_configjs-17"></a>    <span class="s2">"oni.useDefaultConfig"</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span> <span class="c1">// Do not load Oni's init.vim</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarooni_configjs-18"><code data-line-number="18"></code></a></td>
+<td class="code"><code><a name="listingsmanjarooni_configjs-18"></a>    <span class="s2">"autoClosingPairs.enabled"</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span> <span class="c1">// disable autoclosing pairs</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarooni_configjs-19"><code data-line-number="19"></code></a></td>
+<td class="code"><code><a name="listingsmanjarooni_configjs-19"></a>    <span class="s1">'commandline.mode'</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span> <span class="c1">// Do not override commandline UI</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarooni_configjs-20"><code data-line-number="20"></code></a></td>
+<td class="code"><code><a name="listingsmanjarooni_configjs-20"></a>    <span class="s1">'wildmenu.mode'</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span> <span class="c1">// Do not override wildmenu UI</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarooni_configjs-21"><code data-line-number="21"></code></a></td>
+<td class="code"><code><a name="listingsmanjarooni_configjs-21"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarooni_configjs-22"><code data-line-number="22"></code></a></td>
+<td class="code"><code><a name="listingsmanjarooni_configjs-22"></a>    <span class="s2">"statusbar.enabled"</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarooni_configjs-23"><code data-line-number="23"></code></a></td>
+<td class="code"><code><a name="listingsmanjarooni_configjs-23"></a>    <span class="s2">"sidebar.enabled"</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarooni_configjs-24"><code data-line-number="24"></code></a></td>
+<td class="code"><code><a name="listingsmanjarooni_configjs-24"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarooni_configjs-25"><code data-line-number="25"></code></a></td>
+<td class="code"><code><a name="listingsmanjarooni_configjs-25"></a>    <span class="s2">"tabs.mode"</span><span class="o">:</span> <span class="s2">"buffers"</span><span class="p">,</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarooni_configjs-26"><code data-line-number="26"></code></a></td>
+<td class="code"><code><a name="listingsmanjarooni_configjs-26"></a>    <span class="s2">"environment.additionalPaths"</span><span class="o">:</span> <span class="p">[</span><span class="s1">'/usr/bin'</span><span class="p">,</span> <span class="s1">'/usr/local/bin'</span><span class="p">,</span> <span class="s1">'/Library/TeX/texbin'</span><span class="p">],</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarooni_configjs-27"><code data-line-number="27"></code></a></td>
+<td class="code"><code><a name="listingsmanjarooni_configjs-27"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarooni_configjs-28"><code data-line-number="28"></code></a></td>
+<td class="code"><code><a name="listingsmanjarooni_configjs-28"></a>    <span class="s2">"ui.animations.enabled"</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarooni_configjs-29"><code data-line-number="29"></code></a></td>
+<td class="code"><code><a name="listingsmanjarooni_configjs-29"></a>    <span class="s2">"ui.fontSmoothing"</span><span class="o">:</span> <span class="s2">"auto"</span><span class="p">,</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarooni_configjs-30"><code data-line-number="30"></code></a></td>
+<td class="code"><code><a name="listingsmanjarooni_configjs-30"></a>    <span class="s2">"ui.colorscheme"</span><span class="o">:</span> <span class="s2">"nord"</span><span class="p">,</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarooni_configjs-31"><code data-line-number="31"></code></a></td>
+<td class="code"><code><a name="listingsmanjarooni_configjs-31"></a>    <span class="s2">"editor.fontSize"</span><span class="o">:</span> <span class="s2">"14px"</span><span class="p">,</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarooni_configjs-32"><code data-line-number="32"></code></a></td>
+<td class="code"><code><a name="listingsmanjarooni_configjs-32"></a>    <span class="c1">// "editor.fontFamily": "Monaco",</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarooni_configjs-33"><code data-line-number="33"></code></a></td>
+<td class="code"><code><a name="listingsmanjarooni_configjs-33"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarooni_configjs-34"><code data-line-number="34"></code></a></td>
+<td class="code"><code><a name="listingsmanjarooni_configjs-34"></a>    <span class="c1">// "oni.bookmarks": ["~/Documents"],</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarooni_configjs-35"><code data-line-number="35"></code></a></td>
+<td class="code"><code><a name="listingsmanjarooni_configjs-35"></a>    <span class="s2">"editor.completions.mode"</span><span class="o">:</span> <span class="s2">"oni"</span><span class="p">,</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarooni_configjs-36"><code data-line-number="36"></code></a></td>
+<td class="code"><code><a name="listingsmanjarooni_configjs-36"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarooni_configjs-37"><code data-line-number="37"></code></a></td>
+<td class="code"><code><a name="listingsmanjarooni_configjs-37"></a>    <span class="c1">// Customize UI colors</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarooni_configjs-38"><code data-line-number="38"></code></a></td>
+<td class="code"><code><a name="listingsmanjarooni_configjs-38"></a>    <span class="c1">// "colors.menu.highlight": "#eeeeee",</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarooni_configjs-39"><code data-line-number="39"></code></a></td>
+<td class="code"><code><a name="listingsmanjarooni_configjs-39"></a><span class="p">}</span>
+</code></td>
+</tr>
+</table></div>
+</div>
+                    </div>
+                </main><div class="footer extra-block no-print">
+    <span class="footer_item">
+        <a href="../../pages/you-qing-lian-jie/">友情链接</a>
+    </span>
+    <span class="footer_item">
+        <a href="../../pages/liu-yan-ban/">留言板</a>
+    </span>
+    <span class="footer_item">
+        <a href="../../pages/ge-ren-dong-tai/">碎碎念</a>
+    </span>
+    </div>
+            <div class="footer social-link no-print">
+            <a href="https://github.com/ashfinal" target="_blank"><i class="grey large github icon"></i></a>
+            <a href="http://weibo.com/ashfinal/" target="_blank"><i class="grey large weibo icon"></i></a>
+            <a href="mailto://ashfinal@sina.cn" target="_blank"><i class="grey large mail icon"></i></a>
+            </div>
+        <div class="ui basic center aligned segment no-print">Contents © 2020         <a href="mailto:ashfinal@sina.cn">ashfinal</a> - Powered by         <a href="https://getnikola.com" target="_blank" rel="nofollow">Nikola</a>         </div>
+
+            </div>
+            <div class="computer only three wide column no-print">
+                <div id="right-side">
+                </div>
+            </div>
+        </div>
+
+        <!-- GoStats JavaScript Based Code -->
+        <script type="text/javascript">(function(c,o,m,p,u,t,e){
+        c['GoStatsObject']=u;c[u]=c[u]||function(){(c[u].q=c[u].q||[]).push(arguments)},
+        c[u].l=1*new Date();t=o.createElement(m);t.async=1;t.src=p;
+        e=o.getElementsByTagName(m)[0];e.parentNode.insertBefore(t,e);
+        })(window,document,'script','//www.gostats.org/5.js','go');
+        go('init',100479892,{'img_counter_type':5,'img_image_type':1});go('send');</script><!-- End GoStats JavaScript Based Code --><script type="text/javascript" src="../../assets/js/jquery-3.3.1.min.js"></script><script type="text/javascript" src="../../assets/js/semantic.min.js"></script><script type="text/javascript" src="../../assets/js/jquery.fancybox.min.js"></script><script type="text/javascript" src="../../assets/js/cookie.min.js"></script><script>
+            $(document).ready(function(){
+                $(".ui.dropdown").dropdown();
+                $('.ui.accordion').accordion();
+                var newstr = $('.cookie.nag').text();
+                $('.cookie.nag').nag({
+                    key: 'globalnotice',
+                    value: newstr
+                  });
+                $('.image-reference').fancybox();
+            });
+        </script>
+</body>
+</html>

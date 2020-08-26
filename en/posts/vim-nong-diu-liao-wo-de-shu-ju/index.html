@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="generator" content="Nikola (getnikola.com)">
+<title>Vim 弄丢了我的数据！ - MacPlay</title>
+<link rel="apple-touch-icon" sizes="180x180" href="../../../apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../../../favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../../../favicon-16x16.png">
+<link rel="mask-icon" href="../../../safari-pinned-tab.svg" color="#5bbad5">
+<link href="../../../assets/css/semantic.min.css" rel="stylesheet" type="text/css">
+<link href="../../../assets/css/jquery.fancybox.min.css" rel="stylesheet" type="text/css">
+<link href="../../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<link rel="canonical" href="https://macplay.github.io/en/posts/vim-nong-diu-liao-wo-de-shu-ju/">
+<meta name="author" content="ashfinal">
+<link rel="alternate" hreflang="zh_cn" href="../../../posts/vim-nong-diu-liao-wo-de-shu-ju/">
+<link rel="stylesheet" type="text/css" href="../../../assets/css/gitalk.css">
+</head>
+<body>
+        <div class="ui grid">
+            <div class="computer only three wide column no-print">
+                <div id="left-side">
+                </div>
+            </div>
+            <div class="ten wide computer sixteen wide tablet sixteen wide mobile column">
+                        <div class="ui inline cookie nag no-print">
+            <span class="title">从现在开始，支持中英双语及博文精选 O(∩_∩)O~~</span>
+            <i class="close icon"></i>
+        </div>
+    <header id="header" class="no-print"><div class="ui grid">
+        <div class="computer only tablet only sixteen wide column">
+            <div class="ui large secondary stackable menu">
+                <a class="header item brand-logo" href="https://macplay.github.io/en/">
+                    MacPlay
+                </a>
+                        <a class="item" href="../../../">Posts</a>
+                        <a class="item" href="../../../listings/">Code</a>
+                        <a class="item" href="../../../galleries/">Gallery</a>
+                        <a class="item" href="../../../categories/">Tags</a>
+                        <a class="item" href="../../../archive.html">Archive</a>
+                <div class="right menu">
+                    <a class="item" href="../../../rss.xml"><i class="rss icon"></i>RSS</a>
+                </div>
+            </div>
+        </div>
+        <div class="mobile only sixteen wide column">
+            <div class="ui fluid accordion vertical menu">
+                <div class="item">
+                    <a class="title">MacPlay</a>
+                    <div class="content">
+                                <a class="item" href="../../../">Posts</a>
+                                <a class="item" href="../../../listings/">Code</a>
+                                <a class="item" href="../../../galleries/">Gallery</a>
+                                <a class="item" href="../../../categories/">Tags</a>
+                                <a class="item" href="../../../archive.html">Archive</a>
+                        <a class="item" href="../../../rss.xml"><i class="rss icon"></i>RSS</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </header><main id="main"><div id="main-content">
+<div class="postpage post-text page-body" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <h1 class="post-title" itemprop="headline">
+        <a href=".">Vim 弄丢了我的数据！</a>
+    </h1>
+
+    <div class="ui large horizontal link list post-meta">
+        <span class="item">By
+            <a href="../../authors/ashfinal/">ashfinal</a>
+        </span>
+            <span class="item">
+                <a href="https://github.com/macplay/macplay.github.io/edit/src/posts/vim-nong-diu-liao-wo-de-shu-ju.rst" target="_blank" title="Edit on GitHub">Edit</a>
+            </span>
+        <span class="item">
+            <time datetime="2017-11-13T19:57:10+08:00">
+            2017-11-13 19:57
+            </time></span>
+            <span class="item">
+                    <a href="../../categories/recovery/">recovery</a>
+                    <a href="../../categories/vim/">vim</a>
+                    <a href="../../categories/vimrc/">vimrc</a>
+            </span>
+    </div>
+
+    
+    <div class="post-content" itemprop="article text">
+        <div id="post-content">
+        <div>
+<div class="section" id="id1">
+<h2>悲剧</h2>
+<p>昨天（啊不， <span class="strike">前天</span> <span class="amend">大前天</span> ）在写 <a class="reference external" href="../../../posts/zai-vim-zhong-shi-yong-undo-branches/">undo branches</a> 那篇文章的时候，<a class="reference external" href="https://github.com/qvacua/vimr">VimR</a> 编辑器突然毫无征兆的崩溃退出，导致花费好半天翻译过来的几段文字全部丢失。颇具有讽刺意味的是，当时写的文章正是关于在 Vim 编辑器中如何使用 undo branches，避免丢失你宝贵的资料。事情发生时笔者从浏览器中复制了一段文字，然后直接按下 <cite>CMD + V</cite> 粘贴，可能是其中含有一些特殊字符……悲剧就这样发生了。</p>
+<p>第一反应是去查看 undo 历史，很不幸那几段文字并没有保存其中。于是悲哀地意识到它们是永远也找不回来了：因为 undo branches 其实是保存文件撤销记录，而不是用来应对这种意外灾难的。<strong>真正的灾难应对机制已经被我关闭。</strong></p>
+<!-- TEASER_END -->
+<p>之前使用终端版 Vim 和 MacVim 时，除了折腾插件外基本没有遇到过崩溃退出的情况。而换用 VimR 之后，几个月内发生了三四次这样的情况。看来，很有可能是 VimR 自身的问题。而且当时翻译文章太过投入，竟然半个多小时都没有按下过一次保存键！</p>
+<p>不管怎样，大段文字已经丢失，只能重新来过。再次经历这种事后，我终于意识到将该选项关闭是一个无比错误的决定。</p>
+<p><strong>现在是时候将这一错误纠正过来了。</strong></p>
+</div>
+<div class="section" id="id2">
+<h2>错误的配置</h2>
+<p>这个邪恶的让我后悔半天的配置，只有一句话： <code class="docutils literal">set noswapfile</code> 。事实上，Vim 默认是开启灾难恢复机制的（但是被我用上面的命令关闭掉了！）。如果遇到应用冻结、崩溃退出甚至电脑断电等意外情况，重新打开 Vim 编辑器它会询问你是否恢复文件，选择 OK 则你的宝贝文字就可以回来了。</p>
+<p>那这么重要的功能，我为何会傻乎乎地将其关闭？事实上，直到现在，几乎所有流行的 Vim 配置（包括 <a class="reference external" href="https://github.com/spf13/spf13-vim">spf13-vim</a> ）都是将该功能关闭的。笔者刚开始学习使用 Vim 时，自然而然地选择了跟随大流。现在看来，隐患不小。</p>
+<p>输入 <cite>:h crash</cite> 命令查看 <cite>灾难恢复（crash-recovery）</cite> 小节，里面用大写字母写着：</p>
+<pre class="code text"><a name="rest_code_7684c01f9c8f44b89ffbfb5448ee41da-1"></a>DON'T PANIC!
+</pre>
+<p>不要惊慌！即使外星人入侵地球，也不要惊慌！Vim 编辑器会自动将你的文件恢复的。但是！这是建立在你尊重默认设置的基础上的。很显然，我，以及很大一部分使用者，并没有这么做……</p>
+<p>难怪你会丢失数据！:(</p>
+</div>
+<div class="section" id="swap-file">
+<h2>swap-file</h2>
+<p>Vim 编辑器的灾难恢复是通过 <cite>swap-file</cite> 发挥作用的。简单的说，当你编辑文件时，它会间隔性地将你的输入自动保存到一个缓冲文件中。这个间隔默认为 200 个字符，如果 4000 毫秒内没有任何输入也会自动保存（均可以配置）。这样，当意外情况发生时，就可以从该缓冲文件里恢复。而如果是正常关闭的话，则对应的缓冲文件会自我删除。</p>
+<p>那么，这个缓冲文件到底存放于何处呢？默认的，与打开的文件处在同一目录。电脑性能过剩的时代，大多数人恐怕是打开几十个甚至上百个 buffer 的，而且平时也不关闭 Vim 编辑器。这就使得这个缓存文件，很容易“污染”你的目录，将其弄的乱糟糟的。我猜这也是为何相当一部分人选择关闭该灾难恢复机制——相较于越来越低的灾难发生概率，貌似乱糟糟的目录更影响人的心情？</p>
+<p>当我查看著名 Vim 配置 <a class="reference external" href="https://github.com/amix/vimrc">amix/vimrc</a> 时，作者给出关闭该机制的原因是：</p>
+<pre class="code vim"><a name="rest_code_61c8a6a6ba5347c290b556e2573e9e44-1"></a><span class="c">" Turn backup off, since most stuff is in SVN, git et.c anyway...</span>
+<a name="rest_code_61c8a6a6ba5347c290b556e2573e9e44-2"></a><span class="k">set</span> <span class="nb">nobackup</span>
+<a name="rest_code_61c8a6a6ba5347c290b556e2573e9e44-3"></a><span class="k">set</span> <span class="nb">nowb</span>
+<a name="rest_code_61c8a6a6ba5347c290b556e2573e9e44-4"></a><span class="k">set</span> <span class="nb">noswapfile</span>
+</pre>
+<p>显然，这个理由细想一下是站不住脚的。 SVN、git 等版本管理软件与上面描述的灾难恢复机制考虑的场景是完全不同的： <cite>swap-file</cite> 是针对电脑崩溃，而你的 <strong>文件没有保存</strong> 的情况；而版本管理则是 <strong>文件已经保存</strong> ，并提交给版本管理系统，然后发生意外丢失了这些文件的情况。大多数人撞见前一种情况的几率更高， 而且 <cite>swap-file</cite> 处理的文件粒度更小更精细。</p>
+</div>
+<div class="section" id="id3">
+<h2>重新调整</h2>
+<p>Anyway，尽管现在硬盘损坏、系统崩溃、突然断电等情况几乎是见不到，但应用冻结/崩溃的情况（就像刚刚发生在我身上的那样）还是挺常见的。考虑到这一情况，笔者决定将这一错误配置纠正过来。操作很简单，只需将 <cite>set noswapfile</cite> 这一行删除掉即可。同时，我也不希望这些缓存文件散落各处，而是希望它们统一存放到一个文件夹。阅读使用手册及一些 <a class="reference external" href="http://vim.wikia.com/wiki/Remove_swap_and_backup_files_from_your_working_directory">网络</a> <a class="reference external" href="https://coderwall.com/p/sdhfug/vim-swap-backup-and-undo-files">搜索</a> 之后，笔者认为以下几行即可满足要求：</p>
+<pre class="code vim"><a name="rest_code_767f3bbb348746859198850c17631a9b-1"></a><span class="k">if</span> <span class="p">!</span>isdirectory<span class="p">(</span>expand<span class="p">(</span><span class="s2">"~/.vim/swapfiles"</span><span class="p">))</span>
+<a name="rest_code_767f3bbb348746859198850c17631a9b-2"></a>    <span class="k">call</span> mkdir<span class="p">(</span>$HOME . <span class="s2">"/.vim/swapfiles"</span><span class="p">,</span> <span class="s2">"p"</span><span class="p">)</span>
+<a name="rest_code_767f3bbb348746859198850c17631a9b-3"></a><span class="k">endif</span>
+<a name="rest_code_767f3bbb348746859198850c17631a9b-4"></a><span class="k">set</span> <span class="k">dir</span><span class="p">=~</span><span class="sr">/.vim/</span>swapfiles<span class="sr">//</span>
+</pre>
+<p>前面三行当文件夹不存在时，创建之。 <cite>mkdir</cite> 是 Vim 的内置函数，避免直接调用 <cite>!mkdir</cite> 外部命令在 Windows 上无法工作。最后一行，将缓存文件目录设置为刚创建的文件夹。最后面的 <code class="docutils literal">//</code> 是让缓存文件名称包含完整路径，避免编辑相同名称的文件时造成冲突。</p>
+</div>
+<div class="section" id="id6">
+<h2>实践验证</h2>
+<p>保存 <cite>.vimrc</cite> 文件，重启 Vim 编辑器。注意到 <cite>~/.vim/swapfiles</cite> 文件夹已创建，随便编辑一个文件 <cite>test123.txt</cite> ，并输入 <cite>this is a test</cite> ，名为 <cite>%Users%ashfinal%test123.txt.swp</cite> 的缓存文件将会自动产生。在任务管理器里直接杀掉 Vim 进程，模拟软件崩溃。输入 <cite>vim test123.txt</cite> 命令，将会提示你是否恢复该文件：</p>
+<div class="figure align-center">
+<a class="reference external image-reference" href="../../../images/recover_file_1.png"><img alt="/images/recover_file_1.thumbnail.png" src="../../../images/recover_file_1.thumbnail.png"></a>
+<p class="caption">提示是否恢复文件</p>
+</div>
+<p>我们当然选择 <cite>R(ecover)</cite> 啦。</p>
+<p>回车之后就会发现，刚才未保存的文本回来了！</p>
+<p>当然，你也可以不带参数启动 Vim 之后，再使用 <cite>:recover [file]</cite> 命令来恢复未保存的文件。</p>
+</div>
+<div class="section" id="id7">
+<h2>总结</h2>
+<p>通过以上介绍，我们发现 <cite>swap-file</cite> 是个很好的灾难恢复机制，而且与 SVN、git 等等是完全不同的使用场景。网络上一些配置和文章推荐将其关闭，实在是太误导人了。如果，你也遇到过和我相同的情况，或者认同我在文中的做法，请检查你的 Vim 配置并确保其打开！</p>
+<p>最后，笔者的 Vim 配置已经放到 <a class="reference external" href="https://github.com/ashfinal/vimrc-config">GitHub</a> 上，欢迎试用。如果你有别的 Vim 使用技巧和建议，也欢迎在评论区指出。</p>
+</div>
+</div>
+        </div>
+    </div>
+    <div class="post-info">
+        <p>文章链接：<a href="https://macplay.github.io/en/posts/vim-nong-diu-liao-wo-de-shu-ju/" target="_blank">https://macplay.github.io/en/posts/vim-nong-diu-liao-wo-de-shu-ju/</a></p>
+        <p>发布/更新于：
+            <time datetime="2017-11-16 14:49:10 UTC+08:00">
+            2017-11-16 14:49
+            </time></p>
+        <p>版权声明：如无特别说明，本站文章均遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">CC BY-NC-SA 4.0</a> 协议，转载请注明作者及出处。</p>
+    </div>
+        <div class="post-navigation no-print">
+        <div class="ui huge secondary stackable menu">
+            <a class="post-nav-item post-nav-previous item" href="../vim-bu-xu-yao-duo-guang-biao-bian-ji-gong-neng/" title="Previous post"><i class="angle double left icon"></i> 【译】Vim 不需要多光标编辑功能</a>
+        <div class="right menu">
+            <a class="post-nav-item post-nav-next item" href="../zai-vim-zhong-shi-yong-undo-branches/" title="Next post">【译】在 Vim 中使用 undo branches <i class="angle double right icon"></i></a>
+        </div>
+        </div>
+    </div>
+
+        <div id="gitalk-container" class="comments-block no-print"></div>
+</div>
+                    </div>
+                </main><div class="footer extra-block no-print">
+    <span class="footer_item">
+        <a href="../../../pages/you-qing-lian-jie/">友情链接</a>
+    </span>
+    <span class="footer_item">
+        <a href="../../../pages/liu-yan-ban/">留言板</a>
+    </span>
+    <span class="footer_item">
+        <a href="../../../pages/ge-ren-dong-tai/">碎碎念</a>
+    </span>
+    </div>
+            <div class="footer social-link no-print">
+            <a href="https://github.com/ashfinal" target="_blank"><i class="grey large github icon"></i></a>
+            <a href="http://weibo.com/ashfinal/" target="_blank"><i class="grey large weibo icon"></i></a>
+            <a href="mailto://ashfinal@sina.cn" target="_blank"><i class="grey large mail icon"></i></a>
+            </div>
+        <div class="ui basic center aligned segment no-print">Contents © 2020         <a href="mailto:ashfinal@sina.cn">ashfinal</a> - Powered by         <a href="https://getnikola.com" target="_blank" rel="nofollow">Nikola</a>         </div>
+
+            </div>
+            <div class="computer only three wide column no-print">
+                <div id="right-side">
+                </div>
+            </div>
+        </div>
+
+        <!-- GoStats JavaScript Based Code -->
+        <script type="text/javascript">(function(c,o,m,p,u,t,e){
+        c['GoStatsObject']=u;c[u]=c[u]||function(){(c[u].q=c[u].q||[]).push(arguments)},
+        c[u].l=1*new Date();t=o.createElement(m);t.async=1;t.src=p;
+        e=o.getElementsByTagName(m)[0];e.parentNode.insertBefore(t,e);
+        })(window,document,'script','//www.gostats.org/5.js','go');
+        go('init',100479892,{'img_counter_type':5,'img_image_type':1});go('send');</script><!-- End GoStats JavaScript Based Code --><script type="text/javascript" src="../../../assets/js/jquery-3.3.1.min.js"></script><script type="text/javascript" src="../../../assets/js/semantic.min.js"></script><script type="text/javascript" src="../../../assets/js/jquery.fancybox.min.js"></script><script type="text/javascript" src="../../../assets/js/cookie.min.js"></script><script>
+            $(document).ready(function(){
+                $(".ui.dropdown").dropdown();
+                $('.ui.accordion').accordion();
+                var newstr = $('.cookie.nag').text();
+                $('.cookie.nag').nag({
+                    key: 'globalnotice',
+                    value: newstr
+                  });
+                $('.image-reference').fancybox();
+            });
+        </script><script src="../../../assets/js/md5.min.js"></script><script src="../../../assets/js/gitalk.min.js"></script><script>
+        const gitalk = new Gitalk({
+            clientID: '12fcda845097d895a24c',
+            clientSecret: '50ed60cde5f40897205197b4265b474cefbedc49',
+            repo: 'macplay.github.io',
+            owner: 'macplay',
+            admin: ['macplay', 'ashfinal'],
+            id: md5(window.location.pathname),
+            // facebook-like distraction free mode
+            distractionFreeMode: false
+        })
+        gitalk.render('gitalk-container')
+    </script>
+</body>
+</html>

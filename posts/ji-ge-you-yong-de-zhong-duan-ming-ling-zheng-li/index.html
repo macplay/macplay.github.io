@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="zh_cn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="generator" content="Nikola (getnikola.com)">
+<title>有用的终端命令整理 - MacPlay</title>
+<link rel="apple-touch-icon" sizes="180x180" href="../../apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+<link rel="mask-icon" href="../../safari-pinned-tab.svg" color="#5bbad5">
+<link href="../../assets/css/semantic.min.css" rel="stylesheet" type="text/css">
+<link href="../../assets/css/jquery.fancybox.min.css" rel="stylesheet" type="text/css">
+<link href="../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<link rel="canonical" href="https://macplay.github.io/posts/ji-ge-you-yong-de-zhong-duan-ming-ling-zheng-li/">
+<meta name="author" content="ashfinal">
+<link rel="alternate" hreflang="en" href="../../en/posts/ji-ge-you-yong-de-zhong-duan-ming-ling-zheng-li/">
+<link rel="stylesheet" type="text/css" href="../../assets/css/gitalk.css">
+</head>
+<body>
+        <div class="ui grid">
+            <div class="computer only three wide column no-print">
+                <div id="left-side">
+                </div>
+            </div>
+            <div class="ten wide computer sixteen wide tablet sixteen wide mobile column">
+                        <div class="ui inline cookie nag no-print">
+            <span class="title">从现在开始，支持中英双语及博文精选 O(∩_∩)O~~</span>
+            <i class="close icon"></i>
+        </div>
+    <header id="header" class="no-print"><div class="ui grid">
+        <div class="computer only tablet only sixteen wide column">
+            <div class="ui large secondary stackable menu">
+                <a class="header item brand-logo" href="https://macplay.github.io/">
+                    MacPlay
+                </a>
+                        <a class="item" href="../../">Posts</a>
+                        <a class="item" href="../../listings/">Code</a>
+                        <a class="item" href="../../galleries/">Gallery</a>
+                        <a class="item" href="../../categories/">Tags</a>
+                        <a class="item" href="../../archive.html">Archive</a>
+                <div class="right menu">
+                    <a class="item" href="../../rss.xml"><i class="rss icon"></i>RSS</a>
+                </div>
+            </div>
+        </div>
+        <div class="mobile only sixteen wide column">
+            <div class="ui fluid accordion vertical menu">
+                <div class="item">
+                    <a class="title">MacPlay</a>
+                    <div class="content">
+                                <a class="item" href="../../">Posts</a>
+                                <a class="item" href="../../listings/">Code</a>
+                                <a class="item" href="../../galleries/">Gallery</a>
+                                <a class="item" href="../../categories/">Tags</a>
+                                <a class="item" href="../../archive.html">Archive</a>
+                        <a class="item" href="../../rss.xml"><i class="rss icon"></i>RSS</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </header><main id="main"><div id="main-content">
+<div class="postpage post-text page-body" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <h1 class="post-title" itemprop="headline">
+        <a href=".">有用的终端命令整理</a>
+    </h1>
+
+    <div class="ui large horizontal link list post-meta">
+        <span class="item">By
+            <a href="../../authors/ashfinal/">ashfinal</a>
+        </span>
+            <span class="item">
+                <a href="https://github.com/macplay/macplay.github.io/edit/src/posts/ji-ge-you-yong-de-zhong-duan-ming-ling-zheng-li.rst" target="_blank" title="Edit on GitHub">Edit</a>
+            </span>
+        <span class="item">
+            <time datetime="2017-09-28T21:47:01+08:00">
+            2017-09-28 21:47
+            </time></span>
+            <span class="item">
+                    <a href="../../categories/bash/">bash</a>
+                    <a href="../../categories/shell/">shell</a>
+                    <a href="../../categories/terminal/">terminal</a>
+            </span>
+    </div>
+
+    
+    <div class="post-content" itemprop="article text">
+        <div id="post-content">
+        <div>
+<p>使用 zsh 之后，就养成了不整理终端命令的“坏”习惯。可能当时遇到问题折腾好半天才解决，但却从没有写个日志（哪怕片段）记录下来的想法。因为 zsh 默认保存上万条历史让这一做法显得没有必要，要再次调用的话直接 fzf 搜索，简单修改下回车执行就行。</p>
+<p>最近两天抹盘安装了 High Sierra 系统，装完后把之前的 <cite>.zsh_history</cite> 文件拷贝回 home 目录，继续老习惯接着用就成。不过还是有点不放心，一方面担心使用频率超低（但有用）的命令可能会被冲掉，另一方面万一某一天 history 文件损坏就悲剧了，更重要的是有时会到别的电脑上执行命令。所以，还是整理下为好，该命令列表应该会不定期更新。</p>
+<!-- TEASER_END -->
+<ol class="arabic">
+<li>
+<p>查找并删除 <cite>.DS_Store</cite> 文件</p>
+<p><cite>find . -type f -name ".DS_Store" -delete</cite></p>
+<p><cite>.DS_Store</cite> 文件有时会引起麻烦，用以上命令清掉就好。 <cite>.DS_Store</cite> 只是举个例子，文件名称可以随便填，可用通配符。还有 <cite>-depth 1</cite> 可用来指定递归深度，比如删除掉 <cite>Downloads</cite> 目录最外面一层所有的 <cite>jpg</cite> 图片。</p>
+</li>
+<li>
+<p>find 也可以用正则表达式</p>
+<p>当然只是有限的正则表达式。比如把符合条件的所有图片移动到桌面。</p>
+<p><code class="docutils literal">find . <span class="pre">-regex</span> <span class="pre">".*/[a-z0-9]\{32\}\.jpg"</span> <span class="pre">-exec</span> mv {} ~/Desktop/ \;</code></p>
+</li>
+<li>
+<p>分别统计文件行数</p>
+<p><cite>find ~/.hammerspoon -type f -name "*.lua" -print0 | xargs -0 wc -l</cite></p>
+</li>
+<li>
+<p>配合 chmod 使用</p>
+<p><code class="docutils literal">find . <span class="pre">-type</span> f <span class="pre">-exec</span> chmod 644 {} \;</code></p>
+<p><code class="docutils literal">find . <span class="pre">-type</span> d <span class="pre">-exec</span> chmod 744 {} \;</code></p>
+<p>最近的 find 应用案例。把移动硬盘上备份的 repo 复制回新安装的系统，结果提示一大堆文件已更改，真是莫名其妙。<cite>git diff</cite> 一看，文件权限全变成了 755。这才想起老早老早以前把移动硬盘格成了 exFAT 格式，文件权限全丢了。利用以上两行命令，文件全改成 644，文件夹全改成 744，搞完后 repo 恢复正常。</p>
+</li>
+<li>
+<p>推出所有 dmg 磁盘</p>
+<p><cite>osascript -e 'tell application "Finder" to eject (every disk whose ejectable is true)'</cite></p>
+<p>有时候尝试完一堆新软件，懒得一个个点推出。执行一下这个就好。见过别人电脑上差不多 10 个未推出的 dmg 镜像，问干嘛用完不推呢，答曰刚使用 macOS 没这习惯……</p>
+</li>
+<li>
+<p>重置 LaunchPad</p>
+<p><cite>defaults write com.apple.dock ResetLaunchPad -bool true; killall Dock</cite></p>
+<p>如果你习惯让系统内置应用单独一页，同时不想让应用没布满一页就挤到下一页。执行该命令将会重置 LaunchPad。</p>
+</li>
+<li>
+<p>重置 QuickLook 服务</p>
+<p><cite>qlmanage -r</cite></p>
+<p>QuickLook 就是按空格预览的那个。如果你复制了新的预览器（如 markdown、压缩包等）到 <cite>~/Library/QuickLook</cite> 目录，可能需要执行下该命令。</p>
+</li>
+<li>
+<p>加载新服务</p>
+<p><cite>launchctl load -w ~/Library/LaunchAgents/com.github.aria2.plist</cite></p>
+<p>让 aria2 开机后台运行，launchctl 常用命令还有 unload、start、stop 等。</p>
+</li>
+<li>
+<p>指定内核启动 jupyter</p>
+<p><cite>jupyter-qtconsole --kernel=python2</cite></p>
+<p>jupyter console 和 Qt 前端均可用该方式指定启动时的内核。有了 jupyter console ， ipython 以后减少使用为好。 <cite>jupyter-kernelspec list</cite> 列出当前可用的内核。</p>
+</li>
+<li>
+<p>升级系统 vim</p>
+<p><cite>brew install vim --with-override-system-vi --with-lua</cite></p>
+<p>High Sierra 自带 vim 版本已经是 8.0，但编译缺了三个重要特性：clipboard、conceal、lua。用以上命令重新编译个倒也不费劲，时间还很快。不过，更好的选择是直接用 neovim 。</p>
+</li>
+<li>
+<p>neovim 配置位置</p>
+<p><cite>~/.config/nvim/init.vim</cite> 。我的 vim 配置和 neovim 是共用的，所以执行下 <cite>ln ~/.vimrc ~/.config/nvim/init.vim</cite> 就好。</p>
+</li>
+<li>
+<p>给 neovim 添加 python 支持</p>
+<p><cite>pip3 install neovim</cite></p>
+<p>运行 <cite>:CheckHealth</cite> 可显示 neovim 的状态信息，包括 python2、python3 支持等。如果你使用 pyenv 或 virtualenv 的话，将 <cite>g:python_host_prog</cite> 或 <cite>g:python3_host_prog</cite> 的值设置为虚拟环境中 python 的执行路径。</p>
+</li>
+<li>
+<p>reST 转换为其它格式</p>
+<p><cite>rst2s5.py ./posts/30-fen-zhong-jian-li-yi-ge-nikola-bo-ke.rst new.html</cite></p>
+<p>还有其它类似命令： <cite>rst2html5.py</cite> ， <cite>rst2xelex.py</cite> ， <cite>rst2odt.py</cite> 等。</p>
+</li>
+<li>
+<p>you-get 下载视频</p>
+<p><cite>you-get -i url</cite> 列出可用的视频下载格式； <cite>you-get --format=HD -p mpv url</cite> 指定下载格式，并调用 mpv 播放。</p>
+</li>
+<li>
+<p>统计文件夹大小</p>
+<p><cite>du -d1 -h .vim</cite></p>
+<p><cite>-d1</cite> 用来指定文件夹层次。</p>
+</li>
+<li>
+<p>禁用截图阴影</p>
+<p><cite>defaults write com.apple.screencapture disable-shadow -bool true</cite></p>
+</li>
+<li>
+<p>禁用长按输入音调功能</p>
+<p><cite>defaults write com.github.atom ApplePressAndHoldEnabled -bool false</cite></p>
+<p>macOS 上长按会弹出音调输入菜单。而如果你某些编辑器使用了 vim 插件，这一行为就显得有些讨厌。以上命令可以指定在某一应用内禁用该功能。</p>
+</li>
+<li>
+<p>编译 mpv</p>
+<p><cite>brew install mpv --with-bundle --with-libaacs --with-libarchive --with-libbluray --with-libdvdnav --with-libcaca --with-libdvdread --with-uchardet --with-vapoursynth</cite></p>
+<p>让 mpv 支持 DVD、蓝光等格式，并打个 bundle 包。</p>
+</li>
+<li>
+<p>使用 duc 生成磁盘空间图表</p>
+<p><cite>duc graph --format=png --gradient --palette=greyscale ~/Downloads</cite></p>
+</li>
+<li>
+<p>不加载配置启动 Vim</p>
+<p><cite>vim -u NONE</cite></p>
+</li>
+<li>
+<p>指定局域截图</p>
+<p><cite>screencapture -T5 -R0,776,200,19 ~/Desktop/file5.png</cite></p>
+</li>
+<li>
+<p>垂直方向合并多张图</p>
+<p><cite>convert dock.png clip.png down.png -append test.png</cite></p>
+<p>如果是 <cite>+append</cite> ，则是水平方向合并。</p>
+</li>
+<li>
+<p>截掉多余边框</p>
+<p><cite>convert resize.png -trim tmp.png</cite></p>
+<p>仅当图像边缘为透明或者纯色时好用。</p>
+</li>
+<li>
+<p>切图</p>
+<p><cite>convert resize.png -crop +0+2x195x38 view.png</cite></p>
+</li>
+<li>
+<p>叠加图片</p>
+<p><cite>composite front.png bg.png -gravity center result.png</cite></p>
+</li>
+<li>
+<p>按照列表合并多个视频片段</p>
+<p><cite>ffmpeg -f concat -i new.mp4.txt -c copy new.flv</cite></p>
+</li>
+<li>
+<p>从超大图片截取区域部分</p>
+<p><cite>convert source.png -geometry +113+198 -region 1600x400 tmp.png</cite></p>
+</li>
+<li>
+<p>新建一张空白图</p>
+<p><cite>convert -size 36x660 xc:none -fill "#ffffff" ~/Desktop/new.png</cite></p>
+</li>
+<li>
+<p>产生一张黑白对折图</p>
+<p><cite>convert -size 1275x768 xc:none -fill black -draw "polygon 0,0 0,768 1275,768" -fill white -draw "polygon 0,0 1275,0 1275,768" ~/Desktop/main.png</cite></p>
+</li>
+<li>
+<p>对图片应用滤镜</p>
+<p><cite>convert dark.png mask.png -alpha off -compose CopyOpacity -composite result.png</cite></p>
+</li>
+<li>
+<p>扩展图片画布</p>
+<p><cite>convert youdao.png -background none -gravity center -extent 100x100 ~/Desktop/youdao.png</cite></p>
+</li>
+<li>
+<p>把图片指定颜色变为透明</p>
+<p><cite>convert emoji-evil.jpg -fuzz 1% -transparent "#FDFDFD" new.png</cite></p>
+</li>
+<li>
+<p>Vim 启动时间 profile</p>
+<p><cite>nvim --startuptime tmp.txt</cite></p>
+</li>
+<li>
+<p>加载 locate 服务</p>
+<p><cite>sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.locate.plist</cite></p>
+</li>
+<li>
+<p>打印文件额外属性</p>
+<p><cite>xattr -p LICENSE</cite></p>
+</li>
+<li>
+<p>编译 emacs-mac</p>
+<p><cite>brew install emacs-mac --with-ctags --with-dbus --with-glib --with-gnutls --with-imagemagick --with-spacemacs-icon --with-modules --with-texinfo --with-xml2</cite></p>
+</li>
+<li>
+<p>回撤上一个 git 提交</p>
+<p><cite>git reset --hard HEAD^</cite></p>
+</li>
+<li>
+<p>逐帧压缩并缩放 GIF 动图</p>
+<p><cite>convert Untitled.gif -coalesce -resize 50% -layers OptimizeFrame good.gif</cite></p>
+</li>
+<li>
+<p>MacTex 自带命令行管理器</p>
+<p><cite>tlmgr search indentfirst</cite></p>
+<p><cite>texdoc tikz</cite> 自带文档查看。</p>
+<p><cite>sudo tlmgr option repository http://mirrors.aliyun.com/CTAN/systems/texlive/tlnet/</cite> 更改默认 repo。</p>
+<p><cite>tlmgr update --all</cite></p>
+</li>
+<li>
+<p>磁盘读写查看</p>
+<p><cite>iostat -d 1</cite></p>
+</li>
+<li>
+<p>视频轨道查看</p>
+<p><cite>ffprobe Homeland.S06E02.720p.HEVC.x265-MeGusta.mkv</cite></p>
+</li>
+<li>
+<p>Markdown 文件转换为 epub 电子书</p>
+<p><cite>pandoc file.md -f markdown -t epub -o new.epub</cite></p>
+</li>
+<li>
+<p>使用 curl 上传一张图片</p>
+<p><cite>curl -X POST -d "smfile=/Users/ashfinal/2.png" https://sm.ms/api/upload</cite></p>
+</li>
+<li>
+<p>指定 curl 访问 UA</p>
+<p><cite>curl --user-agent "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/31.0.1650.63 Safari/537.36" https://www.bing.com/az/hprichbg/rb/BMXTunnel_ZH-CN11405649743_1920x1080.jpg -O</cite></p>
+</li>
+<li>
+<p>man 转换为 PDF 并打开</p>
+<p><cite>man -t rsync | open -f -a Preview.app</cite></p>
+</li>
+<li>
+<p>请求 GitHub Trend 数据</p>
+<p><code class="docutils literal">curl <span class="pre">-G</span> <span class="pre">https://api.github.com/search/repositories</span> <span class="pre">--data-urlencode</span> "sort=stars" <span class="pre">--data-urlencode</span> "order=desc" <span class="pre">--data-urlencode</span> "q=language:java"  <span class="pre">--data-urlencode</span> <span class="pre">"q=created:&gt;`date</span> <span class="pre">-v-7d</span> <span class="pre">'+%Y-%m-%d'`"</span> &gt; tmp.json</code></p>
+</li>
+<li>
+<p>生成目录层级报告</p>
+<p><code class="docutils literal">tree <span class="pre">--charset</span> utf8 <span class="pre">-H</span> <span class="pre">file:///Users/ashfinal/Downloads</span> ~/Downloads <span class="pre">-o</span> ~/tmp.html</code></p>
+</li>
+<li>
+<p>指定进程列头</p>
+<p><cite>ps -A -ro pid,user,pcpu,pmem,command</cite></p>
+</li>
+<li>
+<p>指定命令行代理</p>
+<p><cite>proxychains4 brew upgrade weechat</cite></p>
+</li>
+<li>
+<p>返回 mac 地址</p>
+<p><code class="docutils literal">ifconfig en0 | grep ether | awk {'print $2'}</code></p>
+</li>
+<li>
+<p>macOS 计算机名相关</p>
+<pre class="code shell"><a name="rest_code_427fc04be9fc4ee2971bc795278e9fae-1"></a>sudo scutil --set HostName <span class="s2">"iMBP"</span>
+<a name="rest_code_427fc04be9fc4ee2971bc795278e9fae-2"></a>sudo scutil --set ComputerName <span class="s2">"iMBP"</span>
+<a name="rest_code_427fc04be9fc4ee2971bc795278e9fae-3"></a>sudo scutil --set LocalHostName <span class="s2">"iMBP"</span>
+<a name="rest_code_427fc04be9fc4ee2971bc795278e9fae-4"></a>sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string <span class="s2">"iMBP"</span>
+</pre>
+</li>
+<li>
+<p>curl 下载文件显示进度条</p>
+<p><cite>curl -# http://www.andre-simon.de/zip/highlight-3.36.dmg -O</cite></p>
+</li>
+<li>
+<p>调用 curl 下载文件列表</p>
+<p><code class="docutils literal">ROW=0; for URL in `cat url.txt`; do <span class="pre">ROW=$(($ROW+1));</span> curl <span class="pre">-#</span> $URL <span class="pre">-o</span> $ROW; done</code></p>
+</li>
+<li>
+<p>pygments 语法高亮文件</p>
+<p><cite>pygmentize -l python tmp.py -o tmp.html</cite></p>
+</li>
+<li>
+<p>上传一个文件</p>
+<p><cite>curl -F c=@- https://ptpb.pw/ &lt; 9ku.py</cite></p>
+</li>
+<li>
+<p>命令行版的 gist</p>
+<pre class="code shell"><a name="rest_code_a4d3726156c74fcba8c9f6661f248e7d-1"></a>gist --login
+<a name="rest_code_a4d3726156c74fcba8c9f6661f248e7d-2"></a>gist
+<a name="rest_code_a4d3726156c74fcba8c9f6661f248e7d-3"></a>gist selenium0.py
+<a name="rest_code_a4d3726156c74fcba8c9f6661f248e7d-4"></a>gist -l ashfinal
+<a name="rest_code_a4d3726156c74fcba8c9f6661f248e7d-5"></a>gist -d <span class="s2">"aria2 launchagent for macOS"</span> com.github.aria2.plist
+</pre>
+</li>
+<li>
+<p>用各种语音说“Hello World”</p>
+<p><code class="docutils literal">for i in `say <span class="pre">-v</span> <span class="pre">'?'</span> | cut <span class="pre">-d</span> ' ' <span class="pre">-f</span> 1`; do echo $i &amp;&amp; say <span class="pre">-v</span> "$i" 'Hello <span class="pre">World';done</span></code></p>
+</li>
+<li>
+<p>列出压缩包文件名</p>
+<p><cite>unzip -l ZeroNet-mac-dist.zip</cite></p>
+</li>
+<li>
+<p>从 html 文件下载图片</p>
+<p><code class="docutils literal">lynx <span class="pre">-dump</span> <span class="pre">http://rom.ligux.com/wallpaper/</span> | egrep <span class="pre">-o</span> <span class="pre">"http:.*jpg"</span> | xargs <span class="pre">-n1</span> wget</code></p>
+</li>
+<li>
+<p>烧录系统镜像到 U 盘</p>
+<p><cite>sudo dd if=Desktop/openSUSE-Tumbleweed-KDE-Live-x86_64-Snapshot20161109-Media.iso of=/dev/disk2 bs=512 conv=noerror,sync</cite></p>
+</li>
+<li>
+<p>git rebase</p>
+<p><cite>git rebase -i 6e9ddc5</cite></p>
+</li>
+<li>
+<p>从 git 历史中删除二进制文件</p>
+<pre class="code shell"><a name="rest_code_2f5794a96729471f9b90d2bac66c7998-1"></a>git filter-branch --force --index-filter <span class="se">\\</span>
+<a name="rest_code_2f5794a96729471f9b90d2bac66c7998-2"></a><span class="s1">'git rm --cached --ignore-unmatch resources/watchbg.png'</span> <span class="se">\\</span>
+<a name="rest_code_2f5794a96729471f9b90d2bac66c7998-3"></a>--prune-empty --tag-name-filter cat -- --all
+</pre>
+<p>后面还需要三个命令：</p>
+<pre class="code shell"><a name="rest_code_32ec5fbfa3bb45de8294ff12d4f67cf4-1"></a>git reflog expire --expire<span class="o">=</span>now --all
+<a name="rest_code_32ec5fbfa3bb45de8294ff12d4f67cf4-2"></a>git gc --prune<span class="o">=</span>now
+<a name="rest_code_32ec5fbfa3bb45de8294ff12d4f67cf4-3"></a>git gc --aggressive --prune<span class="o">=</span>now
+</pre>
+</li>
+<li>
+<p>列出中文字体</p>
+<p><code class="docutils literal"><span class="pre">fc-list</span> <span class="pre">:lang=zh-cn</span> | fzf</code></p>
+</li>
+<li>
+<p>文件夹比较报告</p>
+<p><code class="docutils literal">diffoscope <span class="pre">/usr/local/lib/python3.6/site-packages/jedi</span> <span class="pre">Downloads/jedi-0.10.2/jedi-0.10.2/jedi/</span> <span class="pre">--html</span> tmp.html</code></p>
+</li>
+<li>
+<p>Nikola 指定新建文件的 jupyter notebook 内核</p>
+<p><cite>nikola new_post -f ipynb@python2</cite></p>
+</li>
+<li>
+<p>Atom 安装插件</p>
+<p><cite>apm install --verbose atom-beautify autocomplete-python git-time-machine file-icons code-peek pigments advanced-open-file atom-ternjs autoprefixer hydrogen script regex-railroad-diagram linter-proselint color-picker platformio-ide-terminal merge-conflicts activate-power-mode atom-latex autocomplete-paths</cite></p>
+</li>
+<li>
+<p>生成简短的中文字体列表</p>
+<p><code class="docutils literal"><span class="pre">fc-list</span> <span class="pre">-f</span> <span class="pre">"%{family}\n"</span> :lang=zh  &gt; zhfont.txt</code></p>
+</li>
+<li>
+<p>ffmpeg 视频极限压缩（替代 GIF）</p>
+<p><code class="docutils literal">ffmpeg <span class="pre">-i</span> in.mp4 <span class="pre">-vf</span> <span class="pre">scale=-2:240</span> <span class="pre">-c:v</span> libx264 <span class="pre">-an</span> <span class="pre">-crf</span> 35 <span class="pre">-b:v</span> 100k <span class="pre">-r</span> 10 <span class="pre">-preset</span> slow out.mp4</code></p>
+</li>
+</ol>
+</div>
+        </div>
+    </div>
+    <div class="post-info">
+        <p>文章链接：<a href="https://macplay.github.io/posts/ji-ge-you-yong-de-zhong-duan-ming-ling-zheng-li/" target="_blank">https://macplay.github.io/posts/ji-ge-you-yong-de-zhong-duan-ming-ling-zheng-li/</a></p>
+        <p>发布/更新于：
+            <time datetime="2017-09-28 21:47:01 UTC+08:00">
+            2017-09-28 21:47
+            </time></p>
+        <p>版权声明：如无特别说明，本站文章均遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">CC BY-NC-SA 4.0</a> 协议，转载请注明作者及出处。</p>
+    </div>
+        <div class="post-navigation no-print">
+        <div class="ui huge secondary stackable menu">
+            <a class="post-nav-item post-nav-previous item" href="../cong-markdown-dao-restructuredtext/" title="Previous post"><i class="angle double left icon"></i> 从 Markdown 到 reStructuredText</a>
+        <div class="right menu">
+            <a class="post-nav-item post-nav-next item" href="../old-man-smoked-his-pipe/" title="Next post">Old Man Smoked His Pipe <i class="angle double right icon"></i></a>
+        </div>
+        </div>
+    </div>
+
+        <div id="gitalk-container" class="comments-block no-print"></div>
+</div>
+                    </div>
+                </main><div class="footer extra-block no-print">
+    <span class="footer_item">
+        <a href="../../pages/you-qing-lian-jie/">友情链接</a>
+    </span>
+    <span class="footer_item">
+        <a href="../../pages/liu-yan-ban/">留言板</a>
+    </span>
+    <span class="footer_item">
+        <a href="../../pages/ge-ren-dong-tai/">碎碎念</a>
+    </span>
+    </div>
+            <div class="footer social-link no-print">
+            <a href="https://github.com/ashfinal" target="_blank"><i class="grey large github icon"></i></a>
+            <a href="http://weibo.com/ashfinal/" target="_blank"><i class="grey large weibo icon"></i></a>
+            <a href="mailto://ashfinal@sina.cn" target="_blank"><i class="grey large mail icon"></i></a>
+            </div>
+        <div class="ui basic center aligned segment no-print">Contents © 2020         <a href="mailto:ashfinal@sina.cn">ashfinal</a> - Powered by         <a href="https://getnikola.com" target="_blank" rel="nofollow">Nikola</a>         </div>
+
+            </div>
+            <div class="computer only three wide column no-print">
+                <div id="right-side">
+                </div>
+            </div>
+        </div>
+
+        <!-- GoStats JavaScript Based Code -->
+        <script type="text/javascript">(function(c,o,m,p,u,t,e){
+        c['GoStatsObject']=u;c[u]=c[u]||function(){(c[u].q=c[u].q||[]).push(arguments)},
+        c[u].l=1*new Date();t=o.createElement(m);t.async=1;t.src=p;
+        e=o.getElementsByTagName(m)[0];e.parentNode.insertBefore(t,e);
+        })(window,document,'script','//www.gostats.org/5.js','go');
+        go('init',100479892,{'img_counter_type':5,'img_image_type':1});go('send');</script><!-- End GoStats JavaScript Based Code --><script type="text/javascript" src="../../assets/js/jquery-3.3.1.min.js"></script><script type="text/javascript" src="../../assets/js/semantic.min.js"></script><script type="text/javascript" src="../../assets/js/jquery.fancybox.min.js"></script><script type="text/javascript" src="../../assets/js/cookie.min.js"></script><script>
+            $(document).ready(function(){
+                $(".ui.dropdown").dropdown();
+                $('.ui.accordion').accordion();
+                var newstr = $('.cookie.nag').text();
+                $('.cookie.nag').nag({
+                    key: 'globalnotice',
+                    value: newstr
+                  });
+                $('.image-reference').fancybox();
+            });
+        </script><script src="../../assets/js/md5.min.js"></script><script src="../../assets/js/gitalk.min.js"></script><script>
+        const gitalk = new Gitalk({
+            clientID: '12fcda845097d895a24c',
+            clientSecret: '50ed60cde5f40897205197b4265b474cefbedc49',
+            repo: 'macplay.github.io',
+            owner: 'macplay',
+            admin: ['macplay', 'ashfinal'],
+            id: md5(window.location.pathname),
+            // facebook-like distraction free mode
+            distractionFreeMode: false
+        })
+        gitalk.render('gitalk-container')
+    </script>
+</body>
+</html>

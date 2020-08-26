@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="zh_cn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="generator" content="Nikola (getnikola.com)">
+<title>再谈 Markdown 及其扩展 - MacPlay</title>
+<link rel="apple-touch-icon" sizes="180x180" href="../../apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+<link rel="mask-icon" href="../../safari-pinned-tab.svg" color="#5bbad5">
+<link href="../../assets/css/semantic.min.css" rel="stylesheet" type="text/css">
+<link href="../../assets/css/jquery.fancybox.min.css" rel="stylesheet" type="text/css">
+<link href="../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<link rel="canonical" href="https://macplay.github.io/posts/zai-tan-markdown-ji-qi-kuo-zhan/">
+<meta name="author" content="ashfinal">
+<link rel="alternate" hreflang="en" href="../../en/posts/zai-tan-markdown-ji-qi-kuo-zhan/">
+<link rel="stylesheet" type="text/css" href="../../assets/css/gitalk.css">
+</head>
+<body>
+        <div class="ui grid">
+            <div class="computer only three wide column no-print">
+                <div id="left-side">
+                </div>
+            </div>
+            <div class="ten wide computer sixteen wide tablet sixteen wide mobile column">
+                        <div class="ui inline cookie nag no-print">
+            <span class="title">从现在开始，支持中英双语及博文精选 O(∩_∩)O~~</span>
+            <i class="close icon"></i>
+        </div>
+    <header id="header" class="no-print"><div class="ui grid">
+        <div class="computer only tablet only sixteen wide column">
+            <div class="ui large secondary stackable menu">
+                <a class="header item brand-logo" href="https://macplay.github.io/">
+                    MacPlay
+                </a>
+                        <a class="item" href="../../">Posts</a>
+                        <a class="item" href="../../listings/">Code</a>
+                        <a class="item" href="../../galleries/">Gallery</a>
+                        <a class="item" href="../../categories/">Tags</a>
+                        <a class="item" href="../../archive.html">Archive</a>
+                <div class="right menu">
+                    <a class="item" href="../../rss.xml"><i class="rss icon"></i>RSS</a>
+                </div>
+            </div>
+        </div>
+        <div class="mobile only sixteen wide column">
+            <div class="ui fluid accordion vertical menu">
+                <div class="item">
+                    <a class="title">MacPlay</a>
+                    <div class="content">
+                                <a class="item" href="../../">Posts</a>
+                                <a class="item" href="../../listings/">Code</a>
+                                <a class="item" href="../../galleries/">Gallery</a>
+                                <a class="item" href="../../categories/">Tags</a>
+                                <a class="item" href="../../archive.html">Archive</a>
+                        <a class="item" href="../../rss.xml"><i class="rss icon"></i>RSS</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </header><main id="main"><div id="main-content">
+<div class="postpage post-text page-body" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <h1 class="post-title" itemprop="headline">
+        <a href=".">再谈 Markdown 及其扩展</a>
+    </h1>
+
+    <div class="ui large horizontal link list post-meta">
+        <span class="item">By
+            <a href="../../authors/ashfinal/">ashfinal</a>
+        </span>
+            <span class="item">
+                <a href="https://github.com/macplay/macplay.github.io/edit/src/posts/zai-tan-markdown-ji-qi-kuo-zhan.md" target="_blank" title="Edit on GitHub">Edit</a>
+            </span>
+        <span class="item">
+            <time datetime="2017-10-27T22:36:07+08:00">
+            2017-10-27 22:36
+            </time></span>
+            <span class="item">
+                    <a href="../../categories/markdown/">markdown</a>
+                    <a href="../../categories/mermaid/">mermaid</a>
+                    <a href="../../categories/python/">python</a>
+            </span>
+    </div>
+
+    
+    <div class="post-content" itemprop="article text">
+        <div id="post-content">
+        <div>
+<p>尽管笔者专门写了一个文章系列 <a href="../cong-markdown-dao-restructuredtext/" title="/posts/cong-markdown-dao-restructuredtext/">《从 Markdown 到 reStructuredText》</a>，推荐在日常文档写作中更多地使用 reStructuredText。不过平心而论，Markdown 标记语言其实还是不错的，再加上一堆漂亮好用的客户端，使其作为博客写作语言相当合适。静态博客 Nikola 本身也对 Markdown 开箱提供了完整支持，Markdown 与 reStructuredText 一样都是“一等公民”。</p>
+<p>Nikola 中使用的语法与主流 Markdown 语法，可以说是一模一样的。同时，还以扩展的形式 <sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup> 额外提供了一些：</p>
+<!-- TEASER_END -->
+
+<table>
+<thead><tr>
+<th>Extension</th>
+<th>"Name"</th>
+</tr></thead>
+<tbody>
+<tr>
+<td><a href="https://pythonhosted.org/Markdown/extensions/extra.html">Extra</a></td>
+<td><code>markdown.extensions.extra</code></td>
+</tr>
+<tr>
+<td>    <a href="https://pythonhosted.org/Markdown/extensions/abbreviations.html">Abbreviations</a>
+</td>
+<td><code>markdown.extensions.abbr</code></td>
+</tr>
+<tr>
+<td>    <a href="https://pythonhosted.org/Markdown/extensions/attr_list.html">Attribute Lists</a>
+</td>
+<td><code>markdown.extensions.attr_list</code></td>
+</tr>
+<tr>
+<td>    <a href="https://pythonhosted.org/Markdown/extensions/definition_lists.html">Definition Lists</a>
+</td>
+<td><code>markdown.extensions.def_list</code></td>
+</tr>
+<tr>
+<td>    <a href="https://pythonhosted.org/Markdown/extensions/fenced_code_blocks.html">Fenced Code Blocks</a>
+</td>
+<td><code>markdown.extensions.fenced_code</code></td>
+</tr>
+<tr>
+<td>    <a href="https://pythonhosted.org/Markdown/extensions/footnotes.html">Footnotes</a>
+</td>
+<td><code>markdown.extensions.footnotes</code></td>
+</tr>
+<tr>
+<td>    <a href="https://pythonhosted.org/Markdown/extensions/tables.html">Tables</a>
+</td>
+<td><code>markdown.extensions.tables</code></td>
+</tr>
+<tr>
+<td>    <a href="https://pythonhosted.org/Markdown/extensions/smart_strong.html">Smart Strong</a>
+</td>
+<td><code>markdown.extensions.smart_strong</code></td>
+</tr>
+<tr>
+<td><a href="https://pythonhosted.org/Markdown/extensions/admonition.html">Admonition</a></td>
+<td><code>markdown.extensions.admonition</code></td>
+</tr>
+<tr>
+<td><a href="https://pythonhosted.org/Markdown/extensions/code_hilite.html">CodeHilite</a></td>
+<td><code>markdown.extensions.codehilite</code></td>
+</tr>
+<tr>
+<td><a href="https://pythonhosted.org/Markdown/extensions/header_id.html">HeaderId</a></td>
+<td><code>markdown.extensions.headerid</code></td>
+</tr>
+<tr>
+<td><a href="https://pythonhosted.org/Markdown/extensions/meta_data.html">Meta-Data</a></td>
+<td><code>markdown.extensions.meta</code></td>
+</tr>
+<tr>
+<td><a href="https://pythonhosted.org/Markdown/extensions/nl2br.html">New Line to Break</a></td>
+<td><code>markdown.extensions.nl2br</code></td>
+</tr>
+<tr>
+<td><a href="https://pythonhosted.org/Markdown/extensions/sane_lists.html">Sane Lists</a></td>
+<td><code>markdown.extensions.sane_lists</code></td>
+</tr>
+<tr>
+<td><a href="https://pythonhosted.org/Markdown/extensions/smarty.html">SmartyPants</a></td>
+<td><code>markdown.extensions.smarty</code></td>
+</tr>
+<tr>
+<td><a href="https://pythonhosted.org/Markdown/extensions/toc.html">Table of Contents</a></td>
+<td><code>markdown.extensions.toc</code></td>
+</tr>
+<tr>
+<td><a href="https://pythonhosted.org/Markdown/extensions/wikilinks.html">WikiLinks</a></td>
+<td><code>markdown.extensions.wikilinks</code></td>
+</tr>
+</tbody>
+</table>
+<p>使用前注意到 <code>conf.py</code> 配置文件中开启相应选项，比如本博客的设置为：</p>
+<pre class="code literal-block"><span></span><span class="n">MARKDOWN_EXTENSIONS</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'markdown.extensions.toc'</span><span class="p">,</span> <span class="s1">'markdown.extensions.admonition'</span><span class="p">,</span> <span class="s1">'markdown.extensions.fenced_code'</span><span class="p">,</span> <span class="s1">'markdown.extensions.codehilite'</span><span class="p">,</span> <span class="s1">'markdown.extensions.extra'</span><span class="p">]</span>
+</pre>
+
+
+<p>这样设置以后，与市面上绝大多数 Markdown 客户端支持的语法特性就都一样了，譬如：文档目录（TOC）、表格（Tables）、代码区块（Fenced Code Blocks）、脚注（Footnotes）等等。这些完全一样的语法在此就不再赘述，只说一下本博客设置里开启的个人感觉值得关注的两项：告诫（Admonition）和属性列表（Attribute Lists）。</p>
+<h4 id="admonition">告诫（Admonition）</h4>
+<p><code>告诫（Admonition）</code> 语法是从 reStructuredText 标记语言借鉴而来的，包含于标准 Markdown 库中。常用于在文档中给予提示、警告、严重警告等，以引起读者注意。语法如下：</p>
+<pre class="code literal-block"><span></span><span class="err">!!! warning</span>
+<span class="err">    千万不要在家中尝试！</span>
+</pre>
+
+
+<p>渲染结果：</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>千万不要在家中尝试！</p>
+</div>
+<p>可以有一个自定义的标题：</p>
+<pre class="code literal-block"><span></span><span class="err">!!! danger "请勿在森林里生火！"</span>
+<span class="err">    可能会引起森林大火，给人身安全和国家财产带来严重威胁。</span>
+</pre>
+
+
+<div class="admonition danger">
+<p class="admonition-title">请勿在森林里生火！</p>
+<p>可能会引起森林大火，给人身安全和国家财产带来严重威胁。</p>
+</div>
+<h4 id="attribute-lists">属性列表（Attribute Lists）</h4>
+<p>属性列表（Attribute Lists）的重要性在 <a href="../cong-markdown-dao-restructuredtextsan/">从 Markdown 到 reStructuredText（三）</a> 一文中已经有所提及：要实现“图片居中”等样式效果，则最好通过 <code>类选择器</code> 进行元素定位，以方便套用事先定义好的样式。而 <code>属性列表</code> 则可以自定义元素的 class、id 及其它属性等等。其语法如下：</p>
+<pre class="code literal-block"><span></span><span class="err">{: #someid .someclass somekey='some value' }</span>
+</pre>
+
+
+<p>比如给标题自定义 id 以方便文章别处引用和点击跳转：</p>
+<pre class="code literal-block"><span></span><span class="o">###</span> <span class="err">告诫（</span><span class="n">Admonition</span><span class="err">）</span> <span class="o">###</span> <span class="err">{</span><span class="p">:</span> <span class="o">#</span><span class="n">admonition</span> <span class="err">}</span>
+
+<span class="err">点击</span> <span class="p">[</span><span class="err">此处</span><span class="p">](</span><span class="o">#</span><span class="n">admonition</span><span class="p">)</span> <span class="err">跳转到</span> <span class="o">`</span><span class="err">告诫（</span><span class="n">Admonition</span><span class="err">）</span><span class="o">`</span> <span class="err">标题。</span>
+</pre>
+
+
+<p>渲染结果：</p>
+<p>点击 <a href="#admonition">此处</a> 跳转到 <code>告诫（Admonition）</code> 标题。</p>
+<p>给图片自定义 class 以实现圆形居中：</p>
+<pre class="code literal-block"><span></span><span class="err">!</span><span class="o">[</span><span class="n">avatar</span><span class="o">]</span><span class="p">(</span><span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">avatar</span><span class="p">.</span><span class="n">png</span><span class="p">)</span><span class="err">{:</span><span class="w"> </span><span class="k">class</span><span class="o">=</span><span class="ss">"ui centered small circular image"</span><span class="w"> </span><span class="err">}</span><span class="w"></span>
+</pre>
+
+
+<p>渲染结果：</p>
+<p><img alt="avatar" class="ui centered small circular image" src="../../images/avatar.png"></p>
+<p>原图 <code>avatar.png</code> 实际上是一张 800x800 的正方形图片（右键保存查看）。考虑到如此强大的“图片处理”效果，学习属性列表（Attribute Lists）语法是不是显得没那么麻烦了？ :)</p>
+<p>自定义属性以利用 <a href="https://semantic-ui.com">semantic-ui</a> 的 <a href="https://semantic-ui.com/modules/popup.html">Popup（气泡提示）</a> 功能：</p>
+<pre class="code literal-block"><span></span><span class="err">鼠标悬停 [此处](#){: data-tooltip="此处应该有气泡提示 O(∩_∩)O~~" } 以查看效果。</span>
+</pre>
+
+
+<p>渲染结果：</p>
+<p>鼠标悬停 <a data-tooltip="此处应该有气泡提示 O(∩_∩)O~~" href=".">此处</a> 以查看效果。</p>
+<p>在 Markdown 文档中插入 <a href="https://mermaidjs.github.io">mermaid</a> 图表：</p>
+<pre class="code literal-block"><span></span><span class="err">sequenceDiagram</span>
+<span class="err">loop every day</span>
+<span class="err">   Alice-&gt;&gt;John: Hello John, how are you?</span>
+<span class="err">   John--&gt;&gt;Alice: Great!</span>
+<span class="err">end</span>
+<span class="err">{: .mermaid }</span>
+</pre>
+
+
+<p>渲染结果：</p>
+<p class="mermaid">sequenceDiagram
+loop every day
+   Alice-&gt;&gt;John: Hello John, how are you?
+   John--&gt;&gt;Alice: Great!
+end</p>
+<p>除此之外，<code>属性列表（Attribute Lists）</code> 应该还有很多别的玩法，这里就不再继续演示了。</p>
+<p>最后，以上介绍的两种语法：告诫（Admonition）和属性列表（Attribute Lists）在绝大多数 Markdown 编辑器中均不受支持。如果你的目标输出格式为静态博客（HTML）等，这点倒是不必担心，只是 Markdown 编辑器缺乏相应的实时预览功能罢了；如果是其它输出格式，则尽量不要使用这两种语法。请根据实际情况自行权衡。</p>
+<p>最后的最后，本文以及一些早期文章均使用 Markdown 语法书写，你可以点击文章标题下方的 <i class="github icon"></i> edit 查看源文件。</p>
+<div class="footnote">
+<hr>
+<ol>
+<li id="fn:1">
+<p><a href="https://pythonhosted.org/Markdown/extensions/index.html">https://pythonhosted.org/Markdown/extensions/index.html</a> <a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">↩</a></p>
+</li>
+</ol>
+</div>
+</div>
+        </div>
+    </div>
+    <div class="post-info">
+        <p>文章链接：<a href="https://macplay.github.io/posts/zai-tan-markdown-ji-qi-kuo-zhan/" target="_blank">https://macplay.github.io/posts/zai-tan-markdown-ji-qi-kuo-zhan/</a></p>
+        <p>发布/更新于：
+            <time datetime="2017-10-27 22:36:07 UTC+08:00">
+            2017-10-27 22:36
+            </time></p>
+        <p>版权声明：如无特别说明，本站文章均遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">CC BY-NC-SA 4.0</a> 协议，转载请注明作者及出处。</p>
+    </div>
+        <div class="post-navigation no-print">
+        <div class="ui huge secondary stackable menu">
+            <a class="post-nav-item post-nav-previous item" href="../wei-he-wo-huan-zai-shi-yong-vim-bian-ji-qi/" title="Previous post"><i class="angle double left icon"></i> 【译】为何我还在使用 Vim 编辑器？</a>
+        <div class="right menu">
+            <a class="post-nav-item post-nav-next item" href="../gei-nikola-bo-ke-tian-jia-mermaid-zhi-chi/" title="Next post">给 Nikola 博客添加 mermaid 支持 <i class="angle double right icon"></i></a>
+        </div>
+        </div>
+    </div>
+
+        <div id="gitalk-container" class="comments-block no-print"></div>
+</div>
+                    </div>
+                </main><div class="footer extra-block no-print">
+    <span class="footer_item">
+        <a href="../../pages/you-qing-lian-jie/">友情链接</a>
+    </span>
+    <span class="footer_item">
+        <a href="../../pages/liu-yan-ban/">留言板</a>
+    </span>
+    <span class="footer_item">
+        <a href="../../pages/ge-ren-dong-tai/">碎碎念</a>
+    </span>
+    </div>
+            <div class="footer social-link no-print">
+            <a href="https://github.com/ashfinal" target="_blank"><i class="grey large github icon"></i></a>
+            <a href="http://weibo.com/ashfinal/" target="_blank"><i class="grey large weibo icon"></i></a>
+            <a href="mailto://ashfinal@sina.cn" target="_blank"><i class="grey large mail icon"></i></a>
+            </div>
+        <div class="ui basic center aligned segment no-print">Contents © 2020         <a href="mailto:ashfinal@sina.cn">ashfinal</a> - Powered by         <a href="https://getnikola.com" target="_blank" rel="nofollow">Nikola</a>         </div>
+
+            </div>
+            <div class="computer only three wide column no-print">
+                <div id="right-side">
+                </div>
+            </div>
+        </div>
+
+        <!-- GoStats JavaScript Based Code -->
+        <script type="text/javascript">(function(c,o,m,p,u,t,e){
+        c['GoStatsObject']=u;c[u]=c[u]||function(){(c[u].q=c[u].q||[]).push(arguments)},
+        c[u].l=1*new Date();t=o.createElement(m);t.async=1;t.src=p;
+        e=o.getElementsByTagName(m)[0];e.parentNode.insertBefore(t,e);
+        })(window,document,'script','//www.gostats.org/5.js','go');
+        go('init',100479892,{'img_counter_type':5,'img_image_type':1});go('send');</script><!-- End GoStats JavaScript Based Code --><script type="text/javascript" src="../../assets/js/jquery-3.3.1.min.js"></script><script type="text/javascript" src="../../assets/js/semantic.min.js"></script><script type="text/javascript" src="../../assets/js/jquery.fancybox.min.js"></script><script type="text/javascript" src="../../assets/js/cookie.min.js"></script><script>
+            $(document).ready(function(){
+                $(".ui.dropdown").dropdown();
+                $('.ui.accordion').accordion();
+                var newstr = $('.cookie.nag').text();
+                $('.cookie.nag').nag({
+                    key: 'globalnotice',
+                    value: newstr
+                  });
+                $('.image-reference').fancybox();
+            });
+        </script><script src="../../assets/js/md5.min.js"></script><script src="../../assets/js/gitalk.min.js"></script><script>
+        const gitalk = new Gitalk({
+            clientID: '12fcda845097d895a24c',
+            clientSecret: '50ed60cde5f40897205197b4265b474cefbedc49',
+            repo: 'macplay.github.io',
+            owner: 'macplay',
+            admin: ['macplay', 'ashfinal'],
+            id: md5(window.location.pathname),
+            // facebook-like distraction free mode
+            distractionFreeMode: false
+        })
+        gitalk.render('gitalk-container')
+    </script><script type="text/javascript" src="../../assets/js/mermaid.min.js"></script><script>mermaid.initialize({startOnLoad: true, theme: 'forest'});</script>
+</body>
+</html>

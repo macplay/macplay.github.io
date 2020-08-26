@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="zh_cn">
+<head>
+<meta charset="utf-8">
+<meta name="description" content="tmux.conf">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="generator" content="Nikola (getnikola.com)">
+<title>tmux.conf - MacPlay</title>
+<link rel="apple-touch-icon" sizes="180x180" href="../../apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+<link rel="mask-icon" href="../../safari-pinned-tab.svg" color="#5bbad5">
+<link href="../../assets/css/semantic.min.css" rel="stylesheet" type="text/css">
+<link href="../../assets/css/jquery.fancybox.min.css" rel="stylesheet" type="text/css">
+<link href="../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<link rel="canonical" href="https://macplay.github.io/listings/manjaro/tmux.conf.html">
+</head>
+<body>
+        <div class="ui grid">
+            <div class="computer only three wide column no-print">
+                <div id="left-side">
+                </div>
+            </div>
+            <div class="ten wide computer sixteen wide tablet sixteen wide mobile column">
+                        <div class="ui inline cookie nag no-print">
+            <span class="title">从现在开始，支持中英双语及博文精选 O(∩_∩)O~~</span>
+            <i class="close icon"></i>
+        </div>
+    <header id="header" class="no-print"><div class="ui grid">
+        <div class="computer only tablet only sixteen wide column">
+            <div class="ui large secondary stackable menu">
+                <a class="header item brand-logo" href="https://macplay.github.io/">
+                    MacPlay
+                </a>
+                        <a class="item" href="../../">Posts</a>
+                        <a class="item" href="../">Code</a>
+                        <a class="item" href="../../galleries/">Gallery</a>
+                        <a class="item" href="../../categories/">Tags</a>
+                        <a class="item" href="../../archive.html">Archive</a>
+                <div class="right menu">
+                    <a class="item" href="../../rss.xml"><i class="rss icon"></i>RSS</a>
+                </div>
+            </div>
+        </div>
+        <div class="mobile only sixteen wide column">
+            <div class="ui fluid accordion vertical menu">
+                <div class="item">
+                    <a class="title">MacPlay</a>
+                    <div class="content">
+                                <a class="item" href="../../">Posts</a>
+                                <a class="item" href="../">Code</a>
+                                <a class="item" href="../../galleries/">Gallery</a>
+                                <a class="item" href="../../categories/">Tags</a>
+                                <a class="item" href="../../archive.html">Archive</a>
+                        <a class="item" href="../../rss.xml"><i class="rss icon"></i>RSS</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </header><main id="main"><div id="main-content">
+<div class="listingpage page-body" itemscope="itemscope" itemtype="http://schema.org/Article">
+    <div class="ui breadcrumb list-title">
+                <a href="../" class="section">listings</a>
+                <div class="divider"> / </div>
+                <a href="." class="section">manjaro</a>
+                <div class="divider"> / </div>
+                <div class="section">
+                    tmux.conf
+                </div>
+    </div>
+
+        <p class="downloadlink">
+            <i class="download icon"></i><a href="tmux.conf">Download</a>
+        </p>
+        <div class="code"><table class="codetable">
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarotmuxconf-1"><code data-line-number=" 1"></code></a></td>
+<td class="code"><code><a name="listingsmanjarotmuxconf-1"></a><span class="s s-Atom">#</span> <span class="s s-Atom">edit</span> <span class="s s-Atom">configuration</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarotmuxconf-2"><code data-line-number=" 2"></code></a></td>
+<td class="code"><code><a name="listingsmanjarotmuxconf-2"></a><span class="s s-Atom">bind</span> <span class="s s-Atom">e</span> <span class="s s-Atom">new</span><span class="o">-</span><span class="s s-Atom">window</span> <span class="o">-</span><span class="s s-Atom">n</span> <span class="s s-Atom">'~/.tmux.conf'</span> <span class="err">"</span><span class="s s-Atom">sh</span> <span class="o">-</span><span class="s s-Atom">c</span> <span class="s s-Atom">'\${EDITOR:-nvim} ~/.tmux.conf&amp;&amp; tmux source ~/.tmux.conf &amp;&amp; tmux display \"~/.tmux.conf sourced\"'</span><span class="err">"</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarotmuxconf-3"><code data-line-number=" 3"></code></a></td>
+<td class="code"><code><a name="listingsmanjarotmuxconf-3"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarotmuxconf-4"><code data-line-number=" 4"></code></a></td>
+<td class="code"><code><a name="listingsmanjarotmuxconf-4"></a><span class="s s-Atom">#</span> <span class="s s-Atom">reload</span> <span class="s s-Atom">configuration</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarotmuxconf-5"><code data-line-number=" 5"></code></a></td>
+<td class="code"><code><a name="listingsmanjarotmuxconf-5"></a><span class="s s-Atom">bind</span> <span class="s s-Atom">r</span> <span class="s s-Atom">source</span><span class="o">-</span><span class="s s-Atom">file</span> <span class="s s-Atom">~/.tmux</span><span class="p">.</span><span class="s s-Atom">conf</span> <span class="s s-Atom">\</span><span class="p">;</span> <span class="s s-Atom">display</span> <span class="s s-Atom">'~/.tmux.conf sourced'</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarotmuxconf-6"><code data-line-number=" 6"></code></a></td>
+<td class="code"><code><a name="listingsmanjarotmuxconf-6"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarotmuxconf-7"><code data-line-number=" 7"></code></a></td>
+<td class="code"><code><a name="listingsmanjarotmuxconf-7"></a><span class="s s-Atom">set</span><span class="o">-</span><span class="s s-Atom">option</span> <span class="o">-</span><span class="s s-Atom">g</span> <span class="s s-Atom">default</span><span class="o">-</span><span class="s s-Atom">terminal</span> <span class="s2">"xterm-256color"</span> <span class="s s-Atom">#</span> <span class="s s-Atom">colors</span><span class="p">!</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarotmuxconf-8"><code data-line-number=" 8"></code></a></td>
+<td class="code"><code><a name="listingsmanjarotmuxconf-8"></a><span class="s s-Atom">set</span><span class="o">-</span><span class="s s-Atom">option</span> <span class="o">-</span><span class="s s-Atom">ga</span> <span class="s s-Atom">terminal</span><span class="o">-</span><span class="s s-Atom">overrides</span> <span class="s2">",xterm-256color:Tc"</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarotmuxconf-9"><code data-line-number=" 9"></code></a></td>
+<td class="code"><code><a name="listingsmanjarotmuxconf-9"></a><span class="s s-Atom">setw</span> <span class="o">-</span><span class="s s-Atom">g</span> <span class="s s-Atom">xterm</span><span class="o">-</span><span class="s s-Atom">keys</span> <span class="s s-Atom">on</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarotmuxconf-10"><code data-line-number="10"></code></a></td>
+<td class="code"><code><a name="listingsmanjarotmuxconf-10"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarotmuxconf-11"><code data-line-number="11"></code></a></td>
+<td class="code"><code><a name="listingsmanjarotmuxconf-11"></a><span class="s s-Atom">#</span> <span class="s s-Atom">use</span> <span class="nv">C</span><span class="o">-</span><span class="s s-Atom">q</span> <span class="s s-Atom">for</span> <span class="s s-Atom">prefix</span> <span class="s s-Atom">key</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarotmuxconf-12"><code data-line-number="12"></code></a></td>
+<td class="code"><code><a name="listingsmanjarotmuxconf-12"></a><span class="s s-Atom">set</span><span class="o">-</span><span class="s s-Atom">option</span> <span class="o">-</span><span class="s s-Atom">g</span> <span class="s s-Atom">prefix</span> <span class="nv">C</span><span class="o">-</span><span class="s s-Atom">q</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarotmuxconf-13"><code data-line-number="13"></code></a></td>
+<td class="code"><code><a name="listingsmanjarotmuxconf-13"></a><span class="s s-Atom">unbind</span><span class="o">-</span><span class="s s-Atom">key</span> <span class="nv">C</span><span class="o">-</span><span class="s s-Atom">a</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarotmuxconf-14"><code data-line-number="14"></code></a></td>
+<td class="code"><code><a name="listingsmanjarotmuxconf-14"></a><span class="s s-Atom">bind</span><span class="o">-</span><span class="s s-Atom">key</span> <span class="nv">C</span><span class="o">-</span><span class="s s-Atom">q</span> <span class="s s-Atom">send</span><span class="o">-</span><span class="s s-Atom">prefix</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarotmuxconf-15"><code data-line-number="15"></code></a></td>
+<td class="code"><code><a name="listingsmanjarotmuxconf-15"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarotmuxconf-16"><code data-line-number="16"></code></a></td>
+<td class="code"><code><a name="listingsmanjarotmuxconf-16"></a><span class="s s-Atom">set</span> <span class="o">-</span><span class="s s-Atom">g</span> <span class="s s-Atom">base</span><span class="o">-</span><span class="s s-Atom">index</span> <span class="mi">1</span> <span class="s s-Atom">#</span> <span class="s s-Atom">start</span> <span class="s s-Atom">windows</span> <span class="s s-Atom">numbering</span> <span class="s s-Atom">at</span> <span class="mi">1</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarotmuxconf-17"><code data-line-number="17"></code></a></td>
+<td class="code"><code><a name="listingsmanjarotmuxconf-17"></a><span class="s s-Atom">setw</span> <span class="o">-</span><span class="s s-Atom">g</span> <span class="s s-Atom">pane</span><span class="o">-</span><span class="s s-Atom">base</span><span class="o">-</span><span class="s s-Atom">index</span> <span class="mi">1</span> <span class="s s-Atom">#</span> <span class="s s-Atom">make</span> <span class="s s-Atom">pane</span> <span class="s s-Atom">numbering</span> <span class="s s-Atom">consistent</span> <span class="s s-Atom">with</span> <span class="s s-Atom">windows</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarotmuxconf-18"><code data-line-number="18"></code></a></td>
+<td class="code"><code><a name="listingsmanjarotmuxconf-18"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarotmuxconf-19"><code data-line-number="19"></code></a></td>
+<td class="code"><code><a name="listingsmanjarotmuxconf-19"></a><span class="s s-Atom">setw</span> <span class="o">-</span><span class="s s-Atom">g</span> <span class="s s-Atom">automatic</span><span class="o">-</span><span class="s s-Atom">rename</span> <span class="s s-Atom">on</span> <span class="s s-Atom">#</span> <span class="s s-Atom">rename</span> <span class="s s-Atom">window</span> <span class="s s-Atom">to</span> <span class="s s-Atom">reflect</span> <span class="s s-Atom">current</span> <span class="s s-Atom">program</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarotmuxconf-20"><code data-line-number="20"></code></a></td>
+<td class="code"><code><a name="listingsmanjarotmuxconf-20"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarotmuxconf-21"><code data-line-number="21"></code></a></td>
+<td class="code"><code><a name="listingsmanjarotmuxconf-21"></a><span class="s s-Atom">set</span> <span class="o">-</span><span class="s s-Atom">g</span> <span class="s s-Atom">renumber</span><span class="o">-</span><span class="s s-Atom">windows</span> <span class="s s-Atom">on</span> <span class="s s-Atom">#</span> <span class="s s-Atom">renumber</span> <span class="s s-Atom">windows</span> <span class="s s-Atom">when</span> <span class="s s-Atom">a</span> <span class="s s-Atom">window</span> <span class="o">is</span> <span class="s s-Atom">closed</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarotmuxconf-22"><code data-line-number="22"></code></a></td>
+<td class="code"><code><a name="listingsmanjarotmuxconf-22"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarotmuxconf-23"><code data-line-number="23"></code></a></td>
+<td class="code"><code><a name="listingsmanjarotmuxconf-23"></a><span class="s s-Atom">set</span> <span class="o">-</span><span class="s s-Atom">g</span> <span class="s s-Atom">display</span><span class="o">-</span><span class="s s-Atom">panes</span><span class="o">-</span><span class="s s-Atom">time</span> <span class="mi">800</span> <span class="s s-Atom">#</span> <span class="s s-Atom">slightly</span> <span class="s s-Atom">longer</span> <span class="s s-Atom">pane</span> <span class="s s-Atom">indicators</span> <span class="s s-Atom">display</span> <span class="s s-Atom">time</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarotmuxconf-24"><code data-line-number="24"></code></a></td>
+<td class="code"><code><a name="listingsmanjarotmuxconf-24"></a><span class="s s-Atom">set</span> <span class="o">-</span><span class="s s-Atom">g</span> <span class="s s-Atom">display</span><span class="o">-</span><span class="s s-Atom">time</span> <span class="mi">1000</span> <span class="s s-Atom">#</span> <span class="s s-Atom">slightly</span> <span class="s s-Atom">longer</span> <span class="s s-Atom">status</span> <span class="s s-Atom">messages</span> <span class="s s-Atom">display</span> <span class="s s-Atom">time</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarotmuxconf-25"><code data-line-number="25"></code></a></td>
+<td class="code"><code><a name="listingsmanjarotmuxconf-25"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarotmuxconf-26"><code data-line-number="26"></code></a></td>
+<td class="code"><code><a name="listingsmanjarotmuxconf-26"></a><span class="s s-Atom">#</span> <span class="nv">Allows</span> <span class="s s-Atom">for</span> <span class="s s-Atom">faster</span> <span class="s s-Atom">key</span> <span class="s s-Atom">repetition</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarotmuxconf-27"><code data-line-number="27"></code></a></td>
+<td class="code"><code><a name="listingsmanjarotmuxconf-27"></a><span class="s s-Atom">set</span> <span class="o">-</span><span class="s s-Atom">s</span> <span class="s s-Atom">escape</span><span class="o">-</span><span class="s s-Atom">time</span> <span class="mi">0</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarotmuxconf-28"><code data-line-number="28"></code></a></td>
+<td class="code"><code><a name="listingsmanjarotmuxconf-28"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarotmuxconf-29"><code data-line-number="29"></code></a></td>
+<td class="code"><code><a name="listingsmanjarotmuxconf-29"></a><span class="s s-Atom">#</span> <span class="s s-Atom">activity</span> <span class="s s-Atom">&amp;</span> <span class="s s-Atom">vi</span> <span class="s s-Atom">bindings</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarotmuxconf-30"><code data-line-number="30"></code></a></td>
+<td class="code"><code><a name="listingsmanjarotmuxconf-30"></a><span class="s s-Atom">set</span><span class="o">-</span><span class="s s-Atom">option</span> <span class="o">-</span><span class="s s-Atom">g</span> <span class="s s-Atom">visual</span><span class="o">-</span><span class="s s-Atom">activity</span> <span class="s s-Atom">on</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarotmuxconf-31"><code data-line-number="31"></code></a></td>
+<td class="code"><code><a name="listingsmanjarotmuxconf-31"></a><span class="s s-Atom">set</span><span class="o">-</span><span class="s s-Atom">window</span><span class="o">-</span><span class="s s-Atom">option</span> <span class="o">-</span><span class="s s-Atom">g</span> <span class="s s-Atom">monitor</span><span class="o">-</span><span class="s s-Atom">activity</span> <span class="s s-Atom">on</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarotmuxconf-32"><code data-line-number="32"></code></a></td>
+<td class="code"><code><a name="listingsmanjarotmuxconf-32"></a><span class="s s-Atom">set</span><span class="o">-</span><span class="s s-Atom">window</span><span class="o">-</span><span class="s s-Atom">option</span> <span class="o">-</span><span class="s s-Atom">g</span> <span class="s s-Atom">mode</span><span class="o">-</span><span class="s s-Atom">keys</span> <span class="s s-Atom">vi</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarotmuxconf-33"><code data-line-number="33"></code></a></td>
+<td class="code"><code><a name="listingsmanjarotmuxconf-33"></a><span class="s s-Atom">set</span><span class="o">-</span><span class="s s-Atom">option</span> <span class="o">-</span><span class="s s-Atom">g</span> <span class="s s-Atom">status</span><span class="o">-</span><span class="s s-Atom">keys</span> <span class="s s-Atom">vi</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarotmuxconf-34"><code data-line-number="34"></code></a></td>
+<td class="code"><code><a name="listingsmanjarotmuxconf-34"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarotmuxconf-35"><code data-line-number="35"></code></a></td>
+<td class="code"><code><a name="listingsmanjarotmuxconf-35"></a><span class="s s-Atom">#</span> <span class="s s-Atom">find</span> <span class="s s-Atom">session</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarotmuxconf-36"><code data-line-number="36"></code></a></td>
+<td class="code"><code><a name="listingsmanjarotmuxconf-36"></a><span class="s s-Atom">bind</span> <span class="nv">C</span><span class="o">-</span><span class="s s-Atom">f</span> <span class="s s-Atom">command</span><span class="o">-</span><span class="s s-Atom">prompt</span> <span class="o">-</span><span class="s s-Atom">p</span> <span class="s s-Atom">find</span><span class="o">-</span><span class="s s-Atom">session</span> <span class="s s-Atom">'switch-client -t %%'</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarotmuxconf-37"><code data-line-number="37"></code></a></td>
+<td class="code"><code><a name="listingsmanjarotmuxconf-37"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarotmuxconf-38"><code data-line-number="38"></code></a></td>
+<td class="code"><code><a name="listingsmanjarotmuxconf-38"></a><span class="s s-Atom">#</span> <span class="s s-Atom">pane</span> <span class="s s-Atom">navigation</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarotmuxconf-39"><code data-line-number="39"></code></a></td>
+<td class="code"><code><a name="listingsmanjarotmuxconf-39"></a><span class="s s-Atom">bind</span> <span class="o">-</span><span class="s s-Atom">r</span> <span class="s s-Atom">h</span> <span class="s s-Atom">select</span><span class="o">-</span><span class="s s-Atom">pane</span> <span class="o">-</span><span class="nv">L</span> <span class="s s-Atom">#</span> <span class="s s-Atom">move</span> <span class="s s-Atom">left</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarotmuxconf-40"><code data-line-number="40"></code></a></td>
+<td class="code"><code><a name="listingsmanjarotmuxconf-40"></a><span class="s s-Atom">bind</span> <span class="o">-</span><span class="s s-Atom">r</span> <span class="s s-Atom">j</span> <span class="s s-Atom">select</span><span class="o">-</span><span class="s s-Atom">pane</span> <span class="o">-</span><span class="nv">D</span> <span class="s s-Atom">#</span> <span class="s s-Atom">move</span> <span class="s s-Atom">down</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarotmuxconf-41"><code data-line-number="41"></code></a></td>
+<td class="code"><code><a name="listingsmanjarotmuxconf-41"></a><span class="s s-Atom">bind</span> <span class="o">-</span><span class="s s-Atom">r</span> <span class="s s-Atom">k</span> <span class="s s-Atom">select</span><span class="o">-</span><span class="s s-Atom">pane</span> <span class="o">-</span><span class="nv">U</span> <span class="s s-Atom">#</span> <span class="s s-Atom">move</span> <span class="s s-Atom">up</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarotmuxconf-42"><code data-line-number="42"></code></a></td>
+<td class="code"><code><a name="listingsmanjarotmuxconf-42"></a><span class="s s-Atom">bind</span> <span class="o">-</span><span class="s s-Atom">r</span> <span class="s s-Atom">l</span> <span class="s s-Atom">select</span><span class="o">-</span><span class="s s-Atom">pane</span> <span class="o">-</span><span class="nv">R</span> <span class="s s-Atom">#</span> <span class="s s-Atom">move</span> <span class="s s-Atom">right</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarotmuxconf-43"><code data-line-number="43"></code></a></td>
+<td class="code"><code><a name="listingsmanjarotmuxconf-43"></a><span class="s s-Atom">bind</span> <span class="nv">C</span><span class="o">-</span><span class="s s-Atom">d</span> <span class="s s-Atom">swap</span><span class="o">-</span><span class="s s-Atom">pane</span> <span class="o">-</span><span class="nv">D</span> <span class="s s-Atom">#</span> <span class="s s-Atom">swap</span> <span class="s s-Atom">current</span> <span class="s s-Atom">pane</span> <span class="s s-Atom">with</span> <span class="s s-Atom">the</span> <span class="s s-Atom">next</span> <span class="s s-Atom">one</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarotmuxconf-44"><code data-line-number="44"></code></a></td>
+<td class="code"><code><a name="listingsmanjarotmuxconf-44"></a><span class="s s-Atom">bind</span> <span class="nv">C</span><span class="o">-</span><span class="s s-Atom">u</span> <span class="s s-Atom">swap</span><span class="o">-</span><span class="s s-Atom">pane</span> <span class="o">-</span><span class="nv">U</span> <span class="s s-Atom">#</span> <span class="s s-Atom">swap</span> <span class="s s-Atom">current</span> <span class="s s-Atom">pane</span> <span class="s s-Atom">with</span> <span class="s s-Atom">the</span> <span class="s s-Atom">previous</span> <span class="s s-Atom">one</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarotmuxconf-45"><code data-line-number="45"></code></a></td>
+<td class="code"><code><a name="listingsmanjarotmuxconf-45"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarotmuxconf-46"><code data-line-number="46"></code></a></td>
+<td class="code"><code><a name="listingsmanjarotmuxconf-46"></a><span class="s s-Atom">#</span> <span class="s s-Atom">pane</span> <span class="s s-Atom">resizing</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarotmuxconf-47"><code data-line-number="47"></code></a></td>
+<td class="code"><code><a name="listingsmanjarotmuxconf-47"></a><span class="s s-Atom">bind</span> <span class="o">-</span><span class="s s-Atom">r</span> <span class="nv">C</span><span class="o">-</span><span class="s s-Atom">h</span> <span class="s s-Atom">resize</span><span class="o">-</span><span class="s s-Atom">pane</span> <span class="o">-</span><span class="nv">L</span> <span class="mi">5</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarotmuxconf-48"><code data-line-number="48"></code></a></td>
+<td class="code"><code><a name="listingsmanjarotmuxconf-48"></a><span class="s s-Atom">bind</span> <span class="o">-</span><span class="s s-Atom">r</span> <span class="nv">C</span><span class="o">-</span><span class="s s-Atom">j</span> <span class="s s-Atom">resize</span><span class="o">-</span><span class="s s-Atom">pane</span> <span class="o">-</span><span class="nv">D</span> <span class="mi">5</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarotmuxconf-49"><code data-line-number="49"></code></a></td>
+<td class="code"><code><a name="listingsmanjarotmuxconf-49"></a><span class="s s-Atom">bind</span> <span class="o">-</span><span class="s s-Atom">r</span> <span class="nv">C</span><span class="o">-</span><span class="s s-Atom">k</span> <span class="s s-Atom">resize</span><span class="o">-</span><span class="s s-Atom">pane</span> <span class="o">-</span><span class="nv">U</span> <span class="mi">5</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarotmuxconf-50"><code data-line-number="50"></code></a></td>
+<td class="code"><code><a name="listingsmanjarotmuxconf-50"></a><span class="s s-Atom">bind</span> <span class="o">-</span><span class="s s-Atom">r</span> <span class="nv">C</span><span class="o">-</span><span class="s s-Atom">l</span> <span class="s s-Atom">resize</span><span class="o">-</span><span class="s s-Atom">pane</span> <span class="o">-</span><span class="nv">R</span> <span class="mi">5</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarotmuxconf-51"><code data-line-number="51"></code></a></td>
+<td class="code"><code><a name="listingsmanjarotmuxconf-51"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarotmuxconf-52"><code data-line-number="52"></code></a></td>
+<td class="code"><code><a name="listingsmanjarotmuxconf-52"></a><span class="s s-Atom">#</span> <span class="s s-Atom">mouse</span> <span class="s s-Atom">support</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarotmuxconf-53"><code data-line-number="53"></code></a></td>
+<td class="code"><code><a name="listingsmanjarotmuxconf-53"></a><span class="s s-Atom">set</span> <span class="o">-</span><span class="s s-Atom">g</span> <span class="s s-Atom">mouse</span> <span class="s s-Atom">on</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarotmuxconf-54"><code data-line-number="54"></code></a></td>
+<td class="code"><code><a name="listingsmanjarotmuxconf-54"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarotmuxconf-55"><code data-line-number="55"></code></a></td>
+<td class="code"><code><a name="listingsmanjarotmuxconf-55"></a><span class="s s-Atom">set</span> <span class="o">-</span><span class="s s-Atom">g</span> <span class="s s-Atom">display</span><span class="o">-</span><span class="s s-Atom">panes</span><span class="o">-</span><span class="s s-Atom">time</span> <span class="mi">3000</span> <span class="s s-Atom">#</span> <span class="s s-Atom">slightly</span> <span class="s s-Atom">longer</span> <span class="s s-Atom">pane</span> <span class="s s-Atom">indicators</span> <span class="s s-Atom">display</span> <span class="s s-Atom">time</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarotmuxconf-56"><code data-line-number="56"></code></a></td>
+<td class="code"><code><a name="listingsmanjarotmuxconf-56"></a><span class="s s-Atom">set</span> <span class="o">-</span><span class="s s-Atom">g</span> <span class="s s-Atom">display</span><span class="o">-</span><span class="s s-Atom">time</span> <span class="mi">3000</span> <span class="s s-Atom">#</span> <span class="s s-Atom">slightly</span> <span class="s s-Atom">longer</span> <span class="s s-Atom">status</span> <span class="s s-Atom">messages</span> <span class="s s-Atom">display</span> <span class="s s-Atom">time</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarotmuxconf-57"><code data-line-number="57"></code></a></td>
+<td class="code"><code><a name="listingsmanjarotmuxconf-57"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarotmuxconf-58"><code data-line-number="58"></code></a></td>
+<td class="code"><code><a name="listingsmanjarotmuxconf-58"></a><span class="s s-Atom">#</span> <span class="s s-Atom">use</span> <span class="nv">Tab</span> <span class="s s-Atom">to</span> <span class="s s-Atom">choose</span> <span class="s s-Atom">session</span> <span class="s s-Atom">because</span> <span class="s s-Atom">s</span> <span class="s s-Atom">has</span> <span class="s s-Atom">been</span> <span class="s s-Atom">used</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarotmuxconf-59"><code data-line-number="59"></code></a></td>
+<td class="code"><code><a name="listingsmanjarotmuxconf-59"></a><span class="s s-Atom">bind</span> <span class="nv">Tab</span> <span class="s s-Atom">choose</span><span class="o">-</span><span class="s s-Atom">session</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarotmuxconf-60"><code data-line-number="60"></code></a></td>
+<td class="code"><code><a name="listingsmanjarotmuxconf-60"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarotmuxconf-61"><code data-line-number="61"></code></a></td>
+<td class="code"><code><a name="listingsmanjarotmuxconf-61"></a><span class="s s-Atom">#</span> <span class="s s-Atom">use</span> <span class="s s-Atom">vi</span><span class="o">-</span><span class="s s-Atom">style</span> <span class="s s-Atom">keys</span> <span class="s s-Atom">to</span> <span class="s s-Atom">split</span> <span class="s s-Atom">vertical</span> <span class="s s-Atom">and</span> <span class="s s-Atom">horizonal</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarotmuxconf-62"><code data-line-number="62"></code></a></td>
+<td class="code"><code><a name="listingsmanjarotmuxconf-62"></a><span class="s s-Atom">bind</span> <span class="s s-Atom">v</span> <span class="s s-Atom">split</span><span class="o">-</span><span class="s s-Atom">window</span> <span class="o">-</span><span class="s s-Atom">h</span> <span class="o">-</span><span class="s s-Atom">c</span> <span class="s2">"#{pane_current_path}"</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarotmuxconf-63"><code data-line-number="63"></code></a></td>
+<td class="code"><code><a name="listingsmanjarotmuxconf-63"></a><span class="s s-Atom">bind</span> <span class="s s-Atom">s</span> <span class="s s-Atom">split</span><span class="o">-</span><span class="s s-Atom">window</span> <span class="o">-</span><span class="s s-Atom">v</span> <span class="o">-</span><span class="s s-Atom">c</span> <span class="s2">"#{pane_current_path}"</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarotmuxconf-64"><code data-line-number="64"></code></a></td>
+<td class="code"><code><a name="listingsmanjarotmuxconf-64"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarotmuxconf-65"><code data-line-number="65"></code></a></td>
+<td class="code"><code><a name="listingsmanjarotmuxconf-65"></a><span class="s s-Atom">set</span><span class="o">-</span><span class="s s-Atom">option</span> <span class="o">-</span><span class="s s-Atom">g</span> <span class="s s-Atom">status</span><span class="o">-</span><span class="s s-Atom">bg</span> <span class="s s-Atom">colour254</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarotmuxconf-66"><code data-line-number="66"></code></a></td>
+<td class="code"><code><a name="listingsmanjarotmuxconf-66"></a><span class="s s-Atom">set</span> <span class="o">-</span><span class="s s-Atom">g</span> <span class="s s-Atom">status</span><span class="o">-</span><span class="s s-Atom">interval</span> <span class="mi">1</span> <span class="s s-Atom">#</span> <span class="s s-Atom">redraw</span> <span class="s s-Atom">status</span> <span class="s s-Atom">line</span> <span class="s s-Atom">every</span> <span class="s s-Atom">second</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarotmuxconf-67"><code data-line-number="67"></code></a></td>
+<td class="code"><code><a name="listingsmanjarotmuxconf-67"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarotmuxconf-68"><code data-line-number="68"></code></a></td>
+<td class="code"><code><a name="listingsmanjarotmuxconf-68"></a><span class="s s-Atom">set</span> <span class="o">-</span><span class="s s-Atom">g</span> <span class="s s-Atom">pane</span><span class="o">-</span><span class="s s-Atom">border</span><span class="o">-</span><span class="s s-Atom">fg</span> <span class="s s-Atom">colour245</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarotmuxconf-69"><code data-line-number="69"></code></a></td>
+<td class="code"><code><a name="listingsmanjarotmuxconf-69"></a><span class="s s-Atom">set</span> <span class="o">-</span><span class="s s-Atom">g</span> <span class="s s-Atom">pane</span><span class="o">-</span><span class="s s-Atom">active</span><span class="o">-</span><span class="s s-Atom">border</span><span class="o">-</span><span class="s s-Atom">fg</span> <span class="s s-Atom">colour39</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarotmuxconf-70"><code data-line-number="70"></code></a></td>
+<td class="code"><code><a name="listingsmanjarotmuxconf-70"></a><span class="s s-Atom">set</span> <span class="o">-</span><span class="s s-Atom">g</span> <span class="s s-Atom">message</span><span class="o">-</span><span class="s s-Atom">bg</span> <span class="s s-Atom">colour221</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarotmuxconf-71"><code data-line-number="71"></code></a></td>
+<td class="code"><code><a name="listingsmanjarotmuxconf-71"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarotmuxconf-72"><code data-line-number="72"></code></a></td>
+<td class="code"><code><a name="listingsmanjarotmuxconf-72"></a><span class="s s-Atom">set</span> <span class="o">-</span><span class="s s-Atom">g</span> <span class="s s-Atom">status</span><span class="o">-</span><span class="s s-Atom">left</span><span class="o">-</span><span class="s s-Atom">length</span> <span class="mi">100</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarotmuxconf-73"><code data-line-number="73"></code></a></td>
+<td class="code"><code><a name="listingsmanjarotmuxconf-73"></a><span class="s s-Atom">set</span> <span class="o">-</span><span class="s s-Atom">g</span> <span class="s s-Atom">status</span><span class="o">-</span><span class="s s-Atom">left</span> <span class="s2">"#[fg=colour16,bg=colour226] ❐ #S#[fg=colour16,bg=colour226] ➧ #I #W "</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarotmuxconf-74"><code data-line-number="74"></code></a></td>
+<td class="code"><code><a name="listingsmanjarotmuxconf-74"></a><span class="s s-Atom">set</span> <span class="o">-</span><span class="s s-Atom">g</span> <span class="s s-Atom">status</span><span class="o">-</span><span class="s s-Atom">justify</span> <span class="s s-Atom">centre</span> <span class="s s-Atom">#</span> <span class="s s-Atom">center</span> <span class="s s-Atom">align</span> <span class="s s-Atom">window</span> <span class="s s-Atom">list</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarotmuxconf-75"><code data-line-number="75"></code></a></td>
+<td class="code"><code><a name="listingsmanjarotmuxconf-75"></a><span class="s s-Atom">set</span> <span class="o">-</span><span class="s s-Atom">g</span> <span class="s s-Atom">status</span><span class="o">-</span><span class="s s-Atom">right</span> <span class="s2">"#[bg=#99cc66] ☯ %m-%d %H:%M "</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarotmuxconf-76"><code data-line-number="76"></code></a></td>
+<td class="code"><code><a name="listingsmanjarotmuxconf-76"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarotmuxconf-77"><code data-line-number="77"></code></a></td>
+<td class="code"><code><a name="listingsmanjarotmuxconf-77"></a><span class="s s-Atom">#</span> <span class="s s-Atom">set</span> <span class="s s-Atom">window</span> <span class="s s-Atom">list</span> <span class="s s-Atom">colors</span> <span class="o">-</span> <span class="s s-Atom">red</span> <span class="s s-Atom">for</span> <span class="s s-Atom">active</span> <span class="s s-Atom">and</span> <span class="s s-Atom">blue</span> <span class="s s-Atom">for</span> <span class="s s-Atom">inactive</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarotmuxconf-78"><code data-line-number="78"></code></a></td>
+<td class="code"><code><a name="listingsmanjarotmuxconf-78"></a><span class="s s-Atom">set</span><span class="o">-</span><span class="s s-Atom">window</span><span class="o">-</span><span class="s s-Atom">option</span> <span class="o">-</span><span class="s s-Atom">g</span> <span class="s s-Atom">window</span><span class="o">-</span><span class="s s-Atom">status</span><span class="o">-</span><span class="s s-Atom">fg</span> <span class="s s-Atom">brightblue</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarotmuxconf-79"><code data-line-number="79"></code></a></td>
+<td class="code"><code><a name="listingsmanjarotmuxconf-79"></a><span class="s s-Atom">set</span><span class="o">-</span><span class="s s-Atom">window</span><span class="o">-</span><span class="s s-Atom">option</span> <span class="o">-</span><span class="s s-Atom">g</span> <span class="s s-Atom">window</span><span class="o">-</span><span class="s s-Atom">status</span><span class="o">-</span><span class="s s-Atom">current</span><span class="o">-</span><span class="s s-Atom">fg</span> <span class="s s-Atom">brightred</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarotmuxconf-80"><code data-line-number="80"></code></a></td>
+<td class="code"><code><a name="listingsmanjarotmuxconf-80"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarotmuxconf-81"><code data-line-number="81"></code></a></td>
+<td class="code"><code><a name="listingsmanjarotmuxconf-81"></a><span class="s s-Atom">#</span> <span class="nv">Enable</span> <span class="s s-Atom">locking</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarotmuxconf-82"><code data-line-number="82"></code></a></td>
+<td class="code"><code><a name="listingsmanjarotmuxconf-82"></a><span class="s s-Atom">set</span> <span class="o">-</span><span class="s s-Atom">g</span> <span class="s s-Atom">lock</span><span class="o">-</span><span class="s s-Atom">command</span> <span class="s s-Atom">vlock</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarotmuxconf-83"><code data-line-number="83"></code></a></td>
+<td class="code"><code><a name="listingsmanjarotmuxconf-83"></a><span class="s s-Atom">set</span> <span class="o">-</span><span class="s s-Atom">g</span> <span class="s s-Atom">lock</span><span class="o">-</span><span class="s s-Atom">after</span><span class="o">-</span><span class="s s-Atom">time</span> <span class="mi">0</span> <span class="s s-Atom">#</span> <span class="nv">Seconds</span><span class="p">;</span> <span class="mi">0</span> <span class="o">=</span> <span class="s s-Atom">never</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarotmuxconf-84"><code data-line-number="84"></code></a></td>
+<td class="code"><code><a name="listingsmanjarotmuxconf-84"></a><span class="s s-Atom">#</span> <span class="s s-Atom">bind</span> <span class="s s-Atom">l</span> <span class="s s-Atom">lock</span><span class="o">-</span><span class="s s-Atom">client</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarotmuxconf-85"><code data-line-number="85"></code></a></td>
+<td class="code"><code><a name="listingsmanjarotmuxconf-85"></a><span class="s s-Atom">bind</span> <span class="nv">L</span> <span class="s s-Atom">lock</span><span class="o">-</span><span class="s s-Atom">client</span>
+</code></td>
+</tr>
+</table></div>
+</div>
+                    </div>
+                </main><div class="footer extra-block no-print">
+    <span class="footer_item">
+        <a href="../../pages/you-qing-lian-jie/">友情链接</a>
+    </span>
+    <span class="footer_item">
+        <a href="../../pages/liu-yan-ban/">留言板</a>
+    </span>
+    <span class="footer_item">
+        <a href="../../pages/ge-ren-dong-tai/">碎碎念</a>
+    </span>
+    </div>
+            <div class="footer social-link no-print">
+            <a href="https://github.com/ashfinal" target="_blank"><i class="grey large github icon"></i></a>
+            <a href="http://weibo.com/ashfinal/" target="_blank"><i class="grey large weibo icon"></i></a>
+            <a href="mailto://ashfinal@sina.cn" target="_blank"><i class="grey large mail icon"></i></a>
+            </div>
+        <div class="ui basic center aligned segment no-print">Contents © 2020         <a href="mailto:ashfinal@sina.cn">ashfinal</a> - Powered by         <a href="https://getnikola.com" target="_blank" rel="nofollow">Nikola</a>         </div>
+
+            </div>
+            <div class="computer only three wide column no-print">
+                <div id="right-side">
+                </div>
+            </div>
+        </div>
+
+        <!-- GoStats JavaScript Based Code -->
+        <script type="text/javascript">(function(c,o,m,p,u,t,e){
+        c['GoStatsObject']=u;c[u]=c[u]||function(){(c[u].q=c[u].q||[]).push(arguments)},
+        c[u].l=1*new Date();t=o.createElement(m);t.async=1;t.src=p;
+        e=o.getElementsByTagName(m)[0];e.parentNode.insertBefore(t,e);
+        })(window,document,'script','//www.gostats.org/5.js','go');
+        go('init',100479892,{'img_counter_type':5,'img_image_type':1});go('send');</script><!-- End GoStats JavaScript Based Code --><script type="text/javascript" src="../../assets/js/jquery-3.3.1.min.js"></script><script type="text/javascript" src="../../assets/js/semantic.min.js"></script><script type="text/javascript" src="../../assets/js/jquery.fancybox.min.js"></script><script type="text/javascript" src="../../assets/js/cookie.min.js"></script><script>
+            $(document).ready(function(){
+                $(".ui.dropdown").dropdown();
+                $('.ui.accordion').accordion();
+                var newstr = $('.cookie.nag').text();
+                $('.cookie.nag').nag({
+                    key: 'globalnotice',
+                    value: newstr
+                  });
+                $('.image-reference').fancybox();
+            });
+        </script>
+</body>
+</html>

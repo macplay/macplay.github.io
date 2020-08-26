@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="description" content="Share something interesting about byte ocean">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="generator" content="Nikola (getnikola.com)">
+<title>MacPlay (old posts, page 8) - MacPlay</title>
+<link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+<link rel="mask-icon" href="../safari-pinned-tab.svg" color="#5bbad5">
+<link href="../assets/css/semantic.min.css" rel="stylesheet" type="text/css">
+<link href="../assets/css/jquery.fancybox.min.css" rel="stylesheet" type="text/css">
+<link href="../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<link rel="canonical" href="https://macplay.github.io/en/index-8.html">
+<link rel="stylesheet" href="../assets/css/katex.min.css">
+</head>
+<body>
+        <div class="ui grid">
+            <div class="computer only three wide column no-print">
+                <div id="left-side">
+                </div>
+            </div>
+            <div class="ten wide computer sixteen wide tablet sixteen wide mobile column">
+                        <div class="ui inline cookie nag no-print">
+            <span class="title">从现在开始，支持中英双语及博文精选 O(∩_∩)O~~</span>
+            <i class="close icon"></i>
+        </div>
+    <header id="header" class="no-print"><div class="ui grid">
+        <div class="computer only tablet only sixteen wide column">
+            <div class="ui large secondary stackable menu">
+                <a class="header item brand-logo" href="https://macplay.github.io/en/">
+                    MacPlay
+                </a>
+                        <a class="item" href="../">Posts</a>
+                        <a class="item" href="../listings/">Code</a>
+                        <a class="item" href="../galleries/">Gallery</a>
+                        <a class="item" href="../categories/">Tags</a>
+                        <a class="item" href="../archive.html">Archive</a>
+                <div class="right menu">
+                    <a class="item" href="../rss.xml"><i class="rss icon"></i>RSS</a>
+                </div>
+            </div>
+        </div>
+        <div class="mobile only sixteen wide column">
+            <div class="ui fluid accordion vertical menu">
+                <div class="item">
+                    <a class="title">MacPlay</a>
+                    <div class="content">
+                                <a class="item" href="../">Posts</a>
+                                <a class="item" href="../listings/">Code</a>
+                                <a class="item" href="../galleries/">Gallery</a>
+                                <a class="item" href="../categories/">Tags</a>
+                                <a class="item" href="../archive.html">Archive</a>
+                        <a class="item" href="../rss.xml"><i class="rss icon"></i>RSS</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </header><main id="main"><div id="main-content">
+    <div class="postindex page-body">
+    
+    <div class="post-entry post-text">
+        <div class="entry-title">
+            <a href="posts/shi-yong-vim-zai-markdown-ji-rst-wen-dang-zhong-chuang-jian-biao-ge/">使用 Vim 在 Markdown 及 rst 文档中创建表格</a>
+        </div>
+        <div class="ui large horizontal link list post-meta">
+            <span class="item">By
+                <a href="authors/ashfinal/">ashfinal</a>
+            </span>
+            <span class="item">
+                <time datetime="2017-10-10T21:15:21+08:00">
+                2017-10-10 21:15
+                </time></span>
+            <span class="item">1 MIN READ</span>
+        </div>
+        <div class="post-summary">
+                <div>
+<p>之前提到过 reStructuredText 的表格类型 <a class="reference external" href="posts/cong-markdown-dao-restructuredtext/#table">Grid Tables</a> 书写困难，普通编辑器难以胜任，可能有人好奇笔者是如何做的。对于 Vim、Emacs 两大编辑器来说，表格创建任务非常简单：</p>
+<video src="../videos/vim_table.mp4" loop autoplay muted playsinline>
+Your browser does not support the video tag.
+</video><p>笔者平时使用较多的是 Vim 编辑器，借助强大的 <a class="reference external" href="https://github.com/dhruvasagar/vim-table-mode">vim-table-mode</a> 插件，只需正常输入表格内容和竖线符号 <code class="docutils literal">|</code> 就可以，其它事情如填充和对齐等等插件会自动处理。笔者针对 <a class="reference external" href="https://github.com/dhruvasagar/vim-table-mode">vim-table-mode</a> 插件做了几行配置，使其支持 Markdown、rst、org 表格的创建（org 表格在上图中没有展示），如果有人感兴趣的话，可以看一下个人 <a class="reference external" href="https://github.com/ashfinal/vimrc-config/blob/0cba64e3a384fc78483a431b45b65a50daba34dd/.vimrc#L750">vimrc 配置</a> 的相应部分。</p>
+<p>PS：发现录屏如果使用 GIF 格式，无论怎样压缩都达不到理想的画质和文件大小。最后使用 MP4 格式，1 分 53 秒时长的 720P 视频，压缩后仅仅 836 KB！感觉以后文章中插入动图可以抛弃 GIF 格式了。</p>
+<p>读者们注意到上面录屏其实是视频而不是图片吗？ :)</p>
+</div>
+        </div>
+    </div>
+    <div class="post-entry post-text">
+        <div class="entry-title">
+            <a href="posts/cong-markdown-dao-restructuredtexter/">从 Markdown 到 reStructuredText（二）</a>
+        </div>
+        <div class="ui large horizontal link list post-meta">
+            <span class="item">By
+                <a href="authors/ashfinal/">ashfinal</a>
+            </span>
+            <span class="item">
+                <time datetime="2017-10-08T14:45:54+08:00">
+                2017-10-08 14:45
+                </time></span>
+            <span class="item">5 MIN READ</span>
+        </div>
+        <div class="post-summary">
+                <div>
+<dl class="docinfo simple">
+<dt class="author">Author</dt>
+<dd class="author">
+<p>ashfinal</p>
+</dd>
+<dt class="contact">Contact</dt>
+<dd class="contact">
+<p><a class="reference external" href="mailto:ashfinal@sina.cn">ashfinal@sina.cn</a></p>
+</dd>
+<dt class="revision">Revision</dt>
+<dd class="revision">
+<p>1008</p>
+</dd>
+<dt class="date">Date</dt>
+<dd class="date">
+<p>2017-10-08</p>
+</dd>
+<dt class="copyright">Copyright</dt>
+<dd class="copyright">
+<p><a class="reference external" href="https://creativecommons.org/licenses/by-nc-sa/3.0/deed.zh">CC BY-NC-SA 3.0</a></p>
+</dd>
+</dl>
+<p>本文是《从 Markdown 到 reStructuredText》系列文章的第二篇。和 Markdown 一样，reStructuredText 也是一种易读易写的纯文本标记语言，不过功能上更加强大（而且标准统一）。如果想了解其对应于 Markdown 的基本语法，请阅读 <a class="reference external" href="posts/cong-markdown-dao-restructuredtext/">上一篇文章</a> 。本文主要从文档写作需求出发，聊一聊 reStructuredText 相对于 Markdown 的超集部分。</p>
+<p class="more"><a href="posts/cong-markdown-dao-restructuredtexter/">Read more…</a></p>
+</div>
+        </div>
+    </div>
+    <div class="post-entry post-text">
+        <div class="entry-title">
+            <a href="posts/at-home-outdoors/">At Home Outdoors</a>
+        </div>
+        <div class="ui large horizontal link list post-meta">
+            <span class="item">By
+                <a href="authors/ashfinal/">ashfinal</a>
+            </span>
+            <span class="item">
+                <time datetime="2017-10-05T23:57:38+08:00">
+                2017-10-05 23:57
+                </time></span>
+            <span class="item">1 MIN READ</span>
+        </div>
+        <div class="post-summary">
+                <div>
+<p>发现 <a class="reference external" href="http://fancyapps.com/fancybox/3/docs/#embedding">fancyBox</a> 能自动识别嵌入的媒体，比如 Youtube、Vimeo、Google Map、Instagram 等。</p>
+<p>尝试了一下 Vimeo ，体验非常好。这样静态博客的内容就可以更加丰富多彩。</p>
+<p>（点击封面加载视频）</p>
+<a class="reference external image-reference" href="https://vimeo.com/channels/staffpicks/236370796"><img alt="https://i.vimeocdn.com/video/658454374_1040x584.jpg" class="align-center" src="https://i.vimeocdn.com/video/658454374_1040x584.jpg"></a>
+<p>写作语法上和插入一张图片没有什么区别：</p>
+<pre class="code rst"><a name="rest_code_10ff4fe8f2154543ae33badb14ecb5f9-1"></a><span class="p">..</span> <span class="ow">image</span><span class="p">::</span> https://i.vimeocdn.com/video/658454374_1040x584.jpg
+<a name="rest_code_10ff4fe8f2154543ae33badb14ecb5f9-2"></a>   <span class="nc">:align:</span> center
+<a name="rest_code_10ff4fe8f2154543ae33badb14ecb5f9-3"></a>   <span class="nc">:target:</span> https://vimeo.com/channels/staffpicks/236370796
+</pre>
+</div>
+        </div>
+    </div>
+    <div class="post-entry post-text">
+        <div class="entry-title">
+            <a href="posts/cong-markdown-dao-restructuredtext/">从 Markdown 到 reStructuredText</a>
+        </div>
+        <div class="ui large horizontal link list post-meta">
+            <span class="item">By
+                <a href="authors/ashfinal/">ashfinal</a>
+            </span>
+            <span class="item">
+                <time datetime="2017-10-04T16:20:05+08:00">
+                2017-10-04 16:20
+                </time></span>
+            <span class="item">6 MIN READ</span>
+        </div>
+        <div class="post-summary">
+                <div>
+<p>如果你正在使用 Markdown 尚嫌其功能不足，本文提供了平滑过渡到 reStructuredText 的语法指导。从来没有接触过任何标记语言的读者，以及正在使用其它标记语言的读者，也可以通过阅读本文了解到 reStructuredText 的基本用法。文章结构基本上借鉴 <a class="reference external" href="http://wowubuntu.com/markdown/">Markdown 语法说明</a> ，相对 Markdown 的超集部分仅会简单提及——这些部分将会在其它文章中着重讲解。</p>
+<p class="more"><a href="posts/cong-markdown-dao-restructuredtext/">Read more…</a></p>
+</div>
+        </div>
+    </div>
+    <div class="post-entry post-text">
+        <div class="entry-title">
+            <a href="posts/ji-ge-you-yong-de-zhong-duan-ming-ling-zheng-li/">有用的终端命令整理</a>
+        </div>
+        <div class="ui large horizontal link list post-meta">
+            <span class="item">By
+                <a href="authors/ashfinal/">ashfinal</a>
+            </span>
+            <span class="item">
+                <time datetime="2017-09-28T21:47:01+08:00">
+                2017-09-28 21:47
+                </time></span>
+            <span class="item">4 MIN READ</span>
+        </div>
+        <div class="post-summary">
+                <div>
+<p>使用 zsh 之后，就养成了不整理终端命令的“坏”习惯。可能当时遇到问题折腾好半天才解决，但却从没有写个日志（哪怕片段）记录下来的想法。因为 zsh 默认保存上万条历史让这一做法显得没有必要，要再次调用的话直接 fzf 搜索，简单修改下回车执行就行。</p>
+<p>最近两天抹盘安装了 High Sierra 系统，装完后把之前的 <cite>.zsh_history</cite> 文件拷贝回 home 目录，继续老习惯接着用就成。不过还是有点不放心，一方面担心使用频率超低（但有用）的命令可能会被冲掉，另一方面万一某一天 history 文件损坏就悲剧了，更重要的是有时会到别的电脑上执行命令。所以，还是整理下为好，该命令列表应该会不定期更新。</p>
+<p class="more"><a href="posts/ji-ge-you-yong-de-zhong-duan-ming-ling-zheng-li/">Read more…</a></p>
+</div>
+        </div>
+    </div>
+    </div>
+
+        <div class="ui grid page-navigation">
+    <div class="computer only tablet only sixteen wide column">
+        <div class="ui small borderless secondary pagination menu">
+        <a class="item" href="index-7.html"><i class="angle left icon"></i></a>
+                    <a class="item" href=".">1</a>
+                <a class="item">…</a>
+                    <a class="item" href="index-3.html">4</a>
+                    <a class="item" href="index-4.html">5</a>
+                    <a class="item" href="index-5.html">6</a>
+                    <a class="item" href="index-6.html">7</a>
+                    <a class="item" href="index-7.html">8</a>
+                    <a class="active item" href="#">9</a>
+                    <a class="item" href="index-9.html">10</a>
+                    <a class="item" href="index-10.html">11</a>
+                    <a class="item" href="index-11.html">12</a>
+                    <a class="item" href="index-12.html">13</a>
+                    <a class="item" href="index-13.html">14</a>
+        <a class="item" href="index-9.html"><i class="angle right icon"></i></a>
+        </div>
+    </div>
+    <div class="mobile only sixteen wide column">
+        <div class="pager">
+        <button class="ui basic left floated button">
+            <a href="index-7.html">Newer posts</a>
+        </button>
+        <button class="ui basic right floated button">
+        <a href="index-9.html">Older posts</a>
+        </button>
+        </div>
+    </div>
+</div>
+
+                    </div>
+                </main><div class="footer extra-block no-print">
+    <span class="footer_item">
+        <a href="../pages/you-qing-lian-jie/">友情链接</a>
+    </span>
+    <span class="footer_item">
+        <a href="../pages/liu-yan-ban/">留言板</a>
+    </span>
+    <span class="footer_item">
+        <a href="../pages/ge-ren-dong-tai/">碎碎念</a>
+    </span>
+    </div>
+            <div class="footer social-link no-print">
+            <a href="https://github.com/ashfinal" target="_blank"><i class="grey large github icon"></i></a>
+            <a href="http://weibo.com/ashfinal/" target="_blank"><i class="grey large weibo icon"></i></a>
+            <a href="mailto://ashfinal@sina.cn" target="_blank"><i class="grey large mail icon"></i></a>
+            </div>
+        <div class="ui basic center aligned segment no-print">Contents © 2020         <a href="mailto:ashfinal@sina.cn">ashfinal</a> - Powered by         <a href="https://getnikola.com" target="_blank" rel="nofollow">Nikola</a>         </div>
+
+            </div>
+            <div class="computer only three wide column no-print">
+                <div id="right-side">
+                </div>
+            </div>
+        </div>
+
+        <!-- GoStats JavaScript Based Code -->
+        <script type="text/javascript">(function(c,o,m,p,u,t,e){
+        c['GoStatsObject']=u;c[u]=c[u]||function(){(c[u].q=c[u].q||[]).push(arguments)},
+        c[u].l=1*new Date();t=o.createElement(m);t.async=1;t.src=p;
+        e=o.getElementsByTagName(m)[0];e.parentNode.insertBefore(t,e);
+        })(window,document,'script','//www.gostats.org/5.js','go');
+        go('init',100479892,{'img_counter_type':5,'img_image_type':1});go('send');</script><!-- End GoStats JavaScript Based Code --><script type="text/javascript" src="../assets/js/jquery-3.3.1.min.js"></script><script type="text/javascript" src="../assets/js/semantic.min.js"></script><script type="text/javascript" src="../assets/js/jquery.fancybox.min.js"></script><script type="text/javascript" src="../assets/js/cookie.min.js"></script><script>
+            $(document).ready(function(){
+                $(".ui.dropdown").dropdown();
+                $('.ui.accordion').accordion();
+                var newstr = $('.cookie.nag').text();
+                $('.cookie.nag').nag({
+                    key: 'globalnotice',
+                    value: newstr
+                  });
+                $('.image-reference').fancybox();
+            });
+        </script><script src="../assets/js/katex.min.js"></script><script src="../assets/js/auto-render.min.js"></script><script>
+                renderMathInElement(document.body,
+                    {
+                        delimiters: [
+                            {left: "$$", right: "$$", display: true},
+                            {left: "\\[", right: "\\]", display: true},
+                            {left: "\\begin{equation*}", right: "\\end{equation*}", display: true},
+                            {left: "\\(", right: "\\)", display: false}
+                        ]
+                    }
+                );
+            </script>
+</body>
+</html>

@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="zh_cn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="generator" content="Nikola (getnikola.com)">
+<title>不一样的 Git 客户端——GitUp - MacPlay</title>
+<link rel="apple-touch-icon" sizes="180x180" href="../../apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+<link rel="mask-icon" href="../../safari-pinned-tab.svg" color="#5bbad5">
+<link href="../../assets/css/semantic.min.css" rel="stylesheet" type="text/css">
+<link href="../../assets/css/jquery.fancybox.min.css" rel="stylesheet" type="text/css">
+<link href="../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<link rel="canonical" href="https://macplay.github.io/posts/bu-yi-yang-de-git-ke-hu-duan-gitup/">
+<meta name="author" content="ashfinal">
+<link rel="alternate" hreflang="en" href="../../en/posts/bu-yi-yang-de-git-ke-hu-duan-gitup/">
+<link rel="stylesheet" type="text/css" href="../../assets/css/gitalk.css">
+</head>
+<body>
+        <div class="ui grid">
+            <div class="computer only three wide column no-print">
+                <div id="left-side">
+                </div>
+            </div>
+            <div class="ten wide computer sixteen wide tablet sixteen wide mobile column">
+                        <div class="ui inline cookie nag no-print">
+            <span class="title">从现在开始，支持中英双语及博文精选 O(∩_∩)O~~</span>
+            <i class="close icon"></i>
+        </div>
+    <header id="header" class="no-print"><div class="ui grid">
+        <div class="computer only tablet only sixteen wide column">
+            <div class="ui large secondary stackable menu">
+                <a class="header item brand-logo" href="https://macplay.github.io/">
+                    MacPlay
+                </a>
+                        <a class="item" href="../../">Posts</a>
+                        <a class="item" href="../../listings/">Code</a>
+                        <a class="item" href="../../galleries/">Gallery</a>
+                        <a class="item" href="../../categories/">Tags</a>
+                        <a class="item" href="../../archive.html">Archive</a>
+                <div class="right menu">
+                    <a class="item" href="../../rss.xml"><i class="rss icon"></i>RSS</a>
+                </div>
+            </div>
+        </div>
+        <div class="mobile only sixteen wide column">
+            <div class="ui fluid accordion vertical menu">
+                <div class="item">
+                    <a class="title">MacPlay</a>
+                    <div class="content">
+                                <a class="item" href="../../">Posts</a>
+                                <a class="item" href="../../listings/">Code</a>
+                                <a class="item" href="../../galleries/">Gallery</a>
+                                <a class="item" href="../../categories/">Tags</a>
+                                <a class="item" href="../../archive.html">Archive</a>
+                        <a class="item" href="../../rss.xml"><i class="rss icon"></i>RSS</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </header><main id="main"><div id="main-content">
+<div class="postpage post-text page-body" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <h1 class="post-title" itemprop="headline">
+        <a href=".">不一样的 Git 客户端——GitUp</a>
+    </h1>
+
+    <div class="ui large horizontal link list post-meta">
+        <span class="item">By
+            <a href="../../authors/ashfinal/">ashfinal</a>
+        </span>
+            <span class="item">
+                <a href="https://github.com/macplay/macplay.github.io/edit/src/posts/bu-yi-yang-de-git-ke-hu-duan-gitup.rst" target="_blank" title="Edit on GitHub">Edit</a>
+            </span>
+        <span class="item">
+            <time datetime="2017-11-08T16:54:09+08:00">
+            2017-11-08 16:54
+            </time></span>
+            <span class="item">
+                    <a href="../../categories/git/">git</a>
+                    <a href="../../categories/macos/">macos</a>
+                    <a href="../../categories/vc/">vc</a>
+            </span>
+    </div>
+
+    
+    <div class="post-content" itemprop="article text">
+        <div id="post-content">
+        <div>
+<p>尽管平时基本不使用 Git 客户端（偶尔用用 <a class="reference external" href="https://jonas.github.io/tig/">Tig</a> ），不过看到 <a class="reference external" href="http://gitup.co">GitUp</a> 的特性介绍，笔者还是产生了浓厚的兴趣。下载下来尝试了一下，感觉与其它 Git 客户端的确有些不一样。官方宣传声称 <a class="reference external" href="http://gitup.co">GitUp</a> 就是“你朝思暮想的 Git 客户端”（The Git interface you've been missing）；使用 <a class="reference external" href="http://gitup.co">GitUp</a> 以后，再也“不必头痛 Git 版本管理”（without headaches）。那么， <a class="reference external" href="http://gitup.co">GitUp</a> 究竟表现如何？接下来，随笔者一起来看看这个不一样的 Git 客户端吧。</p>
+<div class="figure align-center">
+<a class="reference external image-reference" href="../../images/gitup_overview.png"><img alt="/images/gitup_overview.thumbnail.png" src="../../images/gitup_overview.thumbnail.png"></a>
+</div>
+<!-- TEASER_END -->
+<div class="contents topic" id="id1">
+<p class="topic-title">文章目录</p>
+<ul class="simple">
+<li>
+<p><a class="reference internal" href="#id2" id="id9">优点</a></p>
+<ul>
+<li><p><a class="reference internal" href="#git" id="id10">直接操作 Git 数据库</a></p></li>
+<li><p><a class="reference internal" href="#map" id="id11">实时更新、可交互的仓库图谱（map）</a></p></li>
+<li><p><a class="reference internal" href="#id3" id="id12">无限制的撤销和重做</a></p></li>
+<li><p><a class="reference internal" href="#snapshots" id="id13">仓库快照（snapshots）</a></p></li>
+<li><p><a class="reference internal" href="#id4" id="id14">即时搜索整个代码仓库</a></p></li>
+<li><p><a class="reference internal" href="#ui" id="id15">难以置信的 UI 响应速度</a></p></li>
+<li><p><a class="reference internal" href="#id5" id="id16">Git 自身都不具备的功能</a></p></li>
+</ul>
+</li>
+<li>
+<p><a class="reference internal" href="#id6" id="id17">缺点</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id7" id="id18">有些代码仓库打开会出错</a></p></li>
+<li><p><a class="reference internal" href="#macos-ios" id="id19">仅支持 macOS 和 iOS 平台</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#id8" id="id20">最后</a></p></li>
+</ul>
+</div>
+<div class="section" id="id2">
+<h2><a class="toc-backref" href="#id9">优点</a></h2>
+<div class="section" id="git">
+<h3><a class="toc-backref" href="#id10">直接操作 Git 数据库</a></h3>
+<p>而不像其它客户端一样使用 Git 命令行。这恐怕是 <a class="reference external" href="http://gitup.co">GitUp</a> <strong>最与众不同的地方</strong> 。</p>
+<p>目前绝大多数的 Git 客户端，无论界面美观、功能强大与否，其背后真正的功臣实际上是 Git 命令行。当你点击漂亮界面上的 pull、push 等按钮时，客户端们实际上在后台另起炉灶——在另一个进程里使用 Git 命令行完成指定的操作，然后把执行结果在 GUI 界面上绘制出来。</p>
+<div class="figure align-center">
+<a class="reference external image-reference" href="../../images/tower_git.png"><img alt="/images/tower_git.thumbnail.png" src="../../images/tower_git.thumbnail.png"></a>
+<p class="caption">Tower 等客户端使用 Git 命令行完成操作</p>
+</div>
+<p>真正起作用的还是 Git 命令行，客户端不过是 Git 命令行的 wrapper 而已！这就使得市面上的 Git 客户端基本不可能脱离 Git 命令行的桎梏，做出什么令人眼前一亮的新功能来。事实情况是：将用户友好度排除在外，Git 客户端能完成的操作，Git 命令行基本都能完成；但是 Git 命令能完成的一些非常规性操作，在 Git 客户端中却不一定得到全部实现。</p>
+<p>Git 客户端的现状，其产生原因是显而易见的——Git 基本上覆盖了版本管理的全部命令，那直接使用它，将更多精力放到界面设计、用户交互等方面。这是个再自然不过的决定。</p>
+<p>然而， <a class="reference external" href="http://gitup.co">GitUp</a> 的出现，让我们看到了另外一种可能。 它竟然能直接读写磁盘上的 Git 数据库（即 <cite>.git</cite> 文件夹）！有没有嗅到那么一点“黑科技”的味道？ :)</p>
+<p>事实上， <a class="reference external" href="http://gitup.co">GitUp</a> 的其它优点多少都与这一特性有点关系。牢记这一点，我们接着往下看。</p>
+</div>
+<div class="section" id="map">
+<h3><a class="toc-backref" href="#id11">实时更新、可交互的仓库图谱（map）</a></h3>
+<p>对 Git 稍微有些了解的人可能都知道，Git 代码仓库实际上很像一棵有诸多枝桠、不断延伸的“树”。我们日常的所有操作，比如提交更改、创建分支、合并分支等等，都是围绕这棵“树”做修修剪剪的工作。而 <a class="reference external" href="http://gitup.co">GitUp</a> 则将这棵“树”以可视化、可交互的方式呈现了出来（见本文图一）。无论你对代码仓库做何种更改，大的小的更改，甚至是其它程序做的更改，都可以在仓库图谱（map）中实时呈现出来。毋需刷新，毋需等待。</p>
+<p>以往我们是以 commit 为单位进行操作，而现在则可以通过鼠标点击以可视化的方式来“修剪枝桠”。<a class="reference external" href="http://gitup.co">GitUp</a> 这种以图谱（map）为中心的操作逻辑，即便是 Git 初学者，也能通过图谱直观地了解到自己的操作对代码“树”产生怎样的影响。将 <a class="reference external" href="http://gitup.co">GitUp</a> 用作新手教学，想必是极好的。</p>
+<p>但这并不意味着 <a class="reference external" href="http://gitup.co">GitUp</a> 不足以满足专业级用户的需要。事实上，<a class="reference external" href="http://gitup.co">GitUp</a> 提供的菜单命令要比大多数 Git 客户端还要多。右键单击图谱（map）上的枝桠节点，就可以访问到大多数菜单命令。<a class="reference external" href="http://gitup.co">GitUp</a> 甚至还包装了一些命令，使得它们更加方便直观。比如提交代码时写错了 commit message，现在想更改过来。很简单的操作，对不对？然而要做到这一点，恐怕你得 Google 一番：啊，原来需要执行 <cite>git rebase</cite> 命令，再更改对应 commit id 的 <cite>reword</cite> 。而使用 <a class="reference external" href="http://gitup.co">GitUp</a> 这点就超乎寻常的简单：只需右键单击对应节点，选择“Edit Message”即可！同理，想要删除一个错误的代码提交，则是右键单击选择“Delete”。</p>
+</div>
+<div class="section" id="id3">
+<h3><a class="toc-backref" href="#id12">无限制的撤销和重做</a></h3>
+<p>对大多数人来说，Git 操作出错几乎都无一例外地遇到过。有时一个头脑犯浑的操作，足以让你惊出一身冷汗，然后再花费半天的功夫一阵 Google，试图挽回自己所犯的“愚蠢”的错误。</p>
+<p>幸运的是，对这些操作失误，<a class="reference external" href="http://gitup.co">GitUp</a> 允许你无限制的撤销（undo）和重做（redo）。甚至包括 rebase 和 merge 等操作。而且撤销/重做也是超乎寻常的简单，只需按下 <cite>cmd + z</cite> 或 <cite>cmd + shift + z</cite> 键。就像是你刚刚不小心输错了两个字符一样！</p>
+<p>笔者简单地做了一个测试：使用 Git 命令行提交一个更改，然后回到 <a class="reference external" href="http://gitup.co">GitUp</a> 客户端中，直接按 <cite>cmd + z</cite> 键。代码仓库正确撤销了刚才的提交！这一操作对其它 Git 客户端提交的更改应该也适用。</p>
+</div>
+<div class="section" id="snapshots">
+<h3><a class="toc-backref" href="#id13">仓库快照（snapshots）</a></h3>
+<p><a class="reference external" href="http://gitup.co">GitUp</a> 默认会对代码仓库的每一次更改都建立快照（snapshots）。非常类似于 macOS 上的时间机器（Time Machine）。这样，你就可以通过右侧侧边栏，一键点击回滚到之前的状态。</p>
+<div class="figure align-center">
+<a class="reference external image-reference" href="../../images/gitup_snapshots.png"><img alt="/images/gitup_snapshots.thumbnail.png" src="../../images/gitup_snapshots.thumbnail.png"></a>
+<p class="caption">时光机器，一键点击回滚</p>
+</div>
+</div>
+<div class="section" id="id4">
+<h3><a class="toc-backref" href="#id14">即时搜索整个代码仓库</a></h3>
+<p><a class="reference external" href="http://gitup.co">GitUp</a> 可以即时搜索整个代码仓库的分支、tags、commit id/message、作者等等，甚至还能搜索文件内容（需到设置界面开启）。点击即可直接跳转到搜索结果。</p>
+<p>如果你想搜索查看一些大仓库某次提交都更改了哪些文件内容，自然会理解这一特性有多重要。</p>
+<div class="figure align-center">
+<a class="reference external image-reference" href="../../images/gitup_search.png"><img alt="/images/gitup_search.thumbnail.png" src="../../images/gitup_search.thumbnail.png"></a>
+<p class="caption">即时搜索整个代码仓库</p>
+</div>
+</div>
+<div class="section" id="ui">
+<h3><a class="toc-backref" href="#id15">难以置信的 UI 响应速度</a></h3>
+<p>笔者使用 <a class="reference external" href="https://jonas.github.io/tig/">Tig</a> 的一大原因是：<a class="reference external" href="https://jonas.github.io/tig/">Tig</a> 占用资源非常少，却拥有极快的响应速度。作为一个不走寻常路的 Git 客户端，<a class="reference external" href="http://gitup.co">GitUp</a> 在这一方面表现也是分外抢眼。笔者使用 hombrew formula 仓库做了个不严谨的测试：</p>
+<div class="figure align-center">
+<a class="reference external image-reference" href="../../images/homebrew_core.png"><img alt="/images/homebrew_core.thumbnail.png" src="../../images/homebrew_core.thumbnail.png"></a>
+<p class="caption">加载大仓库无压力</p>
+</div>
+<p><a class="reference external" href="http://gitup.co">GitUp</a> 在 1 秒多点的时间内完成了 100,078 条 commits 的读取和图谱（map）渲染，界面滚动丝毫没有卡顿的感觉。想知道该仓库的第一条 commit 是何时创建？ <cite>cmd + ⇣</cite> 拉到最底，点击节点即可看到。提交了哪些文件？按下空格键切到 diff 视图。而且别忘了，可以从这 10w 条 commits 中即时搜索 commit id/message、作者等。对比某些 Git 客户端仅随滚动“按需加载”，即使这样有时界面依然卡顿，<a class="reference external" href="http://gitup.co">GitUp</a> 的做法可显得“任性”多了。</p>
+</div>
+<div class="section" id="id5">
+<h3><a class="toc-backref" href="#id16">Git 自身都不具备的功能</a></h3>
+<p>得益于 <a class="reference external" href="http://gitup.co">GitUp</a> 直接操作 Git 数据库的特性，它可以做更多事情。比如可视化 commit 分割（visual commit splitter）、统一 reflog 浏览（unified reflog browser）等。</p>
+<p>目前笔者还没有找到合适的机会，来体验这两项功能。</p>
+</div>
+</div>
+<div class="section" id="id6">
+<h2><a class="toc-backref" href="#id17">缺点</a></h2>
+<p>当然，<a class="reference external" href="http://gitup.co">GitUp</a> 并不是完美无缺的。以下列出了它的一些缺点：</p>
+<div class="section" id="id7">
+<h3><a class="toc-backref" href="#id18">有些代码仓库打开会出错</a></h3>
+<p>笔者发现如果代码仓库没有完整克隆到磁盘的话，使用 <a class="reference external" href="http://gitup.co">GitUp</a> 打开会报错。而其它 Git 客户端打开就没有问题。比如大家广泛使用的 homebrew，其 formula 仓库默认只克隆最近几千条 commits，这时使用 <a class="reference external" href="http://gitup.co">GitUp</a> 就无法打开。</p>
+<div class="figure align-center">
+<a class="reference external image-reference" href="../../images/gitup_error.png"><img alt="/images/gitup_error.thumbnail.png" src="../../images/gitup_error.thumbnail.png"></a>
+<p class="caption">打开本地默认的 Homebrew Core 仓库会报错</p>
+</div>
+<p>目前尚不清楚这一局限能否被简单地移除。</p>
+</div>
+<div class="section" id="macos-ios">
+<h3><a class="toc-backref" href="#id19">仅支持 macOS 和 iOS 平台</a></h3>
+<p>目前 <a class="reference external" href="http://gitup.co">GitUp</a> 仅支持 macOS、iOS 平台（用 Objective-C 语言写成）。作为版本管理协作工具，如果能支持跨平台使用，那无疑是再好不过。目前尚不清楚作者是否有移植到其它平台的计划。</p>
+<p>不过好处是，<a class="reference external" href="http://gitup.co">GitUp</a> 已经在 <a class="reference external" href="https://github.com/git-up/GitUp">GitHub 开源</a> 。这样的话，即使作者不动，将来也可能会有人 fork 并移植到其它平台。</p>
+</div>
+</div>
+<div class="section" id="id8">
+<h2><a class="toc-backref" href="#id20">最后</a></h2>
+<p>笔者使用 <a class="reference external" href="http://gitup.co">GitUp</a> 也是最近几天才开始。囿于自身 Git 知识水平，对该软件一些功能的体验和介绍可能不到位。如果你有新的发现或者使用技巧，欢迎在评论区指出。 :)</p>
+</div>
+</div>
+        </div>
+    </div>
+    <div class="post-info">
+        <p>文章链接：<a href="https://macplay.github.io/posts/bu-yi-yang-de-git-ke-hu-duan-gitup/" target="_blank">https://macplay.github.io/posts/bu-yi-yang-de-git-ke-hu-duan-gitup/</a></p>
+        <p>发布/更新于：
+            <time datetime="2017-11-10 22:08:56 UTC+08:00">
+            2017-11-10 22:08
+            </time></p>
+        <p>版权声明：如无特别说明，本站文章均遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">CC BY-NC-SA 4.0</a> 协议，转载请注明作者及出处。</p>
+    </div>
+        <div class="post-navigation no-print">
+        <div class="ui huge secondary stackable menu">
+            <a class="post-nav-item post-nav-previous item" href="../zai-vim-zhong-shi-yong-undo-branches/" title="Previous post"><i class="angle double left icon"></i> 【译】在 Vim 中使用 undo branches</a>
+        <div class="right menu">
+            <a class="post-nav-item post-nav-next item" href="../vim-ji-qiao-pi-pei-shu-zi-di-zeng/" title="Next post">Vim 技巧：匹配数字递增 <i class="angle double right icon"></i></a>
+        </div>
+        </div>
+    </div>
+
+        <div id="gitalk-container" class="comments-block no-print"></div>
+</div>
+                    </div>
+                </main><div class="footer extra-block no-print">
+    <span class="footer_item">
+        <a href="../../pages/you-qing-lian-jie/">友情链接</a>
+    </span>
+    <span class="footer_item">
+        <a href="../../pages/liu-yan-ban/">留言板</a>
+    </span>
+    <span class="footer_item">
+        <a href="../../pages/ge-ren-dong-tai/">碎碎念</a>
+    </span>
+    </div>
+            <div class="footer social-link no-print">
+            <a href="https://github.com/ashfinal" target="_blank"><i class="grey large github icon"></i></a>
+            <a href="http://weibo.com/ashfinal/" target="_blank"><i class="grey large weibo icon"></i></a>
+            <a href="mailto://ashfinal@sina.cn" target="_blank"><i class="grey large mail icon"></i></a>
+            </div>
+        <div class="ui basic center aligned segment no-print">Contents © 2020         <a href="mailto:ashfinal@sina.cn">ashfinal</a> - Powered by         <a href="https://getnikola.com" target="_blank" rel="nofollow">Nikola</a>         </div>
+
+            </div>
+            <div class="computer only three wide column no-print">
+                <div id="right-side">
+                </div>
+            </div>
+        </div>
+
+        <!-- GoStats JavaScript Based Code -->
+        <script type="text/javascript">(function(c,o,m,p,u,t,e){
+        c['GoStatsObject']=u;c[u]=c[u]||function(){(c[u].q=c[u].q||[]).push(arguments)},
+        c[u].l=1*new Date();t=o.createElement(m);t.async=1;t.src=p;
+        e=o.getElementsByTagName(m)[0];e.parentNode.insertBefore(t,e);
+        })(window,document,'script','//www.gostats.org/5.js','go');
+        go('init',100479892,{'img_counter_type':5,'img_image_type':1});go('send');</script><!-- End GoStats JavaScript Based Code --><script type="text/javascript" src="../../assets/js/jquery-3.3.1.min.js"></script><script type="text/javascript" src="../../assets/js/semantic.min.js"></script><script type="text/javascript" src="../../assets/js/jquery.fancybox.min.js"></script><script type="text/javascript" src="../../assets/js/cookie.min.js"></script><script>
+            $(document).ready(function(){
+                $(".ui.dropdown").dropdown();
+                $('.ui.accordion').accordion();
+                var newstr = $('.cookie.nag').text();
+                $('.cookie.nag').nag({
+                    key: 'globalnotice',
+                    value: newstr
+                  });
+                $('.image-reference').fancybox();
+            });
+        </script><script src="../../assets/js/md5.min.js"></script><script src="../../assets/js/gitalk.min.js"></script><script>
+        const gitalk = new Gitalk({
+            clientID: '12fcda845097d895a24c',
+            clientSecret: '50ed60cde5f40897205197b4265b474cefbedc49',
+            repo: 'macplay.github.io',
+            owner: 'macplay',
+            admin: ['macplay', 'ashfinal'],
+            id: md5(window.location.pathname),
+            // facebook-like distraction free mode
+            distractionFreeMode: false
+        })
+        gitalk.render('gitalk-container')
+    </script>
+</body>
+</html>

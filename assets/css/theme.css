@@ -1,0 +1,261 @@
+header#header {
+    margin-bottom: 1em;
+}
+
+#main-content {
+    padding: 0px 10px;
+}
+
+.index-featured {
+    margin-top: -2em;
+    margin-bottom: 1.5em;
+}
+
+.index-featured .ui.segment {
+    height: 16em;
+    overflow: hidden;
+    word-break: break-word;
+}
+
+h1.post-title {
+    margin-bottom: 0;
+}
+
+.listingpage.page-body {
+    padding: 0px 1rem;
+    overflow: auto;
+}
+
+.postpage .posttrans {
+    margin-top: -0.5em;
+    padding: 0.5em 1em;
+    margin-bottom: 0.5em;
+}
+
+.post-entry {
+    border-bottom: 1px solid #ebeff2;
+    margin-bottom: 1rem;
+}
+
+.post-entry .post-summary,
+.postpage .post-content {
+    color: #555;
+    margin-bottom: 1rem;
+}
+
+.entry-title a {
+    font-size: 1.5rem;
+    display: block;
+    color: #555;
+    /* padding-bottom: 0.5rem; */
+}
+
+.entry-title a:hover {
+    color: #4183C4;
+}
+
+.post-summary .more a {
+    padding: 8px 10px;
+    line-height: 1;
+    font-size: 0.875rem;
+    display: inline-block;
+    text-transform: uppercase;
+    color: #444;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.post-navigation {
+    border-top: 1px solid #f1f1f1;
+    border-bottom: 1px solid #f1f1f1;
+}
+
+.post-content ul,.post-summary ul {
+    padding-left: 2rem;
+}
+
+.post-content ul>li,.post-summary ul>li{
+    list-style-type: disc;
+    line-height: 1.7em;
+}
+
+.pagination li.active {
+    background-color: #ccc;
+}
+
+.tag-cloud-title,
+.cate-cloud-title,
+.list-cloud-title {
+    font-size: 1.5rem;
+    padding-top: 1rem;
+    color: #777777;
+    text-align: center;
+}
+
+.list-title,
+.tag-title,
+.author-title,
+.authorindex-title {
+    font-size: 1.5rem !important;
+    padding-top: 1rem;
+    color: #777777;
+    text-align: center;;
+}
+
+.cate-cloud-items ul {
+    list-style-type: none;
+    margin-left: -3em;
+}
+
+.gallerypage #gallery_container {
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+.archivepage ul {
+    list-style-type: none;
+}
+
+.archivepage .list-items {
+    margin-left: -3em;
+}
+
+.listpage ul,
+.tagpage ul,
+.authorpage ul,
+.authorindex ul {
+    list-style-type: circle;
+    margin-left: -1em;
+    line-height: 1.7em;;
+}
+
+.tag-rssfeed .feedlink, .downloadlink,
+.author-rssfeed .feedlink {
+    margin-top: 1em;
+    margin-left: 2em;
+    text-align: center;
+    color: #777777;
+}
+
+.tag-rssfeed .feedlink a,
+.author-rssfeed .feedlink a,
+.listingpage .downloadlink a {
+    color: #777777;
+}
+
+.gallerypage ul,
+.listingpage ul {
+    list-style-type: none;
+    margin-left: -3em;
+}
+
+.tag-cloud-items {
+    padding: 2em 0;
+}
+
+.tag-cloud-items a,
+.cate-cloud-items a {
+    color: #888;
+    padding: 4px 8px;
+    border: 1px solid #f1f1f1;
+    border-radius: 5px;
+    display: inline-block;
+    margin-bottom: 0.5em;
+}
+
+.tag-postlist,
+.list-postlist,
+.author-postlist {
+    border-bottom: 1px solid rgba(34,36,38,.15);
+    margin-bottom: 1em;
+    padding-bottom: 1em;
+}
+
+.postitem p {
+    margin-bottom: -0.5em;
+    font-size: 1.2em;
+}
+
+.postitem p a {
+    color: #777777;
+}
+
+.list-items li {
+    padding: 5px 5px;
+    border:solid 1px #445458;
+    border-radius: 20px;
+    margin-bottom: 10px;
+}
+
+.list-items a {
+    padding-left: 1rem;
+}
+
+.list-item-count {
+    font-size: 0.9rem;
+    padding-top: 5px;
+}
+
+.list-item-count:before {
+    content: "(";
+}
+
+.list-item-count:after {
+    content: ")";
+}
+
+#notebook-container {
+    width: 100%;
+    margin-top: 10px;
+}
+
+.post-content .section, .post-summary .section {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.no-comments-block {
+    margin: 1em 0;
+    text-align: center;
+}
+
+.page-navigation {
+    text-align: center;
+}
+
+.postpage .post-info {
+    border: 1px dashed #6fe087;
+    padding: 1em 1em 0em 1em;
+    background-color: rgba(207, 247, 207, 0.1);
+    margin-bottom: 1em;;
+}
+
+.footer.social-link {
+    text-align: center;
+    margin-bottom: -1.5em;
+}
+
+.footer.extra-block {
+    text-align: center;
+    margin: 1em;
+}
+
+.footer.extra-block a {
+    cursor: pointer;
+    color: #555;
+    text-decoration: underline;
+}
+
+.blogroll .container {
+    padding: 1em;
+}
+
+.blogroll.siteitem {
+    margin: 0.5em;
+}
+
+@media print {
+    .no-print {
+        display: none !important;
+    }
+}

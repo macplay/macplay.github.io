@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="zh_cn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="generator" content="Nikola (getnikola.com)">
+<title>XeTeX 的中文化设置 - MacPlay</title>
+<link rel="apple-touch-icon" sizes="180x180" href="../../apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+<link rel="mask-icon" href="../../safari-pinned-tab.svg" color="#5bbad5">
+<link href="../../assets/css/semantic.min.css" rel="stylesheet" type="text/css">
+<link href="../../assets/css/jquery.fancybox.min.css" rel="stylesheet" type="text/css">
+<link href="../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<link rel="canonical" href="https://macplay.github.io/posts/xetex-de-zhong-wen-hua-she-zhi/">
+<meta name="author" content="ashfinal">
+<link rel="alternate" hreflang="en" href="../../en/posts/xetex-de-zhong-wen-hua-she-zhi/">
+<link rel="stylesheet" type="text/css" href="../../assets/css/gitalk.css">
+</head>
+<body>
+        <div class="ui grid">
+            <div class="computer only three wide column no-print">
+                <div id="left-side">
+                </div>
+            </div>
+            <div class="ten wide computer sixteen wide tablet sixteen wide mobile column">
+                        <div class="ui inline cookie nag no-print">
+            <span class="title">从现在开始，支持中英双语及博文精选 O(∩_∩)O~~</span>
+            <i class="close icon"></i>
+        </div>
+    <header id="header" class="no-print"><div class="ui grid">
+        <div class="computer only tablet only sixteen wide column">
+            <div class="ui large secondary stackable menu">
+                <a class="header item brand-logo" href="https://macplay.github.io/">
+                    MacPlay
+                </a>
+                        <a class="item" href="../../">Posts</a>
+                        <a class="item" href="../../listings/">Code</a>
+                        <a class="item" href="../../galleries/">Gallery</a>
+                        <a class="item" href="../../categories/">Tags</a>
+                        <a class="item" href="../../archive.html">Archive</a>
+                <div class="right menu">
+                    <a class="item" href="../../rss.xml"><i class="rss icon"></i>RSS</a>
+                </div>
+            </div>
+        </div>
+        <div class="mobile only sixteen wide column">
+            <div class="ui fluid accordion vertical menu">
+                <div class="item">
+                    <a class="title">MacPlay</a>
+                    <div class="content">
+                                <a class="item" href="../../">Posts</a>
+                                <a class="item" href="../../listings/">Code</a>
+                                <a class="item" href="../../galleries/">Gallery</a>
+                                <a class="item" href="../../categories/">Tags</a>
+                                <a class="item" href="../../archive.html">Archive</a>
+                        <a class="item" href="../../rss.xml"><i class="rss icon"></i>RSS</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </header><main id="main"><div id="main-content">
+<div class="postpage post-text page-body" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <h1 class="post-title" itemprop="headline">
+        <a href=".">XeTeX 的中文化设置</a>
+    </h1>
+
+    <div class="ui large horizontal link list post-meta">
+        <span class="item">By
+            <a href="../../authors/ashfinal/">ashfinal</a>
+        </span>
+            <span class="item">
+                <a href="https://github.com/macplay/macplay.github.io/edit/src/posts/xetex-de-zhong-wen-hua-she-zhi.rst" target="_blank" title="Edit on GitHub">Edit</a>
+            </span>
+        <span class="item">
+            <time datetime="2017-10-16T17:07:37+08:00">
+            2017-10-16 17:07
+            </time></span>
+            <span class="item">
+                    <a href="../../categories/rest/">reST</a>
+                    <a href="../../categories/xetex/">xetex</a>
+            </span>
+    </div>
+
+    
+    <div class="post-content" itemprop="article text">
+        <div id="post-content">
+        <div>
+<p>看过一些文章得出结论：即使用 XeTeX 编译中文，也需要额外添加 <cite>xeCJK</cite> 包设置下字体。笔者也一直是这么做的。</p>
+<p>刚尝试了下，这一步其实是不必要的。直接用 <cite>fontspec</cite> 设置中文字体，不必引入额外的包：</p>
+<div class="code"><table class="codetable">
+<tr>
+<td class="linenos linenodiv"><a href="#rest_code_6c261843081b4069a015a28f8a3c7a1d-1"><code data-line-number=" 1"></code></a></td>
+<td class="code"><code><a name="rest_code_6c261843081b4069a015a28f8a3c7a1d-1"></a><span class="c">%! TEX program = xelatex</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#rest_code_6c261843081b4069a015a28f8a3c7a1d-2"><code data-line-number=" 2"></code></a></td>
+<td class="code"><code><a name="rest_code_6c261843081b4069a015a28f8a3c7a1d-2"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#rest_code_6c261843081b4069a015a28f8a3c7a1d-3"><code data-line-number=" 3"></code></a></td>
+<td class="code"><code><a name="rest_code_6c261843081b4069a015a28f8a3c7a1d-3"></a><span class="k">\usepackage</span><span class="nb">{</span>fontspec<span class="nb">}</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#rest_code_6c261843081b4069a015a28f8a3c7a1d-4"><code data-line-number=" 4"></code></a></td>
+<td class="code"><code><a name="rest_code_6c261843081b4069a015a28f8a3c7a1d-4"></a><span class="k">\setmainfont</span><span class="nb">{</span>PingFang SC<span class="nb">}</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#rest_code_6c261843081b4069a015a28f8a3c7a1d-5"><code data-line-number=" 5"></code></a></td>
+<td class="code"><code><a name="rest_code_6c261843081b4069a015a28f8a3c7a1d-5"></a><span class="k">\setsansfont</span><span class="nb">{</span>Hiragino Sans GB<span class="nb">}</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#rest_code_6c261843081b4069a015a28f8a3c7a1d-6"><code data-line-number=" 6"></code></a></td>
+<td class="code"><code><a name="rest_code_6c261843081b4069a015a28f8a3c7a1d-6"></a><span class="k">\setmonofont</span><span class="na">[Scale=0.9]</span><span class="nb">{</span>PingFang SC<span class="nb">}</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#rest_code_6c261843081b4069a015a28f8a3c7a1d-7"><code data-line-number=" 7"></code></a></td>
+<td class="code"><code><a name="rest_code_6c261843081b4069a015a28f8a3c7a1d-7"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#rest_code_6c261843081b4069a015a28f8a3c7a1d-8"><code data-line-number=" 8"></code></a></td>
+<td class="code"><code><a name="rest_code_6c261843081b4069a015a28f8a3c7a1d-8"></a><span class="k">\usepackage</span><span class="nb">{</span>indentfirst<span class="nb">}</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#rest_code_6c261843081b4069a015a28f8a3c7a1d-9"><code data-line-number=" 9"></code></a></td>
+<td class="code"><code><a name="rest_code_6c261843081b4069a015a28f8a3c7a1d-9"></a><span class="k">\setlength</span><span class="nb">{</span><span class="k">\parindent</span><span class="nb">}{</span>2em<span class="nb">}</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#rest_code_6c261843081b4069a015a28f8a3c7a1d-10"><code data-line-number="10"></code></a></td>
+<td class="code"><code><a name="rest_code_6c261843081b4069a015a28f8a3c7a1d-10"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#rest_code_6c261843081b4069a015a28f8a3c7a1d-11"><code data-line-number="11"></code></a></td>
+<td class="code"><code><a name="rest_code_6c261843081b4069a015a28f8a3c7a1d-11"></a><span class="k">\XeTeXlinebreaklocale</span> "zh"
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#rest_code_6c261843081b4069a015a28f8a3c7a1d-12"><code data-line-number="12"></code></a></td>
+<td class="code"><code><a name="rest_code_6c261843081b4069a015a28f8a3c7a1d-12"></a><span class="k">\XeTeXlinebreakskip</span> = 0pt plus 1pt minus 0.1pt
+</code></td>
+</tr>
+</table></div>
+<p>第 1 行指定编译引擎 <cite>xelatex</cite> 。不成文的规范，LaTeX 客户端或编辑器插件不一定会遵守。</p>
+<p>第 3-6 行使用苹方和冬青黑体，macOS 上的默认字体。</p>
+<p>第 8-9 行分别设置首行缩进和缩进间隔。</p>
+<p>第 11 行使用中文断行方式，否则段落会合并成一行。</p>
+<p>第 12 行还不清楚啥意思，不过好多文章都有，暂时不删除。</p>
+<p>这几行精简的配置，足以应付 macOS 上绝大部分编译场景。如果是其它操作系统，注意替换中文字体。通过 <cite>rst2xetex.py</cite> 命令转换过来的 tex 文件，添加以上几行，就能顺利编译。</p>
+</div>
+        </div>
+    </div>
+    <div class="post-info">
+        <p>文章链接：<a href="https://macplay.github.io/posts/xetex-de-zhong-wen-hua-she-zhi/" target="_blank">https://macplay.github.io/posts/xetex-de-zhong-wen-hua-she-zhi/</a></p>
+        <p>发布/更新于：
+            <time datetime="2017-10-16 17:07:37 UTC+08:00">
+            2017-10-16 17:07
+            </time></p>
+        <p>版权声明：如无特别说明，本站文章均遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">CC BY-NC-SA 4.0</a> 协议，转载请注明作者及出处。</p>
+    </div>
+        <div class="post-navigation no-print">
+        <div class="ui huge secondary stackable menu">
+            <a class="post-nav-item post-nav-previous item" href="../nikola-bo-ke-zi-yuan-lian-jie-wen-ti/" title="Previous post"><i class="angle double left icon"></i> Nikola 博客资源链接问题</a>
+        <div class="right menu">
+            <a class="post-nav-item post-nav-next item" href="../cong-markdown-dao-restructuredtextsi/" title="Next post">从 Markdown 到 reStructuredText（四） <i class="angle double right icon"></i></a>
+        </div>
+        </div>
+    </div>
+
+        <div id="gitalk-container" class="comments-block no-print"></div>
+</div>
+                    </div>
+                </main><div class="footer extra-block no-print">
+    <span class="footer_item">
+        <a href="../../pages/you-qing-lian-jie/">友情链接</a>
+    </span>
+    <span class="footer_item">
+        <a href="../../pages/liu-yan-ban/">留言板</a>
+    </span>
+    <span class="footer_item">
+        <a href="../../pages/ge-ren-dong-tai/">碎碎念</a>
+    </span>
+    </div>
+            <div class="footer social-link no-print">
+            <a href="https://github.com/ashfinal" target="_blank"><i class="grey large github icon"></i></a>
+            <a href="http://weibo.com/ashfinal/" target="_blank"><i class="grey large weibo icon"></i></a>
+            <a href="mailto://ashfinal@sina.cn" target="_blank"><i class="grey large mail icon"></i></a>
+            </div>
+        <div class="ui basic center aligned segment no-print">Contents © 2020         <a href="mailto:ashfinal@sina.cn">ashfinal</a> - Powered by         <a href="https://getnikola.com" target="_blank" rel="nofollow">Nikola</a>         </div>
+
+            </div>
+            <div class="computer only three wide column no-print">
+                <div id="right-side">
+                </div>
+            </div>
+        </div>
+
+        <!-- GoStats JavaScript Based Code -->
+        <script type="text/javascript">(function(c,o,m,p,u,t,e){
+        c['GoStatsObject']=u;c[u]=c[u]||function(){(c[u].q=c[u].q||[]).push(arguments)},
+        c[u].l=1*new Date();t=o.createElement(m);t.async=1;t.src=p;
+        e=o.getElementsByTagName(m)[0];e.parentNode.insertBefore(t,e);
+        })(window,document,'script','//www.gostats.org/5.js','go');
+        go('init',100479892,{'img_counter_type':5,'img_image_type':1});go('send');</script><!-- End GoStats JavaScript Based Code --><script type="text/javascript" src="../../assets/js/jquery-3.3.1.min.js"></script><script type="text/javascript" src="../../assets/js/semantic.min.js"></script><script type="text/javascript" src="../../assets/js/jquery.fancybox.min.js"></script><script type="text/javascript" src="../../assets/js/cookie.min.js"></script><script>
+            $(document).ready(function(){
+                $(".ui.dropdown").dropdown();
+                $('.ui.accordion').accordion();
+                var newstr = $('.cookie.nag').text();
+                $('.cookie.nag').nag({
+                    key: 'globalnotice',
+                    value: newstr
+                  });
+                $('.image-reference').fancybox();
+            });
+        </script><script src="../../assets/js/md5.min.js"></script><script src="../../assets/js/gitalk.min.js"></script><script>
+        const gitalk = new Gitalk({
+            clientID: '12fcda845097d895a24c',
+            clientSecret: '50ed60cde5f40897205197b4265b474cefbedc49',
+            repo: 'macplay.github.io',
+            owner: 'macplay',
+            admin: ['macplay', 'ashfinal'],
+            id: md5(window.location.pathname),
+            // facebook-like distraction free mode
+            distractionFreeMode: false
+        })
+        gitalk.render('gitalk-container')
+    </script>
+</body>
+</html>

@@ -1,0 +1,1135 @@
+<!DOCTYPE html>
+<html lang="zh_cn">
+<head>
+<meta charset="utf-8">
+<meta name="description" content="mmate.au3">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="generator" content="Nikola (getnikola.com)">
+<title>mmate.au3 - MacPlay</title>
+<link rel="apple-touch-icon" sizes="180x180" href="../../apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+<link rel="mask-icon" href="../../safari-pinned-tab.svg" color="#5bbad5">
+<link href="../../assets/css/semantic.min.css" rel="stylesheet" type="text/css">
+<link href="../../assets/css/jquery.fancybox.min.css" rel="stylesheet" type="text/css">
+<link href="../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<link rel="canonical" href="https://macplay.github.io/listings/AutoIt3/mmate.au3.html">
+</head>
+<body>
+        <div class="ui grid">
+            <div class="computer only three wide column no-print">
+                <div id="left-side">
+                </div>
+            </div>
+            <div class="ten wide computer sixteen wide tablet sixteen wide mobile column">
+                        <div class="ui inline cookie nag no-print">
+            <span class="title">从现在开始，支持中英双语及博文精选 O(∩_∩)O~~</span>
+            <i class="close icon"></i>
+        </div>
+    <header id="header" class="no-print"><div class="ui grid">
+        <div class="computer only tablet only sixteen wide column">
+            <div class="ui large secondary stackable menu">
+                <a class="header item brand-logo" href="https://macplay.github.io/">
+                    MacPlay
+                </a>
+                        <a class="item" href="../../">Posts</a>
+                        <a class="item" href="../">Code</a>
+                        <a class="item" href="../../galleries/">Gallery</a>
+                        <a class="item" href="../../categories/">Tags</a>
+                        <a class="item" href="../../archive.html">Archive</a>
+                <div class="right menu">
+                    <a class="item" href="../../rss.xml"><i class="rss icon"></i>RSS</a>
+                </div>
+            </div>
+        </div>
+        <div class="mobile only sixteen wide column">
+            <div class="ui fluid accordion vertical menu">
+                <div class="item">
+                    <a class="title">MacPlay</a>
+                    <div class="content">
+                                <a class="item" href="../../">Posts</a>
+                                <a class="item" href="../">Code</a>
+                                <a class="item" href="../../galleries/">Gallery</a>
+                                <a class="item" href="../../categories/">Tags</a>
+                                <a class="item" href="../../archive.html">Archive</a>
+                        <a class="item" href="../../rss.xml"><i class="rss icon"></i>RSS</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </header><main id="main"><div id="main-content">
+<div class="listingpage page-body" itemscope="itemscope" itemtype="http://schema.org/Article">
+    <div class="ui breadcrumb list-title">
+                <a href="../" class="section">listings</a>
+                <div class="divider"> / </div>
+                <a href="." class="section">AutoIt3</a>
+                <div class="divider"> / </div>
+                <div class="section">
+                    mmate.au3
+                </div>
+    </div>
+
+        <p class="downloadlink">
+            <i class="download icon"></i><a href="mmate.au3">Download</a>
+        </p>
+        <div class="code"><table class="codetable">
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-1"><code data-line-number="  1"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-1"></a><span class="n">#NoTrayIcon</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-2"><code data-line-number="  2"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-2"></a><span class="nb">#Region</span> <span class="c1">;**** Directives created by AutoIt3Wrapper_GUI ****</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-3"><code data-line-number="  3"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-3"></a><span class="n">#AutoIt3Wrapper_Icon</span><span class="o">=</span><span class="n">mpv</span><span class="o">-</span><span class="n">icon</span><span class="o">.</span><span class="n">ico</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-4"><code data-line-number="  4"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-4"></a><span class="nb">#EndRegion</span> <span class="c1">;**** Directives created by AutoIt3Wrapper_GUI ****</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-5"><code data-line-number="  5"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-5"></a><span class="nb">#include</span> <span class="o">&lt;</span><span class="n">File</span><span class="o">.</span><span class="n">au3</span><span class="o">&gt;</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-6"><code data-line-number="  6"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-6"></a><span class="nb">#include</span> <span class="o">&lt;</span><span class="n">Array</span><span class="o">.</span><span class="n">au3</span><span class="o">&gt;</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-7"><code data-line-number="  7"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-7"></a><span class="nb">#include</span> <span class="o">&lt;</span><span class="n">NamedPipes</span><span class="o">.</span><span class="n">au3</span><span class="o">&gt;</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-8"><code data-line-number="  8"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-8"></a><span class="nb">#include</span> <span class="o">&lt;</span><span class="n">StaticConstants</span><span class="o">.</span><span class="n">au3</span><span class="o">&gt;</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-9"><code data-line-number="  9"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-9"></a><span class="nb">#include</span> <span class="o">&lt;</span><span class="n">WinAPI</span><span class="o">.</span><span class="n">au3</span><span class="o">&gt;</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-10"><code data-line-number=" 10"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-10"></a><span class="nb">#include</span> <span class="o">&lt;</span><span class="n">WindowsConstants</span><span class="o">.</span><span class="n">au3</span><span class="o">&gt;</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-11"><code data-line-number=" 11"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-11"></a><span class="nb">#include</span> <span class="o">&lt;</span><span class="n">GUIConstantsEx</span><span class="o">.</span><span class="n">au3</span><span class="o">&gt;</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-12"><code data-line-number=" 12"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-12"></a><span class="nb">#include</span> <span class="o">&lt;</span><span class="n">ButtonConstants</span><span class="o">.</span><span class="n">au3</span><span class="o">&gt;</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-13"><code data-line-number=" 13"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-13"></a><span class="nb">#include</span> <span class="o">&lt;</span><span class="n">GuiEdit</span><span class="o">.</span><span class="n">au3</span><span class="o">&gt;</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-14"><code data-line-number=" 14"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-14"></a><span class="nb">#include</span> <span class="o">&lt;</span><span class="n">TrayConstants</span><span class="o">.</span><span class="n">au3</span><span class="o">&gt;</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-15"><code data-line-number=" 15"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-15"></a><span class="nb">#include</span> <span class="o">&lt;</span><span class="n">EditConstants</span><span class="o">.</span><span class="n">au3</span><span class="o">&gt;</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-16"><code data-line-number=" 16"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-16"></a><span class="nb">#include</span> <span class="o">&lt;</span><span class="n">Misc</span><span class="o">.</span><span class="n">au3</span><span class="o">&gt;</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-17"><code data-line-number=" 17"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-17"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-18"><code data-line-number=" 18"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-18"></a><span class="nf">Opt</span><span class="p">(</span><span class="s">"TrayMenuMode"</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-19"><code data-line-number=" 19"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-19"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-20"><code data-line-number=" 20"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-20"></a><span class="nb">If</span> <span class="n">_Singleton</span><span class="p">(</span><span class="s">"mmate"</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">=</span> <span class="mi">0</span> <span class="nb">Then</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-21"><code data-line-number=" 21"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-21"></a>    <span class="nf">MsgBox</span><span class="p">(</span><span class="nv">$MB_ICONWARNING</span><span class="p">,</span> <span class="s">"Warning!"</span><span class="p">,</span> <span class="s">"An occurrence of mmate is already running."</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-22"><code data-line-number=" 22"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-22"></a>    <span class="nb">Exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-23"><code data-line-number=" 23"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-23"></a><span class="nb">EndIf</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-24"><code data-line-number=" 24"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-24"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-25"><code data-line-number=" 25"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-25"></a><span class="nb">Global</span> <span class="n">Const</span> <span class="nv">$PIPE_NAME</span> <span class="o">=</span> <span class="s">"\\.\\pipe\\mpvsocket"</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-26"><code data-line-number=" 26"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-26"></a><span class="nb">Global</span> <span class="n">Const</span> <span class="nv">$SESSION_PATH</span> <span class="o">=</span> <span class="nv">@TempDir</span> <span class="o">&amp;</span> '\<span class="n">mpv_session</span><span class="o">.</span><span class="n">conf</span>'
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-27"><code data-line-number=" 27"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-27"></a><span class="nb">Global</span> <span class="nv">$PLAY_LIST</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-28"><code data-line-number=" 28"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-28"></a><span class="nb">Global</span> <span class="nv">$COM_HISTORY</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-29"><code data-line-number=" 29"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-29"></a><span class="nb">Global</span> <span class="nv">$FIRST_PROCESS</span> <span class="o">=</span> <span class="n">True</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-30"><code data-line-number=" 30"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-30"></a><span class="nb">Global</span> <span class="nv">$PIPE_HANDLER</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-31"><code data-line-number=" 31"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-31"></a><span class="nb">Global</span> <span class="nv">$LAST_CLIP</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-32"><code data-line-number=" 32"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-32"></a><span class="nb">Global</span> <span class="nv">$LAST_URL</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-33"><code data-line-number=" 33"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-33"></a><span class="nb">Global</span> <span class="nv">$HOSTS</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-34"><code data-line-number=" 34"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-34"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-35"><code data-line-number=" 35"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-35"></a><span class="nb">Global</span> <span class="nv">$hGUI</span><span class="p">,</span> <span class="nv">$g_idEdit</span><span class="p">,</span> <span class="nv">$g_idMemo</span><span class="p">,</span> <span class="nv">$g_idSend</span><span class="p">,</span> <span class="nv">$g_idServer</span><span class="p">,</span> <span class="nv">$g_idConsole</span><span class="p">,</span> <span class="nv">$g_idExit</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-36"><code data-line-number=" 36"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-36"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-37"><code data-line-number=" 37"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-37"></a><span class="nv">$hGUI</span> <span class="o">=</span> <span class="nf">GUICreate</span><span class="p">(</span><span class="s">"mmate"</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="mi">400</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="nv">$WS_SIZEBOX</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-38"><code data-line-number=" 38"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-38"></a><span class="nf">GUICtrlCreateLabel</span><span class="p">(</span><span class="s">"Server:"</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">52</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="nv">$SS_RIGHT</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-39"><code data-line-number=" 39"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-39"></a><span class="nv">$g_idServer</span> <span class="o">=</span> <span class="nf">GUICtrlCreateEdit</span><span class="p">(</span><span class="nv">$PIPE_NAME</span><span class="p">,</span> <span class="mi">56</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="nv">$SS_LEFT</span> <span class="o">+</span> <span class="nv">$ES_READONLY</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-40"><code data-line-number=" 40"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-40"></a><span class="nf">GUICtrlCreateLabel</span><span class="p">(</span><span class="s">"Command:"</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">36</span><span class="p">,</span> <span class="mi">52</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="nv">$SS_RIGHT</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-41"><code data-line-number=" 41"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-41"></a><span class="nv">$g_idEdit</span> <span class="o">=</span> <span class="nf">GUICtrlCreateEdit</span><span class="p">(</span><span class="s">""</span><span class="p">,</span> <span class="mi">56</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">370</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="nv">$SS_LEFT</span> <span class="o">+</span> <span class="nv">$WS_HSCROLL</span> <span class="o">+</span> <span class="nv">$ES_AUTOHSCROLL</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-42"><code data-line-number=" 42"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-42"></a><span class="nv">$g_idSend</span> <span class="o">=</span> <span class="nf">GUICtrlCreateButton</span><span class="p">(</span><span class="s">"Send"</span><span class="p">,</span> <span class="mi">430</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="nv">$BS_DEFPUSHBUTTON</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-43"><code data-line-number=" 43"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-43"></a><span class="nv">$g_idMemo</span> <span class="o">=</span> <span class="nf">GUICtrlCreateEdit</span><span class="p">(</span><span class="s">""</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">62</span><span class="p">,</span> <span class="n">_WinAPI_GetClientWidth</span><span class="p">(</span><span class="nv">$hGUI</span><span class="p">),</span> <span class="mi">332</span><span class="p">,</span> <span class="nv">$WS_VSCROLL</span> <span class="o">+</span> <span class="nv">$WS_HSCROLL</span> <span class="o">+</span> <span class="nv">$ES_READONLY</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-44"><code data-line-number=" 44"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-44"></a><span class="nf">GUICtrlSetFont</span><span class="p">(</span><span class="nv">$g_idMemo</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">400</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s">"Courier New"</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-45"><code data-line-number=" 45"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-45"></a><span class="nb">Local</span> <span class="nv">$srHistory</span> <span class="o">=</span> <span class="nf">IniRead</span><span class="p">(</span><span class="nv">$SESSION_PATH</span><span class="p">,</span> <span class="s">"General"</span><span class="p">,</span> <span class="s">"History"</span><span class="p">,</span> <span class="s">""</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-46"><code data-line-number=" 46"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-46"></a><span class="nb">If</span> <span class="nv">$srHistory</span> <span class="o">&lt;&gt;</span> <span class="s">""</span> <span class="nb">Then</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-47"><code data-line-number=" 47"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-47"></a>    <span class="n">_ArrayAdd</span><span class="p">(</span><span class="nv">$COM_HISTORY</span><span class="p">,</span> <span class="nf">StringSplit</span><span class="p">(</span><span class="nv">$srHistory</span><span class="p">,</span> <span class="s">"|"</span><span class="p">,</span> <span class="nv">$STR_NOCOUNT</span><span class="p">))</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-48"><code data-line-number=" 48"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-48"></a>    <span class="nb">Local</span> <span class="nv">$sData</span> <span class="o">=</span> <span class="nf">StringReplace</span><span class="p">(</span><span class="nv">$srHistory</span><span class="p">,</span> <span class="s">"|"</span><span class="p">,</span> <span class="nv">@CRLF</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-49"><code data-line-number=" 49"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-49"></a>    <span class="n">_GUICtrlEdit_SetText</span><span class="p">(</span><span class="nv">$g_idMemo</span><span class="p">,</span> <span class="nv">$sData</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-50"><code data-line-number=" 50"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-50"></a><span class="nb">EndIf</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-51"><code data-line-number=" 51"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-51"></a><span class="nv">$g_idConsole</span> <span class="o">=</span> <span class="nf">TrayCreateItem</span><span class="p">(</span><span class="s">"Show Console"</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-52"><code data-line-number=" 52"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-52"></a><span class="nf">TrayCreateItem</span><span class="p">(</span><span class="s">""</span><span class="p">)</span> <span class="c1">; Create a separator line.</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-53"><code data-line-number=" 53"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-53"></a><span class="nv">$g_idExit</span> <span class="o">=</span> <span class="nf">TrayCreateItem</span><span class="p">(</span><span class="s">"Exit"</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-54"><code data-line-number=" 54"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-54"></a><span class="nf">TraySetState</span><span class="p">(</span><span class="nv">$TRAY_ICONSTATE_SHOW</span><span class="p">)</span> <span class="c1">; Show the tray menu.</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-55"><code data-line-number=" 55"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-55"></a><span class="nf">TraySetToolTip</span><span class="p">(</span><span class="s">"mmate"</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-56"><code data-line-number=" 56"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-56"></a><span class="c1">; TraySetClick(16)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-57"><code data-line-number=" 57"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-57"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-58"><code data-line-number=" 58"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-58"></a><span class="nv">$LAST_URL</span> <span class="o">=</span> <span class="nf">IniRead</span><span class="p">(</span><span class="nv">$SESSION_PATH</span><span class="p">,</span> <span class="s">"General"</span><span class="p">,</span> <span class="s">"URL"</span><span class="p">,</span> <span class="s">""</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-59"><code data-line-number=" 59"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-59"></a><span class="nv">$HOSTS</span> <span class="o">=</span> <span class="nf">IniRead</span><span class="p">(</span><span class="nv">$SESSION_PATH</span><span class="p">,</span> <span class="s">"General"</span><span class="p">,</span> <span class="s">"Hosts"</span><span class="p">,</span> <span class="s">""</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-60"><code data-line-number=" 60"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-60"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-61"><code data-line-number=" 61"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-61"></a><span class="nb">While</span> <span class="n">True</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-62"><code data-line-number=" 62"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-62"></a>    <span class="nb">Local</span> <span class="nv">$sClip</span><span class="p">,</span> <span class="nv">$sURL</span><span class="p">,</span> <span class="nv">$iPL</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-63"><code data-line-number=" 63"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-63"></a>    <span class="nv">$sClip</span> <span class="o">=</span> <span class="nf">ClipGet</span><span class="p">()</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-64"><code data-line-number=" 64"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-64"></a>    <span class="nb">If</span> <span class="nv">$sClip</span> <span class="o">&lt;&gt;</span> <span class="nv">$LAST_CLIP</span> <span class="nb">Then</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-65"><code data-line-number=" 65"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-65"></a>        <span class="nf">ConsoleWrite</span><span class="p">(</span>'<span class="n">@@</span> <span class="n">Debug</span><span class="p">(</span>' <span class="o">&amp;</span> <span class="nv">@ScriptLineNumber</span> <span class="o">&amp;</span> '<span class="p">)</span> <span class="o">:</span> <span class="nv">$LAST_CLIP</span> <span class="o">=</span> ' <span class="o">&amp;</span> <span class="nv">$LAST_CLIP</span> <span class="o">&amp;</span> <span class="nv">@CRLF</span> <span class="o">&amp;</span> '<span class="o">&gt;</span><span class="n">Error</span> <span class="n">code</span><span class="o">:</span> ' <span class="o">&amp;</span> <span class="nv">@error</span> <span class="o">&amp;</span> <span class="nv">@CRLF</span><span class="p">)</span> <span class="c1">;### Debug Console</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-66"><code data-line-number=" 66"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-66"></a>        <span class="nv">$LAST_CLIP</span> <span class="o">=</span> <span class="nv">$sClip</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-67"><code data-line-number=" 67"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-67"></a>        <span class="nv">$sURL</span> <span class="o">=</span> <span class="n">FilterString</span><span class="p">(</span><span class="nv">$sClip</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-68"><code data-line-number=" 68"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-68"></a>        <span class="nb">If</span> <span class="nv">$sURL</span> <span class="o">==</span> <span class="s">""</span> <span class="nb">Then</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-69"><code data-line-number=" 69"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-69"></a>            <span class="nb">If</span> <span class="nb">Not</span> <span class="n">_WinAPI_FileExists</span><span class="p">(</span><span class="nv">$PIPE_NAME</span><span class="p">)</span> <span class="nb">Then</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-70"><code data-line-number=" 70"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-70"></a>                <span class="nf">ConsoleWrite</span><span class="p">(</span>'<span class="n">@@</span> <span class="n">Debug</span><span class="p">(</span>' <span class="o">&amp;</span> <span class="nv">@ScriptLineNumber</span> <span class="o">&amp;</span> '<span class="p">)</span> <span class="o">:</span> <span class="n">_WinAPI_FileExists</span><span class="p">(</span><span class="nv">$PIPE_NAME</span><span class="p">)</span> <span class="o">=</span> ' <span class="o">&amp;</span> <span class="n">_WinAPI_FileExists</span><span class="p">(</span><span class="nv">$PIPE_NAME</span><span class="p">)</span> <span class="o">&amp;</span> <span class="nv">@CRLF</span> <span class="o">&amp;</span> '<span class="o">&gt;</span><span class="n">Error</span> <span class="n">code</span><span class="o">:</span> ' <span class="o">&amp;</span> <span class="nv">@error</span> <span class="o">&amp;</span> <span class="nv">@CRLF</span><span class="p">)</span> <span class="c1">;### Debug Console</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-71"><code data-line-number=" 71"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-71"></a>                <span class="nb">If</span> <span class="nv">$FIRST_PROCESS</span> <span class="nb">Then</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-72"><code data-line-number=" 72"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-72"></a>                    <span class="nb">If</span> <span class="nv">$LAST_URL</span> <span class="o">&lt;&gt;</span> <span class="s">""</span> <span class="nb">Then</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-73"><code data-line-number=" 73"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-73"></a>                        <span class="n">_ArrayAdd</span><span class="p">(</span><span class="nv">$PLAY_LIST</span><span class="p">,</span> <span class="nv">$LAST_URL</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-74"><code data-line-number=" 74"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-74"></a>                        <span class="nf">ConsoleWrite</span><span class="p">(</span>'<span class="n">@@</span> <span class="n">Debug</span><span class="p">(</span>' <span class="o">&amp;</span> <span class="nv">@ScriptLineNumber</span> <span class="o">&amp;</span> '<span class="p">)</span> <span class="o">:</span> <span class="nv">$PLAY_LIST</span> <span class="o">=</span> ' <span class="o">&amp;</span> <span class="nv">$PLAY_LIST</span> <span class="o">&amp;</span> <span class="nv">@CRLF</span> <span class="o">&amp;</span> '<span class="o">&gt;</span><span class="n">Error</span> <span class="n">code</span><span class="o">:</span> ' <span class="o">&amp;</span> <span class="nv">@error</span> <span class="o">&amp;</span> <span class="nv">@CRLF</span><span class="p">)</span> <span class="c1">;### Debug Console</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-75"><code data-line-number=" 75"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-75"></a>                        <span class="n">LaunchAndWrite</span><span class="p">(</span><span class="s">"loadfile "</span> <span class="o">&amp;</span> <span class="nv">$LAST_URL</span> <span class="o">&amp;</span> <span class="s">" append-play"</span> <span class="o">&amp;</span> <span class="nv">@CRLF</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-76"><code data-line-number=" 76"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-76"></a>                        <span class="nf">ConsoleWrite</span><span class="p">(</span>'<span class="n">@@</span> <span class="n">Debug</span><span class="p">(</span>' <span class="o">&amp;</span> <span class="nv">@ScriptLineNumber</span> <span class="o">&amp;</span> '<span class="p">)</span> <span class="o">:</span> <span class="n">LaunchAndWrite</span><span class="p">(</span><span class="s">"loadfile "</span> <span class="o">&amp;</span> <span class="nv">$LAST_URL</span> <span class="o">&amp;</span> <span class="s">" append-play"</span> <span class="o">&amp;</span> <span class="nv">@CRLF</span><span class="p">)</span> <span class="o">=</span> ' <span class="o">&amp;</span> <span class="n">LaunchAndWrite</span><span class="p">(</span><span class="s">"loadfile "</span> <span class="o">&amp;</span> <span class="nv">$LAST_URL</span> <span class="o">&amp;</span> <span class="s">" append-play"</span> <span class="o">&amp;</span> <span class="nv">@CRLF</span><span class="p">)</span> <span class="o">&amp;</span> <span class="nv">@CRLF</span> <span class="o">&amp;</span> '<span class="o">&gt;</span><span class="n">Error</span> <span class="n">code</span><span class="o">:</span> ' <span class="o">&amp;</span> <span class="nv">@error</span> <span class="o">&amp;</span> <span class="nv">@CRLF</span><span class="p">)</span> <span class="c1">;### Debug Console</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-77"><code data-line-number=" 77"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-77"></a>                    <span class="nb">EndIf</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-78"><code data-line-number=" 78"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-78"></a>                <span class="nb">EndIf</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-79"><code data-line-number=" 79"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-79"></a>            <span class="nb">EndIf</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-80"><code data-line-number=" 80"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-80"></a>        <span class="nb">Else</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-81"><code data-line-number=" 81"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-81"></a>            <span class="nb">If</span> <span class="n">_WinAPI_FileExists</span><span class="p">(</span><span class="nv">$PIPE_NAME</span><span class="p">)</span> <span class="nb">Then</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-82"><code data-line-number=" 82"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-82"></a>                <span class="nf">ConsoleWrite</span><span class="p">(</span>'<span class="n">@@</span> <span class="n">Debug</span><span class="p">(</span>' <span class="o">&amp;</span> <span class="nv">@ScriptLineNumber</span> <span class="o">&amp;</span> '<span class="p">)</span> <span class="o">:</span> <span class="n">_WinAPI_FileExists</span><span class="p">(</span><span class="nv">$PIPE_NAME</span><span class="p">)</span> <span class="o">=</span> ' <span class="o">&amp;</span> <span class="n">_WinAPI_FileExists</span><span class="p">(</span><span class="nv">$PIPE_NAME</span><span class="p">)</span> <span class="o">&amp;</span> <span class="nv">@CRLF</span> <span class="o">&amp;</span> '<span class="o">&gt;</span><span class="n">Error</span> <span class="n">code</span><span class="o">:</span> ' <span class="o">&amp;</span> <span class="nv">@error</span> <span class="o">&amp;</span> <span class="nv">@CRLF</span><span class="p">)</span> <span class="c1">;### Debug Console</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-83"><code data-line-number=" 83"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-83"></a>                <span class="nb">If</span> <span class="nv">$sURL</span> <span class="o">&lt;&gt;</span> <span class="nv">$LAST_URL</span> <span class="nb">Then</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-84"><code data-line-number=" 84"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-84"></a>                    <span class="nv">$iPL</span> <span class="o">=</span> <span class="n">_ArraySearch</span><span class="p">(</span><span class="nv">$PLAY_LIST</span><span class="p">,</span> <span class="nv">$sURL</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-85"><code data-line-number=" 85"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-85"></a>                    <span class="nb">If</span> <span class="nv">@error</span> <span class="nb">Then</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-86"><code data-line-number=" 86"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-86"></a>                        <span class="n">_ArrayAdd</span><span class="p">(</span><span class="nv">$PLAY_LIST</span><span class="p">,</span> <span class="nv">$sURL</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-87"><code data-line-number=" 87"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-87"></a>                        <span class="nf">IniWrite</span><span class="p">(</span><span class="nv">$SESSION_PATH</span><span class="p">,</span> <span class="s">"General"</span><span class="p">,</span> <span class="s">"URL"</span><span class="p">,</span> <span class="nv">$sURL</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-88"><code data-line-number=" 88"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-88"></a>                        <span class="n">WriteMsg</span><span class="p">(</span><span class="nv">$PIPE_NAME</span><span class="p">,</span> <span class="s">"loadfile "</span> <span class="o">&amp;</span> <span class="nv">$sURL</span> <span class="o">&amp;</span> <span class="s">" append-play"</span> <span class="o">&amp;</span> <span class="nv">@CRLF</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-89"><code data-line-number=" 89"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-89"></a>                    <span class="nb">EndIf</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-90"><code data-line-number=" 90"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-90"></a>                <span class="nb">EndIf</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-91"><code data-line-number=" 91"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-91"></a>            <span class="nb">Else</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-92"><code data-line-number=" 92"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-92"></a>                <span class="n">_ArrayDelete</span><span class="p">(</span><span class="nv">$PLAY_LIST</span><span class="p">,</span> <span class="s">"0-"</span> <span class="o">&amp;</span> <span class="p">(</span><span class="nf">UBound</span><span class="p">(</span><span class="nv">$PLAY_LIST</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-93"><code data-line-number=" 93"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-93"></a>                <span class="n">_ArrayAdd</span><span class="p">(</span><span class="nv">$PLAY_LIST</span><span class="p">,</span> <span class="nv">$sURL</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-94"><code data-line-number=" 94"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-94"></a>                <span class="nf">IniWrite</span><span class="p">(</span><span class="nv">$SESSION_PATH</span><span class="p">,</span> <span class="s">"General"</span><span class="p">,</span> <span class="s">"URL"</span><span class="p">,</span> <span class="nv">$sURL</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-95"><code data-line-number=" 95"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-95"></a>                <span class="n">LaunchAndWrite</span><span class="p">(</span><span class="s">"loadfile "</span> <span class="o">&amp;</span> <span class="nv">$sURL</span> <span class="o">&amp;</span> <span class="s">" append-play"</span> <span class="o">&amp;</span> <span class="nv">@CRLF</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-96"><code data-line-number=" 96"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-96"></a>            <span class="nb">EndIf</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-97"><code data-line-number=" 97"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-97"></a>        <span class="nb">EndIf</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-98"><code data-line-number=" 98"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-98"></a>    <span class="nb">EndIf</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-99"><code data-line-number=" 99"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-99"></a>    <span class="nv">$FIRST_PROCESS</span> <span class="o">=</span> <span class="n">False</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-100"><code data-line-number="100"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-100"></a>    <span class="n">Switch</span> <span class="nf">GUIGetMsg</span><span class="p">()</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-101"><code data-line-number="101"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-101"></a>        <span class="nb">Case</span> <span class="nv">$g_idSend</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-102"><code data-line-number="102"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-102"></a>            <span class="nb">Local</span> <span class="nv">$sMsg</span><span class="p">,</span> <span class="nv">$iHS</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-103"><code data-line-number="103"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-103"></a>            <span class="nv">$sMsg</span> <span class="o">=</span> <span class="nf">GUICtrlRead</span><span class="p">(</span><span class="nv">$g_idEdit</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-104"><code data-line-number="104"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-104"></a>            <span class="nb">If</span> <span class="nv">$sMsg</span> <span class="o">&lt;&gt;</span> <span class="s">""</span> <span class="nb">Then</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-105"><code data-line-number="105"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-105"></a>                <span class="nb">If</span> <span class="n">_WinAPI_FileExists</span><span class="p">(</span><span class="nv">$PIPE_NAME</span><span class="p">)</span> <span class="nb">Then</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-106"><code data-line-number="106"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-106"></a>                    <span class="n">WriteMsg</span><span class="p">(</span><span class="nv">$PIPE_NAME</span><span class="p">,</span> <span class="nv">$sMsg</span> <span class="o">&amp;</span> <span class="nv">@CRLF</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-107"><code data-line-number="107"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-107"></a>                <span class="nb">Else</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-108"><code data-line-number="108"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-108"></a>                    <span class="n">LaunchAndWrite</span><span class="p">(</span><span class="nv">$sMsg</span> <span class="o">&amp;</span> <span class="nv">@CRLF</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-109"><code data-line-number="109"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-109"></a>                <span class="nb">EndIf</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-110"><code data-line-number="110"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-110"></a>                <span class="nf">GUICtrlSetData</span><span class="p">(</span><span class="nv">$g_idEdit</span><span class="p">,</span> <span class="s">""</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-111"><code data-line-number="111"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-111"></a>                <span class="nv">$iHS</span> <span class="o">=</span> <span class="n">_ArraySearch</span><span class="p">(</span><span class="nv">$COM_HISTORY</span><span class="p">,</span> <span class="nv">$sMsg</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-112"><code data-line-number="112"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-112"></a>                <span class="nb">If</span> <span class="nv">@error</span> <span class="nb">Then</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-113"><code data-line-number="113"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-113"></a>                    <span class="n">_ArrayAdd</span><span class="p">(</span><span class="nv">$COM_HISTORY</span><span class="p">,</span> <span class="nv">$sMsg</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-114"><code data-line-number="114"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-114"></a>                    <span class="n">_GUICtrlEdit_InsertText</span><span class="p">(</span><span class="nv">$g_idMemo</span><span class="p">,</span> <span class="nv">$sMsg</span> <span class="o">&amp;</span> <span class="nv">@CRLF</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-115"><code data-line-number="115"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-115"></a>                <span class="nb">EndIf</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-116"><code data-line-number="116"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-116"></a>                <span class="nf">GUICtrlSetState</span><span class="p">(</span><span class="nv">$g_idEdit</span><span class="p">,</span> <span class="nv">$GUI_FOCUS</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-117"><code data-line-number="117"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-117"></a>            <span class="nb">EndIf</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-118"><code data-line-number="118"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-118"></a>        <span class="nb">Case</span> <span class="nv">$GUI_EVENT_CLOSE</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-119"><code data-line-number="119"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-119"></a>            <span class="nf">GUISetState</span><span class="p">(</span><span class="nv">@SW_HIDE</span><span class="p">,</span> <span class="nv">$hGUI</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-120"><code data-line-number="120"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-120"></a>    <span class="n">EndSwitch</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-121"><code data-line-number="121"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-121"></a>    <span class="n">Switch</span> <span class="nf">TrayGetMsg</span><span class="p">()</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-122"><code data-line-number="122"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-122"></a>        <span class="nb">Case</span> <span class="nv">$g_idConsole</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-123"><code data-line-number="123"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-123"></a>            <span class="nf">GUISetState</span><span class="p">(</span><span class="nv">@SW_SHOW</span><span class="p">,</span> <span class="nv">$hGUI</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-124"><code data-line-number="124"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-124"></a>            <span class="nf">GUICtrlSetState</span><span class="p">(</span><span class="nv">$g_idEdit</span><span class="p">,</span> <span class="nv">$GUI_FOCUS</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-125"><code data-line-number="125"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-125"></a>        <span class="nb">Case</span> <span class="nv">$g_idExit</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-126"><code data-line-number="126"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-126"></a>            <span class="nb">Local</span> <span class="nv">$swHistory</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-127"><code data-line-number="127"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-127"></a>            <span class="nb">If</span> <span class="nv">$PIPE_HANDLER</span> <span class="nb">Then</span> <span class="n">_WinAPI_CloseHandle</span><span class="p">(</span><span class="nv">$PIPE_HANDLER</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-128"><code data-line-number="128"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-128"></a>            <span class="n">_ArrayDelete</span><span class="p">(</span><span class="nv">$COM_HISTORY</span><span class="p">,</span> <span class="s">"200-"</span> <span class="o">&amp;</span> <span class="p">(</span><span class="nf">UBound</span><span class="p">(</span><span class="nv">$COM_HISTORY</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-129"><code data-line-number="129"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-129"></a>            <span class="nv">$swHistory</span> <span class="o">=</span> <span class="n">_ArrayToString</span><span class="p">(</span><span class="nv">$COM_HISTORY</span><span class="p">,</span> <span class="s">"|"</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-130"><code data-line-number="130"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-130"></a>            <span class="nf">IniWrite</span><span class="p">(</span><span class="nv">$SESSION_PATH</span><span class="p">,</span> <span class="s">"General"</span><span class="p">,</span> <span class="s">"History"</span><span class="p">,</span> <span class="nv">$swHistory</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-131"><code data-line-number="131"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-131"></a>            <span class="nb">Exit</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-132"><code data-line-number="132"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-132"></a>    <span class="n">EndSwitch</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-133"><code data-line-number="133"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-133"></a><span class="nb">WEnd</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-134"><code data-line-number="134"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-134"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-135"><code data-line-number="135"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-135"></a><span class="nb">Func</span> <span class="n">FilterString</span><span class="p">(</span><span class="nv">$sString</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-136"><code data-line-number="136"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-136"></a>    <span class="nb">Local</span> <span class="nv">$iStrip</span><span class="p">,</span> <span class="nv">$iPattern</span><span class="p">,</span> <span class="nv">$aArray</span><span class="p">,</span> <span class="nv">$iURL</span><span class="p">,</span> <span class="nv">$aITEM</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-137"><code data-line-number="137"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-137"></a>    <span class="nv">$iStrip</span> <span class="o">=</span> <span class="nf">StringStripWS</span><span class="p">(</span><span class="nv">$sString</span><span class="p">,</span> <span class="nv">$STR_STRIPLEADING</span> <span class="o">+</span> <span class="nv">$STR_STRIPTRAILING</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-138"><code data-line-number="138"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-138"></a>    <span class="nv">$iPattern</span> <span class="o">=</span> <span class="s">"^((?:ht|f)tps?)\:\/\/([0-9a-zA-Z](?:[-.\w]*[0-9a-zA-Z])*)(?::([0-9]+))*\/?([a-zA-Z0-9\-\.\?\,\'\/\\\+\$\*=&amp;%#_]*)?$"</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-139"><code data-line-number="139"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-139"></a>    <span class="nv">$aArray</span> <span class="o">=</span> <span class="nf">StringRegExp</span><span class="p">(</span><span class="nv">$iStrip</span><span class="p">,</span> <span class="nv">$iPattern</span><span class="p">,</span> <span class="nv">$STR_REGEXPARRAYFULLMATCH</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-140"><code data-line-number="140"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-140"></a>    <span class="nb">If</span> <span class="nf">UBound</span><span class="p">(</span><span class="nv">$aArray</span><span class="p">)</span> <span class="o">==</span> <span class="mi">5</span> <span class="nb">Then</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-141"><code data-line-number="141"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-141"></a>        <span class="nb">If</span> <span class="n">_IsPressed</span><span class="p">(</span><span class="s">"10"</span><span class="p">)</span> <span class="nb">Then</span> <span class="nv">$iURL</span> <span class="o">=</span> <span class="nv">$aArray</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="c1">; Hold Shift key to directly pass this URL to mpv</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-142"><code data-line-number="142"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-142"></a>        <span class="nb">If</span> <span class="nf">StringRight</span><span class="p">(</span><span class="nv">$aArray</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">5</span><span class="p">)</span> <span class="o">==</span> <span class="s">".m3u8"</span> <span class="nb">Then</span> <span class="nv">$iURL</span> <span class="o">=</span> <span class="nv">$aArray</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-143"><code data-line-number="143"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-143"></a>        <span class="nb">If</span> <span class="nv">$HOSTS</span> <span class="o">&lt;&gt;</span> <span class="s">""</span> <span class="nb">Then</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-144"><code data-line-number="144"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-144"></a>            <span class="nv">$aITEM</span> <span class="o">=</span> <span class="nf">StringSplit</span><span class="p">(</span><span class="nv">$HOSTS</span><span class="p">,</span> <span class="s">"|"</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-145"><code data-line-number="145"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-145"></a>            <span class="nb">For</span> <span class="nv">$i</span> <span class="o">=</span> <span class="mi">1</span> <span class="nb">To</span> <span class="nv">$aITEM</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-146"><code data-line-number="146"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-146"></a>                <span class="nb">If</span> <span class="nf">StringInStr</span><span class="p">(</span><span class="nv">$aArray</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="nv">$aITEM</span><span class="p">[</span><span class="nv">$i</span><span class="p">])</span> <span class="o">&lt;&gt;</span> <span class="mi">0</span> <span class="nb">Then</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-147"><code data-line-number="147"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-147"></a>                    <span class="nv">$iURL</span> <span class="o">=</span> <span class="nv">$aArray</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-148"><code data-line-number="148"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-148"></a>                    <span class="nb">ExitLoop</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-149"><code data-line-number="149"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-149"></a>                <span class="nb">EndIf</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-150"><code data-line-number="150"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-150"></a>            <span class="nb">Next</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-151"><code data-line-number="151"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-151"></a>        <span class="nb">EndIf</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-152"><code data-line-number="152"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-152"></a>    <span class="nb">EndIf</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-153"><code data-line-number="153"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-153"></a>    <span class="nb">Return</span> <span class="nv">$iURL</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-154"><code data-line-number="154"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-154"></a><span class="nb">EndFunc</span>   <span class="c1">;==&gt;FilterString</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-155"><code data-line-number="155"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-155"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-156"><code data-line-number="156"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-156"></a><span class="nb">Func</span> <span class="n">LaunchAndWrite</span><span class="p">(</span><span class="nv">$sMessage</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-157"><code data-line-number="157"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-157"></a>    <span class="nv">$iPid</span> <span class="o">=</span> <span class="nf">Run</span><span class="p">(</span><span class="s">"mpv --input-ipc-server=mpvsocket --idle"</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-158"><code data-line-number="158"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-158"></a>    <span class="nb">If</span> <span class="nv">$iPid</span> <span class="nb">Then</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-159"><code data-line-number="159"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-159"></a>        <span class="nb">For</span> <span class="nv">$i</span> <span class="o">=</span> <span class="mi">5</span> <span class="nb">To</span> <span class="mi">1</span> <span class="nb">Step</span> <span class="o">-</span><span class="mi">1</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-160"><code data-line-number="160"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-160"></a>            <span class="nb">If</span> <span class="n">WriteMsg</span><span class="p">(</span><span class="nv">$PIPE_NAME</span><span class="p">,</span> <span class="nv">$sMessage</span><span class="p">)</span> <span class="nb">Then</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-161"><code data-line-number="161"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-161"></a>                <span class="nb">Return</span> <span class="n">True</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-162"><code data-line-number="162"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-162"></a>            <span class="nb">EndIf</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-163"><code data-line-number="163"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-163"></a>            <span class="nf">Sleep</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-164"><code data-line-number="164"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-164"></a>        <span class="nb">Next</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-165"><code data-line-number="165"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-165"></a>    <span class="nb">Else</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-166"><code data-line-number="166"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-166"></a>        <span class="nf">TrayTip</span><span class="p">(</span><span class="s">"Can't launch mpv!"</span><span class="p">,</span> <span class="s">"Please check your mpv path."</span> <span class="o">&amp;</span> <span class="nv">@CRLF</span> <span class="o">&amp;</span> <span class="s">"mmate will exit now."</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-167"><code data-line-number="167"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-167"></a>        <span class="nb">Exit</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-168"><code data-line-number="168"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-168"></a>    <span class="nb">EndIf</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-169"><code data-line-number="169"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-169"></a>    <span class="nb">Return</span> <span class="n">False</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-170"><code data-line-number="170"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-170"></a><span class="nb">EndFunc</span>   <span class="c1">;==&gt;LaunchAndWrite</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-171"><code data-line-number="171"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-171"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-172"><code data-line-number="172"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-172"></a><span class="nb">Func</span> <span class="n">WriteMsg</span><span class="p">(</span><span class="nv">$sServer</span><span class="p">,</span> <span class="nv">$sMessage</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-173"><code data-line-number="173"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-173"></a>    <span class="nb">Local</span> <span class="nv">$iWritten</span><span class="p">,</span> <span class="nv">$iBuffer</span><span class="p">,</span> <span class="nv">$pBuffer</span><span class="p">,</span> <span class="nv">$tBuffer</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-174"><code data-line-number="174"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-174"></a>    <span class="nb">If</span> <span class="nb">Not</span> <span class="nv">$PIPE_HANDLER</span> <span class="nb">Then</span> <span class="n">GetPipeHandler</span><span class="p">(</span><span class="nv">$sServer</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-175"><code data-line-number="175"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-175"></a>    <span class="nf">ConsoleWrite</span><span class="p">(</span>'<span class="n">@@</span> <span class="n">Debug</span><span class="p">(</span>' <span class="o">&amp;</span> <span class="nv">@ScriptLineNumber</span> <span class="o">&amp;</span> '<span class="p">)</span> <span class="o">:</span> <span class="nv">$PIPE_HANDLER</span> <span class="o">=</span> ' <span class="o">&amp;</span> <span class="nv">$PIPE_HANDLER</span> <span class="o">&amp;</span> <span class="nv">@CRLF</span> <span class="o">&amp;</span> '<span class="o">&gt;</span><span class="n">Error</span> <span class="n">code</span><span class="o">:</span> ' <span class="o">&amp;</span> <span class="nv">@error</span> <span class="o">&amp;</span> <span class="nv">@CRLF</span><span class="p">)</span> <span class="c1">;### Debug Console</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-176"><code data-line-number="176"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-176"></a>    <span class="nb">If</span> <span class="nv">$PIPE_HANDLER</span> <span class="nb">Then</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-177"><code data-line-number="177"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-177"></a>        <span class="nv">$iBuffer</span> <span class="o">=</span> <span class="nf">StringLen</span><span class="p">(</span><span class="nv">$sMessage</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-178"><code data-line-number="178"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-178"></a>        <span class="nv">$tBuffer</span> <span class="o">=</span> <span class="nf">DllStructCreate</span><span class="p">(</span><span class="s">"char Text["</span> <span class="o">&amp;</span> <span class="nv">$iBuffer</span> <span class="o">&amp;</span> <span class="s">"]"</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-179"><code data-line-number="179"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-179"></a>        <span class="nv">$pBuffer</span> <span class="o">=</span> <span class="nf">DllStructGetPtr</span><span class="p">(</span><span class="nv">$tBuffer</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-180"><code data-line-number="180"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-180"></a>        <span class="nf">DllStructSetData</span><span class="p">(</span><span class="nv">$tBuffer</span><span class="p">,</span> <span class="s">"Text"</span><span class="p">,</span> <span class="nv">$sMessage</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-181"><code data-line-number="181"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-181"></a>        <span class="nb">If</span> <span class="n">_WinAPI_WriteFile</span><span class="p">(</span><span class="nv">$PIPE_HANDLER</span><span class="p">,</span> <span class="nv">$pBuffer</span><span class="p">,</span> <span class="nv">$iBuffer</span><span class="p">,</span> <span class="nv">$iWritten</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="nb">Then</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-182"><code data-line-number="182"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-182"></a>            <span class="nf">ConsoleWrite</span><span class="p">(</span>'<span class="n">@@</span> <span class="n">Debug</span><span class="p">(</span>' <span class="o">&amp;</span> <span class="nv">@ScriptLineNumber</span> <span class="o">&amp;</span> '<span class="p">)</span> <span class="o">:</span> <span class="n">_WinAPI_WriteFile</span><span class="p">(</span><span class="nv">$PIPE_HANDLER</span><span class="p">,</span> <span class="nv">$pBuffer</span><span class="p">,</span> <span class="nv">$iBuffer</span><span class="p">,</span> <span class="nv">$iWritten</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">=</span> ' <span class="o">&amp;</span> <span class="n">_WinAPI_WriteFile</span><span class="p">(</span><span class="nv">$PIPE_HANDLER</span><span class="p">,</span> <span class="nv">$pBuffer</span><span class="p">,</span> <span class="nv">$iBuffer</span><span class="p">,</span> <span class="nv">$iWritten</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">&amp;</span> <span class="nv">@CRLF</span> <span class="o">&amp;</span> '<span class="o">&gt;</span><span class="n">Error</span> <span class="n">code</span><span class="o">:</span> ' <span class="o">&amp;</span> <span class="nv">@error</span> <span class="o">&amp;</span> <span class="nv">@CRLF</span><span class="p">)</span> <span class="c1">;### Debug Console</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-183"><code data-line-number="183"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-183"></a>            <span class="n">_WinAPI_CloseHandle</span><span class="p">(</span><span class="nv">$PIPE_HANDLER</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-184"><code data-line-number="184"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-184"></a>            <span class="nv">$PIPE_HANDLER</span> <span class="o">=</span> <span class="n">False</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-185"><code data-line-number="185"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-185"></a>            <span class="nb">Return</span> <span class="n">True</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-186"><code data-line-number="186"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-186"></a>        <span class="nb">EndIf</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-187"><code data-line-number="187"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-187"></a>    <span class="nb">EndIf</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-188"><code data-line-number="188"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-188"></a>    <span class="nb">Return</span> <span class="n">False</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-189"><code data-line-number="189"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-189"></a><span class="nb">EndFunc</span>   <span class="c1">;==&gt;WriteMsg</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-190"><code data-line-number="190"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-190"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-191"><code data-line-number="191"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-191"></a><span class="nb">Func</span> <span class="n">GetPipeHandler</span><span class="p">(</span><span class="nv">$sServer</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-192"><code data-line-number="192"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-192"></a>    <span class="nb">Local</span> <span class="nv">$hPipe</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-193"><code data-line-number="193"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-193"></a>    <span class="nb">For</span> <span class="nv">$i</span> <span class="o">=</span> <span class="mi">5</span> <span class="nb">To</span> <span class="mi">1</span> <span class="nb">Step</span> <span class="o">-</span><span class="mi">1</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-194"><code data-line-number="194"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-194"></a>        <span class="nv">$hPipe</span> <span class="o">=</span> <span class="n">_WinAPI_CreateFile</span><span class="p">(</span><span class="nv">$sServer</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-195"><code data-line-number="195"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-195"></a>        <span class="nb">If</span> <span class="nv">$hPipe</span> <span class="nb">Then</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-196"><code data-line-number="196"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-196"></a>            <span class="nv">$PIPE_HANDLER</span> <span class="o">=</span> <span class="nv">$hPipe</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-197"><code data-line-number="197"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-197"></a>            <span class="nb">Return</span> <span class="n">True</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-198"><code data-line-number="198"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-198"></a>        <span class="nb">EndIf</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-199"><code data-line-number="199"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-199"></a>        <span class="nf">Sleep</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-200"><code data-line-number="200"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-200"></a>    <span class="nb">Next</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-201"><code data-line-number="201"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-201"></a>    <span class="nb">Return</span> <span class="n">False</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsautoit3mmateau3-202"><code data-line-number="202"></code></a></td>
+<td class="code"><code><a name="listingsautoit3mmateau3-202"></a><span class="nb">EndFunc</span>   <span class="c1">;==&gt;GetPipeHandler</span>
+</code></td>
+</tr>
+</table></div>
+</div>
+                    </div>
+                </main><div class="footer extra-block no-print">
+    <span class="footer_item">
+        <a href="../../pages/you-qing-lian-jie/">友情链接</a>
+    </span>
+    <span class="footer_item">
+        <a href="../../pages/liu-yan-ban/">留言板</a>
+    </span>
+    <span class="footer_item">
+        <a href="../../pages/ge-ren-dong-tai/">碎碎念</a>
+    </span>
+    </div>
+            <div class="footer social-link no-print">
+            <a href="https://github.com/ashfinal" target="_blank"><i class="grey large github icon"></i></a>
+            <a href="http://weibo.com/ashfinal/" target="_blank"><i class="grey large weibo icon"></i></a>
+            <a href="mailto://ashfinal@sina.cn" target="_blank"><i class="grey large mail icon"></i></a>
+            </div>
+        <div class="ui basic center aligned segment no-print">Contents © 2020         <a href="mailto:ashfinal@sina.cn">ashfinal</a> - Powered by         <a href="https://getnikola.com" target="_blank" rel="nofollow">Nikola</a>         </div>
+
+            </div>
+            <div class="computer only three wide column no-print">
+                <div id="right-side">
+                </div>
+            </div>
+        </div>
+
+        <!-- GoStats JavaScript Based Code -->
+        <script type="text/javascript">(function(c,o,m,p,u,t,e){
+        c['GoStatsObject']=u;c[u]=c[u]||function(){(c[u].q=c[u].q||[]).push(arguments)},
+        c[u].l=1*new Date();t=o.createElement(m);t.async=1;t.src=p;
+        e=o.getElementsByTagName(m)[0];e.parentNode.insertBefore(t,e);
+        })(window,document,'script','//www.gostats.org/5.js','go');
+        go('init',100479892,{'img_counter_type':5,'img_image_type':1});go('send');</script><!-- End GoStats JavaScript Based Code --><script type="text/javascript" src="../../assets/js/jquery-3.3.1.min.js"></script><script type="text/javascript" src="../../assets/js/semantic.min.js"></script><script type="text/javascript" src="../../assets/js/jquery.fancybox.min.js"></script><script type="text/javascript" src="../../assets/js/cookie.min.js"></script><script>
+            $(document).ready(function(){
+                $(".ui.dropdown").dropdown();
+                $('.ui.accordion').accordion();
+                var newstr = $('.cookie.nag').text();
+                $('.cookie.nag').nag({
+                    key: 'globalnotice',
+                    value: newstr
+                  });
+                $('.image-reference').fancybox();
+            });
+        </script>
+</body>
+</html>

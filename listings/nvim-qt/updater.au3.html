@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="zh_cn">
+<head>
+<meta charset="utf-8">
+<meta name="description" content="updater.au3">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="generator" content="Nikola (getnikola.com)">
+<title>updater.au3 - MacPlay</title>
+<link rel="apple-touch-icon" sizes="180x180" href="../../apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+<link rel="mask-icon" href="../../safari-pinned-tab.svg" color="#5bbad5">
+<link href="../../assets/css/semantic.min.css" rel="stylesheet" type="text/css">
+<link href="../../assets/css/jquery.fancybox.min.css" rel="stylesheet" type="text/css">
+<link href="../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<link rel="canonical" href="https://macplay.github.io/listings/nvim-qt/updater.au3.html">
+</head>
+<body>
+        <div class="ui grid">
+            <div class="computer only three wide column no-print">
+                <div id="left-side">
+                </div>
+            </div>
+            <div class="ten wide computer sixteen wide tablet sixteen wide mobile column">
+                        <div class="ui inline cookie nag no-print">
+            <span class="title">从现在开始，支持中英双语及博文精选 O(∩_∩)O~~</span>
+            <i class="close icon"></i>
+        </div>
+    <header id="header" class="no-print"><div class="ui grid">
+        <div class="computer only tablet only sixteen wide column">
+            <div class="ui large secondary stackable menu">
+                <a class="header item brand-logo" href="https://macplay.github.io/">
+                    MacPlay
+                </a>
+                        <a class="item" href="../../">Posts</a>
+                        <a class="item" href="../">Code</a>
+                        <a class="item" href="../../galleries/">Gallery</a>
+                        <a class="item" href="../../categories/">Tags</a>
+                        <a class="item" href="../../archive.html">Archive</a>
+                <div class="right menu">
+                    <a class="item" href="../../rss.xml"><i class="rss icon"></i>RSS</a>
+                </div>
+            </div>
+        </div>
+        <div class="mobile only sixteen wide column">
+            <div class="ui fluid accordion vertical menu">
+                <div class="item">
+                    <a class="title">MacPlay</a>
+                    <div class="content">
+                                <a class="item" href="../../">Posts</a>
+                                <a class="item" href="../">Code</a>
+                                <a class="item" href="../../galleries/">Gallery</a>
+                                <a class="item" href="../../categories/">Tags</a>
+                                <a class="item" href="../../archive.html">Archive</a>
+                        <a class="item" href="../../rss.xml"><i class="rss icon"></i>RSS</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </header><main id="main"><div id="main-content">
+<div class="listingpage page-body" itemscope="itemscope" itemtype="http://schema.org/Article">
+    <div class="ui breadcrumb list-title">
+                <a href="../" class="section">listings</a>
+                <div class="divider"> / </div>
+                <a href="." class="section">nvim-qt</a>
+                <div class="divider"> / </div>
+                <div class="section">
+                    updater.au3
+                </div>
+    </div>
+
+        <p class="downloadlink">
+            <i class="download icon"></i><a href="updater.au3">Download</a>
+        </p>
+        <div class="code"><table class="codetable">
+<tr>
+<td class="linenos linenodiv"><a href="#listingsnvim-qtupdaterau3-1"><code data-line-number=" 1"></code></a></td>
+<td class="code"><code><a name="listingsnvim-qtupdaterau3-1"></a><span class="c1">; Download nvim-win32.zip(NVIM nightly on Windows) from GitHub and extract it to designed directory, so I don't have to do it manually :)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsnvim-qtupdaterau3-2"><code data-line-number=" 2"></code></a></td>
+<td class="code"><code><a name="listingsnvim-qtupdaterau3-2"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsnvim-qtupdaterau3-3"><code data-line-number=" 3"></code></a></td>
+<td class="code"><code><a name="listingsnvim-qtupdaterau3-3"></a><span class="nb">#include</span> <span class="o">&lt;</span><span class="n">AutoItConstants</span><span class="o">.</span><span class="n">au3</span><span class="o">&gt;</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsnvim-qtupdaterau3-4"><code data-line-number=" 4"></code></a></td>
+<td class="code"><code><a name="listingsnvim-qtupdaterau3-4"></a><span class="nb">#include</span> <span class="o">&lt;</span><span class="n">InetConstants</span><span class="o">.</span><span class="n">au3</span><span class="o">&gt;</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsnvim-qtupdaterau3-5"><code data-line-number=" 5"></code></a></td>
+<td class="code"><code><a name="listingsnvim-qtupdaterau3-5"></a><span class="nb">#include</span> <span class="o">&lt;</span><span class="n">MsgBoxConstants</span><span class="o">.</span><span class="n">au3</span><span class="o">&gt;</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsnvim-qtupdaterau3-6"><code data-line-number=" 6"></code></a></td>
+<td class="code"><code><a name="listingsnvim-qtupdaterau3-6"></a><span class="nb">#include</span> <span class="o">&lt;</span><span class="n">WinAPIFiles</span><span class="o">.</span><span class="n">au3</span><span class="o">&gt;</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsnvim-qtupdaterau3-7"><code data-line-number=" 7"></code></a></td>
+<td class="code"><code><a name="listingsnvim-qtupdaterau3-7"></a><span class="nb">#include</span> <span class="o">&lt;</span><span class="n">TrayConstants</span><span class="o">.</span><span class="n">au3</span><span class="o">&gt;</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsnvim-qtupdaterau3-8"><code data-line-number=" 8"></code></a></td>
+<td class="code"><code><a name="listingsnvim-qtupdaterau3-8"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsnvim-qtupdaterau3-9"><code data-line-number=" 9"></code></a></td>
+<td class="code"><code><a name="listingsnvim-qtupdaterau3-9"></a><span class="nf">Opt</span><span class="p">(</span><span class="s">"TrayAutoPause"</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsnvim-qtupdaterau3-10"><code data-line-number="10"></code></a></td>
+<td class="code"><code><a name="listingsnvim-qtupdaterau3-10"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsnvim-qtupdaterau3-11"><code data-line-number="11"></code></a></td>
+<td class="code"><code><a name="listingsnvim-qtupdaterau3-11"></a><span class="nf">TraySetState</span><span class="p">(</span><span class="nv">$TRAY_ICONSTATE_SHOW</span><span class="p">)</span> <span class="c1">; Show the tray menu.</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsnvim-qtupdaterau3-12"><code data-line-number="12"></code></a></td>
+<td class="code"><code><a name="listingsnvim-qtupdaterau3-12"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsnvim-qtupdaterau3-13"><code data-line-number="13"></code></a></td>
+<td class="code"><code><a name="listingsnvim-qtupdaterau3-13"></a><span class="c1">; Download a file in the background.</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsnvim-qtupdaterau3-14"><code data-line-number="14"></code></a></td>
+<td class="code"><code><a name="listingsnvim-qtupdaterau3-14"></a><span class="c1">; Wait for the download to complete.</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsnvim-qtupdaterau3-15"><code data-line-number="15"></code></a></td>
+<td class="code"><code><a name="listingsnvim-qtupdaterau3-15"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsnvim-qtupdaterau3-16"><code data-line-number="16"></code></a></td>
+<td class="code"><code><a name="listingsnvim-qtupdaterau3-16"></a><span class="c1">; Save the downloaded file to the temporary folder.</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsnvim-qtupdaterau3-17"><code data-line-number="17"></code></a></td>
+<td class="code"><code><a name="listingsnvim-qtupdaterau3-17"></a><span class="nb">Local</span> <span class="nv">$sFilePath</span> <span class="o">=</span> <span class="n">_WinAPI_GetTempFileName</span><span class="p">(</span><span class="nv">@TempDir</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsnvim-qtupdaterau3-18"><code data-line-number="18"></code></a></td>
+<td class="code"><code><a name="listingsnvim-qtupdaterau3-18"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsnvim-qtupdaterau3-19"><code data-line-number="19"></code></a></td>
+<td class="code"><code><a name="listingsnvim-qtupdaterau3-19"></a><span class="c1">; Download the file in the background with the selected option of 'force a reload from the remote site.'</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsnvim-qtupdaterau3-20"><code data-line-number="20"></code></a></td>
+<td class="code"><code><a name="listingsnvim-qtupdaterau3-20"></a><span class="nb">Local</span> <span class="nv">$hDownload</span> <span class="o">=</span> <span class="nf">InetGet</span><span class="p">(</span><span class="s">"https://github.com/neovim/neovim/releases/download/nightly/nvim-win32.zip"</span><span class="p">,</span> <span class="nv">$sFilePath</span><span class="p">,</span> <span class="nv">$INET_FORCERELOAD</span><span class="p">,</span> <span class="nv">$INET_DOWNLOADBACKGROUND</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsnvim-qtupdaterau3-21"><code data-line-number="21"></code></a></td>
+<td class="code"><code><a name="listingsnvim-qtupdaterau3-21"></a><span class="c1">; Wait for the download to complete by monitoring when the 2nd index value of InetGetInfo returns True.</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsnvim-qtupdaterau3-22"><code data-line-number="22"></code></a></td>
+<td class="code"><code><a name="listingsnvim-qtupdaterau3-22"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsnvim-qtupdaterau3-23"><code data-line-number="23"></code></a></td>
+<td class="code"><code><a name="listingsnvim-qtupdaterau3-23"></a><span class="nb">Do</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsnvim-qtupdaterau3-24"><code data-line-number="24"></code></a></td>
+<td class="code"><code><a name="listingsnvim-qtupdaterau3-24"></a>    <span class="nf">Sleep</span><span class="p">(</span><span class="mi">250</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsnvim-qtupdaterau3-25"><code data-line-number="25"></code></a></td>
+<td class="code"><code><a name="listingsnvim-qtupdaterau3-25"></a>    <span class="c1">; Retrieve details about the download files</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsnvim-qtupdaterau3-26"><code data-line-number="26"></code></a></td>
+<td class="code"><code><a name="listingsnvim-qtupdaterau3-26"></a>    <span class="nb">Local</span> <span class="nv">$aData</span> <span class="o">=</span> <span class="nf">InetGetInfo</span><span class="p">(</span><span class="nv">$hDownload</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsnvim-qtupdaterau3-27"><code data-line-number="27"></code></a></td>
+<td class="code"><code><a name="listingsnvim-qtupdaterau3-27"></a>    <span class="nb">Local</span> <span class="nv">$rSize</span> <span class="o">=</span> <span class="nf">StringFormat</span><span class="p">(</span><span class="s">"%.2fMB"</span><span class="p">,</span> <span class="nv">$aData</span><span class="p">[</span><span class="nv">$INET_DOWNLOADREAD</span><span class="p">]</span><span class="o">/</span><span class="mi">1024</span><span class="o">/</span><span class="mi">1024</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsnvim-qtupdaterau3-28"><code data-line-number="28"></code></a></td>
+<td class="code"><code><a name="listingsnvim-qtupdaterau3-28"></a>    <span class="nb">Local</span> <span class="nv">$fSize</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsnvim-qtupdaterau3-29"><code data-line-number="29"></code></a></td>
+<td class="code"><code><a name="listingsnvim-qtupdaterau3-29"></a>    <span class="nb">Local</span> <span class="nv">$aPercent</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsnvim-qtupdaterau3-30"><code data-line-number="30"></code></a></td>
+<td class="code"><code><a name="listingsnvim-qtupdaterau3-30"></a>    <span class="nb">If</span> <span class="nv">$aData</span><span class="p">[</span><span class="nv">$INET_DOWNLOADSIZE</span><span class="p">]</span> <span class="o">&lt;&gt;</span> <span class="mi">0</span> <span class="nb">Then</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsnvim-qtupdaterau3-31"><code data-line-number="31"></code></a></td>
+<td class="code"><code><a name="listingsnvim-qtupdaterau3-31"></a>        <span class="nv">$fSize</span> <span class="o">=</span> <span class="nf">StringFormat</span><span class="p">(</span><span class="s">"%.2fMB"</span><span class="p">,</span> <span class="nv">$aData</span><span class="p">[</span><span class="nv">$INET_DOWNLOADSIZE</span><span class="p">]</span><span class="o">/</span><span class="mi">1024</span><span class="o">/</span><span class="mi">1024</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsnvim-qtupdaterau3-32"><code data-line-number="32"></code></a></td>
+<td class="code"><code><a name="listingsnvim-qtupdaterau3-32"></a>        <span class="nv">$aPercent</span> <span class="o">=</span> <span class="nf">StringFormat</span><span class="p">(</span><span class="s">"%.2f%"</span><span class="p">,</span> <span class="nv">$aData</span><span class="p">[</span><span class="nv">$INET_DOWNLOADREAD</span><span class="p">]</span><span class="o">/</span><span class="nv">$aData</span><span class="p">[</span><span class="nv">$INET_DOWNLOADSIZE</span><span class="p">]</span><span class="o">*</span><span class="mi">100</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsnvim-qtupdaterau3-33"><code data-line-number="33"></code></a></td>
+<td class="code"><code><a name="listingsnvim-qtupdaterau3-33"></a>    <span class="nb">Else</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsnvim-qtupdaterau3-34"><code data-line-number="34"></code></a></td>
+<td class="code"><code><a name="listingsnvim-qtupdaterau3-34"></a>        <span class="nv">$fSize</span> <span class="o">=</span> <span class="s">"?"</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsnvim-qtupdaterau3-35"><code data-line-number="35"></code></a></td>
+<td class="code"><code><a name="listingsnvim-qtupdaterau3-35"></a>        <span class="nv">$aPercent</span> <span class="o">=</span> <span class="s">"?"</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsnvim-qtupdaterau3-36"><code data-line-number="36"></code></a></td>
+<td class="code"><code><a name="listingsnvim-qtupdaterau3-36"></a>    <span class="nb">EndIf</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsnvim-qtupdaterau3-37"><code data-line-number="37"></code></a></td>
+<td class="code"><code><a name="listingsnvim-qtupdaterau3-37"></a>    <span class="nf">ToolTip</span><span class="p">(</span><span class="nv">$rSize</span> <span class="o">&amp;</span> <span class="s">"/"</span> <span class="o">&amp;</span> <span class="nv">$fSize</span> <span class="o">&amp;</span> <span class="s">" i.e. "</span> <span class="o">&amp;</span> <span class="nv">$aPercent</span><span class="p">,</span> <span class="nv">@DesktopWidth</span> <span class="o">-</span> <span class="mi">118</span><span class="p">,</span> <span class="nv">@DesktopHeight</span> <span class="o">-</span> <span class="mi">50</span><span class="p">,</span> <span class="s">"Current Process:"</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsnvim-qtupdaterau3-38"><code data-line-number="38"></code></a></td>
+<td class="code"><code><a name="listingsnvim-qtupdaterau3-38"></a>    <span class="nb">If</span> <span class="nv">@error</span> <span class="nb">Then</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsnvim-qtupdaterau3-39"><code data-line-number="39"></code></a></td>
+<td class="code"><code><a name="listingsnvim-qtupdaterau3-39"></a>        <span class="nb">ExitLoop</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsnvim-qtupdaterau3-40"><code data-line-number="40"></code></a></td>
+<td class="code"><code><a name="listingsnvim-qtupdaterau3-40"></a>        <span class="nf">FileDelete</span><span class="p">(</span><span class="nv">$sFilePath</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsnvim-qtupdaterau3-41"><code data-line-number="41"></code></a></td>
+<td class="code"><code><a name="listingsnvim-qtupdaterau3-41"></a>        <span class="nf">TrayTip</span><span class="p">(</span><span class="s">"Error while downloading the file"</span><span class="p">,</span> <span class="s">"I will resume the download procedure in 5s."</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsnvim-qtupdaterau3-42"><code data-line-number="42"></code></a></td>
+<td class="code"><code><a name="listingsnvim-qtupdaterau3-42"></a>        <span class="nf">Sleep</span><span class="p">(</span><span class="mi">5000</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsnvim-qtupdaterau3-43"><code data-line-number="43"></code></a></td>
+<td class="code"><code><a name="listingsnvim-qtupdaterau3-43"></a>        <span class="nf">Run</span><span class="p">(</span><span class="nv">@AutoItExe</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsnvim-qtupdaterau3-44"><code data-line-number="44"></code></a></td>
+<td class="code"><code><a name="listingsnvim-qtupdaterau3-44"></a>        <span class="nb">Exit</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsnvim-qtupdaterau3-45"><code data-line-number="45"></code></a></td>
+<td class="code"><code><a name="listingsnvim-qtupdaterau3-45"></a>    <span class="nb">EndIf</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsnvim-qtupdaterau3-46"><code data-line-number="46"></code></a></td>
+<td class="code"><code><a name="listingsnvim-qtupdaterau3-46"></a><span class="nb">Until</span> <span class="nf">InetGetInfo</span><span class="p">(</span><span class="nv">$hDownload</span><span class="p">,</span> <span class="nv">$INET_DOWNLOADCOMPLETE</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsnvim-qtupdaterau3-47"><code data-line-number="47"></code></a></td>
+<td class="code"><code><a name="listingsnvim-qtupdaterau3-47"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsnvim-qtupdaterau3-48"><code data-line-number="48"></code></a></td>
+<td class="code"><code><a name="listingsnvim-qtupdaterau3-48"></a><span class="c1">; Retrieve the number of total bytes and the filesize.</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsnvim-qtupdaterau3-49"><code data-line-number="49"></code></a></td>
+<td class="code"><code><a name="listingsnvim-qtupdaterau3-49"></a><span class="nb">Local</span> <span class="nv">$iBytesSize</span> <span class="o">=</span> <span class="nf">InetGetInfo</span><span class="p">(</span><span class="nv">$hDownload</span><span class="p">,</span> <span class="nv">$INET_DOWNLOADSIZE</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsnvim-qtupdaterau3-50"><code data-line-number="50"></code></a></td>
+<td class="code"><code><a name="listingsnvim-qtupdaterau3-50"></a><span class="nb">Local</span> <span class="nv">$iFileSize</span> <span class="o">=</span> <span class="nf">FileGetSize</span><span class="p">(</span><span class="nv">$sFilePath</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsnvim-qtupdaterau3-51"><code data-line-number="51"></code></a></td>
+<td class="code"><code><a name="listingsnvim-qtupdaterau3-51"></a><span class="nb">If</span> <span class="nv">$iFileSize</span> <span class="o">=</span> <span class="mi">0</span> <span class="nb">Or</span> <span class="nv">$iFileSize</span> <span class="o">&lt;</span> <span class="nv">$iBytesSize</span> <span class="nb">Then</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsnvim-qtupdaterau3-52"><code data-line-number="52"></code></a></td>
+<td class="code"><code><a name="listingsnvim-qtupdaterau3-52"></a>    <span class="nf">TrayTip</span><span class="p">(</span><span class="s">"Hmm..."</span><span class="p">,</span> <span class="s">"The file size seems not right, I will resume the download procedure in 5s."</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsnvim-qtupdaterau3-53"><code data-line-number="53"></code></a></td>
+<td class="code"><code><a name="listingsnvim-qtupdaterau3-53"></a>    <span class="nf">Sleep</span><span class="p">(</span><span class="mi">5000</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsnvim-qtupdaterau3-54"><code data-line-number="54"></code></a></td>
+<td class="code"><code><a name="listingsnvim-qtupdaterau3-54"></a>    <span class="nf">FileDelete</span><span class="p">(</span><span class="nv">$sFilePath</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsnvim-qtupdaterau3-55"><code data-line-number="55"></code></a></td>
+<td class="code"><code><a name="listingsnvim-qtupdaterau3-55"></a>    <span class="nf">Run</span><span class="p">(</span><span class="nv">@AutoItExe</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsnvim-qtupdaterau3-56"><code data-line-number="56"></code></a></td>
+<td class="code"><code><a name="listingsnvim-qtupdaterau3-56"></a>    <span class="nb">Exit</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsnvim-qtupdaterau3-57"><code data-line-number="57"></code></a></td>
+<td class="code"><code><a name="listingsnvim-qtupdaterau3-57"></a><span class="nb">EndIf</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsnvim-qtupdaterau3-58"><code data-line-number="58"></code></a></td>
+<td class="code"><code><a name="listingsnvim-qtupdaterau3-58"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsnvim-qtupdaterau3-59"><code data-line-number="59"></code></a></td>
+<td class="code"><code><a name="listingsnvim-qtupdaterau3-59"></a><span class="c1">; Close the handle returned by InetGet.</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsnvim-qtupdaterau3-60"><code data-line-number="60"></code></a></td>
+<td class="code"><code><a name="listingsnvim-qtupdaterau3-60"></a><span class="nf">InetClose</span><span class="p">(</span><span class="nv">$hDownload</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsnvim-qtupdaterau3-61"><code data-line-number="61"></code></a></td>
+<td class="code"><code><a name="listingsnvim-qtupdaterau3-61"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsnvim-qtupdaterau3-62"><code data-line-number="62"></code></a></td>
+<td class="code"><code><a name="listingsnvim-qtupdaterau3-62"></a><span class="nb">If</span> <span class="nf">ProcessExists</span><span class="p">(</span><span class="s">"nvim-qt.exe"</span><span class="p">)</span> <span class="nb">Or</span> <span class="nf">ProcessExists</span><span class="p">(</span><span class="s">"nvim.exe"</span><span class="p">)</span> <span class="nb">Then</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsnvim-qtupdaterau3-63"><code data-line-number="63"></code></a></td>
+<td class="code"><code><a name="listingsnvim-qtupdaterau3-63"></a>    <span class="nv">$iAsk</span> <span class="o">=</span> <span class="nf">MsgBox</span><span class="p">(</span><span class="nv">$MB_OK</span><span class="p">,</span> <span class="s">"Continue?"</span><span class="p">,</span> <span class="s">"You need to close nvim-qt/nvim before continue."</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsnvim-qtupdaterau3-64"><code data-line-number="64"></code></a></td>
+<td class="code"><code><a name="listingsnvim-qtupdaterau3-64"></a>    <span class="nb">If</span> <span class="nv">$iAsk</span> <span class="o">==</span> <span class="nv">$IDOK</span> <span class="nb">Then</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsnvim-qtupdaterau3-65"><code data-line-number="65"></code></a></td>
+<td class="code"><code><a name="listingsnvim-qtupdaterau3-65"></a>        <span class="nf">ToolTip</span><span class="p">(</span><span class="s">"Waiting for nvim-qt/nvim to exit..."</span><span class="p">,</span> <span class="nv">@DesktopWidth</span> <span class="o">-</span> <span class="mi">118</span><span class="p">,</span> <span class="nv">@DesktopHeight</span> <span class="o">-</span> <span class="mi">50</span><span class="p">,</span> <span class="s">"Need your action(updater):"</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsnvim-qtupdaterau3-66"><code data-line-number="66"></code></a></td>
+<td class="code"><code><a name="listingsnvim-qtupdaterau3-66"></a>        <span class="nf">ProcessWaitClose</span><span class="p">(</span><span class="s">"nvim-qt.exe"</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsnvim-qtupdaterau3-67"><code data-line-number="67"></code></a></td>
+<td class="code"><code><a name="listingsnvim-qtupdaterau3-67"></a>        <span class="nf">ProcessWaitClose</span><span class="p">(</span><span class="s">"nvim.exe"</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsnvim-qtupdaterau3-68"><code data-line-number="68"></code></a></td>
+<td class="code"><code><a name="listingsnvim-qtupdaterau3-68"></a>    <span class="nb">Else</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsnvim-qtupdaterau3-69"><code data-line-number="69"></code></a></td>
+<td class="code"><code><a name="listingsnvim-qtupdaterau3-69"></a>        <span class="nf">FileDelete</span><span class="p">(</span><span class="nv">$sFilePath</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsnvim-qtupdaterau3-70"><code data-line-number="70"></code></a></td>
+<td class="code"><code><a name="listingsnvim-qtupdaterau3-70"></a>        <span class="nb">Exit</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsnvim-qtupdaterau3-71"><code data-line-number="71"></code></a></td>
+<td class="code"><code><a name="listingsnvim-qtupdaterau3-71"></a>    <span class="nb">EndIf</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsnvim-qtupdaterau3-72"><code data-line-number="72"></code></a></td>
+<td class="code"><code><a name="listingsnvim-qtupdaterau3-72"></a><span class="nb">EndIf</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsnvim-qtupdaterau3-73"><code data-line-number="73"></code></a></td>
+<td class="code"><code><a name="listingsnvim-qtupdaterau3-73"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsnvim-qtupdaterau3-74"><code data-line-number="74"></code></a></td>
+<td class="code"><code><a name="listingsnvim-qtupdaterau3-74"></a><span class="nb">Local</span> <span class="nv">$s7zPath</span> <span class="o">=</span> <span class="nv">@ProgramFilesDir</span> <span class="o">&amp;</span> <span class="s">"\7-Zip\7z.exe"</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsnvim-qtupdaterau3-75"><code data-line-number="75"></code></a></td>
+<td class="code"><code><a name="listingsnvim-qtupdaterau3-75"></a><span class="nb">Local</span> <span class="nv">$sExtract</span> <span class="o">=</span> <span class="s">"c:\tools\Neovim\"</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsnvim-qtupdaterau3-76"><code data-line-number="76"></code></a></td>
+<td class="code"><code><a name="listingsnvim-qtupdaterau3-76"></a><span class="nb">If</span> <span class="nv">$s7zPath</span> <span class="nb">Then</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsnvim-qtupdaterau3-77"><code data-line-number="77"></code></a></td>
+<td class="code"><code><a name="listingsnvim-qtupdaterau3-77"></a>    <span class="nb">Local</span> <span class="nv">$e7zPath</span> <span class="o">=</span> <span class="nf">StringRegExpReplace</span><span class="p">(</span><span class="nv">$s7zPath</span><span class="p">,</span> <span class="s">"^(.+)"</span><span class="p">,</span> '<span class="s">"$1"</span>'<span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsnvim-qtupdaterau3-78"><code data-line-number="78"></code></a></td>
+<td class="code"><code><a name="listingsnvim-qtupdaterau3-78"></a>    <span class="nf">ConsoleWrite</span><span class="p">(</span><span class="nv">$e7zPath</span> <span class="o">&amp;</span> <span class="nv">@CRLF</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsnvim-qtupdaterau3-79"><code data-line-number="79"></code></a></td>
+<td class="code"><code><a name="listingsnvim-qtupdaterau3-79"></a>    <span class="nf">ToolTip</span><span class="p">(</span><span class="s">"Extracting files to designed directory..."</span><span class="p">,</span> <span class="nv">@DesktopWidth</span> <span class="o">-</span> <span class="mi">118</span><span class="p">,</span> <span class="nv">@DesktopHeight</span> <span class="o">-</span> <span class="mi">50</span><span class="p">,</span> <span class="s">"Almost done :)"</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsnvim-qtupdaterau3-80"><code data-line-number="80"></code></a></td>
+<td class="code"><code><a name="listingsnvim-qtupdaterau3-80"></a>    <span class="nb">Local</span> <span class="nv">$iPID</span> <span class="o">=</span> <span class="nf">RunWait</span><span class="p">(</span><span class="nv">@ComSpec</span> <span class="o">&amp;</span> <span class="s">" /c "</span> <span class="o">&amp;</span> <span class="nv">$e7zPath</span> <span class="o">&amp;</span> <span class="s">" x "</span> <span class="o">&amp;</span> <span class="nv">$sFilePath</span> <span class="o">&amp;</span> <span class="s">" -o"</span> <span class="o">&amp;</span> <span class="nv">$sExtract</span> <span class="o">&amp;</span> <span class="s">" -r -y"</span><span class="p">,</span> <span class="nv">@TempDir</span><span class="p">,</span> <span class="nv">@SW_HIDE</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsnvim-qtupdaterau3-81"><code data-line-number="81"></code></a></td>
+<td class="code"><code><a name="listingsnvim-qtupdaterau3-81"></a>    <span class="nb">If</span> <span class="nv">@error</span> <span class="nb">Then</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsnvim-qtupdaterau3-82"><code data-line-number="82"></code></a></td>
+<td class="code"><code><a name="listingsnvim-qtupdaterau3-82"></a>        <span class="nf">TrayTip</span><span class="p">(</span><span class="s">"Error"</span><span class="p">,</span> <span class="s">"Error while extracting file."</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsnvim-qtupdaterau3-83"><code data-line-number="83"></code></a></td>
+<td class="code"><code><a name="listingsnvim-qtupdaterau3-83"></a>        <span class="nb">Exit</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsnvim-qtupdaterau3-84"><code data-line-number="84"></code></a></td>
+<td class="code"><code><a name="listingsnvim-qtupdaterau3-84"></a>    <span class="nb">EndIf</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsnvim-qtupdaterau3-85"><code data-line-number="85"></code></a></td>
+<td class="code"><code><a name="listingsnvim-qtupdaterau3-85"></a>    <span class="c1">; Delete the file.</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsnvim-qtupdaterau3-86"><code data-line-number="86"></code></a></td>
+<td class="code"><code><a name="listingsnvim-qtupdaterau3-86"></a>    <span class="nf">FileDelete</span><span class="p">(</span><span class="nv">$sFilePath</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsnvim-qtupdaterau3-87"><code data-line-number="87"></code></a></td>
+<td class="code"><code><a name="listingsnvim-qtupdaterau3-87"></a>    <span class="nf">TrayTip</span><span class="p">(</span><span class="s">"\o/"</span><span class="p">,</span> <span class="s">"Done!"</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsnvim-qtupdaterau3-88"><code data-line-number="88"></code></a></td>
+<td class="code"><code><a name="listingsnvim-qtupdaterau3-88"></a><span class="nb">Else</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsnvim-qtupdaterau3-89"><code data-line-number="89"></code></a></td>
+<td class="code"><code><a name="listingsnvim-qtupdaterau3-89"></a>    <span class="nf">TrayTip</span><span class="p">(</span><span class="s">"Error"</span><span class="p">,</span> <span class="s">"Can't find 7z.exe for extracting!"</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsnvim-qtupdaterau3-90"><code data-line-number="90"></code></a></td>
+<td class="code"><code><a name="listingsnvim-qtupdaterau3-90"></a>    <span class="nb">Exit</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsnvim-qtupdaterau3-91"><code data-line-number="91"></code></a></td>
+<td class="code"><code><a name="listingsnvim-qtupdaterau3-91"></a><span class="nb">EndIf</span>
+</code></td>
+</tr>
+</table></div>
+</div>
+                    </div>
+                </main><div class="footer extra-block no-print">
+    <span class="footer_item">
+        <a href="../../pages/you-qing-lian-jie/">友情链接</a>
+    </span>
+    <span class="footer_item">
+        <a href="../../pages/liu-yan-ban/">留言板</a>
+    </span>
+    <span class="footer_item">
+        <a href="../../pages/ge-ren-dong-tai/">碎碎念</a>
+    </span>
+    </div>
+            <div class="footer social-link no-print">
+            <a href="https://github.com/ashfinal" target="_blank"><i class="grey large github icon"></i></a>
+            <a href="http://weibo.com/ashfinal/" target="_blank"><i class="grey large weibo icon"></i></a>
+            <a href="mailto://ashfinal@sina.cn" target="_blank"><i class="grey large mail icon"></i></a>
+            </div>
+        <div class="ui basic center aligned segment no-print">Contents © 2020         <a href="mailto:ashfinal@sina.cn">ashfinal</a> - Powered by         <a href="https://getnikola.com" target="_blank" rel="nofollow">Nikola</a>         </div>
+
+            </div>
+            <div class="computer only three wide column no-print">
+                <div id="right-side">
+                </div>
+            </div>
+        </div>
+
+        <!-- GoStats JavaScript Based Code -->
+        <script type="text/javascript">(function(c,o,m,p,u,t,e){
+        c['GoStatsObject']=u;c[u]=c[u]||function(){(c[u].q=c[u].q||[]).push(arguments)},
+        c[u].l=1*new Date();t=o.createElement(m);t.async=1;t.src=p;
+        e=o.getElementsByTagName(m)[0];e.parentNode.insertBefore(t,e);
+        })(window,document,'script','//www.gostats.org/5.js','go');
+        go('init',100479892,{'img_counter_type':5,'img_image_type':1});go('send');</script><!-- End GoStats JavaScript Based Code --><script type="text/javascript" src="../../assets/js/jquery-3.3.1.min.js"></script><script type="text/javascript" src="../../assets/js/semantic.min.js"></script><script type="text/javascript" src="../../assets/js/jquery.fancybox.min.js"></script><script type="text/javascript" src="../../assets/js/cookie.min.js"></script><script>
+            $(document).ready(function(){
+                $(".ui.dropdown").dropdown();
+                $('.ui.accordion').accordion();
+                var newstr = $('.cookie.nag').text();
+                $('.cookie.nag').nag({
+                    key: 'globalnotice',
+                    value: newstr
+                  });
+                $('.image-reference').fancybox();
+            });
+        </script>
+</body>
+</html>

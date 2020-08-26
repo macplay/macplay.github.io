@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="zh_cn">
+<head>
+<meta charset="utf-8">
+<meta name="description" content="shorten.sh">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="generator" content="Nikola (getnikola.com)">
+<title>shorten.sh - MacPlay</title>
+<link rel="apple-touch-icon" sizes="180x180" href="../../apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+<link rel="mask-icon" href="../../safari-pinned-tab.svg" color="#5bbad5">
+<link href="../../assets/css/semantic.min.css" rel="stylesheet" type="text/css">
+<link href="../../assets/css/jquery.fancybox.min.css" rel="stylesheet" type="text/css">
+<link href="../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<link rel="canonical" href="https://macplay.github.io/listings/bash/shorten.sh.html">
+</head>
+<body>
+        <div class="ui grid">
+            <div class="computer only three wide column no-print">
+                <div id="left-side">
+                </div>
+            </div>
+            <div class="ten wide computer sixteen wide tablet sixteen wide mobile column">
+                        <div class="ui inline cookie nag no-print">
+            <span class="title">从现在开始，支持中英双语及博文精选 O(∩_∩)O~~</span>
+            <i class="close icon"></i>
+        </div>
+    <header id="header" class="no-print"><div class="ui grid">
+        <div class="computer only tablet only sixteen wide column">
+            <div class="ui large secondary stackable menu">
+                <a class="header item brand-logo" href="https://macplay.github.io/">
+                    MacPlay
+                </a>
+                        <a class="item" href="../../">Posts</a>
+                        <a class="item" href="../">Code</a>
+                        <a class="item" href="../../galleries/">Gallery</a>
+                        <a class="item" href="../../categories/">Tags</a>
+                        <a class="item" href="../../archive.html">Archive</a>
+                <div class="right menu">
+                    <a class="item" href="../../rss.xml"><i class="rss icon"></i>RSS</a>
+                </div>
+            </div>
+        </div>
+        <div class="mobile only sixteen wide column">
+            <div class="ui fluid accordion vertical menu">
+                <div class="item">
+                    <a class="title">MacPlay</a>
+                    <div class="content">
+                                <a class="item" href="../../">Posts</a>
+                                <a class="item" href="../">Code</a>
+                                <a class="item" href="../../galleries/">Gallery</a>
+                                <a class="item" href="../../categories/">Tags</a>
+                                <a class="item" href="../../archive.html">Archive</a>
+                        <a class="item" href="../../rss.xml"><i class="rss icon"></i>RSS</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </header><main id="main"><div id="main-content">
+<div class="listingpage page-body" itemscope="itemscope" itemtype="http://schema.org/Article">
+    <div class="ui breadcrumb list-title">
+                <a href="../" class="section">listings</a>
+                <div class="divider"> / </div>
+                <a href="." class="section">bash</a>
+                <div class="divider"> / </div>
+                <div class="section">
+                    shorten.sh
+                </div>
+    </div>
+
+        <p class="downloadlink">
+            <i class="download icon"></i><a href="shorten.sh">Download</a>
+        </p>
+        <div class="code"><table class="codetable">
+<tr>
+<td class="linenos linenodiv"><a href="#listingsbashshortensh-1"><code data-line-number="  1"></code></a></td>
+<td class="code"><code><a name="listingsbashshortensh-1"></a><span class="ch">#!/bin/sh</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsbashshortensh-2"><code data-line-number="  2"></code></a></td>
+<td class="code"><code><a name="listingsbashshortensh-2"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsbashshortensh-3"><code data-line-number="  3"></code></a></td>
+<td class="code"><code><a name="listingsbashshortensh-3"></a><span class="c1"># shorten -v/h photo_image from_positon to_positon destination</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsbashshortensh-4"><code data-line-number="  4"></code></a></td>
+<td class="code"><code><a name="listingsbashshortensh-4"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsbashshortensh-5"><code data-line-number="  5"></code></a></td>
+<td class="code"><code><a name="listingsbashshortensh-5"></a><span class="c1"># This program takes one image and cut out the region between **from_positon**</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsbashshortensh-6"><code data-line-number="  6"></code></a></td>
+<td class="code"><code><a name="listingsbashshortensh-6"></a><span class="c1"># and **to_positon** in percent, so we can focus on what really matters. In</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsbashshortensh-7"><code data-line-number="  7"></code></a></td>
+<td class="code"><code><a name="listingsbashshortensh-7"></a><span class="c1"># other words, it **shortens** your too long/wide images in middle.</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsbashshortensh-8"><code data-line-number="  8"></code></a></td>
+<td class="code"><code><a name="listingsbashshortensh-8"></a><span class="c1"># [ImageMagick](http://www.imagemagick.org) is required to run this script.</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsbashshortensh-9"><code data-line-number="  9"></code></a></td>
+<td class="code"><code><a name="listingsbashshortensh-9"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsbashshortensh-10"><code data-line-number=" 10"></code></a></td>
+<td class="code"><code><a name="listingsbashshortensh-10"></a><span class="c1"># OPTIONS</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsbashshortensh-11"><code data-line-number=" 11"></code></a></td>
+<td class="code"><code><a name="listingsbashshortensh-11"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsbashshortensh-12"><code data-line-number=" 12"></code></a></td>
+<td class="code"><code><a name="listingsbashshortensh-12"></a><span class="c1">#    -v Shorten the image in vertical direction.</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsbashshortensh-13"><code data-line-number=" 13"></code></a></td>
+<td class="code"><code><a name="listingsbashshortensh-13"></a><span class="c1">#    -h Shorten the image in horizontal direction.</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsbashshortensh-14"><code data-line-number=" 14"></code></a></td>
+<td class="code"><code><a name="listingsbashshortensh-14"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsbashshortensh-15"><code data-line-number=" 15"></code></a></td>
+<td class="code"><code><a name="listingsbashshortensh-15"></a><span class="c1"># ashfinal@gmail.com    2018-02-26</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsbashshortensh-16"><code data-line-number=" 16"></code></a></td>
+<td class="code"><code><a name="listingsbashshortensh-16"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsbashshortensh-17"><code data-line-number=" 17"></code></a></td>
+<td class="code"><code><a name="listingsbashshortensh-17"></a><span class="nv">PROGNAME</span><span class="o">=</span><span class="k">$(</span>basename <span class="nv">$0</span><span class="k">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsbashshortensh-18"><code data-line-number=" 18"></code></a></td>
+<td class="code"><code><a name="listingsbashshortensh-18"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsbashshortensh-19"><code data-line-number=" 19"></code></a></td>
+<td class="code"><code><a name="listingsbashshortensh-19"></a>Usage<span class="o">()</span> <span class="o">{</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsbashshortensh-20"><code data-line-number=" 20"></code></a></td>
+<td class="code"><code><a name="listingsbashshortensh-20"></a>    cat <span class="s">&lt;&lt;EOF</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsbashshortensh-21"><code data-line-number=" 21"></code></a></td>
+<td class="code"><code><a name="listingsbashshortensh-21"></a><span class="s">Usage: $PROGNAME -v/h photo_image from_positon(%) to_positon(%) destination</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsbashshortensh-22"><code data-line-number=" 22"></code></a></td>
+<td class="code"><code><a name="listingsbashshortensh-22"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsbashshortensh-23"><code data-line-number=" 23"></code></a></td>
+<td class="code"><code><a name="listingsbashshortensh-23"></a><span class="s">Options:</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsbashshortensh-24"><code data-line-number=" 24"></code></a></td>
+<td class="code"><code><a name="listingsbashshortensh-24"></a><span class="s">    -v Shorten the image in vertical direction.</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsbashshortensh-25"><code data-line-number=" 25"></code></a></td>
+<td class="code"><code><a name="listingsbashshortensh-25"></a><span class="s">    -h Shorten the image in horizontal direction.</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsbashshortensh-26"><code data-line-number=" 26"></code></a></td>
+<td class="code"><code><a name="listingsbashshortensh-26"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsbashshortensh-27"><code data-line-number=" 27"></code></a></td>
+<td class="code"><code><a name="listingsbashshortensh-27"></a><span class="s">Example:</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsbashshortensh-28"><code data-line-number=" 28"></code></a></td>
+<td class="code"><code><a name="listingsbashshortensh-28"></a><span class="s">    $PROGNAME -v long_image.png 20 60 short_image.png</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsbashshortensh-29"><code data-line-number=" 29"></code></a></td>
+<td class="code"><code><a name="listingsbashshortensh-29"></a><span class="s">EOF</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsbashshortensh-30"><code data-line-number=" 30"></code></a></td>
+<td class="code"><code><a name="listingsbashshortensh-30"></a>    <span class="nb">exit</span> <span class="m">10</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsbashshortensh-31"><code data-line-number=" 31"></code></a></td>
+<td class="code"><code><a name="listingsbashshortensh-31"></a><span class="o">}</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsbashshortensh-32"><code data-line-number=" 32"></code></a></td>
+<td class="code"><code><a name="listingsbashshortensh-32"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsbashshortensh-33"><code data-line-number=" 33"></code></a></td>
+<td class="code"><code><a name="listingsbashshortensh-33"></a><span class="c1"># Read in commandline options</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsbashshortensh-34"><code data-line-number=" 34"></code></a></td>
+<td class="code"><code><a name="listingsbashshortensh-34"></a><span class="k">if</span> <span class="o">[</span> <span class="nv">$#</span> -eq <span class="m">0</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsbashshortensh-35"><code data-line-number=" 35"></code></a></td>
+<td class="code"><code><a name="listingsbashshortensh-35"></a>    Usage
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsbashshortensh-36"><code data-line-number=" 36"></code></a></td>
+<td class="code"><code><a name="listingsbashshortensh-36"></a><span class="k">elif</span> <span class="o">[</span> <span class="nv">$#</span> -eq <span class="m">1</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsbashshortensh-37"><code data-line-number=" 37"></code></a></td>
+<td class="code"><code><a name="listingsbashshortensh-37"></a>    <span class="k">case</span> <span class="s2">"</span><span class="nv">$1</span><span class="s2">"</span> in
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsbashshortensh-38"><code data-line-number=" 38"></code></a></td>
+<td class="code"><code><a name="listingsbashshortensh-38"></a>        --help<span class="p">|</span>-h<span class="o">)</span> Usage <span class="p">;;</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsbashshortensh-39"><code data-line-number=" 39"></code></a></td>
+<td class="code"><code><a name="listingsbashshortensh-39"></a>        *<span class="o">)</span>  <span class="nb">echo</span> <span class="s2">"Unknown option \"</span><span class="nv">$1</span><span class="s2">\""</span> <span class="o">&amp;&amp;</span> Usage <span class="p">;;</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsbashshortensh-40"><code data-line-number=" 40"></code></a></td>
+<td class="code"><code><a name="listingsbashshortensh-40"></a>    <span class="k">esac</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsbashshortensh-41"><code data-line-number=" 41"></code></a></td>
+<td class="code"><code><a name="listingsbashshortensh-41"></a><span class="k">elif</span> <span class="o">[</span> <span class="nv">$#</span> -eq <span class="m">5</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsbashshortensh-42"><code data-line-number=" 42"></code></a></td>
+<td class="code"><code><a name="listingsbashshortensh-42"></a>    <span class="k">case</span> <span class="s2">"</span><span class="nv">$1</span><span class="s2">"</span> in
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsbashshortensh-43"><code data-line-number=" 43"></code></a></td>
+<td class="code"><code><a name="listingsbashshortensh-43"></a>        -v<span class="o">)</span>  <span class="nv">GRAVITY</span><span class="o">=(</span><span class="s2">"northwest"</span> <span class="s2">"northeast"</span> <span class="s2">"southwest"</span> <span class="s2">"southeast"</span><span class="o">)</span> <span class="p">;;</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsbashshortensh-44"><code data-line-number=" 44"></code></a></td>
+<td class="code"><code><a name="listingsbashshortensh-44"></a>        -h<span class="o">)</span>  <span class="nv">GRAVITY</span><span class="o">=(</span><span class="s2">"northwest"</span> <span class="s2">"southwest"</span> <span class="s2">"northeast"</span> <span class="s2">"southeast"</span><span class="o">)</span> <span class="p">;;</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsbashshortensh-45"><code data-line-number=" 45"></code></a></td>
+<td class="code"><code><a name="listingsbashshortensh-45"></a>        *<span class="o">)</span>  <span class="nb">echo</span> <span class="s2">"Unknown option \"</span><span class="nv">$1</span><span class="s2">\""</span> <span class="o">&amp;&amp;</span> Usage <span class="p">;;</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsbashshortensh-46"><code data-line-number=" 46"></code></a></td>
+<td class="code"><code><a name="listingsbashshortensh-46"></a>    <span class="k">esac</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsbashshortensh-47"><code data-line-number=" 47"></code></a></td>
+<td class="code"><code><a name="listingsbashshortensh-47"></a><span class="k">else</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsbashshortensh-48"><code data-line-number=" 48"></code></a></td>
+<td class="code"><code><a name="listingsbashshortensh-48"></a>    <span class="nb">echo</span> <span class="s2">"Wrong arguments number."</span> <span class="o">&amp;&amp;</span> Usage
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsbashshortensh-49"><code data-line-number=" 49"></code></a></td>
+<td class="code"><code><a name="listingsbashshortensh-49"></a><span class="k">fi</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsbashshortensh-50"><code data-line-number=" 50"></code></a></td>
+<td class="code"><code><a name="listingsbashshortensh-50"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsbashshortensh-51"><code data-line-number=" 51"></code></a></td>
+<td class="code"><code><a name="listingsbashshortensh-51"></a><span class="c1"># Temporary working images (with auto-clean-up on exit)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsbashshortensh-52"><code data-line-number=" 52"></code></a></td>
+<td class="code"><code><a name="listingsbashshortensh-52"></a><span class="nv">tmp1</span><span class="o">=</span><span class="sb">`</span>mktemp /tmp/<span class="si">${</span><span class="nv">PROGNAME</span><span class="si">}</span>.1.XXXXXX<span class="sb">`</span> <span class="o">||</span> <span class="nb">exit</span> <span class="m">1</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsbashshortensh-53"><code data-line-number=" 53"></code></a></td>
+<td class="code"><code><a name="listingsbashshortensh-53"></a><span class="nv">tmp2</span><span class="o">=</span><span class="sb">`</span>mktemp /tmp/<span class="si">${</span><span class="nv">PROGNAME</span><span class="si">}</span>.2.XXXXXX<span class="sb">`</span> <span class="o">||</span> <span class="nb">exit</span> <span class="m">1</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsbashshortensh-54"><code data-line-number=" 54"></code></a></td>
+<td class="code"><code><a name="listingsbashshortensh-54"></a><span class="nv">tmp3</span><span class="o">=</span><span class="sb">`</span>mktemp /tmp/<span class="si">${</span><span class="nv">PROGNAME</span><span class="si">}</span>.3.XXXXXX<span class="sb">`</span> <span class="o">||</span> <span class="nb">exit</span> <span class="m">1</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsbashshortensh-55"><code data-line-number=" 55"></code></a></td>
+<td class="code"><code><a name="listingsbashshortensh-55"></a><span class="nv">tmp4</span><span class="o">=</span><span class="sb">`</span>mktemp /tmp/<span class="si">${</span><span class="nv">PROGNAME</span><span class="si">}</span>.4.XXXXXX<span class="sb">`</span> <span class="o">||</span> <span class="nb">exit</span> <span class="m">1</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsbashshortensh-56"><code data-line-number=" 56"></code></a></td>
+<td class="code"><code><a name="listingsbashshortensh-56"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsbashshortensh-57"><code data-line-number=" 57"></code></a></td>
+<td class="code"><code><a name="listingsbashshortensh-57"></a><span class="nv">tmp5</span><span class="o">=</span><span class="sb">`</span>mktemp /tmp/<span class="si">${</span><span class="nv">PROGNAME</span><span class="si">}</span>.5.XXXXXX<span class="sb">`</span> <span class="o">||</span> <span class="nb">exit</span> <span class="m">1</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsbashshortensh-58"><code data-line-number=" 58"></code></a></td>
+<td class="code"><code><a name="listingsbashshortensh-58"></a><span class="nv">tmp6</span><span class="o">=</span><span class="sb">`</span>mktemp /tmp/<span class="si">${</span><span class="nv">PROGNAME</span><span class="si">}</span>.6.XXXXXX<span class="sb">`</span> <span class="o">||</span> <span class="nb">exit</span> <span class="m">1</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsbashshortensh-59"><code data-line-number=" 59"></code></a></td>
+<td class="code"><code><a name="listingsbashshortensh-59"></a><span class="nv">tmp7</span><span class="o">=</span><span class="sb">`</span>mktemp /tmp/<span class="si">${</span><span class="nv">PROGNAME</span><span class="si">}</span>.7.XXXXXX<span class="sb">`</span> <span class="o">||</span> <span class="nb">exit</span> <span class="m">1</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsbashshortensh-60"><code data-line-number=" 60"></code></a></td>
+<td class="code"><code><a name="listingsbashshortensh-60"></a><span class="nv">tmp8</span><span class="o">=</span><span class="sb">`</span>mktemp /tmp/<span class="si">${</span><span class="nv">PROGNAME</span><span class="si">}</span>.8.XXXXXX<span class="sb">`</span> <span class="o">||</span> <span class="nb">exit</span> <span class="m">1</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsbashshortensh-61"><code data-line-number=" 61"></code></a></td>
+<td class="code"><code><a name="listingsbashshortensh-61"></a><span class="nb">trap</span> <span class="s2">"rm -f </span><span class="nv">$tmp1</span><span class="s2"> </span><span class="nv">$tmp2</span><span class="s2"> </span><span class="nv">$tmp3</span><span class="s2"> </span><span class="nv">$tmp4</span><span class="s2"> </span><span class="nv">$tmp5</span><span class="s2"> </span><span class="nv">$tmp6</span><span class="s2"> </span><span class="nv">$tmp7</span><span class="s2"> </span><span class="nv">$tmp8</span><span class="s2">"</span> <span class="m">0</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsbashshortensh-62"><code data-line-number=" 62"></code></a></td>
+<td class="code"><code><a name="listingsbashshortensh-62"></a><span class="nb">trap</span> <span class="s2">"exit 2"</span> <span class="m">1</span> <span class="m">2</span> <span class="m">3</span> <span class="m">15</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsbashshortensh-63"><code data-line-number=" 63"></code></a></td>
+<td class="code"><code><a name="listingsbashshortensh-63"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsbashshortensh-64"><code data-line-number=" 64"></code></a></td>
+<td class="code"><code><a name="listingsbashshortensh-64"></a><span class="k">if</span> <span class="o">[</span> <span class="nv">$1</span> <span class="o">==</span> <span class="s1">'-v'</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsbashshortensh-65"><code data-line-number=" 65"></code></a></td>
+<td class="code"><code><a name="listingsbashshortensh-65"></a>    <span class="nv">CANVAS_LEN</span><span class="o">=</span><span class="sb">`</span>identify -format <span class="s1">'%h'</span> <span class="nv">$2</span><span class="sb">`</span> <span class="c1"># Image height</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsbashshortensh-66"><code data-line-number=" 66"></code></a></td>
+<td class="code"><code><a name="listingsbashshortensh-66"></a>    <span class="nv">FROM_POS</span><span class="o">=</span><span class="sb">`</span>expr <span class="nv">$CANVAS_LEN</span> <span class="se">\*</span> <span class="nv">$3</span> / <span class="m">100</span><span class="sb">`</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsbashshortensh-67"><code data-line-number=" 67"></code></a></td>
+<td class="code"><code><a name="listingsbashshortensh-67"></a>    <span class="nv">TO_POS</span><span class="o">=</span><span class="sb">`</span>expr <span class="nv">$CANVAS_LEN</span> <span class="se">\*</span> <span class="nv">$4</span> / <span class="m">100</span><span class="sb">`</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsbashshortensh-68"><code data-line-number=" 68"></code></a></td>
+<td class="code"><code><a name="listingsbashshortensh-68"></a>    convert <span class="nv">$2</span> -crop x<span class="si">${</span><span class="nv">FROM_POS</span><span class="si">}</span>+0+0 miff:<span class="nv">$tmp1</span> <span class="c1"># The first half</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsbashshortensh-69"><code data-line-number=" 69"></code></a></td>
+<td class="code"><code><a name="listingsbashshortensh-69"></a>    convert <span class="nv">$tmp1</span> -gravity <span class="si">${</span><span class="nv">GRAVITY</span><span class="p">[0]</span><span class="si">}</span> -splice 80x40+0+0 -gravity <span class="se">\</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsbashshortensh-70"><code data-line-number=" 70"></code></a></td>
+<td class="code"><code><a name="listingsbashshortensh-70"></a>        <span class="si">${</span><span class="nv">GRAVITY</span><span class="p">[1]</span><span class="si">}</span> -splice 80x40+0+0 <span class="se">\(</span> +clone -alpha extract <span class="se">\</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsbashshortensh-71"><code data-line-number=" 71"></code></a></td>
+<td class="code"><code><a name="listingsbashshortensh-71"></a>        -virtual-pixel black -spread <span class="m">160</span> -blur 0x3 -threshold <span class="m">50</span>% <span class="se">\</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsbashshortensh-72"><code data-line-number=" 72"></code></a></td>
+<td class="code"><code><a name="listingsbashshortensh-72"></a>        -spread <span class="m">1</span> -blur 0x.7 <span class="se">\)</span> -alpha off -compose copy_opacity <span class="se">\</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsbashshortensh-73"><code data-line-number=" 73"></code></a></td>
+<td class="code"><code><a name="listingsbashshortensh-73"></a>        -composite miff:<span class="nv">$tmp2</span> <span class="c1"># Add torn paper edge</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsbashshortensh-74"><code data-line-number=" 74"></code></a></td>
+<td class="code"><code><a name="listingsbashshortensh-74"></a>    convert <span class="nv">$tmp2</span> -gravity <span class="si">${</span><span class="nv">GRAVITY</span><span class="p">[0]</span><span class="si">}</span> -chop 80x40 -gravity <span class="se">\</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsbashshortensh-75"><code data-line-number=" 75"></code></a></td>
+<td class="code"><code><a name="listingsbashshortensh-75"></a>        <span class="si">${</span><span class="nv">GRAVITY</span><span class="p">[1]</span><span class="si">}</span> -chop 80x40 miff:<span class="nv">$tmp3</span> <span class="c1"># Trim the extra region</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsbashshortensh-76"><code data-line-number=" 76"></code></a></td>
+<td class="code"><code><a name="listingsbashshortensh-76"></a>    convert <span class="nv">$tmp3</span> <span class="se">\(</span> +clone -background grey -shadow 60x0+0+4 <span class="se">\)</span> +swap <span class="se">\</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsbashshortensh-77"><code data-line-number=" 77"></code></a></td>
+<td class="code"><code><a name="listingsbashshortensh-77"></a>        -background none -layers merge +repage miff:<span class="nv">$tmp4</span> <span class="c1"># Add shadow</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsbashshortensh-78"><code data-line-number=" 78"></code></a></td>
+<td class="code"><code><a name="listingsbashshortensh-78"></a>    convert <span class="nv">$2</span> -crop +0+<span class="nv">$TO_POS</span> miff:<span class="nv">$tmp5</span> <span class="c1"># The second half</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsbashshortensh-79"><code data-line-number=" 79"></code></a></td>
+<td class="code"><code><a name="listingsbashshortensh-79"></a>    convert <span class="nv">$tmp5</span> -gravity <span class="si">${</span><span class="nv">GRAVITY</span><span class="p">[2]</span><span class="si">}</span> -splice 80x40+0+0 -gravity <span class="se">\</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsbashshortensh-80"><code data-line-number=" 80"></code></a></td>
+<td class="code"><code><a name="listingsbashshortensh-80"></a>        <span class="si">${</span><span class="nv">GRAVITY</span><span class="p">[3]</span><span class="si">}</span> -splice 80x40+0+0 <span class="se">\(</span> +clone -alpha extract <span class="se">\</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsbashshortensh-81"><code data-line-number=" 81"></code></a></td>
+<td class="code"><code><a name="listingsbashshortensh-81"></a>        -virtual-pixel black -spread <span class="m">160</span> -blur 0x3 -threshold <span class="m">50</span>% <span class="se">\</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsbashshortensh-82"><code data-line-number=" 82"></code></a></td>
+<td class="code"><code><a name="listingsbashshortensh-82"></a>        -spread <span class="m">1</span> -blur 0x.7 <span class="se">\)</span> -alpha off -compose copy_opacity <span class="se">\</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsbashshortensh-83"><code data-line-number=" 83"></code></a></td>
+<td class="code"><code><a name="listingsbashshortensh-83"></a>        -composite miff:<span class="nv">$tmp6</span> <span class="c1"># Add torn paper edge</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsbashshortensh-84"><code data-line-number=" 84"></code></a></td>
+<td class="code"><code><a name="listingsbashshortensh-84"></a>    convert <span class="nv">$tmp6</span> -gravity <span class="si">${</span><span class="nv">GRAVITY</span><span class="p">[2]</span><span class="si">}</span> -chop 80x40 -gravity <span class="se">\</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsbashshortensh-85"><code data-line-number=" 85"></code></a></td>
+<td class="code"><code><a name="listingsbashshortensh-85"></a>        <span class="si">${</span><span class="nv">GRAVITY</span><span class="p">[3]</span><span class="si">}</span> -chop 80x40 miff:<span class="nv">$tmp7</span> <span class="c1"># Trim the extra region</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsbashshortensh-86"><code data-line-number=" 86"></code></a></td>
+<td class="code"><code><a name="listingsbashshortensh-86"></a>    convert <span class="nv">$tmp7</span> <span class="se">\(</span> +clone -background grey -shadow 60x0+0+4 <span class="se">\)</span> +swap <span class="se">\</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsbashshortensh-87"><code data-line-number=" 87"></code></a></td>
+<td class="code"><code><a name="listingsbashshortensh-87"></a>        -background none -layers merge +repage miff:<span class="nv">$tmp8</span> <span class="c1"># Add shadow</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsbashshortensh-88"><code data-line-number=" 88"></code></a></td>
+<td class="code"><code><a name="listingsbashshortensh-88"></a>    convert <span class="nv">$tmp4</span> <span class="nv">$tmp8</span> -append <span class="nv">$5</span> <span class="c1"># Stitch the two half</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsbashshortensh-89"><code data-line-number=" 89"></code></a></td>
+<td class="code"><code><a name="listingsbashshortensh-89"></a><span class="k">else</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsbashshortensh-90"><code data-line-number=" 90"></code></a></td>
+<td class="code"><code><a name="listingsbashshortensh-90"></a>    <span class="nv">CANVAS_LEN</span><span class="o">=</span><span class="sb">`</span>identify -format <span class="s1">'%w'</span> <span class="nv">$2</span><span class="sb">`</span> <span class="c1"># Image width</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsbashshortensh-91"><code data-line-number=" 91"></code></a></td>
+<td class="code"><code><a name="listingsbashshortensh-91"></a>    <span class="nv">FROM_POS</span><span class="o">=</span><span class="sb">`</span>expr <span class="nv">$CANVAS_LEN</span> <span class="se">\*</span> <span class="nv">$3</span> / <span class="m">100</span><span class="sb">`</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsbashshortensh-92"><code data-line-number=" 92"></code></a></td>
+<td class="code"><code><a name="listingsbashshortensh-92"></a>    <span class="nv">TO_POS</span><span class="o">=</span><span class="sb">`</span>expr <span class="nv">$CANVAS_LEN</span> <span class="se">\*</span> <span class="nv">$4</span> / <span class="m">100</span><span class="sb">`</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsbashshortensh-93"><code data-line-number=" 93"></code></a></td>
+<td class="code"><code><a name="listingsbashshortensh-93"></a>    convert <span class="nv">$2</span> -crop <span class="si">${</span><span class="nv">FROM_POS</span><span class="si">}</span>x+0+0 miff:<span class="nv">$tmp1</span> <span class="c1"># The first half</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsbashshortensh-94"><code data-line-number=" 94"></code></a></td>
+<td class="code"><code><a name="listingsbashshortensh-94"></a>    convert <span class="nv">$tmp1</span> -gravity <span class="si">${</span><span class="nv">GRAVITY</span><span class="p">[0]</span><span class="si">}</span> -splice 40x80+0+0 -gravity <span class="se">\</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsbashshortensh-95"><code data-line-number=" 95"></code></a></td>
+<td class="code"><code><a name="listingsbashshortensh-95"></a>        <span class="si">${</span><span class="nv">GRAVITY</span><span class="p">[1]</span><span class="si">}</span> -splice 40x80+0+0 <span class="se">\(</span> +clone -alpha extract <span class="se">\</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsbashshortensh-96"><code data-line-number=" 96"></code></a></td>
+<td class="code"><code><a name="listingsbashshortensh-96"></a>        -virtual-pixel black -spread <span class="m">160</span> -blur 0x3 -threshold <span class="m">50</span>% <span class="se">\</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsbashshortensh-97"><code data-line-number=" 97"></code></a></td>
+<td class="code"><code><a name="listingsbashshortensh-97"></a>        -spread <span class="m">1</span> -blur 0x.7 <span class="se">\)</span> -alpha off -compose copy_opacity <span class="se">\</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsbashshortensh-98"><code data-line-number=" 98"></code></a></td>
+<td class="code"><code><a name="listingsbashshortensh-98"></a>        -composite miff:<span class="nv">$tmp2</span> <span class="c1"># Add torn paper edge</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsbashshortensh-99"><code data-line-number=" 99"></code></a></td>
+<td class="code"><code><a name="listingsbashshortensh-99"></a>    convert <span class="nv">$tmp2</span> -gravity <span class="si">${</span><span class="nv">GRAVITY</span><span class="p">[0]</span><span class="si">}</span> -chop 40x80 -gravity <span class="se">\</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsbashshortensh-100"><code data-line-number="100"></code></a></td>
+<td class="code"><code><a name="listingsbashshortensh-100"></a>        <span class="si">${</span><span class="nv">GRAVITY</span><span class="p">[1]</span><span class="si">}</span> -chop 40x80 miff:<span class="nv">$tmp3</span> <span class="c1"># Trim the extra region</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsbashshortensh-101"><code data-line-number="101"></code></a></td>
+<td class="code"><code><a name="listingsbashshortensh-101"></a>    convert <span class="nv">$tmp3</span> <span class="se">\(</span> +clone -background grey -shadow 60x0+4+0 <span class="se">\)</span> +swap <span class="se">\</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsbashshortensh-102"><code data-line-number="102"></code></a></td>
+<td class="code"><code><a name="listingsbashshortensh-102"></a>        -background none -layers merge +repage miff:<span class="nv">$tmp4</span> <span class="c1"># Add shadow</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsbashshortensh-103"><code data-line-number="103"></code></a></td>
+<td class="code"><code><a name="listingsbashshortensh-103"></a>    convert <span class="nv">$2</span> -crop +<span class="nv">$TO_POS</span>+0 miff:<span class="nv">$tmp5</span> <span class="c1"># The second half</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsbashshortensh-104"><code data-line-number="104"></code></a></td>
+<td class="code"><code><a name="listingsbashshortensh-104"></a>    convert <span class="nv">$tmp5</span> -gravity <span class="si">${</span><span class="nv">GRAVITY</span><span class="p">[2]</span><span class="si">}</span> -splice 40x80+0+0 -gravity <span class="se">\</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsbashshortensh-105"><code data-line-number="105"></code></a></td>
+<td class="code"><code><a name="listingsbashshortensh-105"></a>        <span class="si">${</span><span class="nv">GRAVITY</span><span class="p">[3]</span><span class="si">}</span> -splice 40x80+0+0 <span class="se">\(</span> +clone -alpha extract <span class="se">\</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsbashshortensh-106"><code data-line-number="106"></code></a></td>
+<td class="code"><code><a name="listingsbashshortensh-106"></a>        -virtual-pixel black -spread <span class="m">160</span> -blur 0x3 -threshold <span class="m">50</span>% <span class="se">\</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsbashshortensh-107"><code data-line-number="107"></code></a></td>
+<td class="code"><code><a name="listingsbashshortensh-107"></a>        -spread <span class="m">1</span> -blur 0x.7 <span class="se">\)</span> -alpha off -compose copy_opacity <span class="se">\</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsbashshortensh-108"><code data-line-number="108"></code></a></td>
+<td class="code"><code><a name="listingsbashshortensh-108"></a>        -composite miff:<span class="nv">$tmp6</span> <span class="c1"># Add torn paper edge</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsbashshortensh-109"><code data-line-number="109"></code></a></td>
+<td class="code"><code><a name="listingsbashshortensh-109"></a>    convert <span class="nv">$tmp6</span> -gravity <span class="si">${</span><span class="nv">GRAVITY</span><span class="p">[2]</span><span class="si">}</span> -chop 40x80 -gravity <span class="se">\</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsbashshortensh-110"><code data-line-number="110"></code></a></td>
+<td class="code"><code><a name="listingsbashshortensh-110"></a>        <span class="si">${</span><span class="nv">GRAVITY</span><span class="p">[3]</span><span class="si">}</span> -chop 40x80 miff:<span class="nv">$tmp7</span> <span class="c1"># Trim the extra region</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsbashshortensh-111"><code data-line-number="111"></code></a></td>
+<td class="code"><code><a name="listingsbashshortensh-111"></a>    convert <span class="nv">$tmp7</span> <span class="se">\(</span> +clone -background grey -shadow 60x0+4+0 <span class="se">\)</span> +swap <span class="se">\</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsbashshortensh-112"><code data-line-number="112"></code></a></td>
+<td class="code"><code><a name="listingsbashshortensh-112"></a>        -background none -layers merge +repage miff:<span class="nv">$tmp8</span> <span class="c1"># Add shadow</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsbashshortensh-113"><code data-line-number="113"></code></a></td>
+<td class="code"><code><a name="listingsbashshortensh-113"></a>    convert <span class="nv">$tmp4</span> <span class="nv">$tmp8</span> +append <span class="nv">$5</span> <span class="c1"># Stitch the two half</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsbashshortensh-114"><code data-line-number="114"></code></a></td>
+<td class="code"><code><a name="listingsbashshortensh-114"></a><span class="k">fi</span>
+</code></td>
+</tr>
+</table></div>
+</div>
+                    </div>
+                </main><div class="footer extra-block no-print">
+    <span class="footer_item">
+        <a href="../../pages/you-qing-lian-jie/">友情链接</a>
+    </span>
+    <span class="footer_item">
+        <a href="../../pages/liu-yan-ban/">留言板</a>
+    </span>
+    <span class="footer_item">
+        <a href="../../pages/ge-ren-dong-tai/">碎碎念</a>
+    </span>
+    </div>
+            <div class="footer social-link no-print">
+            <a href="https://github.com/ashfinal" target="_blank"><i class="grey large github icon"></i></a>
+            <a href="http://weibo.com/ashfinal/" target="_blank"><i class="grey large weibo icon"></i></a>
+            <a href="mailto://ashfinal@sina.cn" target="_blank"><i class="grey large mail icon"></i></a>
+            </div>
+        <div class="ui basic center aligned segment no-print">Contents © 2020         <a href="mailto:ashfinal@sina.cn">ashfinal</a> - Powered by         <a href="https://getnikola.com" target="_blank" rel="nofollow">Nikola</a>         </div>
+
+            </div>
+            <div class="computer only three wide column no-print">
+                <div id="right-side">
+                </div>
+            </div>
+        </div>
+
+        <!-- GoStats JavaScript Based Code -->
+        <script type="text/javascript">(function(c,o,m,p,u,t,e){
+        c['GoStatsObject']=u;c[u]=c[u]||function(){(c[u].q=c[u].q||[]).push(arguments)},
+        c[u].l=1*new Date();t=o.createElement(m);t.async=1;t.src=p;
+        e=o.getElementsByTagName(m)[0];e.parentNode.insertBefore(t,e);
+        })(window,document,'script','//www.gostats.org/5.js','go');
+        go('init',100479892,{'img_counter_type':5,'img_image_type':1});go('send');</script><!-- End GoStats JavaScript Based Code --><script type="text/javascript" src="../../assets/js/jquery-3.3.1.min.js"></script><script type="text/javascript" src="../../assets/js/semantic.min.js"></script><script type="text/javascript" src="../../assets/js/jquery.fancybox.min.js"></script><script type="text/javascript" src="../../assets/js/cookie.min.js"></script><script>
+            $(document).ready(function(){
+                $(".ui.dropdown").dropdown();
+                $('.ui.accordion').accordion();
+                var newstr = $('.cookie.nag').text();
+                $('.cookie.nag').nag({
+                    key: 'globalnotice',
+                    value: newstr
+                  });
+                $('.image-reference').fancybox();
+            });
+        </script>
+</body>
+</html>

@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="zh_cn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="generator" content="Nikola (getnikola.com)">
+<title>AppleScript － ImageMagick 图像处理脚本 - MacPlay</title>
+<link rel="apple-touch-icon" sizes="180x180" href="../../apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+<link rel="mask-icon" href="../../safari-pinned-tab.svg" color="#5bbad5">
+<link href="../../assets/css/semantic.min.css" rel="stylesheet" type="text/css">
+<link href="../../assets/css/jquery.fancybox.min.css" rel="stylesheet" type="text/css">
+<link href="../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<link rel="canonical" href="https://macplay.github.io/posts/applescript-imagemagick-tu-xiang-chu-li-jiao-ben/">
+<meta name="author" content="ashfinal">
+<link rel="alternate" hreflang="en" href="../../en/posts/applescript-imagemagick-tu-xiang-chu-li-jiao-ben/">
+<link rel="stylesheet" type="text/css" href="../../assets/css/gitalk.css">
+</head>
+<body>
+        <div class="ui grid">
+            <div class="computer only three wide column no-print">
+                <div id="left-side">
+                </div>
+            </div>
+            <div class="ten wide computer sixteen wide tablet sixteen wide mobile column">
+                        <div class="ui inline cookie nag no-print">
+            <span class="title">从现在开始，支持中英双语及博文精选 O(∩_∩)O~~</span>
+            <i class="close icon"></i>
+        </div>
+    <header id="header" class="no-print"><div class="ui grid">
+        <div class="computer only tablet only sixteen wide column">
+            <div class="ui large secondary stackable menu">
+                <a class="header item brand-logo" href="https://macplay.github.io/">
+                    MacPlay
+                </a>
+                        <a class="item" href="../../">Posts</a>
+                        <a class="item" href="../../listings/">Code</a>
+                        <a class="item" href="../../galleries/">Gallery</a>
+                        <a class="item" href="../../categories/">Tags</a>
+                        <a class="item" href="../../archive.html">Archive</a>
+                <div class="right menu">
+                    <a class="item" href="../../rss.xml"><i class="rss icon"></i>RSS</a>
+                </div>
+            </div>
+        </div>
+        <div class="mobile only sixteen wide column">
+            <div class="ui fluid accordion vertical menu">
+                <div class="item">
+                    <a class="title">MacPlay</a>
+                    <div class="content">
+                                <a class="item" href="../../">Posts</a>
+                                <a class="item" href="../../listings/">Code</a>
+                                <a class="item" href="../../galleries/">Gallery</a>
+                                <a class="item" href="../../categories/">Tags</a>
+                                <a class="item" href="../../archive.html">Archive</a>
+                        <a class="item" href="../../rss.xml"><i class="rss icon"></i>RSS</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </header><main id="main"><div id="main-content">
+<div class="postpage post-text page-body" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <h1 class="post-title" itemprop="headline">
+        <a href=".">AppleScript － ImageMagick 图像处理脚本</a>
+    </h1>
+
+    <div class="ui large horizontal link list post-meta">
+        <span class="item">By
+            <a href="../../authors/ashfinal/">ashfinal</a>
+        </span>
+            <span class="item">
+                <a href="https://github.com/macplay/macplay.github.io/edit/src/posts/applescript-imagemagick-tu-xiang-chu-li-jiao-ben.md" target="_blank" title="Edit on GitHub">Edit</a>
+            </span>
+        <span class="item">
+            <time datetime="2015-02-28T14:52:40+08:00">
+            2015-02-28 14:52
+            </time></span>
+            <span class="item">
+                    <a href="../../categories/applescript/">applescript</a>
+                    <a href="../../categories/imagemagick/">imagemagick</a>
+                    <a href="../../categories/macos/">macos</a>
+            </span>
+    </div>
+
+    
+    <div class="post-content" itemprop="article text">
+        <div id="post-content">
+        <div>
+<p>最近在学习 ImageMagick 图像处理命令，在微博上以 <a href="http://huati.weibo.com/k/ImageMagick%E6%AF%8F%E6%97%A5%E6%8A%80%E5%B7%A7?from=501" title="http://huati.weibo.com/k/ImageMagick每日技巧?from=501">#ImageMagick每日技巧#</a> 为标签分享了一些内容。觉得 ImageMagick 真的是很强大的工具，于是趁空闲尝试把几行命令用 AppleScript 包装起来，就这样发布出来了 …… 当然这里分享的仅是个人觉得有点难记的命令，简单的直接终端里敲就可以。下载链接在这里： <a href="http://pan.baidu.com/s/1eQD0TFk" title="http://pan.baidu.com/s/1eQD0TFk">ImageMagick app</a> ，<strong>运行需要 ImageMagick 命令行支持</strong>，推荐使用 brew 进行安装：</p>
+<pre class="code literal-block"><span></span><span class="err">brew install imagemagick</span>
+</pre>
+
+
+<p>安装完成版本应该是 <code>6.9.1-0</code> ，执行路径为 <code>/usr/local/Cellar/imagemagick/6.9.1-0/bin/</code> 。</p>
+<!-- TEASER_END -->
+
+<p>既然涉及到这个话题，还是简单介绍下 ImageMagick 吧。官网在这里： <a href="http://www.imagemagick.org" title="http://www.imagemagick.org">http://www.imagemagick.org</a></p>
+<p>ImageMagick 可以读取和编辑超过 200 种以上的图像格式，对它们进行格式转换、调整大小、切割旋转、添加特效、图层叠加、蒙板混合、添加文字等等各种操作。官网提供了很好的文档和例子，感兴趣的同学可以跳转过去看看。常用的命令基本就 convert、composite 两个，对图像的处理则是通过操作符来完成的。基本都是简短的英文单词，所以记忆压力也不大。简单举几个例子：</p>
+<p>将 Downloads 里的 jpg 格式批量转换为 png：</p>
+<pre class="code literal-block"><span></span><span class="err">convert ~/Downloads/*.jpg result.png</span>
+</pre>
+
+
+<p>批量调整大小：</p>
+<pre class="code literal-block"><span></span><span class="err">convert ~/Downloads/*.jpg -resize 480x320 result.png</span>
+</pre>
+
+
+<p>拼接图像：</p>
+<pre class="code literal-block"><span></span><span class="err">convert file1.png file2.png file3.png -append result.png</span>
+</pre>
+
+
+<p>马赛克：</p>
+<pre class="code literal-block"><span></span><span class="err">convert eggkick.png -resize 10% -scale 1000% result.png</span>
+</pre>
+
+
+<p><img alt="马赛克" src="../../images/IM-resize-scale.png" title="马赛克"></p>
+<p>高斯模糊：</p>
+<pre class="code literal-block"><span></span><span class="err">convert eggkick.png -blur 0x8 result.png</span>
+</pre>
+
+
+<p><img alt="高斯模糊" src="../../images/IM-blur.png" title="高斯模糊"></p>
+<p>宝丽来照片效果：</p>
+<pre class="code literal-block"><span></span><span class="err">convert eggkick.png +polaroid result.png</span>
+</pre>
+
+
+<p><img alt="宝丽来照片效果" src="../../images/IM-polaroid.png" title="宝丽来照片效果"></p>
+<p>添加图片水印：</p>
+<pre class="code literal-block"><span></span><span class="err">composite wmark.png -watermark 30% eggkick.png result.png</span>
+</pre>
+
+
+<p>制作GIF动画：</p>
+<pre class="code literal-block"><span></span><span class="err">convert frame[1-5].png -delay 50 -loop 0 result.gif</span>
+</pre>
+
+
+<p>视频转换GIF动画：</p>
+<pre class="code literal-block"><span></span><span class="err">convert some.mp4 -layers Optimize result.gif</span>
+</pre>
+
+
+<p>需要说明的是这些操作都是可以无限叠加的。比如调整为 50% 大小再旋转 75 度，顺便转换格式：</p>
+<pre class="code literal-block"><span></span><span class="err">convert eggkick.png -resize 50% -rotate 75 result.tiff</span>
+</pre>
+
+
+<p>还有很多很多 …… 大家可以点击笔者微博的 <a href="http://huati.weibo.com/k/ImageMagick%E6%AF%8F%E6%97%A5%E6%8A%80%E5%B7%A7?from=501" title="http://huati.weibo.com/k/ImageMagick每日技巧?from=501">#ImageMagick每日技巧#</a>标签了解更多操作用法。</p>
+<p>说这么多其实只是“忽悠”你安装 ImageMagick 啦，但真正使用一段时间后你就会觉得非常嗨皮。如果刚开始命令记不住，可以保存成快捷短语，使用时粘贴出来修改文件名就可以了。通常我们面对的都是很基本的图像处理，ImageMagick 足以满足一般性的需求。笔者并非鼓励大家都去使用 ImageMagick 处理图片，但确实有些场景下使用它会非常迅速便捷。而命令行特有的批量操作、易于扩展的特点，提供了更多的可能性。比如前面我们提供的 AppleScript 打包的文件，使用就非常简单：</p>
+<p><strong>把想要处理的文件拖放到应用图标上，就会批量处理并把结果放到同一文件夹。</strong></p>
+<p>因为是使用 AppleScript 做胶水和外壳，你可以方便地修改以满足自己的需求。方法是：右键点击 － 显示包内容 － <code>Contents/Resources/Scripts</code> 一路进去 － 编辑 <code>main.scpt</code> - 然后保存就可以了。</p>
+<p>别看到内容貌似不少，其实真正要修改的仅有一行，就是含有 ImageMagick 命令 <code>convert</code> 那行啦。把要执行的操作符与变量全部拼接起来就可以。</p>
+<p><img alt="脚本截图" src="../../images/IM-scripteditor.png" title="脚本截图"></p>
+<p>以下是已经「装配」好的命令执行效果截图：</p>
+<p><code>roundR!.app</code> - 圆角图片：</p>
+<p><img alt="圆角图片" src="../../images/IM-roundr.png" title="圆角图片"></p>
+<p><code>Stack!.app</code> - 堆叠效果：</p>
+<p><img alt="堆叠效果" src="../../images/IM-stack.png" title="堆叠效果"></p>
+<p><code>Torn!.app</code> - 撕纸效果：</p>
+<p><img alt="撕纸效果" src="../../images/IM-torn.png" title="撕纸效果"></p>
+<p><code>GPSInfo!.app</code> - 读取并添加 GPS 信息标签：</p>
+<p><img alt="GPS 信息" src="../../images/IM-gpsinfo.png" title="GPS 信息"></p>
+<p><code>wMark!.app</code> - 添加图片水印：</p>
+<p><em>记得使用前先配置好水印图片路径</em></p>
+<p><img alt="图片水印" src="../../images/IM-wmark.png" title="图片水印"></p>
+<p>OK，先这样。看情况再来更新帖子，欢迎同好一起交流提高！(((o(<em>ﾟ▽ﾟ</em>)o)))</p>
+</div>
+        </div>
+    </div>
+    <div class="post-info">
+        <p>文章链接：<a href="https://macplay.github.io/posts/applescript-imagemagick-tu-xiang-chu-li-jiao-ben/" target="_blank">https://macplay.github.io/posts/applescript-imagemagick-tu-xiang-chu-li-jiao-ben/</a></p>
+        <p>发布/更新于：
+            <time datetime="2017-10-26 10:52:40 UTC+08:00">
+            2017-10-26 10:52
+            </time></p>
+        <p>版权声明：如无特别说明，本站文章均遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">CC BY-NC-SA 4.0</a> 协议，转载请注明作者及出处。</p>
+    </div>
+        <div class="post-navigation no-print">
+        <div class="ui huge secondary stackable menu">
+            <a class="post-nav-item post-nav-previous item" href="../ru-he-jie-ya-macos-xia-de-pkg-wen-jian/" title="Previous post"><i class="angle double left icon"></i> 如何解压 macOS 下的 pkg 文件</a>
+        <div class="right menu">
+            <a class="post-nav-item post-nav-next item" href="../macos-xia-kuai-su-shu-ru-wen-jian-lu-jing-de-ji-chong-fang-fa/" title="Next post">macOS 下快速输入文件路径的几种方法 <i class="angle double right icon"></i></a>
+        </div>
+        </div>
+    </div>
+
+        <div id="gitalk-container" class="comments-block no-print"></div>
+</div>
+                    </div>
+                </main><div class="footer extra-block no-print">
+    <span class="footer_item">
+        <a href="../../pages/you-qing-lian-jie/">友情链接</a>
+    </span>
+    <span class="footer_item">
+        <a href="../../pages/liu-yan-ban/">留言板</a>
+    </span>
+    <span class="footer_item">
+        <a href="../../pages/ge-ren-dong-tai/">碎碎念</a>
+    </span>
+    </div>
+            <div class="footer social-link no-print">
+            <a href="https://github.com/ashfinal" target="_blank"><i class="grey large github icon"></i></a>
+            <a href="http://weibo.com/ashfinal/" target="_blank"><i class="grey large weibo icon"></i></a>
+            <a href="mailto://ashfinal@sina.cn" target="_blank"><i class="grey large mail icon"></i></a>
+            </div>
+        <div class="ui basic center aligned segment no-print">Contents © 2020         <a href="mailto:ashfinal@sina.cn">ashfinal</a> - Powered by         <a href="https://getnikola.com" target="_blank" rel="nofollow">Nikola</a>         </div>
+
+            </div>
+            <div class="computer only three wide column no-print">
+                <div id="right-side">
+                </div>
+            </div>
+        </div>
+
+        <!-- GoStats JavaScript Based Code -->
+        <script type="text/javascript">(function(c,o,m,p,u,t,e){
+        c['GoStatsObject']=u;c[u]=c[u]||function(){(c[u].q=c[u].q||[]).push(arguments)},
+        c[u].l=1*new Date();t=o.createElement(m);t.async=1;t.src=p;
+        e=o.getElementsByTagName(m)[0];e.parentNode.insertBefore(t,e);
+        })(window,document,'script','//www.gostats.org/5.js','go');
+        go('init',100479892,{'img_counter_type':5,'img_image_type':1});go('send');</script><!-- End GoStats JavaScript Based Code --><script type="text/javascript" src="../../assets/js/jquery-3.3.1.min.js"></script><script type="text/javascript" src="../../assets/js/semantic.min.js"></script><script type="text/javascript" src="../../assets/js/jquery.fancybox.min.js"></script><script type="text/javascript" src="../../assets/js/cookie.min.js"></script><script>
+            $(document).ready(function(){
+                $(".ui.dropdown").dropdown();
+                $('.ui.accordion').accordion();
+                var newstr = $('.cookie.nag').text();
+                $('.cookie.nag').nag({
+                    key: 'globalnotice',
+                    value: newstr
+                  });
+                $('.image-reference').fancybox();
+            });
+        </script><script src="../../assets/js/md5.min.js"></script><script src="../../assets/js/gitalk.min.js"></script><script>
+        const gitalk = new Gitalk({
+            clientID: '12fcda845097d895a24c',
+            clientSecret: '50ed60cde5f40897205197b4265b474cefbedc49',
+            repo: 'macplay.github.io',
+            owner: 'macplay',
+            admin: ['macplay', 'ashfinal'],
+            id: md5(window.location.pathname),
+            // facebook-like distraction free mode
+            distractionFreeMode: false
+        })
+        gitalk.render('gitalk-container')
+    </script>
+</body>
+</html>

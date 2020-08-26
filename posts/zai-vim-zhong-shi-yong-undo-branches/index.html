@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="zh_cn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="generator" content="Nikola (getnikola.com)">
+<title>【译】在 Vim 中使用 undo branches - MacPlay</title>
+<link rel="apple-touch-icon" sizes="180x180" href="../../apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+<link rel="mask-icon" href="../../safari-pinned-tab.svg" color="#5bbad5">
+<link href="../../assets/css/semantic.min.css" rel="stylesheet" type="text/css">
+<link href="../../assets/css/jquery.fancybox.min.css" rel="stylesheet" type="text/css">
+<link href="../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<link rel="canonical" href="https://macplay.github.io/posts/zai-vim-zhong-shi-yong-undo-branches/">
+<meta name="author" content="ashfinal">
+<link rel="alternate" hreflang="en" href="../../en/posts/zai-vim-zhong-shi-yong-undo-branches/">
+<link rel="stylesheet" type="text/css" href="../../assets/css/gitalk.css">
+</head>
+<body>
+        <div class="ui grid">
+            <div class="computer only three wide column no-print">
+                <div id="left-side">
+                </div>
+            </div>
+            <div class="ten wide computer sixteen wide tablet sixteen wide mobile column">
+                        <div class="ui inline cookie nag no-print">
+            <span class="title">从现在开始，支持中英双语及博文精选 O(∩_∩)O~~</span>
+            <i class="close icon"></i>
+        </div>
+    <header id="header" class="no-print"><div class="ui grid">
+        <div class="computer only tablet only sixteen wide column">
+            <div class="ui large secondary stackable menu">
+                <a class="header item brand-logo" href="https://macplay.github.io/">
+                    MacPlay
+                </a>
+                        <a class="item" href="../../">Posts</a>
+                        <a class="item" href="../../listings/">Code</a>
+                        <a class="item" href="../../galleries/">Gallery</a>
+                        <a class="item" href="../../categories/">Tags</a>
+                        <a class="item" href="../../archive.html">Archive</a>
+                <div class="right menu">
+                    <a class="item" href="../../rss.xml"><i class="rss icon"></i>RSS</a>
+                </div>
+            </div>
+        </div>
+        <div class="mobile only sixteen wide column">
+            <div class="ui fluid accordion vertical menu">
+                <div class="item">
+                    <a class="title">MacPlay</a>
+                    <div class="content">
+                                <a class="item" href="../../">Posts</a>
+                                <a class="item" href="../../listings/">Code</a>
+                                <a class="item" href="../../galleries/">Gallery</a>
+                                <a class="item" href="../../categories/">Tags</a>
+                                <a class="item" href="../../archive.html">Archive</a>
+                        <a class="item" href="../../rss.xml"><i class="rss icon"></i>RSS</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </header><main id="main"><div id="main-content">
+<div class="postpage post-text page-body" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <h1 class="post-title" itemprop="headline">
+        <a href=".">【译】在 Vim 中使用 undo branches</a>
+    </h1>
+
+    <div class="ui large horizontal link list post-meta">
+        <span class="item">By
+            <a href="../../authors/ashfinal/">ashfinal</a>
+        </span>
+            <span class="item">
+                <a href="https://github.com/macplay/macplay.github.io/edit/src/posts/zai-vim-zhong-shi-yong-undo-branches.rst" target="_blank" title="Edit on GitHub">Edit</a>
+            </span>
+        <span class="item">
+            <time datetime="2017-11-13T11:14:24+08:00">
+            2017-11-13 11:14
+            </time></span>
+            <span class="item">
+                    <a href="../../categories/translation/">translation</a>
+                    <a href="../../categories/vim/">vim</a>
+            </span>
+    </div>
+
+    
+    <div class="post-content" itemprop="article text">
+        <div id="post-content">
+        <div>
+<p>Vim 支持标准的 <a class="reference external" href="http://vim.wikia.com/wiki/Undo_and_Redo">撤销和重做</a> ，同时还支持 <cite>undo branches</cite> 。这允许你撤销一些更改，然后再做新的更改，而在此过程中 <strong>所有</strong> 的更改都在 <cite>undo tree</cite> 中得到保留。你甚至还能把撤销（undo）记录保存到文件中，下次编辑同一文件时恢复这些记录。本文将向你初步展示如何在 Vim 中使用 <cite>undo branches</cite> 。</p>
+<!-- TEASER_END -->
+<div class="contents topic" id="id2">
+<p class="topic-title">文章目录</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#undo-branches" id="id13">什么是 undo branches</a></p></li>
+<li><p><a class="reference internal" href="#id4" id="id14">举例说明</a></p></li>
+<li><p><a class="reference internal" href="#undolevels" id="id15">Undolevels 选项</a></p></li>
+<li>
+<p><a class="reference internal" href="#id6" id="id16">相关插件</a></p>
+<ul>
+<li><p><a class="reference internal" href="#mundo" id="id17">Mundo</a></p></li>
+<li><p><a class="reference internal" href="#histwin" id="id18">Histwin</a></p></li>
+<li><p><a class="reference internal" href="#id9" id="id19">其它</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#persistent-undo" id="id20">Persistent undo</a></p></li>
+<li><p><a class="reference internal" href="#id10" id="id21">参考资料</a></p></li>
+<li><p><a class="reference internal" href="#id11" id="id22">扩展阅读</a></p></li>
+<li><p><a class="reference internal" href="#id12" id="id23">评论</a></p></li>
+</ul>
+</div>
+<div class="section" id="undo-branches">
+<h2><a class="toc-backref" href="#id13">什么是 undo branches</a></h2>
+<p>Vim 7.0 及更高版本支持 <cite>undo branches</cite> 。该特性使得即便你返回到文本的更早状态，并从那个状态点开始编辑，也完全不会丢失历史更改记录。</p>
+<p>此处的 <strong>更改</strong> 指的是你在 <cite>insert mode</cite> 下所做的全部编辑操作，或者在 <cite>normal mode</cite> 或 <cite>command-line mode</cite> 下执行的单次编辑命令。一旦你离开 <cite>insert mode</cite> ，一个新的 <strong>更改</strong> 将会被记录。因此，如要创建一个新的能回滚的 <strong>更改</strong> ，离开 <cite>insert mode</cite> 是非常重要的。否则的话，你在 <cite>insert mode</cite> 下所做的所有 <strong>更改</strong> 都会被认为是 <strong>同一更改</strong> 。在 <cite>insert mode</cite> 下，你也可以按 <cite>Ctrl-G</cite> 然后 <cite>u</cite> 打断 undo 序列，并开始记录一个新的 <strong>更改</strong> 。事实上，在某些场景下自动化这一过程可能是个很好的主意。比如，你可以 <a class="reference external" href="http://vim.wikia.com/wiki/VimTip86">一次撤销一行插入的文本</a> ， <a class="reference external" href="http://vim.wikia.com/wiki/Recover_from_accidental_Ctrl-U">按下 Ctrl-U 后又改变主意在 normal mode 恢复文本</a> ，或者 <a class="reference external" href="http://vim.wikia.com/wiki/Execute_accidentally_inserted_commands">在 normal mode 下执行不小心在 insert mode 输入的命令</a> 。注意：某些命令（ <cite>Ctrl-G u</cite> 就是其中之一）会将你在 <cite>insert mode</cite> 下的编辑操作打散为多次更改。更多请参考 <a class="reference external" href="http://vimdoc.sourceforge.net/cgi-bin/help?tag=ins-special-special">:help ins-special-special</a> 。</p>
+<p>你可以将 <cite>undo branches</cite> 想象为一棵树，它将你对文本所做的第一个更改作为顶层节点。任何时候撤销一些更改并做新的更改时，你都创建了一个新的节点。</p>
+<p>在 <cite>normal mode</cite> 下按 <cite>u</cite> 将会撤销你的最后一个更改，同时向上移动一个层级。相反的，重做（Ctrl-R）将会在这棵树上向下移动一个层级。这一点与 Vim 7.0 之前的版本是一样的，也与其它 Vi 克隆版是向下兼容的。</p>
+<p>但是，你也可以按 <strong>更改</strong> 创建的时间顺序来随意移动。比如， <cite>g-</cite> 命令会移动到前一个更改，而不用理会它究竟在 <cite>undo tree</cite> 的哪个位置。更进一步的说，使用 <cite>g-</cite> 会按时间顺序将你移动到上一个更改。 <cite>g-</cite> 在 <cite>undo tree</cite> 上向后移动，而 <cite>g+</cite> 则是向前移动，直到恢复到文本的初始状态。</p>
+<p>除了 <cite>g+</cite> 和 <cite>g-</cite> 命令外，你也可以使用 <cite>ex-command</cite> 命令： <cite>:earlier</cite> 和 <cite>:later</cite> 。这两个命令均可以选择性地接收一个数字或者你想移动到的时间。比如：</p>
+<pre class="code vim"><a name="rest_code_2ce20f429f934400a2c20eca0853ff89-1"></a><span class="p">:</span><span class="k">earlier</span> <span class="m">10</span>
+</pre>
+<p>将会在 <cite>undo tree</cite> 中向前移动 10 个更改。</p>
+<pre class="code vim"><a name="rest_code_d080bd73570840228f3717c8f620fa4d-1"></a><span class="p">:</span><span class="k">earlier</span> <span class="m">1</span>h
+</pre>
+<p>将会恢复到 1 小时前的文本状态（秒数则使用 <cite>s</cite> ，分钟 <cite>m</cite> ，小时 <cite>h</cite> ）。</p>
+<pre class="code vim"><a name="rest_code_64a98d89214e438cae699d36fc6f13fd-1"></a><span class="p">:</span><span class="k">later</span> <span class="m">10</span>
+</pre>
+<p>或者</p>
+<pre class="code vim"><a name="rest_code_c13bb1c039ec4a34b817cd6a2181807f-1"></a><span class="p">:</span><span class="k">later</span> <span class="m">1</span>h
+</pre>
+<p>将会向后移动直到恢复文本缓冲区到最新的状态。</p>
+<p>Vim 7.3 版本中添加了新的 <a class="reference internal" href="#persistent-undo">Persistent undo</a> ，以上的 <cite>ex-command</cite> 命令也相应提供了方便回滚到上一次保存状态（如 2 次保存前，3 次保存前）的能力。命令如下： <cite>:earlier 1f</cite> 。</p>
+</div>
+<div class="section" id="id4">
+<h2><a class="toc-backref" href="#id14">举例说明</a></h2>
+<p>假设你开始一次新的更改：</p>
+<p>进入 <cite>insert mode</cite> 并输入 <cite>1</cite> ，然后离开 <cite>insert mode</cite> 。现在再次进入 <cite>insert mode</cite> 输入 <cite>2</cite> ，离开 <cite>insert mode</cite> 。最后进入 <cite>insert mode</cite> 输入 <cite>3</cite> ，并再次离开。你的文本缓冲区现在看起来是这样：</p>
+<pre class="code text"><a name="rest_code_e5e1b9831a294be6815c682debca4fc7-1"></a>1 2 3
+</pre>
+<p>你可以随时使用以下命令检查最近更改数目：</p>
+<pre class="code vim"><a name="rest_code_dd98d0017d1c46f9af2088cdf7b1a6e0-1"></a><span class="p">:</span>echo changenr<span class="p">()</span>
+</pre>
+<p>这将会输出 <cite>3</cite> ，因为你做了三次更改（总共进入 <cite>insert mode</cite> 三次）。</p>
+<p>现在按 <cite>u</cite> 撤销一次更改，再次进入 <cite>insert mode</cite> 将缓冲区变更为以下这样：</p>
+<pre class="code text"><a name="rest_code_a7ed4bc1a2da49bf8f474cc1d4dae088-1"></a>1 2 4
+</pre>
+<p>你现在已经从缓冲区的上一次状态分支出来，创建了一个新的 <cite>undo branches</cite> 。使用</p>
+<pre class="code vim"><a name="rest_code_b74067b663dd42dea506de123ea17407-1"></a><span class="p">:</span>echo changenr<span class="p">()</span>
+</pre>
+<p>将会输出 <cite>4</cite> 。</p>
+<p>如果你在 <cite>normal mode</cite> 下按 <cite>u</cite> ，你将回退到</p>
+<pre class="code text"><a name="rest_code_a55d3ecde61f4863a50d7ffff9491923-1"></a>1 2
+</pre>
+<p>再次按下 <cite>u</cite> 缓冲区将会变为</p>
+<pre class="code text"><a name="rest_code_2eac199ef9c64a9c9a86e09f492c5517-1"></a>1
+</pre>
+<p>如果你最后再按一下 <cite>u</cite> ，你将获得一个空空如也的缓冲区，就像你刚开始输入时的那样。你现在已经回退到第一次更改前，这时</p>
+<pre class="code vim"><a name="rest_code_479c4bf9e0ce45b187531191f31421d2-1"></a><span class="p">:</span>echo changenr<span class="p">()</span>
+</pre>
+<p>将会输出 <cite>0</cite> 。</p>
+<p>如果你使用 <cite>Ctrl-R</cite> 重做（redo）的话，你将回退到</p>
+<pre class="code text"><a name="rest_code_2c2a055c58d94ea0824b80da05673f8d-1"></a>1
+</pre>
+<p>然后</p>
+<pre class="code text"><a name="rest_code_eed72125081b4e33b960b68ba5d67ead-1"></a>1 2
+</pre>
+<p>最终是</p>
+<pre class="code text"><a name="rest_code_f299ec4b2c7c4aeb8246405f881a5096-1"></a>1 2 4
+</pre>
+<p>注意，你将永远不会回退到缓冲区包含 <cite>1 2 3</cite> 的第 3 次变更状态。但是，你可以使用 <cite>g-</cite> 和 <cite>:earlier</cite> 命令来移动到那次更改。所以，现在你按下 <cite>g-</cite> 或者 <cite>:earlier</cite> ，你的缓冲区将变成这样：</p>
+<pre class="code text"><a name="rest_code_3e47b47d5fc4452a92d3436f4f728a23-1"></a>1 2 3
+</pre>
+<p>如果已经知道要跳转到的记录数目，你也可以使用 <cite>:undo</cite> 命令直接回滚到指定更改。</p>
+<p>输入</p>
+<pre class="code vim"><a name="rest_code_eac9133b50bb465b8bbd4e31b49f89c7-1"></a><span class="p">:</span>undo <span class="m">1</span>
+</pre>
+<p>会将你的缓冲区恢复到</p>
+<pre class="code text"><a name="rest_code_f97b5bb9d7d74a94a40437573ba710f7-1"></a>1
+</pre>
+</div>
+<div class="section" id="undolevels">
+<h2><a class="toc-backref" href="#id15">Undolevels 选项</a></h2>
+<p>记录更改的条数数目由 <a class="reference external" href="http://vimdoc.sourceforge.net/cgi-bin/help?tag=%27undolevels%27">undolevels</a> 控制。这是一个全局性选项，定义了每个缓冲区记录多少条可回退的更改。所以，如果你将其设置为 <cite>25</cite> ，则你最多可以撤销 25 次更改。如果设为 <cite>-1</cite> ，那么你将不能撤销任何更改！</p>
+</div>
+<div class="section" id="id6">
+<h2><a class="toc-backref" href="#id16">相关插件</a></h2>
+<p>仅使用内置命令，在 <cite>undo tree</cite> 中导航到你想要找的状态，可能会有些麻烦。这里有几个插件可以使这一过程更容易些。</p>
+<div class="section" id="mundo">
+<h3><a class="toc-backref" href="#id17">Mundo</a></h3>
+<div class="figure">
+<a class="reference external image-reference" href="../../images/mundo.png"><img alt="/images/mundo.thumbnail.png" class="ui small right floated image" src="../../images/mundo.thumbnail.png"></a>
+</div>
+<p><a class="reference external" href="http://simnalamburt.github.io/vim-mundo/dist/">Mundo</a> 插件要求安装有 <a class="reference external" href="http://www.python.org/">Python</a> 以及 <a class="reference external" href="http://vim.wikia.com/wiki/Build_Python-enabled_Vim_on_Windows_with_MinGW">编译有 Python 支持的 Vim 版本</a> 。Mundo 插件提供了整个 <cite>undo tree</cite> 的可视化树形视图，并包含了已存储的 <cite>persistent undo</cite> 数据。树形视图下方是每次更改的上下文 diff 预览，使得你更容易精确找到想要回退的状态。尽管它并没有提供 Histwin 插件的一些特性（比如，与特定状态的 diff，标记特定文件版本等），但是 Mundo 的树形视图和 diff 预览功能很好用。</p>
+<p>Mundo 是 <a class="reference external" href="https://bitbucket.org/sjl/gundo.vim">Gundo</a> 插件的社区 fork 版本。Mundo 由 Gundo 插件 fork 而来，并在此基础上继续开发。</p>
+</div>
+<div class="section" id="histwin">
+<h3><a class="toc-backref" href="#id18">Histwin</a></h3>
+<div class="figure">
+<a class="reference external image-reference" href="../../images/histwin.png"><img alt="/images/histwin.thumbnail.png" class="ui small right floated image" src="../../images/histwin.thumbnail.png"></a>
+</div>
+<p><a class="reference external" href="https://vim.sourceforge.io/scripts/script.php?script_id=2932">Histwin</a> 插件提供了方便简单的方法，允许你在 undo 历史中跳转到之前的分支。</p>
+<p>它提供了一个 <cite>:UB</cite> 命令打开新的窗口，列出所有更改的不同分支。如果在列表中的项目上按下 <cite>Enter</cite> 键，你的缓冲区将会回退到 undo 历史相应的状态。</p>
+<p>除此之外，你还可以在列表项上按 <cite>T</cite> 标记某个状态，按下 <cite>D</cite> 打开 diff 窗口，在当前状态和选中状态之间审阅所有更改。另外一个有意思的功能是，你甚至可以让 Vim 从头重放对文件的更改。</p>
+<p>安装插件以后，输入 <cite>:help histwin.txt</cite> 查阅它的配置和使用说明。</p>
+</div>
+<div class="section" id="id9">
+<h3><a class="toc-backref" href="#id19">其它</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://vim.sourceforge.io/scripts/script.php?script_id=4177">undotree</a> 使用纯 vimscript 编写，提供与 Mundo 相似的树形视图。该插件同时还提供已更改文本的颜色高亮，树形视图的自动刷新，以及 <cite>undo tree</cite> 节点的额外信息标记。</p></li>
+<li><p><a class="reference external" href="https://vim.sourceforge.io/scripts/script.php?script_id=2141">Undo Branches Explorer</a></p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="persistent-undo">
+<h2><a class="toc-backref" href="#id20">Persistent undo</a></h2>
+<p>Persistent undo（持久化 undo）特性自 Vim 7.3 版本正式可用。Vim 7.3 版本之前（或没有编译 persistent undo 特性的 7.3 版本），当你退出 Vim（或者强制重载缓冲区）时，你将丢失所有的 undo 历史，因此可能会不小心丢失数据。Persistent undo 特性（以 normal、big 和 huge 方式编译的 Vim 应该都有）提供了将 undo 历史永久保存到文件中的可能性，无论何时当你编辑与 undo 历史相关联的文件时，将会从文件重载这些 undo 历史。</p>
+<p>要使用这一特性，你需要设置 <cite>undofile</cite> 选项：</p>
+<pre class="code vim"><a name="rest_code_38128bdf8eb04f809e27ff82f4e562ff-1"></a><span class="p">:</span><span class="k">set</span> <span class="nb">undofile</span>
+</pre>
+<p>然后你就可以使用新命令 <cite>:wundo</cite> 将 undo 历史写入到文件之中，并使用 <cite>:rundo</cite> 来读取 undo 历史了。对于每一个编辑的文件， <cite>undo tree</cite> 都会被保存到同一目录下的单独文件中。文件名形如： <cite>.filename.un~</cite> ，就像 swap 文件一样。如果你想将所有 undo 文件统一保存到一个目录中，你可以设置 <cite>undodir</cite> 选项来指定包含所有 undo 文件的目录。开启 persistent undo 特性以后，当你编辑文件时，被保存的 undo 信息就会自动被读取出来。</p>
+<p>除此之外，Vim 7.3 还允许你跳转到文件的前几次保存状态。通过执行 <cite>:earlier &lt;nr&gt;f</cite> 和 <cite>:later &lt;nr&gt;f</cite> 可以做到这一点，此处的 <cite>&lt;nr&gt;</cite> 指的是文件保存数目。文件保存数目可以通过 <cite>:undolist</cite> 命令，在 <cite>saved</cite> 列里面看到。例如， <cite>:earlier 1f</cite> 将会回滚到文件最后一次被保存的状态，而 <cite>:later 1f</cite> 则将移动到 <cite>undo tree</cite> 的下一个更新的文件保存状态。</p>
+<p>新增加的选项 <cite>undoreload</cite> 现在可以设置，在缓冲区重载（如 <cite>:e!</cite> 命令）前，是否保存文本状态。缺省值是 10,000，这意味着如果缓冲区不足 10,000 行，则缓冲区内容会被存储到 <cite>undo tree</cite> 。例如，你正在编辑一个简单的文件， <cite>:echo changenr()</cite> 将会输出 <cite>undo tree</cite> 中的当前位置。现在如果使用 <cite>:e!</cite> 命令重载缓冲区，则你会注意到：在 <cite>:echo changenr()</cite> 输出结果中，一个新的更改已被创建（但是仅在缓冲区行数小于 <cite>undoreload</cite> 设置，或者 <cite>undoreload</cite> 值为负值时出现）。</p>
+<p>同时，要注意到：如果一个文件被从 Vim 外更改，则当你再次编辑文本时，Vim 将无法读取 undo 历史， <cite>undo tree</cite> 信息将会丢失。没有别的方法可以取回这些数据。</p>
+</div>
+<div class="section" id="id10">
+<h2><a class="toc-backref" href="#id21">参考资料</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="http://vimdoc.sourceforge.net/cgi-bin/help?tag=usr_32.txt">:help usr_32.txt</a></p></li>
+<li><p><a class="reference external" href="http://vimdoc.sourceforge.net/cgi-bin/help?tag=undo-branches">:help undo-branches</a></p></li>
+<li><p><a class="reference external" href="http://vimdoc.sourceforge.net/cgi-bin/help?tag=g%2B">:help g+</a></p></li>
+<li><p><a class="reference external" href="http://vimdoc.sourceforge.net/cgi-bin/help?tag=earlier">:help earlier</a></p></li>
+<li><p><a class="reference external" href="http://vimdoc.sourceforge.net/cgi-bin/help?tag=i_CTRL-G_u">:help i_CTRL-G_u</a></p></li>
+<li><p><a class="reference external" href="http://vimdoc.sourceforge.net/cgi-bin/help?tag=%27ul%27">:help 'ul'</a></p></li>
+</ul>
+</div>
+<div class="section" id="id11">
+<h2><a class="toc-backref" href="#id22">扩展阅读</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="http://vim.wikia.com/wiki/Undo_and_Redo">Undo and Redo</a></p></li>
+<li><p><a class="reference external" href="http://vim.wikia.com/wiki/Recover_from_accidental_Ctrl-U">Recover from accidental Ctrl-U</a></p></li>
+</ul>
+</div>
+<div class="section" id="id12">
+<h2><a class="toc-backref" href="#id23">评论</a></h2>
+<p><a class="reference internal" href="#persistent-undo">Persistent undo</a> 小节提到：</p>
+<blockquote>
+<p>同时，要注意到：如果一个文件被从 Vim 外更改，则当你再次编辑文本时，Vim 将无法读取 undo 历史， <cite>undo tree</cite> 信息将会丢失。没有别的方法可以取回这些数据。</p>
+</blockquote>
+<p>我不认为这一说法在所有情况下均适用。难道你不能关闭缓冲区，恢复文件到之前状态（比如使用版本管理工具），再重载缓冲区，把这些数据取回？还是这一方法太复杂，以至于你在文中懒得提？ --Fritzophrenic 04:26, October 20, 2010 (UTC)</p>
+<p>这应该也好使。 --Chrisbra 20:54, October 20, 2010 (UTC)</p>
+<p>我在想也许你可以制作一个 FileChangedShell 命令，当它检测到外部变动时，以某种方式保存 undo 信息。 --Fritzophrenic 20:52, January 7, 2011 (UTC)</p>
+</div>
+</div>
+        </div>
+    </div>
+    <div class="post-info">
+        <p>引用资源：<a href="http://vim.wikia.com/wiki/Using_undo_branches" target="_blank">http://vim.wikia.com/wiki/Using_undo_branches</a></p>
+        <p>文章链接：<a href="https://macplay.github.io/posts/zai-vim-zhong-shi-yong-undo-branches/" target="_blank">https://macplay.github.io/posts/zai-vim-zhong-shi-yong-undo-branches/</a></p>
+        <p>发布/更新于：
+            <time datetime="2017-11-13 11:14:24 UTC+08:00">
+            2017-11-13 11:14
+            </time></p>
+        <p>版权声明：如无特别说明，本站文章均遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">CC BY-NC-SA 4.0</a> 协议，转载请注明作者及出处。</p>
+    </div>
+        <div class="post-navigation no-print">
+        <div class="ui huge secondary stackable menu">
+            <a class="post-nav-item post-nav-previous item" href="../vim-nong-diu-liao-wo-de-shu-ju/" title="Previous post"><i class="angle double left icon"></i> Vim 弄丢了我的数据！</a>
+        <div class="right menu">
+            <a class="post-nav-item post-nav-next item" href="../bu-yi-yang-de-git-ke-hu-duan-gitup/" title="Next post">不一样的 Git 客户端——GitUp <i class="angle double right icon"></i></a>
+        </div>
+        </div>
+    </div>
+
+        <div id="gitalk-container" class="comments-block no-print"></div>
+</div>
+                    </div>
+                </main><div class="footer extra-block no-print">
+    <span class="footer_item">
+        <a href="../../pages/you-qing-lian-jie/">友情链接</a>
+    </span>
+    <span class="footer_item">
+        <a href="../../pages/liu-yan-ban/">留言板</a>
+    </span>
+    <span class="footer_item">
+        <a href="../../pages/ge-ren-dong-tai/">碎碎念</a>
+    </span>
+    </div>
+            <div class="footer social-link no-print">
+            <a href="https://github.com/ashfinal" target="_blank"><i class="grey large github icon"></i></a>
+            <a href="http://weibo.com/ashfinal/" target="_blank"><i class="grey large weibo icon"></i></a>
+            <a href="mailto://ashfinal@sina.cn" target="_blank"><i class="grey large mail icon"></i></a>
+            </div>
+        <div class="ui basic center aligned segment no-print">Contents © 2020         <a href="mailto:ashfinal@sina.cn">ashfinal</a> - Powered by         <a href="https://getnikola.com" target="_blank" rel="nofollow">Nikola</a>         </div>
+
+            </div>
+            <div class="computer only three wide column no-print">
+                <div id="right-side">
+                </div>
+            </div>
+        </div>
+
+        <!-- GoStats JavaScript Based Code -->
+        <script type="text/javascript">(function(c,o,m,p,u,t,e){
+        c['GoStatsObject']=u;c[u]=c[u]||function(){(c[u].q=c[u].q||[]).push(arguments)},
+        c[u].l=1*new Date();t=o.createElement(m);t.async=1;t.src=p;
+        e=o.getElementsByTagName(m)[0];e.parentNode.insertBefore(t,e);
+        })(window,document,'script','//www.gostats.org/5.js','go');
+        go('init',100479892,{'img_counter_type':5,'img_image_type':1});go('send');</script><!-- End GoStats JavaScript Based Code --><script type="text/javascript" src="../../assets/js/jquery-3.3.1.min.js"></script><script type="text/javascript" src="../../assets/js/semantic.min.js"></script><script type="text/javascript" src="../../assets/js/jquery.fancybox.min.js"></script><script type="text/javascript" src="../../assets/js/cookie.min.js"></script><script>
+            $(document).ready(function(){
+                $(".ui.dropdown").dropdown();
+                $('.ui.accordion').accordion();
+                var newstr = $('.cookie.nag').text();
+                $('.cookie.nag').nag({
+                    key: 'globalnotice',
+                    value: newstr
+                  });
+                $('.image-reference').fancybox();
+            });
+        </script><script src="../../assets/js/md5.min.js"></script><script src="../../assets/js/gitalk.min.js"></script><script>
+        const gitalk = new Gitalk({
+            clientID: '12fcda845097d895a24c',
+            clientSecret: '50ed60cde5f40897205197b4265b474cefbedc49',
+            repo: 'macplay.github.io',
+            owner: 'macplay',
+            admin: ['macplay', 'ashfinal'],
+            id: md5(window.location.pathname),
+            // facebook-like distraction free mode
+            distractionFreeMode: false
+        })
+        gitalk.render('gitalk-container')
+    </script>
+</body>
+</html>

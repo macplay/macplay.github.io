@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="generator" content="Nikola (getnikola.com)">
+<title>从 URL 构建行内链接 - MacPlay</title>
+<link rel="apple-touch-icon" sizes="180x180" href="../../../apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../../../favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../../../favicon-16x16.png">
+<link rel="mask-icon" href="../../../safari-pinned-tab.svg" color="#5bbad5">
+<link href="../../../assets/css/semantic.min.css" rel="stylesheet" type="text/css">
+<link href="../../../assets/css/jquery.fancybox.min.css" rel="stylesheet" type="text/css">
+<link href="../../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<link rel="canonical" href="https://macplay.github.io/en/posts/cong-url-gou-jian-xing-nei-lian-jie/">
+<meta name="author" content="ashfinal">
+<link rel="alternate" hreflang="zh_cn" href="../../../posts/cong-url-gou-jian-xing-nei-lian-jie/">
+<link rel="stylesheet" type="text/css" href="../../../assets/css/gitalk.css">
+</head>
+<body>
+        <div class="ui grid">
+            <div class="computer only three wide column no-print">
+                <div id="left-side">
+                </div>
+            </div>
+            <div class="ten wide computer sixteen wide tablet sixteen wide mobile column">
+                        <div class="ui inline cookie nag no-print">
+            <span class="title">从现在开始，支持中英双语及博文精选 O(∩_∩)O~~</span>
+            <i class="close icon"></i>
+        </div>
+    <header id="header" class="no-print"><div class="ui grid">
+        <div class="computer only tablet only sixteen wide column">
+            <div class="ui large secondary stackable menu">
+                <a class="header item brand-logo" href="https://macplay.github.io/en/">
+                    MacPlay
+                </a>
+                        <a class="item" href="../../../">Posts</a>
+                        <a class="item" href="../../../listings/">Code</a>
+                        <a class="item" href="../../../galleries/">Gallery</a>
+                        <a class="item" href="../../../categories/">Tags</a>
+                        <a class="item" href="../../../archive.html">Archive</a>
+                <div class="right menu">
+                    <a class="item" href="../../../rss.xml"><i class="rss icon"></i>RSS</a>
+                </div>
+            </div>
+        </div>
+        <div class="mobile only sixteen wide column">
+            <div class="ui fluid accordion vertical menu">
+                <div class="item">
+                    <a class="title">MacPlay</a>
+                    <div class="content">
+                                <a class="item" href="../../../">Posts</a>
+                                <a class="item" href="../../../listings/">Code</a>
+                                <a class="item" href="../../../galleries/">Gallery</a>
+                                <a class="item" href="../../../categories/">Tags</a>
+                                <a class="item" href="../../../archive.html">Archive</a>
+                        <a class="item" href="../../../rss.xml"><i class="rss icon"></i>RSS</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </header><main id="main"><div id="main-content">
+<div class="postpage post-text page-body" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <h1 class="post-title" itemprop="headline">
+        <a href=".">从 URL 构建行内链接</a>
+    </h1>
+
+    <div class="ui large horizontal link list post-meta">
+        <span class="item">By
+            <a href="../../authors/ashfinal/">ashfinal</a>
+        </span>
+            <span class="item">
+                <a href="https://github.com/macplay/macplay.github.io/edit/src/posts/cong-url-gou-jian-xing-nei-lian-jie.rst" target="_blank" title="Edit on GitHub">Edit</a>
+            </span>
+        <span class="item">
+            <time datetime="2018-03-17T19:57:58+08:00">
+            2018-03-17 19:57
+            </time></span>
+            <span class="item">
+                    <a href="../../categories/markdown/">markdown</a>
+                    <a href="../../categories/rest/">reST</a>
+                    <a href="../../categories/vim/">vim</a>
+            </span>
+    </div>
+
+    
+    <div class="post-content" itemprop="article text">
+        <div id="post-content">
+        <div>
+<p>昨天看到论坛有人谈到 <a class="reference external" href="https://emacs-china.org/t/topic/5301">从 URL 构建 Markdown 行内链接 - Emacs-general - Emacs China</a> 。其实，这个功能早就存在于 Emmet 插件中。之前个人写 Markdown 文档的时候就用到过，体验非常不错。具体就是：在文档内的链接处按下快捷键，将会自动提取网页标题，并插入 Markdown 风格的行内链接。这样你就不必再额外复制链接标题，甚至个别情况下还得提前在浏览器中打开链接。</p>
+<p>实际上，该功能不仅能构建 Markdown 行内链接，还可以在网页文件中使用 <code class="docutils literal">&lt;a&gt;</code> 标签构建 HTML 风格的链接。在 Vim 编辑器中，文件类型是自动识别的，因此并不需要额外做什么设置。</p>
+<p>鉴于我个人 <a class="reference external" href="../../../posts/cong-markdown-dao-restructuredtext/">从 Markdown 转向 reStructuredText</a> 已久，对该功能自然而然就用的不多起来。然而，当写 reStructuredText 文档时，当插入链接时不得不皱着眉，分两次分别复制网页链接和标题，再拼凑成 reStructuredText 风格的行内链接时。我总是不由地想起 Markdown 插入链接时的惬意顺畅。只不过，个人比较懒 - - 一直没采取任何行动，忍受着书写体验下降的情况。</p>
+<p>现在经网友这么一提，心思抖起，觉得是时候解决一下这个“小问题”了。</p>
+<!-- TEASER_END -->
+<p>仔细想来：既然 Emmet 插件支持构建 Markdown 风格的行内链接，那应该也可以支持 reStructuredText。至于在 HTML 和 Markdown 文档中表现不同，很可能只是做了下条件判断。那样的话，我们就只需在添加一处判断 reStructuredText 即可。果然，使用 <cite>rg</cite> 命令用 <cite>markdown</cite> 关键词搜索，马上就找到了对应处的代码。简单阅读一下，和之前想的一模一样。心内不由暗喜，然后看了下源码，是使用 <cite>printf</cite> 函数输出并且格式化字符串。我们只需依样画葫芦，把字符串改为 reStructuredText 风格即可。</p>
+<p>如此，只需增加两行。修改完毕，重启 Vim 编辑器测试一下。果然正常运行，没问题！其它功能也不受影响。于是，直接向 Emmet 提交 PR，希望尽快合并。前后花费时间不到 5 分钟！可以说解决这个“小问题”，是非常快了。</p>
+<p>剩下就简单了：修改下 vimrc 配置，让 Emmet 插件在 reStructuredText 文档中自动启用。前面已经说过，该插件在个人配置中针对 html、md 文件是默认开启的，只需添加 reStructuredText 文件类型 <cite>rst</cite> 即可。</p>
+<p>改善 reStructuredText 书写体验的过程，至此就结束了。需要说明的是，整个过程是针对 Vim 及其 Emmet 插件来进行的。但 Emacs 编辑器也有 Emmet 插件，两者的体验应该是差不多的。如果要增加 reStructuredText 文档的支持，则与本文的折腾过程也差不多的。</p>
+<p>最后，我一直坚信：文字的表达能力要差于图片、视频。所谓一图胜千言是也。文字阐述再详细，也依然有读者看不懂你遇到什么问题，怎样解决的？如果是对 Vim、Emacs 编辑器没有了解的读者，那则更是完全懵掉了。因此，只要个人有时间，一般都会更进一步：“额外”在文章中配上图片和短视频。</p>
+<p>针对 <cite>从 URL 构建行内链接</cite> 这个问题，我同样录制了以下视频片段：</p>
+<video src="../../../videos/url_emmet.mp4" loop autoplay muted playsinline>
+Your browser does not support the video tag.
+</video><p><em>视频中的 `:set ft` 命令设置文件类型(filetype)。通常使用 Vim 打开文件时，它会自动识别文件类型，无需像演示视频中那样手动设置。</em></p>
+<p>欢迎同样爱好的读者一起交流进步！</p>
+<p>THE END.</p>
+</div>
+        </div>
+    </div>
+    <div class="post-info">
+        <p>文章链接：<a href="https://macplay.github.io/en/posts/cong-url-gou-jian-xing-nei-lian-jie/" target="_blank">https://macplay.github.io/en/posts/cong-url-gou-jian-xing-nei-lian-jie/</a></p>
+        <p>发布/更新于：
+            <time datetime="2018-03-17 19:57:58 UTC+08:00">
+            2018-03-17 19:57
+            </time></p>
+        <p>版权声明：如无特别说明，本站文章均遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">CC BY-NC-SA 4.0</a> 协议，转载请注明作者及出处。</p>
+    </div>
+        <div class="post-navigation no-print">
+        <div class="ui huge secondary stackable menu">
+            <a class="post-nav-item post-nav-previous item" href="../you-hua-mp4-shi-pin-yi-bian-geng-kuai-de-wang-luo-chuan-liu/" title="Previous post"><i class="angle double left icon"></i> 【译】优化 MP4 视频以便更快的网络串流</a>
+        <div class="right menu">
+            <a class="post-nav-item post-nav-next item" href="../qian-yi-dao-onivim/" title="Next post">迁移到 onivim <i class="angle double right icon"></i></a>
+        </div>
+        </div>
+    </div>
+
+        <div id="gitalk-container" class="comments-block no-print"></div>
+</div>
+                    </div>
+                </main><div class="footer extra-block no-print">
+    <span class="footer_item">
+        <a href="../../../pages/you-qing-lian-jie/">友情链接</a>
+    </span>
+    <span class="footer_item">
+        <a href="../../../pages/liu-yan-ban/">留言板</a>
+    </span>
+    <span class="footer_item">
+        <a href="../../../pages/ge-ren-dong-tai/">碎碎念</a>
+    </span>
+    </div>
+            <div class="footer social-link no-print">
+            <a href="https://github.com/ashfinal" target="_blank"><i class="grey large github icon"></i></a>
+            <a href="http://weibo.com/ashfinal/" target="_blank"><i class="grey large weibo icon"></i></a>
+            <a href="mailto://ashfinal@sina.cn" target="_blank"><i class="grey large mail icon"></i></a>
+            </div>
+        <div class="ui basic center aligned segment no-print">Contents © 2020         <a href="mailto:ashfinal@sina.cn">ashfinal</a> - Powered by         <a href="https://getnikola.com" target="_blank" rel="nofollow">Nikola</a>         </div>
+
+            </div>
+            <div class="computer only three wide column no-print">
+                <div id="right-side">
+                </div>
+            </div>
+        </div>
+
+        <!-- GoStats JavaScript Based Code -->
+        <script type="text/javascript">(function(c,o,m,p,u,t,e){
+        c['GoStatsObject']=u;c[u]=c[u]||function(){(c[u].q=c[u].q||[]).push(arguments)},
+        c[u].l=1*new Date();t=o.createElement(m);t.async=1;t.src=p;
+        e=o.getElementsByTagName(m)[0];e.parentNode.insertBefore(t,e);
+        })(window,document,'script','//www.gostats.org/5.js','go');
+        go('init',100479892,{'img_counter_type':5,'img_image_type':1});go('send');</script><!-- End GoStats JavaScript Based Code --><script type="text/javascript" src="../../../assets/js/jquery-3.3.1.min.js"></script><script type="text/javascript" src="../../../assets/js/semantic.min.js"></script><script type="text/javascript" src="../../../assets/js/jquery.fancybox.min.js"></script><script type="text/javascript" src="../../../assets/js/cookie.min.js"></script><script>
+            $(document).ready(function(){
+                $(".ui.dropdown").dropdown();
+                $('.ui.accordion').accordion();
+                var newstr = $('.cookie.nag').text();
+                $('.cookie.nag').nag({
+                    key: 'globalnotice',
+                    value: newstr
+                  });
+                $('.image-reference').fancybox();
+            });
+        </script><script src="../../../assets/js/md5.min.js"></script><script src="../../../assets/js/gitalk.min.js"></script><script>
+        const gitalk = new Gitalk({
+            clientID: '12fcda845097d895a24c',
+            clientSecret: '50ed60cde5f40897205197b4265b474cefbedc49',
+            repo: 'macplay.github.io',
+            owner: 'macplay',
+            admin: ['macplay', 'ashfinal'],
+            id: md5(window.location.pathname),
+            // facebook-like distraction free mode
+            distractionFreeMode: false
+        })
+        gitalk.render('gitalk-container')
+    </script>
+</body>
+</html>

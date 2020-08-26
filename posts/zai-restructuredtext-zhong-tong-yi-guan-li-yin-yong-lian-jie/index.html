@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="zh_cn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="generator" content="Nikola (getnikola.com)">
+<title>在 reStructuredText 中统一管理引用链接 - MacPlay</title>
+<link rel="apple-touch-icon" sizes="180x180" href="../../apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+<link rel="mask-icon" href="../../safari-pinned-tab.svg" color="#5bbad5">
+<link href="../../assets/css/semantic.min.css" rel="stylesheet" type="text/css">
+<link href="../../assets/css/jquery.fancybox.min.css" rel="stylesheet" type="text/css">
+<link href="../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<link rel="canonical" href="https://macplay.github.io/posts/zai-restructuredtext-zhong-tong-yi-guan-li-yin-yong-lian-jie/">
+<meta name="author" content="ashfinal">
+<link rel="alternate" hreflang="en" href="../../en/posts/zai-restructuredtext-zhong-tong-yi-guan-li-yin-yong-lian-jie/">
+<link rel="stylesheet" type="text/css" href="../../assets/css/gitalk.css">
+</head>
+<body>
+        <div class="ui grid">
+            <div class="computer only three wide column no-print">
+                <div id="left-side">
+                </div>
+            </div>
+            <div class="ten wide computer sixteen wide tablet sixteen wide mobile column">
+                        <div class="ui inline cookie nag no-print">
+            <span class="title">从现在开始，支持中英双语及博文精选 O(∩_∩)O~~</span>
+            <i class="close icon"></i>
+        </div>
+    <header id="header" class="no-print"><div class="ui grid">
+        <div class="computer only tablet only sixteen wide column">
+            <div class="ui large secondary stackable menu">
+                <a class="header item brand-logo" href="https://macplay.github.io/">
+                    MacPlay
+                </a>
+                        <a class="item" href="../../">Posts</a>
+                        <a class="item" href="../../listings/">Code</a>
+                        <a class="item" href="../../galleries/">Gallery</a>
+                        <a class="item" href="../../categories/">Tags</a>
+                        <a class="item" href="../../archive.html">Archive</a>
+                <div class="right menu">
+                    <a class="item" href="../../rss.xml"><i class="rss icon"></i>RSS</a>
+                </div>
+            </div>
+        </div>
+        <div class="mobile only sixteen wide column">
+            <div class="ui fluid accordion vertical menu">
+                <div class="item">
+                    <a class="title">MacPlay</a>
+                    <div class="content">
+                                <a class="item" href="../../">Posts</a>
+                                <a class="item" href="../../listings/">Code</a>
+                                <a class="item" href="../../galleries/">Gallery</a>
+                                <a class="item" href="../../categories/">Tags</a>
+                                <a class="item" href="../../archive.html">Archive</a>
+                        <a class="item" href="../../rss.xml"><i class="rss icon"></i>RSS</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </header><main id="main"><div id="main-content">
+<div class="postpage post-text page-body" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <h1 class="post-title" itemprop="headline">
+        <a href=".">在 reStructuredText 中统一管理引用链接</a>
+    </h1>
+
+    <div class="ui large horizontal link list post-meta">
+        <span class="item">By
+            <a href="../../authors/ashfinal/">ashfinal</a>
+        </span>
+            <span class="item">
+                <a href="https://github.com/macplay/macplay.github.io/edit/src/posts/zai-restructuredtext-zhong-tong-yi-guan-li-yin-yong-lian-jie.rst" target="_blank" title="Edit on GitHub">Edit</a>
+            </span>
+        <span class="item">
+            <time datetime="2018-02-13T10:47:00+08:00">
+            2018-02-13 10:47
+            </time></span>
+            <span class="item">
+                    <a href="../../categories/markdown/">markdown</a>
+                    <a href="../../categories/nikola/">nikola</a>
+                    <a href="../../categories/rest/">reST</a>
+            </span>
+    </div>
+
+    
+    <div class="post-content" itemprop="article text">
+        <div id="post-content">
+        <div>
+<!-- vim:set et sw=4 ts=4 ft=rst: -->
+<!-- vim:set et sw=4 ts=4 ft=rst: -->
+<!-- This file interpreters the title of URL in links.ref -->
+<!-- vim:set et sw=4 ts=4 ft=rst: -->
+<!-- vim:set et sw=4 ts=4 ft=rst: -->
+<p>最近几天又尝试了下 <a class="reference external" href="../../categories/latex/">latex</a>, 发现 Bibliography 的理念很好。它将文档中所有资料引用统一保存到 <cite>.bib</cite> 文件中，然后在正文中以别名的形式插入。如果有需要的话，还可以自定义引用的显示格式。这大大简化了参考文献的管理和使用：平时统一维护所有的参考文献，甚至你一生中只需维护一份 <cite>.bib</cite> 文件；而写作时不必麻烦地复制粘贴，用别名就可以方便地插入参考文献。</p>
+<div class="sidebar">
+<p class="sidebar-title">LibreOffice 的「Navigator」功能</p>
+<div class="figure align-center">
+<a class="reference external image-reference" href="../../images/libreoffice_navigator.png"><img alt="/images/libreoffice_navigator.thumbnail.png" src="../../images/libreoffice_navigator.thumbnail.png"></a>
+</div>
+</div>
+<p>如果要在「现代」文档处理软件中寻找对应的话，大约相当于 LibreOffice 的「Navigator」功能或者其它软件的「媒体库」功能。不同之处在于 Bibliography 针对纯文本文件而优化，不止针对单份文档还能在所有文档中依需要载入。</p>
+<p>尽管笔者平时写博客时并不用参考资料，但插入链接是很常见的操作。而该操作还是挺麻烦的——通常需要在浏览器中输入网址，等待其打开，然后分两次粘贴网址以及网页标题到 <a class="reference external" href="https://github.com/qvacua/vimr">VimR</a> 编辑器中。如果能够使用 Bibliography 的方式管理引用链接，则插入链接会方便许多——仅需麻烦一次，则全站博客均可以别名方式引用，毋需再次打开浏览器。显然这种统一管理有利于写作时的思维连贯性。而且今后如果有额外需求，比如想知道某链接在全站被引用了多少次，直接使用 <cite>ag</cite> 或 <cite>grep</cite> 命令搜索一下即可。</p>
+<p>另外一个麻烦点在于：博客的站内链接显然有利于读者快速寻找相关内容并跳转浏览，比如 tags 就是站内链接优化很好的一个点。然而插入 tags 也是个比较麻烦、容易打断思路的事情。完全可以将博客内的 tags 「封装」一下，在任何文章中都可以随时快速地插入 tag。实际上，也可以不局限于 tags，一些相对固定的链接均可用相同的手法操作。</p>
+<p>于是笔者花费了半天的时间试验了一下，发现完全可以使用 reStructuredText 的 <cite>include</cite> 指令实现类似 Bibliography 的功能，对全站所有的链接引用进行统一管理。以下将简单的介绍一下我的做法。</p>
+<!-- TEASER_END -->
+<div class="contents topic" id="id3">
+<p class="topic-title">文章目录</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#id4" id="id6">实际操作的一些思考</a></p></li>
+<li><p><a class="reference internal" href="#links-ref-interps-ref" id="id7">links.ref 和 interps.ref</a></p></li>
+<li><p><a class="reference internal" href="#tags-ref" id="id8">tags.ref</a></p></li>
+<li><p><a class="reference internal" href="#abbrs-ref" id="id9">abbrs.ref</a></p></li>
+<li><p><a class="reference internal" href="#id5" id="id10">简单总结</a></p></li>
+</ul>
+</div>
+<div class="section" id="id4">
+<h2><a class="toc-backref" href="#id6">实际操作的一些思考</a></h2>
+<p>如果你对 reStructuredText 的 <cite>include</cite> 指令稍有了解，就知道把文章分为一份文档或者几份独立文档并没有明显区别。照此想来，想要实现引用链接的统一管理，只需把所有链接放到另外的文件中，使用的时候用 <cite>include</cite> 指令引入进来不就好了？事实上，还真就是这么简单！不过，在具体操作的时候需要注意几点：</p>
+<ol class="arabic simple">
+<li><p>我们希望链接文件仅在被 <cite>include</cite> 时，才参与静态博客的生成。因此，在文件命名上应避开 <cite>.rst</cite> ， <cite>.txt</cite> , <cite>.md</cite> 等等这些扩展名，以避免混淆和干扰。具体在此处，我使用了 <cite>.ref</cite> 的扩展名。</p></li>
+<li><p>应该对链接文件进行简单的分组。比如分为 <cite>links.ref</cite> ——外部链接引用， <cite>tags.ref</cite> ——博客 tags 引用， <cite>media.ref</cite> ——媒体资讯引用，还有医学、化学、材料学引用……等等。这样就不必把所有链接全部塞到一份文件中，使用时需要哪一组或几组链接，再 <cite>include</cite> 进来即可。这样分组，也将大大简化链接文件的维护工作。</p></li>
+<li><p>缩略词其实也可以统一管理。有利于在全站范围内保持某些术语的一致性。我们可以使用 <cite>abbrs.ref</cite> 这样的文件名。当然，纠错词理论上也可以（比如，你经常把 <cite>Matplotlib</cite> 错写成 <cite>matplot</cite> ，就可以用 <cite>abbrs.ref</cite> 全部给纠正过来）。不过，一般我们不鼓励这么做——我们希望你第一次就把它写对，然后借助编辑器的自动补全或拼写检查功能保证正确。而不是把错误一直延伸到博客里面，再专门用个补丁文件把它纠正过来。</p></li>
+<li><p>最好给别名加上前缀。比如 <cite>t_vim</cite> 代表 <a class="reference external" href="../../categories/vim/">vim</a> 博客 tag，而 <cite>l_vim</cite> 则代表的是外部链接—— <a class="reference external" href="http://www.vim.org">Vim</a> 的官方网站。加上前缀有利于区分不同的使用场景，而且后续如需扩展也非常方便。</p></li>
+</ol>
+<p>好了，很啰嗦的说了这么多。实际上，这些是我反复实践与比较之后的结果，尽可能地让它投入使用时就接近「最佳实践」。这可能会让人觉得它很复杂并吓退一些人，但实际上它的具体使用很简单。</p>
+</div>
+<div class="section" id="links-ref-interps-ref">
+<h2><a class="toc-backref" href="#id7">links.ref 和 interps.ref</a></h2>
+<p>这两份文件是外部链接。 <cite>links.ref</cite> 里面是网址，而 <cite>interps.ref</cite> 则是对应网址的标题。 <cite>links.ref</cite> 的文件内容：</p>
+<pre class="code rst"><a name="rest_code_9cce61deede64cf8bf3f70366aef5862-1"></a><span class="p">..</span> <span class="nt">_l_rstintro:</span> http://docutils.sourceforge.net/docs/ref/rst/introduction.html
+<a name="rest_code_9cce61deede64cf8bf3f70366aef5862-2"></a><span class="p">..</span> <span class="nt">_l_rstspecs:</span> http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html
+<a name="rest_code_9cce61deede64cf8bf3f70366aef5862-3"></a><span class="p">..</span> <span class="nt">_l_spacemacs:</span> https://github.com/syl20bnr/spacemacs
+</pre>
+<p>而 <cite>interps.ref</cite> 的文件内容：</p>
+<pre class="code rst"><a name="rest_code_83955ccbd0a244c082c615b3f2ec7202-1"></a><span class="p">..</span> <span class="nt">|l_rstintro|</span> <span class="ow">replace</span><span class="p">::</span> An Introduction to reStructuredText
+<a name="rest_code_83955ccbd0a244c082c615b3f2ec7202-2"></a><span class="p">..</span> <span class="nt">|l_rstspecs|</span> <span class="ow">replace</span><span class="p">::</span> reStructuredText Markup Specification
+<a name="rest_code_83955ccbd0a244c082c615b3f2ec7202-3"></a><span class="p">..</span> <span class="nt">|l_spacemacs|</span> <span class="ow">replace</span><span class="p">::</span> Spacemacs
+</pre>
+<p>使用时在文档开头引入这两个文件，就可以在文章里随处用别名插入链接：</p>
+<pre class="code rst"><a name="rest_code_7c546e1e549c4447a538dd7e42aaaf1e-1"></a><span class="p">..</span> <span class="ow">include</span><span class="p">::</span> posts/links.ref
+<a name="rest_code_7c546e1e549c4447a538dd7e42aaaf1e-2"></a><span class="p">..</span> <span class="ow">include</span><span class="p">::</span> posts/interps.ref
+<a name="rest_code_7c546e1e549c4447a538dd7e42aaaf1e-3"></a>
+<a name="rest_code_7c546e1e549c4447a538dd7e42aaaf1e-4"></a><span class="cp">...</span>
+<a name="rest_code_7c546e1e549c4447a538dd7e42aaaf1e-5"></a>
+<a name="rest_code_7c546e1e549c4447a538dd7e42aaaf1e-6"></a>引用网址： |l_rstintro|_
+</pre>
+<p>渲染结果：</p>
+<p>引用网址： <a class="reference external" href="http://docutils.sourceforge.net/docs/ref/rst/introduction.html">An Introduction to reStructuredText</a></p>
+<p>有时候我们不喜欢预定的网址标题，而想自定义标题显示。那就不必引入 <cite>interps.ref</cite> 文件，而在主文档里用类似语法替换一下：</p>
+<pre class="code rst"><a name="rest_code_e46f3cfc8a47445187c240b83287d0b8-1"></a><span class="p">..</span> <span class="ow">include</span><span class="p">::</span> posts/links.ref
+<a name="rest_code_e46f3cfc8a47445187c240b83287d0b8-2"></a>
+<a name="rest_code_e46f3cfc8a47445187c240b83287d0b8-3"></a><span class="cp">...</span>
+<a name="rest_code_e46f3cfc8a47445187c240b83287d0b8-4"></a>
+<a name="rest_code_e46f3cfc8a47445187c240b83287d0b8-5"></a><span class="p">..</span> <span class="nt">|l_rstintro|</span> <span class="ow">replace</span><span class="p">::</span> 这里
+<a name="rest_code_e46f3cfc8a47445187c240b83287d0b8-6"></a>点击 |l_rstintro|_ 访问 reStructuredText 手册。
+</pre>
+<p>渲染结果：</p>
+<p>点击 <a class="reference external" href="http://docutils.sourceforge.net/docs/ref/rst/introduction.html">这里</a> 访问 reStructuredText 手册。</p>
+</div>
+<div class="section" id="tags-ref">
+<h2><a class="toc-backref" href="#id8">tags.ref</a></h2>
+<p>博客 tags 其实也是引用链接，不过是内部相对链接罢了。而且没有自定义网址标题的需求，那自然没必要分成两个文件。其内容大体如下：</p>
+<pre class="code rst"><a name="rest_code_fe0f15bf1e5244d5ba0753d359d4aa28-1"></a><span class="p">..</span> <span class="nt">_vim:</span> /categories/vim/
+<a name="rest_code_fe0f15bf1e5244d5ba0753d359d4aa28-2"></a><span class="p">..</span> <span class="nt">|t_vim|</span> <span class="ow">replace</span><span class="p">::</span> vim_
+<a name="rest_code_fe0f15bf1e5244d5ba0753d359d4aa28-3"></a>
+<a name="rest_code_fe0f15bf1e5244d5ba0753d359d4aa28-4"></a><span class="p">..</span> <span class="nt">_`sublime text`:</span> /categories/sublime-text/
+<a name="rest_code_fe0f15bf1e5244d5ba0753d359d4aa28-5"></a><span class="p">..</span> <span class="nt">|t_sublime_text|</span> <span class="ow">replace</span><span class="p">::</span> <span class="s">`sublime text`_</span>
+<a name="rest_code_fe0f15bf1e5244d5ba0753d359d4aa28-6"></a>
+<a name="rest_code_fe0f15bf1e5244d5ba0753d359d4aa28-7"></a><span class="p">..</span> <span class="nt">_`马克飞象`:</span> /categories/ma-ke-fei-xiang/
+<a name="rest_code_fe0f15bf1e5244d5ba0753d359d4aa28-8"></a><span class="p">..</span> <span class="nt">|t_马克飞象|</span> <span class="ow">replace</span><span class="p">::</span> <span class="s">`马克飞象`_</span>
+</pre>
+<p>使用时同样也是在文档开头引入，然后用别名访问。</p>
+<pre class="code rst"><a name="rest_code_bd167f6a34da4e4188f90eef3a34b960-1"></a>以下是两个标签： |t_sublime_text| 和 |t_马克飞象|
+</pre>
+<p>渲染结果：</p>
+<p>以下是两个标签： <a class="reference external" href="../../categories/sublime-text/">sublime text</a> 和 <a class="reference external" href="../../categories/ma-ke-fei-xiang/">马克飞象</a></p>
+</div>
+<div class="section" id="abbrs-ref">
+<h2><a class="toc-backref" href="#id9">abbrs.ref</a></h2>
+<p>至于 <cite>abbrs.ref</cite> 则并非链接引用，而是统一的缩略词管理。使用的是 <cite>a</cite> 前缀：</p>
+<pre class="code rst"><a name="rest_code_a78d628a8db346a9bb4ec7fcdad301b9-1"></a><span class="p">..</span> <span class="nt">|a_rst|</span> <span class="ow">replace</span><span class="p">::</span> reStructuredText
+</pre>
+<p>使用效果：</p>
+<pre class="code rst"><a name="rest_code_d3cf1fda5c4f40119b73ad6aff81e3b3-1"></a>|a_rst| 是易读易写的纯文本标记语言。
+</pre>
+<p>渲染结果：</p>
+<p>reStructuredText 是易读易写的纯文本标记语言。</p>
+</div>
+<div class="section" id="id5">
+<h2><a class="toc-backref" href="#id10">简单总结</a></h2>
+<p>目前给本博客增加的链接/缩略词文件只有以上四个，以后根据情况需要可能会添加新的分组。但通过以上的介绍我们发现，只需对链接文件进行简单分组和一定约束，就能在博客写作的过程中大大简化链接的管理和引用。只要你愿意，这些链接文件可以有无限个分组和层级。而且一旦建立之后，可以在全站范围内「复用」。更重要的是，你可以与别人分享、交换这些「子文件」，使得你的劳动成果能够被更多人「复用」。</p>
+<p>最后的最后，这些别名的输入与编辑器的自动补全功能配合更加方便。比如输入 <cite>t_</cite> 列出博客的所有 tag。</p>
+<video src="../../videos/rest_citation.mp4" loop autoplay muted playsinline>
+Your browser does not support the video tag.
+</video><p>END. :)</p>
+</div>
+</div>
+        </div>
+    </div>
+    <div class="post-info">
+        <p>文章链接：<a href="https://macplay.github.io/posts/zai-restructuredtext-zhong-tong-yi-guan-li-yin-yong-lian-jie/" target="_blank">https://macplay.github.io/posts/zai-restructuredtext-zhong-tong-yi-guan-li-yin-yong-lian-jie/</a></p>
+        <p>发布/更新于：
+            <time datetime="2018-02-13 10:47:00 UTC+08:00">
+            2018-02-13 10:47
+            </time></p>
+        <p>版权声明：如无特别说明，本站文章均遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">CC BY-NC-SA 4.0</a> 协议，转载请注明作者及出处。</p>
+    </div>
+        <div class="post-navigation no-print">
+        <div class="ui huge secondary stackable menu">
+            <a class="post-nav-item post-nav-previous item" href="../wu-ti/" title="Previous post"><i class="angle double left icon"></i> 无题</a>
+        <div class="right menu">
+            <a class="post-nav-item post-nav-next item" href="../shu-ju-ke-shi-hua-seaborn/" title="Next post">数据可视化--Seaborn <i class="angle double right icon"></i></a>
+        </div>
+        </div>
+    </div>
+
+        <div id="gitalk-container" class="comments-block no-print"></div>
+</div>
+                    </div>
+                </main><div class="footer extra-block no-print">
+    <span class="footer_item">
+        <a href="../../pages/you-qing-lian-jie/">友情链接</a>
+    </span>
+    <span class="footer_item">
+        <a href="../../pages/liu-yan-ban/">留言板</a>
+    </span>
+    <span class="footer_item">
+        <a href="../../pages/ge-ren-dong-tai/">碎碎念</a>
+    </span>
+    </div>
+            <div class="footer social-link no-print">
+            <a href="https://github.com/ashfinal" target="_blank"><i class="grey large github icon"></i></a>
+            <a href="http://weibo.com/ashfinal/" target="_blank"><i class="grey large weibo icon"></i></a>
+            <a href="mailto://ashfinal@sina.cn" target="_blank"><i class="grey large mail icon"></i></a>
+            </div>
+        <div class="ui basic center aligned segment no-print">Contents © 2020         <a href="mailto:ashfinal@sina.cn">ashfinal</a> - Powered by         <a href="https://getnikola.com" target="_blank" rel="nofollow">Nikola</a>         </div>
+
+            </div>
+            <div class="computer only three wide column no-print">
+                <div id="right-side">
+                </div>
+            </div>
+        </div>
+
+        <!-- GoStats JavaScript Based Code -->
+        <script type="text/javascript">(function(c,o,m,p,u,t,e){
+        c['GoStatsObject']=u;c[u]=c[u]||function(){(c[u].q=c[u].q||[]).push(arguments)},
+        c[u].l=1*new Date();t=o.createElement(m);t.async=1;t.src=p;
+        e=o.getElementsByTagName(m)[0];e.parentNode.insertBefore(t,e);
+        })(window,document,'script','//www.gostats.org/5.js','go');
+        go('init',100479892,{'img_counter_type':5,'img_image_type':1});go('send');</script><!-- End GoStats JavaScript Based Code --><script type="text/javascript" src="../../assets/js/jquery-3.3.1.min.js"></script><script type="text/javascript" src="../../assets/js/semantic.min.js"></script><script type="text/javascript" src="../../assets/js/jquery.fancybox.min.js"></script><script type="text/javascript" src="../../assets/js/cookie.min.js"></script><script>
+            $(document).ready(function(){
+                $(".ui.dropdown").dropdown();
+                $('.ui.accordion').accordion();
+                var newstr = $('.cookie.nag').text();
+                $('.cookie.nag').nag({
+                    key: 'globalnotice',
+                    value: newstr
+                  });
+                $('.image-reference').fancybox();
+            });
+        </script><script src="../../assets/js/md5.min.js"></script><script src="../../assets/js/gitalk.min.js"></script><script>
+        const gitalk = new Gitalk({
+            clientID: '12fcda845097d895a24c',
+            clientSecret: '50ed60cde5f40897205197b4265b474cefbedc49',
+            repo: 'macplay.github.io',
+            owner: 'macplay',
+            admin: ['macplay', 'ashfinal'],
+            id: md5(window.location.pathname),
+            // facebook-like distraction free mode
+            distractionFreeMode: false
+        })
+        gitalk.render('gitalk-container')
+    </script>
+</body>
+</html>

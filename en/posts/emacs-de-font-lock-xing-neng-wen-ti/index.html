@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="generator" content="Nikola (getnikola.com)">
+<title>Emacs 的 Font Lock 性能问题 - MacPlay</title>
+<link rel="apple-touch-icon" sizes="180x180" href="../../../apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../../../favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../../../favicon-16x16.png">
+<link rel="mask-icon" href="../../../safari-pinned-tab.svg" color="#5bbad5">
+<link href="../../../assets/css/semantic.min.css" rel="stylesheet" type="text/css">
+<link href="../../../assets/css/jquery.fancybox.min.css" rel="stylesheet" type="text/css">
+<link href="../../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<link rel="canonical" href="https://macplay.github.io/en/posts/emacs-de-font-lock-xing-neng-wen-ti/">
+<meta name="author" content="ashfinal">
+<link rel="alternate" hreflang="zh_cn" href="../../../posts/emacs-de-font-lock-xing-neng-wen-ti/">
+<link rel="stylesheet" type="text/css" href="../../../assets/css/gitalk.css">
+</head>
+<body>
+        <div class="ui grid">
+            <div class="computer only three wide column no-print">
+                <div id="left-side">
+                </div>
+            </div>
+            <div class="ten wide computer sixteen wide tablet sixteen wide mobile column">
+                        <div class="ui inline cookie nag no-print">
+            <span class="title">从现在开始，支持中英双语及博文精选 O(∩_∩)O~~</span>
+            <i class="close icon"></i>
+        </div>
+    <header id="header" class="no-print"><div class="ui grid">
+        <div class="computer only tablet only sixteen wide column">
+            <div class="ui large secondary stackable menu">
+                <a class="header item brand-logo" href="https://macplay.github.io/en/">
+                    MacPlay
+                </a>
+                        <a class="item" href="../../../">Posts</a>
+                        <a class="item" href="../../../listings/">Code</a>
+                        <a class="item" href="../../../galleries/">Gallery</a>
+                        <a class="item" href="../../../categories/">Tags</a>
+                        <a class="item" href="../../../archive.html">Archive</a>
+                <div class="right menu">
+                    <a class="item" href="../../../rss.xml"><i class="rss icon"></i>RSS</a>
+                </div>
+            </div>
+        </div>
+        <div class="mobile only sixteen wide column">
+            <div class="ui fluid accordion vertical menu">
+                <div class="item">
+                    <a class="title">MacPlay</a>
+                    <div class="content">
+                                <a class="item" href="../../../">Posts</a>
+                                <a class="item" href="../../../listings/">Code</a>
+                                <a class="item" href="../../../galleries/">Gallery</a>
+                                <a class="item" href="../../../categories/">Tags</a>
+                                <a class="item" href="../../../archive.html">Archive</a>
+                        <a class="item" href="../../../rss.xml"><i class="rss icon"></i>RSS</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </header><main id="main"><div id="main-content">
+<div class="postpage post-text page-body" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <h1 class="post-title" itemprop="headline">
+        <a href=".">Emacs 的 Font Lock 性能问题</a>
+    </h1>
+
+    <div class="ui large horizontal link list post-meta">
+        <span class="item">By
+            <a href="../../authors/ashfinal/">ashfinal</a>
+        </span>
+            <span class="item">
+                <a href="https://github.com/macplay/macplay.github.io/edit/src/posts/emacs-de-font-lock-xing-neng-wen-ti.rst" target="_blank" title="Edit on GitHub">Edit</a>
+            </span>
+        <span class="item">
+            <time datetime="2017-11-24T11:53:52+08:00">
+            2017-11-24 11:53
+            </time></span>
+            <span class="item">
+                    <a href="../../categories/emacs/">emacs</a>
+                    <a href="../../categories/regex/">regex</a>
+                    <a href="../../categories/vim/">vim</a>
+            </span>
+    </div>
+
+    
+    <div class="post-content" itemprop="article text">
+        <div id="post-content">
+        <div>
+<p>之前使用 Emacs 总是有点慢，没有 Vim 那种爽冽干脆的感觉。但多半是归咎于臃肿的 spacemacs 配置，不会轻易怀疑 Emacs 本身有什么问题。最近基本上是接近裸状态使用 Emacs 了，不安装第三方插件，也不搞乱七八糟的配置。不过两天前我又遇到了状况，翻来覆去尝试半天，感觉很有可能是 Emacs 的 Font Lock 性能有问题。</p>
+<!-- TEASER_END -->
+<video src="../../../videos/font_lock.mp4" loop autoplay muted playsinline>
+Your browser does not support the video tag.
+</video><p>以上截图是我使用正则搜索 <cite>.</cite> （即匹配所有字符）的情况，未经任何后期处理， <strong>肉眼可见</strong> 匹配项有个逐渐的着色过程。有人可能会说：是不是你文件太大，匹配项太多以至于 Emacs <strong>肉眼可见的慢</strong> ？还真不是，这个文件正如截图中呈现的那样，就是那么短，就只有那么多字符。</p>
+<pre class="code text"><a name="rest_code_4b4ae6d2dfed44a0b52b40364ccb3a41-1"></a>Col 1 of 115; Line 2 of 22; Word 1 of 116; Char 2 of 1001; Byte 2 of 1003
+</pre>
+<p>仅仅 1001 个字符的着色就已经如此之慢！真是有点跌破了我对 Emacs 的认知。要知道 Font Lock 机制被广泛应用于 Emacs 主题、语法高亮、字体样式等等，而且这些样式随着文本编辑、语法检查等操作是时时更新的，如果 1001 个字符着色就能导致 <strong>肉眼可见的慢</strong> ，那同时打开多个文件，后台再跑一些导致 buffer 时不时刷新的任务，那么感觉 Emacs 运行慢也就是必然的结果了。</p>
+<p>这个简单的测试录屏时，就只打开了这一个文件。Emacs 安装的插件就只有 5 个： <cite>org which-key undo-tree atom-one-dark-theme magit</cite> 。如果感兴趣的话，可以到 <a class="reference external" href="https://github.com/ashfinal/spacemacs-private/blob/master/.emacs">这里</a> 看我的 <cite>.emacs</cite> 配置文件。</p>
+<p>这么来看的话，Emacs 支持花样繁多的样式，带来的性能问题还真不小。目前我并没有深入了解 Emacs 的 Font Lock 机制以及正则匹配，以对该问题做专业测试和剖析。如果你对此有了解的话，欢迎在评论区予以指教。</p>
+</div>
+        </div>
+    </div>
+    <div class="post-info">
+        <p>文章链接：<a href="https://macplay.github.io/en/posts/emacs-de-font-lock-xing-neng-wen-ti/" target="_blank">https://macplay.github.io/en/posts/emacs-de-font-lock-xing-neng-wen-ti/</a></p>
+        <p>发布/更新于：
+            <time datetime="2017-11-24 11:53:52 UTC+08:00">
+            2017-11-24 11:53
+            </time></p>
+        <p>版权声明：如无特别说明，本站文章均遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">CC BY-NC-SA 4.0</a> 协议，转载请注明作者及出处。</p>
+    </div>
+        <div class="post-navigation no-print">
+        <div class="ui huge secondary stackable menu">
+            <a class="post-nav-item post-nav-previous item" href="../macos-de-wen-ben-ti-huan-gong-neng/" title="Previous post"><i class="angle double left icon"></i> macOS 的文本替换功能</a>
+        <div class="right menu">
+            <a class="post-nav-item post-nav-next item" href="../vim-bu-xu-yao-duo-guang-biao-bian-ji-gong-neng/" title="Next post">【译】Vim 不需要多光标编辑功能 <i class="angle double right icon"></i></a>
+        </div>
+        </div>
+    </div>
+
+        <div id="gitalk-container" class="comments-block no-print"></div>
+</div>
+                    </div>
+                </main><div class="footer extra-block no-print">
+    <span class="footer_item">
+        <a href="../../../pages/you-qing-lian-jie/">友情链接</a>
+    </span>
+    <span class="footer_item">
+        <a href="../../../pages/liu-yan-ban/">留言板</a>
+    </span>
+    <span class="footer_item">
+        <a href="../../../pages/ge-ren-dong-tai/">碎碎念</a>
+    </span>
+    </div>
+            <div class="footer social-link no-print">
+            <a href="https://github.com/ashfinal" target="_blank"><i class="grey large github icon"></i></a>
+            <a href="http://weibo.com/ashfinal/" target="_blank"><i class="grey large weibo icon"></i></a>
+            <a href="mailto://ashfinal@sina.cn" target="_blank"><i class="grey large mail icon"></i></a>
+            </div>
+        <div class="ui basic center aligned segment no-print">Contents © 2020         <a href="mailto:ashfinal@sina.cn">ashfinal</a> - Powered by         <a href="https://getnikola.com" target="_blank" rel="nofollow">Nikola</a>         </div>
+
+            </div>
+            <div class="computer only three wide column no-print">
+                <div id="right-side">
+                </div>
+            </div>
+        </div>
+
+        <!-- GoStats JavaScript Based Code -->
+        <script type="text/javascript">(function(c,o,m,p,u,t,e){
+        c['GoStatsObject']=u;c[u]=c[u]||function(){(c[u].q=c[u].q||[]).push(arguments)},
+        c[u].l=1*new Date();t=o.createElement(m);t.async=1;t.src=p;
+        e=o.getElementsByTagName(m)[0];e.parentNode.insertBefore(t,e);
+        })(window,document,'script','//www.gostats.org/5.js','go');
+        go('init',100479892,{'img_counter_type':5,'img_image_type':1});go('send');</script><!-- End GoStats JavaScript Based Code --><script type="text/javascript" src="../../../assets/js/jquery-3.3.1.min.js"></script><script type="text/javascript" src="../../../assets/js/semantic.min.js"></script><script type="text/javascript" src="../../../assets/js/jquery.fancybox.min.js"></script><script type="text/javascript" src="../../../assets/js/cookie.min.js"></script><script>
+            $(document).ready(function(){
+                $(".ui.dropdown").dropdown();
+                $('.ui.accordion').accordion();
+                var newstr = $('.cookie.nag').text();
+                $('.cookie.nag').nag({
+                    key: 'globalnotice',
+                    value: newstr
+                  });
+                $('.image-reference').fancybox();
+            });
+        </script><script src="../../../assets/js/md5.min.js"></script><script src="../../../assets/js/gitalk.min.js"></script><script>
+        const gitalk = new Gitalk({
+            clientID: '12fcda845097d895a24c',
+            clientSecret: '50ed60cde5f40897205197b4265b474cefbedc49',
+            repo: 'macplay.github.io',
+            owner: 'macplay',
+            admin: ['macplay', 'ashfinal'],
+            id: md5(window.location.pathname),
+            // facebook-like distraction free mode
+            distractionFreeMode: false
+        })
+        gitalk.render('gitalk-container')
+    </script>
+</body>
+</html>

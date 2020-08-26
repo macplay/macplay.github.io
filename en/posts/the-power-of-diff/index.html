@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="generator" content="Nikola (getnikola.com)">
+<title>The power of diff - MacPlay</title>
+<link rel="apple-touch-icon" sizes="180x180" href="../../../apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../../../favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../../../favicon-16x16.png">
+<link rel="mask-icon" href="../../../safari-pinned-tab.svg" color="#5bbad5">
+<link href="../../../assets/css/semantic.min.css" rel="stylesheet" type="text/css">
+<link href="../../../assets/css/jquery.fancybox.min.css" rel="stylesheet" type="text/css">
+<link href="../../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<link rel="canonical" href="https://macplay.github.io/en/posts/the-power-of-diff/">
+<meta name="author" content="ashfinal">
+<link rel="alternate" hreflang="zh_cn" href="../../../posts/the-power-of-diff/">
+<link rel="stylesheet" type="text/css" href="../../../assets/css/gitalk.css">
+<link rel="stylesheet" type="text/css" href="../../../assets/css/asciinema-player.css">
+</head>
+<body>
+        <div class="ui grid">
+            <div class="computer only three wide column no-print">
+                <div id="left-side">
+                </div>
+            </div>
+            <div class="ten wide computer sixteen wide tablet sixteen wide mobile column">
+                        <div class="ui inline cookie nag no-print">
+            <span class="title">从现在开始，支持中英双语及博文精选 O(∩_∩)O~~</span>
+            <i class="close icon"></i>
+        </div>
+    <header id="header" class="no-print"><div class="ui grid">
+        <div class="computer only tablet only sixteen wide column">
+            <div class="ui large secondary stackable menu">
+                <a class="header item brand-logo" href="https://macplay.github.io/en/">
+                    MacPlay
+                </a>
+                        <a class="item" href="../../../">Posts</a>
+                        <a class="item" href="../../../listings/">Code</a>
+                        <a class="item" href="../../../galleries/">Gallery</a>
+                        <a class="item" href="../../../categories/">Tags</a>
+                        <a class="item" href="../../../archive.html">Archive</a>
+                <div class="right menu">
+                    <a class="item" href="../../../rss.xml"><i class="rss icon"></i>RSS</a>
+                </div>
+            </div>
+        </div>
+        <div class="mobile only sixteen wide column">
+            <div class="ui fluid accordion vertical menu">
+                <div class="item">
+                    <a class="title">MacPlay</a>
+                    <div class="content">
+                                <a class="item" href="../../../">Posts</a>
+                                <a class="item" href="../../../listings/">Code</a>
+                                <a class="item" href="../../../galleries/">Gallery</a>
+                                <a class="item" href="../../../categories/">Tags</a>
+                                <a class="item" href="../../../archive.html">Archive</a>
+                        <a class="item" href="../../../rss.xml"><i class="rss icon"></i>RSS</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </header><main id="main"><div id="main-content">
+<div class="postpage post-text page-body" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <h1 class="post-title" itemprop="headline">
+        <a href=".">The power of diff</a>
+    </h1>
+
+    <div class="ui large horizontal link list post-meta">
+        <span class="item">By
+            <a href="../../authors/ashfinal/">ashfinal</a>
+        </span>
+            <span class="item">
+                <a href="https://github.com/macplay/macplay.github.io/edit/src/posts/the-power-of-diff.rst" target="_blank" title="Edit on GitHub">Edit</a>
+            </span>
+        <span class="item">
+            <time datetime="2019-11-14T22:28:48+08:00">
+            2019-11-14 22:28
+            </time></span>
+            <span class="item">
+                    <a href="../../categories/asciinema/">asciinema</a>
+                    <a href="../../categories/diff/">diff</a>
+                    <a href="../../categories/vim/">vim</a>
+            </span>
+    </div>
+
+        <div class="posttrans ui message">
+        <span class="title">Also available in:
+            <span><a href="../../../posts/the-power-of-diff/" rel="alternate" hreflang="zh_cn">简体中文</a></span>
+        </span>
+    </div>
+
+    <div class="post-content" itemprop="article text">
+        <div id="post-content">
+        <div>
+<p>Lots of people use vimdiff to understand and handle diffs in console mode. While there exist more specialized tools for comparing files, vimdiff has always worked well enough for me.</p>
+<div class="section" id="the-inefficiency-of-the-external-diff">
+<h2>The inefficiency of the external diff</h2>
+<p>However, Vim’s diff mode was seriously lacking. This was basically because it needed to write down temporary files, shell out and run a manual diff command and parse the result back and as one can imagine, this could be slow and was seriously inefficient.</p>
+<p>Additionally, this required to have a diff binary available that was able to create <a class="reference external" href="https://en.wikipedia.org/wiki/Diff#Edit_script">ed like style diff</a>, so one could not even fall-back to using git-diff (which is considered to have one of the best tested diff libraries and allows to select different algorithms) for creating those diffs. This lead to the creation of vimscript <a class="reference external" href="https://github.com/chrisbra/vim-diff-enhanced">plugins</a>, that would internally translate a unified diff back into an ed-like diff. Of course this would add an extra performance penalty.</p>
+<!-- TEASER_END -->
+<p>In Windows land, this was also a pain, since Vim had to be distributed with an extra diff binary, since Windows does not come with it out of the box and one would notice the expansive diff call by an ugly command line window flashing by whenever the diff needed to be updated.</p>
+<p>Also, since the whole generation of diffs was so ugly, Vim would not always refresh the diff on each and every modification to not slow down too much, causing inaccurate diffs every once in a while.</p>
+<p>And finally, before shelling out for the external diff command, Vim would check <em>every time</em>  that a diff is actually available by running a hard coded diff against “line1” and “line2” buffer.</p>
+</div>
+<div class="section" id="bundling-an-internal-diff-library-with-vim">
+<h2>Bundling an internal diff library with Vim</h2>
+<p>This problem was well known and can still be found in the well known <code class="docutils literal">todo.txt</code> file (<code class="docutils literal">:h todo.txt</code>, search for diff). One problem why it wasn’t done earlier, was that there did not exist a good documented and simple to use C library that could be used by Vim.</p>
+<p>So I started working on how to improve this <a class="reference external" href="https://github.com/vim/vim/pull/2732">situation</a> and decided to go with the xdiff library which the git developers finally settled to use. They basically had the same problem when the git vcs system was developed by Linus Torvalds. Back in around 2006 they decided to ship git with the <a class="reference external" href="http://www.xmailserver.org/xdiff-lib.html">libxdiff</a>  library, which over time got heavily modified to fit better the needs of git.</p>
+<p>The advantage of using the same library for Vim is that, for one, the library has been tested and proven to be working well over the last 12 years. In addition, is has been tweaked and several new diff algorithms have been added, like the <a class="reference external" href="https://bramcohen.livejournal.com/73318.html">patience diff algorithm</a>, <a class="reference external" href="https://stackoverflow.com/a/32367597/789222">histogram diff algorithm</a> and the <a class="reference external" href="https://hackernoon.com/whats-new-in-git-2-11-64860aea6c4f#892c">indent-heuristics</a>.</p>
+<p>So with <a class="reference external" href="https://github.com/vim/vim/commit/e828b7621cf9065a3582be0c4dd1e0e846e335bf">Patch 8.1.360</a> the xdiff code from git has been finally merged into Vim and allows for a much smoother and more efficient diff experience in Vim. In addition, the internal diff algorithm has been made the default, but one can still switch to the old external algorithm, using:</p>
+<pre class="code vim"><a name="rest_code_80194c0138df4a189e0c0f20c1a2e622-1"></a><span class="p">:</span><span class="k">set</span> <span class="nb">diffopt</span><span class="p">-=</span>internal
+</pre>
+<p>Also, Vim can now read and understand the <a class="reference external" href="https://en.wikipedia.org/wiki/Diff#Unified_format">unified diff format</a> (which seems to be the standard format nowadays), so even when the bundled diff library does not work well enough, one does not need to translate the output back into a ed like diff format anymore.</p>
+</div>
+<div class="section" id="some-examples">
+<h2>Some examples</h2>
+<p>By default, the diff library uses the myers algorithm (also known as <a class="reference external" href="https://en.wikipedia.org/wiki/Longest_common_subsequence_problem">longest common subsequence problem</a>). However, in certain circumstances, one might want to use a different algorithm. One famous example is for the patience algorithm.</p>
+<div class="section" id="patience-algorithm">
+<h3>Patience algorithm</h3>
+<div class="ui stackable grid docutils container">
+<div class="eight wide column docutils container">
+<p>Say you have the following file1:</p>
+<pre class="code cpp"><a name="rest_code_578fe3e9f5e741c5a9e13de56cd61187-1"></a><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+<a name="rest_code_578fe3e9f5e741c5a9e13de56cd61187-2"></a>
+<a name="rest_code_578fe3e9f5e741c5a9e13de56cd61187-3"></a><span class="c1">// Frobs foo heartily</span>
+<a name="rest_code_578fe3e9f5e741c5a9e13de56cd61187-4"></a><span class="kt">int</span> <span class="nf">frobnitz</span><span class="p">(</span><span class="kt">int</span> <span class="n">foo</span><span class="p">)</span>
+<a name="rest_code_578fe3e9f5e741c5a9e13de56cd61187-5"></a><span class="p">{</span>
+<a name="rest_code_578fe3e9f5e741c5a9e13de56cd61187-6"></a>    <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+<a name="rest_code_578fe3e9f5e741c5a9e13de56cd61187-7"></a>    <span class="k">for</span><span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+<a name="rest_code_578fe3e9f5e741c5a9e13de56cd61187-8"></a>    <span class="p">{</span>
+<a name="rest_code_578fe3e9f5e741c5a9e13de56cd61187-9"></a>        <span class="n">printf</span><span class="p">(</span><span class="s">"Your answer is: "</span><span class="p">);</span>
+<a name="rest_code_578fe3e9f5e741c5a9e13de56cd61187-10"></a>        <span class="n">printf</span><span class="p">(</span><span class="s">"%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">foo</span><span class="p">);</span>
+<a name="rest_code_578fe3e9f5e741c5a9e13de56cd61187-11"></a>    <span class="p">}</span>
+<a name="rest_code_578fe3e9f5e741c5a9e13de56cd61187-12"></a><span class="p">}</span>
+<a name="rest_code_578fe3e9f5e741c5a9e13de56cd61187-13"></a>
+<a name="rest_code_578fe3e9f5e741c5a9e13de56cd61187-14"></a><span class="kt">int</span> <span class="nf">fact</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">)</span>
+<a name="rest_code_578fe3e9f5e741c5a9e13de56cd61187-15"></a><span class="p">{</span>
+<a name="rest_code_578fe3e9f5e741c5a9e13de56cd61187-16"></a>    <span class="k">if</span><span class="p">(</span><span class="n">n</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">)</span>
+<a name="rest_code_578fe3e9f5e741c5a9e13de56cd61187-17"></a>    <span class="p">{</span>
+<a name="rest_code_578fe3e9f5e741c5a9e13de56cd61187-18"></a>        <span class="k">return</span> <span class="n">fact</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">n</span><span class="p">;</span>
+<a name="rest_code_578fe3e9f5e741c5a9e13de56cd61187-19"></a>    <span class="p">}</span>
+<a name="rest_code_578fe3e9f5e741c5a9e13de56cd61187-20"></a>    <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+<a name="rest_code_578fe3e9f5e741c5a9e13de56cd61187-21"></a><span class="p">}</span>
+<a name="rest_code_578fe3e9f5e741c5a9e13de56cd61187-22"></a>
+<a name="rest_code_578fe3e9f5e741c5a9e13de56cd61187-23"></a><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">**</span><span class="n">argv</span><span class="p">)</span>
+<a name="rest_code_578fe3e9f5e741c5a9e13de56cd61187-24"></a><span class="p">{</span>
+<a name="rest_code_578fe3e9f5e741c5a9e13de56cd61187-25"></a>    <span class="n">frobnitz</span><span class="p">(</span><span class="n">fact</span><span class="p">(</span><span class="mi">10</span><span class="p">));</span>
+<a name="rest_code_578fe3e9f5e741c5a9e13de56cd61187-26"></a><span class="p">}</span>
+</pre>
+</div>
+<div class="eight wide column docutils container">
+<p>In addition you have the following changed file2 (e.g. from a later revision):</p>
+<pre class="code cpp"><a name="rest_code_0d6c0d74f23b4bae9f510fe26c08f191-1"></a><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+<a name="rest_code_0d6c0d74f23b4bae9f510fe26c08f191-2"></a>
+<a name="rest_code_0d6c0d74f23b4bae9f510fe26c08f191-3"></a><span class="kt">int</span> <span class="nf">fib</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">)</span>
+<a name="rest_code_0d6c0d74f23b4bae9f510fe26c08f191-4"></a><span class="p">{</span>
+<a name="rest_code_0d6c0d74f23b4bae9f510fe26c08f191-5"></a>    <span class="k">if</span><span class="p">(</span><span class="n">n</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">)</span>
+<a name="rest_code_0d6c0d74f23b4bae9f510fe26c08f191-6"></a>    <span class="p">{</span>
+<a name="rest_code_0d6c0d74f23b4bae9f510fe26c08f191-7"></a>        <span class="k">return</span> <span class="n">fib</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">fib</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="p">);</span>
+<a name="rest_code_0d6c0d74f23b4bae9f510fe26c08f191-8"></a>    <span class="p">}</span>
+<a name="rest_code_0d6c0d74f23b4bae9f510fe26c08f191-9"></a>    <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+<a name="rest_code_0d6c0d74f23b4bae9f510fe26c08f191-10"></a><span class="p">}</span>
+<a name="rest_code_0d6c0d74f23b4bae9f510fe26c08f191-11"></a>
+<a name="rest_code_0d6c0d74f23b4bae9f510fe26c08f191-12"></a><span class="c1">// Frobs foo heartily</span>
+<a name="rest_code_0d6c0d74f23b4bae9f510fe26c08f191-13"></a><span class="kt">int</span> <span class="nf">frobnitz</span><span class="p">(</span><span class="kt">int</span> <span class="n">foo</span><span class="p">)</span>
+<a name="rest_code_0d6c0d74f23b4bae9f510fe26c08f191-14"></a><span class="p">{</span>
+<a name="rest_code_0d6c0d74f23b4bae9f510fe26c08f191-15"></a>    <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+<a name="rest_code_0d6c0d74f23b4bae9f510fe26c08f191-16"></a>    <span class="k">for</span><span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+<a name="rest_code_0d6c0d74f23b4bae9f510fe26c08f191-17"></a>    <span class="p">{</span>
+<a name="rest_code_0d6c0d74f23b4bae9f510fe26c08f191-18"></a>        <span class="n">printf</span><span class="p">(</span><span class="s">"%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">foo</span><span class="p">);</span>
+<a name="rest_code_0d6c0d74f23b4bae9f510fe26c08f191-19"></a>    <span class="p">}</span>
+<a name="rest_code_0d6c0d74f23b4bae9f510fe26c08f191-20"></a><span class="p">}</span>
+<a name="rest_code_0d6c0d74f23b4bae9f510fe26c08f191-21"></a>
+<a name="rest_code_0d6c0d74f23b4bae9f510fe26c08f191-22"></a><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">**</span><span class="n">argv</span><span class="p">)</span>
+<a name="rest_code_0d6c0d74f23b4bae9f510fe26c08f191-23"></a><span class="p">{</span>
+<a name="rest_code_0d6c0d74f23b4bae9f510fe26c08f191-24"></a>    <span class="n">frobnitz</span><span class="p">(</span><span class="n">fib</span><span class="p">(</span><span class="mi">10</span><span class="p">));</span>
+<a name="rest_code_0d6c0d74f23b4bae9f510fe26c08f191-25"></a><span class="p">}</span>
+</pre>
+</div>
+</div>
+<p>The default diff, running <code class="docutils literal">$ vimdiff file1 file2</code> would then look like this:</p>
+<div class="figure align-center">
+<img alt="default diff" src="../../../images/default_diff.png">
+</div>
+<p>However, now you can simply do <code class="docutils literal">:set <span class="pre">diffopt+=algorithm:patience</span></code> and the diff will change to the following:</p>
+<div class="figure align-center">
+<img alt="histogram diff" src="../../../images/histogram_diff.png">
+</div>
+<p>Pretty nice, isn’t it?</p>
+<p>Here is an asciicast:</p>
+<asciinema-player src="../../../asciicast/histogram_diff.cast" poster="npt:00:19"></asciinema-player>
+</div>
+<div class="section" id="id1">
+<h3>Indent heuristics</h3>
+<p>Here is an example where the indent heuristics might come handy.</p>
+<div class="ui stackable grid docutils container">
+<div class="eight wide column docutils container">
+<p>Say you have the following file:</p>
+<pre class="code ruby"><a name="rest_code_3f07611758d94fdc876308cf91c7ed14-1"></a><span class="k">def</span> <span class="nf">finalize</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
+<a name="rest_code_3f07611758d94fdc876308cf91c7ed14-2"></a>
+<a name="rest_code_3f07611758d94fdc876308cf91c7ed14-3"></a>  <span class="n">values</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">v</span><span class="o">|</span>
+<a name="rest_code_3f07611758d94fdc876308cf91c7ed14-4"></a>    <span class="n">v</span><span class="o">.</span><span class="n">finalize</span>
+<a name="rest_code_3f07611758d94fdc876308cf91c7ed14-5"></a>  <span class="k">end</span>
+</pre>
+</div>
+<div class="eight wide column docutils container">
+<p>And later the file has been changed to the following:</p>
+<pre class="code ruby"><a name="rest_code_00e3f891fc724c62a2b20aaed4256b7c-1"></a><span class="k">def</span> <span class="nf">finalize</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
+<a name="rest_code_00e3f891fc724c62a2b20aaed4256b7c-2"></a>
+<a name="rest_code_00e3f891fc724c62a2b20aaed4256b7c-3"></a>  <span class="n">values</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">v</span><span class="o">|</span>
+<a name="rest_code_00e3f891fc724c62a2b20aaed4256b7c-4"></a>    <span class="n">v</span><span class="o">.</span><span class="n">prepare</span>
+<a name="rest_code_00e3f891fc724c62a2b20aaed4256b7c-5"></a>  <span class="k">end</span>
+<a name="rest_code_00e3f891fc724c62a2b20aaed4256b7c-6"></a>
+<a name="rest_code_00e3f891fc724c62a2b20aaed4256b7c-7"></a>  <span class="n">values</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">v</span><span class="o">|</span>
+<a name="rest_code_00e3f891fc724c62a2b20aaed4256b7c-8"></a>    <span class="n">v</span><span class="o">.</span><span class="n">finalize</span>
+<a name="rest_code_00e3f891fc724c62a2b20aaed4256b7c-9"></a>  <span class="k">end</span>
+</pre>
+</div>
+</div>
+<p>The default diff, running <code class="docutils literal">$ vimdiff file1.rb file2.rb</code> would then look like this:</p>
+<div class="figure align-center">
+<img alt="ruby default" src="../../../images/ruby_default.png">
+</div>
+<p>Now, type <code class="docutils literal">:set <span class="pre">diffopt+=indent-heuristic</span></code> and see how the diff changes to the following:</p>
+<div class="figure align-center">
+<img alt="ruby indent heuristics" src="../../../images/ruby_indent_heuristics.png">
+</div>
+<p>Now one can clearly see what part has been added.</p>
+<p>That is pretty neat.</p>
+<p>This is also available as an asciicast:</p>
+<asciinema-player src="../../../asciicast/indent_heuristic.cast" poster="npt:00:19"></asciinema-player>
+</div>
+</div>
+<div class="section" id="what-is-next">
+<h2>What is next?</h2>
+<p>Having included the xdiff library this does not mean improving the diff mode stops. There have been additional patches that fixed small bugs as well as improved the diff mode further. For example the <code class="docutils literal">DiffUpdate</code> autocommand has been included in <a class="reference external" href="https://github.com/vim/vim/releases/tag/v8.1.0397">Patch 8.1.397</a> which allows to run commands once the diff mode has been updated.</p>
+<p>In addition, there are already requests to provide a VimScript API for creating diffs or update the diff more often. It should also be possible to create better inline diffs.</p>
+<p>That hasn’t been done yet, but I am sure some of those improvements will be developed in the future.</p>
+</div>
+</div>
+        </div>
+    </div>
+    <div class="post-info">
+        <p>引用资源：<a href="https://vimways.org/2018/the-power-of-diff/" target="_blank">https://vimways.org/2018/the-power-of-diff/</a></p>
+        <p>文章链接：<a href="https://macplay.github.io/en/posts/the-power-of-diff/" target="_blank">https://macplay.github.io/en/posts/the-power-of-diff/</a></p>
+        <p>发布/更新于：
+            <time datetime="2019-11-15 08:31:50 UTC+08:00">
+            2019-11-15 08:50
+            </time></p>
+        <p>版权声明：如无特别说明，本站文章均遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">CC BY-NC-SA 4.0</a> 协议，转载请注明作者及出处。</p>
+    </div>
+        <div class="post-navigation no-print">
+        <div class="ui huge secondary stackable menu">
+            <a class="post-nav-item post-nav-previous item" href="../ffmpeg-filtering-guide/" title="Previous post"><i class="angle double left icon"></i> FFmpeg Filtering Guide</a>
+        <div class="right menu">
+            <a class="post-nav-item post-nav-next item" href="../atoms-new-concurrency-friendly-buffer-implementation/" title="Next post">【译】Atom 新的并发友好型 buffer 实现 <i class="angle double right icon"></i></a>
+        </div>
+        </div>
+    </div>
+
+        <div id="gitalk-container" class="comments-block no-print"></div>
+</div>
+                    </div>
+                </main><div class="footer extra-block no-print">
+    <span class="footer_item">
+        <a href="../../../pages/you-qing-lian-jie/">友情链接</a>
+    </span>
+    <span class="footer_item">
+        <a href="../../../pages/liu-yan-ban/">留言板</a>
+    </span>
+    <span class="footer_item">
+        <a href="../../../pages/ge-ren-dong-tai/">碎碎念</a>
+    </span>
+    </div>
+            <div class="footer social-link no-print">
+            <a href="https://github.com/ashfinal" target="_blank"><i class="grey large github icon"></i></a>
+            <a href="http://weibo.com/ashfinal/" target="_blank"><i class="grey large weibo icon"></i></a>
+            <a href="mailto://ashfinal@sina.cn" target="_blank"><i class="grey large mail icon"></i></a>
+            </div>
+        <div class="ui basic center aligned segment no-print">Contents © 2020         <a href="mailto:ashfinal@sina.cn">ashfinal</a> - Powered by         <a href="https://getnikola.com" target="_blank" rel="nofollow">Nikola</a>         </div>
+
+            </div>
+            <div class="computer only three wide column no-print">
+                <div id="right-side">
+                </div>
+            </div>
+        </div>
+
+        <!-- GoStats JavaScript Based Code -->
+        <script type="text/javascript">(function(c,o,m,p,u,t,e){
+        c['GoStatsObject']=u;c[u]=c[u]||function(){(c[u].q=c[u].q||[]).push(arguments)},
+        c[u].l=1*new Date();t=o.createElement(m);t.async=1;t.src=p;
+        e=o.getElementsByTagName(m)[0];e.parentNode.insertBefore(t,e);
+        })(window,document,'script','//www.gostats.org/5.js','go');
+        go('init',100479892,{'img_counter_type':5,'img_image_type':1});go('send');</script><!-- End GoStats JavaScript Based Code --><script type="text/javascript" src="../../../assets/js/jquery-3.3.1.min.js"></script><script type="text/javascript" src="../../../assets/js/semantic.min.js"></script><script type="text/javascript" src="../../../assets/js/jquery.fancybox.min.js"></script><script type="text/javascript" src="../../../assets/js/cookie.min.js"></script><script>
+            $(document).ready(function(){
+                $(".ui.dropdown").dropdown();
+                $('.ui.accordion').accordion();
+                var newstr = $('.cookie.nag').text();
+                $('.cookie.nag').nag({
+                    key: 'globalnotice',
+                    value: newstr
+                  });
+                $('.image-reference').fancybox();
+            });
+        </script><script src="../../../assets/js/md5.min.js"></script><script src="../../../assets/js/gitalk.min.js"></script><script>
+        const gitalk = new Gitalk({
+            clientID: '12fcda845097d895a24c',
+            clientSecret: '50ed60cde5f40897205197b4265b474cefbedc49',
+            repo: 'macplay.github.io',
+            owner: 'macplay',
+            admin: ['macplay', 'ashfinal'],
+            id: md5(window.location.pathname),
+            // facebook-like distraction free mode
+            distractionFreeMode: false
+        })
+        gitalk.render('gitalk-container')
+    </script><script type="text/javascript" src="../../../assets/js/asciinema-player.js"></script>
+</body>
+</html>

@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="generator" content="Nikola (getnikola.com)">
+<title>Vim 技巧：匹配数字递增 - MacPlay</title>
+<link rel="apple-touch-icon" sizes="180x180" href="../../../apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../../../favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../../../favicon-16x16.png">
+<link rel="mask-icon" href="../../../safari-pinned-tab.svg" color="#5bbad5">
+<link href="../../../assets/css/semantic.min.css" rel="stylesheet" type="text/css">
+<link href="../../../assets/css/jquery.fancybox.min.css" rel="stylesheet" type="text/css">
+<link href="../../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<link rel="canonical" href="https://macplay.github.io/en/posts/vim-ji-qiao-pi-pei-shu-zi-di-zeng/">
+<meta name="author" content="ashfinal">
+<link rel="alternate" hreflang="zh_cn" href="../../../posts/vim-ji-qiao-pi-pei-shu-zi-di-zeng/">
+<link rel="stylesheet" type="text/css" href="../../../assets/css/gitalk.css">
+</head>
+<body>
+        <div class="ui grid">
+            <div class="computer only three wide column no-print">
+                <div id="left-side">
+                </div>
+            </div>
+            <div class="ten wide computer sixteen wide tablet sixteen wide mobile column">
+                        <div class="ui inline cookie nag no-print">
+            <span class="title">从现在开始，支持中英双语及博文精选 O(∩_∩)O~~</span>
+            <i class="close icon"></i>
+        </div>
+    <header id="header" class="no-print"><div class="ui grid">
+        <div class="computer only tablet only sixteen wide column">
+            <div class="ui large secondary stackable menu">
+                <a class="header item brand-logo" href="https://macplay.github.io/en/">
+                    MacPlay
+                </a>
+                        <a class="item" href="../../../">Posts</a>
+                        <a class="item" href="../../../listings/">Code</a>
+                        <a class="item" href="../../../galleries/">Gallery</a>
+                        <a class="item" href="../../../categories/">Tags</a>
+                        <a class="item" href="../../../archive.html">Archive</a>
+                <div class="right menu">
+                    <a class="item" href="../../../rss.xml"><i class="rss icon"></i>RSS</a>
+                </div>
+            </div>
+        </div>
+        <div class="mobile only sixteen wide column">
+            <div class="ui fluid accordion vertical menu">
+                <div class="item">
+                    <a class="title">MacPlay</a>
+                    <div class="content">
+                                <a class="item" href="../../../">Posts</a>
+                                <a class="item" href="../../../listings/">Code</a>
+                                <a class="item" href="../../../galleries/">Gallery</a>
+                                <a class="item" href="../../../categories/">Tags</a>
+                                <a class="item" href="../../../archive.html">Archive</a>
+                        <a class="item" href="../../../rss.xml"><i class="rss icon"></i>RSS</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </header><main id="main"><div id="main-content">
+<div class="postpage post-text page-body" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <h1 class="post-title" itemprop="headline">
+        <a href=".">Vim 技巧：匹配数字递增</a>
+    </h1>
+
+    <div class="ui large horizontal link list post-meta">
+        <span class="item">By
+            <a href="../../authors/ashfinal/">ashfinal</a>
+        </span>
+            <span class="item">
+                <a href="https://github.com/macplay/macplay.github.io/edit/src/posts/vim-ji-qiao-pi-pei-shu-zi-di-zeng.rst" target="_blank" title="Edit on GitHub">Edit</a>
+            </span>
+        <span class="item">
+            <time datetime="2017-11-05T20:09:47+08:00">
+            2017-11-05 20:09
+            </time></span>
+            <span class="item">
+                    <a href="../../categories/regex/">regex</a>
+                    <a href="../../categories/vim/">vim</a>
+            </span>
+    </div>
+
+    
+    <div class="post-content" itemprop="article text">
+        <div id="post-content">
+        <div>
+<p>有时候会有将代码中的数字递增/递减的需求，一直没有找到相对简单优雅的做法。今天通过网络搜索加上幸运值暴增，感觉终于比较完善地解决了这个问题，遂作此文记录一下。</p>
+<p>如果我们想将以下代码块中的所有数字，在原有基础上均递增两次：</p>
+<pre class="code text"><a name="rest_code_ab0721f88fe74099acb0983b448a9a93-1"></a>my_array[1] = 0;
+<a name="rest_code_ab0721f88fe74099acb0983b448a9a93-2"></a>my_array[2] = 0;
+<a name="rest_code_ab0721f88fe74099acb0983b448a9a93-3"></a>my_array[3] = 0;
+<a name="rest_code_ab0721f88fe74099acb0983b448a9a93-4"></a>my_array[4] = 0;
+<a name="rest_code_ab0721f88fe74099acb0983b448a9a93-5"></a>my_array[5] = 0;
+<a name="rest_code_ab0721f88fe74099acb0983b448a9a93-6"></a>my_array[6] = 0;
+<a name="rest_code_ab0721f88fe74099acb0983b448a9a93-7"></a>my_array[7] = 0;
+</pre>
+<p>即变成以下这样：</p>
+<pre class="code text"><a name="rest_code_dcdbe57fddc64f2bbe710eacf2d86e18-1"></a>my_array[3] = 2;
+<a name="rest_code_dcdbe57fddc64f2bbe710eacf2d86e18-2"></a>my_array[4] = 2;
+<a name="rest_code_dcdbe57fddc64f2bbe710eacf2d86e18-3"></a>my_array[5] = 2;
+<a name="rest_code_dcdbe57fddc64f2bbe710eacf2d86e18-4"></a>my_array[6] = 2;
+<a name="rest_code_dcdbe57fddc64f2bbe710eacf2d86e18-5"></a>my_array[7] = 2;
+<a name="rest_code_dcdbe57fddc64f2bbe710eacf2d86e18-6"></a>my_array[8] = 2;
+<a name="rest_code_dcdbe57fddc64f2bbe710eacf2d86e18-7"></a>my_array[9] = 2;
+</pre>
+<!-- TEASER_END -->
+<p>笔者以前的做法：如果仅有几处需要修改，那就直接跳转到数字处，按 <cite>Ctrl + a</cite> 或 <cite>Ctrl + x</cite> 完事。如果修改之处较多而且数据格式比较规整，那就录制一个宏然后执行。不过格式规整的情况太少了，所以大部分情况下还是用第一种方法，有时候就得跳转多次并重复按 <cite>Ctrl + a</cite> ，觉得有点烦。</p>
+<p>搜索之后得出的 <strong>第一个解决方案</strong> <a class="footnote-reference brackets" href="#id2" id="id1">1</a> ：</p>
+<p>将光标移到第一行的 <cite>1</cite> 处，按 <cite>Ctrl + v</cite> 进入 <cite>Visual Block</cite> 列模式，然后选择接下来的几行，最后按 <cite>Ctrl + a</cite> 。哈哈，变成了 <cite>2 3 4 …8</cite> 这样的。耶！一次性完工。（汗！还是平时遇到规整格式的情况太少，竟然不知道 <cite>Ctrl + a</cite> 可以和列模式混合使用。）接下来就好办了， <cite>gv</cite> 重复上一选区，再按一次 <cite>Ctrl + a</cite> 就 OK 了。不过这事还有更简单的方法——直接按 <cite>.</cite> 重复上一次操作，都不用进入选择模式。简直不要太方便！再将后面的 <cite>0</cite> 列如法炮制，即可打完收功。</p>
+<p>还可以在按 <cite>Ctrl + a</cite> 之前，按个 <cite>g</cite> 键，这样递增数就与其所在行数相关了。比如上面的 <cite>0</cite> 列这样操作以后，就变成了 <cite>1 2 3 …7</cite> 的递增数列。</p>
+<pre class="code text"><a name="rest_code_4479ed82ebbb43c68aef6dd8daa9e24b-1"></a>my_array[3] = 1;
+<a name="rest_code_4479ed82ebbb43c68aef6dd8daa9e24b-2"></a>my_array[4] = 2;
+<a name="rest_code_4479ed82ebbb43c68aef6dd8daa9e24b-3"></a>my_array[5] = 3;
+<a name="rest_code_4479ed82ebbb43c68aef6dd8daa9e24b-4"></a>my_array[6] = 4;
+<a name="rest_code_4479ed82ebbb43c68aef6dd8daa9e24b-5"></a>my_array[7] = 5;
+<a name="rest_code_4479ed82ebbb43c68aef6dd8daa9e24b-6"></a>my_array[8] = 6;
+<a name="rest_code_4479ed82ebbb43c68aef6dd8daa9e24b-7"></a>my_array[9] = 7;
+</pre>
+<p>这就很强悍了，不必像有些教程里说的那样，需要 <code class="docutils literal">let i=1</code> 定义有点长的函数才能产生递增数列。貌似可以用这种方法给代码增加行号了？</p>
+<p>不过该方法还是有不少限制的——仍然面临数字格式规整的问题。如果上面的数字出现两位数甚至浮点数，这时就无法用列模式选中，自然也就无法按预想进行递增。</p>
+<pre class="code text"><a name="rest_code_c8b17eb697004cbfa325e478fed9ec7c-1"></a>my_array[1] = 0;
+<a name="rest_code_c8b17eb697004cbfa325e478fed9ec7c-2"></a>my_array[2] = 0;
+<a name="rest_code_c8b17eb697004cbfa325e478fed9ec7c-3"></a>my_array[3] = 0;
+<a name="rest_code_c8b17eb697004cbfa325e478fed9ec7c-4"></a>my_array[41] = 0;
+<a name="rest_code_c8b17eb697004cbfa325e478fed9ec7c-5"></a>my_array[51] = 0;
+<a name="rest_code_c8b17eb697004cbfa325e478fed9ec7c-6"></a>my_array[61] = 0;
+<a name="rest_code_c8b17eb697004cbfa325e478fed9ec7c-7"></a>my_array[71] = 0;
+</pre>
+<p>按照以上方法操作后变成：</p>
+<pre class="code text"><a name="rest_code_d2540a52795d49a2accf6bba5432cc84-1"></a>my_array[3] = 2;
+<a name="rest_code_d2540a52795d49a2accf6bba5432cc84-2"></a>my_array[4] = 2;
+<a name="rest_code_d2540a52795d49a2accf6bba5432cc84-3"></a>my_array[5] = 2;
+<a name="rest_code_d2540a52795d49a2accf6bba5432cc84-4"></a>my_array[61] = 2;
+<a name="rest_code_d2540a52795d49a2accf6bba5432cc84-5"></a>my_array[71] = 2;
+<a name="rest_code_d2540a52795d49a2accf6bba5432cc84-6"></a>my_array[81] = 2;
+<a name="rest_code_d2540a52795d49a2accf6bba5432cc84-7"></a>my_array[91] = 2;
+</pre>
+<p>显然与最初预想的“自增两次”是不一致的。如果想用列模式操作，则需要将上面的代码在个位数上对齐：</p>
+<pre class="code text"><a name="rest_code_71ddbd25c3c7437a9ec6bb1adebe946a-1"></a> my_array[1] = 0;
+<a name="rest_code_71ddbd25c3c7437a9ec6bb1adebe946a-2"></a> my_array[2] = 0;
+<a name="rest_code_71ddbd25c3c7437a9ec6bb1adebe946a-3"></a> my_array[3] = 0;
+<a name="rest_code_71ddbd25c3c7437a9ec6bb1adebe946a-4"></a>my_array[41] = 0;
+<a name="rest_code_71ddbd25c3c7437a9ec6bb1adebe946a-5"></a>my_array[51] = 0;
+<a name="rest_code_71ddbd25c3c7437a9ec6bb1adebe946a-6"></a>my_array[61] = 0;
+<a name="rest_code_71ddbd25c3c7437a9ec6bb1adebe946a-7"></a>my_array[71] = 0;
+</pre>
+<p>然后就可以继续使用上面描述的方法了。不过递增完最好把 1~3 行前面的空格去掉，有些语言可能会报错。</p>
+<p><strong>第二种方法</strong> 是使用 Vim 的正则替换功能。实际上笔者之前曾尝试过该方法，不过以失败告终。当时写的替换语句是这样的： <code class="docutils literal"><span class="pre">:%s/\d\+/\0+2/g</span></code> 。按我的料想， <code class="docutils literal">\0</code> 是匹配的分组，在它上面直接 <code class="docutils literal">+2</code> 不就好了？然而经实际测试并不行。事情的解决是发呆时抱着寻宝的想法打开 <a class="reference external" href="http://zzapper.co.uk/vimtips.html">Best of Vim Tips</a> ，一眼瞥见了那一行：</p>
+<pre class="code vim"><a name="rest_code_c1a9c88111e248eaa287165fcf9d509f-1"></a><span class="c">" decrement numbers by 3</span>
+<a name="rest_code_c1a9c88111e248eaa287165fcf9d509f-2"></a><span class="p">:</span>%s<span class="sr">/\d\+/</span>\<span class="p">=(</span>submatch<span class="p">(</span><span class="m">0</span><span class="p">)</span><span class="m">-3</span><span class="p">)</span>/
+</pre>
+<p>再仔细一看，可不正是我想要的正则替换？大喜过望，经实际试验果然如此！第一种方法所说的步骤，实际上只需选中代码块然后执行一条正则替换语句：</p>
+<pre class="code vim"><a name="rest_code_701d4ea19ab84ec9801587985df20788-1"></a><span class="p">:</span><span class="s1">'&lt;,&gt;'</span>s<span class="sr">/\d\+/</span>\<span class="p">=(</span>submatch<span class="p">(</span><span class="m">0</span><span class="p">)+</span><span class="m">2</span><span class="p">)</span>/<span class="k">g</span>
+</pre>
+<p>以前正则替换失败的症结在于并不知道 <code class="docutils literal">submatch()</code> 这个内置函数。通过 <code class="docutils literal">:h submatch()</code> 查看，该函数用来返回替换操作中第 n 个匹配字符串，而且以上命令中 <cite>submatch</cite> 的外层括号其实可以去掉。于是最终变成这样：</p>
+<pre class="code vim"><a name="rest_code_2a195f86c8554e7ca54aad1efcc7cdc9-1"></a><span class="p">:</span><span class="s1">'&lt;,&gt;'</span>s<span class="sr">/\d\+/</span>\<span class="p">=</span>submatch<span class="p">(</span><span class="m">0</span><span class="p">)+</span><span class="m">2</span>/<span class="k">g</span>
+</pre>
+<p>命令的其它部分则比较容易理解： <code class="docutils literal"><span class="pre">'&lt;,&gt;'</span></code> 代表选区范围， <code class="docutils literal">\d\+</code> 匹配一个或多个数字， <code class="docutils literal">\=</code> 表示接下来的是一个函数/表达式。</p>
+<p>这种方法的优势在于没有格式规整的要求，且操作灵活性特别高，可充分利用正则表达式匹配功能。而且它已经不仅局限于数字递增了，可以用于字符串拼接等。</p>
+<p>说来惭愧：尽管收藏 <a class="reference external" href="http://zzapper.co.uk/vimtips.html">Best of Vim Tips</a> 已经很久，却从来没有完整地看过它的每一条技巧，顶多是无聊时翻一翻。以前折腾了好半天还不成功的问题，今天就这么简单解决了。有时间还是得把这些技巧系统完整的过一遍，Vim 内置函数如有时间的话也很有必要挨个看一看。</p>
+<dl class="footnote brackets">
+<dt class="label" id="id2"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd>
+<p><a class="reference external" href="http://vim.wikia.com/wiki/Making_a_list_of_numbers">http://vim.wikia.com/wiki/Making_a_list_of_numbers</a></p>
+</dd>
+</dl>
+</div>
+        </div>
+    </div>
+    <div class="post-info">
+        <p>文章链接：<a href="https://macplay.github.io/en/posts/vim-ji-qiao-pi-pei-shu-zi-di-zeng/" target="_blank">https://macplay.github.io/en/posts/vim-ji-qiao-pi-pei-shu-zi-di-zeng/</a></p>
+        <p>发布/更新于：
+            <time datetime="2017-11-05 20:09:47 UTC+08:00">
+            2017-11-05 20:09
+            </time></p>
+        <p>版权声明：如无特别说明，本站文章均遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">CC BY-NC-SA 4.0</a> 协议，转载请注明作者及出处。</p>
+    </div>
+        <div class="post-navigation no-print">
+        <div class="ui huge secondary stackable menu">
+            <a class="post-nav-item post-nav-previous item" href="../bu-yi-yang-de-git-ke-hu-duan-gitup/" title="Previous post"><i class="angle double left icon"></i> 不一样的 Git 客户端——GitUp</a>
+        <div class="right menu">
+            <a class="post-nav-item post-nav-next item" href="../8-ge-vim-ji-qiao-rang-ni-cheng-wei-zhuan-jia-ji-yong-hu/" title="Next post">【译】8 个 Vim 技巧让你成为专家级用户 <i class="angle double right icon"></i></a>
+        </div>
+        </div>
+    </div>
+
+        <div id="gitalk-container" class="comments-block no-print"></div>
+</div>
+                    </div>
+                </main><div class="footer extra-block no-print">
+    <span class="footer_item">
+        <a href="../../../pages/you-qing-lian-jie/">友情链接</a>
+    </span>
+    <span class="footer_item">
+        <a href="../../../pages/liu-yan-ban/">留言板</a>
+    </span>
+    <span class="footer_item">
+        <a href="../../../pages/ge-ren-dong-tai/">碎碎念</a>
+    </span>
+    </div>
+            <div class="footer social-link no-print">
+            <a href="https://github.com/ashfinal" target="_blank"><i class="grey large github icon"></i></a>
+            <a href="http://weibo.com/ashfinal/" target="_blank"><i class="grey large weibo icon"></i></a>
+            <a href="mailto://ashfinal@sina.cn" target="_blank"><i class="grey large mail icon"></i></a>
+            </div>
+        <div class="ui basic center aligned segment no-print">Contents © 2020         <a href="mailto:ashfinal@sina.cn">ashfinal</a> - Powered by         <a href="https://getnikola.com" target="_blank" rel="nofollow">Nikola</a>         </div>
+
+            </div>
+            <div class="computer only three wide column no-print">
+                <div id="right-side">
+                </div>
+            </div>
+        </div>
+
+        <!-- GoStats JavaScript Based Code -->
+        <script type="text/javascript">(function(c,o,m,p,u,t,e){
+        c['GoStatsObject']=u;c[u]=c[u]||function(){(c[u].q=c[u].q||[]).push(arguments)},
+        c[u].l=1*new Date();t=o.createElement(m);t.async=1;t.src=p;
+        e=o.getElementsByTagName(m)[0];e.parentNode.insertBefore(t,e);
+        })(window,document,'script','//www.gostats.org/5.js','go');
+        go('init',100479892,{'img_counter_type':5,'img_image_type':1});go('send');</script><!-- End GoStats JavaScript Based Code --><script type="text/javascript" src="../../../assets/js/jquery-3.3.1.min.js"></script><script type="text/javascript" src="../../../assets/js/semantic.min.js"></script><script type="text/javascript" src="../../../assets/js/jquery.fancybox.min.js"></script><script type="text/javascript" src="../../../assets/js/cookie.min.js"></script><script>
+            $(document).ready(function(){
+                $(".ui.dropdown").dropdown();
+                $('.ui.accordion').accordion();
+                var newstr = $('.cookie.nag').text();
+                $('.cookie.nag').nag({
+                    key: 'globalnotice',
+                    value: newstr
+                  });
+                $('.image-reference').fancybox();
+            });
+        </script><script src="../../../assets/js/md5.min.js"></script><script src="../../../assets/js/gitalk.min.js"></script><script>
+        const gitalk = new Gitalk({
+            clientID: '12fcda845097d895a24c',
+            clientSecret: '50ed60cde5f40897205197b4265b474cefbedc49',
+            repo: 'macplay.github.io',
+            owner: 'macplay',
+            admin: ['macplay', 'ashfinal'],
+            id: md5(window.location.pathname),
+            // facebook-like distraction free mode
+            distractionFreeMode: false
+        })
+        gitalk.render('gitalk-container')
+    </script>
+</body>
+</html>

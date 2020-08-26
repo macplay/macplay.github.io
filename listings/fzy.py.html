@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="zh_cn">
+<head>
+<meta charset="utf-8">
+<meta name="description" content="fzy.py">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="generator" content="Nikola (getnikola.com)">
+<title>fzy.py - MacPlay</title>
+<link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+<link rel="mask-icon" href="../safari-pinned-tab.svg" color="#5bbad5">
+<link href="../assets/css/semantic.min.css" rel="stylesheet" type="text/css">
+<link href="../assets/css/jquery.fancybox.min.css" rel="stylesheet" type="text/css">
+<link href="../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<link rel="canonical" href="https://macplay.github.io/listings/fzy.py.html">
+</head>
+<body>
+        <div class="ui grid">
+            <div class="computer only three wide column no-print">
+                <div id="left-side">
+                </div>
+            </div>
+            <div class="ten wide computer sixteen wide tablet sixteen wide mobile column">
+                        <div class="ui inline cookie nag no-print">
+            <span class="title">从现在开始，支持中英双语及博文精选 O(∩_∩)O~~</span>
+            <i class="close icon"></i>
+        </div>
+    <header id="header" class="no-print"><div class="ui grid">
+        <div class="computer only tablet only sixteen wide column">
+            <div class="ui large secondary stackable menu">
+                <a class="header item brand-logo" href="https://macplay.github.io/">
+                    MacPlay
+                </a>
+                        <a class="item" href="../">Posts</a>
+                        <a class="item" href=".">Code</a>
+                        <a class="item" href="../galleries/">Gallery</a>
+                        <a class="item" href="../categories/">Tags</a>
+                        <a class="item" href="../archive.html">Archive</a>
+                <div class="right menu">
+                    <a class="item" href="../rss.xml"><i class="rss icon"></i>RSS</a>
+                </div>
+            </div>
+        </div>
+        <div class="mobile only sixteen wide column">
+            <div class="ui fluid accordion vertical menu">
+                <div class="item">
+                    <a class="title">MacPlay</a>
+                    <div class="content">
+                                <a class="item" href="../">Posts</a>
+                                <a class="item" href=".">Code</a>
+                                <a class="item" href="../galleries/">Gallery</a>
+                                <a class="item" href="../categories/">Tags</a>
+                                <a class="item" href="../archive.html">Archive</a>
+                        <a class="item" href="../rss.xml"><i class="rss icon"></i>RSS</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </header><main id="main"><div id="main-content">
+<div class="listingpage page-body" itemscope="itemscope" itemtype="http://schema.org/Article">
+    <div class="ui breadcrumb list-title">
+                <a href="." class="section">listings</a>
+                <div class="divider"> / </div>
+                <div class="section">
+                    fzy.py
+                </div>
+    </div>
+
+        <p class="downloadlink">
+            <i class="download icon"></i><a href="fzy.py">Download</a>
+        </p>
+        <div class="code"><table class="codetable">
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfzypy-1"><code data-line-number="  1"></code></a></td>
+<td class="code"><code><a name="listingsfzypy-1"></a><span class="ch">#!/usr/bin/env python</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfzypy-2"><code data-line-number="  2"></code></a></td>
+<td class="code"><code><a name="listingsfzypy-2"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfzypy-3"><code data-line-number="  3"></code></a></td>
+<td class="code"><code><a name="listingsfzypy-3"></a><span class="c1"># credit: https://github.com/aslpavel/sweep.py/blob/master/sweep.py</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfzypy-4"><code data-line-number="  4"></code></a></td>
+<td class="code"><code><a name="listingsfzypy-4"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfzypy-5"><code data-line-number="  5"></code></a></td>
+<td class="code"><code><a name="listingsfzypy-5"></a><span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">partial</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfzypy-6"><code data-line-number="  6"></code></a></td>
+<td class="code"><code><a name="listingsfzypy-6"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfzypy-7"><code data-line-number="  7"></code></a></td>
+<td class="code"><code><a name="listingsfzypy-7"></a><span class="k">def</span> <span class="nf">fuzzy_scorer</span><span class="p">(</span><span class="n">niddle</span><span class="p">,</span> <span class="n">haystack</span><span class="p">):</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfzypy-8"><code data-line-number="  8"></code></a></td>
+<td class="code"><code><a name="listingsfzypy-8"></a>    <span class="sd">"""Fuzzy matching for `fzy` utility</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfzypy-9"><code data-line-number="  9"></code></a></td>
+<td class="code"><code><a name="listingsfzypy-9"></a><span class="sd">    source: https://github.com/jhawthorn/fzy/blob/master/src/match.c</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfzypy-10"><code data-line-number=" 10"></code></a></td>
+<td class="code"><code><a name="listingsfzypy-10"></a><span class="sd">    """</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfzypy-11"><code data-line-number=" 11"></code></a></td>
+<td class="code"><code><a name="listingsfzypy-11"></a>    <span class="n">SCORE_MIN</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="s2">"-inf"</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfzypy-12"><code data-line-number=" 12"></code></a></td>
+<td class="code"><code><a name="listingsfzypy-12"></a>    <span class="n">SCORE_MAX</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="s2">"inf"</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfzypy-13"><code data-line-number=" 13"></code></a></td>
+<td class="code"><code><a name="listingsfzypy-13"></a>    <span class="n">SCORE_GAP_LEADING</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.005</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfzypy-14"><code data-line-number=" 14"></code></a></td>
+<td class="code"><code><a name="listingsfzypy-14"></a>    <span class="n">SCORE_GAP_TRAILING</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.005</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfzypy-15"><code data-line-number=" 15"></code></a></td>
+<td class="code"><code><a name="listingsfzypy-15"></a>    <span class="n">SCORE_GAP_INNER</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.01</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfzypy-16"><code data-line-number=" 16"></code></a></td>
+<td class="code"><code><a name="listingsfzypy-16"></a>    <span class="n">SCORE_MATCH_CONSECUTIVE</span> <span class="o">=</span> <span class="mf">1.0</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfzypy-17"><code data-line-number=" 17"></code></a></td>
+<td class="code"><code><a name="listingsfzypy-17"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfzypy-18"><code data-line-number=" 18"></code></a></td>
+<td class="code"><code><a name="listingsfzypy-18"></a>    <span class="k">def</span> <span class="nf">char_range_with</span><span class="p">(</span><span class="n">c_start</span><span class="p">,</span> <span class="n">c_stop</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">d</span><span class="p">):</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfzypy-19"><code data-line-number=" 19"></code></a></td>
+<td class="code"><code><a name="listingsfzypy-19"></a>        <span class="n">d</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfzypy-20"><code data-line-number=" 20"></code></a></td>
+<td class="code"><code><a name="listingsfzypy-20"></a>        <span class="n">d</span><span class="o">.</span><span class="n">update</span><span class="p">((</span><span class="nb">chr</span><span class="p">(</span><span class="n">c</span><span class="p">),</span> <span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">ord</span><span class="p">(</span><span class="n">c_start</span><span class="p">),</span> <span class="nb">ord</span><span class="p">(</span><span class="n">c_stop</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfzypy-21"><code data-line-number=" 21"></code></a></td>
+<td class="code"><code><a name="listingsfzypy-21"></a>        <span class="k">return</span> <span class="n">d</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfzypy-22"><code data-line-number=" 22"></code></a></td>
+<td class="code"><code><a name="listingsfzypy-22"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfzypy-23"><code data-line-number=" 23"></code></a></td>
+<td class="code"><code><a name="listingsfzypy-23"></a>    <span class="n">lower_with</span> <span class="o">=</span> <span class="n">partial</span><span class="p">(</span><span class="n">char_range_with</span><span class="p">,</span> <span class="s2">"a"</span><span class="p">,</span> <span class="s2">"z"</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfzypy-24"><code data-line-number=" 24"></code></a></td>
+<td class="code"><code><a name="listingsfzypy-24"></a>    <span class="n">upper_with</span> <span class="o">=</span> <span class="n">partial</span><span class="p">(</span><span class="n">char_range_with</span><span class="p">,</span> <span class="s2">"A"</span><span class="p">,</span> <span class="s2">"Z"</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfzypy-25"><code data-line-number=" 25"></code></a></td>
+<td class="code"><code><a name="listingsfzypy-25"></a>    <span class="n">digit_with</span> <span class="o">=</span> <span class="n">partial</span><span class="p">(</span><span class="n">char_range_with</span><span class="p">,</span> <span class="s2">"0"</span><span class="p">,</span> <span class="s2">"9"</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfzypy-26"><code data-line-number=" 26"></code></a></td>
+<td class="code"><code><a name="listingsfzypy-26"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfzypy-27"><code data-line-number=" 27"></code></a></td>
+<td class="code"><code><a name="listingsfzypy-27"></a>    <span class="n">SCORE_MATCH_SLASH</span> <span class="o">=</span> <span class="mf">0.9</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfzypy-28"><code data-line-number=" 28"></code></a></td>
+<td class="code"><code><a name="listingsfzypy-28"></a>    <span class="n">SCORE_MATCH_WORD</span> <span class="o">=</span> <span class="mf">0.8</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfzypy-29"><code data-line-number=" 29"></code></a></td>
+<td class="code"><code><a name="listingsfzypy-29"></a>    <span class="n">SCORE_MATCH_CAPITAL</span> <span class="o">=</span> <span class="mf">0.7</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfzypy-30"><code data-line-number=" 30"></code></a></td>
+<td class="code"><code><a name="listingsfzypy-30"></a>    <span class="n">SCORE_MATCH_DOT</span> <span class="o">=</span> <span class="mf">0.6</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfzypy-31"><code data-line-number=" 31"></code></a></td>
+<td class="code"><code><a name="listingsfzypy-31"></a>    <span class="n">BONUS_MAP</span> <span class="o">=</span> <span class="p">{</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfzypy-32"><code data-line-number=" 32"></code></a></td>
+<td class="code"><code><a name="listingsfzypy-32"></a>        <span class="s2">"/"</span><span class="p">:</span> <span class="n">SCORE_MATCH_SLASH</span><span class="p">,</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfzypy-33"><code data-line-number=" 33"></code></a></td>
+<td class="code"><code><a name="listingsfzypy-33"></a>        <span class="s2">"-"</span><span class="p">:</span> <span class="n">SCORE_MATCH_WORD</span><span class="p">,</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfzypy-34"><code data-line-number=" 34"></code></a></td>
+<td class="code"><code><a name="listingsfzypy-34"></a>        <span class="s2">"_"</span><span class="p">:</span> <span class="n">SCORE_MATCH_WORD</span><span class="p">,</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfzypy-35"><code data-line-number=" 35"></code></a></td>
+<td class="code"><code><a name="listingsfzypy-35"></a>        <span class="s2">" "</span><span class="p">:</span> <span class="n">SCORE_MATCH_WORD</span><span class="p">,</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfzypy-36"><code data-line-number=" 36"></code></a></td>
+<td class="code"><code><a name="listingsfzypy-36"></a>        <span class="s2">"."</span><span class="p">:</span> <span class="n">SCORE_MATCH_DOT</span><span class="p">,</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfzypy-37"><code data-line-number=" 37"></code></a></td>
+<td class="code"><code><a name="listingsfzypy-37"></a>    <span class="p">}</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfzypy-38"><code data-line-number=" 38"></code></a></td>
+<td class="code"><code><a name="listingsfzypy-38"></a>    <span class="n">BONUS_STATES</span> <span class="o">=</span> <span class="p">[{},</span> <span class="n">BONUS_MAP</span><span class="p">,</span> <span class="n">lower_with</span><span class="p">(</span><span class="n">SCORE_MATCH_CAPITAL</span><span class="p">,</span> <span class="n">BONUS_MAP</span><span class="p">)]</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfzypy-39"><code data-line-number=" 39"></code></a></td>
+<td class="code"><code><a name="listingsfzypy-39"></a>    <span class="n">BONUS_INDEX</span> <span class="o">=</span> <span class="n">digit_with</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">lower_with</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">upper_with</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="p">{})))</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfzypy-40"><code data-line-number=" 40"></code></a></td>
+<td class="code"><code><a name="listingsfzypy-40"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfzypy-41"><code data-line-number=" 41"></code></a></td>
+<td class="code"><code><a name="listingsfzypy-41"></a>    <span class="k">def</span> <span class="nf">bonus</span><span class="p">(</span><span class="n">haystack</span><span class="p">):</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfzypy-42"><code data-line-number=" 42"></code></a></td>
+<td class="code"><code><a name="listingsfzypy-42"></a>        <span class="sd">"""Additional bonus based on previous char in haystack</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfzypy-43"><code data-line-number=" 43"></code></a></td>
+<td class="code"><code><a name="listingsfzypy-43"></a><span class="sd">        """</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfzypy-44"><code data-line-number=" 44"></code></a></td>
+<td class="code"><code><a name="listingsfzypy-44"></a>        <span class="n">c_prev</span> <span class="o">=</span> <span class="s2">"/"</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfzypy-45"><code data-line-number=" 45"></code></a></td>
+<td class="code"><code><a name="listingsfzypy-45"></a>        <span class="n">bonus</span> <span class="o">=</span> <span class="p">[]</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfzypy-46"><code data-line-number=" 46"></code></a></td>
+<td class="code"><code><a name="listingsfzypy-46"></a>        <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">haystack</span><span class="p">:</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfzypy-47"><code data-line-number=" 47"></code></a></td>
+<td class="code"><code><a name="listingsfzypy-47"></a>            <span class="n">bonus</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">BONUS_STATES</span><span class="p">[</span><span class="n">BONUS_INDEX</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="mi">0</span><span class="p">)]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">c_prev</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfzypy-48"><code data-line-number=" 48"></code></a></td>
+<td class="code"><code><a name="listingsfzypy-48"></a>            <span class="n">c_prev</span> <span class="o">=</span> <span class="n">c</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfzypy-49"><code data-line-number=" 49"></code></a></td>
+<td class="code"><code><a name="listingsfzypy-49"></a>        <span class="k">return</span> <span class="n">bonus</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfzypy-50"><code data-line-number=" 50"></code></a></td>
+<td class="code"><code><a name="listingsfzypy-50"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfzypy-51"><code data-line-number=" 51"></code></a></td>
+<td class="code"><code><a name="listingsfzypy-51"></a>    <span class="k">def</span> <span class="nf">subsequence</span><span class="p">(</span><span class="n">niddle</span><span class="p">,</span> <span class="n">haystack</span><span class="p">):</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfzypy-52"><code data-line-number=" 52"></code></a></td>
+<td class="code"><code><a name="listingsfzypy-52"></a>        <span class="sd">"""Check if niddle is subsequence of haystack</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfzypy-53"><code data-line-number=" 53"></code></a></td>
+<td class="code"><code><a name="listingsfzypy-53"></a><span class="sd">        """</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfzypy-54"><code data-line-number=" 54"></code></a></td>
+<td class="code"><code><a name="listingsfzypy-54"></a>        <span class="n">niddle</span><span class="p">,</span> <span class="n">haystack</span> <span class="o">=</span> <span class="n">niddle</span><span class="o">.</span><span class="n">lower</span><span class="p">(),</span> <span class="n">haystack</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfzypy-55"><code data-line-number=" 55"></code></a></td>
+<td class="code"><code><a name="listingsfzypy-55"></a>        <span class="k">if</span> <span class="ow">not</span> <span class="n">niddle</span><span class="p">:</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfzypy-56"><code data-line-number=" 56"></code></a></td>
+<td class="code"><code><a name="listingsfzypy-56"></a>            <span class="kc">True</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfzypy-57"><code data-line-number=" 57"></code></a></td>
+<td class="code"><code><a name="listingsfzypy-57"></a>        <span class="n">offset</span> <span class="o">=</span> <span class="mi">0</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfzypy-58"><code data-line-number=" 58"></code></a></td>
+<td class="code"><code><a name="listingsfzypy-58"></a>        <span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">niddle</span><span class="p">:</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfzypy-59"><code data-line-number=" 59"></code></a></td>
+<td class="code"><code><a name="listingsfzypy-59"></a>            <span class="n">offset</span> <span class="o">=</span> <span class="n">haystack</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">char</span><span class="p">,</span> <span class="n">offset</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfzypy-60"><code data-line-number=" 60"></code></a></td>
+<td class="code"><code><a name="listingsfzypy-60"></a>            <span class="k">if</span> <span class="n">offset</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfzypy-61"><code data-line-number=" 61"></code></a></td>
+<td class="code"><code><a name="listingsfzypy-61"></a>                <span class="k">return</span> <span class="kc">False</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfzypy-62"><code data-line-number=" 62"></code></a></td>
+<td class="code"><code><a name="listingsfzypy-62"></a>        <span class="k">return</span> <span class="kc">True</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfzypy-63"><code data-line-number=" 63"></code></a></td>
+<td class="code"><code><a name="listingsfzypy-63"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfzypy-64"><code data-line-number=" 64"></code></a></td>
+<td class="code"><code><a name="listingsfzypy-64"></a>    <span class="k">def</span> <span class="nf">score</span><span class="p">(</span><span class="n">niddle</span><span class="p">,</span> <span class="n">haystack</span><span class="p">):</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfzypy-65"><code data-line-number=" 65"></code></a></td>
+<td class="code"><code><a name="listingsfzypy-65"></a>        <span class="sd">"""Calculate score, and positions of haystack</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfzypy-66"><code data-line-number=" 66"></code></a></td>
+<td class="code"><code><a name="listingsfzypy-66"></a><span class="sd">        """</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfzypy-67"><code data-line-number=" 67"></code></a></td>
+<td class="code"><code><a name="listingsfzypy-67"></a>        <span class="n">n</span><span class="p">,</span> <span class="n">m</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">niddle</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">haystack</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfzypy-68"><code data-line-number=" 68"></code></a></td>
+<td class="code"><code><a name="listingsfzypy-68"></a>        <span class="n">bonus_score</span> <span class="o">=</span> <span class="n">bonus</span><span class="p">(</span><span class="n">haystack</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfzypy-69"><code data-line-number=" 69"></code></a></td>
+<td class="code"><code><a name="listingsfzypy-69"></a>        <span class="n">niddle</span><span class="p">,</span> <span class="n">haystack</span> <span class="o">=</span> <span class="n">niddle</span><span class="o">.</span><span class="n">lower</span><span class="p">(),</span> <span class="n">haystack</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfzypy-70"><code data-line-number=" 70"></code></a></td>
+<td class="code"><code><a name="listingsfzypy-70"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfzypy-71"><code data-line-number=" 71"></code></a></td>
+<td class="code"><code><a name="listingsfzypy-71"></a>        <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">n</span> <span class="o">==</span> <span class="n">m</span><span class="p">:</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfzypy-72"><code data-line-number=" 72"></code></a></td>
+<td class="code"><code><a name="listingsfzypy-72"></a>            <span class="k">return</span> <span class="n">SCORE_MAX</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfzypy-73"><code data-line-number=" 73"></code></a></td>
+<td class="code"><code><a name="listingsfzypy-73"></a>        <span class="n">D</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">m</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)]</span>  <span class="c1"># best score ending with `niddle[:i]`</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfzypy-74"><code data-line-number=" 74"></code></a></td>
+<td class="code"><code><a name="listingsfzypy-74"></a>        <span class="n">M</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">m</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)]</span>  <span class="c1"># best score for `niddle[:i]`</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfzypy-75"><code data-line-number=" 75"></code></a></td>
+<td class="code"><code><a name="listingsfzypy-75"></a>        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfzypy-76"><code data-line-number=" 76"></code></a></td>
+<td class="code"><code><a name="listingsfzypy-76"></a>            <span class="n">prev_score</span> <span class="o">=</span> <span class="n">SCORE_MIN</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfzypy-77"><code data-line-number=" 77"></code></a></td>
+<td class="code"><code><a name="listingsfzypy-77"></a>            <span class="n">gap_score</span> <span class="o">=</span> <span class="n">SCORE_GAP_TRAILING</span> <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span> <span class="k">else</span> <span class="n">SCORE_GAP_INNER</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfzypy-78"><code data-line-number=" 78"></code></a></td>
+<td class="code"><code><a name="listingsfzypy-78"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfzypy-79"><code data-line-number=" 79"></code></a></td>
+<td class="code"><code><a name="listingsfzypy-79"></a>            <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">m</span><span class="p">):</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfzypy-80"><code data-line-number=" 80"></code></a></td>
+<td class="code"><code><a name="listingsfzypy-80"></a>                <span class="k">if</span> <span class="n">niddle</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="n">haystack</span><span class="p">[</span><span class="n">j</span><span class="p">]:</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfzypy-81"><code data-line-number=" 81"></code></a></td>
+<td class="code"><code><a name="listingsfzypy-81"></a>                    <span class="n">score</span> <span class="o">=</span> <span class="n">SCORE_MIN</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfzypy-82"><code data-line-number=" 82"></code></a></td>
+<td class="code"><code><a name="listingsfzypy-82"></a>                    <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfzypy-83"><code data-line-number=" 83"></code></a></td>
+<td class="code"><code><a name="listingsfzypy-83"></a>                        <span class="n">score</span> <span class="o">=</span> <span class="n">j</span> <span class="o">*</span> <span class="n">SCORE_GAP_LEADING</span> <span class="o">+</span> <span class="n">bonus_score</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfzypy-84"><code data-line-number=" 84"></code></a></td>
+<td class="code"><code><a name="listingsfzypy-84"></a>                    <span class="k">elif</span> <span class="n">j</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfzypy-85"><code data-line-number=" 85"></code></a></td>
+<td class="code"><code><a name="listingsfzypy-85"></a>                        <span class="n">score</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfzypy-86"><code data-line-number=" 86"></code></a></td>
+<td class="code"><code><a name="listingsfzypy-86"></a>                            <span class="n">M</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">][</span><span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">bonus_score</span><span class="p">[</span><span class="n">j</span><span class="p">],</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfzypy-87"><code data-line-number=" 87"></code></a></td>
+<td class="code"><code><a name="listingsfzypy-87"></a>                            <span class="n">D</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">][</span><span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">SCORE_MATCH_CONSECUTIVE</span><span class="p">,</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfzypy-88"><code data-line-number=" 88"></code></a></td>
+<td class="code"><code><a name="listingsfzypy-88"></a>                        <span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfzypy-89"><code data-line-number=" 89"></code></a></td>
+<td class="code"><code><a name="listingsfzypy-89"></a>                    <span class="n">D</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">score</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfzypy-90"><code data-line-number=" 90"></code></a></td>
+<td class="code"><code><a name="listingsfzypy-90"></a>                    <span class="n">M</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">prev_score</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">score</span><span class="p">,</span> <span class="n">prev_score</span> <span class="o">+</span> <span class="n">gap_score</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfzypy-91"><code data-line-number=" 91"></code></a></td>
+<td class="code"><code><a name="listingsfzypy-91"></a>                <span class="k">else</span><span class="p">:</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfzypy-92"><code data-line-number=" 92"></code></a></td>
+<td class="code"><code><a name="listingsfzypy-92"></a>                    <span class="n">D</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">SCORE_MIN</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfzypy-93"><code data-line-number=" 93"></code></a></td>
+<td class="code"><code><a name="listingsfzypy-93"></a>                    <span class="n">M</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">prev_score</span> <span class="o">=</span> <span class="n">prev_score</span> <span class="o">+</span> <span class="n">gap_score</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfzypy-94"><code data-line-number=" 94"></code></a></td>
+<td class="code"><code><a name="listingsfzypy-94"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfzypy-95"><code data-line-number=" 95"></code></a></td>
+<td class="code"><code><a name="listingsfzypy-95"></a>        <span class="n">match_required</span> <span class="o">=</span> <span class="kc">False</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfzypy-96"><code data-line-number=" 96"></code></a></td>
+<td class="code"><code><a name="listingsfzypy-96"></a>        <span class="n">position</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">n</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfzypy-97"><code data-line-number=" 97"></code></a></td>
+<td class="code"><code><a name="listingsfzypy-97"></a>        <span class="n">i</span><span class="p">,</span> <span class="n">j</span> <span class="o">=</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">m</span> <span class="o">-</span> <span class="mi">1</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfzypy-98"><code data-line-number=" 98"></code></a></td>
+<td class="code"><code><a name="listingsfzypy-98"></a>        <span class="k">while</span> <span class="n">i</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">:</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfzypy-99"><code data-line-number=" 99"></code></a></td>
+<td class="code"><code><a name="listingsfzypy-99"></a>            <span class="k">while</span> <span class="n">j</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">:</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfzypy-100"><code data-line-number="100"></code></a></td>
+<td class="code"><code><a name="listingsfzypy-100"></a>                <span class="k">if</span> <span class="p">(</span><span class="n">match_required</span> <span class="ow">or</span> <span class="n">D</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">==</span> <span class="n">M</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">])</span> <span class="ow">and</span> <span class="n">D</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">!=</span> <span class="n">SCORE_MIN</span><span class="p">:</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfzypy-101"><code data-line-number="101"></code></a></td>
+<td class="code"><code><a name="listingsfzypy-101"></a>                    <span class="n">match_required</span> <span class="o">=</span> <span class="p">(</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfzypy-102"><code data-line-number="102"></code></a></td>
+<td class="code"><code><a name="listingsfzypy-102"></a>                        <span class="n">i</span> <span class="o">&gt;</span> <span class="mi">0</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfzypy-103"><code data-line-number="103"></code></a></td>
+<td class="code"><code><a name="listingsfzypy-103"></a>                        <span class="ow">and</span> <span class="n">j</span> <span class="o">&gt;</span> <span class="mi">0</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfzypy-104"><code data-line-number="104"></code></a></td>
+<td class="code"><code><a name="listingsfzypy-104"></a>                        <span class="ow">and</span> <span class="n">M</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">==</span> <span class="n">D</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">][</span><span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">SCORE_MATCH_CONSECUTIVE</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfzypy-105"><code data-line-number="105"></code></a></td>
+<td class="code"><code><a name="listingsfzypy-105"></a>                    <span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfzypy-106"><code data-line-number="106"></code></a></td>
+<td class="code"><code><a name="listingsfzypy-106"></a>                    <span class="n">position</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">j</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfzypy-107"><code data-line-number="107"></code></a></td>
+<td class="code"><code><a name="listingsfzypy-107"></a>                    <span class="n">j</span> <span class="o">-=</span> <span class="mi">1</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfzypy-108"><code data-line-number="108"></code></a></td>
+<td class="code"><code><a name="listingsfzypy-108"></a>                    <span class="k">break</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfzypy-109"><code data-line-number="109"></code></a></td>
+<td class="code"><code><a name="listingsfzypy-109"></a>                <span class="k">else</span><span class="p">:</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfzypy-110"><code data-line-number="110"></code></a></td>
+<td class="code"><code><a name="listingsfzypy-110"></a>                    <span class="n">j</span> <span class="o">-=</span> <span class="mi">1</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfzypy-111"><code data-line-number="111"></code></a></td>
+<td class="code"><code><a name="listingsfzypy-111"></a>            <span class="n">i</span> <span class="o">-=</span> <span class="mi">1</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfzypy-112"><code data-line-number="112"></code></a></td>
+<td class="code"><code><a name="listingsfzypy-112"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfzypy-113"><code data-line-number="113"></code></a></td>
+<td class="code"><code><a name="listingsfzypy-113"></a>        <span class="k">return</span> <span class="n">M</span><span class="p">[</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">][</span><span class="n">m</span> <span class="o">-</span> <span class="mi">1</span><span class="p">],</span> <span class="n">position</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfzypy-114"><code data-line-number="114"></code></a></td>
+<td class="code"><code><a name="listingsfzypy-114"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfzypy-115"><code data-line-number="115"></code></a></td>
+<td class="code"><code><a name="listingsfzypy-115"></a>    <span class="k">if</span> <span class="n">subsequence</span><span class="p">(</span><span class="n">niddle</span><span class="p">,</span> <span class="n">haystack</span><span class="p">):</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfzypy-116"><code data-line-number="116"></code></a></td>
+<td class="code"><code><a name="listingsfzypy-116"></a>        <span class="k">return</span> <span class="n">score</span><span class="p">(</span><span class="n">niddle</span><span class="p">,</span> <span class="n">haystack</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfzypy-117"><code data-line-number="117"></code></a></td>
+<td class="code"><code><a name="listingsfzypy-117"></a>    <span class="k">else</span><span class="p">:</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfzypy-118"><code data-line-number="118"></code></a></td>
+<td class="code"><code><a name="listingsfzypy-118"></a>        <span class="k">return</span> <span class="n">SCORE_MIN</span><span class="p">,</span> <span class="kc">None</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfzypy-119"><code data-line-number="119"></code></a></td>
+<td class="code"><code><a name="listingsfzypy-119"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfzypy-120"><code data-line-number="120"></code></a></td>
+<td class="code"><code><a name="listingsfzypy-120"></a><span class="k">def</span> <span class="nf">rank_candidates</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="n">candidates</span><span class="p">):</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfzypy-121"><code data-line-number="121"></code></a></td>
+<td class="code"><code><a name="listingsfzypy-121"></a>    <span class="sd">"""Score candidates against query in batch and return sorted result</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfzypy-122"><code data-line-number="122"></code></a></td>
+<td class="code"><code><a name="listingsfzypy-122"></a><span class="sd">    """</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfzypy-123"><code data-line-number="123"></code></a></td>
+<td class="code"><code><a name="listingsfzypy-123"></a>    <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfzypy-124"><code data-line-number="124"></code></a></td>
+<td class="code"><code><a name="listingsfzypy-124"></a>    <span class="n">candidates</span> <span class="o">=</span> <span class="n">candidates</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">candidates</span><span class="p">,</span> <span class="nb">list</span><span class="p">)</span> <span class="k">else</span> <span class="nb">list</span><span class="p">(</span><span class="n">candidates</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfzypy-125"><code data-line-number="125"></code></a></td>
+<td class="code"><code><a name="listingsfzypy-125"></a>    <span class="k">for</span> <span class="n">text</span> <span class="ow">in</span> <span class="n">candidates</span><span class="p">:</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfzypy-126"><code data-line-number="126"></code></a></td>
+<td class="code"><code><a name="listingsfzypy-126"></a>        <span class="n">score</span><span class="p">,</span> <span class="n">indices</span> <span class="o">=</span> <span class="n">fuzzy_scorer</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfzypy-127"><code data-line-number="127"></code></a></td>
+<td class="code"><code><a name="listingsfzypy-127"></a>        <span class="k">if</span> <span class="n">indices</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfzypy-128"><code data-line-number="128"></code></a></td>
+<td class="code"><code><a name="listingsfzypy-128"></a>            <span class="k">continue</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfzypy-129"><code data-line-number="129"></code></a></td>
+<td class="code"><code><a name="listingsfzypy-129"></a>        <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s2">"text"</span><span class="p">:</span> <span class="n">text</span><span class="p">,</span> <span class="s2">"score"</span><span class="p">:</span> <span class="n">score</span><span class="p">,</span> <span class="s2">"indices"</span><span class="p">:</span> <span class="n">indices</span><span class="p">})</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfzypy-130"><code data-line-number="130"></code></a></td>
+<td class="code"><code><a name="listingsfzypy-130"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfzypy-131"><code data-line-number="131"></code></a></td>
+<td class="code"><code><a name="listingsfzypy-131"></a>    <span class="n">result</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="s2">"score"</span><span class="p">],</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfzypy-132"><code data-line-number="132"></code></a></td>
+<td class="code"><code><a name="listingsfzypy-132"></a>    <span class="k">return</span> <span class="n">result</span>
+</code></td>
+</tr>
+</table></div>
+</div>
+                    </div>
+                </main><div class="footer extra-block no-print">
+    <span class="footer_item">
+        <a href="../pages/you-qing-lian-jie/">友情链接</a>
+    </span>
+    <span class="footer_item">
+        <a href="../pages/liu-yan-ban/">留言板</a>
+    </span>
+    <span class="footer_item">
+        <a href="../pages/ge-ren-dong-tai/">碎碎念</a>
+    </span>
+    </div>
+            <div class="footer social-link no-print">
+            <a href="https://github.com/ashfinal" target="_blank"><i class="grey large github icon"></i></a>
+            <a href="http://weibo.com/ashfinal/" target="_blank"><i class="grey large weibo icon"></i></a>
+            <a href="mailto://ashfinal@sina.cn" target="_blank"><i class="grey large mail icon"></i></a>
+            </div>
+        <div class="ui basic center aligned segment no-print">Contents © 2020         <a href="mailto:ashfinal@sina.cn">ashfinal</a> - Powered by         <a href="https://getnikola.com" target="_blank" rel="nofollow">Nikola</a>         </div>
+
+            </div>
+            <div class="computer only three wide column no-print">
+                <div id="right-side">
+                </div>
+            </div>
+        </div>
+
+        <!-- GoStats JavaScript Based Code -->
+        <script type="text/javascript">(function(c,o,m,p,u,t,e){
+        c['GoStatsObject']=u;c[u]=c[u]||function(){(c[u].q=c[u].q||[]).push(arguments)},
+        c[u].l=1*new Date();t=o.createElement(m);t.async=1;t.src=p;
+        e=o.getElementsByTagName(m)[0];e.parentNode.insertBefore(t,e);
+        })(window,document,'script','//www.gostats.org/5.js','go');
+        go('init',100479892,{'img_counter_type':5,'img_image_type':1});go('send');</script><!-- End GoStats JavaScript Based Code --><script type="text/javascript" src="../assets/js/jquery-3.3.1.min.js"></script><script type="text/javascript" src="../assets/js/semantic.min.js"></script><script type="text/javascript" src="../assets/js/jquery.fancybox.min.js"></script><script type="text/javascript" src="../assets/js/cookie.min.js"></script><script>
+            $(document).ready(function(){
+                $(".ui.dropdown").dropdown();
+                $('.ui.accordion').accordion();
+                var newstr = $('.cookie.nag').text();
+                $('.cookie.nag').nag({
+                    key: 'globalnotice',
+                    value: newstr
+                  });
+                $('.image-reference').fancybox();
+            });
+        </script>
+</body>
+</html>

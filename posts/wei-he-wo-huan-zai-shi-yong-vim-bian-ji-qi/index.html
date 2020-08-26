@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="zh_cn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="generator" content="Nikola (getnikola.com)">
+<title>【译】为何我还在使用 Vim 编辑器？ - MacPlay</title>
+<link rel="apple-touch-icon" sizes="180x180" href="../../apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+<link rel="mask-icon" href="../../safari-pinned-tab.svg" color="#5bbad5">
+<link href="../../assets/css/semantic.min.css" rel="stylesheet" type="text/css">
+<link href="../../assets/css/jquery.fancybox.min.css" rel="stylesheet" type="text/css">
+<link href="../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<link rel="canonical" href="https://macplay.github.io/posts/wei-he-wo-huan-zai-shi-yong-vim-bian-ji-qi/">
+<meta name="author" content="ashfinal">
+<link rel="alternate" hreflang="en" href="../../en/posts/wei-he-wo-huan-zai-shi-yong-vim-bian-ji-qi/">
+<link rel="stylesheet" type="text/css" href="../../assets/css/gitalk.css">
+</head>
+<body>
+        <div class="ui grid">
+            <div class="computer only three wide column no-print">
+                <div id="left-side">
+                </div>
+            </div>
+            <div class="ten wide computer sixteen wide tablet sixteen wide mobile column">
+                        <div class="ui inline cookie nag no-print">
+            <span class="title">从现在开始，支持中英双语及博文精选 O(∩_∩)O~~</span>
+            <i class="close icon"></i>
+        </div>
+    <header id="header" class="no-print"><div class="ui grid">
+        <div class="computer only tablet only sixteen wide column">
+            <div class="ui large secondary stackable menu">
+                <a class="header item brand-logo" href="https://macplay.github.io/">
+                    MacPlay
+                </a>
+                        <a class="item" href="../../">Posts</a>
+                        <a class="item" href="../../listings/">Code</a>
+                        <a class="item" href="../../galleries/">Gallery</a>
+                        <a class="item" href="../../categories/">Tags</a>
+                        <a class="item" href="../../archive.html">Archive</a>
+                <div class="right menu">
+                    <a class="item" href="../../rss.xml"><i class="rss icon"></i>RSS</a>
+                </div>
+            </div>
+        </div>
+        <div class="mobile only sixteen wide column">
+            <div class="ui fluid accordion vertical menu">
+                <div class="item">
+                    <a class="title">MacPlay</a>
+                    <div class="content">
+                                <a class="item" href="../../">Posts</a>
+                                <a class="item" href="../../listings/">Code</a>
+                                <a class="item" href="../../galleries/">Gallery</a>
+                                <a class="item" href="../../categories/">Tags</a>
+                                <a class="item" href="../../archive.html">Archive</a>
+                        <a class="item" href="../../rss.xml"><i class="rss icon"></i>RSS</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </header><main id="main"><div id="main-content">
+<div class="postpage post-text page-body" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <h1 class="post-title" itemprop="headline">
+        <a href=".">【译】为何我还在使用 Vim 编辑器？</a>
+    </h1>
+
+    <div class="ui large horizontal link list post-meta">
+        <span class="item">By
+            <a href="../../authors/ashfinal/">ashfinal</a>
+        </span>
+            <span class="item">
+                <a href="https://github.com/macplay/macplay.github.io/edit/src/posts/wei-he-wo-huan-zai-shi-yong-vim-bian-ji-qi.rst" target="_blank" title="Edit on GitHub">Edit</a>
+            </span>
+        <span class="item">
+            <time datetime="2017-10-31T20:45:28+08:00">
+            2017-10-31 20:45
+            </time></span>
+            <span class="item">
+                    <a href="../../categories/benchmark/">benchmark</a>
+                    <a href="../../categories/translation/">translation</a>
+                    <a href="../../categories/vim/">vim</a>
+            </span>
+    </div>
+
+    
+    <div class="post-content" itemprop="article text">
+        <div id="post-content">
+        <div>
+<blockquote>
+<p>哦不，并不是因为我不知道怎么退出它。 <a class="footnote-reference brackets" href="#id7" id="id1">1</a></p>
+</blockquote>
+<div class="figure align-center">
+<img alt="/images/vim_skin.jpeg" src="../../images/vim_skin.jpeg">
+</div>
+<!-- TEASER_END -->
+<p>我经常被问到一个问题：为何使用 Vim 作为首选编辑器？关于这一点，并没有什么特别的原因，事实是很多年前我全面转移到 Linux 平台时我才开始学习使用它。我最终喜欢上它，是因为我能在我的四核电脑上编辑一些小的代码文件，而不必等待到时间尽头以便文件最终打开。</p>
+<p>诚然，Vim 并不是一个糟糕的编辑器，它高度可扩展，它简单易分发，它几乎无处不在。当你通过 ssh 协议连接到某些古怪费解的服务器时，只需输入 vim 或者 vi，就可以愉快地编辑文本了。</p>
+<p>但这并不足以说明 Vim 是个多么好的编辑器，只是个人的主观品味罢了。我最终喜欢上它主要是因为，它是一个可扩展的编辑器，一个不会独吞系统所有资源，最终导致电脑死机的编辑器。而使用 Atom 或者 Code 时，我经常会遇到仅仅输入一个字符接下来几分钟内无响应的情况。</p>
+<p>你觉得作为一个编辑器，打开以下 C 代码文件需要消耗多少内存？</p>
+<pre class="code text"><a name="rest_code_f3a3160749b749c4a7381697afc7b393-1"></a>#include &lt;stdio.h&gt;
+<a name="rest_code_f3a3160749b749c4a7381697afc7b393-2"></a>int main() {
+<a name="rest_code_f3a3160749b749c4a7381697afc7b393-3"></a>  printf("Hello, world!\n");
+<a name="rest_code_f3a3160749b749c4a7381697afc7b393-4"></a>}
+</pre>
+<div class="section" id="id2">
+<h2>内存占用</h2>
+<p>答案……有些令人抓狂。</p>
+<div class="figure align-center">
+<img alt="/images/mem_for_small_file.png" src="../../images/mem_for_small_file.png"><p class="caption">打开一个约 60 B 的 C 代码文件的内存占用（KB）</p>
+</div>
+<p>Code 需要整整 349 MB 内存以打开一个 60 B 的文件，Atom 需要 256 MB。Vim 则“仅仅”需要 5 MB，这仍然有点高，但已经足以代表编辑器们的平均水准了。</p>
+<p>我同时还把 Nano 包含进来，以与 Vim 进行纯文本模式编辑器的比较。测试出 Nano 占用的内存不到 1 MB。</p>
+<p>那么大文件呢？在 Vim 里打开一个 6 MB 的 XML 文件，消耗大约 12 MB 的内存。Nano 与 Vim 大约在同一水准。Code 需要 392 MB，Atom 则整整需要 845 MB！</p>
+<div class="figure align-center">
+<img alt="/images/mem_for_medium_file.png" src="../../images/mem_for_medium_file.png"><p class="caption">打开一个约 6 MB 的 XML 文件的内存占用（KB）</p>
+</div>
+</div>
+<div class="section" id="id3">
+<h2>启动时间</h2>
+<p>打开同一个 XML 文件，并把光标移到文件末尾呢？测试结果与之前差不多。Atom 和 Code 花费了将近 20 秒钟，Vim 大约 4 秒钟，Sublime 则出奇的快——仅仅用了 1 秒钟。</p>
+<div class="figure align-center">
+<img alt="/images/eof_for_medium_file.png" src="../../images/eof_for_medium_file.png"><p class="caption">打开一个约 6 MB 的 XML 文件所花费的时间（秒）</p>
+</div>
+<p>针对同一份 XML 文件做一次 100000 处的单词搜索替换，则得出了一些有点令人惊奇的结果。Nano 和 Atom 令人失望，平均花费了将近 10 分钟的时间才完成。Atom 崩溃了好几次，最终也没给出结果。Code 则大约是 80 秒钟。Sublime 在 6 秒钟内完成。而 Vim 则仅花费了 4 秒钟。</p>
+<div class="figure align-center">
+<img alt="/images/replace_for_medium_file.png" src="../../images/replace_for_medium_file.png"><p class="caption">做一次 100000 处的单词搜索替换所花费的时间（秒）</p>
+</div>
+</div>
+<div class="section" id="id4">
+<h2>结论</h2>
+<p>学习 Vim 吧。这个网站 <a class="reference external" href="http://vimcasts.org">http://vimcasts.org</a> 值得你去看看，它上面有一些 Drew Neil 制作的 Vim 练习、建议以及技巧等等。Drew Neil 同时还写了 <a class="reference external" href="http://amzn.to/2vnBcJX">这本非常好的书</a> 。</p>
+<div class="figure align-center">
+<img alt="/images/practical_vim.jpeg" src="../../images/practical_vim.jpeg"><p class="caption">Practical Vim by Drew Neil</p>
+</div>
+<p>即便不使用 Vim，那 Emacs 也是一个不错的选择。或者，额，只要不是那些伪装成文本编辑器的 web 浏览器就好。</p>
+<p>让一个编辑器消耗掉电脑上所有可用的计算资源和内存，这真是太荒谬可笑了。更不用说，该电脑可是一台“现代的”昂贵的笔记本。而这一切本可以不必发生。</p>
+<p>以上基准测试使用的文件从 <a class="reference external" href="https://github.com/jhallen/joes-sandbox/tree/master/editor-perf">这个仓库</a> 取得，测试结果取该仓库数据和个人测试的平均值。</p>
+<dl class="footnote brackets">
+<dt class="label" id="id7"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd>
+<p>一个流传较广的段子：我使用 Vim 已经两年多了，原因是我不知道怎么退出它。——译者注</p>
+</dd>
+</dl>
+</div>
+</div>
+        </div>
+    </div>
+    <div class="post-info">
+        <p>引用资源：<a href="https://medium.com/@caspervonb/why-i-still-use-vim-67afd76b4db6" target="_blank">https://medium.com/@caspervonb/why-i-still-use-vim-67afd76b4db6</a></p>
+        <p>文章链接：<a href="https://macplay.github.io/posts/wei-he-wo-huan-zai-shi-yong-vim-bian-ji-qi/" target="_blank">https://macplay.github.io/posts/wei-he-wo-huan-zai-shi-yong-vim-bian-ji-qi/</a></p>
+        <p>发布/更新于：
+            <time datetime="2017-10-31 20:45:28 UTC+08:00">
+            2017-10-31 20:45
+            </time></p>
+        <p>版权声明：如无特别说明，本站文章均遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">CC BY-NC-SA 4.0</a> 协议，转载请注明作者及出处。</p>
+    </div>
+        <div class="post-navigation no-print">
+        <div class="ui huge secondary stackable menu">
+            <a class="post-nav-item post-nav-previous item" href="../8-ge-vim-ji-qiao-rang-ni-cheng-wei-zhuan-jia-ji-yong-hu/" title="Previous post"><i class="angle double left icon"></i> 【译】8 个 Vim 技巧让你成为专家级用户</a>
+        <div class="right menu">
+            <a class="post-nav-item post-nav-next item" href="../zai-tan-markdown-ji-qi-kuo-zhan/" title="Next post">再谈 Markdown 及其扩展 <i class="angle double right icon"></i></a>
+        </div>
+        </div>
+    </div>
+
+        <div id="gitalk-container" class="comments-block no-print"></div>
+</div>
+                    </div>
+                </main><div class="footer extra-block no-print">
+    <span class="footer_item">
+        <a href="../../pages/you-qing-lian-jie/">友情链接</a>
+    </span>
+    <span class="footer_item">
+        <a href="../../pages/liu-yan-ban/">留言板</a>
+    </span>
+    <span class="footer_item">
+        <a href="../../pages/ge-ren-dong-tai/">碎碎念</a>
+    </span>
+    </div>
+            <div class="footer social-link no-print">
+            <a href="https://github.com/ashfinal" target="_blank"><i class="grey large github icon"></i></a>
+            <a href="http://weibo.com/ashfinal/" target="_blank"><i class="grey large weibo icon"></i></a>
+            <a href="mailto://ashfinal@sina.cn" target="_blank"><i class="grey large mail icon"></i></a>
+            </div>
+        <div class="ui basic center aligned segment no-print">Contents © 2020         <a href="mailto:ashfinal@sina.cn">ashfinal</a> - Powered by         <a href="https://getnikola.com" target="_blank" rel="nofollow">Nikola</a>         </div>
+
+            </div>
+            <div class="computer only three wide column no-print">
+                <div id="right-side">
+                </div>
+            </div>
+        </div>
+
+        <!-- GoStats JavaScript Based Code -->
+        <script type="text/javascript">(function(c,o,m,p,u,t,e){
+        c['GoStatsObject']=u;c[u]=c[u]||function(){(c[u].q=c[u].q||[]).push(arguments)},
+        c[u].l=1*new Date();t=o.createElement(m);t.async=1;t.src=p;
+        e=o.getElementsByTagName(m)[0];e.parentNode.insertBefore(t,e);
+        })(window,document,'script','//www.gostats.org/5.js','go');
+        go('init',100479892,{'img_counter_type':5,'img_image_type':1});go('send');</script><!-- End GoStats JavaScript Based Code --><script type="text/javascript" src="../../assets/js/jquery-3.3.1.min.js"></script><script type="text/javascript" src="../../assets/js/semantic.min.js"></script><script type="text/javascript" src="../../assets/js/jquery.fancybox.min.js"></script><script type="text/javascript" src="../../assets/js/cookie.min.js"></script><script>
+            $(document).ready(function(){
+                $(".ui.dropdown").dropdown();
+                $('.ui.accordion').accordion();
+                var newstr = $('.cookie.nag').text();
+                $('.cookie.nag').nag({
+                    key: 'globalnotice',
+                    value: newstr
+                  });
+                $('.image-reference').fancybox();
+            });
+        </script><script src="../../assets/js/md5.min.js"></script><script src="../../assets/js/gitalk.min.js"></script><script>
+        const gitalk = new Gitalk({
+            clientID: '12fcda845097d895a24c',
+            clientSecret: '50ed60cde5f40897205197b4265b474cefbedc49',
+            repo: 'macplay.github.io',
+            owner: 'macplay',
+            admin: ['macplay', 'ashfinal'],
+            id: md5(window.location.pathname),
+            // facebook-like distraction free mode
+            distractionFreeMode: false
+        })
+        gitalk.render('gitalk-container')
+    </script>
+</body>
+</html>

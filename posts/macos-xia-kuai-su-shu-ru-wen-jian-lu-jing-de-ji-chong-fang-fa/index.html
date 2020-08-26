@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="zh_cn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="generator" content="Nikola (getnikola.com)">
+<title>macOS 下快速输入文件路径的几种方法 - MacPlay</title>
+<link rel="apple-touch-icon" sizes="180x180" href="../../apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+<link rel="mask-icon" href="../../safari-pinned-tab.svg" color="#5bbad5">
+<link href="../../assets/css/semantic.min.css" rel="stylesheet" type="text/css">
+<link href="../../assets/css/jquery.fancybox.min.css" rel="stylesheet" type="text/css">
+<link href="../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<link rel="canonical" href="https://macplay.github.io/posts/macos-xia-kuai-su-shu-ru-wen-jian-lu-jing-de-ji-chong-fang-fa/">
+<meta name="author" content="ashfinal">
+<link rel="alternate" hreflang="en" href="../../en/posts/macos-xia-kuai-su-shu-ru-wen-jian-lu-jing-de-ji-chong-fang-fa/">
+<link rel="stylesheet" type="text/css" href="../../assets/css/gitalk.css">
+</head>
+<body>
+        <div class="ui grid">
+            <div class="computer only three wide column no-print">
+                <div id="left-side">
+                </div>
+            </div>
+            <div class="ten wide computer sixteen wide tablet sixteen wide mobile column">
+                        <div class="ui inline cookie nag no-print">
+            <span class="title">从现在开始，支持中英双语及博文精选 O(∩_∩)O~~</span>
+            <i class="close icon"></i>
+        </div>
+    <header id="header" class="no-print"><div class="ui grid">
+        <div class="computer only tablet only sixteen wide column">
+            <div class="ui large secondary stackable menu">
+                <a class="header item brand-logo" href="https://macplay.github.io/">
+                    MacPlay
+                </a>
+                        <a class="item" href="../../">Posts</a>
+                        <a class="item" href="../../listings/">Code</a>
+                        <a class="item" href="../../galleries/">Gallery</a>
+                        <a class="item" href="../../categories/">Tags</a>
+                        <a class="item" href="../../archive.html">Archive</a>
+                <div class="right menu">
+                    <a class="item" href="../../rss.xml"><i class="rss icon"></i>RSS</a>
+                </div>
+            </div>
+        </div>
+        <div class="mobile only sixteen wide column">
+            <div class="ui fluid accordion vertical menu">
+                <div class="item">
+                    <a class="title">MacPlay</a>
+                    <div class="content">
+                                <a class="item" href="../../">Posts</a>
+                                <a class="item" href="../../listings/">Code</a>
+                                <a class="item" href="../../galleries/">Gallery</a>
+                                <a class="item" href="../../categories/">Tags</a>
+                                <a class="item" href="../../archive.html">Archive</a>
+                        <a class="item" href="../../rss.xml"><i class="rss icon"></i>RSS</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </header><main id="main"><div id="main-content">
+<div class="postpage post-text page-body" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <h1 class="post-title" itemprop="headline">
+        <a href=".">macOS 下快速输入文件路径的几种方法</a>
+    </h1>
+
+    <div class="ui large horizontal link list post-meta">
+        <span class="item">By
+            <a href="../../authors/ashfinal/">ashfinal</a>
+        </span>
+            <span class="item">
+                <a href="https://github.com/macplay/macplay.github.io/edit/src/posts/macos-xia-kuai-su-shu-ru-wen-jian-lu-jing-de-ji-chong-fang-fa.md" target="_blank" title="Edit on GitHub">Edit</a>
+            </span>
+        <span class="item">
+            <time datetime="2015-02-10T12:54:40+08:00">
+            2015-02-10 12:54
+            </time></span>
+            <span class="item">
+                    <a href="../../categories/clipboard/">clipboard</a>
+                    <a href="../../categories/terminal/">terminal</a>
+            </span>
+    </div>
+
+    
+    <div class="post-content" itemprop="article text">
+        <div id="post-content">
+        <div>
+<p>无论你是科技博客撰写软件教程，还是初学编程自行编译依赖库源码，甚至是给亲戚、网友等远程指导解决电脑问题 …… 很多种情况下你需要输入文件路径(有时候真的很长的文件路径)，本文总结了 Mac OS X 下快速输入文件路径的几种方法。高手请直接路过，谢谢～</p>
+<p><img alt="Finder FilePath" src="../../images/finder_chang_lu_jing.png" title="Finder FilePath"></p>
+<!-- TEASER_END -->
+
+<div class="toc">
+<ul>
+<li><a href="#_1">通过文件简介窗口来复制</a></li>
+<li><a href="#_2">拖动文件(夹)到终端窗口</a></li>
+<li><a href="#_3">万能的复制/粘贴大法</a></li>
+<li><a href="#applescript">通过 AppleScript 脚本来操作</a></li>
+<li><a href="#clipmenu">使用 ClipMenu 来处理</a></li>
+<li><a href="#_4">结束语</a></li>
+</ul>
+</div>
+<h3 id="_1">通过文件简介窗口来复制</h3>
+<p>就像 Windows 文件管理器的“属性”窗口一样，macOS 下 Finder 内点击右键菜单 - "Get Info"(<code>⌘+I</code>)同样会弹出文件简介窗口，在这里你可以复制文件路径。但格式是这样的：<code>Macintosh HD ▸ Users ▸ ashfinal ▸ Downloads</code>，如果你的读者试图复制粘贴并在 Finder 里快速跳转到该目录(<code>⌘+⇧+G</code>)，将会遇到“无法找到文件夹”之类的错误。但除此之外，该格式对小白/新手来说更直观好看一些～</p>
+<h3 id="_2">拖动文件(夹)到终端窗口</h3>
+<p>想象下你试图编译安装某开源软件库，Finder 里面几次双击后找到README仔细阅读，发现还需要从所在目录下执行某命令。即使你在终端下一路<code>⇥</code>键自动补全，cd 到该路径依然是个烦人的活儿，而其实你可以直接拖动该文件夹到终端窗口，然后回车就可以啦。很简单，是吧？</p>
+<h3 id="_3">万能的复制/粘贴大法</h3>
+<p>很多人知道该技巧：从 Finder 复制(<code>⌘+C</code>)一个或数个文件(夹)，在文本编辑框内按<code>⌘+V</code>粘贴可以直接输出文件名。而不用像 Windows 下那样傻乎乎的必须先点击重命名，才能把文件名复制粘贴出去。</p>
+<p>继续上文情景，其实复制/粘贴大法同样适用于终端命令行窗口。如果下次想要 cd 到很长的文件路径下，你可以<code>⌘+C</code>复制后终端内直接按<code>⌘+V</code>试试，比刚才的拖动方法更简单！</p>
+<p><img alt="copy&amp;paste filepath" src="../../images/pastefilepath.gif" title="copy&amp;paste filepath"></p>
+<h3 id="applescript">通过 AppleScript 脚本来操作</h3>
+<p>笔者早期使用的方法，自己动手写的第一个配置脚本，为此还得意了好几天 （；￣ェ￣）</p>
+<p>接上文情景，使用方法简单的很：终端输入<code>fdir</code>回车，就会直接 cd 到 Finder 当前路径。脚本内容也简单的不像话：</p>
+<p><code>~/.bash_profile</code>增加一行：</p>
+<pre class="code literal-block"><span></span><span class="nb">alias</span> <span class="nv">fdir</span><span class="o">=</span><span class="s2">"cd </span><span class="k">$(</span>osascript ~/.finderdir <span class="p">|</span> sed <span class="s1">'s/ /\\ /g'</span> <span class="p">|</span> sed <span class="s1">'s/&amp;/\\&amp;/g'</span> <span class="p">|</span> sed <span class="s1">'s/(/\\(/g'</span> <span class="p">|</span> sed <span class="s1">'s/)/\\)/g'</span><span class="k">)</span><span class="s2">"</span>
+<span class="c1"># sed 用来处理含有空格、&amp;、()等特殊字符的文件名</span>
+</pre>
+
+
+<p><code>~/finderdir</code>文件内容：</p>
+<pre class="code literal-block"><span></span><span class="k">try</span>
+    <span class="k">tell</span> <span class="nb">application</span> <span class="s2">"Finder"</span>
+        <span class="k">set</span> <span class="nv">annoying_path</span> <span class="k">to</span> <span class="nb">the</span> <span class="na">target</span> <span class="k">of</span> <span class="nb">the</span> <span class="nb">front</span> <span class="na">window</span> <span class="k">as </span><span class="nc">text</span>
+        <span class="k">set</span> <span class="nv">actual_path</span> <span class="k">to</span> <span class="nv">POSIX</span> <span class="na">path</span> <span class="k">of</span> <span class="nv">annoying_path</span>
+    <span class="k">end</span> <span class="k">tell</span>
+<span class="k">end</span> <span class="k">try</span>
+</pre>
+
+
+<h3 id="clipmenu">使用 ClipMenu 来处理</h3>
+<blockquote>
+<p>ClipMenu 是 macOS 下免费好用的多功能剪贴板软件，具体介绍可参见之前博文 <a href="../da-zao-shu-yu-zi-ji-de-duo-gong-neng-jian-tie-ban-clipmenu/" title="打造属于自己的多功能剪贴板-ClipMenu">打造属于自己的多功能剪贴板-ClipMenu</a> 。</p>
+</blockquote>
+<p>具体方法为：Finder 内复制文件(夹)后，快捷键<code>⌘+⇧+V</code>调出 ClipMenu，按住<code>⇧</code>键点击该条目即可粘贴为文件路径。按住<code>⌘</code>键还可弹出二级菜单，依情况选择<code>Paste as File Path</code>或<code>Paste as HFS File Path</code>。正常情况下第一项即可，用来 Finder 窗口内快速跳转(<code>⌘+⇧+G</code>)非常不错，缺点是没有对特殊字符转义，直接复制粘贴到终端命令行有时会出错。</p>
+<p>而后者格式是这样的：<code>Macintosh HD:Users:ashfinal:Downloads:googlechrome.dmg</code>，对一般人来说用处不大，但如果你写 AppleScript 脚本会经常遇到。</p>
+<blockquote>
+<p><em>ClipMenu 菜单依具体配置可能会有所不同，使用时请注意。</em></p>
+</blockquote>
+<h3 id="_4">结束语</h3>
+<p>本文总结的快速输入文件路径的方法，你在使用哪种呢？欢迎补充，有什么心得或技巧一起交流分享～</p>
+</div>
+        </div>
+    </div>
+    <div class="post-info">
+        <p>文章链接：<a href="https://macplay.github.io/posts/macos-xia-kuai-su-shu-ru-wen-jian-lu-jing-de-ji-chong-fang-fa/" target="_blank">https://macplay.github.io/posts/macos-xia-kuai-su-shu-ru-wen-jian-lu-jing-de-ji-chong-fang-fa/</a></p>
+        <p>发布/更新于：
+            <time datetime="2017-10-26 10:54:40 UTC+08:00">
+            2017-10-26 10:54
+            </time></p>
+        <p>版权声明：如无特别说明，本站文章均遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">CC BY-NC-SA 4.0</a> 协议，转载请注明作者及出处。</p>
+    </div>
+        <div class="post-navigation no-print">
+        <div class="ui huge secondary stackable menu">
+            <a class="post-nav-item post-nav-previous item" href="../applescript-imagemagick-tu-xiang-chu-li-jiao-ben/" title="Previous post"><i class="angle double left icon"></i> AppleScript － ImageMagick 图像处理脚本</a>
+        <div class="right menu">
+            <a class="post-nav-item post-nav-next item" href="../web-clip-shared-links-mac-os-x-qing-liang-ji-de-xin-xi-ding-yue-gong-ju/" title="Next post">Web Clip &amp; Shared Links - Mac OS X 轻量级的信息订阅工具 <i class="angle double right icon"></i></a>
+        </div>
+        </div>
+    </div>
+
+        <div id="gitalk-container" class="comments-block no-print"></div>
+</div>
+                    </div>
+                </main><div class="footer extra-block no-print">
+    <span class="footer_item">
+        <a href="../../pages/you-qing-lian-jie/">友情链接</a>
+    </span>
+    <span class="footer_item">
+        <a href="../../pages/liu-yan-ban/">留言板</a>
+    </span>
+    <span class="footer_item">
+        <a href="../../pages/ge-ren-dong-tai/">碎碎念</a>
+    </span>
+    </div>
+            <div class="footer social-link no-print">
+            <a href="https://github.com/ashfinal" target="_blank"><i class="grey large github icon"></i></a>
+            <a href="http://weibo.com/ashfinal/" target="_blank"><i class="grey large weibo icon"></i></a>
+            <a href="mailto://ashfinal@sina.cn" target="_blank"><i class="grey large mail icon"></i></a>
+            </div>
+        <div class="ui basic center aligned segment no-print">Contents © 2020         <a href="mailto:ashfinal@sina.cn">ashfinal</a> - Powered by         <a href="https://getnikola.com" target="_blank" rel="nofollow">Nikola</a>         </div>
+
+            </div>
+            <div class="computer only three wide column no-print">
+                <div id="right-side">
+                </div>
+            </div>
+        </div>
+
+        <!-- GoStats JavaScript Based Code -->
+        <script type="text/javascript">(function(c,o,m,p,u,t,e){
+        c['GoStatsObject']=u;c[u]=c[u]||function(){(c[u].q=c[u].q||[]).push(arguments)},
+        c[u].l=1*new Date();t=o.createElement(m);t.async=1;t.src=p;
+        e=o.getElementsByTagName(m)[0];e.parentNode.insertBefore(t,e);
+        })(window,document,'script','//www.gostats.org/5.js','go');
+        go('init',100479892,{'img_counter_type':5,'img_image_type':1});go('send');</script><!-- End GoStats JavaScript Based Code --><script type="text/javascript" src="../../assets/js/jquery-3.3.1.min.js"></script><script type="text/javascript" src="../../assets/js/semantic.min.js"></script><script type="text/javascript" src="../../assets/js/jquery.fancybox.min.js"></script><script type="text/javascript" src="../../assets/js/cookie.min.js"></script><script>
+            $(document).ready(function(){
+                $(".ui.dropdown").dropdown();
+                $('.ui.accordion').accordion();
+                var newstr = $('.cookie.nag').text();
+                $('.cookie.nag').nag({
+                    key: 'globalnotice',
+                    value: newstr
+                  });
+                $('.image-reference').fancybox();
+            });
+        </script><script src="../../assets/js/md5.min.js"></script><script src="../../assets/js/gitalk.min.js"></script><script>
+        const gitalk = new Gitalk({
+            clientID: '12fcda845097d895a24c',
+            clientSecret: '50ed60cde5f40897205197b4265b474cefbedc49',
+            repo: 'macplay.github.io',
+            owner: 'macplay',
+            admin: ['macplay', 'ashfinal'],
+            id: md5(window.location.pathname),
+            // facebook-like distraction free mode
+            distractionFreeMode: false
+        })
+        gitalk.render('gitalk-container')
+    </script>
+</body>
+</html>

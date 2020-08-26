@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="zh_cn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="generator" content="Nikola (getnikola.com)">
+<title>macOS 的文本替换功能 - MacPlay</title>
+<link rel="apple-touch-icon" sizes="180x180" href="../../apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+<link rel="mask-icon" href="../../safari-pinned-tab.svg" color="#5bbad5">
+<link href="../../assets/css/semantic.min.css" rel="stylesheet" type="text/css">
+<link href="../../assets/css/jquery.fancybox.min.css" rel="stylesheet" type="text/css">
+<link href="../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<link rel="canonical" href="https://macplay.github.io/posts/macos-de-wen-ben-ti-huan-gong-neng/">
+<meta name="author" content="ashfinal">
+<link rel="alternate" hreflang="en" href="../../en/posts/macos-de-wen-ben-ti-huan-gong-neng/">
+<link rel="stylesheet" type="text/css" href="../../assets/css/gitalk.css">
+</head>
+<body>
+        <div class="ui grid">
+            <div class="computer only three wide column no-print">
+                <div id="left-side">
+                </div>
+            </div>
+            <div class="ten wide computer sixteen wide tablet sixteen wide mobile column">
+                        <div class="ui inline cookie nag no-print">
+            <span class="title">从现在开始，支持中英双语及博文精选 O(∩_∩)O~~</span>
+            <i class="close icon"></i>
+        </div>
+    <header id="header" class="no-print"><div class="ui grid">
+        <div class="computer only tablet only sixteen wide column">
+            <div class="ui large secondary stackable menu">
+                <a class="header item brand-logo" href="https://macplay.github.io/">
+                    MacPlay
+                </a>
+                        <a class="item" href="../../">Posts</a>
+                        <a class="item" href="../../listings/">Code</a>
+                        <a class="item" href="../../galleries/">Gallery</a>
+                        <a class="item" href="../../categories/">Tags</a>
+                        <a class="item" href="../../archive.html">Archive</a>
+                <div class="right menu">
+                    <a class="item" href="../../rss.xml"><i class="rss icon"></i>RSS</a>
+                </div>
+            </div>
+        </div>
+        <div class="mobile only sixteen wide column">
+            <div class="ui fluid accordion vertical menu">
+                <div class="item">
+                    <a class="title">MacPlay</a>
+                    <div class="content">
+                                <a class="item" href="../../">Posts</a>
+                                <a class="item" href="../../listings/">Code</a>
+                                <a class="item" href="../../galleries/">Gallery</a>
+                                <a class="item" href="../../categories/">Tags</a>
+                                <a class="item" href="../../archive.html">Archive</a>
+                        <a class="item" href="../../rss.xml"><i class="rss icon"></i>RSS</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </header><main id="main"><div id="main-content">
+<div class="postpage post-text page-body" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <h1 class="post-title" itemprop="headline">
+        <a href=".">macOS 的文本替换功能</a>
+    </h1>
+
+    <div class="ui large horizontal link list post-meta">
+        <span class="item">By
+            <a href="../../authors/ashfinal/">ashfinal</a>
+        </span>
+            <span class="item">
+                <a href="https://github.com/macplay/macplay.github.io/edit/src/posts/macos-de-wen-ben-ti-huan-gong-neng.rst" target="_blank" title="Edit on GitHub">Edit</a>
+            </span>
+        <span class="item">
+            <time datetime="2017-11-24T18:28:19+08:00">
+            2017-11-24 18:28
+            </time></span>
+            <span class="item">
+                    <a href="../../categories/ime/">ime</a>
+                    <a href="../../categories/macos/">macos</a>
+            </span>
+    </div>
+
+    
+    <div class="post-content" itemprop="article text">
+        <div id="post-content">
+        <div>
+<p>前一段时间抹盘重装了 High Sierra 系统，发现之前定义好的文本替换全丢了。ᔪ(°ᐤ°)ᔭᐤᑋᑊ̣心想可能是 iCloud 抽风，过几天就同步过来了。然而，等到今天也没见同步过来。多半是永远也过不来了。这造成了非常严重的后果：我无法使用文本替换轻松输入特殊符号，也无法在打字聊天的时候输入颜文字卖萌了！(&gt;_&lt;)ͪͨͧͦ 趁着今天有空，我决定解决掉这个问题。</p>
+<p>首先还是网络搜索了一下，看看文本替换功能是否支持导入导出，或者至少有个可备份的文件。否则，就算这次搞好也还是有数据丢失的风险，那过分依赖该功能就太不明智了。很快找到了来自苹果官方的结果： <a class="reference external" href="https://support.apple.com/en-us/HT204006">How to export and import text substitutions on your Mac</a> 。根据这份帮助手册，文本替换是支持导入导出的，而且操作很简单。只需在文本替换 tab 页选中要导出的条目，将其拖放到桌面就会自动生成 <cite>Text Substitutions.plist</cite> 文件。而要导入数据的话，则直接把该文件拖回到文本替换 tab 页即可。是不是很简单？(ˊo̴̶̷̤⌄o̴̶̷̤ˋ)✧</p>
+<!-- TEASER_END -->
+<p>解决掉后顾之忧，就可以开心地继续接下来的工作了。从 App Store 下载了一个颜文字软件，然后将其中感觉不错的挨个复制粘贴，并赋予它们触发词。经过一阵折腾后，就可以轻松使用颜文字卖萌了。(⌐■_■)</p>
+<p>最终效果如下：</p>
+<div class="figure align-center">
+<img alt="/images/kaomoji_input.png" src="../../images/kaomoji_input.png">
+</div>
+<p>图中使用的是系统默认输入法，仅前两项是我们刚使用文本替换自定义的。至于 4, 7 项中的 emoji 是拼音输入法本身就自带的。当初挺怀念文本替换功能，原因之一就是与系统结合紧密，随时可用。</p>
+<p>鉴于最重要的颜文字输入需求已经解决 (⁎ְְ⁍̵̆ᴗְְְ⁍ັ̴⁎) 其它特殊字符以后随着输入需求逐渐增加即可，不必急于一时。</p>
+<p>当然，这次得学乖点：肯定要将文本替换条目导出备份。如果你也有输入颜文字的需求，可以下载 <a class="reference external" href="../../listings/kaomoji.plist">该文件</a> ，将其拖放到文本替换 tab 页导入即可使用。◠‿◠</p>
+<div class="figure align-center">
+<a class="reference external image-reference" href="../../images/text_substitutions.png"><img alt="/images/text_substitutions.thumbnail.png" src="../../images/text_substitutions.thumbnail.png"></a>
+</div>
+<p>感谢阅读！ ▄█▀█🌑ｶﾞｰﾝ</p>
+</div>
+        </div>
+    </div>
+    <div class="post-info">
+        <p>文章链接：<a href="https://macplay.github.io/posts/macos-de-wen-ben-ti-huan-gong-neng/" target="_blank">https://macplay.github.io/posts/macos-de-wen-ben-ti-huan-gong-neng/</a></p>
+        <p>发布/更新于：
+            <time datetime="2017-11-24 18:28:19 UTC+08:00">
+            2017-11-24 18:28
+            </time></p>
+        <p>版权声明：如无特别说明，本站文章均遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">CC BY-NC-SA 4.0</a> 协议，转载请注明作者及出处。</p>
+    </div>
+        <div class="post-navigation no-print">
+        <div class="ui huge secondary stackable menu">
+            <a class="post-nav-item post-nav-previous item" href="../vim-cheat-sheet/" title="Previous post"><i class="angle double left icon"></i> Vim Cheatsheet</a>
+        <div class="right menu">
+            <a class="post-nav-item post-nav-next item" href="../emacs-de-font-lock-xing-neng-wen-ti/" title="Next post">Emacs 的 Font Lock 性能问题 <i class="angle double right icon"></i></a>
+        </div>
+        </div>
+    </div>
+
+        <div id="gitalk-container" class="comments-block no-print"></div>
+</div>
+                    </div>
+                </main><div class="footer extra-block no-print">
+    <span class="footer_item">
+        <a href="../../pages/you-qing-lian-jie/">友情链接</a>
+    </span>
+    <span class="footer_item">
+        <a href="../../pages/liu-yan-ban/">留言板</a>
+    </span>
+    <span class="footer_item">
+        <a href="../../pages/ge-ren-dong-tai/">碎碎念</a>
+    </span>
+    </div>
+            <div class="footer social-link no-print">
+            <a href="https://github.com/ashfinal" target="_blank"><i class="grey large github icon"></i></a>
+            <a href="http://weibo.com/ashfinal/" target="_blank"><i class="grey large weibo icon"></i></a>
+            <a href="mailto://ashfinal@sina.cn" target="_blank"><i class="grey large mail icon"></i></a>
+            </div>
+        <div class="ui basic center aligned segment no-print">Contents © 2020         <a href="mailto:ashfinal@sina.cn">ashfinal</a> - Powered by         <a href="https://getnikola.com" target="_blank" rel="nofollow">Nikola</a>         </div>
+
+            </div>
+            <div class="computer only three wide column no-print">
+                <div id="right-side">
+                </div>
+            </div>
+        </div>
+
+        <!-- GoStats JavaScript Based Code -->
+        <script type="text/javascript">(function(c,o,m,p,u,t,e){
+        c['GoStatsObject']=u;c[u]=c[u]||function(){(c[u].q=c[u].q||[]).push(arguments)},
+        c[u].l=1*new Date();t=o.createElement(m);t.async=1;t.src=p;
+        e=o.getElementsByTagName(m)[0];e.parentNode.insertBefore(t,e);
+        })(window,document,'script','//www.gostats.org/5.js','go');
+        go('init',100479892,{'img_counter_type':5,'img_image_type':1});go('send');</script><!-- End GoStats JavaScript Based Code --><script type="text/javascript" src="../../assets/js/jquery-3.3.1.min.js"></script><script type="text/javascript" src="../../assets/js/semantic.min.js"></script><script type="text/javascript" src="../../assets/js/jquery.fancybox.min.js"></script><script type="text/javascript" src="../../assets/js/cookie.min.js"></script><script>
+            $(document).ready(function(){
+                $(".ui.dropdown").dropdown();
+                $('.ui.accordion').accordion();
+                var newstr = $('.cookie.nag').text();
+                $('.cookie.nag').nag({
+                    key: 'globalnotice',
+                    value: newstr
+                  });
+                $('.image-reference').fancybox();
+            });
+        </script><script src="../../assets/js/md5.min.js"></script><script src="../../assets/js/gitalk.min.js"></script><script>
+        const gitalk = new Gitalk({
+            clientID: '12fcda845097d895a24c',
+            clientSecret: '50ed60cde5f40897205197b4265b474cefbedc49',
+            repo: 'macplay.github.io',
+            owner: 'macplay',
+            admin: ['macplay', 'ashfinal'],
+            id: md5(window.location.pathname),
+            // facebook-like distraction free mode
+            distractionFreeMode: false
+        })
+        gitalk.render('gitalk-container')
+    </script>
+</body>
+</html>

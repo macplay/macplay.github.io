@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>MacPlay (Posts about atom)</title><link>https://macplay.github.io/</link><description></description><atom:link href="https://macplay.github.io/categories/atom.xml" rel="self" type="application/rss+xml"></atom:link><language>zh_cn</language><copyright>Contents © 2020 &lt;a href="mailto:ashfinal@sina.cn"&gt;ashfinal&lt;/a&gt; </copyright><lastBuildDate>Wed, 26 Aug 2020 08:50:30 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>【译】Atom 新的并发友好型 buffer 实现</title><link>https://macplay.github.io/posts/atoms-new-concurrency-friendly-buffer-implementation/</link><dc:creator>ashfinal</dc:creator><description>&lt;div&gt;&lt;p&gt;Atom 的一些功能依赖于缓冲区（buffer）内容基础上的运算（可能会花费很长时间），但是直到最近，还只能从运行在主线程上的 JavaScript 访问缓冲区的文本。这使得无法在所有情况下保证 Atom 的响应能力，尤其是在编辑较大文件时。&lt;/p&gt;
+&lt;p&gt;这种情况随着 Atom 1.19 的发布而有所改变，该版本通过使用 C++ 实现的文本存储极大地提高了并行处理能力。这项新设计为性能和可伸缩性提供了诸多好处，其中主要优点之一是 worker 线程可以读取之前缓冲区的快照（snapshot），而不会阻塞主线程上的写入。在这篇文章中，我们将深入介绍 Atom 的文本存储新方法，然后探讨由此带来的首批优化。&lt;/p&gt;
+&lt;div class="contents topic" id="id1"&gt;
+&lt;p class="topic-title"&gt;文档目录&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="https://macplay.github.io/posts/atoms-new-concurrency-friendly-buffer-implementation/#layering" id="id12"&gt;分层（layering）的变动&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="https://macplay.github.io/posts/atoms-new-concurrency-friendly-buffer-implementation/#patch" id="id13"&gt;Patch 的数据结构&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="https://macplay.github.io/posts/atoms-new-concurrency-friendly-buffer-implementation/#id2" id="id14"&gt;存在的问题&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="https://macplay.github.io/posts/atoms-new-concurrency-friendly-buffer-implementation/#id3" id="id15"&gt;原生的解决方案&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="https://macplay.github.io/posts/atoms-new-concurrency-friendly-buffer-implementation/#splay-trees" id="id16"&gt;Splay trees&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="https://macplay.github.io/posts/atoms-new-concurrency-friendly-buffer-implementation/#id4" id="id17"&gt;为我们的用例增强 splay tree&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="https://macplay.github.io/posts/atoms-new-concurrency-friendly-buffer-implementation/#id6" id="id18"&gt;一些初始优化&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="https://macplay.github.io/posts/atoms-new-concurrency-friendly-buffer-implementation/#unsaved-changes" id="id19"&gt;高效备份 unsaved changes&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="https://macplay.github.io/posts/atoms-new-concurrency-friendly-buffer-implementation/#id8" id="id20"&gt;异步保存&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="https://macplay.github.io/posts/atoms-new-concurrency-friendly-buffer-implementation/#id9" id="id21"&gt;自动补全时在后台进行子序列匹配&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="https://macplay.github.io/posts/atoms-new-concurrency-friendly-buffer-implementation/#id11" id="id22"&gt;未来回报&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;a href="https://macplay.github.io/posts/atoms-new-concurrency-friendly-buffer-implementation/"&gt;Read more…&lt;/a&gt; (4 min remaining to read)&lt;/p&gt;&lt;/div&gt;</description><category>atom</category><category>data structure</category><guid>https://macplay.github.io/posts/atoms-new-concurrency-friendly-buffer-implementation/</guid><pubDate>Sat, 26 Oct 2019 06:41:03 GMT</pubDate></item></channel></rss>

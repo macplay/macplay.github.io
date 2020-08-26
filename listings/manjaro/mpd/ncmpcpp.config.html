@@ -1,0 +1,2847 @@
+<!DOCTYPE html>
+<html lang="zh_cn">
+<head>
+<meta charset="utf-8">
+<meta name="description" content="ncmpcpp.config">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="generator" content="Nikola (getnikola.com)">
+<title>ncmpcpp.config - MacPlay</title>
+<link rel="apple-touch-icon" sizes="180x180" href="../../../apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../../../favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../../../favicon-16x16.png">
+<link rel="mask-icon" href="../../../safari-pinned-tab.svg" color="#5bbad5">
+<link href="../../../assets/css/semantic.min.css" rel="stylesheet" type="text/css">
+<link href="../../../assets/css/jquery.fancybox.min.css" rel="stylesheet" type="text/css">
+<link href="../../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<link rel="canonical" href="https://macplay.github.io/listings/manjaro/mpd/ncmpcpp.config.html">
+</head>
+<body>
+        <div class="ui grid">
+            <div class="computer only three wide column no-print">
+                <div id="left-side">
+                </div>
+            </div>
+            <div class="ten wide computer sixteen wide tablet sixteen wide mobile column">
+                        <div class="ui inline cookie nag no-print">
+            <span class="title">从现在开始，支持中英双语及博文精选 O(∩_∩)O~~</span>
+            <i class="close icon"></i>
+        </div>
+    <header id="header" class="no-print"><div class="ui grid">
+        <div class="computer only tablet only sixteen wide column">
+            <div class="ui large secondary stackable menu">
+                <a class="header item brand-logo" href="https://macplay.github.io/">
+                    MacPlay
+                </a>
+                        <a class="item" href="../../../">Posts</a>
+                        <a class="item" href="../../">Code</a>
+                        <a class="item" href="../../../galleries/">Gallery</a>
+                        <a class="item" href="../../../categories/">Tags</a>
+                        <a class="item" href="../../../archive.html">Archive</a>
+                <div class="right menu">
+                    <a class="item" href="../../../rss.xml"><i class="rss icon"></i>RSS</a>
+                </div>
+            </div>
+        </div>
+        <div class="mobile only sixteen wide column">
+            <div class="ui fluid accordion vertical menu">
+                <div class="item">
+                    <a class="title">MacPlay</a>
+                    <div class="content">
+                                <a class="item" href="../../../">Posts</a>
+                                <a class="item" href="../../">Code</a>
+                                <a class="item" href="../../../galleries/">Gallery</a>
+                                <a class="item" href="../../../categories/">Tags</a>
+                                <a class="item" href="../../../archive.html">Archive</a>
+                        <a class="item" href="../../../rss.xml"><i class="rss icon"></i>RSS</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </header><main id="main"><div id="main-content">
+<div class="listingpage page-body" itemscope="itemscope" itemtype="http://schema.org/Article">
+    <div class="ui breadcrumb list-title">
+                <a href="../../" class="section">listings</a>
+                <div class="divider"> / </div>
+                <a href="../" class="section">manjaro</a>
+                <div class="divider"> / </div>
+                <a href="." class="section">mpd</a>
+                <div class="divider"> / </div>
+                <div class="section">
+                    ncmpcpp.config
+                </div>
+    </div>
+
+        <p class="downloadlink">
+            <i class="download icon"></i><a href="ncmpcpp.config">Download</a>
+        </p>
+        <div class="code"><table class="codetable">
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-1"><code data-line-number="  1"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-1"></a><span class="err">##############################################################################</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-2"><code data-line-number="  2"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-2"></a><span class="err">##</span><span class="w"> </span><span class="n">This</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">example</span><span class="w"> </span><span class="n">configuration</span><span class="w"> </span><span class="k">file</span><span class="p">.</span><span class="w"> </span><span class="n">Copy</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="err">$</span><span class="n">HOME</span><span class="o">/</span><span class="p">.</span><span class="n">ncmpcpp</span><span class="o">/</span><span class="n">config</span><span class="w"> </span><span class="err">##</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-3"><code data-line-number="  3"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-3"></a><span class="err">##</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="err">$</span><span class="n">XDG_CONFIG_HOME</span><span class="o">/</span><span class="n">ncmpcpp</span><span class="o">/</span><span class="n">config</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="n">up</span><span class="w"> </span><span class="n">your</span><span class="w"> </span><span class="n">preferences</span><span class="p">.</span><span class="w">          </span><span class="err">##</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-4"><code data-line-number="  4"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-4"></a><span class="err">##############################################################################</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-5"><code data-line-number="  5"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-5"></a><span class="err">#</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-6"><code data-line-number="  6"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-6"></a><span class="err">#####</span><span class="w"> </span><span class="n">directories</span><span class="w"> </span><span class="err">######</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-7"><code data-line-number="  7"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-7"></a><span class="err">##</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-8"><code data-line-number="  8"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-8"></a><span class="err">##</span><span class="w"> </span><span class="n">Directory</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">storing</span><span class="w"> </span><span class="n">ncmpcpp</span><span class="w"> </span><span class="n">related</span><span class="w"> </span><span class="n">files</span><span class="p">.</span><span class="w">  </span><span class="n">Changing</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">useful</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">you</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-9"><code data-line-number="  9"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-9"></a><span class="err">##</span><span class="w"> </span><span class="n">want</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">store</span><span class="w"> </span><span class="n">everything</span><span class="w"> </span><span class="n">somewhere</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">provide</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="n">setting</span><span class="w"> </span><span class="k">for</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-10"><code data-line-number=" 10"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-10"></a><span class="err">##</span><span class="w"> </span><span class="n">alternative</span><span class="w"> </span><span class="n">location</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">config</span><span class="w"> </span><span class="k">file</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">defines</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="k">while</span><span class="w"> </span><span class="n">launching</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-11"><code data-line-number=" 11"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-11"></a><span class="err">##</span><span class="w"> </span><span class="n">ncmpcpp</span><span class="p">.</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-12"><code data-line-number=" 12"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-12"></a><span class="err">##</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-13"><code data-line-number=" 13"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-13"></a><span class="err">#</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-14"><code data-line-number=" 14"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-14"></a><span class="n">#ncmpcpp_directory</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">~/</span><span class="p">.</span><span class="n">ncmpcpp</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-15"><code data-line-number=" 15"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-15"></a><span class="err">#</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-16"><code data-line-number=" 16"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-16"></a><span class="err">##</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-17"><code data-line-number=" 17"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-17"></a><span class="err">##</span><span class="w"> </span><span class="n">Directory</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">storing</span><span class="w"> </span><span class="n">downloaded</span><span class="w"> </span><span class="n">lyrics</span><span class="p">.</span><span class="w"> </span><span class="n">It</span><span class="w"> </span><span class="n">defaults</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="o">~/</span><span class="p">.</span><span class="n">lyrics</span><span class="w"> </span><span class="n">since</span><span class="w"> </span><span class="n">other</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-18"><code data-line-number=" 18"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-18"></a><span class="err">##</span><span class="w"> </span><span class="n">MPD</span><span class="w"> </span><span class="n">clients</span><span class="w"> </span><span class="p">(</span><span class="n">eg</span><span class="p">.</span><span class="w"> </span><span class="n">ncmpc</span><span class="p">)</span><span class="w"> </span><span class="n">also</span><span class="w"> </span><span class="k">use</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">location</span><span class="p">.</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-19"><code data-line-number=" 19"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-19"></a><span class="err">##</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-20"><code data-line-number=" 20"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-20"></a><span class="err">#</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-21"><code data-line-number=" 21"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-21"></a><span class="n">#lyrics_directory</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">~/</span><span class="p">.</span><span class="n">lyrics</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-22"><code data-line-number=" 22"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-22"></a><span class="err">#</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-23"><code data-line-number=" 23"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-23"></a><span class="err">#####</span><span class="w"> </span><span class="k">connection</span><span class="w"> </span><span class="n">settings</span><span class="w"> </span><span class="err">#####</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-24"><code data-line-number=" 24"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-24"></a><span class="err">#</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-25"><code data-line-number=" 25"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-25"></a><span class="n">#mpd_host</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">localhost</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-26"><code data-line-number=" 26"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-26"></a><span class="err">#</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-27"><code data-line-number=" 27"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-27"></a><span class="n">#mpd_port</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">6600</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-28"><code data-line-number=" 28"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-28"></a><span class="err">#</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-29"><code data-line-number=" 29"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-29"></a><span class="n">#mpd_connection_timeout</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-30"><code data-line-number=" 30"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-30"></a><span class="err">#</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-31"><code data-line-number=" 31"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-31"></a><span class="err">##</span><span class="w"> </span><span class="n">Needed</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">tag</span><span class="w"> </span><span class="n">editor</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="k">file</span><span class="w"> </span><span class="n">operations</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="k">work</span><span class="p">.</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-32"><code data-line-number=" 32"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-32"></a><span class="err">##</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-33"><code data-line-number=" 33"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-33"></a><span class="n">mpd_music_dir</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">~/</span><span class="n">Music</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-34"><code data-line-number=" 34"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-34"></a><span class="err">#</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-35"><code data-line-number=" 35"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-35"></a><span class="n">#mpd_crossfade_time</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-36"><code data-line-number=" 36"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-36"></a><span class="err">#</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-37"><code data-line-number=" 37"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-37"></a><span class="err">#####</span><span class="w"> </span><span class="n">music</span><span class="w"> </span><span class="n">visualizer</span><span class="w"> </span><span class="err">#####</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-38"><code data-line-number=" 38"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-38"></a><span class="err">##</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-39"><code data-line-number=" 39"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-39"></a><span class="err">##</span><span class="w"> </span><span class="nl">Note</span><span class="p">:</span><span class="w"> </span><span class="ow">In</span><span class="w"> </span><span class="k">order</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">make</span><span class="w"> </span><span class="n">music</span><span class="w"> </span><span class="n">visualizer</span><span class="w"> </span><span class="k">work</span><span class="w"> </span><span class="n">you</span><span class="s1">'ll need to use mpd fifo</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-40"><code data-line-number=" 40"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-40"></a><span class="s1">## output, whose format parameter has to be set to 44100:16:1 for mono</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-41"><code data-line-number=" 41"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-41"></a><span class="s1">## visualization or 44100:16:2 for stereo visualization. Example configuration</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-42"><code data-line-number=" 42"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-42"></a><span class="s1">## (it has to be put into mpd.conf):</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-43"><code data-line-number=" 43"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-43"></a><span class="s1">##</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-44"><code data-line-number=" 44"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-44"></a><span class="s1">## audio_output {</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-45"><code data-line-number=" 45"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-45"></a><span class="s1">##        type            "fifo"</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-46"><code data-line-number=" 46"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-46"></a><span class="s1">##        name            "Visualizer feed"</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-47"><code data-line-number=" 47"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-47"></a><span class="s1">##        path            "/tmp/mpd.fifo"</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-48"><code data-line-number=" 48"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-48"></a><span class="s1">##        format          "44100:16:2"</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-49"><code data-line-number=" 49"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-49"></a><span class="s1">## }</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-50"><code data-line-number=" 50"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-50"></a><span class="s1">##</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-51"><code data-line-number=" 51"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-51"></a><span class="s1">#</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-52"><code data-line-number=" 52"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-52"></a><span class="s1">#visualizer_fifo_path = /tmp/mpd.fifo</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-53"><code data-line-number=" 53"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-53"></a><span class="s1">#</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-54"><code data-line-number=" 54"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-54"></a><span class="s1">##</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-55"><code data-line-number=" 55"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-55"></a><span class="s1">## Note: Below parameter is needed for ncmpcpp to determine which output</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-56"><code data-line-number=" 56"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-56"></a><span class="s1">## provides data for visualizer and thus allow syncing between visualization and</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-57"><code data-line-number=" 57"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-57"></a><span class="s1">## sound as currently there are some problems with it.</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-58"><code data-line-number=" 58"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-58"></a><span class="s1">##</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-59"><code data-line-number=" 59"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-59"></a><span class="s1">#</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-60"><code data-line-number=" 60"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-60"></a><span class="s1">#visualizer_output_name = Visualizer feed</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-61"><code data-line-number=" 61"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-61"></a><span class="s1">#</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-62"><code data-line-number=" 62"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-62"></a><span class="s1">##</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-63"><code data-line-number=" 63"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-63"></a><span class="s1">## If you set format to 44100:16:2, make it '</span><span class="n">yes</span><span class="s1">'.</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-64"><code data-line-number=" 64"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-64"></a><span class="s1">##</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-65"><code data-line-number=" 65"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-65"></a><span class="s1">#visualizer_in_stereo = yes</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-66"><code data-line-number=" 66"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-66"></a><span class="s1">#</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-67"><code data-line-number=" 67"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-67"></a><span class="s1">##</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-68"><code data-line-number=" 68"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-68"></a><span class="s1">## Note: Below parameter defines how often ncmpcpp has to "synchronize"</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-69"><code data-line-number=" 69"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-69"></a><span class="s1">## visualizer and audio outputs.  30 seconds is optimal value, but if you</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-70"><code data-line-number=" 70"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-70"></a><span class="s1">## experience synchronization problems, set it to lower value.  Keep in mind</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-71"><code data-line-number=" 71"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-71"></a><span class="s1">## that sane values start with &gt;=10.</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-72"><code data-line-number=" 72"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-72"></a><span class="s1">##</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-73"><code data-line-number=" 73"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-73"></a><span class="s1">#</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-74"><code data-line-number=" 74"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-74"></a><span class="s1">#visualizer_sync_interval = 30</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-75"><code data-line-number=" 75"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-75"></a><span class="s1">#</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-76"><code data-line-number=" 76"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-76"></a><span class="s1">##</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-77"><code data-line-number=" 77"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-77"></a><span class="s1">## Note: To enable spectrum frequency visualization you need to compile ncmpcpp</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-78"><code data-line-number=" 78"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-78"></a><span class="s1">## with fftw3 support.</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-79"><code data-line-number=" 79"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-79"></a><span class="s1">##</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-80"><code data-line-number=" 80"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-80"></a><span class="s1">#</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-81"><code data-line-number=" 81"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-81"></a><span class="s1">## Available values: spectrum, wave, wave_filled, ellipse.</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-82"><code data-line-number=" 82"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-82"></a><span class="s1">##</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-83"><code data-line-number=" 83"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-83"></a><span class="s1">#visualizer_type = wave</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-84"><code data-line-number=" 84"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-84"></a><span class="s1">#</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-85"><code data-line-number=" 85"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-85"></a><span class="s1">#visualizer_look = ●▮</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-86"><code data-line-number=" 86"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-86"></a><span class="s1">#</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-87"><code data-line-number=" 87"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-87"></a><span class="s1">#visualizer_color = blue, cyan, green, yellow, magenta, red</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-88"><code data-line-number=" 88"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-88"></a><span class="s1">#</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-89"><code data-line-number=" 89"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-89"></a><span class="s1">## Alternative subset of 256 colors for terminals that support it.</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-90"><code data-line-number=" 90"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-90"></a><span class="s1">##</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-91"><code data-line-number=" 91"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-91"></a><span class="s1">visualizer_color = 41, 83, 119, 155, 185, 215, 209, 203, 197, 161</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-92"><code data-line-number=" 92"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-92"></a><span class="s1">#</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-93"><code data-line-number=" 93"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-93"></a><span class="s1">##### system encoding #####</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-94"><code data-line-number=" 94"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-94"></a><span class="s1">##</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-95"><code data-line-number=" 95"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-95"></a><span class="s1">## ncmpcpp should detect your charset encoding but if it failed to do so, you</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-96"><code data-line-number=" 96"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-96"></a><span class="s1">## can specify charset encoding you are using here.</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-97"><code data-line-number=" 97"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-97"></a><span class="s1">##</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-98"><code data-line-number=" 98"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-98"></a><span class="s1">## Note: You can see whether your ncmpcpp build supports charset detection by</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-99"><code data-line-number=" 99"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-99"></a><span class="s1">## checking output of `ncmpcpp --version`.</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-100"><code data-line-number="100"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-100"></a><span class="s1">##</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-101"><code data-line-number="101"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-101"></a><span class="s1">## Note: Since MPD uses UTF-8 by default, setting this option makes sense only</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-102"><code data-line-number="102"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-102"></a><span class="s1">## if your encoding is different.</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-103"><code data-line-number="103"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-103"></a><span class="s1">##</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-104"><code data-line-number="104"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-104"></a><span class="s1">#</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-105"><code data-line-number="105"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-105"></a><span class="s1">#system_encoding = ""</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-106"><code data-line-number="106"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-106"></a><span class="s1">#</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-107"><code data-line-number="107"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-107"></a><span class="s1">##### delays #####</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-108"><code data-line-number="108"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-108"></a><span class="s1">#</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-109"><code data-line-number="109"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-109"></a><span class="s1">## Time of inactivity (in seconds) after playlist highlighting will be disabled</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-110"><code data-line-number="110"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-110"></a><span class="s1">## (0 = always on).</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-111"><code data-line-number="111"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-111"></a><span class="s1">##</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-112"><code data-line-number="112"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-112"></a><span class="s1">#playlist_disable_highlight_delay = 5</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-113"><code data-line-number="113"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-113"></a><span class="s1">#</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-114"><code data-line-number="114"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-114"></a><span class="s1">## Defines how long messages are supposed to be visible.</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-115"><code data-line-number="115"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-115"></a><span class="s1">##</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-116"><code data-line-number="116"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-116"></a><span class="s1">#message_delay_time = 5</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-117"><code data-line-number="117"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-117"></a><span class="s1">#</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-118"><code data-line-number="118"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-118"></a><span class="s1">##### song format #####</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-119"><code data-line-number="119"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-119"></a><span class="s1">##</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-120"><code data-line-number="120"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-120"></a><span class="s1">## For a song format you can use:</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-121"><code data-line-number="121"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-121"></a><span class="s1">##</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-122"><code data-line-number="122"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-122"></a><span class="s1">## %l - length</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-123"><code data-line-number="123"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-123"></a><span class="s1">## %f - filename</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-124"><code data-line-number="124"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-124"></a><span class="s1">## %D - directory</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-125"><code data-line-number="125"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-125"></a><span class="s1">## %a - artist</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-126"><code data-line-number="126"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-126"></a><span class="s1">## %A - album artist</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-127"><code data-line-number="127"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-127"></a><span class="s1">## %t - title</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-128"><code data-line-number="128"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-128"></a><span class="s1">## %b - album</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-129"><code data-line-number="129"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-129"></a><span class="s1">## %y - date</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-130"><code data-line-number="130"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-130"></a><span class="s1">## %n - track number (01/12 -&gt; 01)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-131"><code data-line-number="131"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-131"></a><span class="s1">## %N - full track info (01/12 -&gt; 01/12)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-132"><code data-line-number="132"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-132"></a><span class="s1">## %g - genre</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-133"><code data-line-number="133"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-133"></a><span class="s1">## %c - composer</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-134"><code data-line-number="134"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-134"></a><span class="s1">## %p - performer</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-135"><code data-line-number="135"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-135"></a><span class="s1">## %d - disc</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-136"><code data-line-number="136"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-136"></a><span class="s1">## %C - comment</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-137"><code data-line-number="137"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-137"></a><span class="s1">## %P - priority</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-138"><code data-line-number="138"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-138"></a><span class="s1">## $R - begin right alignment</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-139"><code data-line-number="139"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-139"></a><span class="s1">##</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-140"><code data-line-number="140"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-140"></a><span class="s1">## If you want to make sure that a part of the format is displayed only when</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-141"><code data-line-number="141"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-141"></a><span class="s1">## certain tags are present, you can archieve it by grouping them with brackets,</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-142"><code data-line-number="142"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-142"></a><span class="s1">## e.g. '</span><span class="err">{</span><span class="o">%</span><span class="n">a</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="o">%</span><span class="n">t</span><span class="err">}</span><span class="s1">' will be evaluated to '</span><span class="n">ARTIST</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">TITLE</span><span class="s1">' if both tags are</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-143"><code data-line-number="143"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-143"></a><span class="s1">## present or '' otherwise.  It is also possible to define a list of</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-144"><code data-line-number="144"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-144"></a><span class="s1">## alternatives by providing several groups and separating them with '</span><span class="o">|</span><span class="s1">',</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-145"><code data-line-number="145"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-145"></a><span class="s1">## e.g. '</span><span class="err">{</span><span class="o">%</span><span class="n">t</span><span class="err">}</span><span class="o">|</span><span class="err">{</span><span class="o">%</span><span class="n">f</span><span class="err">}</span><span class="s1">' will be evaluated to '</span><span class="n">TITLE</span><span class="s1">' or '</span><span class="n">FILENAME</span><span class="s1">' if the former is</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-146"><code data-line-number="146"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-146"></a><span class="s1">## not present.</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-147"><code data-line-number="147"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-147"></a><span class="s1">##</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-148"><code data-line-number="148"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-148"></a><span class="s1">## Note: If you want to set limit on maximal length of a tag, just put the</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-149"><code data-line-number="149"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-149"></a><span class="s1">## appropriate number between % and character that defines tag type, e.g. to</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-150"><code data-line-number="150"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-150"></a><span class="s1">## make album take max. 20 terminal cells, use '</span><span class="o">%</span><span class="mi">20</span><span class="n">b</span><span class="s1">'.</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-151"><code data-line-number="151"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-151"></a><span class="s1">##</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-152"><code data-line-number="152"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-152"></a><span class="s1">## In addition, formats support markers used for text attributes.  They are</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-153"><code data-line-number="153"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-153"></a><span class="s1">## followed by character '</span><span class="err">$</span><span class="s1">'. After that you can put:</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-154"><code data-line-number="154"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-154"></a><span class="s1">##</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-155"><code data-line-number="155"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-155"></a><span class="s1">## - 0 - default window color (discards all other colors)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-156"><code data-line-number="156"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-156"></a><span class="s1">## - 1 - black</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-157"><code data-line-number="157"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-157"></a><span class="s1">## - 2 - red</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-158"><code data-line-number="158"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-158"></a><span class="s1">## - 3 - green</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-159"><code data-line-number="159"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-159"></a><span class="s1">## - 4 - yellow</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-160"><code data-line-number="160"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-160"></a><span class="s1">## - 5 - blue</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-161"><code data-line-number="161"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-161"></a><span class="s1">## - 6 - magenta</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-162"><code data-line-number="162"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-162"></a><span class="s1">## - 7 - cyan</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-163"><code data-line-number="163"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-163"></a><span class="s1">## - 8 - white</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-164"><code data-line-number="164"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-164"></a><span class="s1">## - 9 - end of current color</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-165"><code data-line-number="165"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-165"></a><span class="s1">## - b - bold text</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-166"><code data-line-number="166"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-166"></a><span class="s1">## - u - underline text</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-167"><code data-line-number="167"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-167"></a><span class="s1">## - r - reverse colors</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-168"><code data-line-number="168"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-168"></a><span class="s1">## - a - use alternative character set</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-169"><code data-line-number="169"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-169"></a><span class="s1">##</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-170"><code data-line-number="170"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-170"></a><span class="s1">## If you don'</span><span class="n">t</span><span class="w"> </span><span class="n">want</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="k">use</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">non</span><span class="o">-</span><span class="n">color</span><span class="w"> </span><span class="n">attribute</span><span class="w"> </span><span class="n">anymore</span><span class="p">,</span><span class="w"> </span><span class="n">just</span><span class="w"> </span><span class="n">put</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">again</span><span class="p">,</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-171"><code data-line-number="171"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-171"></a><span class="err">##</span><span class="w"> </span><span class="n">but</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="nc">time</span><span class="w"> </span><span class="k">insert</span><span class="w"> </span><span class="k">character</span><span class="w"> </span><span class="s1">'/'</span><span class="w"> </span><span class="ow">between</span><span class="w"> </span><span class="s1">'$'</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">attribute</span><span class="w"> </span><span class="k">character</span><span class="p">,</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-172"><code data-line-number="172"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-172"></a><span class="err">##</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="n">g</span><span class="p">.</span><span class="w"> </span><span class="err">{$</span><span class="n">b</span><span class="o">%</span><span class="n">t</span><span class="err">$</span><span class="o">/</span><span class="n">b</span><span class="err">}</span><span class="o">|</span><span class="err">{$</span><span class="n">r</span><span class="o">%</span><span class="n">f</span><span class="err">$</span><span class="o">/</span><span class="n">r</span><span class="err">}</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">display</span><span class="w"> </span><span class="n">bolded</span><span class="w"> </span><span class="n">title</span><span class="w"> </span><span class="n">tag</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">filename</span><span class="w"> </span><span class="k">with</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-173"><code data-line-number="173"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-173"></a><span class="err">##</span><span class="w"> </span><span class="n">reversed</span><span class="w"> </span><span class="n">colors</span><span class="p">.</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-174"><code data-line-number="174"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-174"></a><span class="err">##</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-175"><code data-line-number="175"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-175"></a><span class="err">##</span><span class="w"> </span><span class="k">If</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">want</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="k">use</span><span class="w"> </span><span class="mi">256</span><span class="w"> </span><span class="n">colors</span><span class="w"> </span><span class="ow">and</span><span class="o">/</span><span class="ow">or</span><span class="w"> </span><span class="n">background</span><span class="w"> </span><span class="n">colors</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">formats</span><span class="w"> </span><span class="p">(</span><span class="n">the</span><span class="w"> </span><span class="n">naming</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-176"><code data-line-number="176"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-176"></a><span class="err">##</span><span class="w"> </span><span class="n">scheme</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">described</span><span class="w"> </span><span class="n">below</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="k">section</span><span class="w"> </span><span class="n">about</span><span class="w"> </span><span class="n">color</span><span class="w"> </span><span class="n">definitions</span><span class="p">),</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">done</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-177"><code data-line-number="177"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-177"></a><span class="err">##</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">syntax</span><span class="w"> </span><span class="err">$</span><span class="p">(</span><span class="n">COLOR</span><span class="p">),</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="n">g</span><span class="p">.</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">artist</span><span class="w"> </span><span class="n">tag</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">one</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="n">the</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-178"><code data-line-number="178"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-178"></a><span class="err">##</span><span class="w"> </span><span class="n">non</span><span class="o">-</span><span class="n">standard</span><span class="w"> </span><span class="n">colors</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">make</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">have</span><span class="w"> </span><span class="n">yellow</span><span class="w"> </span><span class="n">background</span><span class="p">,</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">need</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="k">write</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-179"><code data-line-number="179"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-179"></a><span class="err">##</span><span class="w"> </span><span class="err">$</span><span class="p">(</span><span class="mi">197</span><span class="n">_yellow</span><span class="p">)</span><span class="o">%</span><span class="n">a</span><span class="err">$</span><span class="p">(</span><span class="k">end</span><span class="p">).</span><span class="w"> </span><span class="n">Note</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">standard</span><span class="w"> </span><span class="n">colors</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">interchangable</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-180"><code data-line-number="180"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-180"></a><span class="err">##</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">attributes</span><span class="w"> </span><span class="n">listed</span><span class="w"> </span><span class="n">above</span><span class="p">.</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-181"><code data-line-number="181"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-181"></a><span class="err">##</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-182"><code data-line-number="182"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-182"></a><span class="err">##</span><span class="w"> </span><span class="nl">Note</span><span class="p">:</span><span class="w"> </span><span class="n">colors</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">nested</span><span class="p">.</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-183"><code data-line-number="183"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-183"></a><span class="err">##</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-184"><code data-line-number="184"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-184"></a><span class="err">#</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-185"><code data-line-number="185"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-185"></a><span class="n">#song_list_format</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">{</span><span class="o">%</span><span class="n">a</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="err">}{</span><span class="o">%</span><span class="n">t</span><span class="err">}</span><span class="o">|</span><span class="err">{$</span><span class="mi">8</span><span class="o">%</span><span class="n">f</span><span class="err">$</span><span class="mi">9</span><span class="err">}$</span><span class="n">R</span><span class="err">{$</span><span class="mi">3</span><span class="p">(</span><span class="o">%</span><span class="n">l</span><span class="p">)</span><span class="err">$</span><span class="mi">9</span><span class="err">}</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-186"><code data-line-number="186"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-186"></a><span class="err">#</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-187"><code data-line-number="187"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-187"></a><span class="n">#song_status_format</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">{{</span><span class="o">%</span><span class="n">a</span><span class="err">{</span><span class="w"> </span><span class="ss">"%b"</span><span class="err">{</span><span class="w"> </span><span class="p">(</span><span class="o">%</span><span class="n">y</span><span class="p">)</span><span class="err">}}</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="err">}{</span><span class="o">%</span><span class="n">t</span><span class="err">}}</span><span class="o">|</span><span class="err">{</span><span class="o">%</span><span class="n">f</span><span class="err">}</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-188"><code data-line-number="188"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-188"></a><span class="err">#</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-189"><code data-line-number="189"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-189"></a><span class="n">#song_library_format</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">{</span><span class="o">%</span><span class="n">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="err">}{</span><span class="o">%</span><span class="n">t</span><span class="err">}</span><span class="o">|</span><span class="err">{</span><span class="o">%</span><span class="n">f</span><span class="err">}</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-190"><code data-line-number="190"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-190"></a><span class="err">#</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-191"><code data-line-number="191"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-191"></a><span class="n">#alternative_header_first_line_format</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">$</span><span class="n">b</span><span class="err">$</span><span class="mi">1</span><span class="err">$</span><span class="n">aqqu</span><span class="err">$</span><span class="o">/</span><span class="n">a</span><span class="err">$</span><span class="mi">9</span><span class="w"> </span><span class="err">{</span><span class="o">%</span><span class="n">t</span><span class="err">}</span><span class="o">|</span><span class="err">{</span><span class="o">%</span><span class="n">f</span><span class="err">}</span><span class="w"> </span><span class="err">$</span><span class="mi">1</span><span class="err">$</span><span class="n">atqq</span><span class="err">$</span><span class="o">/</span><span class="n">a</span><span class="err">$</span><span class="mi">9</span><span class="err">$</span><span class="o">/</span><span class="n">b</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-192"><code data-line-number="192"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-192"></a><span class="err">#</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-193"><code data-line-number="193"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-193"></a><span class="n">#alternative_header_second_line_format</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">{{$</span><span class="mi">4</span><span class="err">$</span><span class="n">b</span><span class="o">%</span><span class="n">a</span><span class="err">$</span><span class="o">/</span><span class="n">b</span><span class="err">$</span><span class="mi">9</span><span class="err">}{</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="err">$</span><span class="mi">7</span><span class="o">%</span><span class="n">b</span><span class="err">$</span><span class="mi">9</span><span class="err">}{</span><span class="w"> </span><span class="p">(</span><span class="err">$</span><span class="mi">4</span><span class="o">%</span><span class="n">y</span><span class="err">$</span><span class="mi">9</span><span class="p">)</span><span class="err">}}</span><span class="o">|</span><span class="err">{</span><span class="o">%</span><span class="n">D</span><span class="err">}</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-194"><code data-line-number="194"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-194"></a><span class="err">#</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-195"><code data-line-number="195"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-195"></a><span class="n">#current_item_prefix</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">$</span><span class="p">(</span><span class="n">yellow</span><span class="p">)</span><span class="err">$</span><span class="n">r</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-196"><code data-line-number="196"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-196"></a><span class="err">#</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-197"><code data-line-number="197"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-197"></a><span class="n">#current_item_suffix</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">$</span><span class="o">/</span><span class="n">r</span><span class="err">$</span><span class="p">(</span><span class="k">end</span><span class="p">)</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-198"><code data-line-number="198"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-198"></a><span class="err">#</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-199"><code data-line-number="199"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-199"></a><span class="n">#current_item_inactive_column_prefix</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">$</span><span class="p">(</span><span class="n">white</span><span class="p">)</span><span class="err">$</span><span class="n">r</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-200"><code data-line-number="200"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-200"></a><span class="err">#</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-201"><code data-line-number="201"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-201"></a><span class="n">#current_item_inactive_column_suffix</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">$</span><span class="o">/</span><span class="n">r</span><span class="err">$</span><span class="p">(</span><span class="k">end</span><span class="p">)</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-202"><code data-line-number="202"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-202"></a><span class="err">#</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-203"><code data-line-number="203"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-203"></a><span class="n">#now_playing_prefix</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">$</span><span class="n">b</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-204"><code data-line-number="204"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-204"></a><span class="err">#</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-205"><code data-line-number="205"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-205"></a><span class="n">#now_playing_suffix</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">$</span><span class="o">/</span><span class="n">b</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-206"><code data-line-number="206"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-206"></a><span class="err">#</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-207"><code data-line-number="207"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-207"></a><span class="n">#browser_playlist_prefix</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ss">"$2playlist$9 "</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-208"><code data-line-number="208"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-208"></a><span class="err">#</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-209"><code data-line-number="209"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-209"></a><span class="n">#selected_item_prefix</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">$</span><span class="mi">6</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-210"><code data-line-number="210"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-210"></a><span class="err">#</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-211"><code data-line-number="211"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-211"></a><span class="n">#selected_item_suffix</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">$</span><span class="mi">9</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-212"><code data-line-number="212"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-212"></a><span class="err">#</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-213"><code data-line-number="213"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-213"></a><span class="n">#modified_item_prefix</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">$</span><span class="mi">3</span><span class="o">&gt;</span><span class="w"> </span><span class="err">$</span><span class="mi">9</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-214"><code data-line-number="214"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-214"></a><span class="err">#</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-215"><code data-line-number="215"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-215"></a><span class="err">##</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-216"><code data-line-number="216"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-216"></a><span class="err">##</span><span class="w"> </span><span class="nl">Note</span><span class="p">:</span><span class="w"> </span><span class="n">attributes</span><span class="w"> </span><span class="k">are</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">supported</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">following</span><span class="w"> </span><span class="n">variables</span><span class="p">.</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-217"><code data-line-number="217"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-217"></a><span class="err">##</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-218"><code data-line-number="218"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-218"></a><span class="n">#song_window_title_format</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">{</span><span class="o">%</span><span class="n">a</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="err">}{</span><span class="o">%</span><span class="n">t</span><span class="err">}</span><span class="o">|</span><span class="err">{</span><span class="o">%</span><span class="n">f</span><span class="err">}</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-219"><code data-line-number="219"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-219"></a><span class="err">##</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-220"><code data-line-number="220"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-220"></a><span class="err">##</span><span class="w"> </span><span class="nl">Note</span><span class="p">:</span><span class="w"> </span><span class="n">Below</span><span class="w"> </span><span class="n">variables</span><span class="w"> </span><span class="k">are</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">sorting</span><span class="w"> </span><span class="n">songs</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">browser</span><span class="p">.</span><span class="w">  </span><span class="n">The</span><span class="w"> </span><span class="n">sort</span><span class="w"> </span><span class="n">mode</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-221"><code data-line-number="221"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-221"></a><span class="err">##</span><span class="w"> </span><span class="n">determines</span><span class="w"> </span><span class="n">how</span><span class="w"> </span><span class="n">songs</span><span class="w"> </span><span class="k">are</span><span class="w"> </span><span class="n">sorted</span><span class="p">,</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">combination</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">sort</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-222"><code data-line-number="222"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-222"></a><span class="err">##</span><span class="w"> </span><span class="nf">format</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">specify</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">custom</span><span class="w"> </span><span class="n">sorting</span><span class="w"> </span><span class="nf">format</span><span class="p">.</span><span class="w">  </span><span class="n">Available</span><span class="w"> </span><span class="k">values</span><span class="w"> </span><span class="k">for</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-223"><code data-line-number="223"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-223"></a><span class="err">##</span><span class="w"> </span><span class="n">browser_sort_mode</span><span class="w"> </span><span class="k">are</span><span class="w"> </span><span class="ss">"name"</span><span class="p">,</span><span class="w"> </span><span class="ss">"mtime"</span><span class="p">,</span><span class="w"> </span><span class="ss">"format"</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="ss">"noop"</span><span class="p">.</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-224"><code data-line-number="224"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-224"></a><span class="err">##</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-225"><code data-line-number="225"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-225"></a><span class="err">#</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-226"><code data-line-number="226"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-226"></a><span class="n">#browser_sort_mode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">name</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-227"><code data-line-number="227"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-227"></a><span class="err">#</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-228"><code data-line-number="228"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-228"></a><span class="n">#browser_sort_format</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">{</span><span class="o">%</span><span class="n">a</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="err">}{</span><span class="o">%</span><span class="n">t</span><span class="err">}</span><span class="o">|</span><span class="err">{</span><span class="o">%</span><span class="n">f</span><span class="err">}</span><span class="w"> </span><span class="err">{</span><span class="p">(</span><span class="o">%</span><span class="n">l</span><span class="p">)</span><span class="err">}</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-229"><code data-line-number="229"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-229"></a><span class="err">#</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-230"><code data-line-number="230"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-230"></a><span class="err">#####</span><span class="w"> </span><span class="n">columns</span><span class="w"> </span><span class="n">settings</span><span class="w"> </span><span class="err">#####</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-231"><code data-line-number="231"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-231"></a><span class="err">##</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-232"><code data-line-number="232"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-232"></a><span class="err">##</span><span class="w"> </span><span class="n">syntax</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="n">song</span><span class="w"> </span><span class="n">columns</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="nf">format</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="ss">"column column etc."</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-233"><code data-line-number="233"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-233"></a><span class="err">##</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-234"><code data-line-number="234"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-234"></a><span class="err">##</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">syntax</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="k">each</span><span class="w"> </span><span class="k">column</span><span class="w"> </span><span class="k">is</span><span class="err">:</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-235"><code data-line-number="235"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-235"></a><span class="err">##</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-236"><code data-line-number="236"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-236"></a><span class="err">##</span><span class="w"> </span><span class="p">(</span><span class="n">width</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="k">column</span><span class="p">)</span><span class="o">[</span><span class="n">color of the column</span><span class="o">]</span><span class="err">{</span><span class="n">displayed</span><span class="w"> </span><span class="n">tag</span><span class="err">}</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-237"><code data-line-number="237"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-237"></a><span class="err">##</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-238"><code data-line-number="238"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-238"></a><span class="err">##</span><span class="w"> </span><span class="nl">Note</span><span class="p">:</span><span class="w"> </span><span class="n">Width</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="o">%</span><span class="p">,</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">want</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="k">column</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">have</span><span class="w"> </span><span class="n">fixed</span><span class="w"> </span><span class="k">size</span><span class="p">,</span><span class="w"> </span><span class="k">add</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-239"><code data-line-number="239"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-239"></a><span class="err">##</span><span class="w"> </span><span class="s1">'f'</span><span class="w"> </span><span class="k">after</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="k">value</span><span class="p">,</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="n">g</span><span class="p">.</span><span class="w"> </span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="o">[</span><span class="n">white</span><span class="o">]</span><span class="err">{</span><span class="n">a</span><span class="err">}</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="k">column</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">take</span><span class="w"> </span><span class="mi">10</span><span class="o">%</span><span class="w"> </span><span class="k">of</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-240"><code data-line-number="240"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-240"></a><span class="err">##</span><span class="w"> </span><span class="n">screen</span><span class="w"> </span><span class="p">(</span><span class="n">so</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">real</span><span class="w"> </span><span class="n">width</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">depend</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">actual</span><span class="w"> </span><span class="n">screen</span><span class="w"> </span><span class="k">size</span><span class="p">),</span><span class="w"> </span><span class="n">whereas</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-241"><code data-line-number="241"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-241"></a><span class="err">##</span><span class="w"> </span><span class="p">(</span><span class="mi">10</span><span class="n">f</span><span class="p">)</span><span class="o">[</span><span class="n">white</span><span class="o">]</span><span class="err">{</span><span class="n">a</span><span class="err">}</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">take</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="n">terminal</span><span class="w"> </span><span class="n">cells</span><span class="p">,</span><span class="w"> </span><span class="k">no</span><span class="w"> </span><span class="n">matter</span><span class="w"> </span><span class="n">how</span><span class="w"> </span><span class="n">wide</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">screen</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-242"><code data-line-number="242"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-242"></a><span class="err">##</span><span class="w"> </span><span class="k">is</span><span class="p">.</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-243"><code data-line-number="243"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-243"></a><span class="err">##</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-244"><code data-line-number="244"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-244"></a><span class="err">##</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">color</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">optional</span><span class="w"> </span><span class="p">(</span><span class="k">if</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">want</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="n">one</span><span class="p">,</span><span class="w"> </span><span class="n">leave</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">field</span><span class="w"> </span><span class="n">empty</span><span class="p">).</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-245"><code data-line-number="245"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-245"></a><span class="err">##</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-246"><code data-line-number="246"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-246"></a><span class="err">##</span><span class="w"> </span><span class="nl">Note</span><span class="p">:</span><span class="w"> </span><span class="n">You</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">give</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="k">column</span><span class="w"> </span><span class="n">additional</span><span class="w"> </span><span class="n">attributes</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">putting</span><span class="w"> </span><span class="n">appropriate</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-247"><code data-line-number="247"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-247"></a><span class="err">##</span><span class="w"> </span><span class="k">character</span><span class="w"> </span><span class="k">after</span><span class="w"> </span><span class="n">displayed</span><span class="w"> </span><span class="n">tag</span><span class="w"> </span><span class="k">character</span><span class="p">.</span><span class="w"> </span><span class="n">Available</span><span class="w"> </span><span class="n">attributes</span><span class="w"> </span><span class="k">are</span><span class="err">:</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-248"><code data-line-number="248"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-248"></a><span class="err">##</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-249"><code data-line-number="249"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-249"></a><span class="err">##</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="k">column</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="nf">right</span><span class="w"> </span><span class="n">aligned</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-250"><code data-line-number="250"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-250"></a><span class="err">##</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">E</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">tag</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">empty</span><span class="p">,</span><span class="w"> </span><span class="n">empty</span><span class="w"> </span><span class="n">tag</span><span class="w"> </span><span class="n">marker</span><span class="w"> </span><span class="n">won</span><span class="s1">'t be displayed</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-251"><code data-line-number="251"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-251"></a><span class="s1">##</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-252"><code data-line-number="252"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-252"></a><span class="s1">## You can also:</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-253"><code data-line-number="253"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-253"></a><span class="s1">##</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-254"><code data-line-number="254"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-254"></a><span class="s1">## - give a column custom name by putting it after attributes, separated with</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-255"><code data-line-number="255"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-255"></a><span class="s1">##   character '</span><span class="err">:</span><span class="s1">', e.g. {lr:Length} gives you right aligned column of lengths</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-256"><code data-line-number="256"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-256"></a><span class="s1">##   named "Length".</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-257"><code data-line-number="257"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-257"></a><span class="s1">##</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-258"><code data-line-number="258"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-258"></a><span class="s1">## - define sequence of tags, that have to be displayed in case predecessor is</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-259"><code data-line-number="259"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-259"></a><span class="s1">##   empty in a way similar to the one in classic song format, i.e. using '</span><span class="o">|</span><span class="s1">'</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-260"><code data-line-number="260"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-260"></a><span class="s1">##   character, e.g. {a|c|p:Owner} creates column named "Owner" that tries to</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-261"><code data-line-number="261"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-261"></a><span class="s1">##   display artist tag and then composer and performer if previous ones are not</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-262"><code data-line-number="262"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-262"></a><span class="s1">##   available.</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-263"><code data-line-number="263"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-263"></a><span class="s1">##</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-264"><code data-line-number="264"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-264"></a><span class="s1">#</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-265"><code data-line-number="265"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-265"></a><span class="s1">#song_columns_list_format = (20)[]{a} (6f)[green]{NE} (50)[white]{t|f:Title} (20)[cyan]{b} (7f)[magenta]{l}</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-266"><code data-line-number="266"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-266"></a><span class="s1">#</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-267"><code data-line-number="267"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-267"></a><span class="s1">##### various settings #####</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-268"><code data-line-number="268"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-268"></a><span class="s1">#</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-269"><code data-line-number="269"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-269"></a><span class="s1">##</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-270"><code data-line-number="270"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-270"></a><span class="s1">## Note: Custom command that will be executed each time song changes. Useful for</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-271"><code data-line-number="271"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-271"></a><span class="s1">## notifications etc.</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-272"><code data-line-number="272"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-272"></a><span class="s1">##</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-273"><code data-line-number="273"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-273"></a><span class="s1">#execute_on_song_change = ""</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-274"><code data-line-number="274"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-274"></a><span class="s1">#</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-275"><code data-line-number="275"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-275"></a><span class="s1">##</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-276"><code data-line-number="276"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-276"></a><span class="s1">## Note: Custom command that will be executed each time player state</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-277"><code data-line-number="277"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-277"></a><span class="s1">## changes. The environment variable MPD_PLAYER_STATE is set to the current</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-278"><code data-line-number="278"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-278"></a><span class="s1">## state (either unknown, play, pause, or stop) for its duration.</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-279"><code data-line-number="279"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-279"></a><span class="s1">##</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-280"><code data-line-number="280"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-280"></a><span class="s1">#</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-281"><code data-line-number="281"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-281"></a><span class="s1">#execute_on_player_state_change = ""</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-282"><code data-line-number="282"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-282"></a><span class="s1">#</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-283"><code data-line-number="283"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-283"></a><span class="s1">#playlist_show_mpd_host = no</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-284"><code data-line-number="284"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-284"></a><span class="s1">#</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-285"><code data-line-number="285"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-285"></a><span class="s1">#playlist_show_remaining_time = no</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-286"><code data-line-number="286"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-286"></a><span class="s1">#</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-287"><code data-line-number="287"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-287"></a><span class="s1">#playlist_shorten_total_times = no</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-288"><code data-line-number="288"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-288"></a><span class="s1">#</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-289"><code data-line-number="289"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-289"></a><span class="s1">#playlist_separate_albums = no</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-290"><code data-line-number="290"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-290"></a><span class="s1">#</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-291"><code data-line-number="291"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-291"></a><span class="s1">##</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-292"><code data-line-number="292"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-292"></a><span class="s1">## Note: Possible display modes: classic, columns.</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-293"><code data-line-number="293"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-293"></a><span class="s1">##</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-294"><code data-line-number="294"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-294"></a><span class="s1">#playlist_display_mode = columns</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-295"><code data-line-number="295"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-295"></a><span class="s1">#</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-296"><code data-line-number="296"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-296"></a><span class="s1">#browser_display_mode = classic</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-297"><code data-line-number="297"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-297"></a><span class="s1">#</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-298"><code data-line-number="298"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-298"></a><span class="s1">#search_engine_display_mode = classic</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-299"><code data-line-number="299"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-299"></a><span class="s1">#</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-300"><code data-line-number="300"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-300"></a><span class="s1">#playlist_editor_display_mode = classic</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-301"><code data-line-number="301"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-301"></a><span class="s1">#</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-302"><code data-line-number="302"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-302"></a><span class="s1">#discard_colors_if_item_is_selected = yes</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-303"><code data-line-number="303"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-303"></a><span class="s1">#</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-304"><code data-line-number="304"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-304"></a><span class="s1">#show_duplicate_tags = yes</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-305"><code data-line-number="305"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-305"></a><span class="s1">#</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-306"><code data-line-number="306"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-306"></a><span class="s1">#incremental_seeking = yes</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-307"><code data-line-number="307"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-307"></a><span class="s1">#</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-308"><code data-line-number="308"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-308"></a><span class="s1">#seek_time = 1</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-309"><code data-line-number="309"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-309"></a><span class="s1">#</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-310"><code data-line-number="310"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-310"></a><span class="s1">#volume_change_step = 2</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-311"><code data-line-number="311"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-311"></a><span class="s1">#</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-312"><code data-line-number="312"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-312"></a><span class="s1">#autocenter_mode = no</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-313"><code data-line-number="313"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-313"></a><span class="s1">#</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-314"><code data-line-number="314"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-314"></a><span class="s1">#centered_cursor = no</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-315"><code data-line-number="315"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-315"></a><span class="s1">#</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-316"><code data-line-number="316"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-316"></a><span class="s1">##</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-317"><code data-line-number="317"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-317"></a><span class="s1">## Note: You can specify third character which will be used to build '</span><span class="n">empty</span><span class="s1">'</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-318"><code data-line-number="318"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-318"></a><span class="s1">## part of progressbar.</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-319"><code data-line-number="319"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-319"></a><span class="s1">##</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-320"><code data-line-number="320"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-320"></a><span class="s1">#progressbar_look = =&gt;</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-321"><code data-line-number="321"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-321"></a><span class="s1">#</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-322"><code data-line-number="322"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-322"></a><span class="s1">## Available values: database, playlist.</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-323"><code data-line-number="323"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-323"></a><span class="s1">##</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-324"><code data-line-number="324"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-324"></a><span class="s1">#default_place_to_search_in = database</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-325"><code data-line-number="325"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-325"></a><span class="s1">#</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-326"><code data-line-number="326"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-326"></a><span class="s1">## Available values: classic, alternative.</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-327"><code data-line-number="327"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-327"></a><span class="s1">##</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-328"><code data-line-number="328"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-328"></a><span class="s1">#user_interface = classic</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-329"><code data-line-number="329"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-329"></a><span class="s1">#</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-330"><code data-line-number="330"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-330"></a><span class="s1">#data_fetching_delay = yes</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-331"><code data-line-number="331"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-331"></a><span class="s1">#</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-332"><code data-line-number="332"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-332"></a><span class="s1">## Available values: artist, album_artist, date, genre, composer, performer.</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-333"><code data-line-number="333"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-333"></a><span class="s1">##</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-334"><code data-line-number="334"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-334"></a><span class="s1">#media_library_primary_tag = artist</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-335"><code data-line-number="335"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-335"></a><span class="s1">#</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-336"><code data-line-number="336"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-336"></a><span class="s1">#media_library_albums_split_by_date = yes</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-337"><code data-line-number="337"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-337"></a><span class="s1">#</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-338"><code data-line-number="338"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-338"></a><span class="s1">## Available values: wrapped, normal.</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-339"><code data-line-number="339"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-339"></a><span class="s1">##</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-340"><code data-line-number="340"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-340"></a><span class="s1">#default_find_mode = wrapped</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-341"><code data-line-number="341"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-341"></a><span class="s1">#</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-342"><code data-line-number="342"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-342"></a><span class="s1">#default_tag_editor_pattern = %n - %t</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-343"><code data-line-number="343"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-343"></a><span class="s1">#</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-344"><code data-line-number="344"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-344"></a><span class="s1">#header_visibility = yes</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-345"><code data-line-number="345"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-345"></a><span class="s1">#</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-346"><code data-line-number="346"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-346"></a><span class="s1">#statusbar_visibility = yes</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-347"><code data-line-number="347"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-347"></a><span class="s1">#</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-348"><code data-line-number="348"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-348"></a><span class="s1">#titles_visibility = yes</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-349"><code data-line-number="349"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-349"></a><span class="s1">#</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-350"><code data-line-number="350"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-350"></a><span class="s1">#header_text_scrolling = yes</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-351"><code data-line-number="351"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-351"></a><span class="s1">#</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-352"><code data-line-number="352"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-352"></a><span class="s1">#cyclic_scrolling = no</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-353"><code data-line-number="353"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-353"></a><span class="s1">#</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-354"><code data-line-number="354"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-354"></a><span class="s1">#lines_scrolled = 2</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-355"><code data-line-number="355"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-355"></a><span class="s1">#</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-356"><code data-line-number="356"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-356"></a><span class="s1">#lyrics_fetchers = lyricwiki, azlyrics, genius, sing365, lyricsmania, metrolyrics, justsomelyrics, jahlyrics, plyrics, tekstowo, internet</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-357"><code data-line-number="357"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-357"></a><span class="s1">#</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-358"><code data-line-number="358"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-358"></a><span class="s1">#follow_now_playing_lyrics = no</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-359"><code data-line-number="359"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-359"></a><span class="s1">#</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-360"><code data-line-number="360"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-360"></a><span class="s1">fetch_lyrics_for_current_song_in_background = yes</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-361"><code data-line-number="361"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-361"></a><span class="s1">#</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-362"><code data-line-number="362"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-362"></a><span class="s1">#store_lyrics_in_song_dir = no</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-363"><code data-line-number="363"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-363"></a><span class="s1">#</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-364"><code data-line-number="364"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-364"></a><span class="s1">#generate_win32_compatible_filenames = yes</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-365"><code data-line-number="365"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-365"></a><span class="s1">#</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-366"><code data-line-number="366"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-366"></a><span class="s1">#allow_for_physical_item_deletion = no</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-367"><code data-line-number="367"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-367"></a><span class="s1">#</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-368"><code data-line-number="368"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-368"></a><span class="s1">##</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-369"><code data-line-number="369"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-369"></a><span class="s1">## Note: If you set this variable, ncmpcpp will try to get info from last.fm in</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-370"><code data-line-number="370"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-370"></a><span class="s1">## language you set and if it fails, it will fall back to english. Otherwise it</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-371"><code data-line-number="371"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-371"></a><span class="s1">## will use english the first time.</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-372"><code data-line-number="372"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-372"></a><span class="s1">##</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-373"><code data-line-number="373"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-373"></a><span class="s1">## Note: Language has to be expressed as an ISO 639 alpha-2 code.</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-374"><code data-line-number="374"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-374"></a><span class="s1">##</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-375"><code data-line-number="375"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-375"></a><span class="s1">#lastfm_preferred_language = en</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-376"><code data-line-number="376"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-376"></a><span class="s1">#</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-377"><code data-line-number="377"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-377"></a><span class="s1">#space_add_mode = add_remove</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-378"><code data-line-number="378"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-378"></a><span class="s1">#</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-379"><code data-line-number="379"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-379"></a><span class="s1">#show_hidden_files_in_local_browser = no</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-380"><code data-line-number="380"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-380"></a><span class="s1">#</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-381"><code data-line-number="381"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-381"></a><span class="s1">##</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-382"><code data-line-number="382"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-382"></a><span class="s1">## How shall screen switcher work?</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-383"><code data-line-number="383"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-383"></a><span class="s1">##</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-384"><code data-line-number="384"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-384"></a><span class="s1">## - "previous" - switch between the current and previous screen.</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-385"><code data-line-number="385"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-385"></a><span class="s1">## - "screen1,...,screenN" - switch between given sequence of screens.</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-386"><code data-line-number="386"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-386"></a><span class="s1">##</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-387"><code data-line-number="387"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-387"></a><span class="s1">## Screens available for use: help, playlist, browser, search_engine,</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-388"><code data-line-number="388"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-388"></a><span class="s1">## media_library, playlist_editor, tag_editor, outputs, visualizer, clock,</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-389"><code data-line-number="389"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-389"></a><span class="s1">## lyrics, last_fm.</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-390"><code data-line-number="390"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-390"></a><span class="s1">##</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-391"><code data-line-number="391"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-391"></a><span class="s1">#screen_switcher_mode = playlist, browser</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-392"><code data-line-number="392"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-392"></a><span class="s1">#</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-393"><code data-line-number="393"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-393"></a><span class="s1">##</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-394"><code data-line-number="394"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-394"></a><span class="s1">## Note: You can define startup screen by choosing screen from the list above.</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-395"><code data-line-number="395"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-395"></a><span class="s1">##</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-396"><code data-line-number="396"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-396"></a><span class="s1">#startup_screen = playlist</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-397"><code data-line-number="397"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-397"></a><span class="s1">#</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-398"><code data-line-number="398"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-398"></a><span class="s1">##</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-399"><code data-line-number="399"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-399"></a><span class="s1">## Note: You can define startup slave screen by choosing screen from the list</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-400"><code data-line-number="400"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-400"></a><span class="s1">## above or an empty value for no slave screen.</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-401"><code data-line-number="401"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-401"></a><span class="s1">##</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-402"><code data-line-number="402"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-402"></a><span class="s1">#startup_slave_screen = ""</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-403"><code data-line-number="403"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-403"></a><span class="s1">#</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-404"><code data-line-number="404"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-404"></a><span class="s1">#startup_slave_screen_focus = no</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-405"><code data-line-number="405"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-405"></a><span class="s1">#</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-406"><code data-line-number="406"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-406"></a><span class="s1">##</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-407"><code data-line-number="407"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-407"></a><span class="s1">## Default width of locked screen (in %).  Acceptable values are from 20 to 80.</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-408"><code data-line-number="408"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-408"></a><span class="s1">##</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-409"><code data-line-number="409"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-409"></a><span class="s1">#</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-410"><code data-line-number="410"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-410"></a><span class="s1">#locked_screen_width_part = 50</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-411"><code data-line-number="411"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-411"></a><span class="s1">#</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-412"><code data-line-number="412"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-412"></a><span class="s1">#ask_for_locked_screen_width_part = yes</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-413"><code data-line-number="413"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-413"></a><span class="s1">#</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-414"><code data-line-number="414"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-414"></a><span class="s1">#jump_to_now_playing_song_at_start = yes</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-415"><code data-line-number="415"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-415"></a><span class="s1">#</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-416"><code data-line-number="416"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-416"></a><span class="s1">#ask_before_clearing_playlists = yes</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-417"><code data-line-number="417"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-417"></a><span class="s1">#</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-418"><code data-line-number="418"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-418"></a><span class="s1">#clock_display_seconds = no</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-419"><code data-line-number="419"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-419"></a><span class="s1">#</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-420"><code data-line-number="420"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-420"></a><span class="s1">#display_volume_level = yes</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-421"><code data-line-number="421"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-421"></a><span class="s1">#</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-422"><code data-line-number="422"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-422"></a><span class="s1">display_bitrate = yes</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-423"><code data-line-number="423"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-423"></a><span class="s1">#</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-424"><code data-line-number="424"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-424"></a><span class="s1">#display_remaining_time = no</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-425"><code data-line-number="425"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-425"></a><span class="s1">#</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-426"><code data-line-number="426"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-426"></a><span class="s1">## Available values: none, basic, extended, perl.</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-427"><code data-line-number="427"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-427"></a><span class="s1">##</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-428"><code data-line-number="428"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-428"></a><span class="s1">#regular_expressions = perl</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-429"><code data-line-number="429"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-429"></a><span class="s1">#</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-430"><code data-line-number="430"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-430"></a><span class="s1">##</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-431"><code data-line-number="431"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-431"></a><span class="s1">## Note: if below is enabled, ncmpcpp will ignore leading "The" word while</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-432"><code data-line-number="432"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-432"></a><span class="s1">## sorting items in browser, tags in media library, etc.</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-433"><code data-line-number="433"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-433"></a><span class="s1">##</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-434"><code data-line-number="434"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-434"></a><span class="s1">#ignore_leading_the = no</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-435"><code data-line-number="435"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-435"></a><span class="s1">#</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-436"><code data-line-number="436"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-436"></a><span class="s1">##</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-437"><code data-line-number="437"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-437"></a><span class="s1">## Note: if below is enabled, ncmpcpp will ignore diacritics while searching and</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-438"><code data-line-number="438"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-438"></a><span class="s1">## filtering lists. This takes an effect only if boost was compiled with ICU</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-439"><code data-line-number="439"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-439"></a><span class="s1">## support.</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-440"><code data-line-number="440"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-440"></a><span class="s1">##</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-441"><code data-line-number="441"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-441"></a><span class="s1">#ignore_diacritics = no</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-442"><code data-line-number="442"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-442"></a><span class="s1">#</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-443"><code data-line-number="443"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-443"></a><span class="s1">#block_search_constraints_change_if_items_found = yes</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-444"><code data-line-number="444"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-444"></a><span class="s1">#</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-445"><code data-line-number="445"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-445"></a><span class="s1">#mouse_support = yes</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-446"><code data-line-number="446"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-446"></a><span class="s1">#</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-447"><code data-line-number="447"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-447"></a><span class="s1">#mouse_list_scroll_whole_page = yes</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-448"><code data-line-number="448"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-448"></a><span class="s1">#</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-449"><code data-line-number="449"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-449"></a><span class="s1">#empty_tag_marker = &lt;empty&gt;</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-450"><code data-line-number="450"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-450"></a><span class="s1">#</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-451"><code data-line-number="451"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-451"></a><span class="s1">#tags_separator = " | "</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-452"><code data-line-number="452"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-452"></a><span class="s1">#</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-453"><code data-line-number="453"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-453"></a><span class="s1">#tag_editor_extended_numeration = no</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-454"><code data-line-number="454"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-454"></a><span class="s1">#</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-455"><code data-line-number="455"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-455"></a><span class="s1">#media_library_sort_by_mtime = no</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-456"><code data-line-number="456"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-456"></a><span class="s1">#</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-457"><code data-line-number="457"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-457"></a><span class="s1">#enable_window_title = yes</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-458"><code data-line-number="458"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-458"></a><span class="s1">#</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-459"><code data-line-number="459"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-459"></a><span class="s1">##</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-460"><code data-line-number="460"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-460"></a><span class="s1">## Note: You can choose default search mode for search engine. Available modes</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-461"><code data-line-number="461"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-461"></a><span class="s1">## are:</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-462"><code data-line-number="462"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-462"></a><span class="s1">##</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-463"><code data-line-number="463"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-463"></a><span class="s1">## - 1 - use mpd built-in searching (no regexes, pattern matching)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-464"><code data-line-number="464"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-464"></a><span class="s1">##</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-465"><code data-line-number="465"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-465"></a><span class="s1">## - 2 - use ncmpcpp searching (pattern matching with support for regexes, but</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-466"><code data-line-number="466"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-466"></a><span class="s1">##       if your mpd is on a remote machine, downloading big database to process</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-467"><code data-line-number="467"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-467"></a><span class="s1">##       it can take a while</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-468"><code data-line-number="468"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-468"></a><span class="s1">##</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-469"><code data-line-number="469"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-469"></a><span class="s1">## - 3 - match only exact values (this mode uses mpd function for searching in</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-470"><code data-line-number="470"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-470"></a><span class="s1">##       database and local one for searching in current playlist)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-471"><code data-line-number="471"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-471"></a><span class="s1">##</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-472"><code data-line-number="472"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-472"></a><span class="s1">#</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-473"><code data-line-number="473"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-473"></a><span class="s1">#search_engine_default_search_mode = 1</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-474"><code data-line-number="474"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-474"></a><span class="s1">#</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-475"><code data-line-number="475"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-475"></a><span class="s1">external_editor = nvim</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-476"><code data-line-number="476"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-476"></a><span class="s1">#</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-477"><code data-line-number="477"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-477"></a><span class="s1">## Note: set to yes if external editor is a console application.</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-478"><code data-line-number="478"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-478"></a><span class="s1">##</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-479"><code data-line-number="479"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-479"></a><span class="s1">#use_console_editor = yes</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-480"><code data-line-number="480"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-480"></a><span class="s1">#</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-481"><code data-line-number="481"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-481"></a><span class="s1">##### colors definitions #####</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-482"><code data-line-number="482"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-482"></a><span class="s1">##</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-483"><code data-line-number="483"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-483"></a><span class="s1">## It is possible to set a background color by setting a color value</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-484"><code data-line-number="484"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-484"></a><span class="s1">## "&lt;foreground&gt;_&lt;background&gt;", e.g. red_black will set foregound color to red</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-485"><code data-line-number="485"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-485"></a><span class="s1">## and background color to black.</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-486"><code data-line-number="486"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-486"></a><span class="s1">##</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-487"><code data-line-number="487"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-487"></a><span class="s1">## In addition, for terminals that support 256 colors it is possible to set one</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-488"><code data-line-number="488"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-488"></a><span class="s1">## of them by using a number in range [1, 256] instead of color name,</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-489"><code data-line-number="489"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-489"></a><span class="s1">## e.g. numerical value corresponding to red_black is 2_1. To find out if the</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-490"><code data-line-number="490"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-490"></a><span class="s1">## terminal supports 256 colors, run ncmpcpp and check out the bottom of the</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-491"><code data-line-number="491"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-491"></a><span class="s1">## help screen for list of available colors and their numerical values.</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-492"><code data-line-number="492"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-492"></a><span class="s1">##</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-493"><code data-line-number="493"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-493"></a><span class="s1">## What is more, there are two special values for the background color:</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-494"><code data-line-number="494"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-494"></a><span class="s1">## "transparent" and "current". The first one explicitly sets the background to</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-495"><code data-line-number="495"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-495"></a><span class="s1">## be transparent, while the second one allows you to preserve current</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-496"><code data-line-number="496"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-496"></a><span class="s1">## background color and change only the foreground one. It'</span><span class="n">s</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="n">implicitly</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-497"><code data-line-number="497"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-497"></a><span class="err">##</span><span class="w"> </span><span class="k">when</span><span class="w"> </span><span class="n">background</span><span class="w"> </span><span class="n">color</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">specified</span><span class="p">.</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-498"><code data-line-number="498"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-498"></a><span class="err">##</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-499"><code data-line-number="499"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-499"></a><span class="err">##</span><span class="w"> </span><span class="n">Moreover</span><span class="p">,</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">possible</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">attach</span><span class="w"> </span><span class="nf">format</span><span class="w"> </span><span class="n">information</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">selected</span><span class="w"> </span><span class="n">color</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-500"><code data-line-number="500"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-500"></a><span class="err">##</span><span class="w"> </span><span class="n">variables</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">appending</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">their</span><span class="w"> </span><span class="k">end</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">colon</span><span class="w"> </span><span class="n">followed</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">one</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">more</span><span class="w"> </span><span class="nf">format</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-501"><code data-line-number="501"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-501"></a><span class="err">##</span><span class="w"> </span><span class="n">flags</span><span class="p">,</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="n">g</span><span class="p">.</span><span class="w"> </span><span class="nl">black</span><span class="p">:</span><span class="n">b</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="nl">red</span><span class="p">:</span><span class="n">ur</span><span class="p">.</span><span class="w"> </span><span class="n">The</span><span class="w"> </span><span class="n">following</span><span class="w"> </span><span class="n">variables</span><span class="w"> </span><span class="n">support</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="nl">syntax</span><span class="p">:</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-502"><code data-line-number="502"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-502"></a><span class="err">##</span><span class="w"> </span><span class="n">visualizer_color</span><span class="p">,</span><span class="w"> </span><span class="n">color1</span><span class="p">,</span><span class="w"> </span><span class="n">color2</span><span class="p">,</span><span class="w"> </span><span class="n">empty_tag_color</span><span class="p">,</span><span class="w"> </span><span class="n">volume_color</span><span class="p">,</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-503"><code data-line-number="503"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-503"></a><span class="err">##</span><span class="w"> </span><span class="n">state_line_color</span><span class="p">,</span><span class="w"> </span><span class="n">state_flags_color</span><span class="p">,</span><span class="w"> </span><span class="n">progressbar_color</span><span class="p">,</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-504"><code data-line-number="504"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-504"></a><span class="err">##</span><span class="w"> </span><span class="n">progressbar_elapsed_color</span><span class="p">,</span><span class="w"> </span><span class="n">player_state_color</span><span class="p">,</span><span class="w"> </span><span class="n">statusbar_time_color</span><span class="p">,</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-505"><code data-line-number="505"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-505"></a><span class="err">##</span><span class="w"> </span><span class="n">alternative_ui_separator_color</span><span class="p">.</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-506"><code data-line-number="506"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-506"></a><span class="err">##</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-507"><code data-line-number="507"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-507"></a><span class="err">##</span><span class="w"> </span><span class="nl">Note</span><span class="p">:</span><span class="w"> </span><span class="n">due</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">technical</span><span class="w"> </span><span class="n">limitations</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="n">older</span><span class="w"> </span><span class="n">ncurses</span><span class="w"> </span><span class="n">version</span><span class="p">,</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="mi">256</span><span class="w"> </span><span class="n">colors</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-508"><code data-line-number="508"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-508"></a><span class="err">##</span><span class="w"> </span><span class="k">are</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="n">there</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">possibility</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">you</span><span class="err">'</span><span class="n">ll</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">able</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="k">use</span><span class="w"> </span><span class="k">only</span><span class="w"> </span><span class="n">colors</span><span class="w"> </span><span class="k">with</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-509"><code data-line-number="509"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-509"></a><span class="err">##</span><span class="w"> </span><span class="n">transparent</span><span class="w"> </span><span class="n">background</span><span class="p">.</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-510"><code data-line-number="510"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-510"></a><span class="err">#</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-511"><code data-line-number="511"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-511"></a><span class="err">#</span><span class="w"> </span><span class="n">colors_enabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">yes</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-512"><code data-line-number="512"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-512"></a><span class="err">#</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-513"><code data-line-number="513"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-513"></a><span class="n">#empty_tag_color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cyan</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-514"><code data-line-number="514"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-514"></a><span class="err">#</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-515"><code data-line-number="515"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-515"></a><span class="n">#header_window_color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-516"><code data-line-number="516"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-516"></a><span class="err">#</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-517"><code data-line-number="517"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-517"></a><span class="n">#volume_color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-518"><code data-line-number="518"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-518"></a><span class="err">#</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-519"><code data-line-number="519"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-519"></a><span class="n">#state_line_color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-520"><code data-line-number="520"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-520"></a><span class="err">#</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-521"><code data-line-number="521"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-521"></a><span class="n">#state_flags_color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="err">:</span><span class="n">b</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-522"><code data-line-number="522"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-522"></a><span class="err">#</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-523"><code data-line-number="523"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-523"></a><span class="n">#main_window_color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">yellow</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-524"><code data-line-number="524"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-524"></a><span class="err">#</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-525"><code data-line-number="525"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-525"></a><span class="n">#color1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">white</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-526"><code data-line-number="526"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-526"></a><span class="err">#</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-527"><code data-line-number="527"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-527"></a><span class="n">#color2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">green</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-528"><code data-line-number="528"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-528"></a><span class="err">#</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-529"><code data-line-number="529"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-529"></a><span class="n">#progressbar_color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nl">black</span><span class="p">:</span><span class="n">b</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-530"><code data-line-number="530"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-530"></a><span class="err">#</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-531"><code data-line-number="531"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-531"></a><span class="n">#progressbar_elapsed_color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nl">green</span><span class="p">:</span><span class="n">b</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-532"><code data-line-number="532"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-532"></a><span class="err">#</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-533"><code data-line-number="533"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-533"></a><span class="n">#statusbar_color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-534"><code data-line-number="534"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-534"></a><span class="err">#</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-535"><code data-line-number="535"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-535"></a><span class="n">#statusbar_time_color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="err">:</span><span class="n">b</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-536"><code data-line-number="536"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-536"></a><span class="err">#</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-537"><code data-line-number="537"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-537"></a><span class="n">#player_state_color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="err">:</span><span class="n">b</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-538"><code data-line-number="538"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-538"></a><span class="err">#</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-539"><code data-line-number="539"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-539"></a><span class="n">#alternative_ui_separator_color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nl">black</span><span class="p">:</span><span class="n">b</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-540"><code data-line-number="540"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-540"></a><span class="err">#</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-541"><code data-line-number="541"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-541"></a><span class="n">#window_border_color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">green</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-542"><code data-line-number="542"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-542"></a><span class="err">#</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-543"><code data-line-number="543"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-543"></a><span class="n">#active_window_border</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">red</span><span class="w"></span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsmanjarompdncmpcppconfig-544"><code data-line-number="544"></code></a></td>
+<td class="code"><code><a name="listingsmanjarompdncmpcppconfig-544"></a><span class="err">#</span><span class="w"></span>
+</code></td>
+</tr>
+</table></div>
+</div>
+                    </div>
+                </main><div class="footer extra-block no-print">
+    <span class="footer_item">
+        <a href="../../../pages/you-qing-lian-jie/">友情链接</a>
+    </span>
+    <span class="footer_item">
+        <a href="../../../pages/liu-yan-ban/">留言板</a>
+    </span>
+    <span class="footer_item">
+        <a href="../../../pages/ge-ren-dong-tai/">碎碎念</a>
+    </span>
+    </div>
+            <div class="footer social-link no-print">
+            <a href="https://github.com/ashfinal" target="_blank"><i class="grey large github icon"></i></a>
+            <a href="http://weibo.com/ashfinal/" target="_blank"><i class="grey large weibo icon"></i></a>
+            <a href="mailto://ashfinal@sina.cn" target="_blank"><i class="grey large mail icon"></i></a>
+            </div>
+        <div class="ui basic center aligned segment no-print">Contents © 2020         <a href="mailto:ashfinal@sina.cn">ashfinal</a> - Powered by         <a href="https://getnikola.com" target="_blank" rel="nofollow">Nikola</a>         </div>
+
+            </div>
+            <div class="computer only three wide column no-print">
+                <div id="right-side">
+                </div>
+            </div>
+        </div>
+
+        <!-- GoStats JavaScript Based Code -->
+        <script type="text/javascript">(function(c,o,m,p,u,t,e){
+        c['GoStatsObject']=u;c[u]=c[u]||function(){(c[u].q=c[u].q||[]).push(arguments)},
+        c[u].l=1*new Date();t=o.createElement(m);t.async=1;t.src=p;
+        e=o.getElementsByTagName(m)[0];e.parentNode.insertBefore(t,e);
+        })(window,document,'script','//www.gostats.org/5.js','go');
+        go('init',100479892,{'img_counter_type':5,'img_image_type':1});go('send');</script><!-- End GoStats JavaScript Based Code --><script type="text/javascript" src="../../../assets/js/jquery-3.3.1.min.js"></script><script type="text/javascript" src="../../../assets/js/semantic.min.js"></script><script type="text/javascript" src="../../../assets/js/jquery.fancybox.min.js"></script><script type="text/javascript" src="../../../assets/js/cookie.min.js"></script><script>
+            $(document).ready(function(){
+                $(".ui.dropdown").dropdown();
+                $('.ui.accordion').accordion();
+                var newstr = $('.cookie.nag').text();
+                $('.cookie.nag').nag({
+                    key: 'globalnotice',
+                    value: newstr
+                  });
+                $('.image-reference').fancybox();
+            });
+        </script>
+</body>
+</html>
