@@ -1,12 +1,11 @@
-#!/usr/bin/env python
+# Instinctive fuzzy matching and sorting.
 
-# credit: https://github.com/aslpavel/sweep.py/blob/master/sweep.py
+# By ashfinal. via: https://github.com/aslpavel/sweep.py/blob/master/sweep.py
 
 from functools import partial
 
 def fuzzy_scorer(niddle, haystack):
-    """Fuzzy matching for `fzy` utility
-    source: https://github.com/jhawthorn/fzy/blob/master/src/match.c
+    """Return the score and the list of character positions
     """
     SCORE_MIN = float("-inf")
     SCORE_MAX = float("inf")
@@ -117,8 +116,8 @@ def fuzzy_scorer(niddle, haystack):
     else:
         return SCORE_MIN, None
 
-def rank_candidates(query, candidates):
-    """Score candidates against query in batch and return sorted result
+def fuzzy_match(query, candidates):
+    """Score candidates against query and return sorted result based on matching score
     """
     result = []
     candidates = candidates if isinstance(candidates, list) else list(candidates)
